@@ -1,0 +1,11 @@
+{
+  "purpose": "Freeze issued forecast panel and policy code before W03-E evaluation. AC and UC identifiers document implementations already launched.",
+  "sha256": {
+    "src/load_control.py": "4ee0c1224361c0f8f42e3468018999c6e719c862c1f79eb530e403dae6baae23",
+    "inputs/load_forecasts.json": "0c35cbb3f0e9b5d55af8a2e648b8dcda457c12746de2db22aef49fbd8ce33a94",
+    "src/ac.py": "e073a80adc1c04540b12295375a76d51861ae745a17e70fd1e0787b582bf795c",
+    "src/uc.py": "a193c32e39f56db57347a07b32601c4a8a897faa08f22ede039a657b55bb00d4",
+    "formal/Storage.lean": "d719dae3bd49c0aedef8d0290c663e73e77862512bee4252afc4bc57f69c5413",
+    "formal/verify.py": "d5d0543df87bdcf100c980afb0646c3b1598f6785932693a6d25df99bb834326"
+  }
+}
