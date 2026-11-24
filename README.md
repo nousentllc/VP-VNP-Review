@@ -4,6 +4,8 @@ Start with the [cumulative handoff for Chat](VP_VNP_Chat_Handoff.md). It gives t
 
 The first Git checkpoint, `review-2026-11-24`, captures passes 1–4 together. The review predates the repository. For each subsequent pass, add its dated record under `passes/`, update the handoff to identify any finding that changed, and commit the two together.
 
+[Download the complete seven-pass packet](handoff/VP_VNP_Review_2026-11-24_pass07.zip). The ZIP contains the research files from commit `c5d9ac1`.
+
 The [archived six-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/84906e9ef713358863f195747b4e12c9a4371f06/handoff/VP_VNP_Review_2026-11-24_pass06.zip) preserves the earlier handoff from research commit `1bc85ed`.
 
 ## Evidence in this edition
