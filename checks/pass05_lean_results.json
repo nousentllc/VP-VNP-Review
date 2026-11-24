@@ -1,0 +1,39 @@
+{
+  "review_date": "2026-11-24",
+  "lean": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "targeted_checks": [
+    {
+      "file": "checks/pass05_examples.lean",
+      "sha256": "12f14d70817bd9fdb467d018c5b07cd03205ca73676275f7f47a46c41fec1e39",
+      "exit_code": 0,
+      "printed_axioms": [
+        "'Pass05Examples.canonical_missing_run' depends on axioms: [propext, Classical.choice, Quot.sound]",
+        "'Pass05Examples.duplicate_guess' depends on axioms: [propext, Quot.sound]"
+      ]
+    },
+    {
+      "file": "checks/pass05_time.lean",
+      "sha256": "4255f2055ac6a0188515dca2bc91dbff6f94d56d74ba2dc71f1904285a7d3e7b",
+      "exit_code": 0,
+      "printed_axioms": [
+        "'Pass05Time.contents_bound' depends on axioms: [propext]",
+        "'Pass05Time.final_length_bound' depends on axioms: [propext]"
+      ]
+    }
+  ],
+  "publisher_prop_universal_rebuilt_in_this_review": false,
+  "source_module_import_adaptation": {
+    "file": "NS1/Machine.lean",
+    "upstream_sha256": "9bf64e34c9571cdd995921c2e8f1c81c71605fd739b4de9df721cda0c997802d",
+    "local_source_sha256": "4e1dec80523c6ecf1a9424c9b848fce09e5607010cebd76df4139702d89d5e8e",
+    "original_imports": [
+      "Mathlib"
+    ],
+    "local_imports": [
+      "Mathlib.Tactic.Ring",
+      "Mathlib.Data.List.Basic"
+    ],
+    "only_difference_is_imports": true
+  }
+}

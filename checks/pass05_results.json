@@ -1,0 +1,76 @@
+{
+  "absent_weight": {
+    "accepting_traces": [],
+    "stuck_branches": [
+      {
+        "mode": ".TB0",
+        "steps": 72
+      }
+    ],
+    "value": 0,
+    "source_weights": [
+      0
+    ],
+    "input_nodes": 27,
+    "source_accepting_cost_bound": 2,
+    "pointer_step_bound": 171
+  },
+  "supported_weight": {
+    "accepting_traces": [
+      {
+        "weight": -1,
+        "steps": 69
+      }
+    ],
+    "stuck_branches": [],
+    "value": -1,
+    "source_weights": [
+      -1
+    ],
+    "input_nodes": 25,
+    "source_accepting_cost_bound": 2,
+    "pointer_step_bound": 165
+  },
+  "duplicate_output": {
+    "accepting_traces": [
+      {
+        "weight": 1,
+        "steps": 69
+      },
+      {
+        "weight": 1,
+        "steps": 69
+      }
+    ],
+    "stuck_branches": [],
+    "value": 2,
+    "source_weights": [
+      1,
+      1
+    ],
+    "input_nodes": 25,
+    "source_accepting_cost_bound": 2,
+    "pointer_step_bound": 165
+  },
+  "cancellation": {
+    "accepting_traces": [
+      {
+        "weight": -1,
+        "steps": 157
+      },
+      {
+        "weight": 1,
+        "steps": 144
+      }
+    ],
+    "stuck_branches": [],
+    "value": 0,
+    "source_weights": [
+      1,
+      -1
+    ],
+    "input_nodes": 59,
+    "source_accepting_cost_bound": 4,
+    "pointer_step_bound": 347
+  }
+}
