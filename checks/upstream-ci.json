@@ -1,0 +1,122 @@
+{
+  "scope": "Public GitHub Actions run and job metadata queried on 2026-11-24. The step labels and conclusions below are publisher CI records.",
+  "run": {
+    "id": 45272623486,
+    "html_url": "https://github.com/anthropics/formal-math/actions/runs/45272623486",
+    "event": "push",
+    "head_sha": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+    "created_at": "2026-11-23T21:43:53Z",
+    "updated_at": "2026-11-23T22:05:44Z",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "job": {
+    "id": 138036167794,
+    "html_url": "https://github.com/anthropics/formal-math/actions/runs/45272623486/job/138036167794",
+    "head_sha": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+    "name": "verify (vp-vnp)",
+    "started_at": "2026-11-23T21:44:02Z",
+    "completed_at": "2026-11-23T22:05:43Z",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "steps": [
+    {
+      "number": 1,
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 2,
+      "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 3,
+      "name": "Free disk space on the hosted runner",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 4,
+      "name": "Read toolchain and resolve the matching lean4export release",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 5,
+      "name": "Cache elan toolchains",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 6,
+      "name": "Install elan",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 7,
+      "name": "Fetch the Mathlib cache",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 8,
+      "name": "Restore the previous Lake build (pull requests only)",
+      "status": "completed",
+      "conclusion": "skipped"
+    },
+    {
+      "number": 9,
+      "name": "lake build (no sorry outside the comparator challenge files)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 10,
+      "name": "Cache comparator tools",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 11,
+      "name": "Palomar bar (comparator accepts every declared configuration)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 12,
+      "name": "Upload logs",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 22,
+      "name": "Post Cache comparator tools",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 23,
+      "name": "Post Cache elan toolchains",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 24,
+      "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "number": 25,
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "performed_independent_build": false
+}

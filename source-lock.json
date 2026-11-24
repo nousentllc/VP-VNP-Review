@@ -1,0 +1,23 @@
+{
+  "review_date": "2026-11-24",
+  "repository": "https://github.com/anthropics/formal-math",
+  "commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "commit_timestamp_utc": "2026-11-23T21:43:48Z",
+  "scope": "Complete vp-vnp/ subtree, plus the repository comparator script and Lean CI workflow. External toolchains, dependencies and build products are not embedded.",
+  "git_tree": "b076b4b081298c4e909bac3f87f0e4462d1fb2cb",
+  "blob_count": 333,
+  "git_blob_verified_count": 333,
+  "local_original": "/Users/jc/Downloads/VP ≠ VNP Over Every Field.pdf",
+  "paper_sha256": "882f5eefb1e067cc8c99ddfe660c10d1d67f9fcee7b69364bd0bab06c0c1f97c",
+  "paper_matches_local_original_byte_for_byte": true,
+  "paper_pages": 70,
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "upstream_license": "primary/vp-vnp/LICENSE",
+  "attribution": "primary/vp-vnp/NOTICE",
+  "kernel_replay_in_this_review": false,
+  "additional_git_blobs_verified": [
+    ".github/scripts/comparator-check.sh",
+    ".github/workflows/lean-projects.yml"
+  ]
+}
