@@ -1,0 +1,235 @@
+case,policy,stage,status,valid,candidate_cost,groups,columns,binaries,rows
+ordinary_4x8_7301,full_milp,full_milp,Optimal,True,1947.4359162539724,4,136,32,116
+ordinary_4x8_7301,full_lp,full_lp,Optimal,True,1947.4359162539724,4,136,0,116
+ordinary_4x8_7301,lp_recovery,full_lp,Optimal,True,1947.4359162539724,4,136,0,116
+ordinary_4x8_7301,fixed_shared,full_lp,Optimal,True,1947.4359162539724,4,136,0,116
+ordinary_4x8_7301,fixed_shared,fixed_shared,Optimal,True,1947.4359162539724,2,120,16,116
+ordinary_4x8_7301,fixed_proportional,full_lp,Optimal,True,1947.4359162539724,4,136,0,116
+ordinary_4x8_7301,fixed_proportional,fixed_proportional,Optimal,True,2232.5489665170403,2,120,16,148
+ordinary_4x8_7301,adaptive,full_lp,Optimal,True,1947.4359162539724,4,136,0,116
+negative_outage_4x8_7301,full_lp,full_lp,Optimal,True,-427.48927545366956,4,136,0,116
+negative_outage_4x8_7301,lp_recovery,full_lp,Optimal,True,-427.48927545366956,4,136,0,116
+negative_outage_4x8_7301,fixed_shared,full_lp,Optimal,True,-427.48927545366956,4,136,0,116
+negative_outage_4x8_7301,fixed_shared,fixed_shared,Optimal,True,-427.48927545366956,2,120,16,116
+negative_outage_4x8_7301,fixed_proportional,full_lp,Optimal,True,-427.48927545366956,4,136,0,116
+negative_outage_4x8_7301,fixed_proportional,fixed_proportional,Optimal,True,-235.72295052282038,2,120,16,148
+negative_outage_4x8_7301,adaptive,full_lp,Optimal,True,-427.48927545366956,4,136,0,116
+negative_outage_4x8_7301,full_milp,full_milp,Optimal,True,-427.48927545366956,4,136,32,116
+forced_opposition_4x8_7301,lp_recovery,full_lp,Optimal,False,124.02289328770829,4,136,0,116
+forced_opposition_4x8_7301,lp_recovery,lp_fixed_signs,Infeasible,,,4,136,0,116
+forced_opposition_4x8_7301,lp_recovery,full_recovery,Optimal,True,125.29992183250081,4,136,32,116
+forced_opposition_4x8_7301,fixed_shared,full_lp,Optimal,False,124.02289328770829,4,136,0,116
+forced_opposition_4x8_7301,fixed_shared,fixed_shared,Optimal,True,128.625571272545,2,120,16,116
+forced_opposition_4x8_7301,fixed_proportional,full_lp,Optimal,False,124.02289328770829,4,136,0,116
+forced_opposition_4x8_7301,fixed_proportional,fixed_proportional,Optimal,True,129.4999829597163,2,120,16,148
+forced_opposition_4x8_7301,adaptive,full_lp,Optimal,False,124.02289328770829,4,136,0,116
+forced_opposition_4x8_7301,adaptive,shared_1,Infeasible,,,1,112,8,116
+forced_opposition_4x8_7301,adaptive,shared_2,Time limit reached,True,128.97241746828522,2,120,16,116
+forced_opposition_4x8_7301,adaptive,singleton_full,Optimal,True,125.29992183250081,4,136,32,116
+forced_opposition_4x8_7301,full_milp,full_milp,Optimal,True,125.29992183250081,4,136,32,116
+forced_opposition_4x8_7301,full_lp,full_lp,Optimal,False,124.02289328770829,4,136,0,116
+interchangeable_4x8_7301,fixed_shared,full_lp,Optimal,True,1625.968665378591,4,136,0,116
+interchangeable_4x8_7301,fixed_shared,fixed_shared,Optimal,True,1625.968665378591,2,120,16,116
+interchangeable_4x8_7301,fixed_proportional,full_lp,Optimal,True,1625.968665378591,4,136,0,116
+interchangeable_4x8_7301,fixed_proportional,fixed_proportional,Optimal,True,1625.968665378591,2,120,16,148
+interchangeable_4x8_7301,adaptive,full_lp,Optimal,True,1625.968665378591,4,136,0,116
+interchangeable_4x8_7301,symmetry,symmetry,Optimal,True,1625.9686653785918,4,136,32,119
+interchangeable_4x8_7301,full_milp,full_milp,Optimal,True,1625.968665378591,4,136,32,116
+interchangeable_4x8_7301,full_lp,full_lp,Optimal,True,1625.968665378591,4,136,0,116
+interchangeable_4x8_7301,lp_recovery,full_lp,Optimal,True,1625.968665378591,4,136,0,116
+ordinary_4x8_8297,fixed_proportional,full_lp,Optimal,True,1362.5380661159247,4,136,0,116
+ordinary_4x8_8297,fixed_proportional,fixed_proportional,Optimal,True,1382.8382491504615,2,120,16,148
+ordinary_4x8_8297,adaptive,full_lp,Optimal,True,1362.5380661159247,4,136,0,116
+ordinary_4x8_8297,full_milp,full_milp,Optimal,True,1362.5380661159247,4,136,32,116
+ordinary_4x8_8297,full_lp,full_lp,Optimal,True,1362.5380661159247,4,136,0,116
+ordinary_4x8_8297,lp_recovery,full_lp,Optimal,True,1362.5380661159247,4,136,0,116
+ordinary_4x8_8297,fixed_shared,full_lp,Optimal,True,1362.5380661159247,4,136,0,116
+ordinary_4x8_8297,fixed_shared,fixed_shared,Optimal,True,1362.892056908929,2,120,16,116
+negative_outage_4x8_8297,adaptive,full_lp,Optimal,True,195.46498985848157,4,136,0,116
+negative_outage_4x8_8297,full_milp,full_milp,Optimal,True,195.46498985848157,4,136,32,116
+negative_outage_4x8_8297,full_lp,full_lp,Optimal,True,195.46498985848157,4,136,0,116
+negative_outage_4x8_8297,lp_recovery,full_lp,Optimal,True,195.46498985848157,4,136,0,116
+negative_outage_4x8_8297,fixed_shared,full_lp,Optimal,True,195.46498985848157,4,136,0,116
+negative_outage_4x8_8297,fixed_shared,fixed_shared,Optimal,True,195.46498985848157,2,120,16,116
+negative_outage_4x8_8297,fixed_proportional,full_lp,Optimal,True,195.46498985848157,4,136,0,116
+negative_outage_4x8_8297,fixed_proportional,fixed_proportional,Optimal,True,200.5497848332651,2,120,16,148
+forced_opposition_4x8_8297,full_milp,full_milp,Optimal,True,127.14506996759718,4,136,32,116
+forced_opposition_4x8_8297,full_lp,full_lp,Optimal,False,125.99425271034697,4,136,0,116
+forced_opposition_4x8_8297,lp_recovery,full_lp,Optimal,False,125.99425271034697,4,136,0,116
+forced_opposition_4x8_8297,lp_recovery,lp_fixed_signs,Infeasible,,,4,136,0,116
+forced_opposition_4x8_8297,lp_recovery,full_recovery,Optimal,True,127.14506996759718,4,136,32,116
+forced_opposition_4x8_8297,fixed_shared,full_lp,Optimal,False,125.99425271034697,4,136,0,116
+forced_opposition_4x8_8297,fixed_shared,fixed_shared,Optimal,True,128.84172068324511,2,120,16,116
+forced_opposition_4x8_8297,fixed_proportional,full_lp,Optimal,False,125.99425271034697,4,136,0,116
+forced_opposition_4x8_8297,fixed_proportional,fixed_proportional,Optimal,True,129.70772977285225,2,120,16,148
+forced_opposition_4x8_8297,adaptive,full_lp,Optimal,False,125.99425271034697,4,136,0,116
+forced_opposition_4x8_8297,adaptive,shared_1,Infeasible,,,1,112,8,116
+forced_opposition_4x8_8297,adaptive,shared_2,Optimal,True,128.8417206832476,2,120,16,116
+forced_opposition_4x8_8297,adaptive,singleton_full,Optimal,True,127.14506996759718,4,136,32,116
+interchangeable_4x8_8297,full_milp,full_milp,Optimal,True,1959.8381071379333,4,136,32,116
+interchangeable_4x8_8297,full_lp,full_lp,Optimal,True,1959.838107137933,4,136,0,116
+interchangeable_4x8_8297,lp_recovery,full_lp,Optimal,True,1959.838107137933,4,136,0,116
+interchangeable_4x8_8297,fixed_shared,full_lp,Optimal,True,1959.838107137933,4,136,0,116
+interchangeable_4x8_8297,fixed_shared,fixed_shared,Optimal,True,1959.838107137933,2,120,16,116
+interchangeable_4x8_8297,fixed_proportional,full_lp,Optimal,True,1959.838107137933,4,136,0,116
+interchangeable_4x8_8297,fixed_proportional,fixed_proportional,Optimal,True,1959.8381071379333,2,120,16,148
+interchangeable_4x8_8297,adaptive,full_lp,Optimal,True,1959.838107137933,4,136,0,116
+interchangeable_4x8_8297,symmetry,symmetry,Optimal,True,1959.838107137933,4,136,32,119
+ordinary_8x12_7301,lp_recovery,full_lp,Optimal,True,4390.527167153164,8,396,0,320
+ordinary_8x12_7301,fixed_shared,full_lp,Optimal,True,4390.527167153164,8,396,0,320
+ordinary_8x12_7301,fixed_shared,fixed_shared,Optimal,True,4390.527167153164,2,324,24,320
+ordinary_8x12_7301,fixed_proportional,full_lp,Optimal,True,4390.527167153164,8,396,0,320
+ordinary_8x12_7301,fixed_proportional,fixed_proportional,Optimal,True,4963.049877970823,2,324,24,464
+ordinary_8x12_7301,adaptive,full_lp,Optimal,True,4390.527167153164,8,396,0,320
+ordinary_8x12_7301,full_milp,full_milp,Optimal,True,4390.527167153164,8,396,96,320
+ordinary_8x12_7301,full_lp,full_lp,Optimal,True,4390.527167153164,8,396,0,320
+negative_outage_8x12_7301,fixed_shared,full_lp,Optimal,True,694.5731605911491,8,396,0,320
+negative_outage_8x12_7301,fixed_shared,fixed_shared,Optimal,True,694.5731605911491,2,324,24,320
+negative_outage_8x12_7301,fixed_proportional,full_lp,Optimal,True,694.5731605911491,8,396,0,320
+negative_outage_8x12_7301,fixed_proportional,fixed_proportional,Optimal,True,1280.552755155733,2,324,24,464
+negative_outage_8x12_7301,adaptive,full_lp,Optimal,True,694.5731605911491,8,396,0,320
+negative_outage_8x12_7301,full_milp,full_milp,Optimal,True,694.5731605911491,8,396,96,320
+negative_outage_8x12_7301,full_lp,full_lp,Optimal,True,694.5731605911491,8,396,0,320
+negative_outage_8x12_7301,lp_recovery,full_lp,Optimal,True,694.5731605911491,8,396,0,320
+forced_opposition_8x12_7301,fixed_proportional,full_lp,Optimal,False,391.2321732034405,8,396,0,320
+forced_opposition_8x12_7301,fixed_proportional,fixed_proportional,Infeasible,,,2,324,24,464
+forced_opposition_8x12_7301,adaptive,full_lp,Optimal,False,391.2321732034405,8,396,0,320
+forced_opposition_8x12_7301,adaptive,shared_1,Infeasible,,,1,312,12,320
+forced_opposition_8x12_7301,adaptive,shared_2,Time limit reached,True,398.62880888532567,2,324,24,320
+forced_opposition_8x12_7301,adaptive,shared_4,Time limit reached,True,393.68998401021423,4,348,48,320
+forced_opposition_8x12_7301,adaptive,singleton_full,Time limit reached,True,393.1336756334887,8,396,96,320
+forced_opposition_8x12_7301,full_milp,full_milp,Time limit reached,True,393.1336756334887,8,396,96,320
+forced_opposition_8x12_7301,full_lp,full_lp,Optimal,False,391.2321732034405,8,396,0,320
+forced_opposition_8x12_7301,lp_recovery,full_lp,Optimal,False,391.2321732034405,8,396,0,320
+forced_opposition_8x12_7301,lp_recovery,lp_fixed_signs,Infeasible,,,8,396,0,320
+forced_opposition_8x12_7301,lp_recovery,full_recovery,Time limit reached,True,393.1336756334887,8,396,96,320
+forced_opposition_8x12_7301,fixed_shared,full_lp,Optimal,False,391.2321732034405,8,396,0,320
+forced_opposition_8x12_7301,fixed_shared,fixed_shared,Time limit reached,True,398.73075381621857,2,324,24,320
+interchangeable_8x12_7301,fixed_proportional,full_lp,Optimal,True,5072.784663480839,8,396,0,320
+interchangeable_8x12_7301,fixed_proportional,fixed_proportional,Optimal,True,5072.784663480839,2,324,24,464
+interchangeable_8x12_7301,adaptive,full_lp,Optimal,True,5072.784663480839,8,396,0,320
+interchangeable_8x12_7301,symmetry,symmetry,Optimal,True,5072.784663480839,8,396,96,327
+interchangeable_8x12_7301,full_milp,full_milp,Optimal,True,5072.784663480839,8,396,96,320
+interchangeable_8x12_7301,full_lp,full_lp,Optimal,True,5072.784663480839,8,396,0,320
+interchangeable_8x12_7301,lp_recovery,full_lp,Optimal,True,5072.784663480839,8,396,0,320
+interchangeable_8x12_7301,fixed_shared,full_lp,Optimal,True,5072.784663480839,8,396,0,320
+interchangeable_8x12_7301,fixed_shared,fixed_shared,Optimal,True,5072.784663480838,2,324,24,320
+ordinary_8x12_8297,full_milp,full_milp,Optimal,True,4876.556815138417,8,396,96,320
+ordinary_8x12_8297,full_lp,full_lp,Optimal,True,4876.556815138417,8,396,0,320
+ordinary_8x12_8297,lp_recovery,full_lp,Optimal,True,4876.556815138417,8,396,0,320
+ordinary_8x12_8297,fixed_shared,full_lp,Optimal,True,4876.556815138417,8,396,0,320
+ordinary_8x12_8297,fixed_shared,fixed_shared,Optimal,True,4876.68373301904,2,324,24,320
+ordinary_8x12_8297,fixed_proportional,full_lp,Optimal,True,4876.556815138417,8,396,0,320
+ordinary_8x12_8297,fixed_proportional,fixed_proportional,Optimal,True,5024.495957839106,2,324,24,464
+ordinary_8x12_8297,adaptive,full_lp,Optimal,True,4876.556815138417,8,396,0,320
+negative_outage_8x12_8297,full_lp,full_lp,Optimal,True,-1163.5638186417145,8,396,0,320
+negative_outage_8x12_8297,lp_recovery,full_lp,Optimal,True,-1163.5638186417145,8,396,0,320
+negative_outage_8x12_8297,fixed_shared,full_lp,Optimal,True,-1163.5638186417145,8,396,0,320
+negative_outage_8x12_8297,fixed_shared,fixed_shared,Optimal,True,-1163.5638186417145,2,324,24,320
+negative_outage_8x12_8297,fixed_proportional,full_lp,Optimal,True,-1163.5638186417145,8,396,0,320
+negative_outage_8x12_8297,fixed_proportional,fixed_proportional,Optimal,True,-1145.9437027973363,2,324,24,464
+negative_outage_8x12_8297,adaptive,full_lp,Optimal,True,-1163.5638186417145,8,396,0,320
+negative_outage_8x12_8297,full_milp,full_milp,Optimal,True,-1163.5638186417145,8,396,96,320
+forced_opposition_8x12_8297,lp_recovery,full_lp,Optimal,False,372.1979413770011,8,396,0,320
+forced_opposition_8x12_8297,lp_recovery,lp_fixed_signs,Infeasible,,,8,396,0,320
+forced_opposition_8x12_8297,lp_recovery,full_recovery,Time limit reached,True,375.3539309357526,8,396,96,320
+forced_opposition_8x12_8297,fixed_shared,full_lp,Optimal,False,372.1979413770011,8,396,0,320
+forced_opposition_8x12_8297,fixed_shared,fixed_shared,Time limit reached,True,384.6896084475986,2,324,24,320
+forced_opposition_8x12_8297,fixed_proportional,full_lp,Optimal,False,372.1979413770011,8,396,0,320
+forced_opposition_8x12_8297,fixed_proportional,fixed_proportional,Infeasible,,,2,324,24,464
+forced_opposition_8x12_8297,adaptive,full_lp,Optimal,False,372.1979413770011,8,396,0,320
+forced_opposition_8x12_8297,adaptive,shared_1,Infeasible,,,1,312,12,320
+forced_opposition_8x12_8297,adaptive,shared_2,Time limit reached,True,379.9053961358236,2,324,24,320
+forced_opposition_8x12_8297,adaptive,shared_4,Time limit reached,True,375.5018591554168,4,348,48,320
+forced_opposition_8x12_8297,adaptive,singleton_full,Time limit reached,True,375.3539309357526,8,396,96,320
+forced_opposition_8x12_8297,full_milp,full_milp,Time limit reached,True,375.3539309357526,8,396,96,320
+forced_opposition_8x12_8297,full_lp,full_lp,Optimal,False,372.1979413770011,8,396,0,320
+interchangeable_8x12_8297,full_lp,full_lp,Optimal,True,6236.496316454207,8,396,0,320
+interchangeable_8x12_8297,lp_recovery,full_lp,Optimal,True,6236.496316454207,8,396,0,320
+interchangeable_8x12_8297,fixed_shared,full_lp,Optimal,True,6236.496316454207,8,396,0,320
+interchangeable_8x12_8297,fixed_shared,fixed_shared,Optimal,True,6236.496316454207,2,324,24,320
+interchangeable_8x12_8297,fixed_proportional,full_lp,Optimal,True,6236.496316454207,8,396,0,320
+interchangeable_8x12_8297,fixed_proportional,fixed_proportional,Optimal,True,6236.496316454207,2,324,24,464
+interchangeable_8x12_8297,adaptive,full_lp,Optimal,True,6236.496316454207,8,396,0,320
+interchangeable_8x12_8297,symmetry,symmetry,Optimal,True,6236.496316454207,8,396,96,327
+interchangeable_8x12_8297,full_milp,full_milp,Optimal,True,6236.496316454207,8,396,96,320
+ordinary_12x16_7301,fixed_proportional,full_lp,Optimal,True,9738.782210406021,12,784,0,620
+ordinary_12x16_7301,fixed_proportional,fixed_proportional,Optimal,True,11585.619328493041,2,624,32,940
+ordinary_12x16_7301,adaptive,full_lp,Optimal,True,9738.782210406021,12,784,0,620
+ordinary_12x16_7301,full_milp,full_milp,Optimal,True,9738.782210406021,12,784,192,620
+ordinary_12x16_7301,full_lp,full_lp,Optimal,True,9738.782210406021,12,784,0,620
+ordinary_12x16_7301,lp_recovery,full_lp,Optimal,True,9738.782210406021,12,784,0,620
+ordinary_12x16_7301,fixed_shared,full_lp,Optimal,True,9738.782210406021,12,784,0,620
+ordinary_12x16_7301,fixed_shared,fixed_shared,Optimal,True,9738.782210406021,2,624,32,620
+negative_outage_12x16_7301,adaptive,full_lp,Optimal,True,-1007.9819460759817,12,784,0,620
+negative_outage_12x16_7301,full_milp,full_milp,Optimal,True,-1007.9819460759797,12,784,192,620
+negative_outage_12x16_7301,full_lp,full_lp,Optimal,True,-1007.9819460759817,12,784,0,620
+negative_outage_12x16_7301,lp_recovery,full_lp,Optimal,True,-1007.9819460759817,12,784,0,620
+negative_outage_12x16_7301,fixed_shared,full_lp,Optimal,True,-1007.9819460759817,12,784,0,620
+negative_outage_12x16_7301,fixed_shared,fixed_shared,Optimal,True,-1007.9819460759828,2,624,32,620
+negative_outage_12x16_7301,fixed_proportional,full_lp,Optimal,True,-1007.9819460759817,12,784,0,620
+negative_outage_12x16_7301,fixed_proportional,fixed_proportional,Optimal,True,275.4978377101779,2,624,32,940
+forced_opposition_12x16_7301,full_milp,full_milp,Time limit reached,True,794.6992007243832,12,784,192,620
+forced_opposition_12x16_7301,full_lp,full_lp,Optimal,False,789.461804934527,12,784,0,620
+forced_opposition_12x16_7301,lp_recovery,full_lp,Optimal,False,789.461804934527,12,784,0,620
+forced_opposition_12x16_7301,lp_recovery,lp_fixed_signs,Infeasible,,,12,784,0,620
+forced_opposition_12x16_7301,lp_recovery,full_recovery,Time limit reached,True,794.6992007243832,12,784,192,620
+forced_opposition_12x16_7301,fixed_shared,full_lp,Optimal,False,789.461804934527,12,784,0,620
+forced_opposition_12x16_7301,fixed_shared,fixed_shared,Time limit reached,True,813.7579169057362,2,624,32,620
+forced_opposition_12x16_7301,fixed_proportional,full_lp,Optimal,False,789.461804934527,12,784,0,620
+forced_opposition_12x16_7301,fixed_proportional,fixed_proportional,Infeasible,,,2,624,32,940
+forced_opposition_12x16_7301,adaptive,full_lp,Optimal,False,789.461804934527,12,784,0,620
+forced_opposition_12x16_7301,adaptive,shared_1,Infeasible,,,1,608,16,620
+forced_opposition_12x16_7301,adaptive,shared_2,Time limit reached,,,2,624,32,620
+forced_opposition_12x16_7301,adaptive,shared_4,Time limit reached,True,803.86104666611,4,656,64,620
+forced_opposition_12x16_7301,adaptive,shared_8,Time limit reached,True,812.8379052128244,8,720,128,620
+forced_opposition_12x16_7301,adaptive,singleton_full,Time limit reached,True,794.6992007243832,12,784,192,620
+interchangeable_12x16_7301,adaptive,full_lp,Optimal,True,9599.550371970226,12,784,0,620
+interchangeable_12x16_7301,symmetry,symmetry,Optimal,True,9599.550371970226,12,784,192,631
+interchangeable_12x16_7301,full_milp,full_milp,Optimal,True,9599.550371970226,12,784,192,620
+interchangeable_12x16_7301,full_lp,full_lp,Optimal,True,9599.550371970226,12,784,0,620
+interchangeable_12x16_7301,lp_recovery,full_lp,Optimal,True,9599.550371970226,12,784,0,620
+interchangeable_12x16_7301,fixed_shared,full_lp,Optimal,True,9599.550371970226,12,784,0,620
+interchangeable_12x16_7301,fixed_shared,fixed_shared,Optimal,True,9599.550371970228,2,624,32,620
+interchangeable_12x16_7301,fixed_proportional,full_lp,Optimal,True,9599.550371970226,12,784,0,620
+interchangeable_12x16_7301,fixed_proportional,fixed_proportional,Optimal,True,9599.550371970228,2,624,32,940
+ordinary_12x16_8297,lp_recovery,full_lp,Optimal,True,10657.561136071667,12,784,0,620
+ordinary_12x16_8297,fixed_shared,full_lp,Optimal,True,10657.561136071667,12,784,0,620
+ordinary_12x16_8297,fixed_shared,fixed_shared,Optimal,True,10657.561136071667,2,624,32,620
+ordinary_12x16_8297,fixed_proportional,full_lp,Optimal,True,10657.561136071667,12,784,0,620
+ordinary_12x16_8297,fixed_proportional,fixed_proportional,Optimal,True,11799.505611667384,2,624,32,940
+ordinary_12x16_8297,adaptive,full_lp,Optimal,True,10657.561136071667,12,784,0,620
+ordinary_12x16_8297,full_milp,full_milp,Optimal,True,10657.561136071667,12,784,192,620
+ordinary_12x16_8297,full_lp,full_lp,Optimal,True,10657.561136071667,12,784,0,620
+negative_outage_12x16_8297,fixed_shared,full_lp,Optimal,True,-3051.4798504370315,12,784,0,620
+negative_outage_12x16_8297,fixed_shared,fixed_shared,Optimal,True,-3051.479850437031,2,624,32,620
+negative_outage_12x16_8297,fixed_proportional,full_lp,Optimal,True,-3051.4798504370315,12,784,0,620
+negative_outage_12x16_8297,fixed_proportional,fixed_proportional,Optimal,True,-2935.2603339800685,2,624,32,940
+negative_outage_12x16_8297,adaptive,full_lp,Optimal,True,-3051.4798504370315,12,784,0,620
+negative_outage_12x16_8297,full_milp,full_milp,Optimal,True,-3051.4798504370315,12,784,192,620
+negative_outage_12x16_8297,full_lp,full_lp,Optimal,True,-3051.4798504370315,12,784,0,620
+negative_outage_12x16_8297,lp_recovery,full_lp,Optimal,True,-3051.4798504370315,12,784,0,620
+forced_opposition_12x16_8297,fixed_proportional,full_lp,Optimal,False,599.4283053931913,12,784,0,620
+forced_opposition_12x16_8297,fixed_proportional,fixed_proportional,Infeasible,,,2,624,32,940
+forced_opposition_12x16_8297,adaptive,full_lp,Optimal,False,599.4283053931913,12,784,0,620
+forced_opposition_12x16_8297,adaptive,shared_1,Infeasible,,,1,608,16,620
+forced_opposition_12x16_8297,adaptive,shared_2,Time limit reached,True,619.7021297185656,2,624,32,620
+forced_opposition_12x16_8297,adaptive,shared_4,Time limit reached,True,620.0148593901831,4,656,64,620
+forced_opposition_12x16_8297,adaptive,shared_8,Time limit reached,True,614.4327652361385,8,720,128,620
+forced_opposition_12x16_8297,adaptive,singleton_full,Time limit reached,True,605.4310022808115,12,784,192,620
+forced_opposition_12x16_8297,full_milp,full_milp,Time limit reached,True,605.4310022808115,12,784,192,620
+forced_opposition_12x16_8297,full_lp,full_lp,Optimal,False,599.4283053931913,12,784,0,620
+forced_opposition_12x16_8297,lp_recovery,full_lp,Optimal,False,599.4283053931913,12,784,0,620
+forced_opposition_12x16_8297,lp_recovery,lp_fixed_signs,Infeasible,,,12,784,0,620
+forced_opposition_12x16_8297,lp_recovery,full_recovery,Time limit reached,True,605.4310022808115,12,784,192,620
+forced_opposition_12x16_8297,fixed_shared,full_lp,Optimal,False,599.4283053931913,12,784,0,620
+forced_opposition_12x16_8297,fixed_shared,fixed_shared,Time limit reached,True,620.26339446923,2,624,32,620
+interchangeable_12x16_8297,lp_recovery,full_lp,Optimal,True,10043.952120366332,12,784,0,620
+interchangeable_12x16_8297,fixed_shared,full_lp,Optimal,True,10043.952120366332,12,784,0,620
+interchangeable_12x16_8297,fixed_shared,fixed_shared,Optimal,True,10043.952120366332,2,624,32,620
+interchangeable_12x16_8297,fixed_proportional,full_lp,Optimal,True,10043.952120366332,12,784,0,620
+interchangeable_12x16_8297,fixed_proportional,fixed_proportional,Optimal,True,10043.952120366332,2,624,32,940
+interchangeable_12x16_8297,adaptive,full_lp,Optimal,True,10043.952120366332,12,784,0,620
+interchangeable_12x16_8297,symmetry,symmetry,Optimal,True,10043.952120366332,12,784,192,631
+interchangeable_12x16_8297,full_milp,full_milp,Optimal,True,10043.952120366332,12,784,192,620
+interchangeable_12x16_8297,full_lp,full_lp,Optimal,True,10043.952120366332,12,784,0,620

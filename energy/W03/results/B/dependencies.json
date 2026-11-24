@@ -1,0 +1,59 @@
+{
+  "packages": [
+    {
+      "name": "mathlib",
+      "expected": "896cc56a395e1615786fac56564a3fe6bfeebcc4",
+      "observed": "896cc56a395e1615786fac56564a3fe6bfeebcc4",
+      "modified_tracked_files": 0
+    },
+    {
+      "name": "plausible",
+      "expected": "86210d4ad1b08b086d0bd638637a75246523dbb8",
+      "observed": "86210d4ad1b08b086d0bd638637a75246523dbb8",
+      "modified_tracked_files": 0
+    },
+    {
+      "name": "LeanSearchClient",
+      "expected": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "observed": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "modified_tracked_files": 0
+    },
+    {
+      "name": "importGraph",
+      "expected": "cdab3938ccabbdb044be6896e251b5814bec932e",
+      "observed": "cdab3938ccabbdb044be6896e251b5814bec932e",
+      "modified_tracked_files": 0
+    },
+    {
+      "name": "proofwidgets",
+      "expected": "2db6054a44326f8c0230ee0570e2ddb894816511",
+      "observed": "2db6054a44326f8c0230ee0570e2ddb894816511",
+      "modified_tracked_files": 0
+    },
+    {
+      "name": "aesop",
+      "expected": "f0c6e183ea26531e82773feb4b73ab6595ca17a5",
+      "observed": "f0c6e183ea26531e82773feb4b73ab6595ca17a5",
+      "modified_tracked_files": 0
+    },
+    {
+      "name": "Qq",
+      "expected": "1cc7e819b9b9bc1e87c9edcccb62e0269e00a809",
+      "observed": "1cc7e819b9b9bc1e87c9edcccb62e0269e00a809",
+      "modified_tracked_files": 0
+    },
+    {
+      "name": "batteries",
+      "expected": "5c57f3857ba81924a88b2cdf4f062e34ec04ff11",
+      "observed": "5c57f3857ba81924a88b2cdf4f062e34ec04ff11",
+      "modified_tracked_files": 0
+    },
+    {
+      "name": "Cli",
+      "expected": "13567aed1ac4f12aea9484178e07e51f8c9f7658",
+      "observed": "13567aed1ac4f12aea9484178e07e51f8c9f7658",
+      "modified_tracked_files": 0
+    }
+  ],
+  "basis": "Compiled against local prebuilt dependencies. The dependencies themselves were not rebuilt."
+}

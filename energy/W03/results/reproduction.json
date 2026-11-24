@@ -1,0 +1,178 @@
+{
+  "A": {
+    "trials": 450,
+    "target_hits_original": {
+      "full_milp": 60,
+      "full_lp": 54,
+      "lp_recovery": 60,
+      "fixed_shared": 54,
+      "fixed_proportional": 54,
+      "adaptive": 60,
+      "symmetry": 18
+    },
+    "target_hits_replay": {
+      "full_milp": 60,
+      "full_lp": 54,
+      "lp_recovery": 60,
+      "fixed_shared": 54,
+      "fixed_proportional": 54,
+      "adaptive": 60,
+      "symmetry": 18
+    },
+    "changed_target_decisions": [],
+    "forced_cases_with_earlier_first_improvement": [
+      [
+        "forced_opposition_12x16_7301",
+        "forced_opposition_12x16_8297",
+        "forced_opposition_4x8_8297",
+        "forced_opposition_8x12_7301",
+        "forced_opposition_8x12_8297"
+      ],
+      [
+        "forced_opposition_12x16_7301",
+        "forced_opposition_12x16_8297",
+        "forced_opposition_4x8_8297",
+        "forced_opposition_8x12_7301",
+        "forced_opposition_8x12_8297"
+      ]
+    ],
+    "exact_dual_witnesses_identical": true,
+    "raw_lp_validity_changes": 0
+  },
+  "B": {
+    "checks_identical": true,
+    "axiom_logs_identical": true
+  },
+  "C": {
+    "trials": 36,
+    "max_absolute_cost_difference": 0.0,
+    "validity_changes": 0
+  },
+  "D": [
+    {
+      "id": "ca_2014-09-01_r1_12h_paired_commitment",
+      "on_time": [
+        true,
+        true
+      ],
+      "status": [
+        "Optimal",
+        "Optimal"
+      ],
+      "costs": [
+        9441.21538988463,
+        9441.350147852716
+      ]
+    },
+    {
+      "id": "ca_2014-09-01_r1_12h_reference",
+      "on_time": [
+        true,
+        true
+      ],
+      "status": [
+        "Optimal",
+        "Optimal"
+      ],
+      "costs": [
+        9322.199561687987,
+        9343.396673611825
+      ]
+    },
+    {
+      "id": "ca_2014-09-01_r1_48h_paired_commitment",
+      "on_time": [
+        false,
+        false
+      ],
+      "status": [
+        "Time limit reached",
+        "Time limit reached"
+      ],
+      "costs": [
+        null,
+        null
+      ]
+    },
+    {
+      "id": "ca_2014-09-01_r1_48h_reference",
+      "on_time": [
+        false,
+        false
+      ],
+      "status": [
+        "Time limit reached",
+        "Time limit reached"
+      ],
+      "costs": [
+        null,
+        null
+      ]
+    },
+    {
+      "id": "rts_2020-03-05_12h_paired_commitment",
+      "on_time": [
+        true,
+        true
+      ],
+      "status": [
+        "Optimal",
+        "Optimal"
+      ],
+      "costs": [
+        230790.6119364599,
+        230790.6119364599
+      ]
+    },
+    {
+      "id": "rts_2020-03-05_12h_reference",
+      "on_time": [
+        true,
+        true
+      ],
+      "status": [
+        "Optimal",
+        "Optimal"
+      ],
+      "costs": [
+        228050.55510706356,
+        228050.55510706452
+      ]
+    },
+    {
+      "id": "rts_2020-03-05_48h_paired_commitment",
+      "on_time": [
+        true,
+        true
+      ],
+      "status": [
+        "Time limit reached",
+        "Time limit reached"
+      ],
+      "costs": [
+        2532321.6776496107,
+        2530521.7070229123
+      ]
+    },
+    {
+      "id": "rts_2020-03-05_48h_reference",
+      "on_time": [
+        true,
+        true
+      ],
+      "status": [
+        "Time limit reached",
+        "Time limit reached"
+      ],
+      "costs": [
+        2516915.98482898,
+        2522512.4169530463
+      ]
+    }
+  ],
+  "E": {
+    "trials": 72,
+    "max_absolute_unserved_difference_MWh": 0.0,
+    "max_absolute_loss_difference_MWh": 0.0
+  }
+}
