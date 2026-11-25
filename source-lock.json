@@ -15,9 +15,15 @@
   "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
   "upstream_license": "primary/vp-vnp/LICENSE",
   "attribution": "primary/vp-vnp/NOTICE",
-  "kernel_replay_in_this_review": false,
+  "kernel_replay_in_this_review": true,
   "additional_git_blobs_verified": [
     ".github/scripts/comparator-check.sh",
     ".github/workflows/lean-projects.yml"
-  ]
+  ],
+  "local_replay": {
+    "scope": "Theorem C.1 (Paper.Fan) and its 43 transitive project imports, plus focused review declarations reported in the individual passes.",
+    "pass09_full_module_record": "checks/pass09_endpoint_replay_results.json",
+    "entire_separation_replayed": false,
+    "comparator_replayed": false
+  }
 }

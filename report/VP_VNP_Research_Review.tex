@@ -61,7 +61,7 @@ The defect on the left is independent of $T$. Letting $T$ grow gives the desired
 The price hypothesis matters. On the unit square with distances measured along its edges, take opposite corners for $x,v$ and the remaining two corners for $m,z$. Then $D=1$, $b=2$ and both distances from $z$ to $x,v$ are one. C.1 would require $4\le0$. The ordinary metric satisfies all the stated distance conditions on the triangle through $m$, yet it cannot be a price.
 
 \subhead{What this establishes for the circuit argument}
-C.1 supplies the curvature input that C.3 passes to the field alternative in D.2. The mathematical status of that link has advanced from a cited input to a derivation conditional on identified lemmas. The superpolynomial circuit lower bound remains the claim of Claude (Anthropic), whose proof has additional dependencies in both branches.
+C.1 supplies the curvature input that C.3 passes to the field alternative in D.2. We derived its endpoint from the fan estimates and independently replayed the entire formal proof of C.1 over the pinned libraries. Lean checked the statement for an arbitrary field and price. The superpolynomial circuit lower bound remains the claim of Claude (Anthropic), whose proof has additional dependencies in both branches.
 
 \smallref{Manuscript: \paper{Appendix C, pp.~25--28}. Formal endpoints:
   \pub{Paper/Fan.lean}{929}{fan estimate} and \pub{Paper/Fan.lean}{987}{Theorem C.1}.
@@ -142,10 +142,13 @@ Divide by $\theta>0$ and use $\Lambda_2\le(D+b)^2$. This gives
 \]
 Each $T$ can have its own fan and averaged lengths. The numerator depends only on the original points, so $T\to\infty$ gives $\Gamma\le-D^2$. A joint limit such as $A=T$ would leave $1/(A\theta)=1$ and would not justify the intercept step. The successive estimates avoid that interchange.
 
-\subhead{Verification and the next proof obligation}
-The review derived the residual and traced the fan estimates in the pinned source. Lean 4.33.1 checked the publisher's discrete-concavity lemma and four independent declarations, including the combined endpoint with witnesses chosen once per $T$ for all $A$. Exact rational arithmetic checked 102 finite-box cases and five growing-step identities. Pass 8 separately replayed the two completion lemmas. Full independent replays of the C.1 module, the separation build and Comparator remain open.
+\subhead{What Lean checked}
+Lean 4.33.1 freshly compiled all 44 unchanged publisher modules needed for \texttt{Paper.Fan}, using pinned libraries from nine external dependency revisions. A fresh import confirmed the field-parametric statement of C.1. The axiom reports for C.2, the endpoint estimate and C.1 list only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. \href{https://github.com/nousentllc/VP-VNP-Review/blob/main/checks/pass09_endpoint_replay_results.json}{Replay record.}
 
-The next dependency runs from A.7 to A.8. Why can one spectral extension preserve all old distances and bound every requested new pair simultaneously? C.1 needs both properties in one fan.
+A separate check covered the discrete-concavity lemma and four independent declarations, including the endpoint with witnesses chosen once per $T$ for all $A$. Exact arithmetic checked 102 finite-box cases and five growing-step identities. Pass 8 replayed two C.3 completion lemmas. Full independent replays of the C.3 module, separation build and Comparator remain open.
+
+\subhead{What to read next}
+Trace the mathematical argument from A.7 to A.8. Why can one spectral extension preserve all old distances and bound every requested new pair simultaneously? A formal replay now covers this dependency as used by C.1. Explaining how the simultaneous extension works is the next reading task.
 
 \smallref{Manuscript: \paper{Appendix C, especially pp.~27--28}. Source: \pub{Paper/Means.lean}{465}{C.2 parallelogram law},
 \pub{Paper/Fan.lean}{929}{endpoint bound}, \pub{Paper/Fan.lean}{987}{final limit}. This first standalone reader edition extends \review{VP_VNP_Chat_Handoff.md}{the pass-8 handoff}. Source pin: \texttt{11b6c7e3c927}.}
