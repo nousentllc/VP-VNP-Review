@@ -1,0 +1,70 @@
+{
+  "target": "Paper.Heavy",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 4,
+  "modules": [
+    {
+      "module": "Nc.Cut.Slp",
+      "source": "Nc/Cut/Slp.lean",
+      "sha256": "8e17d987ea956c01d0ee82f0bce45f7c90afaabe012e0ac2b0252f38684289e9",
+      "exit_code": 0,
+      "seconds": 21.81
+    },
+    {
+      "module": "Nc.SlpCalc",
+      "source": "Nc/SlpCalc.lean",
+      "sha256": "f440a05b1700061bc45bfd952e8adaac16d410aa7a37b6b582caff64fb4feb8b",
+      "exit_code": 0,
+      "seconds": 95.41
+    },
+    {
+      "module": "Nc.Tow.Slp0",
+      "source": "Nc/Tow/Slp0.lean",
+      "sha256": "cbfdfdcd63ea7cc0af937558ba7c797f2918e2ab0ab1aefbb03cd35329ce6396",
+      "exit_code": 0,
+      "seconds": 27.37
+    },
+    {
+      "module": "Paper.Heavy",
+      "source": "Paper/Heavy.lean",
+      "sha256": "9814034ce5229b0e8c9115ab99c7c47add6b098ab0ef3b37354dce85ad47ffc0",
+      "exit_code": 0,
+      "seconds": 86.99,
+      "output": "Paper/Heavy.lean:143:57: warning: Variable name `hM` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hM\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nPaper/Heavy.lean:143:70: warning: Variable name `hY` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hY\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+    }
+  ],
+  "verification": {
+    "queries": [
+      "#check @Paper.prop_pieces_heavy_few",
+      "#print axioms Paper.prop_pieces_heavy_few",
+      "#check @Paper.prop_pieces_shape",
+      "#print axioms Paper.prop_pieces_shape",
+      "#check @Paper.Staged.piece_boundary",
+      "#print axioms Paper.Staged.piece_boundary",
+      "#check @Paper.prop_pieces_count",
+      "#print axioms Paper.prop_pieces_count"
+    ],
+    "exit_code": 0,
+    "output": "@Paper.prop_pieces_heavy_few : ∀ {P : ℕ} {T : Paper.Staged P} {giv u : Fin P → ℕ} {M Y k : ℕ},\n  0 < k →\n    0 < M →\n      0 < Y →\n        ∑ q, giv q ≤ M → ∑ q, u q ≤ Y → ∀ {s : ℕ}, s < T.depth → {p | T.stage p = s ∧ T.Heavy giv u M Y k p}.card < k\n'Paper.prop_pieces_heavy_few' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_pieces_shape : ∀ {P : ℕ} {T : Paper.Staged P} {giv u : Fin P → ℕ} {M Y k : ℕ} (g : ℕ),\n  (∃ p, T.piece giv u M Y k p = g) →\n    ∃ x,\n      (T.Heavy giv u M Y k x ∧ ∀ (p : Fin P), T.piece giv u M Y k p = g ↔ p = x) ∨\n        ¬T.Heavy giv u M Y k x ∧ T.Heavy giv u M Y k (T.par x) ∧ ∀ (p : Fin P), T.piece giv u M Y k p = g ↔ T.Below p x\n'Paper.prop_pieces_shape' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.Staged.piece_boundary : ∀ {P : ℕ} {T : Paper.Staged P} {giv u : Fin P → ℕ} {M Y k : ℕ} (g : ℕ),\n  ∃ x,\n    ∀ (q : Fin P), q ≠ T.root → ¬(T.piece giv u M Y k q = g ↔ T.piece giv u M Y k (T.par q) = g) → q = x ∨ T.par q = x\n'Paper.Staged.piece_boundary' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_pieces_count : ∀ {P : ℕ} {T : Paper.Staged P} {giv u : Fin P → ℕ} {M Y k b C : ℕ},\n  0 < k →\n    0 < M →\n      0 < Y →\n        ∑ q, giv q ≤ M →\n          ∑ q, u q ≤ Y →\n            (∀ (p : Fin P), p ≠ T.root → {q | q ≠ T.root ∧ T.par q = p}.card ≤ b) →\n              {q | q ≠ T.root ∧ T.par q = T.root}.card ≤ C →\n                ∀ (p : Fin P), T.piece giv u M Y k p < 1 + C + b * (T.depth * k)\n'Paper.prop_pieces_count' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "query_file": "checks/pass11c_heavy.lean",
+    "sha256": "1778a3415228e8823bc07676c05bff249215b2835e07799388e5e29f32fe5867"
+  }
+}

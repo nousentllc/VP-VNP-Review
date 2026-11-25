@@ -1,0 +1,55 @@
+# Pass 11B · How Proposition A.5 selects a spectral point
+
+**November 25, 2026.** A.5 gives one multiplicative functional below a prescribed upper functional. It preserves every comparison that holds after multiplication by **every** tensor. The proof obtains one minimal upper functional by Zorn’s lemma and proves that this same functional is multiplicative. A.7 uses it to preserve a prescribed tensor value. Lemma E.8 packages several quantities into that one value. [Manuscript, §§A.2 and A.4, pp. 19–20](../primary/vp-vnp/paper.pdf#page=20) · [Formal A.5](../primary/vp-vnp/Paper/Gauges.lean#L392)
+
+## Statement and quantifiers
+
+Fix a field $K$ and a finite party set $I$. An upper functional $p_0$ is nonnegative, satisfies $p_0(1)=1$ and $p_0(st)\le p_0(s)p_0(t)$, and obeys $p_0(s)\le\sum_j p_0(t_j)$ for every finite tensor cover of $s$. Write $\operatorname{Keeps}(p,x,y,c)$ when $p(tx)\le c\,p(ty)$ for **all** $t$. The conclusion is
+
+$$
+\exists\varphi\in\mathrm{Spec}(K,I),\quad
+(\forall t,\ \varphi(t)\le p_0(t))\ \land
+(\forall x,y,\ \forall c\ge0,
+\operatorname{Keeps}(p_0,x,y,c)\Rightarrow\operatorname{Keeps}(\varphi,x,y,c)).
+$$
+
+A spectral point is normalized, obeys the finite-cover inequality, and is exactly multiplicative. Once a point is multiplicative, its comparison at $t=1$ propagates to every $t$ by multiplication and nonnegativity. Establishing the premise on an upper functional requires the full multiplier quantifier. The formalization works on tensor equivalence classes, where the product forms a commutative monoid. Mutual restriction gives equality of upper-functional values on representatives of the same class. [Upper functionals](../primary/vp-vnp/Paper/Gauges.lean#L24) · [Triple and cover interfaces](../primary/vp-vnp/Ov/Duality/Abstract.lean#L26) · [Equivalence classes](../primary/vp-vnp/Ov/Duality/Minimal.lean#L27)
+
+## Why one choice suffices
+
+1. **Minimality under all the constraints.** Consider the upper functionals below $p_0$ that respect all the triples of $p_0$. The family contains $p_0$. A nonempty descending chain has a pointwise infimum. For any finite set of arguments and any $\varepsilon>0$, directedness supplies one member within $\varepsilon$ of all their infima. This proves the finite-cover and product inequalities for the infimum. Each common triple passes to the infimum since $c\ge0$. Zorn’s lemma in the reverse pointwise order gives a minimal $p$. Any admissible $q\le p$ equals $p$ everywhere. This last property is used twice. [Simultaneous finite approximation](../primary/vp-vnp/Ov/Duality/Abstract.lean#L49) · [Chain and Zorn steps](../primary/vp-vnp/Paper/Gauges.lean#L46)
+
+2. **The radius preserves the constraints.** Put $r(t)=\inf_{n\ge1}p(t^n)^{1/n}$. The code identifies this with the infimum of positive $a$ for which some fixed $C$ bounds $p(t^m)\le Ca^m$ for every $m\ge0$. For a cover by $b_1,\ldots,b_k$, take $a_j=r(b_j)+\varepsilon$ and corresponding constants $C_j\ge1$. Expand the cover of $t^n$ over words of length $n$. Commutativity groups a word by multiplicities, so one factor $C_j$ per generator suffices independently of $n$. The total bound is $(\prod_j C_j)(\sum_j a_j)^n$. Taking roots and then decreasing $\varepsilon$ gives $r(t)\le\sum_j r(b_j)$. Applying a kept triple successively with different multipliers gives $p(t^n x^n)\le c^n p(t^n y^n)$, so $r$ keeps each original triple. Since $r$ is a gauge below $p$, minimality forces $r=p$. [Radius and finite covers](../primary/vp-vnp/Paper/Gauges.lean#L82) · [Triple comparison](../primary/vp-vnp/Paper/Gauges.lean#L197) · [Root infimum](../primary/vp-vnp/Paper/Gauges.lean#L264)
+
+3. **Power equality.** For $n\ge1$, the infimum formula gives $p(t)=r(t)\le p(t^n)^{1/n}$. Submultiplicativity gives the opposite bound after taking the $n$-th power. Thus $p(t^n)=p(t)^n$, including $n=0$ by normalization. The formal proof bounds a general exponent by writing it as a multiple of $n$ plus a bounded remainder. Power equality normalizes the next candidate. [Root estimate](../primary/vp-vnp/Paper/Gauges.lean#L232) · [Power equality](../primary/vp-vnp/Paper/Gauges.lean#L298)
+
+4. **Localization forces multiplicativity.** For $p(f)>0$, let $P_n(t)=p(tf^n)/p(f)^n$ and $q_f(t)=\inf_{n\ge0}P_n(t)$. The sequence decreases from $p(t)$, and power equality gives $P_n(1)=1$. Products satisfy $P_{a+b}(st)\le P_a(s)P_b(t)$. For a finite cover, multiply it by $f^n$ and pass to the common decreasing limit. Each kept triple passes through by testing it at $tf^n$. The index shift by one gives $p(f)q_f(t)\le q_f(tf)$. Thus $q_f\le p$ satisfies every original constraint, and minimality again forces $q_f=p$. The index-shift inequality and submultiplicativity now give $p(tf)=p(t)p(f)$. Each localization is compared with the *same* minimal $p$, for every positive factor $f$. [Localization](../primary/vp-vnp/Paper/Gauges.lean#L315) · [Multiplicativity and lift to tensors](../primary/vp-vnp/Paper/Gauges.lean#L367)
+
+If $p(f)=0$, nonnegativity and $p(tf)\le p(t)p(f)$ already give $p(tf)=0$. For $c=0$, a kept triple forces all its left-hand values to vanish; the radius proof takes this branch before dividing by $c$. A zero radius is permitted since the exponential bounds use positive slack. The finite-cover proof also covers an empty family, whose covered element must have value zero. [Zero coefficient](../primary/vp-vnp/Paper/Gauges.lean#L220) · [Zero factor](../primary/vp-vnp/Paper/Gauges.lean#L377)
+
+## Two tests of weaker arguments
+
+Can different minimizers or a comparison at just one multiplier suffice? On the additive monoid $\mathbb N^2$ use the cover relation that the covering family contains the covered element. The two characters $L(a,b)=2^a$ and $R(a,b)=2^b$ are normalized multiplicative functionals. Let $u=(1,0)$ and $v=(0,1)$.
+
+| Proposed step | Independent witness | Consequence |
+|---|---|---|
+| Take a pointwise infimum over arbitrary candidates | For $m=\min(L,R)$, $m(u)=m(v)=1$ while $m(u+v)=2$. | The product inequality fails. Directedness in A.5 provides a common near-minimizer. |
+| Test the input comparison only at the unit | The submultiplicative $p=\max(L,R)$ has $p(u)=p(v)=2$, yet $p(u+u)=4>2=p(u+v)$. | The proposed triple $(u,v,1)$ fails at multiplier $u$. |
+
+These are examples for the abstract monoid argument. Both characters satisfy the chosen cover relation, which also makes their upper envelope a gauge. Lean checked the numerical strict inequalities as well as both character laws and the submultiplicativity of the upper envelope. [Independent checks](../checks/pass11b_selection.lean)
+
+## A.7 and the flat branch
+
+**A.7, pp. 21–22.** Its cover construction gives an upper functional $P$ below the required weighted product bound and satisfying $P(\iota A)=\varphi(A)$ for every old tensor $A$. Put $c=\varphi(C)$. If $c=0$, the selected point below $P$ already has value zero at $\iota C$. If $c>0$, equality on old powers permits localization at $f=\iota C$. The resulting gauge keeps $(1,f,1/c)$. A.5 gives one $\varphi'$ below it retaining that triple. At multiplier $1$, normalization implies $1\le\varphi'(f)/c$. Domination gives $\varphi'(f)\le c$. Equality at $f$ coexists with the upper bound on every tensor. The statement guarantees old equality at the chosen tensor; full agreement on old tensors belongs to the intermediate gauge $P$. [A.7 caller](../primary/vp-vnp/Paper/Extension.lean#L166) · [Pass 10](10-simultaneous-extension.md)
+
+**E.8–E.10, pp. 35–37.** E.8 applies A.7 to two placement maps of weight $1/2$. The distinguished tensor is $WC$, where $W$ is the product of binary wires on all ordered old pairs and $C$ is the binary unit tensor moved by the midpoint map. Both old values are positive. Under inclusion each factor can only decrease, while the product stays equal. Therefore both factor values stay equal, and equality on $W$ forces agreement of all old wire exponents by the same argument. This gives old distances and the chosen old unit exponent in **one** extension that also bounds the new distances and exponent. If the reference product were zero, equality on that product could hide a decrease in another factor. E.8 separately uses C.1 to compare midpoints. E.9 uses the flat-field hypothesis for the initial Euclidean approximation, and E.10 invokes the cube estimate when bounding circuits. [E.8, p. 35](../primary/vp-vnp/paper.pdf#page=35) · [Positive factors](../primary/vp-vnp/Paper/Convex.lean#L42) · [Moved unit](../primary/vp-vnp/Paper/Convex.lean#L109) · [Cube](../primary/vp-vnp/Paper/Convex.lean#L318) · [Circuit caller](../primary/vp-vnp/Paper/Rate.lean#L191)
+
+E.8 chooses its approximation tolerance before the base spectral point, scale and midpoint maps. E.9 then chooses one base point and scale on the enlarged finite set and uses these through every level of its cube induction. Each application of E.8 may choose a fresh auxiliary extension because the conclusion returns to the same base point. This distinguishes the uniform estimate needed later from a demand for one extension on every auxiliary party set. [Uniform quantifiers](../primary/vp-vnp/Paper/Convex.lean#L243) · [Choice before the cube induction](../primary/vp-vnp/Paper/Convex.lean#L337)
+
+A separate use occurs in A.6. If a certificate of weight below one fails to exist, its gauge keeps all triples $(A_\beta,C,\eta)$ with the chosen $0<\eta<1$. A.5 supplies one point respecting every one. A.6’s hypothesis at that point supplies some $\beta$ with $\varphi(C)\le\varphi(A_\beta)$. The kept comparison gives $\varphi(A_\beta)\le\eta\varphi(C)$, a contradiction since $C\ne0$ gives $\varphi(C)\ge1$ under the theorem’s assumptions. Selecting a different point per $\beta$ would leave this inference unsupported. [A.6, pp. 20–21](../primary/vp-vnp/paper.pdf#page=21) · [Common witness](../primary/vp-vnp/Paper/Gauges.lean#L604)
+
+## Verification and limits
+
+Pass 10 compiled the full A.5 and A.7 source modules. This pass compared SHA-256 hashes of all 24 retained project objects against their build manifest and all 24 source files against the pass-10 receipt. Lean 4.33.1 imported `Paper.Extension` and reported types and axioms for 11 publisher declarations, including A.5, its intermediate selection results and A.7. Each reported only `propext`, `Classical.choice` and `Quot.sound`. Four new elementary declarations for the examples each reported `propext`. The E.8–E.10 dependency was traced in source. [Queries and examples](../checks/pass11b_selection.lean) · [Results and hashes](../checks/pass11b_selection.json) · [Earlier fresh compilation](../checks/pass10_formal_results.json)
+
+The conclusion is classical and existential. Zorn’s lemma selects a minimal element of the constrained order. The proof supplies neither a unique spectral point nor a procedure or running-time estimate for evaluating it. A.5 establishes a selection step on which the later arguments may rely. The geometric hypotheses, quantitative cut estimates and transfer to the target circuit family require their own proofs.

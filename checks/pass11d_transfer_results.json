@@ -1,0 +1,124 @@
+{
+  "target": "Paper.Transfer",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 12,
+  "modules": [
+    {
+      "module": "Nc.PermCoeff",
+      "source": "Nc/PermCoeff.lean",
+      "sha256": "9c9c454a714148de9f2cc2b2ceab3c65bd287dbc9714a52b314d842c7aa64b28",
+      "exit_code": 0,
+      "seconds": 17.74
+    },
+    {
+      "module": "Nc.PermGrid",
+      "source": "Nc/PermGrid.lean",
+      "sha256": "f5e202c98cb933c92ac6a4a6c1ff0bb20ca133b0d9390dccc9d9c9bd5250964a",
+      "exit_code": 0,
+      "seconds": 14.38
+    },
+    {
+      "module": "Nc.PermSum",
+      "source": "Nc/PermSum.lean",
+      "sha256": "3b5ac4084e6446f03784d90738f15db9347536089682cc265d3d9c45f954bf9f",
+      "exit_code": 0,
+      "seconds": 17.0
+    },
+    {
+      "module": "Nc.PermPad",
+      "source": "Nc/PermPad.lean",
+      "sha256": "2f2141f118afde65f62b4866003623581d65e941d88e162e6e6f5bdaf406c2b1",
+      "exit_code": 0,
+      "seconds": 92.8
+    },
+    {
+      "module": "Nc.LowDegree",
+      "source": "Nc/LowDegree.lean",
+      "sha256": "ae26842182c09a0154db023ecb736b11e86137632f5e852c0f192e3e1c28316b",
+      "exit_code": 0,
+      "seconds": 25.74
+    },
+    {
+      "module": "Nc.PermValiant",
+      "source": "Nc/PermValiant.lean",
+      "sha256": "9b641520ee81b2633c6bad023ad8fa0387f16260fc687554b48b371809b72e7e",
+      "exit_code": 0,
+      "seconds": 88.61
+    },
+    {
+      "module": "Ov.Core.Tensor",
+      "source": "Ov/Core/Tensor.lean",
+      "sha256": "82361b4ace7bf2776a8177e96b56e54b2d323e44bf4851b52dc17d597e6261a8",
+      "exit_code": 0,
+      "seconds": 44.95
+    },
+    {
+      "module": "Nc.Rate.Defs",
+      "source": "Nc/Rate/Defs.lean",
+      "sha256": "fc75e02af3fdc602affaf2ef55c9052b3aff800fce76b992ee5e1b6cb3f4b032",
+      "exit_code": 0,
+      "seconds": 71.74
+    },
+    {
+      "module": "Nc.Final.CClasses",
+      "source": "Nc/Final/CClasses.lean",
+      "sha256": "23bc513841bbc63efa341ddbe25599b579d8c0c0566a280e1b4f25cb2db12b91",
+      "exit_code": 0,
+      "seconds": 31.37
+    },
+    {
+      "module": "Nc.Rate.Truncate",
+      "source": "Nc/Rate/Truncate.lean",
+      "sha256": "738ba022b4a9d65969bb36c12a0b8ce7e2d211c0292ba409632bac0faa13660c",
+      "exit_code": 0,
+      "seconds": 17.13
+    },
+    {
+      "module": "Nc.Rate.Transfer",
+      "source": "Nc/Rate/Transfer.lean",
+      "sha256": "fef6635d4265d780ab41526da43e3ff0f4348fa70a86694b8b1acb21bcc86ee4",
+      "exit_code": 0,
+      "seconds": 6.86
+    },
+    {
+      "module": "Paper.Transfer",
+      "source": "Paper/Transfer.lean",
+      "sha256": "b586940b6f5c743f8b46016be9a156086186f222ca68463c04b743cfd014e912",
+      "exit_code": 0,
+      "seconds": 7.35
+    }
+  ],
+  "verification": {
+    "queries": [
+      "#check @Nc.exists_common_ring",
+      "#print axioms Nc.exists_common_ring",
+      "#check @Nc.exists_specialisation",
+      "#print axioms Nc.exists_specialisation",
+      "#check @Paper.lem_transfer",
+      "#print axioms Paper.lem_transfer",
+      "#print axioms prime_field_obstruction"
+    ],
+    "exit_code": 0,
+    "output": "Nc.exists_common_ring : ∀ (F : Type u_1) (KK : Type) [inst : Field F] [inst_1 : Field KK] (p : ℕ) [CharP F p]\n  [CharP KK p], ∃ T x, ∃ (_ : Nontrivial T), Nonempty (F →+* T) ∧ Nonempty (KK →+* T)\n'Nc.exists_common_ring' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Nc.exists_specialisation : ∀ {KK : Type u_1} {T : Type u_2} [inst : Field KK] [IsAlgClosed KK] [inst_2 : CommRing T]\n  [Nontrivial T] (g : KK →+* T) (S : Finset T), ∃ A, ↑S ⊆ ↑A ∧ Nonempty (↥A →+* KK)\n'Nc.exists_specialisation' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.lem_transfer : ∀ {F : Type u_1} {KK : Type} [inst : Field F] [inst_1 : Field KK] [IsAlgClosed KK] {X : Type u_2}\n  (p : ℕ) [CharP F p] [CharP KK p] (q : MvPolynomial X ℤ) {S : ℕ},\n  Nc.Computes ((MvPolynomial.map (Int.castRingHom F)) q) S → Nc.Computes ((MvPolynomial.map (Int.castRingHom KK)) q) S\n'Paper.lem_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]\n'prime_field_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "query_file": "checks/pass11d_transfer.lean",
+    "sha256": "db3e9b2232edad176427dd94d5d03244b15fe745c60e5054e5e2e87b3aaadf41"
+  }
+}

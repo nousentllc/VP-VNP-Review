@@ -1,4 +1,4 @@
-"""Replay the unmodified publisher dependency closure for Paper.thm_cn.
+"""Replay an unmodified publisher dependency closure. The default checks Paper.thm_cn.
 
 From the review directory, with the pinned mathlib and dependencies built:
 python3 checks/pass09_endpoint_replay.py --mathlib /path/to/mathlib \
@@ -139,9 +139,19 @@ def main():
     parser.add_argument("--mathlib", required=True, type=Path, help="Built pinned mathlib checkout")
     parser.add_argument("--lean", default="lean", help="Pinned Lean executable")
     parser.add_argument("--output", required=True, type=Path, help="Destination JSON")
+    parser.add_argument("--target-module", default=TARGET, help="Publisher module to rebuild")
+    parser.add_argument("--query-file", type=Path, help="Lean declarations to check after rebuilding, inside the review repository")
     args = parser.parse_args()
+    query = args.query_file.resolve() if args.query_file else None
+    if query is not None and (not query.is_file() or REVIEW not in query.parents):
+        parser.error("--query-file must name an existing file inside the review repository")
+    if args.target_module != TARGET and query is None:
+        parser.error("--target-module needs --query-file when checking another theorem")
     with tempfile.TemporaryDirectory(prefix="pass09-fan-") as tmp:
-        result, code = run_replay(args.lean, args.mathlib.resolve(), Path(tmp))
+        result, code = run_replay(
+            args.lean, args.mathlib.resolve(), Path(tmp),
+            target_module=args.target_module, query_file=query,
+        )
         args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
     raise SystemExit(code)
 

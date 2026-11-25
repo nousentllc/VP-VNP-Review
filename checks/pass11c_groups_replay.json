@@ -1,0 +1,49 @@
+{
+  "target": "Nc.Cut.Groups",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 2,
+  "modules": [
+    {
+      "module": "Nc.Cut.Play",
+      "source": "Nc/Cut/Play.lean",
+      "sha256": "1f8e6e82823acd22d8c21f3cdc14fe759494d124fd4ee75129b2de45898c1e15",
+      "exit_code": 0,
+      "seconds": 24.42
+    },
+    {
+      "module": "Nc.Cut.Groups",
+      "source": "Nc/Cut/Groups.lean",
+      "sha256": "72edcb669eeeb889e88a05973073d89841e11554264c674f7fd0e28519a27a69",
+      "exit_code": 0,
+      "seconds": 92.8
+    }
+  ],
+  "verification": {
+    "queries": [
+      "#check @Nc.posVal_groups",
+      "#print axioms Nc.posVal_groups"
+    ],
+    "exit_code": 0,
+    "output": "@Nc.posVal_groups : ∀ {F : Type u_1} [inst : CommRing F] {A : Type u_2} {U : Type u_3} {W : Type u_4} {G : Type u_5}\n  [inst_1 : Fintype A] [inst_2 : DecidableEq A] [inst_3 : Fintype U] [inst_4 : DecidableEq U] [inst_5 : Fintype W]\n  [inst_6 : DecidableEq W] [inst_7 : Fintype G] [inst_8 : DecidableEq G] (h0 h1 : U → A) (e : W) (Seen Cur : Finset U)\n  (grp : A → G) (φ : A → (U → W) → F),\n  (Nc.posVal h0 h1 e Seen Cur fun y => ∏ a, φ a (y a)) =\n    ∑ b ∈ Nc.Common e (Nc.cutUnits h0 h1 grp Cur), ∏ g, Nc.groupVal h0 h1 e Seen Cur grp φ g b\n'Nc.posVal_groups' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "query_file": "checks/pass11c_groups.lean",
+    "sha256": "eed22e39a17f7f27d871b111b00fe27db90da802793493f96b938dde24694488"
+  }
+}

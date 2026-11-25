@@ -1,12 +1,12 @@
 # VP–VNP research review
 
-Start with the [cumulative handoff for Chat](VP_VNP_Chat_Handoff.md). It gives the paper’s exact claim, what the ten review passes established, and the next proof obligation. The [individual pass records](passes/) preserve the reasoning and manuscript references behind each finding.
+Start with the [cumulative handoff for Chat](VP_VNP_Chat_Handoff.md). It gives the paper’s exact claim, what eleven review passes established, and four concrete proof questions for the next round. The [individual pass records](passes/) preserve the reasoning and manuscript references behind each finding.
 
 The first Git checkpoint, `review-2026-11-24`, captures passes 1–4 together. The review predates the repository. For each subsequent pass, add its dated record under `passes/`, update the handoff to identify any finding that changed, and commit the two together.
 
-[Read the cumulative research report (PDF)](report/VP_VNP_Research_Review.pdf) or [open its editable TeX source](report/VP_VNP_Research_Review.tex). The report updates the nine-pass edition with the simultaneous extension in A.7 and A.8.
+[Read the cumulative research report (PDF)](report/VP_VNP_Research_Review.pdf) or [open its editable TeX source](report/VP_VNP_Research_Review.tex). The expanded edition includes four parallel audits across the geometry, flat branch, contracting branch and final field transfer. The [proof coverage map](report/proof-coverage.csv) links 43 claims, interfaces and verification steps to their roles, evidence and unresolved dependencies.
 
-[Download the complete ten-pass packet](handoff/VP_VNP_Review_2026-11-25_pass10.zip). It contains all 374 research files from commit `5ee75d1`, including the PDF, TeX, logo, pinned manuscript and full C.1 replay and A.7/A.8 verification records. ZIP SHA-256 `8540079c2ee44e2ddf9c3d7667227fc7e9411ad52e82eabab82fdd0c4e020f9a`.
+The [archived ten-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/3bf9cd5e052da8313c56e73b1346ad792dfeb95d/handoff/VP_VNP_Review_2026-11-25_pass10.zip) preserves the handoff from research commit `5ee75d1`.
 
 The [archived nine-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/8295d58c59adeaa750235483330bba66475828c1/handoff/VP_VNP_Review_2026-11-24_pass09.zip) preserves the handoff from research commit `f6909ed`.
 
@@ -26,6 +26,12 @@ The [archived six-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/
 - [Proposition C.3 and price-space completion](passes/08-price-space-completion.md), with [exact midpoint examples](checks/pass08_midpoints.py) and [a local replay of the publisher’s two completion lemmas](checks/pass08_completion.py).
 - [Theorem C.1, the curvature bound and its limits](passes/09-curvature-bound.md), with [finite-box boundary checks](checks/pass09_fan_boundary.py), [endpoint lemmas](checks/pass09_endpoint.lean), and the [full publisher-source replay](checks/pass09_endpoint_replay_results.json). The [portable replay script](checks/pass09_endpoint_replay.py) gives the toolchain and input requirements. Run `python3 checks/pass09_fan_boundary.py` from this directory.
 - [Propositions A.7 and A.8, simultaneous extension](passes/10-simultaneous-extension.md), with [exact examples](checks/pass10_examples.py) and [formal statement and axiom queries](checks/pass10_formal.lean). The [24-module verification record](checks/pass10_formal_results.json) and [portable runner](checks/pass10_formal_replay.py) document the local replay. Run `python3 checks/pass10_examples.py` from this directory.
+
+- Pass 11 comprises [crossing and curvature](passes/11a-crossing.md), [spectral selection](passes/11b-spectral-selection.md), [weighted piece decomposition](passes/11c-piece-decomposition.md), and [field transfer](passes/11d-field-transfer.md). Each record distinguishes general arguments, finite controls and machine-check scope.
+
+## How to continue the review
+
+Run at least three distinct proof questions in parallel in each research round. Give each question a manuscript claim, a downstream consumer, and an explicit obligation the track can settle. Bring all tracks back into one cumulative report, update the coverage map and Chat handoff, and record which earlier conclusions gained support, changed, or remain conditional. The [handoff](VP_VNP_Chat_Handoff.md) lists the next four questions.
 
 ## TeX covers
 

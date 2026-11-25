@@ -21,10 +21,31 @@
     ".github/workflows/lean-projects.yml"
   ],
   "local_replay": {
-    "scope": "Theorem C.1 and its 43 project imports (pass 9), the 24-module Paper.Prices closure with direct statement and axiom checks of A.7 and A.8 (pass 10), and focused declarations reported in the individual passes.",
+    "scope": "Fresh publisher-module replays for C.1 (pass 9), A.7/A.8 (pass 10) and the pass-11 targets listed below. Fresh imports of retained objects and independent finite checks are identified separately.",
     "pass09_full_module_record": "checks/pass09_endpoint_replay_results.json",
     "entire_separation_replayed": false,
     "comparator_replayed": false,
-    "pass10_extension_record": "checks/pass10_formal_results.json"
+    "pass10_extension_record": "checks/pass10_formal_results.json",
+    "pass11": {
+      "crossing": {
+        "scope": "Independent finite determinant, coefficient, rank and metric checks. General crossing declarations were imported as part of the earlier C.1 build.",
+        "check": "checks/pass11a_crossing.py"
+      },
+      "spectral_selection": {
+        "scope": "Fresh queries on 11 publisher declarations using the 24 source- and object-checked pass-10 modules. Four new elementary declarations checked.",
+        "record": "checks/pass11b_selection.json"
+      },
+      "piece_decomposition": {
+        "scope": "Fresh separate builds of Nc.Cut.Groups (2 modules) and Paper.Heavy (4 modules), with queries on five publisher declarations. The full Paper.Pieces and Paper.Cuts modules remain open.",
+        "records": [
+          "checks/pass11c_groups_replay.json",
+          "checks/pass11c_heavy_replay.json"
+        ]
+      },
+      "field_transfer": {
+        "scope": "Fresh 12-module Paper.Transfer build and readback of the common ring, finite specialization and M.1. The prime-field obstruction was checked in the same import. M.3/M.4 were inspected in source only.",
+        "record": "checks/pass11d_transfer_results.json"
+      }
+    }
   }
 }
