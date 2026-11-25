@@ -34,7 +34,7 @@
 \newcommand{\pub}[3]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/#1\#L#2}{#3}}
 \newcommand{\paper}[1]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/paper.pdf}{#1}}
 \newcommand{\review}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/33edc6eb465bb2c565e82d3461fd418c1890d65e/#1}{#2}}
-\newcommand{\currentreview}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/main/#1}{#2}}
+\newcommand{\currentreview}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/e66f5c5257493c2548903380bfc6a72fb0289c7b/#1}{#2}}
 \newcommand{\smallref}[1]{{\small\sffamily\color{muted}#1\par}}
 \newcommand{\HC}{\mathrm{HC}}
 \newcommand{\Perm}{\mathrm{PERM}}
@@ -141,7 +141,7 @@ Divide by $\theta>0$ and use $\Lambda_2\le(D+b)^2$. This gives
 Each $T$ can have its own fan and averaged lengths. The numerator depends only on the original points, so $T\to\infty$ gives $\Gamma\le-D^2$. A joint limit such as $A=T$ would leave $1/(A\theta)=1$ and would not justify the intercept step. The successive estimates avoid that interchange.
 
 \subhead{What Lean checked}
-Lean 4.33.1 freshly compiled all 44 unchanged publisher modules needed for \texttt{Paper.Fan}, using pinned libraries from nine external dependency revisions. A fresh import confirmed the field-parametric statement of C.1. The axiom reports for C.2, the endpoint estimate and C.1 list only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. \href{https://github.com/nousentllc/VP-VNP-Review/blob/main/checks/pass09_endpoint_replay_results.json}{Replay record.}
+Lean 4.33.1 freshly compiled all 44 unchanged publisher modules needed for \texttt{Paper.Fan}, using pinned libraries from nine external dependency revisions. A fresh import confirmed the field-parametric statement of C.1. The axiom reports for C.2, the endpoint estimate and C.1 list only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. \href{https://github.com/nousentllc/VP-VNP-Review/blob/e66f5c5257493c2548903380bfc6a72fb0289c7b/checks/pass09_endpoint_replay_results.json}{Replay record.}
 
 A separate check covered the discrete-concavity lemma and four independent declarations, including the endpoint with witnesses chosen once per $T$ for all $A$. Exact arithmetic checked 102 finite-box cases and five growing-step identities. Pass 8 replayed two C.3 completion lemmas. Pass 12E subsequently rebuilt the full C.3 module along with D.2. The complete separation and Comparator still require independent replay.
 
@@ -196,7 +196,7 @@ Finite witnesses need not agree in advance. Order the finite test sets by inclus
 
 \textbf{Why equality on new pairs would fail.} Take two old points a unit apart. A fair coin assigns two new labels to opposite endpoints, then swaps them. Each label's distance to each old endpoint is at most $1/2$, hence exactly $1/2$ by the triangle inequality. Both labels are midpoints of the old pair; C.1 forces their mutual distance to zero, although its expected value under placement is one.
 
-\textbf{Independent replay.} Lean 4.33.1 compiled all 24 original project modules in the \texttt{Paper.Prices} import closure, including \texttt{Paper.Extension}. The source files matched the pinned publisher versions. The 26 statement and axiom queries covered 13 declarations. Each listed only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. \href{https://github.com/nousentllc/VP-VNP-Review/blob/main/checks/pass10_formal_results.json}{Pass 10 replay record.}
+\textbf{Independent replay.} Lean 4.33.1 compiled all 24 original project modules in the \texttt{Paper.Prices} import closure, including \texttt{Paper.Extension}. The source files matched the pinned publisher versions. The 26 statement and axiom queries covered 13 declarations. Each listed only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. \href{https://github.com/nousentllc/VP-VNP-Review/blob/e66f5c5257493c2548903380bfc6a72fb0289c7b/checks/pass10_formal_results.json}{Pass 10 replay record.}
 
 \subhead{The second geometric input}
 The extension constructs the fan. The crossing identity in Proposition B.2 supplies a separate input through Proposition B.3 and its displayed inequality (B.2). Page 7 follows the same coefficient tensor through the two decompositions and the passage to averaged lengths.
