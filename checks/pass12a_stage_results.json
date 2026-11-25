@@ -1,0 +1,52 @@
+{
+  "target": "Nc.Tow.Load",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 2,
+  "modules": [
+    {
+      "module": "Nc.Tow.Defs",
+      "source": "Nc/Tow/Defs.lean",
+      "sha256": "8f5cb1a958c961cd8179dd744bfcb596d1fa952e1ff8e398844c177c5015c9e3",
+      "exit_code": 0,
+      "seconds": 31.71,
+      "output": "Nc/Tow/Defs.lean:53:14: warning: Variable name `i` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _i\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+    },
+    {
+      "module": "Nc.Tow.Load",
+      "source": "Nc/Tow/Load.lean",
+      "sha256": "6fde025414f40ce1b89194670001fe205429a5ff4e1fcfa9a9544afe51d8dc51",
+      "exit_code": 0,
+      "seconds": 9.41,
+      "output": "Nc/Tow/Load.lean:189:55: warning: Variable name `hf` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hf\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n"
+    }
+  ],
+  "verification": {
+    "queries": [
+      "#check @Nc.Tow.Tower.load_step",
+      "#print axioms Nc.Tow.Tower.load_step",
+      "#print axioms compensated_load_bound"
+    ],
+    "exit_code": 0,
+    "output": "@Nc.Tow.Tower.load_step : ∀ {h b D J r : ℕ} {T : Nc.Tow.Tower h b D J r} {j : ℕ} (hj : j < J),\n  0 < r →\n    0 < b →\n      b ≤ 2 * D →\n        ∀ {i : Fin h} {n : T.Ed j → ℕ} {n' : T.Ed (j + 1) → ℕ} {C₁ a₁ ρ : ℝ},\n          0 ≤ C₁ →\n            0 ≤ a₁ →\n              0 ≤ ρ →\n                1 + 8 * C₁ ≤ ρ ^ 2 * ↑h →\n                  ↑h * ∑ e with T.ty e = i, ↑(n e) ^ 2 ≤ ∑ e, ↑(n e) ^ 2 →\n                    (∀ (e' : T.Ed (j + 1)), T.ty e' = i → n' e' ≤ ∑ e with T.πE e = e', n e) →\n                      ∀ (t : T.V (j + 1) i → ℕ),\n                        (∀ (ω : T.V j.succ i),\n                            ↑r * ↑b / 2 * ∑ ν, ↑(n' ↑((T.nr ⋯ i).symm (ω, ν))) ^ 2 ≤ C₁ * a₁ ^ 2 * ↑(t ω) ^ 2) →\n                          (∀ (ω : T.V (j + 1) i), a₁ * ↑(t ω) ≤ √(T.NN2 (T.nEnd i n ω)) + a₁) →\n                            T.kap n' ≤ ρ * T.kap n + √C₁ * a₁ / ↑b * ↑(Fintype.card (T.X (j + 1)))\n'Nc.Tow.Tower.load_step' depends on axioms: [propext, Classical.choice, Quot.sound]\n'compensated_load_bound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "query_file": "checks/pass12a_stage.lean",
+    "sha256": "2576e9b5cb2fd7f587f844e3cd9821860ed59d24861506f0ced92dd8f05372c5"
+  }
+}

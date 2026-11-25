@@ -21,7 +21,7 @@
     ".github/workflows/lean-projects.yml"
   ],
   "local_replay": {
-    "scope": "Fresh publisher-module replays for C.1 (pass 9), A.7/A.8 (pass 10) and the pass-11 targets listed below. Fresh imports of retained objects and independent finite checks are identified separately.",
+    "scope": "Fresh publisher-module builds, retained-object readbacks and isolated declarations are distinguished by pass and target below. The shared replay runner uses pinned Lean and prebuilt mathlib dependencies.",
     "pass09_full_module_record": "checks/pass09_endpoint_replay_results.json",
     "entire_separation_replayed": false,
     "comparator_replayed": false,
@@ -45,6 +45,41 @@
       "field_transfer": {
         "scope": "Fresh 12-module Paper.Transfer build and readback of the common ring, finite specialization and M.1. The prime-field obstruction was checked in the same import. M.3/M.4 were inspected in source only.",
         "record": "checks/pass11d_transfer_results.json"
+      }
+    },
+    "pass12": {
+      "law_move_and_load": {
+        "scope": "Two original modules in the Nc.Tow.Load closure, with stage load readback and independent compensated induction. Three publisher declarations queried in a separate isolated law harness. Full Paper.Tree and G.2 remain outside this replay.",
+        "records": [
+          "checks/pass12a_stage_results.json",
+          "checks/pass12a_law_results.json"
+        ],
+        "finite_check": "checks/pass12a_moves.py"
+      },
+      "hc_projection": {
+        "scope": "Fresh 13-module Paper.HcGrid closure. Eight publisher declarations read back, including M.2 and affine substitution. Independent finite graph/cycle enumeration.",
+        "record": "checks/pass12b_projection_replay.json",
+        "finite_check": "checks/pass12b_cycles.py"
+      },
+      "flat_rate": {
+        "scope": "Five unchanged publisher arithmetic declarations checked in isolation and an independent general induction. Mathematical audit and exact finite controls. Full E.7–E.11 modules were not rebuilt for this track.",
+        "record": "checks/pass12c_replay_results.json",
+        "finite_check": "checks/pass12c_flat.py"
+      },
+      "crossing_counts_and_minors": {
+        "scope": "Fresh 10-module Paper.Identity closure. Eight publisher declarations queried, including B.1 and B.2. The explicit normalization and signed-minor formula for the printed convention are independent mathematical derivations.",
+        "record": "checks/pass12d_formal_results.json",
+        "finite_check": "checks/pass12d_counts_minors.py",
+        "hub_routing": {
+          "scope": "Local-map derivation and exact enumeration of 116 placements and 600 entries. The 12E Paper.Alternative closure includes Paper.Prices.",
+          "check": "checks/pass12d_hubs.py",
+          "note": "passes/12d-hub-routing.md"
+        }
+      },
+      "field_alternative": {
+        "scope": "Fresh 54-module Paper.Alternative closure, including complete original modules for C.1, C.3, C.4's toolkit and D.2. Formal readbacks cover the shared price and the field alternative. The arbitrary-field caller M.3 and the full separation are separate targets.",
+        "record": "checks/pass12e_alternative_replay.json",
+        "source_and_receipt_verifier": "checks/pass12e_verify_pin.py"
       }
     }
   }

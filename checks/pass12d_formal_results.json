@@ -1,0 +1,119 @@
+{
+  "target": "Paper.Identity",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 10,
+  "modules": [
+    {
+      "module": "Nc.Cross.Split",
+      "source": "Nc/Cross/Split.lean",
+      "sha256": "39bd1677a40b591058b7643093d4563a1bd9715c3ba53a375ca74eb0c7cf448a",
+      "exit_code": 0,
+      "seconds": 46.14
+    },
+    {
+      "module": "Nc.Cross.Near",
+      "source": "Nc/Cross/Near.lean",
+      "sha256": "f183f827cca7c419304307ed32230f11ff39d5c62979b8428a7eb1a485aa9479",
+      "exit_code": 0,
+      "seconds": 8.5
+    },
+    {
+      "module": "Nc.Cross.Count",
+      "source": "Nc/Cross/Count.lean",
+      "sha256": "69ea9b4dd8411be71905d4b73e983a4f7d760ccdd20838dc469f6f4c523cd687",
+      "exit_code": 0,
+      "seconds": 11.01
+    },
+    {
+      "module": "Paper.States",
+      "source": "Paper/States.lean",
+      "sha256": "a99a5c13c2bf32d1ed3cc8cb9ad92f0c9681ac869f8b3acca99ea0ad6dc385e7",
+      "exit_code": 0,
+      "seconds": 6.8
+    },
+    {
+      "module": "Nc.Cross.Meix",
+      "source": "Nc/Cross/Meix.lean",
+      "sha256": "b69f069880916b79d9efa7b96b6c7e6dd24145833b15f23bf041e36d356da42b",
+      "exit_code": 0,
+      "seconds": 5.17
+    },
+    {
+      "module": "Nc.Cross.Psi",
+      "source": "Nc/Cross/Psi.lean",
+      "sha256": "052b46e64842e66ea31f32d2f1b59d3301c61db012e98b5d95d45f5833143ba2",
+      "exit_code": 0,
+      "seconds": 5.55
+    },
+    {
+      "module": "Nc.Cross.Inv",
+      "source": "Nc/Cross/Inv.lean",
+      "sha256": "7a468e30c84ad8c45a7c2259430addafa53c6e9e43d55f9a8dd4d026442212ff",
+      "exit_code": 0,
+      "seconds": 4.67
+    },
+    {
+      "module": "Nc.Cross.One",
+      "source": "Nc/Cross/One.lean",
+      "sha256": "28d3afb1c8c3274497eab441e6f8a485db1a5e760515e289a29ba15b4d0e1396",
+      "exit_code": 0,
+      "seconds": 4.56
+    },
+    {
+      "module": "Nc.Cross.Ident",
+      "source": "Nc/Cross/Ident.lean",
+      "sha256": "17b7789247fbd9e9a61d374a760b05cbc40a7dd7d82a467b49fd24826a1b5989",
+      "exit_code": 0,
+      "seconds": 4.6
+    },
+    {
+      "module": "Paper.Identity",
+      "source": "Paper/Identity.lean",
+      "sha256": "694be3bb200050e339590c083f71cf5d3279a9a4e77c8b6c38590b1961ad96fa",
+      "exit_code": 0,
+      "seconds": 11.37
+    }
+  ],
+  "verification": {
+    "queries": [
+      "#check @Paper.lem_count_interleave",
+      "#print axioms Paper.lem_count_interleave",
+      "#check @Paper.lem_count",
+      "#print axioms Paper.lem_count",
+      "#check @Paper.eq_orth",
+      "#print axioms Paper.eq_orth",
+      "#check @Paper.prop_identity_schur",
+      "#print axioms Paper.prop_identity_schur",
+      "#check @Paper.prop_identity_term_zero",
+      "#print axioms Paper.prop_identity_term_zero",
+      "#check @Paper.prop_identity_term_product",
+      "#print axioms Paper.prop_identity_term_product",
+      "#check @Paper.prop_identity_reflection_coeff",
+      "#print axioms Paper.prop_identity_reflection_coeff",
+      "#check @Paper.prop_identity",
+      "#print axioms Paper.prop_identity"
+    ],
+    "exit_code": 0,
+    "output": "Paper.lem_count_interleave : ∀ (k E : ℕ), Paper.stateCount E ^ k ≤ Paper.stateCount (k ^ 2 * E)\n'Paper.lem_count_interleave' depends on axioms: [propext, Classical.choice, Quot.sound]\nPaper.lem_count : ∃ κ,\n  0 < κ ∧\n    (∀ (E : ℕ), Real.log ↑(Paper.stateCount E) ≤ κ * √↑E) ∧\n      ∀ (ε : ℝ), 0 < ε → ∀ᶠ (E : ℕ) in Filter.atTop, (κ - ε) * √↑E ≤ Real.log ↑(Paper.stateCount E)\n'Paper.lem_count' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.eq_orth : ∀ {A : Type u_1} [inst : CommRing A] (y : A) (R i j : ℕ),\n  y ^ R ∣ (1 - y) * ∑ r ∈ Finset.range R, y ^ r * (Nc.Cross.mB y r i * Nc.Cross.mB y r j) - if i = j then y ^ i else 0\n'Paper.eq_orth' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_identity_schur : ∀ {p : Type u_1} {q : Type u_2} {ρ : Type u_3} [inst : Fintype p] [inst_1 : DecidableEq p]\n  [inst_2 : Fintype q] [inst_3 : DecidableEq q] [inst_4 : Fintype ρ] [inst_5 : DecidableEq ρ] {R : Type u_4}\n  [inst_6 : CommRing R] (l : ρ → R) (X : Matrix p p R) (A : Matrix p ρ R) (A' : Matrix ρ p R) (Y : Matrix q q R)\n  (B : Matrix ρ q R) (B' : Matrix q ρ R),\n  (Matrix.fromBlocks X (A * Matrix.diagonal l * B) (B' * Matrix.diagonal l * A') Y).det =\n    (Matrix.fromBlocks (Matrix.fromBlocks X 0 0 Y) (Matrix.fromBlocks A 0 0 B')\n        (-Matrix.fromBlocks 0 (Matrix.diagonal l * B) (Matrix.diagonal l * A') 0) 1).det\n'Paper.prop_identity_schur' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_identity_term_zero : ∀ {p : Type u_1} {q : Type u_2} {ρ : Type u_3} [inst : Fintype p]\n  [inst_1 : DecidableEq p] [inst_2 : Fintype q] [inst_3 : DecidableEq q] [inst_4 : Fintype ρ] [inst_5 : DecidableEq ρ]\n  {R : Type u_4} [inst_6 : CommRing R] (T : Finset (ρ ⊕ ρ)),\n  T.toLeft.card ≠ T.toRight.card →\n    ∀ (X : Matrix p p R) (A : Matrix p ρ R) (A' : Matrix ρ p R) (Y : Matrix q q R) (B : Matrix ρ q R)\n      (B' : Matrix q ρ R), (Nc.Cross.termMat T X A A' Y B B').det = 0\n'Paper.prop_identity_term_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_identity_term_product : ∀ {p : Type u_1} {q : Type u_2} {ρ : Type u_3} [inst : Fintype p]\n  [inst_1 : DecidableEq p] [inst_2 : Fintype q] [inst_3 : DecidableEq q] [inst_4 : Fintype ρ] [inst_5 : DecidableEq ρ]\n  {R : Type u_4} [inst_6 : CommRing R] (T : Finset (ρ ⊕ ρ)),\n  ∃ α β,\n    ∀ (X : Matrix p p R) (A : Matrix p ρ R) (A' : Matrix ρ p R) (Y : Matrix q q R) (B : Matrix ρ q R)\n      (B' : Matrix q ρ R), (Nc.Cross.termMat T X A A' Y B B').det = α X A A' * β Y B B'\n'Paper.prop_identity_term_product' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_identity_reflection_coeff : ∀ {μ ν : ℕ} (sa : Nc.Cross.Wd μ) (sb : Nc.Cross.Wd ν) (sc : Nc.Cross.Wd μ)\n  (sd : Nc.Cross.Wd ν) {e₁ e₂ : ℕ},\n  Nc.Cross.enW sa = e₁ →\n    Nc.Cross.enW sb = e₂ →\n      Nc.Cross.enW sc = e₁ →\n        Nc.Cross.enW sd = e₂ →\n          (Nc.Cross.psi Polynomial.X sa sb sc sd).natDegree ≤ 2 * (e₁ + e₂) ∧\n            ∀ (N M : ℕ),\n              N + M = 2 * (e₁ + e₂) →\n                (Nc.Cross.psi Polynomial.X sa sb sc sd).coeff N = (Nc.Cross.psi Polynomial.X sa sd sc sb).coeff M\n'Paper.prop_identity_reflection_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]\nPaper.prop_identity : ∀ (μ ν e₁ e₂ : ℕ),\n  ∃ Ψ,\n    (∀ (a : ↥(Nc.Cross.states μ e₁)) (b : ↥(Nc.Cross.states ν e₂)) (c : ↥(Nc.Cross.states μ e₁))\n        (d : ↥(Nc.Cross.states ν e₂)), ∑ N, Ψ N a b c d = (if a = c then 1 else 0) * if b = d then 1 else 0) ∧\n      (∀ (N : Fin (2 * (e₁ + e₂) + 1)),\n          ∃ g h,\n            ∀ (a : ↥(Nc.Cross.states μ e₁)) (b : ↥(Nc.Cross.states ν e₂)) (c : ↥(Nc.Cross.states μ e₁))\n              (d : ↥(Nc.Cross.states ν e₂)), Ψ N a b c d = ∑ k, g k (a, d) * h k (b, c)) ∧\n        ∀ (N : Fin (2 * (e₁ + e₂) + 1)) (N' : ℕ),\n          N' = 2 * (e₁ + e₂) - ↑N →\n            ∃ g h,\n              ∀ (a : ↥(Nc.Cross.states μ e₁)) (b : ↥(Nc.Cross.states ν e₂)) (c : ↥(Nc.Cross.states μ e₁))\n                (d : ↥(Nc.Cross.states ν e₂)), Ψ N a b c d = ∑ k, g k (a, b) * h k (c, d)\n'Paper.prop_identity' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "query_file": "checks/pass12d_crossing.lean",
+    "sha256": "2dfad0de41569e0b4b5a3c67c7f58f420b5b7db8503e8a2898802a92549e9606"
+  }
+}

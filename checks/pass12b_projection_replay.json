@@ -1,0 +1,140 @@
+{
+  "target": "Paper.HcGrid",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 13,
+  "modules": [
+    {
+      "module": "Nc.PermCoeff",
+      "source": "Nc/PermCoeff.lean",
+      "sha256": "9c9c454a714148de9f2cc2b2ceab3c65bd287dbc9714a52b314d842c7aa64b28",
+      "exit_code": 0,
+      "seconds": 6.81
+    },
+    {
+      "module": "Nc.PermGrid",
+      "source": "Nc/PermGrid.lean",
+      "sha256": "f5e202c98cb933c92ac6a4a6c1ff0bb20ca133b0d9390dccc9d9c9bd5250964a",
+      "exit_code": 0,
+      "seconds": 7.39
+    },
+    {
+      "module": "Nc.PermSum",
+      "source": "Nc/PermSum.lean",
+      "sha256": "3b5ac4084e6446f03784d90738f15db9347536089682cc265d3d9c45f954bf9f",
+      "exit_code": 0,
+      "seconds": 10.34
+    },
+    {
+      "module": "Nc.PermPad",
+      "source": "Nc/PermPad.lean",
+      "sha256": "2f2141f118afde65f62b4866003623581d65e941d88e162e6e6f5bdaf406c2b1",
+      "exit_code": 0,
+      "seconds": 4.96
+    },
+    {
+      "module": "Nc.LowDegree",
+      "source": "Nc/LowDegree.lean",
+      "sha256": "ae26842182c09a0154db023ecb736b11e86137632f5e852c0f192e3e1c28316b",
+      "exit_code": 0,
+      "seconds": 4.4
+    },
+    {
+      "module": "Nc.PermValiant",
+      "source": "Nc/PermValiant.lean",
+      "sha256": "9b641520ee81b2633c6bad023ad8fa0387f16260fc687554b48b371809b72e7e",
+      "exit_code": 0,
+      "seconds": 5.06
+    },
+    {
+      "module": "Ov.Core.Tensor",
+      "source": "Ov/Core/Tensor.lean",
+      "sha256": "82361b4ace7bf2776a8177e96b56e54b2d323e44bf4851b52dc17d597e6261a8",
+      "exit_code": 0,
+      "seconds": 4.45
+    },
+    {
+      "module": "Nc.Rate.Defs",
+      "source": "Nc/Rate/Defs.lean",
+      "sha256": "fc75e02af3fdc602affaf2ef55c9052b3aff800fce76b992ee5e1b6cb3f4b032",
+      "exit_code": 0,
+      "seconds": 4.3
+    },
+    {
+      "module": "Nc.Hc.Segments",
+      "source": "Nc/Hc/Segments.lean",
+      "sha256": "a2c81c6dbe28cdda63ff34c72baeb9ee5bd90e55b3b8bda4d6dc7d4467011ff0",
+      "exit_code": 0,
+      "seconds": 5.49
+    },
+    {
+      "module": "Nc.WidePerm",
+      "source": "Nc/WidePerm.lean",
+      "sha256": "b06a38d4735a7d82ba119e6d6f6486991d72cd02bccee3b395f28dd7a2b7a530",
+      "exit_code": 0,
+      "seconds": 4.42
+    },
+    {
+      "module": "Nc.Hc.Grid",
+      "source": "Nc/Hc/Grid.lean",
+      "sha256": "9f7cfc50e6bc4c9611d7cd0d8b6bf7fe5cc444fbc6ee6c0156e8f9381ead60e0",
+      "exit_code": 0,
+      "seconds": 6.32
+    },
+    {
+      "module": "Paper.Grids",
+      "source": "Paper/Grids.lean",
+      "sha256": "329c667627c804d680cbaecb242d117e410b531884a39a34ccf1293416453f2a",
+      "exit_code": 0,
+      "seconds": 11.32
+    },
+    {
+      "module": "Paper.HcGrid",
+      "source": "Paper/HcGrid.lean",
+      "sha256": "0b885a34d1cc38ed44765a72e0d1f50c30ebe2bcb2c81fea449b2604e307a8ce",
+      "exit_code": 0,
+      "seconds": 4.91
+    }
+  ],
+  "verification": {
+    "queries": [
+      "#check @Nc.Hc.Row.exists_traverse",
+      "#print axioms Nc.Hc.Row.exists_traverse",
+      "#check @Nc.Hc.Row.hcSum_weight",
+      "#print axioms Nc.Hc.Row.hcSum_weight",
+      "#check @Nc.Hc.eq_choice_of_valid",
+      "#print axioms Nc.Hc.eq_choice_of_valid",
+      "#check @Nc.Hc.gridRow_noParallel",
+      "#print axioms Nc.Hc.gridRow_noParallel",
+      "#check @Nc.Hc.hcSum_grid",
+      "#print axioms Nc.Hc.hcSum_grid",
+      "#check @Paper.prop_hc_grid",
+      "#print axioms Paper.prop_hc_grid",
+      "#check @Paper.gridComplete_hc",
+      "#print axioms Paper.gridComplete_hc",
+      "#check @Nc.Computes.aeval",
+      "#print axioms Nc.Computes.aeval"
+    ],
+    "exit_code": 0,
+    "output": "@Nc.Hc.Row.exists_traverse : ∀ {I : Type u_1} {G : Type u_2} {O : I → Type u_3} [Fintype I] [inst : DecidableEq I]\n  [inst_1 : Fintype G] [inst_2 : (i : I) → DecidableEq (O i)] {T : Nc.Hc.Row O G} {σ : Equiv.Perm (Nc.Hc.Vtx I G)},\n  σ.IsCycleOn Set.univ →\n    (∀ (p : Nc.Hc.Vtx I G), T.Edge p (σ p)) →\n      ∀ (g : G),\n        ∃ s,\n          σ (Nc.Hc.Vtx.tip g s) = Nc.Hc.Vtx.mid g ∧\n            σ (Nc.Hc.Vtx.mid g) = Nc.Hc.Vtx.tip g !s ∧ σ (Nc.Hc.Vtx.tip g !s) = T.after (g, s)\n'Nc.Hc.Row.exists_traverse' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Nc.Hc.Row.hcSum_weight : ∀ {I : Type u_1} {G : Type u_2} {O : I → Type u_3} [inst : Fintype I] [inst_1 : DecidableEq I]\n  [inst_2 : Fintype G] [inst_3 : DecidableEq G] [inst_4 : (i : I) → Fintype (O i)]\n  [inst_5 : (i : I) → DecidableEq (O i)] {T : Nc.Hc.Row O G} {R : Type u_4} [inst_6 : CommSemiring R],\n  T.next.IsCycleOn Set.univ →\n    T.NoParallel →\n      ∀ (w : (i : I) → O i → R) [inst_7 : DecidablePred T.Valid],\n        Nc.Hc.hcSum (T.weight w) = ∑ J with T.Valid J, ∏ i, w i (J i)\n'Nc.Hc.Row.hcSum_weight' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Nc.Hc.eq_choice_of_valid : ∀ {N V K P : Type} {v : N → V} {w : N → K} {next : Equiv.Perm (Nc.Hc.Seg N V K P)}\n  {J : (i : Nc.Hc.Seg N V K P) → Nc.Hc.Opt i},\n  (Nc.Hc.gridRow v w next).Valid J → J = Nc.Hc.choice v w (fun a => J (Nc.Hc.Seg.var a)) fun b => J (Nc.Hc.Seg.row b)\n'Nc.Hc.eq_choice_of_valid' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Nc.Hc.gridRow_noParallel : ∀ {N V K P : Type} {v : N → V} {w : N → K} {next : Equiv.Perm (Nc.Hc.Seg N V K P)},\n  Function.Surjective v → Function.Surjective w → (Nc.Hc.gridRow v w next).NoParallel\n'Nc.Hc.gridRow_noParallel' does not depend on any axioms\n@Nc.Hc.hcSum_grid : ∀ {N V K P : Type} {v : N → V} {w : N → K} {next : Equiv.Perm (Nc.Hc.Seg N V K P)}\n  [inst : Fintype N] [inst_1 : DecidableEq N] [inst_2 : Fintype V] [inst_3 : DecidableEq V] [inst_4 : Fintype K]\n  [inst_5 : DecidableEq K] [inst_6 : Fintype P] [inst_7 : DecidableEq P] {R : Type u_1} [inst_8 : CommSemiring R],\n  Function.Surjective v →\n    Function.Surjective w →\n      next.IsCycleOn Set.univ →\n        ∀ (W : N → Bool → Bool → R),\n          Nc.Hc.hcSum ((Nc.Hc.gridRow v w next).weight (Nc.Hc.gridWeight W)) = ∑ x, ∑ r, ∏ n, W n (x (v n)) (r (w n))\n'Nc.Hc.hcSum_grid' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_hc_grid : ∀ {R : Type} [inst : CommRing R] {N V K : Type} [inst_1 : Fintype N] [DecidableEq N]\n  [inst_3 : Fintype V] [inst_4 : DecidableEq V] [inst_5 : Fintype K] [inst_6 : DecidableEq K] (v : N → V) (w : N → K),\n  Function.Surjective v →\n    Function.Surjective w →\n      ∀ (W : N → Bool → Bool → R) {S : ℕ},\n        40 * Fintype.card N ≤ S →\n          ∃ M,\n            (∀ (i j : Fin S), M i j = 0 ∨ M i j = 1 ∨ ∃ n x r, M i j = W n x r) ∧\n              Nc.Hc.hcSum M = ∑ x, ∑ r, ∏ n, W n (x (v n)) (r (w n))\n'Paper.prop_hc_grid' depends on axioms: [propext, Classical.choice, Quot.sound]\nPaper.gridComplete_hc : ∀ (F : Type) [inst : Field F], Nc.GridComplete F (Nc.genHC F) 40\n'Paper.gridComplete_hc' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Nc.Computes.aeval : ∀ {F : Type u_1} [inst : Field F] {ι : Type u_2} {κ : Type u_3} {p : MvPolynomial κ F} {s : ℕ},\n  Nc.Computes p s →\n    ∀ (E : κ → MvPolynomial ι F), (∀ (k : κ), Nc.IsAffine (E k)) → Nc.Computes ((MvPolynomial.aeval E) p) (5 * s)\n'Nc.Computes.aeval' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "query_file": "checks/pass12b_projection.lean",
+    "sha256": "d0c41b3cd34ad6b35331374cfbb44fdf3030169bc35c6e8b65743d3a9a10d382"
+  }
+}

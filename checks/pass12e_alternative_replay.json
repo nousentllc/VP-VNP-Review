@@ -1,0 +1,434 @@
+{
+  "target": "Paper.Alternative",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 54,
+  "modules": [
+    {
+      "module": "Nc.Cross.Split",
+      "source": "Nc/Cross/Split.lean",
+      "sha256": "39bd1677a40b591058b7643093d4563a1bd9715c3ba53a375ca74eb0c7cf448a",
+      "exit_code": 0,
+      "seconds": 52.74
+    },
+    {
+      "module": "Nc.Cross.Near",
+      "source": "Nc/Cross/Near.lean",
+      "sha256": "f183f827cca7c419304307ed32230f11ff39d5c62979b8428a7eb1a485aa9479",
+      "exit_code": 0,
+      "seconds": 16.78
+    },
+    {
+      "module": "Nc.Cross.Count",
+      "source": "Nc/Cross/Count.lean",
+      "sha256": "69ea9b4dd8411be71905d4b73e983a4f7d760ccdd20838dc469f6f4c523cd687",
+      "exit_code": 0,
+      "seconds": 5.05
+    },
+    {
+      "module": "Paper.States",
+      "source": "Paper/States.lean",
+      "sha256": "a99a5c13c2bf32d1ed3cc8cb9ad92f0c9681ac869f8b3acca99ea0ad6dc385e7",
+      "exit_code": 0,
+      "seconds": 6.86
+    },
+    {
+      "module": "Nc.Cross.Meix",
+      "source": "Nc/Cross/Meix.lean",
+      "sha256": "b69f069880916b79d9efa7b96b6c7e6dd24145833b15f23bf041e36d356da42b",
+      "exit_code": 0,
+      "seconds": 5.53
+    },
+    {
+      "module": "Nc.Cross.Psi",
+      "source": "Nc/Cross/Psi.lean",
+      "sha256": "052b46e64842e66ea31f32d2f1b59d3301c61db012e98b5d95d45f5833143ba2",
+      "exit_code": 0,
+      "seconds": 6.96
+    },
+    {
+      "module": "Nc.Cross.Inv",
+      "source": "Nc/Cross/Inv.lean",
+      "sha256": "7a468e30c84ad8c45a7c2259430addafa53c6e9e43d55f9a8dd4d026442212ff",
+      "exit_code": 0,
+      "seconds": 21.65
+    },
+    {
+      "module": "Nc.Cross.One",
+      "source": "Nc/Cross/One.lean",
+      "sha256": "28d3afb1c8c3274497eab441e6f8a485db1a5e760515e289a29ba15b4d0e1396",
+      "exit_code": 0,
+      "seconds": 63.24
+    },
+    {
+      "module": "Nc.Cross.Ident",
+      "source": "Nc/Cross/Ident.lean",
+      "sha256": "17b7789247fbd9e9a61d374a760b05cbc40a7dd7d82a467b49fd24826a1b5989",
+      "exit_code": 0,
+      "seconds": 53.48
+    },
+    {
+      "module": "Paper.Identity",
+      "source": "Paper/Identity.lean",
+      "sha256": "694be3bb200050e339590c083f71cf5d3279a9a4e77c8b6c38590b1961ad96fa",
+      "exit_code": 0,
+      "seconds": 71.67
+    },
+    {
+      "module": "Nc.Cross.Data",
+      "source": "Nc/Cross/Data.lean",
+      "sha256": "23f19e45aa1ce64b710d5935e7f2b77d9e3898334634fc96351922fbba24fe75",
+      "exit_code": 0,
+      "seconds": 31.31
+    },
+    {
+      "module": "Ov.Core.Tensor",
+      "source": "Ov/Core/Tensor.lean",
+      "sha256": "82361b4ace7bf2776a8177e96b56e54b2d323e44bf4851b52dc17d597e6261a8",
+      "exit_code": 0,
+      "seconds": 5.5
+    },
+    {
+      "module": "Ov.Core.Basic",
+      "source": "Ov/Core/Basic.lean",
+      "sha256": "fd2ecd07720ee48ab976d965bf1cb8c35b332cd53d1f30336a35ea7783c89f82",
+      "exit_code": 0,
+      "seconds": 5.95
+    },
+    {
+      "module": "Ov.Core.Equi",
+      "source": "Ov/Core/Equi.lean",
+      "sha256": "204997a8e1016bfbbde394ba194b088bc3115063e712898ff752e1c00b202965",
+      "exit_code": 0,
+      "seconds": 4.78
+    },
+    {
+      "module": "Ov.Core.Spec",
+      "source": "Ov/Core/Spec.lean",
+      "sha256": "5e4dfb72550e2698ed84ceff3bd706237260fa570f5a1aeb78ad999ffed444ea",
+      "exit_code": 0,
+      "seconds": 4.82
+    },
+    {
+      "module": "Ov.Core.Network",
+      "source": "Ov/Core/Network.lean",
+      "sha256": "e6ca4355f5d3394d90fc0145dd1cf2e0e6ddf7e7b3ebfcfc0be9a6da3fca2804",
+      "exit_code": 0,
+      "seconds": 4.96
+    },
+    {
+      "module": "Ov.Core.Unit",
+      "source": "Ov/Core/Unit.lean",
+      "sha256": "f4404f308e72a7777e80cd56899f8cd4090539ac3f7c3312bcd2b459434edf1e",
+      "exit_code": 0,
+      "seconds": 10.5
+    },
+    {
+      "module": "Nc.PermCoeff",
+      "source": "Nc/PermCoeff.lean",
+      "sha256": "9c9c454a714148de9f2cc2b2ceab3c65bd287dbc9714a52b314d842c7aa64b28",
+      "exit_code": 0,
+      "seconds": 11.5
+    },
+    {
+      "module": "Nc.PermGrid",
+      "source": "Nc/PermGrid.lean",
+      "sha256": "f5e202c98cb933c92ac6a4a6c1ff0bb20ca133b0d9390dccc9d9c9bd5250964a",
+      "exit_code": 0,
+      "seconds": 5.3
+    },
+    {
+      "module": "Nc.PermSum",
+      "source": "Nc/PermSum.lean",
+      "sha256": "3b5ac4084e6446f03784d90738f15db9347536089682cc265d3d9c45f954bf9f",
+      "exit_code": 0,
+      "seconds": 6.37
+    },
+    {
+      "module": "Nc.PermPad",
+      "source": "Nc/PermPad.lean",
+      "sha256": "2f2141f118afde65f62b4866003623581d65e941d88e162e6e6f5bdaf406c2b1",
+      "exit_code": 0,
+      "seconds": 24.66
+    },
+    {
+      "module": "Nc.LowDegree",
+      "source": "Nc/LowDegree.lean",
+      "sha256": "ae26842182c09a0154db023ecb736b11e86137632f5e852c0f192e3e1c28316b",
+      "exit_code": 0,
+      "seconds": 18.75
+    },
+    {
+      "module": "Nc.PermValiant",
+      "source": "Nc/PermValiant.lean",
+      "sha256": "9b641520ee81b2633c6bad023ad8fa0387f16260fc687554b48b371809b72e7e",
+      "exit_code": 0,
+      "seconds": 5.07
+    },
+    {
+      "module": "Nc.Rate.Defs",
+      "source": "Nc/Rate/Defs.lean",
+      "sha256": "fc75e02af3fdc602affaf2ef55c9052b3aff800fce76b992ee5e1b6cb3f4b032",
+      "exit_code": 0,
+      "seconds": 4.29
+    },
+    {
+      "module": "Paper.Tensors",
+      "source": "Paper/Tensors.lean",
+      "sha256": "8f1175002e097a2448272f867a277d2c915e12e97bff0856c857eb3c07fc7c6b",
+      "exit_code": 0,
+      "seconds": 5.43
+    },
+    {
+      "module": "Ov.Duality.Abstract",
+      "source": "Ov/Duality/Abstract.lean",
+      "sha256": "2a6b150473038fdbe1091be41e87637edd6236d6ba017471a9d8e72c50f1acea",
+      "exit_code": 0,
+      "seconds": 27.35
+    },
+    {
+      "module": "Ov.Duality.Cert",
+      "source": "Ov/Duality/Cert.lean",
+      "sha256": "fa025a58095062c763121b3c9fea376711d9d88724dddf5b4cc3c7d283fc3929",
+      "exit_code": 0,
+      "seconds": 5.85
+    },
+    {
+      "module": "Ov.Duality.PreSpec",
+      "source": "Ov/Duality/PreSpec.lean",
+      "sha256": "2de4951d87da423398aeaf3d81ed09046aa76ccd8452d149bca0b0146ff95ae2",
+      "exit_code": 0,
+      "seconds": 4.25
+    },
+    {
+      "module": "Ov.Duality.Minimal",
+      "source": "Ov/Duality/Minimal.lean",
+      "sha256": "f3443cf9d3082e68999ee963b5d2ded0f3f8795e53615281164b93447b344e98",
+      "exit_code": 0,
+      "seconds": 4.64
+    },
+    {
+      "module": "Nc.Price.Cover",
+      "source": "Nc/Price/Cover.lean",
+      "sha256": "5eaa46c1193f7a2a5064a72c89a554fa55dc30733cc7cfe54eb15f9414efeeea",
+      "exit_code": 0,
+      "seconds": 4.86
+    },
+    {
+      "module": "Paper.Gauges",
+      "source": "Paper/Gauges.lean",
+      "sha256": "2d9dd75dbbac400786fc99b729f5ef49ee87792cb35653908103c881f359fabf",
+      "exit_code": 0,
+      "seconds": 7.32
+    },
+    {
+      "module": "Paper.Extension",
+      "source": "Paper/Extension.lean",
+      "sha256": "57727544abd9cf4e81d646247744c224723d8e885e0c6e0c5bf923c23eb77966",
+      "exit_code": 0,
+      "seconds": 4.45
+    },
+    {
+      "module": "Ov.Core.Wire",
+      "source": "Ov/Core/Wire.lean",
+      "sha256": "0b3546c46869176c8a87e654054c5144673148ecc21d003cf28c8215880e1331",
+      "exit_code": 0,
+      "seconds": 4.22
+    },
+    {
+      "module": "Nc.Price.Basic",
+      "source": "Nc/Price/Basic.lean",
+      "sha256": "4bc47dea2b477d57317e5d2d377d1aad5ec5fe83bca71edc307fd44f7e38686d",
+      "exit_code": 0,
+      "seconds": 4.25
+    },
+    {
+      "module": "Paper.Prices",
+      "source": "Paper/Prices.lean",
+      "sha256": "e137c48f814f79a378fbdef67a82da516973c09eaf4d59a0d01380cfb4518312",
+      "exit_code": 0,
+      "seconds": 6.14
+    },
+    {
+      "module": "Nc.Price.Cross",
+      "source": "Nc/Price/Cross.lean",
+      "sha256": "d263be96e3f3105fabc83d32ba55a8f50e0aec51f0888e1a5afbf4912d35018e",
+      "exit_code": 0,
+      "seconds": 4.67
+    },
+    {
+      "module": "Paper.Crossing",
+      "source": "Paper/Crossing.lean",
+      "sha256": "a0d52a885f08d02580695278d68dfcb7952dcdffd6ed1d5442559dd017a65b2a",
+      "exit_code": 0,
+      "seconds": 17.02
+    },
+    {
+      "module": "Nc.Cat.Core",
+      "source": "Nc/Cat/Core.lean",
+      "sha256": "eb37634c0184e2c9d9facde240e21b666e6a9e9ff53a32e943755b01feea7e53",
+      "exit_code": 0,
+      "seconds": 11.64
+    },
+    {
+      "module": "Nc.Cat.Mean",
+      "source": "Nc/Cat/Mean.lean",
+      "sha256": "94a0c8e4a0d9e4ee3a68ac809f848e81dd5ed6f69d123b5dbf1a64b1f249850e",
+      "exit_code": 0,
+      "seconds": 6.27
+    },
+    {
+      "module": "Nc.Cat.Len",
+      "source": "Nc/Cat/Len.lean",
+      "sha256": "9c32fd936e0a1d0eeaf917e1c09d7295b749c08b89550553aa37079c159f274e",
+      "exit_code": 0,
+      "seconds": 4.84
+    },
+    {
+      "module": "Nc.Cat.Length",
+      "source": "Nc/Cat/Length.lean",
+      "sha256": "7e3862a1b03f255113f3edd3842eb2ba93c8b721d76d9b56b36fd496994d5e71",
+      "exit_code": 0,
+      "seconds": 6.17
+    },
+    {
+      "module": "Paper.Means",
+      "source": "Paper/Means.lean",
+      "sha256": "4fc85e9afd4aac6595529a9b8b29e01c7f63f93611c6b212a0514a302cf471b0",
+      "exit_code": 0,
+      "seconds": 11.87
+    },
+    {
+      "module": "Nc.Cat.Window",
+      "source": "Nc/Cat/Window.lean",
+      "sha256": "79d3d735f14077f48baf3e90aa7bea740bf076de878c9f89d819873d5286fb4e",
+      "exit_code": 0,
+      "seconds": 6.42
+    },
+    {
+      "module": "Paper.Fan",
+      "source": "Paper/Fan.lean",
+      "sha256": "5ced097f2ddf45071036ea9291048daeb6093678f00cac240457a79594f4ed9f",
+      "exit_code": 0,
+      "seconds": 23.2
+    },
+    {
+      "module": "Nc.Cat.Prod",
+      "source": "Nc/Cat/Prod.lean",
+      "sha256": "21d4cba38ca47ea925abdaadd26b06bfcddae149a66c44cb4145d4f95721aea1",
+      "exit_code": 0,
+      "seconds": 5.65
+    },
+    {
+      "module": "Paper.Toolkit",
+      "source": "Paper/Toolkit.lean",
+      "sha256": "b5669c2c092c5966856ead917d134734f067ef1660432fd6cdae83b74517f2c9",
+      "exit_code": 0,
+      "seconds": 17.4
+    },
+    {
+      "module": "Nc.Cat.Space",
+      "source": "Nc/Cat/Space.lean",
+      "sha256": "a145ba377c3706b8df644c2b1c57c94469c9b90a1c77a0a02cf2094984e31283",
+      "exit_code": 0,
+      "seconds": 11.91
+    },
+    {
+      "module": "Paper.Curvature",
+      "source": "Paper/Curvature.lean",
+      "sha256": "ce3ad3eb31fc46d12651235804917360d1ef1cbd9e9c13699522d0ca9b11883b",
+      "exit_code": 0,
+      "seconds": 14.22
+    },
+    {
+      "module": "Nc.Flag.Len",
+      "source": "Nc/Flag/Len.lean",
+      "sha256": "58a1c041a9df218376678e1cff689eecddefb79fa9d6cb54678ae374f4d6984c",
+      "exit_code": 0,
+      "seconds": 5.48,
+      "output": "Nc/Flag/Len.lean:41:64: warning: Variable name `ha` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _ha\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nNc/Flag/Len.lean:42:5: warning: Variable name `hb` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hb\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nNc/Flag/Len.lean:89:0: warning: automatically included section variable(s) unused in theorem `Nc.Flag.dg_empty`:\n  [Fintype ι]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype ι] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nNc/Flag/Len.lean:92:0: warning: automatically included section variable(s) unused in theorem `Nc.Flag.dg_union`:\n  [Fintype ι]\nconsider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:\n  omit [Fintype ι] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\n"
+    },
+    {
+      "module": "Nc.Flag.Para",
+      "source": "Nc/Flag/Para.lean",
+      "sha256": "d79eb3aa7d6f05195cf8525bc5cf73daedd40a2e392a6f4cef8bcbe52793e41b",
+      "exit_code": 0,
+      "seconds": 4.79
+    },
+    {
+      "module": "Nc.Flag.Transversal",
+      "source": "Nc/Flag/Transversal.lean",
+      "sha256": "b2099f8fa72dd0f401ae98b4c429657fbdf420a24ed17573f1ff705ee3657523",
+      "exit_code": 0,
+      "seconds": 5.28
+    },
+    {
+      "module": "Nc.Flag.Exchange",
+      "source": "Nc/Flag/Exchange.lean",
+      "sha256": "265554d44a69f7343eb427063ad2b2184e4b67b35f45e0537be74445d5f69b4a",
+      "exit_code": 0,
+      "seconds": 5.38
+    },
+    {
+      "module": "Nc.Flag.Cases",
+      "source": "Nc/Flag/Cases.lean",
+      "sha256": "34abe970f74c3ad64d2f67b5ee636aa02e7877fa193c68edd546c252b5ffcf86",
+      "exit_code": 0,
+      "seconds": 4.51
+    },
+    {
+      "module": "Paper.Alternative",
+      "source": "Paper/Alternative.lean",
+      "sha256": "e35dd99751c44ba47574c615290fb82688dc72a981ede286424beb53ce90e688",
+      "exit_code": 0,
+      "seconds": 10.11
+    }
+  ],
+  "verification": {
+    "queries": [
+      "#check @Nc.Price.IsPrice",
+      "#check @Cat.CN.exists_mid",
+      "#check @Paper.def_cases",
+      "#print axioms Paper.def_cases",
+      "#check @Paper.lem_hubs",
+      "#print axioms Paper.lem_hubs",
+      "#check @Paper.prop_space_midpoints",
+      "#print axioms Paper.prop_space_midpoints",
+      "#check @Paper.prop_space_completion",
+      "#print axioms Paper.prop_space_completion",
+      "#check @Paper.prop_space_limit",
+      "#print axioms Paper.prop_space_limit",
+      "#check @Paper.prop_space",
+      "#print axioms Paper.prop_space",
+      "#check @Paper.thm_cn",
+      "#print axioms Paper.thm_cn",
+      "#check @Paper.thm_alt_rank_price",
+      "#print axioms Paper.thm_alt_rank_price",
+      "#check @Paper.thm_alt_euclidean",
+      "#print axioms Paper.thm_alt_euclidean",
+      "#check @Paper.thm_alt",
+      "#print axioms Paper.thm_alt"
+    ],
+    "exit_code": 0,
+    "output": "Nc.Price.IsPrice : (K : Type) → [Field K] → {Y : Type u_1} → (Y → Y → ℝ) → Prop\n@Cat.CN.exists_mid : ∀ {X : Type u_1} {inst : MetricSpace X} [self : Cat.CN X] (x v : X),\n  ∃ m, ∀ (z : X), dist z m ^ 2 ≤ (dist z x ^ 2 + dist z v ^ 2) / 2 - dist x v ^ 2 / 4\nPaper.def_cases : ∀ (K : Type) [inst : Field K],\n  (Paper.Flat K ↔ ∀ (n : ℕ) (S : Finset (EuclideanSpace ℝ (Fin n))), Nc.Price.IsPrice K fun x y => dist x y) ∧\n    (Paper.Contracting K ↔\n      ∃ μ s,\n        2 ≤ μ ∧\n          1 ≤ s ∧\n            s ^ 2 < ↑μ ∧\n              ∀ (w : Nc.Flag.Mt μ → Nc.Flag.Mt μ → ℝ),\n                Nc.Price.IsPrice K w →\n                  √((∑ a, ∑ W with Matrix.rank W = μ, w a (a + W) ^ 2) /\n                        (↑(Fintype.card (Nc.Flag.Mt μ)) * ↑{W | Matrix.rank W = μ}.card)) ≤\n                    s *\n                      √((∑ a, ∑ W with Matrix.rank W = 1, w a (a + W) ^ 2) /\n                          (↑(Fintype.card (Nc.Flag.Mt μ)) * ↑{W | Matrix.rank W = 1}.card)))\n'Paper.def_cases' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.lem_hubs : ∀ {K : Type} [inst : Field K] {I : Type} [inst_1 : Fintype I] [inst_2 : DecidableEq I] {A : Type}\n  [inst_3 : Fintype A] [inst_4 : DecidableEq A] (π : A → I) (t : Ov.Ten K A) (S : A → Prop) [inst_5 : DecidablePred S]\n  {r : ℕ} (α β : Fin r → ((a : A) → t.ι a) → K),\n  (∀ (j : Fin r) (x x' : (a : A) → t.ι a), (∀ (a : A), S a → x a = x' a) → α j x = α j x') →\n    (∀ (j : Fin r) (x x' : (a : A) → t.ι a), (∀ (a : A), ¬S a → x a = x' a) → β j x = β j x') →\n      (∀ (x : (p : A) → t.ι p), t.val x = ∑ j, α j x * β j x) →\n        ∀ (o₁ o₂ : I),\n          (Ov.Ten.push π t).Restr\n            ((Ov.Ten.prod fun a => Ov.Ten.wire K (Fintype.card (t.ι a)) (π a) (if S a then o₁ else o₂)) *\n              Ov.Ten.wire K r o₁ o₂)\n'Paper.lem_hubs' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_space_midpoints : ∀ {K : Type} [inst : Field K] {V : Type} {w : V → V → ℝ},\n  Nc.Price.IsPrice K w →\n    ∃ d,\n      Nc.Price.IsPrice K d ∧\n        (∀ (a b : V), d (Cat.Term.of a) (Cat.Term.of b) = w a b) ∧\n          ∀ (s t : Cat.Term V), d s (s.mid t) ≤ d s t / 2 ∧ d t (s.mid t) ≤ d s t / 2\n'Paper.prop_space_midpoints' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_space_completion : ∀ {X : Type u_1} [inst : MetricSpace X] [CompleteSpace X] {S : Set X},\n  Dense S →\n    (∀ x ∈ S, ∀ v ∈ S, ∃ m, ∀ z ∈ S, dist z m ^ 2 ≤ (dist z x ^ 2 + dist z v ^ 2) / 2 - dist x v ^ 2 / 4) → Cat.CN X\n'Paper.prop_space_completion' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_space_limit : ∀ {K : Type} [inst : Field K] {T : Type} [inst_1 : PseudoMetricSpace T],\n  (Nc.Price.IsPrice K fun s t => dist s t) → Nc.Price.IsPrice K fun a b => dist a b\n'Paper.prop_space_limit' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_space : ∀ {K : Type} [inst : Field K] {V : Type} {w : V → V → ℝ},\n  Nc.Price.IsPrice K w →\n    ∃ X x, ∃ (_ : Cat.CN X), ∃ f, (Nc.Price.IsPrice K fun a b => dist a b) ∧ ∀ (a b : V), dist (f a) (f b) = w a b\n'Paper.prop_space' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.thm_cn : ∀ {K : Type} [inst : Field K] {Y : Type} {w : Y → Y → ℝ},\n  Nc.Price.IsPrice K w →\n    ∀ (x v m z : Y) {D : ℝ},\n      w x m ≤ D → w v m ≤ D → w x v = 2 * D → w z m ^ 2 ≤ 1 / 2 * w z x ^ 2 + 1 / 2 * w z v ^ 2 - D ^ 2\n'Paper.thm_cn' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.thm_alt_rank_price : ∀ {K : Type} [inst : Field K] {μ : ℕ},\n  ¬Paper.Contracting K →\n    3 ≤ μ → ∃ w, Nc.Price.IsPrice K w ∧ ∀ (a a' : Nc.Flag.Mt μ), w a a' ^ 2 = ↑(Matrix.rank (a - a'))\n'Paper.thm_alt_rank_price' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.thm_alt_euclidean : ∀ {K : Type} [inst : Field K] {μ : ℕ},\n  ¬Paper.Contracting K →\n    3 ≤ μ →\n      ∀ {k : ℕ},\n        k ≤ μ →\n          ∀ (V : Type) [Finite V] (E : V → EuclideanSpace ℝ (Fin k)), Nc.Price.IsPrice K fun a b => dist (E a) (E b)\n'Paper.thm_alt_euclidean' depends on axioms: [propext, Classical.choice, Quot.sound]\nPaper.thm_alt : ∀ (K : Type) [inst : Field K], Paper.Flat K ∨ Paper.Contracting K\n'Paper.thm_alt' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "query_file": "checks/pass12e_alternative.lean",
+    "sha256": "27e9f1573c1e55f114473927ceb3df1a9bf62cffc44cdc4a89e23bc2f06f6d64"
+  }
+}

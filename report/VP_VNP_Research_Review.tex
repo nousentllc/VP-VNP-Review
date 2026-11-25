@@ -12,8 +12,8 @@
 \definecolor{accent}{HTML}{145754}
 \definecolor{muted}{HTML}{3D575E}
 \hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,
-  pdftitle={The VP–VNP lower bound — Geometry, weighted computation and field transfer},
-  pdfauthor={Uriel Research},pdfsubject={Cumulative audit of the exact-circuit claim in VP ≠ VNP Over Every Field, passes 1–11},
+  pdftitle={The VP–VNP lower bound — From weighted networks to circuit lower bounds},
+  pdfauthor={Uriel Research},pdfsubject={Cumulative audit of the exact-circuit claim in VP ≠ VNP Over Every Field, passes 1–12},
   pdfdisplaydoctitle=true}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5.5pt}
@@ -32,7 +32,7 @@
 \newcommand{\subhead}[1]{\par\addvspace{7pt}{\large\bfseries\color{ink}#1\par}\nobreak}
 \newcommand{\pub}[3]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/#1\#L#2}{#3}}
 \newcommand{\paper}[1]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/paper.pdf}{#1}}
-\newcommand{\review}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/3bf9cd5e052da8313c56e73b1346ad792dfeb95d/#1}{#2}}
+\newcommand{\review}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/33edc6eb465bb2c565e82d3461fd418c1890d65e/#1}{#2}}
 \newcommand{\currentreview}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/main/#1}{#2}}
 \newcommand{\smallref}[1]{{\small\sffamily\color{muted}#1\par}}
 \newcommand{\HC}{\mathrm{HC}}
@@ -42,30 +42,28 @@
 \begin{center}
   {\fontsize{29}{34}\selectfont\bfseries\color{ink}The VP--VNP lower bound\par}
   \vspace{4pt}
-  {\Large\color{muted}Geometry, weighted computation and field transfer\par}
+  {\Large\color{muted}From weighted networks to circuit lower bounds\par}
   \vspace{8pt}
   \includegraphics[height=.82in]{nous-black.png}\par
   \vspace{3pt}
-  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 25, 2026\enspace $\cdot$ \enspace Passes 1--11\par}
+  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 25, 2026\enspace $\cdot$ \enspace Passes 1--12\par}
 \end{center}
 \vspace{5pt}
-\subhead{What the review can establish}
-Claude (Anthropic) claims a superpolynomial lower bound for every arithmetic circuit computing the Hamiltonian cycle polynomial over each field. This review traces where the proof admits an arbitrary circuit, how it preserves that circuit's value, and which estimates eventually exclude it. Pass 11 reconstructed four links serving different parts of the argument.
+\subhead{What pass 12 adds}
+Claude (Anthropic) proposes a superpolynomial lower bound for every arithmetic circuit computing the Hamiltonian cycle polynomial over any field. Four parallel audits followed the proof from the network operations to the target polynomial, checking where the same choice must govern several parts of the construction.
 
-\textbf{Geometry.} One coefficient of the crossing-wire determinant supports both cut estimates. Its degree and complementary degree divide a single budget. The resulting inequality is strong enough to constrain the averaged lengths in the curvature proof.
+\textbf{Contracting branch.} A law move preserves its weighted sum when the channel words identify the full sequence of law indices. Each channel retains a final packet, even when its payload is empty. The thin-tree argument accounts for these packets separately in the cost of a cut.
 
-\textbf{Spectral selection.} A.5 selects one multiplicative functional retaining every comparison that holds at all tensor multipliers. The flat branch uses that choice to keep all original wire distances and a designated unit-tensor exponent together.
+\textbf{Hamiltonian cycles.} Each assignment of the shared grid bits forces one structural cycle with the same weight. Padding preserves that correspondence. An affine substitution in a candidate Hamiltonian-cycle circuit gives a circuit for the grid sum at a cost of at most five gates per original gate.
 
-\textbf{Weighted computation.} Cutting a network at a fixed good outcome preserves its scalar value when the pieces agree on each crossing packet ID. The amount of data they share depends separately on the shape and load of the tree supplied by H.2.
+\textbf{Flat branch.} One spectral point controls all candidate cut positions in a fixed dimension. An error budget proportional to $1/k$ at the outer comparison preserves the geometric saving as the dimension grows. The signed tensor summands can use different cuts.
 
-\textbf{Field constants.} A candidate circuit uses finitely many constants. A simultaneous specialization preserves their relations and every gate, at the same list length. This extends a bound from an algebraically closed field to all fields of that characteristic.
+\textbf{Crossing coefficients.} A complementary-residue construction gives the same growth constant for the lower asymptotic and the all-energy upper bound. The signed minor expansion supplies two factorizations of a single coefficient. An independent calculation recovers the constant $\pi/\sqrt3$.
 
-\subhead{Where the conclusion stands}
-These results explain specific steps in the authors' claimed separation. The full independent reconstruction still depends on the contracting laws and the reductions to the target polynomial. Pages 2--6 give the circuit and curvature baseline. Pages 7--10 give the four new derivations. Pages 11--12 distinguish the available evidence from the next proof obligations.
+\subhead{Where the universal claim stands}
+Pages 2--11 give the circuit model and prior baseline. Pages 12--15 reconstruct the four new steps. Page 16 reports the additional 54-module verification of the field alternative and the next proof obligations. The full independent separation and Comparator replay remain open.
 
-\smallref{\paper{Publisher's manuscript, Theorem 1.1 and Appendices A--M}.\enspace
-\review{report/VP_VNP_Research_Review.pdf}{Preceding ten-pass edition}.\enspace
-\currentreview{VP_VNP_Chat_Handoff.md}{Current handoff for Chat}.}
+\smallref{\paper{Publisher's manuscript, Theorem 1.1 and Appendices A--M}. \review{report/VP_VNP_Research_Review.pdf}{Previous eleven-pass edition}. \currentreview{VP_VNP_Chat_Handoff.md}{Handoff for Chat}.}
 
 \newpage
 \heading{Where every circuit enters}
@@ -84,7 +82,7 @@ The stated bound also applies to $\Perm_m$ when $p\ne2$. The circuit is a list o
 
 \textbf{Shared geometry (passes 7--10).} D.2 uses simultaneous rank averages, nonnegative defects, rank rigidity and the price-space cube. Requiring only a witness $m$ for each test point $z$ in the squared inequality would be vacuous, since $m=z$ always works. C.3 supplies one midpoint for all $z$ in the complete space. C.1 derives the curvature coefficient, and A.8 supplies the common price in which its fan is constructed.
 
-The original QFTN and Uriel-GEMA audit motivated the question of how a local construction can constrain every circuit. Here the universal quantifier enters through the two circuit transformations and the field alternative covering their cases. Pass 11 follows four specific operations inside that chain. Its field-transfer argument explains why even circuit-dependent constants are covered.
+The QFTN and Uriel-GEMA audit motivated the question of how a local construction can constrain every circuit. Here the universal quantifier enters through two circuit transformations and the field alternative. Pass 11 follows the circuit constants across fields. Pass 12 follows the grid computation into HC and checks the estimates within each branch.
 
 \smallref{Manuscript: \paper{D.2, pp.~30--31; E.4--E.11, pp.~33--37; K.2--K.7, pp.~56--59; M.1--M.4, pp.~60--62}. Review evidence: \review{passes/02-flat-branch.md}{mixed cuts},
 \review{passes/05-universal-automaton.md}{weighted runs}, \review{passes/06-one-cut-and-iteration.md}{iteration costs}, \review{passes/07-field-alternative.md}{field coverage}, \review{passes/08-price-space-completion.md}{completion}.}
@@ -146,7 +144,7 @@ Each $T$ can have its own fan and averaged lengths. The numerator depends only o
 \subhead{What Lean checked}
 Lean 4.33.1 freshly compiled all 44 unchanged publisher modules needed for \texttt{Paper.Fan}, using pinned libraries from nine external dependency revisions. A fresh import confirmed the field-parametric statement of C.1. The axiom reports for C.2, the endpoint estimate and C.1 list only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. \href{https://github.com/nousentllc/VP-VNP-Review/blob/main/checks/pass09_endpoint_replay_results.json}{Replay record.}
 
-A separate check covered the discrete-concavity lemma and four independent declarations, including the endpoint with witnesses chosen once per $T$ for all $A$. Exact arithmetic checked 102 finite-box cases and five growing-step identities. Pass 8 replayed two C.3 completion lemmas. Full independent replays of the C.3 module, separation build and Comparator remain open.
+A separate check covered the discrete-concavity lemma and four independent declarations, including the endpoint with witnesses chosen once per $T$ for all $A$. Exact arithmetic checked 102 finite-box cases and five growing-step identities. Pass 8 replayed two C.3 completion lemmas. Pass 12E subsequently rebuilt the full C.3 module along with D.2. The complete separation and Comparator still require independent replay.
 
 \subhead{A four-point test for the price hypothesis}
 On the unit square with distances measured along its edges, take opposite corners for $x,v$ and the remaining corners for $m,z$. Then $D=1$, $b=2$ and the distances from $z$ to $x,v$ are both one. C.1 would require $4\le0$. This metric obeys the distance hypotheses on the triangle through $m$ yet cannot be a price.
@@ -295,14 +293,14 @@ For each characteristic the proof chooses an algebraic closure of its prime fiel
 \[
  \frac{a_p}{c}\,\frac{L^{2/3}}{\log_2 L}\longrightarrow\infty .
 \]
-This supplies a threshold for each fixed characteristic. Only after choosing that threshold does M.3 quantify over fields of that characteristic and their circuits. HC is covered in characteristic two as well; the permanent clause requires $p\ne2$. The exact HC projection in M.2 and the branch lower bounds are additional premises of this conclusion.
+This supplies a threshold for each fixed characteristic. Only after choosing that threshold does M.3 quantify over fields of that characteristic and their circuits. HC is covered in characteristic two as well; the permanent clause requires $p\ne2$. M.2's HC projection supplies an additional premise, reconstructed on page 13. The two branch lower bounds supply the other inputs.
 
 \smallref{\paper{M.1--M.4, pp.~60--62}.
 \pub{Paper/Transfer.lean}{21}{M.1} · \pub{Nc/Rate/Transfer.lean}{44}{finite specialization} ·
 \pub{Paper/Fields.lean}{83}{M.3} · \currentreview{passes/11d-field-transfer.md}{field-transfer audit}.}
 
 \newpage
-\heading{What the evidence establishes}
+\heading{Verification through pass 11}
 The source of record is the 70-page publisher PDF and the formal source at commit \texttt{11b6c7e3c927}. The local PDF is byte-identical to that pinned manuscript. The source manifest pins the publisher tree, paper hash and toolchain. The replay records identify the external library revisions. The publisher's successful CI run is evidence about the publisher's build. Review-specific runs and mathematical derivations have separate records below.
 
 \subhead{Prior baseline}
@@ -324,25 +322,95 @@ Pass 9 compiled the 44 publisher modules for C.1 and queried the endpoint bounds
 \currentreview{checks/pass11c_groups_replay.json}{packet regrouping} · \currentreview{checks/pass11d_transfer_results.json}{M.1 receipt}.}
 
 \newpage
-\heading{Where to resume the mathematical audit}
-The four tracks leave independent tasks with different consequences for the claimed lower bound. The following priorities put universal circuit coverage and model correspondence first. A result on one track should update the other tracks only where its conclusion is actually used.
+\heading{12A. A weighted move and the cost of its boundary}
+Fix the preceding outcomes in H.2. A move consumes $t$ packets of width $\ell$ per slot and applies a G.1 law at $B=t\ell$ layers. Each layer expands the old agreement test into a sum of products of local table entries. A summand has one law index for the whole layer and one payload per channel. Distributivity gives one term for each vector of $B$ indices and all its channel payloads.
 
-\subhead{1. Contracting laws and tree width}
-Trace the law that changes a weighted network into a bounded sum of thin-tree outcomes. Recover the move identity for one step, its iteration, and the H.2 bound on incident nonexceptional packets at every node. Test repeated packets, cancellation and zero local factors. The decision is whether J.2 receives both the exact weighted value and the load guarantee it charges to each piece. The bijection on page 9 starts after this transformation. \currentreview{passes/11c-piece-decomposition.md}{J.2 inputs and callers.}
+\subhead{How distributed choices recover one summand}
+Each channel serializes each index label followed by its payload, whose length that label specifies. For raw length $s_\nu$ the recorded outcome is $o_\nu=\lfloor s_\nu/\ell\rfloor$. A final one and padding produce $o_\nu+1$ packets. Decoding the shared word recovers the index vector at both endpoints. Connectivity propagates the same vector to all roles. Now every consistent collection of local choices reconstructs one global summand. Distinct sequences can have the same lengths, so the outcomes alone cannot synchronize them. A failed good-outcome test gives a zero contribution. Some tuples passing that test can still be unrealizable.
 
-\subhead{2. The projection to Hamiltonian cycles}
-Reconstruct M.2's assignment-to-cycle correspondence, the identification of repeated variables, the grid blowup and padding. Check that every contribution has the required multiplicity after mapping into characteristic two. This would connect the branch's polynomial family to the target of the universal circuit statement on page 2. \pub{Paper/HcGrid.lean}{18}{HC projection.}
+In a signed two-layer law, a test comparing inputs $00,01$ has value zero. Deleting the labels or deleting the last packet, even with the outcome retained, changes the answer to one. With zero layers the final packet still contains a delimiter. A terminal packet linking two different pieces must be glued like the others when evaluating the sum.
 
-\subhead{3. The flat-branch estimate}
-Trace E.8--E.10 through the cube induction, recording the order of tolerances, the common base spectral point, and the estimate that must hold for every balanced cut. Then test its compatibility with E.4's freedom to vary the cut between summands. A.5 supplies an existential selection principle; the numerical lower bound needs these geometric and combinatorial estimates as well. \pub{Paper/Convex.lean}{318}{Cube estimate.} \review{passes/02-flat-branch.md}{Earlier mixed-cut audit.}
+\subhead{Why a single piece has a smaller boundary}
+Let $Q_j$ measure the stage load and $V_j$ be the vertex count. The stage comparison has an additive error, $Q_{j+1}\le Q_j/2+dV_{j+1}$, with $d=\sqrt{C_1}\,a_1/b$. Since $V_j=bV_{j+1}$ and $b\ge4$,
+\[
+ Q_{j+1}+dV_{j+1}\le \tfrac12(Q_j+dV_j).
+\]
+Cauchy--Schwarz bounds upward load at a node by $\sqrt{2h/V_j}\,Q_j$. Together with the tower depth and starting load, this gives the incident estimate $\Lambda M^{1-\gamma}(N+M^2)$, $\gamma=1/\log_2 b$, including the children. H.2 uses the sufficient gain $1+8C_1\le h/4$, supplied by G.2. The exceptional terminal IDs, including relay IDs, have total count at most $M^{C_0}$. J.2's parameter choices give $M^{C_0}\ell\le T/v^{300}$ for the bits they may require on one piece.
 
-\subhead{4. Crossing and formal correspondence}
-Expand the auxiliary determinant into its two cut decompositions, checking row signs, the truncated congruence and the energy count in full generality. In parallel, compare the complete universal evaluator and dealer to the manuscript's encoding and time model. Keep whole-project Lean and Comparator replay as a separate verification task with the pinned dependencies and the exact declaration checked. \currentreview{passes/11a-crossing.md}{Crossing obligations.} \review{passes/05-universal-automaton.md}{Encoding and time qualifications.}
+\smallref{\paper{G.1--H.2, pp.~42--48, and J.2, pp.~52--53}. \pub{Nc/G/Move.lean}{454}{Move identity} · \pub{Paper/Tree.lean}{1628}{H.2} · \pub{Paper/Pieces.lean}{568}{terminal-packet charge} · \currentreview{passes/12a-contracting-laws.md}{derivations and controls}.}
 
-\subhead{What Chat should carry forward}
-Use the field alternative and two circuit transformations as the argument's spine. For each remaining step, state the candidate circuit and field, the common witness, the preserved quantity, and the precise downstream caller. Record a source reconstruction, a finite counterexample, and a formal replay with their respective scopes. This keeps the review cumulative while leaving the claimed separation attributed to its authors.
+\newpage
+\heading{12B. From shared bits to Hamiltonian cycles}
+Let the incidence maps $v:I\to V$ and $w:I\to W$ be onto. Incidence $n$ carries four weights $D_n(a,b)$ in a commutative ring. M.2 constructs a weighted adjacency matrix of any order $S\ge40|I|$ with
+\[
+ \HC_S(M)=\sum_{x:V\to\{0,1\}}\sum_{r:W\to\{0,1\}}
+            \prod_{n\in I} D_n(x_{v(n)},r_{w(n)}).
+\]
+The same vertex may control bits used at several incidences.
 
-\smallref{\currentreview{VP_VNP_Chat_Handoff.md}{Handoff for Chat} · \currentreview{report/proof-coverage.csv}{Claim coverage map} ·
-\review{report/VP_VNP_Research_Review.pdf}{Previous edition} ·
-\paper{Pinned publisher manuscript}.}
+\subhead{How an assignment is recovered from a cycle}
+Head vertices lie in one cyclic order. Each option from one head to the next passes through a prescribed list of shared XOR gadgets. Each gadget has two tips and a middle vertex. A Hamiltonian cycle must enter the middle from one tip and leave through the other. Reusing the entering tip would close a short cycle and omit a vertex. Following the resulting route therefore picks one option per head and uses exactly one side of every XOR. A consistent selection in turn specifies a single successor permutation. Counting successor permutations avoids any extra choice of a starting vertex.
+
+At an incidence the selector picks one of the four bit pairs. Four flags record which pair it picked. Two checks link those flags to the left and right bit heads. Reading the bits at the heads therefore recovers the whole assignment and fixes all the local choices. Only the selected incidence head contributes its weight. A structural cycle of weight zero is still counted in the bijection. Additional coincidences of monomials and their possible cancellation occur upon summation in the chosen ring.
+
+\subhead{Why padding and field characteristic preserve the identity}
+There are $|V|+|W|+7|I|$ heads and $30|I|$ further gadget vertices. The incidence maps are onto, hence the unpadded total is at most $39|I|$. Unit-weight single-option heads fill the remaining places with a unique traversal. At two incidences sharing both bits, an 80-vertex control finds four cycles. Sharing only the left bit gives eight. A weight example yields $2+2z$ with the shared pair and $(3+z)^2$ if the copies are wrongly made independent. These become $0$ and $1+z^2$ in characteristic two.
+
+For single-variable affine weights an $s$-gate HC circuit supplies a circuit of at most $5s$ gates for the grid sum. Its repeated-variable substitutions preserve gate reuse. Thus a lower bound for the grid constrains \emph{every} such candidate HC circuit. M.1's same-size change of field is a separate operation.
+
+\smallref{\paper{M.2, p.~61}. \pub{Nc/Hc/Segments.lean}{348}{Recovering the route} · \pub{Nc/Hc/Grid.lean}{133}{uniqueness of choices} · \pub{Paper/HcGrid.lean}{18}{M.2} · \currentreview{passes/12b-hamiltonian-projection.md}{audit and replay}.}
+
+\newpage
+\heading{12C. The cut estimate as dimension grows}
+E.7 first takes an auxiliary tensor power $n$ at fixed cut count $J$. Within one word type, a diagonal selector makes every retained party permute its indices in the same order. This leaves a factor $(n+1)^J$ after summing types. Its $n$th root tends to one for each fixed $J$. With $J=n$, the actual number of types is at least $2^{n-1}$: choose the first $n-1$ counts in $\{0,1\}$ and fill the last count. This identifies why E.7 must finish its limit before E.10 varies dimension.
+
+\subhead{One point pays one error per level}
+To bound the exponent of a set $P$ of cube facet centres to accuracy $\varepsilon$, add all points of $\{-1/2,0,1/2\}^k$ to the finite set of positions. Choose E.8's tolerance for a step error $\eta=\varepsilon/(2k)$. Flatness gives one spectral point and scale within both that tolerance and $\varepsilon/2$ on all pairs. Write a centre as $s e_i/2$ and average the diagonal vector $s\chi_i\chi/2$ over its first $j$ independent signs. For $i\le j$ only coordinate $i$ survives. For $i>j$ the first $j$ coordinates vanish. Averaging one more sign is precisely the pointwise midpoint of the two preceding maps.
+
+At level zero each map uses two positions on a cube diagonal. Hence its scaled exponent is at most $\sqrt{k}+\varepsilon/2$. E.8 bounds the exponent at each next map by the mean of its two predecessors plus $\eta$. After $k$ levels the exponent is at most $\sqrt k+\varepsilon$. The number of branches introduces no further loss.
+
+\subhead{The comparison for arbitrary circuits}
+With outer tolerance $\Delta=1/(1000k)$, E.10 places both hubs for every balanced subset in the common configuration before choosing the cut that pays. End parties sharing a position have the same image exponent, so the cost of naming a cut is at most $k(\sqrt{k}+\Delta)$. The distance saved at a balanced cut is at least $4k/81$. The accumulated wire error is at most $3k^2\ell\Delta/2$. Taking $\ell\ge100\sqrt{k}$ leaves enough to force $\log_2 L\ge\ell k^{3/2}/14$ for any circuit of size $L$. At $k=64,\ell=800$, a fixed $\Delta=10^{-3}$ would leave the same displayed comparison compatible with $\log_2L=0$.
+
+E.11 chooses $k=r^2,\ell=100r$ and the largest $r$ with $200r^3\le\lfloor\log_2m\rfloor$. The affine projection pays a factor of five in circuit size. Its logarithm is absorbed by the $r^4$ bound, while $\log_2m\le1600r^3$. This accounts for the exponent $4/3$ at every sufficiently large target size.
+
+\smallref{\paper{E.7--E.11, pp.~35--37}. \pub{Paper/Convex.lean}{337}{Error allocation} · \pub{Paper/Rate.lean}{218}{cut selection} · \pub{Paper/Rate.lean}{337}{rate conversion} · \currentreview{passes/12c-flat-estimate.md}{derivation and checks}.}
+
+\newpage
+\heading{12D. Counting states and factoring a coefficient}
+Let $P(E)$ count equal-size pairs of subsets of the nonnegative integers with combined odd-part energy at most $E$. For $k$ such inputs, interleave the first subsets in residue classes $r$ modulo $k$ and the second ones in classes $k-1-r$. The two residue corrections cancel for each input because its two subsets have equal size. The interleaving is injective and gives $P(k^2E)\ge P(E)^k$. A product bound gives $\log P(E)=O(\sqrt E)$. Thus
+\[
+ \kappa=\sup_{E\ge1}\frac{\log P(E)}{\sqrt E}
+\]
+is finite and positive. To approach this supremum at \emph{every} sufficiently large energy, fix a near-maximizing energy $D$ and interleave $\lfloor\sqrt{E/D}\rfloor$ copies. This proves that the ratio tends to $\kappa$. It also gives the upper bound $\log P(M)\le\kappa\sqrt M$ at every output energy, including a coefficient index chosen after the tensor is evaluated.
+
+\subhead{An independent evaluation of the constant}
+A pair of subsets specifies the arm and leg lengths of the diagonal hooks of a partition, with total area half the energy. Counting partitions by multiplicities gives the series $Z(t)=\prod_{i\ge1}(1-e^{-2ti})^{-1}$. Expanding the logarithm and using a summable bound yields $\lim_{t\downarrow0}t\log Z(t)=\pi^2/12$. The upper envelope and growth limit for $P(E)$ also give this limit as $\kappa^2/4$, by optimizing $\kappa\sqrt E-tE$. Hence $\kappa=\pi/\sqrt3$ for natural logarithms. The numerical value is an independent derivation. B.3 needs only a common positive normalization.
+
+\subhead{Where the minor signs go}
+In the auxiliary determinant select sets $U,V$ of nondelta rows in its two groups. Terms with unequal cardinalities vanish. For $|U|=|V|=d$ the auxiliary signs and the permutations that separate the two bordered matrices have net parity $d^2-d$, which is even. The two resulting minors retain their internal determinant signs. Each surviving pair uses energy at most the coefficient index $N$ and leaves at most $N+1$ degree splits. This yields $(N+1)P(N)$ products on the first cut. Reciprocal reflection supplies the other cut at complementary degree for the same coefficient. The identity is integral before specializing to the working field.
+
+A.3 routes the two factors through hubs sharing one middle index. At a common physical site the local maps multiply while their logical input indices remain distinct. In 116 placements the route reproduced all 600 tested entries. E.10 keeps the logical hubs separate from the ends when applying its mixed-cut bound. \currentreview{passes/12d-hub-routing.md}{Routing audit.} The formal B.1 and B.2 replay covers the publisher's existential normalization.
+
+\smallref{\paper{B.1--B.3, pp.~22--25}. \pub{Paper/States.lean}{136}{B.1} · \pub{Paper/Identity.lean}{455}{minor expansion} · \pub{Paper/Identity.lean}{663}{complementary degree} · \currentreview{passes/12d-counting-and-minors.md}{derivations and checks}.}
+
+\newpage
+\heading{Evidence and the next four proof questions}
+\subhead{What was checked in pass 12}
+The contracting audit rebuilt the two publisher modules for the abstract stage-load inequality. Three unchanged law declarations ran separately as excerpts, and Lean checked an independent compensated-decay lemma. H.2's entire module remains a larger target.
+
+For HC, all 13 publisher modules needed for M.2 compiled freshly and eight declarations were queried. A direct cycle search tested the grid bijection across seven configurations and two option orderings. For the flat estimate, Lean checked a general midpoint induction and five unchanged arithmetic excerpts in isolation. Exact checks covered 2,526 cube maps in dimensions one to six. For crossing, all ten modules for the identity compiled freshly and eight declarations were queried. The energy enumeration included 7,338 symbols through energy 48.
+
+An additional fresh build covered all 54 project modules leading to D.2, including the full price-space realization C.3. D.2 supplies at least one branch for the comparison field chosen in M.3. M.1 then covers arbitrary fields of that characteristic. The complete separation and Comparator still require independent replay. \currentreview{checks/pass12e_alternative_replay.json}{Field-alternative receipt.}
+
+\subhead{Which obligations would change confidence in the whole chain?}
+\textbf{1. F.6 to G.2.} Starting with the field's Poincaré inequality, construct the variable-length law. Verify its support, shared index, encoding widths and gain. These are the inputs to the move and stage arguments on page 12. H.1's tower realization and H.2's program costs also require further reconstruction.
+
+\textbf{2. E.1 and the permanent.} Compare the permanent gadget with the HC correspondence on page 13. Locate each use of $1/2$, account for multiplicities and identify exactly where the characteristic-two exception enters.
+
+\textbf{3. E.4 to E.7.} Follow an arbitrary reused circuit gate through the balanced coefficient decomposition, the hub tensors, and the formal sum-of-restrictions representation. Check that E.7's conditions on output legs and local maps hold at that interface.
+
+\textbf{4. The HC witness in M.4.} Match the Boolean sum of one-hot position encodings to the released definition of VNP. Check why a fixed starting vertex counts each cycle once, what invalid encodings contribute in small characteristic, and how the size and degree of the witness are bounded. \pub{Nc/Hc/Vnp.lean}{189}{Witness identity.}
+
+\smallref{\currentreview{VP_VNP_Chat_Handoff.md}{Chat handoff} · \currentreview{report/proof-coverage.csv}{Coverage map} · \currentreview{source-lock.json}{Verification manifest} · \review{report/VP_VNP_Research_Review.pdf}{Previous report}.}
 \end{document}

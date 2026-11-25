@@ -1,12 +1,12 @@
 # VP–VNP research review
 
-Start with the [cumulative handoff for Chat](VP_VNP_Chat_Handoff.md). It gives the paper’s exact claim, what eleven review passes established, and four concrete proof questions for the next round. The [individual pass records](passes/) preserve the reasoning and manuscript references behind each finding.
+Start with the [cumulative handoff for Chat](VP_VNP_Chat_Handoff.md). It gives the paper’s exact claim, what twelve review passes established, and four concrete proof questions for the next round. The [individual pass records](passes/) preserve the reasoning and manuscript references behind each finding.
 
 The first Git checkpoint, `review-2026-11-24`, captures passes 1–4 together. The review predates the repository. For each subsequent pass, add its dated record under `passes/`, update the handoff to identify any finding that changed, and commit the two together.
 
-[Read the cumulative research report (PDF)](report/VP_VNP_Research_Review.pdf) or [open its editable TeX source](report/VP_VNP_Research_Review.tex). The expanded edition includes four parallel audits across the geometry, flat branch, contracting branch and final field transfer. The [proof coverage map](report/proof-coverage.csv) links 43 claims, interfaces and verification steps to their roles, evidence and unresolved dependencies.
+[Read the cumulative research report (PDF)](report/VP_VNP_Research_Review.pdf) or [open its editable TeX source](report/VP_VNP_Research_Review.tex). Edition 9 adds four parallel mathematical audits covering the contracting law move, the Hamiltonian-cycle projection, the quantitative flat estimate and the signed crossing identity. A separate [54-module verification](passes/12e-field-alternative-replay.md) covers the field alternative. The [proof coverage map](report/proof-coverage.csv) links 46 claims, interfaces and verification steps to their roles, evidence and unresolved dependencies.
 
-[Download the complete eleven-pass packet](handoff/VP_VNP_Review_2026-11-25_pass11.zip). It contains all 390 research files from commit `e15d655`, including the four parallel audits, coverage map, TeX/PDF, logo, pinned manuscript and verification records. ZIP SHA-256 `06007ffdc21505ead3222503edb721a619cb1e0f09481d2aa90bad32b41f6f27`.
+The [archived eleven-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/33edc6eb465bb2c565e82d3461fd418c1890d65e/handoff/VP_VNP_Review_2026-11-25_pass11.zip) preserves Edition 8 from research commit `e15d655`.
 
 The [archived ten-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/3bf9cd5e052da8313c56e73b1346ad792dfeb95d/handoff/VP_VNP_Review_2026-11-25_pass10.zip) preserves the handoff from research commit `5ee75d1`.
 
@@ -30,6 +30,8 @@ The [archived six-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/
 - [Propositions A.7 and A.8, simultaneous extension](passes/10-simultaneous-extension.md), with [exact examples](checks/pass10_examples.py) and [formal statement and axiom queries](checks/pass10_formal.lean). The [24-module verification record](checks/pass10_formal_results.json) and [portable runner](checks/pass10_formal_replay.py) document the local replay. Run `python3 checks/pass10_examples.py` from this directory.
 
 - Pass 11 comprises [crossing and curvature](passes/11a-crossing.md), [spectral selection](passes/11b-spectral-selection.md), [weighted piece decomposition](passes/11c-piece-decomposition.md), and [field transfer](passes/11d-field-transfer.md). Each record distinguishes general arguments, finite controls and machine-check scope.
+
+- Pass 12 adds [contracting laws and stage load](passes/12a-contracting-laws.md), [the Hamiltonian-cycle projection](passes/12b-hamiltonian-projection.md), [the growing-dimension flat estimate](passes/12c-flat-estimate.md), and [crossing counts and signs](passes/12d-counting-and-minors.md). Each note links its original-source locations, reproducible checks and the specific evidence from Lean.
 
 ## How to continue the review
 

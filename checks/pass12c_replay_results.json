@@ -1,0 +1,51 @@
+{
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "scope": "Independent induction and five verbatim arithmetic excerpts in isolation, imported with Mathlib. Neither Paper.Convex nor Paper.Rate was rebuilt.",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "independent_source": "checks/pass12c_budget.lean",
+  "independent_source_sha256": "00b0e3611fcb362e039f2de2741971011d5e849c470a298b2e75dbe396031bfc",
+  "harness_sha256": "9fa79c331ec4af2e825ca21e8863c9dfd3d669a726dc4d3165ba75767c2f680c",
+  "excerpts": [
+    {
+      "source": "Nc/Price/BorderFew.lean",
+      "line": 108,
+      "declaration": "le_of_pow_le_poly",
+      "source_sha256": "2f93ed677178bf3e940544d14fe9c3b1998dcfd6e644b26be9c5de289a5525fb",
+      "excerpt_sha256": "e7fb36698ff990bdb0ca08f2e15e0f6630b188dd45b8f33228f65113f680f8ee"
+    },
+    {
+      "source": "Paper/Rate.lean",
+      "line": 123,
+      "declaration": "rate_numbers14",
+      "source_sha256": "458fe08109d6e4696e6af0d07d83494ec3f0bf6837fd03a7de02677940437e04",
+      "excerpt_sha256": "24691c621fdd46612e56bf490ac88e26a43895a6462f36c4b6d3197f3fbe642c"
+    },
+    {
+      "source": "Paper/Rate.lean",
+      "line": 259,
+      "declaration": "rate_pow",
+      "source_sha256": "458fe08109d6e4696e6af0d07d83494ec3f0bf6837fd03a7de02677940437e04",
+      "excerpt_sha256": "6a5aa924de64d34e5e7bdf635b9f69f709356686c3cb58de97b90469e5fb50bd"
+    },
+    {
+      "source": "Paper/Rate.lean",
+      "line": 323,
+      "declaration": "exists_cube_root",
+      "source_sha256": "458fe08109d6e4696e6af0d07d83494ec3f0bf6837fd03a7de02677940437e04",
+      "excerpt_sha256": "9b4b383ad938aabb54768d1c794c77e686d63206ce7095f080f4effc24e5e7ad"
+    },
+    {
+      "source": "Paper/Rate.lean",
+      "line": 337,
+      "declaration": "rate_of_projection",
+      "source_sha256": "458fe08109d6e4696e6af0d07d83494ec3f0bf6837fd03a7de02677940437e04",
+      "excerpt_sha256": "2d7dd6082e1f37e2f8b78b755d9d6b4d5a9a271eb1cb698ef9c687f7240a0a7e"
+    }
+  ],
+  "exit_code": 0,
+  "output": "'Review12C.midpoint_budget' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExcerptReplay.le_of_pow_le_poly' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExcerptReplay.rate_numbers14' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExcerptReplay.rate_pow' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExcerptReplay.exists_cube_root' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExcerptReplay.rate_of_projection' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}

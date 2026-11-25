@@ -1,0 +1,21 @@
+{
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "scope": "Publisher law structure/instances and unchanged declaration bodies from Nc.G.Contract. Isolated Mathlib import. No full Nc.G.Defs or Nc.G.Contract project-module rebuild.",
+  "sources_sha256": {
+    "Nc/G/Defs.lean": "f5aa6052d3960ddae42830cb65295010311b27a625bc2013484d095ca819ae75",
+    "Nc/G/Contract.lean": "9be08ea32e669ce0b91431f29bf365f2244fcda9ff1785bddaa839be6dd53246"
+  },
+  "excerpts_sha256": {
+    "Law_and_instances": "974f63af85b5ce8ed1144f4e18eb73780cbf8989beca58a3a2a24b7590482f4b",
+    "Contract_declarations": "aea6fdf987b6c9745678c4ce3073f36fbee0ab0fac5d38fc769893c41dfa6f3b"
+  },
+  "harness_sha256": "54b35c2d8adf348dc7a48f7cc27bd541d29d930e2d49b97028b9e8203ad7e1ad",
+  "queries": [
+    "#print axioms Nc.G.contract",
+    "#print axioms Nc.G.Law.pow",
+    "#print axioms Nc.G.Law.conn_pow"
+  ],
+  "exit_code": 0,
+  "output": "'Nc.G.contract' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Nc.G.Law.pow' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Nc.G.Law.conn_pow' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}
