@@ -6,6 +6,8 @@ The first Git checkpoint, `review-2026-11-24`, captures passes 1–4 together. T
 
 [Read the cumulative research report (PDF)](report/VP_VNP_Research_Review.pdf) or [open its editable TeX source](report/VP_VNP_Research_Review.tex). The expanded edition includes four parallel audits across the geometry, flat branch, contracting branch and final field transfer. The [proof coverage map](report/proof-coverage.csv) links 43 claims, interfaces and verification steps to their roles, evidence and unresolved dependencies.
 
+[Download the complete eleven-pass packet](handoff/VP_VNP_Review_2026-11-25_pass11.zip). It contains all 390 research files from commit `e15d655`, including the four parallel audits, coverage map, TeX/PDF, logo, pinned manuscript and verification records. ZIP SHA-256 `06007ffdc21505ead3222503edb721a619cb1e0f09481d2aa90bad32b41f6f27`.
+
 The [archived ten-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/3bf9cd5e052da8313c56e73b1346ad792dfeb95d/handoff/VP_VNP_Review_2026-11-25_pass10.zip) preserves the handoff from research commit `5ee75d1`.
 
 The [archived nine-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/8295d58c59adeaa750235483330bba66475828c1/handoff/VP_VNP_Review_2026-11-24_pass09.zip) preserves the handoff from research commit `f6909ed`.
