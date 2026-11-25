@@ -1,0 +1,764 @@
+{
+  "targets": [
+    "Paper.Flat",
+    "Paper.Laws"
+  ],
+  "closures": {
+    "Paper.Flat": 115,
+    "Paper.Laws": 113
+  },
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "git_tree": "b076b4b081298c4e909bac3f87f0e4462d1fb2cb",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "scope": "Fresh project modules compiled once in a shared empty object directory against prebuilt pinned dependencies.",
+  "modules_requested": 118,
+  "modules": [
+    {
+      "module": "Nc.CaseI.Fkl",
+      "source": "Nc/CaseI/Fkl.lean",
+      "sha256": "c5fea7da3974f826c3ec522ca3efa5f2f50b55191b11022e128331b210e87a11",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.CaseI.Geo",
+      "source": "Nc/CaseI/Geo.lean",
+      "sha256": "afb38d09b34bd68e898921584ac6c9f4b18cf3e17b3ce75964d023ccdd14ec71",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.CaseI.Lower",
+      "source": "Nc/CaseI/Lower.lean",
+      "sha256": "32f452319cc148991993d124383d723240fbfae4aa3452ace2cdd105dd2870e8",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.CaseI.Multi",
+      "source": "Nc/CaseI/Multi.lean",
+      "sha256": "943a11e4f323217f11654e5178d34b1194d898114c9a6571d8a7b702003f0946",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cat.Core",
+      "source": "Nc/Cat/Core.lean",
+      "sha256": "eb37634c0184e2c9d9facde240e21b666e6a9e9ff53a32e943755b01feea7e53",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cat.Len",
+      "source": "Nc/Cat/Len.lean",
+      "sha256": "9c32fd936e0a1d0eeaf917e1c09d7295b749c08b89550553aa37079c159f274e",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cat.Length",
+      "source": "Nc/Cat/Length.lean",
+      "sha256": "7e3862a1b03f255113f3edd3842eb2ba93c8b721d76d9b56b36fd496994d5e71",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cat.Mean",
+      "source": "Nc/Cat/Mean.lean",
+      "sha256": "94a0c8e4a0d9e4ee3a68ac809f848e81dd5ed6f69d123b5dbf1a64b1f249850e",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cat.Prod",
+      "source": "Nc/Cat/Prod.lean",
+      "sha256": "21d4cba38ca47ea925abdaadd26b06bfcddae149a66c44cb4145d4f95721aea1",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cat.Space",
+      "source": "Nc/Cat/Space.lean",
+      "sha256": "a145ba377c3706b8df644c2b1c57c94469c9b90a1c77a0a02cf2094984e31283",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cat.Window",
+      "source": "Nc/Cat/Window.lean",
+      "sha256": "79d3d735f14077f48baf3e90aa7bea740bf076de878c9f89d819873d5286fb4e",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cross.Count",
+      "source": "Nc/Cross/Count.lean",
+      "sha256": "69ea9b4dd8411be71905d4b73e983a4f7d760ccdd20838dc469f6f4c523cd687",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cross.Data",
+      "source": "Nc/Cross/Data.lean",
+      "sha256": "23f19e45aa1ce64b710d5935e7f2b77d9e3898334634fc96351922fbba24fe75",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cross.Ident",
+      "source": "Nc/Cross/Ident.lean",
+      "sha256": "17b7789247fbd9e9a61d374a760b05cbc40a7dd7d82a467b49fd24826a1b5989",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cross.Inv",
+      "source": "Nc/Cross/Inv.lean",
+      "sha256": "7a468e30c84ad8c45a7c2259430addafa53c6e9e43d55f9a8dd4d026442212ff",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cross.Meix",
+      "source": "Nc/Cross/Meix.lean",
+      "sha256": "b69f069880916b79d9efa7b96b6c7e6dd24145833b15f23bf041e36d356da42b",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cross.Near",
+      "source": "Nc/Cross/Near.lean",
+      "sha256": "f183f827cca7c419304307ed32230f11ff39d5c62979b8428a7eb1a485aa9479",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cross.One",
+      "source": "Nc/Cross/One.lean",
+      "sha256": "28d3afb1c8c3274497eab441e6f8a485db1a5e760515e289a29ba15b4d0e1396",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cross.Psi",
+      "source": "Nc/Cross/Psi.lean",
+      "sha256": "052b46e64842e66ea31f32d2f1b59d3301c61db012e98b5d95d45f5833143ba2",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cross.Split",
+      "source": "Nc/Cross/Split.lean",
+      "sha256": "39bd1677a40b591058b7643093d4563a1bd9715c3ba53a375ca74eb0c7cf448a",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cut.Blocks",
+      "source": "Nc/Cut/Blocks.lean",
+      "sha256": "320bee1b68aea35da7c1e096efb7b7b73139e56448bb97f43dc437b773ab490c",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cut.Codes",
+      "source": "Nc/Cut/Codes.lean",
+      "sha256": "84f7b4ebc9a5e4955889cfbbd1359c0088408ed01b86dc8e9af9143f484ffebb",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cut.Defs",
+      "source": "Nc/Cut/Defs.lean",
+      "sha256": "95d69f14e81f3401b7c247f1ecdcbec1b3c3ed1b67f84489e625f8ec274e5b3c",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cut.Groups",
+      "source": "Nc/Cut/Groups.lean",
+      "sha256": "72edcb669eeeb889e88a05973073d89841e11554264c674f7fd0e28519a27a69",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cut.Play",
+      "source": "Nc/Cut/Play.lean",
+      "sha256": "1f8e6e82823acd22d8c21f3cdc14fe759494d124fd4ee75129b2de45898c1e15",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cut.Rows",
+      "source": "Nc/Cut/Rows.lean",
+      "sha256": "7920046e7fe4b9af91adf68e3b9e03d0bdded60347b5a31f73859433a18f89ef",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cut.StartA",
+      "source": "Nc/Cut/StartA.lean",
+      "sha256": "2dc11692ac88d80ac0c8366970a6e928b5c39e2a07c9aabed5ebe115a1364293",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cut.StartB",
+      "source": "Nc/Cut/StartB.lean",
+      "sha256": "9b38f0ec82e59ec9ed0a01d129755fa8ebe6b1aa6fc101d749327d65a158f503",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Cut.Units",
+      "source": "Nc/Cut/Units.lean",
+      "sha256": "0c8dae5a89881d5e018570b33e88d338fe58c0e5202d6d04de6a30e522fac2ad",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Final.CClasses",
+      "source": "Nc/Final/CClasses.lean",
+      "sha256": "23bc513841bbc63efa341ddbe25599b579d8c0c0566a280e1b4f25cb2db12b91",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Act",
+      "source": "Nc/Flag/Act.lean",
+      "sha256": "f271f75e39585570c01c44161ad970bf7c6c9c689d317b71f51c565994272fbb",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Avg",
+      "source": "Nc/Flag/Avg.lean",
+      "sha256": "ce5e2f3e6ac8d7800f9c0cf7dc34e2b0776a3d07c18fd123c1672231315cd030",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Block",
+      "source": "Nc/Flag/Block.lean",
+      "sha256": "248bae9c472b35e57b7478a5b70ec28ead0a0523183b64aae3fc396d377a42a0",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Blow",
+      "source": "Nc/Flag/Blow.lean",
+      "sha256": "3983550b719b343cf7e384e58857efd244f351dcb9efd1097f6a7e83f294ff83",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Cases",
+      "source": "Nc/Flag/Cases.lean",
+      "sha256": "34abe970f74c3ad64d2f67b5ee636aa02e7877fa193c68edd546c252b5ffcf86",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Exchange",
+      "source": "Nc/Flag/Exchange.lean",
+      "sha256": "265554d44a69f7343eb427063ad2b2184e4b67b35f45e0537be74445d5f69b4a",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Len",
+      "source": "Nc/Flag/Len.lean",
+      "sha256": "58a1c041a9df218376678e1cff689eecddefb79fa9d6cb54678ae374f4d6984c",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Main",
+      "source": "Nc/Flag/Main.lean",
+      "sha256": "36c049d0b0bd7e2b613ac7f9472af25e7438c7e6b6fb35414048fcf9af3efde7",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Num",
+      "source": "Nc/Flag/Num.lean",
+      "sha256": "6d67bc56a6c9a97c9c595ac5103e55473594ead9932c130141f83cc09502477b",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Para",
+      "source": "Nc/Flag/Para.lean",
+      "sha256": "d79eb3aa7d6f05195cf8525bc5cf73daedd40a2e392a6f4cef8bcbe52793e41b",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Rank",
+      "source": "Nc/Flag/Rank.lean",
+      "sha256": "04074bf9255b2126cbde825e86a942b6317600ef1d101cd0da62b03e403e5c57",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Transversal",
+      "source": "Nc/Flag/Transversal.lean",
+      "sha256": "b2099f8fa72dd0f401ae98b4c429657fbdf420a24ed17573f1ff705ee3657523",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Uni",
+      "source": "Nc/Flag/Uni.lean",
+      "sha256": "252af0d4bb77e9c71a43b98dc7db89d1040fe46f3f7abdaf771f0ba288b26673",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Walk",
+      "source": "Nc/Flag/Walk.lean",
+      "sha256": "4449b0de3c4519c482167582ad2614048c20555a7b86772e6edbfabc427bbd67",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Window",
+      "source": "Nc/Flag/Window.lean",
+      "sha256": "e233ae7503b535ed4be282a91fea45447d4f63d349dff96d180249df625b2a5d",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Flag.Words",
+      "source": "Nc/Flag/Words.lean",
+      "sha256": "4fa8913356ca28b6f854410cfa9ab19bbcb0aa56c0eb2cdbf7d8b67fbde426d9",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.G.Defs",
+      "source": "Nc/G/Defs.lean",
+      "sha256": "f5aa6052d3960ddae42830cb65295010311b27a625bc2013484d095ca819ae75",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Hc.Grid",
+      "source": "Nc/Hc/Grid.lean",
+      "sha256": "9f7cfc50e6bc4c9611d7cd0d8b6bf7fe5cc444fbc6ee6c0156e8f9381ead60e0",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Hc.Segments",
+      "source": "Nc/Hc/Segments.lean",
+      "sha256": "a2c81c6dbe28cdda63ff34c72baeb9ee5bd90e55b3b8bda4d6dc7d4467011ff0",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.LowDegree",
+      "source": "Nc/LowDegree.lean",
+      "sha256": "ae26842182c09a0154db023ecb736b11e86137632f5e852c0f192e3e1c28316b",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.PermCoeff",
+      "source": "Nc/PermCoeff.lean",
+      "sha256": "9c9c454a714148de9f2cc2b2ceab3c65bd287dbc9714a52b314d842c7aa64b28",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.PermGrid",
+      "source": "Nc/PermGrid.lean",
+      "sha256": "f5e202c98cb933c92ac6a4a6c1ff0bb20ca133b0d9390dccc9d9c9bd5250964a",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.PermPad",
+      "source": "Nc/PermPad.lean",
+      "sha256": "2f2141f118afde65f62b4866003623581d65e941d88e162e6e6f5bdaf406c2b1",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.PermSum",
+      "source": "Nc/PermSum.lean",
+      "sha256": "3b5ac4084e6446f03784d90738f15db9347536089682cc265d3d9c45f954bf9f",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.PermValiant",
+      "source": "Nc/PermValiant.lean",
+      "sha256": "9b641520ee81b2633c6bad023ad8fa0387f16260fc687554b48b371809b72e7e",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Plus.UnitBits",
+      "source": "Nc/Plus/UnitBits.lean",
+      "sha256": "42179cdce67927269655532b018eb7326467e45f344642177b6d83171ea59363",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Price.Basic",
+      "source": "Nc/Price/Basic.lean",
+      "sha256": "4bc47dea2b477d57317e5d2d377d1aad5ec5fe83bca71edc307fd44f7e38686d",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Price.Cover",
+      "source": "Nc/Price/Cover.lean",
+      "sha256": "5eaa46c1193f7a2a5064a72c89a554fa55dc30733cc7cfe54eb15f9414efeeea",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Price.Cross",
+      "source": "Nc/Price/Cross.lean",
+      "sha256": "d263be96e3f3105fabc83d32ba55a8f50e0aec51f0888e1a5afbf4912d35018e",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Price.Law",
+      "source": "Nc/Price/Law.lean",
+      "sha256": "81aa08362c68e41d4e61b95bb90f422f0a5468a90c3bceb6419a85e8a3972678",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Price.LawF",
+      "source": "Nc/Price/LawF.lean",
+      "sha256": "a0667367f73f4b710758181823c36afcd5d843bd1ce5decd3f46f0eceb0149b0",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Price.Network",
+      "source": "Nc/Price/Network.lean",
+      "sha256": "04b80ed3d9f0b76d70212eea42bf067733e4d89455d41580860df3f4dc17fd72",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Price.Norm",
+      "source": "Nc/Price/Norm.lean",
+      "sha256": "de15aee61d62a0e2d47fff1b2ae13180b05cf3cd62cec61de28dd2c532738f0a",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Rate.Defs",
+      "source": "Nc/Rate/Defs.lean",
+      "sha256": "fc75e02af3fdc602affaf2ef55c9052b3aff800fce76b992ee5e1b6cb3f4b032",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tape.Hat",
+      "source": "Nc/Tape/Hat.lean",
+      "sha256": "9ec30998669e2ce85d170cf929b2e2a78add7d4fd821dda038b8bde9d17453ed",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tape.Loop",
+      "source": "Nc/Tape/Loop.lean",
+      "sha256": "9b57de641f0e09adadebc1d393e676bd755aa978029ffccd30e94ef340d5fdec",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tape.Rat",
+      "source": "Nc/Tape/Rat.lean",
+      "sha256": "32449df7898f2ca1b0808046d18d1304530c78522010f15b64589b35b80c0e7f",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tape.Refine",
+      "source": "Nc/Tape/Refine.lean",
+      "sha256": "9192c626b9f0709b7336a11a7750d67a91389845c20010517e63c63b6f8d4776",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tape.Rep",
+      "source": "Nc/Tape/Rep.lean",
+      "sha256": "0c763fb6278c560aecb6a0a9f4097d86c797896092e9b6bb2dfa61b538c3ec78",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tape.Run",
+      "source": "Nc/Tape/Run.lean",
+      "sha256": "04dedee90ed93fba1bad61f00db033c5f42139b57c4216aaec7dc1a877220d87",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tape.Task",
+      "source": "Nc/Tape/Task.lean",
+      "sha256": "5aeb1f9e8fe63037b3b59125a1fd12c4610767784038fffad5938b87e7b598cc",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tow.Defs",
+      "source": "Nc/Tow/Defs.lean",
+      "sha256": "8f5cb1a958c961cd8179dd744bfcb596d1fa952e1ff8e398844c177c5015c9e3",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tow.FromPrice",
+      "source": "Nc/Tow/FromPrice.lean",
+      "sha256": "630caaa0ecefab2e230e8817b53e7f00359d03f04fd6b84029066b615394bb0f",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tow.FromPriceK",
+      "source": "Nc/Tow/FromPriceK.lean",
+      "sha256": "bfc1ed72f6576c1f1caf5b21f32a3b3a1d25a977a9ae505c32c3ba944da75581",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tow.Load",
+      "source": "Nc/Tow/Load.lean",
+      "sha256": "6fde025414f40ce1b89194670001fe205429a5ff4e1fcfa9a9544afe51d8dc51",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tow.Relay",
+      "source": "Nc/Tow/Relay.lean",
+      "sha256": "ff616b78d369b2008337a8dfec48b6ddadaf427cbf161fdef25f8dc2cd5ae7a8",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.Base",
+      "source": "Nc/Tower/Base.lean",
+      "sha256": "d02c92b8eec1c75f9d4180930bf5611885ee125a88f358c6ff61101fbb4551f0",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.Chain",
+      "source": "Nc/Tower/Chain.lean",
+      "sha256": "312301f8227ce24dbd8579241ff6b39f1bff3bdffa2bd3de49582483514f8853",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.Coord",
+      "source": "Nc/Tower/Coord.lean",
+      "sha256": "a5de2f7d28b4d4583bc9655891b3ea07b2280777fd1ff1ea10a4abde4b60077f",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.Diam",
+      "source": "Nc/Tower/Diam.lean",
+      "sha256": "a3099a3f80dd3af161671d3854b8901ee17ce75f315217a3072eb6aee7693e94",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.Grp",
+      "source": "Nc/Tower/Grp.lean",
+      "sha256": "6336bec04285476424ea2bb2aa840e5fe9345bf9d4a546994652f79f46401503",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.Inst",
+      "source": "Nc/Tower/Inst.lean",
+      "sha256": "79d46b5471c59611f6b674975e34af268ee6121741101d4e76a8dd81963019c6",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.Layer",
+      "source": "Nc/Tower/Layer.lean",
+      "sha256": "4c2e5a229d874e3fe9cff5af0f1b604f6950288afb798120dbbe7b4948f11538",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.Ring",
+      "source": "Nc/Tower/Ring.lean",
+      "sha256": "d07ec7432289cd117a95554c7742d16151fb9ae9e8a27d16f7cae3f76f289419",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.Tower",
+      "source": "Nc/Tower/Tower.lean",
+      "sha256": "fd768ba0e48ef060bb695f1c3eca06fccb37162a7c9c6da00eab0cf9dece8632",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.UT",
+      "source": "Nc/Tower/UT.lean",
+      "sha256": "9aa4450e6fe06c9d764cf9b653a864f9c4f16f7abaedb6e54bd5aaf1c2e90c5a",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Tower.Words",
+      "source": "Nc/Tower/Words.lean",
+      "sha256": "57a7e1af0b79c9af26ff43678da4a63f938b8c0f7863ea83bfd19536948c6999",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Vp.Gen",
+      "source": "Nc/Vp/Gen.lean",
+      "sha256": "99511ad53e95df0d36fc251fa13146ddb3828c806ee98eaa48479d0f3741e9b2",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.Vp.Main",
+      "source": "Nc/Vp/Main.lean",
+      "sha256": "847fe7452f6bb65a1b5a93a3065b1ad245cbecb403dad20c78ea15905aa65b10",
+      "exit_code": 0
+    },
+    {
+      "module": "Nc.WidePerm",
+      "source": "Nc/WidePerm.lean",
+      "sha256": "b06a38d4735a7d82ba119e6d6f6486991d72cd02bccee3b395f28dd7a2b7a530",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Core.Basic",
+      "source": "Ov/Core/Basic.lean",
+      "sha256": "fd2ecd07720ee48ab976d965bf1cb8c35b332cd53d1f30336a35ea7783c89f82",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Core.Equi",
+      "source": "Ov/Core/Equi.lean",
+      "sha256": "204997a8e1016bfbbde394ba194b088bc3115063e712898ff752e1c00b202965",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Core.Network",
+      "source": "Ov/Core/Network.lean",
+      "sha256": "e6ca4355f5d3394d90fc0145dd1cf2e0e6ddf7e7b3ebfcfc0be9a6da3fca2804",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Core.Spec",
+      "source": "Ov/Core/Spec.lean",
+      "sha256": "5e4dfb72550e2698ed84ceff3bd706237260fa570f5a1aeb78ad999ffed444ea",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Core.Tensor",
+      "source": "Ov/Core/Tensor.lean",
+      "sha256": "82361b4ace7bf2776a8177e96b56e54b2d323e44bf4851b52dc17d597e6261a8",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Core.Unit",
+      "source": "Ov/Core/Unit.lean",
+      "sha256": "f4404f308e72a7777e80cd56899f8cd4090539ac3f7c3312bcd2b459434edf1e",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Core.Wire",
+      "source": "Ov/Core/Wire.lean",
+      "sha256": "0b3546c46869176c8a87e654054c5144673148ecc21d003cf28c8215880e1331",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Duality.Abstract",
+      "source": "Ov/Duality/Abstract.lean",
+      "sha256": "2a6b150473038fdbe1091be41e87637edd6236d6ba017471a9d8e72c50f1acea",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Duality.Cert",
+      "source": "Ov/Duality/Cert.lean",
+      "sha256": "fa025a58095062c763121b3c9fea376711d9d88724dddf5b4cc3c7d283fc3929",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Duality.Minimal",
+      "source": "Ov/Duality/Minimal.lean",
+      "sha256": "f3443cf9d3082e68999ee963b5d2ded0f3f8795e53615281164b93447b344e98",
+      "exit_code": 0
+    },
+    {
+      "module": "Ov.Duality.PreSpec",
+      "source": "Ov/Duality/PreSpec.lean",
+      "sha256": "2de4951d87da423398aeaf3d81ed09046aa76ccd8452d149bca0b0146ff95ae2",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Alternative",
+      "source": "Paper/Alternative.lean",
+      "sha256": "e35dd99751c44ba47574c615290fb82688dc72a981ede286424beb53ce90e688",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Crossing",
+      "source": "Paper/Crossing.lean",
+      "sha256": "a0d52a885f08d02580695278d68dfcb7952dcdffd6ed1d5442559dd017a65b2a",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Curvature",
+      "source": "Paper/Curvature.lean",
+      "sha256": "ce3ad3eb31fc46d12651235804917360d1ef1cbd9e9c13699522d0ca9b11883b",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Extension",
+      "source": "Paper/Extension.lean",
+      "sha256": "57727544abd9cf4e81d646247744c224723d8e885e0c6e0c5bf923c23eb77966",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Fan",
+      "source": "Paper/Fan.lean",
+      "sha256": "5ced097f2ddf45071036ea9291048daeb6093678f00cac240457a79594f4ed9f",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Flat",
+      "source": "Paper/Flat.lean",
+      "sha256": "d855bd47ba5998d21bbc1f7a85ba1f63ee58f3002ab2e98edc53c541cfbc4638",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Gauges",
+      "source": "Paper/Gauges.lean",
+      "sha256": "2d9dd75dbbac400786fc99b729f5ef49ee87792cb35653908103c881f359fabf",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Grids",
+      "source": "Paper/Grids.lean",
+      "sha256": "329c667627c804d680cbaecb242d117e410b531884a39a34ccf1293416453f2a",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Groups",
+      "source": "Paper/Groups.lean",
+      "sha256": "30b193180e57d7dee980701d38bf69f63c45ecb90bbe2d82047c027acd3eb8dc",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Identity",
+      "source": "Paper/Identity.lean",
+      "sha256": "694be3bb200050e339590c083f71cf5d3279a9a4e77c8b6c38590b1961ad96fa",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Laws",
+      "source": "Paper/Laws.lean",
+      "sha256": "fabb108ec4abb3f0e5e5e872d4fac87a38bdbb6f1c69cfe12896f200026ff87f",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Lengths",
+      "source": "Paper/Lengths.lean",
+      "sha256": "4c090806913c63c0cf9426fd30ce90bcf676f17e21918e0f8451db2312ca4d5d",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Means",
+      "source": "Paper/Means.lean",
+      "sha256": "4fc85e9afd4aac6595529a9b8b29e01c7f63f93611c6b212a0514a302cf471b0",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Prices",
+      "source": "Paper/Prices.lean",
+      "sha256": "e137c48f814f79a378fbdef67a82da516973c09eaf4d59a0d01380cfb4518312",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.States",
+      "source": "Paper/States.lean",
+      "sha256": "a99a5c13c2bf32d1ed3cc8cb9ad92f0c9681ac869f8b3acca99ea0ad6dc385e7",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Tensors",
+      "source": "Paper/Tensors.lean",
+      "sha256": "8f1175002e097a2448272f867a277d2c915e12e97bff0856c857eb3c07fc7c6b",
+      "exit_code": 0
+    },
+    {
+      "module": "Paper.Toolkit",
+      "source": "Paper/Toolkit.lean",
+      "sha256": "b5669c2c092c5966856ead917d134734f067ef1660432fd6cdae83b74517f2c9",
+      "exit_code": 0
+    }
+  ],
+  "verification": {
+    "query_file": "checks/pass13_joint.lean",
+    "sha256": "f3db8b52ae01e3253bd6a576419e05bc2dc466c93b93b456071de5811e79fd84",
+    "queries": [
+      "#check @Paper.lem_balanced",
+      "#check @Paper.lem_balanced_cf",
+      "#check @Paper.prop_flat_lower_sum",
+      "#check @Paper.thm_laws_poincare",
+      "#check @Paper.thm_laws_cover",
+      "#check @Paper.thm_laws_over_field",
+      "#check @Paper.thm_laws",
+      "#check @Paper.exists_laws",
+      "#print axioms Paper.lem_balanced",
+      "#print axioms Paper.lem_balanced_cf",
+      "#print axioms Paper.prop_flat_lower_sum",
+      "#print axioms Paper.thm_laws_poincare",
+      "#print axioms Paper.thm_laws_cover",
+      "#print axioms Paper.thm_laws_over_field",
+      "#print axioms Paper.thm_laws",
+      "#print axioms Paper.exists_laws",
+      "#check @Paper.thm_poincare",
+      "#check @Paper.thm_duality",
+      "#print axioms Paper.thm_poincare",
+      "#print axioms Paper.thm_duality"
+    ],
+    "output": "@Paper.lem_balanced : ∀ {R T : Type} [inst : CommSemiring R] [inst_1 : Fintype T] [inst_2 : DecidableEq T] {k : ℕ}\n  {P : MvPolynomial (Fin k × T) R} {L : ℕ},\n  Nc.Computes P L →\n    2 ≤ k →\n      ∃ g q,\n        Paper.linearPart P =\n          ∑ S with k ≤ 3 * S.card ∧ 3 * S.card ≤ 2 * k, ∑ δ, Paper.linearIn S (g S δ) * Paper.linearIn Sᶜ (q S δ)\n@Paper.lem_balanced_cf : ∀ {R T : Type} [inst : CommSemiring R] [Fintype T] [DecidableEq T] {k : ℕ}\n  {P : MvPolynomial (Fin k × T) R} {L : ℕ},\n  Nc.Computes P L →\n    2 ≤ k →\n      ∃ g q,\n        ∀ (y : Fin k → T),\n          Nc.CaseI.cf Finset.univ P y = ∑ S ∈ Nc.CaseI.bal Finset.univ, ∑ δ, (g S δ fun a => y ↑a) * q S δ fun a => y ↑a\n@Paper.prop_flat_lower_sum : ∀ {K : Type} [inst : Field K] {I : Type} [inst_1 : Fintype I] [inst_2 : DecidableEq I]\n  {k : ℕ},\n  2 ≤ k →\n    ∀ {ℓ L : ℕ} {P : MvPolynomial (Fin k × Nc.CaseI.Ix k ℓ) K},\n      Nc.Computes P L →\n        ∀ (π : Nc.CaseI.End k → I) (hub : Finset (Fin k) → Bool → I),\n          (Ov.Ten.push π ((Paper.fklTen K k ℓ).withVal fun z => Nc.CaseI.cf Finset.univ P (Paper.tables z))).SumRestr\n            fun S => Paper.hubTen K ℓ L π hub ↑S\n@Paper.thm_laws_poincare : ∀ {K : Type} [inst : Field K],\n  Paper.Contracting K →\n    ∃ u,\n      2 ≤ u ∧\n        ∃ C C₀,\n          0 ≤ C ∧\n            Paper.PoincareBound K u C ∧\n              2 * C + 1 ≤ ↑C₀ ∧\n                ∀ (h : ℕ) [inst_1 : NeZero h],\n                  u ∣ h →\n                    2 * u ≤ h →\n                      ∀ (w : ↥(Nc.Tower.U h) → ↥(Nc.Tower.U h) → ℝ),\n                        Nc.Price.IsPrice K w →\n                          (∑ p, ∑ q, w p q ^ 2) /\n                              (↑(Fintype.card ↥(Nc.Tower.U h)) * (↑(Fintype.card ↥(Nc.Tower.U h)) - 1)) ≤\n                            ↑C₀ * (2 / ↑(Fintype.card ↥(Nc.Tower.U h)) * ∑ ν, w (Nc.Vp.cNear ν) (Nc.Vp.dNear ν) ^ 2)\n@Paper.thm_laws_cover : ∀ {K : Type} [inst : Field K] {V E N B : Type} [inst_1 : Fintype V] [DecidableEq V] [Nonempty V]\n  [inst_4 : Fintype E] [DecidableEq E] [inst_6 : Fintype N] [inst_7 : DecidableEq N] [inst_8 : Fintype B]\n  [DecidableEq B] (a b : E → V) (c d : N → V) (σ : E → ℕ) (ℬ : B → N → ℕ),\n  (∀ (w : V → V → ℝ), Nc.Price.IsPrice K w → ∃ β, ∑ e, ↑(σ e) * w (a e) (b e) ≤ ∑ ν, ↑(ℬ β ν) * w (c ν) (d ν)) →\n    ∀ {ε : ℝ},\n      0 < ε →\n        ∃ q₀,\n          ∀ (q : ℕ),\n            q₀ ≤ q →\n              ∃ m v,\n                ↑m ≤ 2 ^ (ε * ↑q) ∧\n                  (∀ (i : Fin m), ∑ β, v i β = q) ∧\n                    ∃ tab,\n                      Nc.Price.BitId K (fun s => a s.fst) (fun s => b s.fst) c d (fun i ν => ∑ β, v i β * ℬ β ν) tab\n@Paper.thm_laws_over_field : ∀ {K : Type} [inst : Field K] {h : ℕ} [inst_1 : NeZero h],\n  2 ≤ h →\n    ∀ {C₀ : ℕ},\n      1 ≤ C₀ →\n        (∀ (w : ↥(Nc.Tower.U h) → ↥(Nc.Tower.U h) → ℝ),\n            Nc.Price.IsPrice K w →\n              (∑ p, ∑ q, w p q ^ 2) / (↑(Fintype.card ↥(Nc.Tower.U h)) * (↑(Fintype.card ↥(Nc.Tower.U h)) - 1)) ≤\n                ↑C₀ * (2 / ↑(Fintype.card ↥(Nc.Tower.U h)) * ∑ ν, w (Nc.Vp.cNear ν) (Nc.Vp.dNear ν) ^ 2)) →\n          ∃ a₁ Di x L ro cn,\n            0 < a₁ ∧\n              (∀ (d : Di) (ν : (L d).Cn),\n                  s((ro d) ((L d).c ν), (ro d) ((L d).d ν)) = s(Nc.Vp.cNear ((cn d) ν), Nc.Vp.dNear ((cn d) ν))) ∧\n                (∀ (d : Di), 1 ≤ (L d).lam ∧ Nonempty (L d).I) ∧\n                  (∀ (n : Sym2 ↥(Nc.Tower.U h) → ℕ) (t : ℕ),\n                      √(↑(Fintype.card ↥(Nc.Tower.U h)) * (↑(Fintype.card ↥(Nc.Tower.U h)) - 1) / 2 *\n                              ∑ q, if q.IsDiag then 0 else ↑(n q) ^ 2) ≤\n                          ↑a₁ * ↑t →\n                        ∃ d,\n                          ∀ (q : Sym2 ↥(Nc.Tower.U h)),\n                            ¬q.IsDiag → n q ≤ {e | s((ro d) ((L d).a e), (ro d) ((L d).b e)) = q}.card * t) ∧\n                    ∀ (d : Di) (i : (L d).I),\n                      √(↑(Fintype.card ↥(Nc.Tower.U h)) / 2 * ∑ ν, ↑((L d).lam + (L d).len i ν) ^ 2) ≤ √(4 * ↑C₀) * ↑a₁\n@Paper.thm_laws : ∀ {K : Type} [inst : Field K],\n  Paper.Contracting K →\n    ∃ u,\n      2 ≤ u ∧\n        ∃ C C₀,\n          0 ≤ C ∧\n            Paper.PoincareBound K u C ∧\n              2 * C + 1 ≤ ↑C₀ ∧\n                (∃ h, u ∣ h ∧ 2 * u ≤ h ∧ 3 ≤ h ∧ 1 + 8 * (4 * ↑C₀) ≤ ↑h / 4) ∧\n                  ∀ (h : ℕ) [inst_1 : NeZero h],\n                    u ∣ h →\n                      2 * u ≤ h →\n                        3 ≤ h →\n                          1 + 8 * (4 * ↑C₀) ≤ ↑h / 4 →\n                            ∃ A,\n                              ∃ (_ : Algebra.FiniteType ℤ ↥A),\n                                ∃ a₁ Di x L ro cn,\n                                  0 < a₁ ∧\n                                    (∀ (d : Di) (ν : (L d).Cn),\n                                        s((ro d) ((L d).c ν), (ro d) ((L d).d ν)) =\n                                          s(Nc.Vp.cNear ((cn d) ν), Nc.Vp.dNear ((cn d) ν))) ∧\n                                      (∀ (d : Di), 1 ≤ (L d).lam ∧ Nonempty (L d).I) ∧\n                                        (∀ (n : Sym2 ↥(Nc.Tower.U h) → ℕ) (t : ℕ),\n                                            √(↑(Fintype.card ↥(Nc.Tower.U h)) * (↑(Fintype.card ↥(Nc.Tower.U h)) - 1) /\n                                                      2 *\n                                                    ∑ q, if q.IsDiag then 0 else ↑(n q) ^ 2) ≤\n                                                ↑a₁ * ↑t →\n                                              ∃ d,\n                                                ∀ (q : Sym2 ↥(Nc.Tower.U h)),\n                                                  ¬q.IsDiag →\n                                                    n q ≤\n                                                      {e | s((ro d) ((L d).a e), (ro d) ((L d).b e)) = q}.card * t) ∧\n                                          ∀ (d : Di) (i : (L d).I),\n                                            √(↑(Fintype.card ↥(Nc.Tower.U h)) / 2 *\n                                                  ∑ ν, ↑((L d).lam + (L d).len i ν) ^ 2) ≤\n                                              √(4 * ↑C₀) * ↑a₁\n@Paper.exists_laws : ∀ {K : Type} [inst : Field K],\n  Paper.Contracting K →\n    ∃ h,\n      ∃ (x : NeZero h),\n        3 ≤ h ∧ ∃ A, ∃ (_ : Algebra.FiniteType ℤ ↥A), ∃ VL, 1 + 8 * VL.C₁ ≤ ↑h / 4 ∧ ∃ g, 2 * VL.C₁ * ↑VL.a₁ ^ 2 = ↑g\n'Paper.lem_balanced' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.lem_balanced_cf' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.prop_flat_lower_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.thm_laws_poincare' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.thm_laws_cover' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.thm_laws_over_field' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.thm_laws' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.exists_laws' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.thm_poincare : ∀ {K : Type} [inst : Field K],\n  Paper.Contracting K →\n    ∃ u,\n      2 ≤ u ∧\n        ∃ C₀,\n          0 ≤ C₀ ∧\n            ∀ (l : ℕ),\n              2 ≤ l →\n                ∀ (w : ↥(Nc.Tower.U (l * u)) → ↥(Nc.Tower.U (l * u)) → ℝ),\n                  Nc.Price.IsPrice K w →\n                    (∑ g, ∑ k, w k (g * k) ^ 2) / ↑(Fintype.card ↥(Nc.Tower.U (l * u))) ^ 2 ≤\n                      C₀ * ∑ j, (∑ k, w k (Nc.Tower.x (l * u) j * k) ^ 2) / ↑(Fintype.card ↥(Nc.Tower.U (l * u)))\n@Paper.thm_duality : ∀ {K : Type} [inst : Field K] {I : Type} [inst_1 : Fintype I] [inst_2 : DecidableEq I] [Nonempty I]\n  {B : Type} [inst_4 : Fintype B] [inst_5 : DecidableEq B] {C : Ov.Ten K I} {A : B → Ov.Ten K I},\n  (∃ x, C.val x ≠ 0) →\n    (∃ β x, (A β).val x ≠ 0) →\n      (∀ (φ : Ov.Spec K I), ∃ β, φ.F C ≤ φ.F (A β)) →\n        ∀ {ε : ℝ},\n          0 < ε →\n            ∃ N₀,\n              ∀ (N : ℕ),\n                N₀ ≤ N →\n                  ∃ m v,\n                    ↑m ≤ 2 ^ (ε * ↑N) ∧\n                      (∀ (i : Fin m), ∑ β, v i β = N) ∧\n                        (C.kpow N).SumRestr fun i => Ov.Ten.prod fun β => (A β).kpow (v i β)\n'Paper.thm_poincare' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.thm_duality' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "exit_code": 0
+  }
+}

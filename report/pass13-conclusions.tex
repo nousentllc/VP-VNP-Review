@@ -1,0 +1,31 @@
+\newpage
+\heading{What pass 13 settles for an arbitrary circuit}
+Suppose $C_m$ is a candidate for the Hamiltonian-cycle polynomial. Under M.1 its size budget $s$ survives the move to the comparison field. M.2 yields a circuit of at most $5s$ gates for the specified grid whenever the grid fits the matrix. D.2 supplies a branch on that field. These three statements have different quantifiers: the field is chosen for the characteristic, each branch chooses its grid, and the circuit may be any list of $s$ allowed gates.
+
+\subhead{Flat branch}
+After extracting the coefficient tensor, E.4 charges each original gate at most once per balanced subset, even if it was used in both input slots or reused by many later gates. A.3 realizes each such cut tensor with a shared index. This answers the fan-out objection to the decomposition. To derive the rate one must still value a sum of tensors split across \emph{different} cuts. The next target is E.7 in \texttt{Paper.Convex}, followed by the passage to E.10 in \texttt{Paper.Rate}. Check the same spectral point, output support and all dimensions at the call. Pass 12C supplies the error calculation once these inputs hold.
+
+\subhead{Contracting branch}
+G.2 places the choice of $h$ after a uniform comparison constant and before the finely rounded law tables. Its load estimate leaves a factor of two at the level of the compensated stage recurrence. H.2 still needs the particular tower from H.1 and admissible routings for every network on the branch. A second outstanding question is how K.2's weighted evaluator builds and times its coefficient advice for an arbitrary circuit. Follow the entire proof from the gate recurrences to the plain inputs on which K.3 invokes the program.
+
+\subhead{How an independent conclusion would follow}
+The permanent projection has its own characteristic restriction. The HC witness establishes membership in all characteristics by a rooted enumeration. To exclude HC from VP, M.3 must supply its claimed lower bound at every sufficiently large size over the chosen characteristic. To obtain strict inclusion, M.4 also uses the elementary embedding of VP into VNP by choosing zero extra bits. The complete exact-theorem wrapper and the separate comparison of that wrapper to the released challenge remain open in this audit. The independent notes carry no claim of having proved VP distinct from VNP.
+
+\smallref{\pub{Paper/Convex.lean}{22}{E.7 selector estimate} · \pub{Paper/Rate.lean}{299}{E.10 numerical caller} · \pub{Paper/Tower.lean}{25}{H.1} · \pub{Paper/Tree.lean}{1628}{H.2} · \pub{Paper/LowDeg.lean}{42}{K.2} · \pub{Paper/Fields.lean}{142}{M.4} · \pub{Solution.lean}{34}{exact separation wrapper}.}
+
+\newpage
+\heading{Reproducing the mathematics from a checkout}
+\label{sec:reproduction}
+The \texttt{primary/vp-vnp/} directory contains all 333 files in the pinned publisher subtree, including the 70-page paper. Printed page numbers in this report refer to that PDF. Proposition labels and Lean declaration names provide a second way to find each passage. The Markdown notes under \texttt{passes/} give file-and-line links within the checkout, usable offline. The coverage CSV gives each audited claim a source anchor, the independent finding, the evidence available and the next obligation.
+
+\subhead{Exact finite controls and proof readbacks}
+Run \texttt{python3 checks/pass13\_reader\_check.py} from the repository root with Python 3.9 or newer. This checks the pinned source, the file-and-line anchors, the recorded module hashes and declaration queries, then reruns the four pass-13 finite controls. The gate control checks coefficient tables over several rings. The gain control tests integral rounding on an eight-vertex graph. The permanent control compares polynomial coefficients. The HC control compares rooted tables to cycles enumerated as successor permutations.
+
+The formal replay uses Lean 4.33.1 with mathlib and its dependencies at the revisions recorded in the publisher's manifest. The joint build compiles \texttt{Paper.Flat} and \texttt{Paper.Laws} in one empty directory. Its two import closures have 115 and 113 project modules respectively and overlap in 110, for 118 distinct modules. The four-track records include separate fresh builds for the gate induction (2 modules), permanent projection (12) and HC witness (13). All 18 cumulative finite-control scripts also ran in this edition. Counts across builds overlap. The query files record precisely which statements and axiom declarations were read. External library objects were prebuilt.
+
+\subhead{What each kind of check contributes}
+A finite control can refute a proposed weakening, as the characteristic-two example does. An algebraic derivation or a proof in Lean can quantify over all circuits or fields in its stated domain. A successful module build checks a proof of the encoded statement under its imported definitions and axioms. Matching that statement to the printed theorem and its intended consumer requires a separate reading. The current report gives those boundaries for each of the four investigations.
+
+To regenerate the PDF, run LuaLaTeX twice on \texttt{VP\_VNP\_Research\_Review.tex} in \texttt{report/}, keeping its body fragments and the supplied Nous PNG together. The README gives commands for both the report build and the formal replay from a clean checkout.
+
+\smallref{\currentreview{checks/pass13_reader_check.py}{Offline checker} · \currentreview{checks/pass13_joint_replay.py}{Formal replay runner} · \currentreview{checks/pass13_joint_replay.json}{combined readback} · \currentreview{source-lock.json}{source and dependency pins} · \currentreview{report/proof-coverage.csv}{evidence ledger}.}

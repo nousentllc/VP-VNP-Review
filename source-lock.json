@@ -81,6 +81,34 @@
         "record": "checks/pass12e_alternative_replay.json",
         "source_and_receipt_verifier": "checks/pass12e_verify_pin.py"
       }
+    },
+    "pass13": {
+      "gate_reuse": {
+        "record": "checks/pass13a_gate_replay.json",
+        "finite_check": "checks/pass13a_gate_reuse.py",
+        "scope": "Two fresh publisher modules and an isolated unchanged E.4 excerpt. The separate joint build also covers the full Paper.Flat module."
+      },
+      "uniform_gain": {
+        "record": "checks/pass13b_budget_results.json",
+        "finite_check": "checks/pass13b_gain.py",
+        "scope": "Two independent real-valued budget lemmas against pinned mathlib and finite cut/rounding controls. Publisher G.2 is covered by the separate joint build."
+      },
+      "permanent_grid": {
+        "record": "checks/pass13c_permanent_replay.json",
+        "finite_check": "checks/pass13c_permanent.py",
+        "scope": "12 original modules through Paper.Grids; ten types and seven axiom sets. E.3 is additionally covered by the joint Paper.Flat module build."
+      },
+      "hc_membership": {
+        "record": "checks/pass13d_membership_replay.json",
+        "finite_check": "checks/pass13d_witness.py",
+        "scope": "13 original modules through Nc.Hc.Vnp with five types, five axiom queries and a separately instantiated membership proof term. The strict-inclusion caller in Paper.Fields was inspected in source."
+      },
+      "combined_branches": {
+        "record": "checks/pass13_joint_replay.json",
+        "runner": "checks/pass13_joint_replay.py",
+        "scope": "Fresh union of Paper.Flat (115) and Paper.Laws (113), 110 shared and 118 unique project modules. Ten types and ten axiom queries. The complete exact separation, remaining downstream branches and Comparator are separate targets."
+      },
+      "reader_check": "checks/pass13_reader_check.py"
     }
   }
 }

@@ -1,0 +1,81 @@
+% Body of the cumulative report. Its title page and Nous mark are set by the master file.
+\clearpage
+\heading{How the flat proof handles a reused gate}\label{sec:gate}
+\smallref{Pass 13A \enspace $\cdot$ \enspace Manuscript E.4, p. 33, through the E.7 interface, p. 35.}
+
+\subhead{The statement to be checked}
+Take a circuit of $L$ gates over a commutative semiring, with $k\ge2$ blocks of variables $X_{a,t}$ and one common finite label set $T$. Write $p_i$ for the polynomial at gate $i$. A gate is a variable, a scalar, or the sum or product of two earlier gates. Its two input indices may coincide. Any earlier gate may be used again further along the list. For every balanced set of blocks $A$, E.4 allows up to $L$ terms factoring across $A$ and its complement. Summing these contributions over all balanced sets recovers the component of the output having degree one in every block.
+
+\subhead{Which coefficients determine the answer?}
+For an assignment $x\in T^k$ and a subset $S\subseteq[k]$, set
+\[
+ m_S(x)=\prod_{a\in S}X_{a,x_a},\qquad
+ c_{i,S}(x)=[m_S(x)]p_i .
+\]
+This coefficient concerns the exact monomial: every variable absent from the product has exponent zero. Hence $c_{i,S}$ reads only $x|_S$ and $c_{i,\varnothing}$ is the constant coefficient. At an addition gate, coefficient tables add. At a multiplication gate $p_i=p_u p_v$ the identity is
+\begin{equation*}
+ c_{i,S}(x)=\sum_{B\subseteq S} c_{u,B}(x)c_{v,S\setminus B}(x).
+\end{equation*}
+Indeed, each exponent in the target is zero or one. In every contributing pair of input monomials, each selected variable must come from exactly one socket. Choosing the variables in the first socket determines the second. This gives a bijection, including when $u=v$. Polynomial terms of high degree can occur at intermediate gates without invalidating the calculation.
+
+\subhead{What can be charged to one gate?}
+Call $S$ large when $3|S|>2k$. Call $A$ balanced when $k\le3|A|\le2k$. Both thresholds use the original number of blocks throughout recursion. For every $i$ and every large $S$, the induction asserts the existence of tables $H^{i,S}_{\delta,A}$ with
+\begin{equation*}
+ c_{i,S}(x)=
+ \sum_{\substack{A\subseteq S\\ k\le3|A|\le2k}}\;
+ \sum_{\delta=0}^{L-1}
+ c_{\delta,A}(x)\,H^{i,S}_{\delta,A}(x|_{S\setminus A}).
+\end{equation*}
+The left factor for a given pair $(\delta,A)$ is fixed by the original circuit. Different uses of gate $\delta$ can therefore change the same complementary table. That table may be complicated, but its arguments are confined to $S\setminus A$. This restriction is what eventually allows two separate hubs to evaluate the two factors.
+
+\smallref{\pub{Nc/LowDegree.lean}{24}{Circuit model}. \pub{Nc/CaseI/Multi.lean}{65}{Coefficient bijection}. \pub{Nc/CaseI/Multi.lean}{146}{Induction invariant}.}
+
+\clearpage
+\heading{The induction and its stopping rule}
+A large $S$ contains at least two blocks. Its coefficient at a variable or constant gate vanishes, so every table can start at zero. At $p_i=p_u+p_v$, add the two complementary tables entry by entry. For a fixed $(\delta,A)$ this uses $ch+ch'=c(h+h')$. A path reaching the same earlier gate twice can thus contribute twice with just one gate label.
+
+\subhead{A product with an arbitrary split}
+For the term indexed by $B\subseteq S$ in the product formula, put $C=S\setminus B$. Choose $D=B$ if $3|B|\ge k$. Otherwise choose $D=C$; then $3|C|=3|S|-3|B|>k$. Let $r$ be the gate on the chosen side and $v'$ the sibling. Commutativity lets us write the chosen factor first.
+
+\begin{enumerate}
+\item If $3|D|\le2k$, the chosen component is balanced. Put its original gate and set $(r,D)$ in the sum. The complementary table receives $c_{v',S\setminus D}$.
+\item If $3|D|>2k$, use the inductive decomposition of $c_{r,D}$. For each balanced $A\subseteq D$ multiply its cofactor by $c_{v',S\setminus D}$. Its arguments lie in
+\[
+ (D\setminus A)\,\sqcup\,(S\setminus D)=S\setminus A .
+\]
+Consequently the expanded term still has the required locality.
+\end{enumerate}
+Sum over all ordered splits and collect equal pairs $(\delta,A)$ by addition. Strong induction on the gate index terminates even when $D=S$, because a constant term from the other child can leave the active block set unchanged. A block-count-only induction would give no decrease in that case.
+
+\subhead{From a coefficient identity back to a polynomial}
+At the output $\gamma$ take $S=[k]$. For each $A,\delta$, package the two resulting coefficient tables into polynomials on disjoint sets of variables:
+\[
+ g_{A,\delta}=\sum_{y\in T^A}c_{\delta,A}(y)m_A(y),\qquad
+ h_{A,\delta}=\sum_{z\in T^{A^c}}H^{\gamma,[k]}_{\delta,A}(z)m_{A^c}(z).
+\]
+Every pair $(y,z)$ yields exactly one full assignment. Thus the coefficient of $m_{[k]}(x)$ in $g_{A,\delta}h_{A,\delta}$ is the product appearing in the invariant. Summing proves E.4. For a fixed $A$, at most $L$ products occur, since the only other index is an original gate. This counts products across the cut and makes no complexity assumption about the individual cofactors. When $T$ is empty, the full component vanishes for $k\ge2$.
+
+\smallref{\pub{Nc/CaseI/Multi.lean}{156}{Adding cofactors}. \pub{Nc/CaseI/Multi.lean}{198}{Multiplying by a sibling}. \pub{Nc/CaseI/Multi.lean}{228}{Gate induction}. \pub{Paper/Flat.lean}{233}{Polynomial assembly}.}
+
+\clearpage
+\heading{Two reuse tests and the link to the hubs}
+\subhead{One shared gate in two different products}
+With four blocks, every two-block set is balanced. Compute $g=A_0B_0$ once, then compute $g(C_0D_0)$ and $g(C_1D_1)$ and add them. At the cut $AB\mid CD$, one original label for $g$ suffices. Its cofactor, as a function of the two right-hand indices, is
+\[
+ H(c,d)=\mathbf{1}_{c=d=0}+\mathbf{1}_{c=d=1}.
+\]
+Thus the coefficient is one on suffix $00$, one on $11$, and zero on $01$ and $10$, provided the left indices are both zero. Keeping only the first use would lose the $11$ coefficient. Collecting both uses changes the table attached to $g$ while preserving a single product at this cut.
+
+\subhead{A shared gate read in both input sockets}
+Put $u=A_0B_0+C_0D_0$ and use a multiplication gate with both input wires from $u$. Its output is
+\[
+ u^2=(A_0B_0)^2+2A_0B_0C_0D_0+(C_0D_0)^2 .
+\]
+The two contributing assignments put $AB$ in the first socket and $CD$ in the second, or the reverse. The left-first stopping rule charges these to $(u,AB)$ and $(u,CD)$. If an implementation deduplicates the two ordered assignments, it returns coefficient one. The coefficient is two in the integers and zero in characteristic two. This example also shows why high powers at a gate are permitted.
+
+\subhead{What the spectral argument receives}
+For the network polynomial, each node label is the tuple of strings on its incident ends. For each balanced $A$, A.3 places the two tables at two hubs. A dimension-$L$ equality wire supplies both hubs with the same $\delta$, producing $\sum_\delta g_{A,\delta}h_{A,\delta}$ upon contraction. There are $J\le2^k$ balanced sets. E.7 charges their sum by $J^{g_\varphi(P)}\max_A\varphi(T_A)$, where $P$ is the set of retained ends and $T_A$ is the corresponding hub network. The two indices have different jobs: $L$ counts gates inside one cut and $J$ counts candidate cuts. Bounding the sum across one prespecified cut would require a different argument.
+
+\textbf{Evidence and scope.} Direct polynomial expansion independently checked 441,920 coefficients and 58,384 gate/subset/assignment decompositions on twelve circuits with two through six blocks. The general argument rests on the gate induction. Its output provides the universal circuit input to the flat case; the spectral estimate, geometric saving and target-family projection still supply the numerical lower bound.
+
+\smallref{\pub{Paper/Flat.lean}{345}{Hub network}. \pub{Paper/Convex.lean}{22}{E.7}. \pub{Paper/Rate.lean}{299}{E.10 caller}. \currentreview{checks/pass13a_gate_reuse.py}{Finite controls}. \currentreview{checks/pass13a_gate_replay.json}{Formal verification record}.}

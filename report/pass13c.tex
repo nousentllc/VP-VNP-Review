@@ -1,0 +1,157 @@
+% Body fragment for the cumulative research report. Use the main TeX file.
+\newpage
+\heading{13C. Encoding a grid in a permanent}\label{sec:perm}
+Take finite incidence labels $I$ and surjections $v:I\to V$ and $w:I\to K$.
+An incidence $n$ has a table $W_n(a,b)$ over a commutative ring $R$.
+One bit is shared by all incidences in each fibre of $v$ and one by all
+incidences in each fibre of $w$. The polynomial or ring element to encode is
+\[
+  Z(W)=\sum_{x:V\to\{0,1\}}\sum_{r:K\to\{0,1\}}
+           \prod_{n\in I}W_n(x_{v(n)},r_{w(n)}).
+\]
+Assume $2h=1$ in $R$. E.1 gives a matrix of every order $S\ge3|I|$
+whose permanent equals $Z(W)$. To see what forces the shared bits, read
+each matrix row as a linear form in formal column markers. Then
+\[
+ \operatorname{per}(M)=
+ [t_1\cdots t_S]\prod_{i=1}^S\Bigl(\sum_{j=1}^SM_{ij}t_j\Bigr).
+\]
+The indicated coefficient uses each column exactly once. During
+multiplication we can set every $t_j^2$ to zero: any monomial with a
+repeated marker already misses this coefficient, whatever the later rows
+contribute.
+
+\subhead{The first two rows choose one bit per left fibre}
+Choose permutations $\sigma,\rho$ on $I$ whose cycles are respectively
+the fibres of $v,w$. At each $n$ introduce three columns $A_n,B_n,C_n$.
+With $A=A_n$, $B=B_n$, $C=C_n$ and $A'=A_{\sigma n}$, the first two row
+forms are $h(A+B+A'-C)$ and $A+B-A'+C$. In the quotient by all
+column-marker squares their product is
+\[
+ h\bigl((A+B)^2-(A'-C)^2\bigr)
+       =2h(AB+A'C)=AB+A'C .
+\]
+The difference of squares cancels the mixed choices; the factor $2h$
+gives coefficient one to each surviving choice. This calculation also
+holds when $\sigma n=n$. Set $s_n=1$ for the term $A_nB_n$ and $s_n=0$
+for $A_{\sigma n}C_n$. Column $A_m$ then occurs
+\[
+  \mathbf{1}_{s_m=1}+\mathbf{1}_{s_{\sigma^{-1}m}=0}
+\]
+times. Requiring exactly one occurrence gives $s_m=s_{\sigma^{-1}m}$
+for every $m$. The remaining column at $m$ is $C_m$ if $s_m=1$ and
+$B_m$ if $s_m=0$. We have recovered one independent bit for each left
+fibre, and the label of its unfilled column records its value.
+
+\smallref{\paper{Proposition E.1, pp.~31--32}.
+\pub{Nc/PermCoeff.lean}{95}{Coefficient identity};
+\pub{Nc/PermCoeff.lean}{143}{square-zero calculation};
+\pub{Nc/PermGrid.lean}{122}{matrix entries}.}
+
+\newpage
+\heading{Recovering the weight and its sign}
+Write $D_m(1)=C_m$ and $D_m(0)=B_m$. The third row at $n$ is
+\[
+ \sum_{a=0}^1 W_n(a,1)D_n(a) +
+ \sum_{a=0}^1 W_{\rho n}(a,0)D_{\rho n}(a).
+\]
+Choose the first sum when $b_n=1$ and the second when $b_n=0$. The row
+then uses the column at destination $m=n$ or $m=\rho n$, respectively.
+Exactly one column is vacant there, forcing $a=s_m$. A destination $m$
+has exactly one incoming row precisely when
+$\mathbf{1}_{b_m=1}+\mathbf{1}_{b_{\rho^{-1}m}=0}=1$.
+Thus $b$ is constant along each right fibre. Each destination occurs
+once, and $b_n=b_m$, so the product of chosen coefficients is
+$\prod_m W_m(s_m,b_m)$. Summing over the two families of bits gives
+$Z(W)$. A block diagonal identity matrix adjoins as many forced
+unit choices as needed to reach order $S$.
+
+\subhead{Where the hypothesis on two enters}
+For a single incidence, both permutations fix the one site. In column
+order $A,B,C$ the combined coefficients in the actual matrix are
+\[
+ \begin{pmatrix}
+     2h & h & -h\\
+     0  & 1 & 1\\
+     0  & W(0,1)+W(0,0) & W(1,1)+W(1,0)
+ \end{pmatrix}.
+\]
+Its permanent is $2h\sum_{a,b}W(a,b)$. For $W(0,0)=1$ and the other
+entries zero, the desired value is $1$. Choosing $h=1$ gives $2$ over
+the rationals. In characteristic two, the two rows at each site are
+proportional for every $h$, since both signs coincide. The permanent
+there equals the determinant, so every nonempty matrix built by this
+gadget has permanent zero. This identifies why E.1 does not transfer
+the permanent claim to characteristic two. M.2 supplies a different
+construction for Hamiltonian cycles in that characteristic.
+
+\subhead{Raw permutations can cancel}
+Take two incidences sharing both bits and tables with rows
+$(1,2),(3,4)$ and $(5,6),(7,8)$. The four assignment products sum to
+$5+12+21+32=70$. Treating both sites as independent would give
+$10\cdot26=260$. In the actual $6\times6$ matrix the positive terms of
+the permutation expansion sum to $213$ and the negative terms to $-143$.
+The four legal choices emerge after collecting terms. With three sites
+the program also checks that moving the shifted weight to the wrong
+table changes $2924$ to $2860$. A finite-difference check also compares
+every formal weight coefficient on six specified grids over the rationals.
+All 512 agree, including terms that repeat an incidence.
+
+\smallref{\pub{Nc/PermGrid.lean}{67}{Destination test};
+\pub{Nc/PermGrid.lean}{175}{weight reindexing};
+\pub{Nc/PermPad.lean}{68}{padding}.
+\currentreview{checks/pass13c_permanent.py}{Exact checks and tables}.}
+
+\newpage
+\heading{What the circuit transfer costs in E.2--E.3}
+Now take $R=F[Y]$, a polynomial ring over a field of characteristic
+different from two. For each right fibre $k$, the affine form of E.1
+requires that all its weights belong to the span of $1$ and a single
+coordinate $Y_{o(k)}$, or are all constants. Every sum in a weighted
+matrix entry uses tables from the same fibre, because $w(\rho n)=w(n)$.
+The entry is therefore a constant or $aY_i+b$. The common coordinate
+matters: in the singleton matrix on the preceding page, taking
+$W(0,1)=Y$ and $W(0,0)=Z$ puts $Y+Z$ into a single entry.
+
+Writing $E_{ij}$ for these entries, the identity of formal polynomials is
+$\Perm_S(X)\big|_{X_{ij}=E_{ij}}=Z(W)$. If $s$ gates compute the generic
+permanent, five gates suffice to replace one affine input, namely
+$a,Y_i,aY_i,b,aY_i+b$. Old additions and multiplications use the outputs
+of the substituted predecessor blocks; a repeated reference uses the
+same stored value. The bound is $5s$ gates for $Z$. A lower bound $L$ on
+the grid circuit consequently implies $s\ge L/5$.
+The matrix order $3|I|$ and the circuit budget $5s$ measure different
+objects. The projected polynomial has degree at most $|I|$ since each
+assignment contributes a product of $|I|$ affine weights. A repeated
+coordinate can occur with higher powers.
+
+\subhead{From literals to the network polynomial}
+In E.2 a nonempty clause of weight $u$ contributes, at fixed bit assignment,
+\[
+   1+(u-1)\prod_{j\text{ in the clause}}
+                    \mathbf{1}_{\text{literal }j\text{ holds}} .
+\]
+The additional clause bit selects one of these two terms. The factor
+$u-1$ is placed on the first literal, so it is charged exactly once.
+For a complete $k$-node network with $\ell$ bits on each edge, E.3
+defines a clause at each node for every possible local bit pattern.
+Exactly one clause at each node contributes its variable. There are
+$k2^{(k-1)\ell}$ clauses, each of length $(k-1)\ell$, and the resulting
+network polynomial has degree $k$. Thus $q=k(k-1)\ell\,2^{(k-1)\ell}$
+incidences suffice; E.3 uses the convenient bound
+$S\ge3k^3\ell\,2^{k\ell}$. At $k=2,\ell=1$, the four literals yield
+$X_{1,0}X_{2,0}+X_{1,1}X_{2,1}$ by a matrix of order 12. The looser
+E.3 threshold is 96 for the same example.
+
+\subhead{Scope of this step}
+E.1--E.3 give a circuit for the network from any candidate permanent
+circuit within the budget. The lower bound for that network is another
+theorem. Lean rebuilt 12 publisher modules for E.1, E.2 and affine substitution.
+Ten declaration types and seven axiom lists were read back. The E.3 caller
+above is traced directly in its source.
+
+\smallref{\pub{Paper/Grids.lean}{59}{Affine hypothesis};
+\pub{Paper/Grids.lean}{83}{clause construction};
+\pub{Nc/PermValiant.lean}{70}{gate substitution};
+\pub{Paper/Flat.lean}{132}{E.3 caller}.
+\currentreview{passes/pass13C-permanent.md}{Derivation and reproduction instructions}.}

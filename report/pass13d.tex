@@ -1,0 +1,45 @@
+\newpage
+\heading{13D. Why Hamiltonian cycles belong to VNP}
+\label{sec:membership}
+For a family to belong to VNP, its $n$th polynomial must be the sum over Boolean assignments $Y$ of a polynomial $W_n(X,Y)$ whose variable count, degree and arithmetic circuit size are polynomial in $n$. The variables $X$ stay symbolic throughout. Here the target is $\HC_n$, the sum of the products of the directed edges on each Hamiltonian cycle of the complete directed graph. M.4 needs this membership in every characteristic. The nonmembership half of M.4 draws on the lower bound in M.3.
+
+\subhead{A Boolean witness between two sets of variables}
+Use zero-based indices. There are $n^2$ indeterminates $X_{uv}$ and $n^2$ witness bits $Y_{iu}$. A true bit means that position $i$ in an ordered tour contains vertex $u$. For $n>0$, let $\mathcal C$ consist of the \emph{ordered} pairs of distinct cells in the same row or column. Write $a=(i,u)$, $Y_a=Y_{iu}$ and $i^+=i+1\pmod n$. Define
+\begin{align*}
+ T(Y)&=\prod_{(a,b)\in\mathcal C}(1-Y_aY_b)
+       \prod_{i=0}^{n-1}\left(\sum_{u=0}^{n-1}Y_{iu}\right),\\
+ E(X,Y)&=\prod_{i=0}^{n-1}\left(\sum_{u,v=0}^{n-1}
+                  Y_{iu}Y_{i^+v}X_{uv}\right),\qquad
+ W_n=T(Y)\,Y_{00}\,E(X,Y).
+\end{align*}
+Each colliding pair kills an assignment over every field, since $1-1=0$. If no cells collide, every row contains at most one true entry. An empty row gives a zero row sum. The surviving rows therefore choose $n$ distinct vertices, a permutation $\pi$. On such a table $T=1$. Precisely one summand in each edge factor survives, giving the edge $X_{\pi(i),\pi(i^+)}$. The extra factor $Y_{00}$ requires $\pi(0)=0$. For $n=0$ the source separately defines $W_0=1$ and sums over the single empty bit vector.
+
+\subhead{Why a surviving monomial occurs exactly once}
+The map from a rooted order to its successor permutation is $\sigma=\pi r\pi^{-1}$, where $r(i)=i^+$. Conversely, for any $n$-cycle $\sigma$ the only rooted order inducing it is $\pi(i)=\sigma^i(0)$. Its entries are distinct because the cycle visits all $n$ vertices. Hence the surviving bit tables are in a weight-preserving bijection with the summands of $\HC_n$. This proves an identity of formal polynomials over an arbitrary field:
+\[
+                 \sum_{Y\,\in\,\{0,1\}^{n^2}} W_n(X,Y)=\HC_n(X).
+\]
+
+\smallref{Manuscript, M.4, p.~62. \pub{Statement.lean}{87}{Released VNP definition} · \pub{Nc/Hc/Vnp.lean}{51}{rooted orders} · \pub{Nc/Hc/Vnp.lean}{98}{witness polynomials} · \pub{Nc/Hc/Vnp.lean}{189}{formal polynomial identity}.}
+
+\newpage
+\heading{The witness budget and its failure controls}
+\subhead{From a symbolic formula to a polynomial-size circuit}
+There are $q=2n^2(n-1)$ ordered clashes: each of $n^2$ cells has $n-1$ other cells in its row and $n-1$ in its column. The source also uses the coarser $q\le n^4$. A variable or a constant costs one gate. A sum or product of $m$ terms costing at most $s$ each costs at most $m(s+1)+1$, including a neutral element and $m$ combining gates. Applying this rule without sharing any subcircuits gives the following upper bounds for $n\ge1$:
+\begin{center}
+\begin{tabular}{lrr}
+Factor & Gate count & Total degree\\ \hline
+Product of the clash tests & $8q+1$ & $2q$\\
+Product of the row sums & $2n^2+2n+1$ & $n$\\
+Root bit $Y_{00}$ & $1$ & $1$\\
+Product of the edge sums & $6n^3+2n+1$ & $3n$
+\end{tabular}
+\end{center}
+For example $1+(-1)(Y_aY_b)$ costs at most seven gates and has degree two. Each summand $Y_{iu}Y_{i^+v}X_{uv}$ costs five gates and has degree three. Joining the four factors takes three more gates. Thus the size is at most $8q+6n^3+2n^2+4n+7$ and the degree at most $2q+4n+1$. The formal theorem uses $40(n+1)^4$ for both. The $2n^2$ variables also fit this envelope. For the literal VP bound $n^C+C$, $C=700$ covers $n=0,1$; for $n\ge2$, $40(n+1)^4\le n^{14}\le n^{700}$. No small-circuit assumption on $\HC_n$ is needed to construct its witness.
+
+\subhead{Two changes that break membership's proposed witness}
+At $n=2$, the rooted identity table gives $X_{01}X_{10}$. Dropping the root allows its rotation and gives $2X_{01}X_{10}$, identically zero over $\mathbb F_2$. The intended polynomial still has coefficient one. A separate shortcut tests only whether each row and column sum equals one in the field. Over $\mathbb F_2$ the $3\times3$ all-ones table passes every such check. An actual clash factor immediately kills it. These distinguish combinatorial uniqueness from numerical cancellation.
+
+The exact check enumerates all $66{,}067$ Boolean tables at $n=0,1,2,3,4$. It compares monomial multiplicities to a separate enumeration by successor permutations. The formal replay builds the 13 modules through the witness and checks an instantiation of its VP bound. To infer strict inclusion one also needs $\mathrm{VP}\subseteq\mathrm{VNP}$ and $\HC\notin\mathrm{VP}$. The second assertion consumes M.3's superpolynomial lower bound; the witness alone supplies no gate lower bound.
+
+\smallref{\pub{Nc/Final/CClasses.lean}{137}{Gate and degree calculus} · \pub{Nc/Hc/Vnp.lean}{221}{witness budget} · \pub{Paper/Fields.lean}{130}{membership and M.4} · \currentreview{checks/pass13d_witness.py}{exact enumeration}.}

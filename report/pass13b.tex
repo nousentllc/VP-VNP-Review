@@ -1,0 +1,82 @@
+\newpage
+\heading{13B. A Poincaré constant uniform in the group size}\label{sec:gain}
+\label{pass13b-gain}
+G.2 has to choose a finite collection of local tensor identities that will work on networks of every subsequent size. It also has to guarantee that those identities save enough communication at each stage of H.2. This section derives the order of choices and the quantitative saving. Write $C_{\rm P}$ for F.6's Poincaré constant, $C'_0$ for its integer enlargement, and $C_1=4C'_0$ for the constant in G.2.
+
+\subhead{Where independence of the dimension enters}
+Fix a field $K$ satisfying the contracting hypothesis. This provides $\mu\ge2$ and $1\le s<\sqrt\mu$ with $D(\mu)\le sD(1)$ for every price on binary $\mu\times\mu$ matrices. Here $D(r)$ is the root-mean-square distance under rank-$r$ shifts. Write $C_{\rm win}(n)$ for the window bound entering F.6. The input $C_{\rm win}(n)=o(n^2)$ permits a fixed $u\ge2$ with $4C_{\rm win}(3u)\le(u-1)^2/32^2$.
+
+Take $h=lu$ for any $l\ge2$ and $U_h$ the upper unitriangular group over $\mathbb F_2$. A $K$-price on $U_h$ is realized in a complete CAT(0) price space by C.3. On maps from $U_h$ into this space consider the translation action and the product metric. Let $P_i$ project a map onto the maps fixed by the generators in the length-$2u$ window starting at $iu$. There are $k=l-1$ such windows. Put $\Phi(z)=\sum_i d(z,P_i z)^2$. The projection estimates F.2--F.5 and the variance inequality for the barycenter $z'$ of the $P_i z$ give, for $\delta=1-2(1/4)=1/2$,
+\[
+ \Phi(z')\le(1-\delta/k)\Phi(z),\qquad
+ k\,d(z,z')^2\le\Phi(z)-\Phi(z').
+\]
+The geometric factor approaches one as $k$ grows. To see why this still supplies a uniform bound, write $\Delta=\Phi(z)-\Phi(z')\ge\delta\Phi(z)/k$. When $\Phi(z)>0$,
+\[
+ d(z,z')\le\sqrt{\Delta/k}\le\frac{\Delta}{\sqrt{\delta\Phi(z)}}
+ \le\frac{2}{\sqrt\delta}\bigl(\sqrt{\Phi(z)}-\sqrt{\Phi(z')}\bigr).
+\]
+If $\Phi(z)=0$, then $d(z,z')=0$. Telescoping shows the total path length is at most $2\sqrt{\Phi(z)/\delta}$ independently of $k$. Completeness gives a limit fixed by every window, hence by all generators. Distance from $z$ to $gz$ is bounded by twice its distance to this fixed point. Each generator occurs in at most two windows. Squaring and combining these factors yields
+\[
+ C_{\rm P}=4\cdot(4/\delta)\cdot2C_{\rm win}(2u).
+\]
+The preceding window geometry remains an input to this derivation.
+
+\smallref{\paper{F.6, pp.~40--41}. \pub{Paper/Alternative.lean}{45}{Contracting hypothesis}. \pub{Paper/Groups.lean}{839}{Averaging step}. \pub{Paper/Groups.lean}{870}{Limit}. \pub{Paper/Groups.lean}{1085}{F.6 and its constants}.}
+
+\newpage
+\heading{From quadratic distances to a finite menu}
+Put $b=|U_h|=2^{h(h-1)/2}$. Write $\mathcal P$ for the unordered pairs of distinct vertices and $\mathcal E$ for the Cayley edges $\{g,x_jg\}$, where $x_j=1+E_{j,j+1}$. For a price $w$, F.6 bounds the average over $g,k$ of $w(k,gk)^2$ by $C_{\rm P}$ times the sum over $j$ of the averages over $k$ of $w(k,x_jk)^2$. The first sum lists every ordered pair once. The second lists every undirected edge twice. Removing the diagonal at the left costs a factor $b/(b-1)\le2$. With $\alpha=2/[b(b-1)]$, $\beta=2/b$, an integer $C'_0\ge2C_{\rm P}+1$ therefore works for all these dimensions:
+\[
+ \sum_{e\in\mathcal P}\alpha w_e^2\le C'_0\sum_{\nu\in\mathcal E}\beta w_\nu^2.
+\]
+Fix $C_1=4C'_0$. We may now choose a multiple $h$ of $u$ with $h\ge\max(3,2u,4(1+8C_1))$. All subsequent load vectors refer to this one fixed graph.
+
+\subhead{The maximizing vector depends on the price}
+Define $\|n\|^2=\sum_{\mathcal P}n_e^2/\alpha$ and $\|y\|_*^2=\sum_{\mathcal E}y_\nu^2/\beta$. Write $Z_1=\|\mathbf1\|$, $Z_2=\|\mathbf1\|_*$, and $c_0=\sqrt{C'_0}\ge1$. Choose an integer $a\ge4(Z_1+Z_2)+1$. For every nonnegative $x$ in the unit ball, the old load $\sigma=\lceil ax\rceil$ has norm at most $R=a+Z_1$. For one price, write $W=(\sum_{\mathcal E}\beta w_\nu^2)^{1/2}$. Cauchy--Schwarz gives
+\[
+ \langle\sigma,w\rangle
+ \le R\Big(\sum_{\mathcal P}\alpha w_e^2\Big)^{1/2}\le c_0 RW.
+\]
+For $W>0$, set $y_\nu=c_0 R\beta w_\nu/W$. Then $\|y\|_*=c_0R$ and $\langle y,w\rangle=c_0RW$. Taking $B_\nu=\lceil y_\nu\rceil$ preserves the charge because prices are nonnegative. It costs at most $Z_2$ in norm. For $W=0$ choose $B=0$. The integral ball $\mathcal B=\{B\ge0:\|B\|_*\le c_0R+Z_2\}$ is finite: each coordinate is bounded. Hence
+\[
+       \forall w\quad \langle\sigma,w\rangle\le
+                \max_{B\in\mathcal B}\langle B,w\rangle .
+\]
+A single winning load would be a stronger statement. For example, $w_1+w_2\le\max(2w_1,2w_2)$ for every $w_1,w_2\ge0$, but either fixed choice fails on one coordinate axis. The proof retains the entire menu.
+
+\smallref{\paper{G.1--G.2, pp.~41--43}. \pub{Paper/Laws.lean}{53}{Pair normalizations}. \pub{Nc/Price/Norm.lean}{109}{Weighted norm and rounding}. \pub{Paper/Laws.lean}{241}{Finite menus}.}
+
+\newpage
+\heading{From a menu of inequalities to a tensor identity}
+For an integral load $D$, let $W^D$ be the product of $D_e$ two-dimensional equality wires on each pair $e$. A.2 gives $\log_2\varphi(W^D)=\langle D,d_\varphi\rangle$ for each spectral point $\varphi$, and its wire distance $d_\varphi$ is a price. Thus $\varphi(W^\sigma)\le\max_B\varphi(W^B)$ for every $\varphi$. Every wire product is nonzero on the all-zero assignment.
+
+\subhead{Where the subexponential number of terms comes from}
+Write $T=W^\sigma$ and $A_B=W^B$. Fix $\varepsilon>0$ and $\eta=2^{-\varepsilon/2}$. In A.6 a certificate replaces $T^k$ by a sum of restrictions of
+$T^{r_i}\prod_B A_B^{v_{iB}}$, with $r_i+\sum_B v_{iB}=k$. Charge each term the weight $\eta^{\sum_B v_{iB}}$. A restriction applies a separate linear map at each party. If the unit had no certificate of weight below one, infima of certificate weights would give a normalized upper functional. A.5 would then supply one spectral point satisfying $\varphi(A_B)\le\eta\varphi(T)$ for every $B$, contradicting the preceding maximum inequality since $\varphi(T)\ge1$.
+
+Consequently some replacement has total weight below one. Every term exchanges at least one copy of $T$, since a term exchanging none weighs one. Apply this rule inside $T^q$ until fewer than $k$ unexchanged factors remain on every branch. Each replacement reduces their count and can only decrease the sum of the weights. Each final branch weighs at least $\eta^q$, so there are at most $\eta^{-q}$ branches. The fewer than $k$ residual factors cost a fixed multiplier: a nonzero $A_B$ can supply a rank-one tensor by restriction and a fixed finite sum of rank-one tensors supplies $T$. For sufficiently large $q$, the multiplier times $\eta^{-q}$ is at most $2^{\varepsilon q}$.
+
+Thus for every sufficiently large $q$ there is an exact cover with $m\le2^{\varepsilon q}$ terms. Term $i$ uses precisely $q$ factors from the menu. Its channel lengths are $L_{i\nu}=\sum_Bv_{iB}B_\nu$, with $\sum_Bv_{iB}=q$. Expanding its local linear maps in coordinates enforces equality at both ends of each near wire and leaves one shared word per channel. The resulting bit identity has $q\sigma_e$ old slots on pair $e$; its right side sums products of local entries over shared words and $i$. Agreement of all old slots at zero has value one, so there is at least one index. The finitely many local entries generate a finite-type subring of $K$. Finite sums and products preserve the identity over every algebra over this subring.
+
+\smallref{\paper{A.6, pp.~20--21, and G.2, p.~43}. \pub{Paper/Gauges.lean}{452}{Strict replacement}. \pub{Paper/Gauges.lean}{560}{A.6}. \pub{Paper/Laws.lean}{120}{Application to wires}. \pub{Nc/Price/Law.lean}{50}{Local tables}.}
+
+\newpage
+\heading{Paying for every channel and every stage}
+Take $\varepsilon Z_2\le a/4$ with $\varepsilon>0$. For the finite set of rounded old loads let $q=1+\sum_\sigma q_0(\sigma)$, where A.6 works for \emph{all} powers above each threshold. Define $a_1=aq$ and attach the same $\lambda=\lceil\varepsilon q\rceil+1$ label bits on every channel. For any term, Minkowski gives
+\[
+ \|\lambda\mathbf1+L_i\|_*
+ \le\lambda Z_2+q[c_0(a+Z_1)+Z_2]\le 2c_0aq=\sqrt{C_1}a_1 .
+\]
+Indeed $c_0 Z_1+Z_2\le c_0a/4$, and $\lambda Z_2\le aq/4+2Z_2\le3c_0aq/4$. This pays the entire index cost each time the law is used. For an actual load $\|n\|\le a_1t$ with $t>0$, put $x=n/(a_1t)$. Its selected law supplies $tq\lceil ax_e\rceil\ge n_e$ slots on every old pair. At $t=0$ the norm forces every off-diagonal count to zero.
+
+Squaring the norm bound gives H.2 the integer test $b\sum_\nu(\lambda+L_{i\nu})^2\le G_1=2C_1a_1^2$. The earlier choice $1+8C_1\le h/4$ admits $\rho=1/2$ in the stage estimate. With $V_j$ vertices, normalized load $Q_j$, and $d=\sqrt{C_1}a_1/b$, the estimate reads $Q_{j+1}\le Q_j/2+dV_{j+1}$. Its other inputs include the least-loaded type, good outcomes and H.1's tower. Since $V_j=bV_{j+1}$ and $b\ge4$, the corrected load satisfies
+\[
+       Q_{j+1}+dV_{j+1}\le (Q_j+dV_j)/2 .
+\]
+At $J$ levels with $b^J$ comparable to $M$, $2^{-J}$ is of order $M^{-1/\log_2 b}$. All local data, including $a_1$, were fixed before $M$.
+
+\subhead{A finite test where rounding changes the answer}
+On $U_3$ the near edges form an eight-cycle. A bipartition charges a wire one across the cut and zero elsewhere, as given by the rank of flattening across the cut. Across the 128 cuts modulo complementation, the largest ratio is $8/7$: a nonconstant cut crosses at most $16$ pairs and at least two near edges, giving $(16/28)/(2/4)=8/7$ with equality on a half-cycle. Choose 15 of the 16 pairs crossing this cut. There are two crossing near edges. With $R^2=28\cdot15$ and the sharp ratio for this finite cut family, the optimizing load on either channel has square $60$. Flooring gives $2\lfloor\sqrt{60}\rfloor=14<15$; ceiling gives $16$. This tests the support calculation. The small group does not satisfy the chosen degree condition. The scalar condition also illustrates its dependence on uniformity: a hypothetical $C_1(h)=h/32$ would require $1+h/4\le h/4$.
+
+\smallref{\pub{Paper/Laws.lean}{376}{Label budget}. \pub{Paper/Laws.lean}{456}{Integer gain}. \pub{Paper/Tree.lean}{1628}{Tower caller}. \currentreview{checks/pass13b_gain.py}{Exact finite checks}. \currentreview{passes/pass13B-gain.md}{Derivation and reproduction}.}

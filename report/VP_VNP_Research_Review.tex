@@ -13,7 +13,7 @@
 \definecolor{muted}{HTML}{3D575E}
 \hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,
   pdftitle={The VP–VNP lower bound — From weighted networks to circuit lower bounds},
-  pdfauthor={Uriel Research},pdfsubject={Cumulative audit of the exact-circuit claim in VP ≠ VNP Over Every Field, passes 1–12},
+  pdfauthor={Uriel Research},pdfsubject={Cumulative audit of the exact-circuit claim in VP ≠ VNP Over Every Field, passes 1–13},
   pdfdisplaydoctitle=true}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5.5pt}
@@ -28,7 +28,8 @@
 \fancyfoot[R]{\sffamily\small\color{muted}\thepage}
 \renewcommand{\headrulewidth}{.3pt}
 \fancypagestyle{cover}{\fancyhf{}\fancyfoot[R]{\sffamily\small\color{muted}\thepage}\renewcommand{\headrulewidth}{0pt}}
-\newcommand{\heading}[1]{\par{\LARGE\bfseries\color{ink}#1\par}\vspace{4pt}}
+\newcounter{reviewpart}
+\newcommand{\heading}[1]{\stepcounter{reviewpart}\pdfbookmark[1]{#1}{part-\thereviewpart}\par{\LARGE\bfseries\color{ink}#1\par}\vspace{4pt}}
 \newcommand{\subhead}[1]{\par\addvspace{7pt}{\large\bfseries\color{ink}#1\par}\nobreak}
 \newcommand{\pub}[3]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/#1\#L#2}{#3}}
 \newcommand{\paper}[1]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/paper.pdf}{#1}}
@@ -46,24 +47,22 @@
   \vspace{8pt}
   \includegraphics[height=.82in]{nous-black.png}\par
   \vspace{3pt}
-  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 25, 2026\enspace $\cdot$ \enspace Passes 1--12\par}
+  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 25, 2026\enspace $\cdot$ \enspace Edition 10, passes 1--13\par}
 \end{center}
 \vspace{5pt}
-\subhead{What pass 12 adds}
-Claude (Anthropic) proposes a superpolynomial lower bound for every arithmetic circuit computing the Hamiltonian cycle polynomial over any field. Four parallel audits followed the proof from the network operations to the target polynomial, checking where the same choice must govern several parts of the construction.
+\subhead{Can an arbitrary circuit escape the lower-bound argument?}
+The manuscript claims a superpolynomial lower bound for the Hamiltonian-cycle polynomial over every field. This edition follows a candidate circuit through gate reuse, two different projections, and the field-dependent law used by the contracting branch. Our audit also derives the separate Boolean witness that puts the target family in VNP.
 
-\textbf{Contracting branch.} A law move preserves its weighted sum when the channel words identify the full sequence of law indices. Each channel retains a final packet, even when its payload is empty. The thin-tree argument accounts for these packets separately in the cost of a cut.
+\textbf{Gate reuse.} For each balanced set of variable blocks, E.4 groups all occurrences of an earlier gate into a single cofactor. Two paths reaching the same gate may add or cancel. The proof retains their algebraic sum while charging the gate once per cut.
 
-\textbf{Hamiltonian cycles.} Each assignment of the shared grid bits forces one structural cycle with the same weight. Padding preserves that correspondence. An affine substitution in a candidate Hamiltonian-cycle circuit gives a circuit for the grid sum at a cost of at most five gates per original gate.
+\textbf{Field dependence.} Each occupied cell of the permanent gadget contributes a factor of two. Inverting two cancels that factor locally. The HC construction counts each assignment by a unique route and works in characteristic two. In the contracting case, G.2 turns a comparison of real prices into a law with integer bit lengths. Rounding, the shared index, and the order of the parameter choices determine the gain.
 
-\textbf{Flat branch.} One spectral point controls all candidate cut positions in a fixed dimension. An error budget proportional to $1/k$ at the outer comparison preserves the geometric saving as the dimension grows. The signed tensor summands can use different cuts.
+\textbf{Membership.} A Boolean table specifies a rooted order of the vertices. A weight-preserving bijection and an explicit circuit-size calculation supply the VNP witness. The global separation still depends on the circuit lower bounds.
 
-\textbf{Crossing coefficients.} A complementary-residue construction gives the same growth constant for the lower asymptotic and the all-energy upper bound. The signed minor expansion supplies two factorizations of a single coefficient. An independent calculation recovers the constant $\pi/\sqrt3$.
+\subhead{How to read this edition}
+Begin with the claim and circuit model on p.~2 or the guided route on p.~\pageref{sec:reader}. Pages 3--16 record earlier derivations. The four new investigations cover gate reuse (p.~\pageref{sec:gate}), uniform gain (p.~\pageref{sec:gain}), permanent projection (p.~\pageref{sec:perm}) and HC membership (p.~\pageref{sec:membership}). The closing evidence guide on p.~\pageref{sec:reproduction} gives reproducible checks and identifies which hypotheses are still carrying the overall conclusion.
 
-\subhead{Where the universal claim stands}
-Pages 2--11 give the circuit model and prior baseline. Pages 12--15 reconstruct the four new steps. Page 16 reports the additional 54-module verification of the field alternative and the next proof obligations. The full independent separation and Comparator replay remain open.
-
-\smallref{\paper{Publisher's manuscript, Theorem 1.1 and Appendices A--M}. \review{report/VP_VNP_Research_Review.pdf}{Previous eleven-pass edition}. \currentreview{VP_VNP_Chat_Handoff.md}{Handoff for Chat}.}
+\smallref{\paper{Publisher manuscript, Theorem 1.1 and Appendices A--M} · \currentreview{VP_VNP_Chat_Handoff.md}{Chat handoff} · \currentreview{report/proof-coverage.csv}{claim-by-claim evidence}.}
 
 \newpage
 \heading{Where every circuit enters}
@@ -395,7 +394,7 @@ A.3 routes the two factors through hubs sharing one middle index. At a common ph
 \smallref{\paper{B.1--B.3, pp.~22--25}. \pub{Paper/States.lean}{136}{B.1} · \pub{Paper/Identity.lean}{455}{minor expansion} · \pub{Paper/Identity.lean}{663}{complementary degree} · \currentreview{passes/12d-counting-and-minors.md}{derivations and checks}.}
 
 \newpage
-\heading{Evidence and the next four proof questions}
+\heading{Edition 9 baseline before the present investigation}
 \subhead{What was checked in pass 12}
 The contracting audit rebuilt the two publisher modules for the abstract stage-load inequality. Three unchanged law declarations ran separately as excerpts, and Lean checked an independent compensated-decay lemma. H.2's entire module remains a larger target.
 
@@ -403,7 +402,7 @@ For HC, all 13 publisher modules needed for M.2 compiled freshly and eight decla
 
 An additional fresh build covered all 54 project modules leading to D.2, including the full price-space realization C.3. D.2 supplies at least one branch for the comparison field chosen in M.3. M.1 then covers arbitrary fields of that characteristic. The complete separation and Comparator still require independent replay. \currentreview{checks/pass12e_alternative_replay.json}{Field-alternative receipt.}
 
-\subhead{Which obligations would change confidence in the whole chain?}
+\subhead{Four questions carried into pass 13}
 \textbf{1. F.6 to G.2.} Starting with the field's Poincaré inequality, construct the variable-length law. Verify its support, shared index, encoding widths and gain. These are the inputs to the move and stage arguments on page 12. H.1's tower realization and H.2's program costs also require further reconstruction.
 
 \textbf{2. E.1 and the permanent.} Compare the permanent gadget with the HC correspondence on page 13. Locate each use of $1/2$, account for multiplicities and identify exactly where the characteristic-two exception enters.
@@ -413,4 +412,10 @@ An additional fresh build covered all 54 project modules leading to D.2, includi
 \textbf{4. The HC witness in M.4.} Match the Boolean sum of one-hot position encodings to the released definition of VNP. Check why a fixed starting vertex counts each cycle once, what invalid encodings contribute in small characteristic, and how the size and degree of the witness are bounded. \pub{Nc/Hc/Vnp.lean}{189}{Witness identity.}
 
 \smallref{\currentreview{VP_VNP_Chat_Handoff.md}{Chat handoff} · \currentreview{report/proof-coverage.csv}{Coverage map} · \currentreview{source-lock.json}{Verification manifest} · \review{report/VP_VNP_Research_Review.pdf}{Previous report}.}
+\input{reader-route}
+\input{pass13a}
+\input{pass13b}
+\input{pass13c}
+\input{pass13d}
+\input{pass13-conclusions}
 \end{document}

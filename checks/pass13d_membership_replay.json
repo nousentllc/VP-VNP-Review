@@ -1,0 +1,134 @@
+{
+  "target": "Nc.Hc.Vnp",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 13,
+  "modules": [
+    {
+      "module": "Nc.PermCoeff",
+      "source": "Nc/PermCoeff.lean",
+      "sha256": "9c9c454a714148de9f2cc2b2ceab3c65bd287dbc9714a52b314d842c7aa64b28",
+      "exit_code": 0,
+      "seconds": 80.11
+    },
+    {
+      "module": "Nc.PermGrid",
+      "source": "Nc/PermGrid.lean",
+      "sha256": "f5e202c98cb933c92ac6a4a6c1ff0bb20ca133b0d9390dccc9d9c9bd5250964a",
+      "exit_code": 0,
+      "seconds": 68.34
+    },
+    {
+      "module": "Nc.PermSum",
+      "source": "Nc/PermSum.lean",
+      "sha256": "3b5ac4084e6446f03784d90738f15db9347536089682cc265d3d9c45f954bf9f",
+      "exit_code": 0,
+      "seconds": 67.41
+    },
+    {
+      "module": "Nc.PermPad",
+      "source": "Nc/PermPad.lean",
+      "sha256": "2f2141f118afde65f62b4866003623581d65e941d88e162e6e6f5bdaf406c2b1",
+      "exit_code": 0,
+      "seconds": 60.71
+    },
+    {
+      "module": "Nc.LowDegree",
+      "source": "Nc/LowDegree.lean",
+      "sha256": "ae26842182c09a0154db023ecb736b11e86137632f5e852c0f192e3e1c28316b",
+      "exit_code": 0,
+      "seconds": 14.99
+    },
+    {
+      "module": "Nc.PermValiant",
+      "source": "Nc/PermValiant.lean",
+      "sha256": "9b641520ee81b2633c6bad023ad8fa0387f16260fc687554b48b371809b72e7e",
+      "exit_code": 0,
+      "seconds": 31.32
+    },
+    {
+      "module": "Ov.Core.Tensor",
+      "source": "Ov/Core/Tensor.lean",
+      "sha256": "82361b4ace7bf2776a8177e96b56e54b2d323e44bf4851b52dc17d597e6261a8",
+      "exit_code": 0,
+      "seconds": 50.32
+    },
+    {
+      "module": "Nc.Rate.Defs",
+      "source": "Nc/Rate/Defs.lean",
+      "sha256": "fc75e02af3fdc602affaf2ef55c9052b3aff800fce76b992ee5e1b6cb3f4b032",
+      "exit_code": 0,
+      "seconds": 22.95
+    },
+    {
+      "module": "Nc.Hc.Segments",
+      "source": "Nc/Hc/Segments.lean",
+      "sha256": "a2c81c6dbe28cdda63ff34c72baeb9ee5bd90e55b3b8bda4d6dc7d4467011ff0",
+      "exit_code": 0,
+      "seconds": 8.63
+    },
+    {
+      "module": "Nc.WidePerm",
+      "source": "Nc/WidePerm.lean",
+      "sha256": "b06a38d4735a7d82ba119e6d6f6486991d72cd02bccee3b395f28dd7a2b7a530",
+      "exit_code": 0,
+      "seconds": 6.76
+    },
+    {
+      "module": "Nc.Hc.Grid",
+      "source": "Nc/Hc/Grid.lean",
+      "sha256": "9f7cfc50e6bc4c9611d7cd0d8b6bf7fe5cc444fbc6ee6c0156e8f9381ead60e0",
+      "exit_code": 0,
+      "seconds": 10.05
+    },
+    {
+      "module": "Nc.Final.CClasses",
+      "source": "Nc/Final/CClasses.lean",
+      "sha256": "23bc513841bbc63efa341ddbe25599b579d8c0c0566a280e1b4f25cb2db12b91",
+      "exit_code": 0,
+      "seconds": 51.63
+    },
+    {
+      "module": "Nc.Hc.Vnp",
+      "source": "Nc/Hc/Vnp.lean",
+      "sha256": "ce4e7d6a9063599dbea8fc924327f4c5e6eb49ec015e57d1fa1918e09a13e432",
+      "exit_code": 0,
+      "seconds": 47.12
+    }
+  ],
+  "verification": {
+    "queries": [
+      "#check @Hc.sum_cycles_eq_sum_orders",
+      "#check @Hc.exists_order_of_test_ne_zero",
+      "#check @Hc.genHC_eq_sum_wit",
+      "#check @Hc.csize_hcWit",
+      "#check @Hc.quartic_bound",
+      "#print axioms Nc.Hc.sum_cycles_eq_sum_orders",
+      "#print axioms Nc.Hc.exists_order_of_test_ne_zero",
+      "#print axioms Nc.Hc.genHC_eq_sum_wit",
+      "#print axioms Nc.Hc.csize_hcWit",
+      "#print axioms Nc.Hc.quartic_bound"
+    ],
+    "exit_code": 0,
+    "output": "@Hc.sum_cycles_eq_sum_orders : ∀ {k : ℕ} {R : Type u_1} [inst : CommSemiring R] (M : Fin (k + 1) → Fin (k + 1) → R),\n  Hc.hcSum M = ∑ π with π 0 = 0, ∏ i, M (π i) (π ((finRotate (k + 1)) i))\nHc.exists_order_of_test_ne_zero : ∀ (F : Type u_1) [inst : Field F] (n : ℕ) (e : Fin (n * n) → Bool),\n  bits (Hc.orderTest F n) e ≠ 0 → ∃ π, Hc.orderBits n π = e\nHc.genHC_eq_sum_wit : ∀ (F : Type u_1) [inst : Field F] (n : ℕ), genHC F n = ∑ e, bits (Hc.hcWit F n) e\nHc.csize_hcWit : ∀ (F : Type u_1) [inst : Field F] (n : ℕ), CSize (Hc.hcWit F n) (40 * (n + 1) ^ 4) (40 * (n + 1) ^ 4)\nHc.quartic_bound : ∀ (n : ℕ) {C : ℕ}, 700 ≤ C → 40 * (n + 1) ^ 4 ≤ n ^ C + C\n'Nc.Hc.sum_cycles_eq_sum_orders' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Nc.Hc.exists_order_of_test_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Nc.Hc.genHC_eq_sum_wit' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Nc.Hc.csize_hcWit' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Nc.Hc.quartic_bound' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "query_file": "checks/pass13d_membership.lean",
+    "sha256": "5b56cec85f48bdf0c68de41cafd6cbe15f460e2efdfac1157b17a3f0bac17b09"
+  }
+}

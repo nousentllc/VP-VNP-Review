@@ -1,12 +1,41 @@
 # VP–VNP research review
 
-Start with the [cumulative handoff for Chat](VP_VNP_Chat_Handoff.md). It gives the paper’s exact claim, what twelve review passes established, and four concrete proof questions for the next round. The [individual pass records](passes/) preserve the reasoning and manuscript references behind each finding.
+This repository follows an independent review of the proposed lower bound for exact arithmetic circuits in *VP ≠ VNP Over Every Field*. The [Edition 10 research report (PDF)](report/VP_VNP_Research_Review.pdf) presents the derivations. The [cumulative Chat handoff](VP_VNP_Chat_Handoff.md) gives the current conclusions, their limits, and the next proof questions. The [51-entry coverage map](report/proof-coverage.csv) links each audited claim to the publisher’s source and our reasoning.
 
-The first Git checkpoint, `review-2026-11-24`, captures passes 1–4 together. The review predates the repository. For each subsequent pass, add its dated record under `passes/`, update the handoff to identify any finding that changed, and commit the two together.
+## A reader’s route
 
-[Read the cumulative research report (PDF)](report/VP_VNP_Research_Review.pdf) or [open its editable TeX source](report/VP_VNP_Research_Review.tex). Edition 9 adds four parallel mathematical audits covering the contracting law move, the Hamiltonian-cycle projection, the quantitative flat estimate and the signed crossing identity. A separate [54-module verification](passes/12e-field-alternative-replay.md) covers the field alternative. The [proof coverage map](report/proof-coverage.csv) links 46 claims, interfaces and verification steps to their roles, evidence and unresolved dependencies.
+1. Start with Theorem 1.1 on p. 2 of the [archived manuscript](primary/vp-vnp/paper.pdf) and the [formal circuit definition](primary/vp-vnp/Statement.lean#L23). Fix a field, a matrix size, and a hypothetical small circuit. The target is an identity of formal polynomials.
+2. Read the two projections side by side. The [HC construction](passes/12b-hamiltonian-projection.md) matches each assignment to one structural cycle. The [permanent construction](passes/pass13C-permanent.md) counts signed choices and normalizes a factor of two. In the report the calculation is carried out before its effect on circuit size is claimed.
+3. Follow the field alternative into either branch. The [gate-reuse audit](passes/pass13A-gate-reuse.md) explains why reuse does not evade E.4’s charge per balanced cut. The [contracting-law audit](passes/pass13B-gain.md) derives the parameter order under which the common index fits each channel. The [field-alternative replay](passes/12e-field-alternative-replay.md) identifies the disjunction consumed here.
+4. Read the [rooted HC witness](passes/pass13D-membership.md) to see why the family is in VNP over every field. M.4 additionally needs the proposed lower bound to place the family outside VP. Each track ends with the first further step its derivation still requires.
 
-[Download the complete twelve-pass packet](handoff/VP_VNP_Review_2026-11-25_pass12.zip). It contains all 415 research files from commit `3973fb8`, including the four mathematical audits, field-alternative replay, coverage map, TeX/PDF, logo, pinned manuscript and verification records. ZIP SHA-256 `5e37d17f2ad6113a5e18d0f007f50d8e7357364e4bdfeade8e651cd3dedbfdad`.
+## Reproduce Edition 10
+
+Run the following from the repository root. Python 3.9 or newer and its standard library suffice for this check. It verifies the pinned source tree, coverage anchors and recorded formal readbacks against the checked-out files, then reruns all four independent finite controls.
+
+```sh
+python3 checks/pass13_reader_check.py
+```
+
+To rerun a formal proof, install Lean 4.33.1 and prepare mathlib and its dependencies at the revisions in [the publisher’s manifest](primary/vp-vnp/lake-manifest.json). Set `MATHLIB_DIR` to that built mathlib checkout, with the other packages in its ordinary Lake package directory. With the pinned `lean` on your path, these commands build fresh project modules in a temporary directory. Change `--jobs` to suit available memory. Separate commands for the narrower replays appear in the pass notes.
+
+```sh
+python3 checks/pass13_joint_replay.py --mathlib "$MATHLIB_DIR" --jobs 3 --output /tmp/pass13-branches.json
+python3 checks/pass09_endpoint_replay.py --target-module Nc.Hc.Vnp --query-file checks/pass13d_membership.lean --mathlib "$MATHLIB_DIR" --output /tmp/pass13-hc.json
+```
+
+The [editable master TeX](report/VP_VNP_Research_Review.tex) includes all body fragments by relative path. From a checkout with LuaLaTeX, Latin Modern fonts, and the listed TeX packages, rebuild into a separate directory. Two runs resolve page references and bookmarks. The front cover uses the archived Nous PNG directly beneath the title and subtitle.
+
+```sh
+mkdir -p /tmp/vp-vnp-review-pdf
+(cd report && lualatex -halt-on-error -output-directory=/tmp/vp-vnp-review-pdf VP_VNP_Research_Review.tex && lualatex -halt-on-error -output-directory=/tmp/vp-vnp-review-pdf VP_VNP_Research_Review.tex)
+```
+
+The original pinned paper and proof files are in `primary/`. The [source lock](source-lock.json) identifies the publisher revision, licensing and pass-specific verification scopes. Evidence from formal builds, independent derivations, and finite examples is distinguished in the report and pass records.
+
+## Review packets
+
+The [archived twelve-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/2f263c05d27afe803489583f94833e48a1ba972e/handoff/VP_VNP_Review_2026-11-25_pass12.zip) preserves Edition 9 from research commit `3973fb8`.
 
 The [archived eleven-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/33edc6eb465bb2c565e82d3461fd418c1890d65e/handoff/VP_VNP_Review_2026-11-25_pass11.zip) preserves Edition 8 from research commit `e15d655`.
 
@@ -33,11 +62,13 @@ The [archived six-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/
 
 - Pass 11 comprises [crossing and curvature](passes/11a-crossing.md), [spectral selection](passes/11b-spectral-selection.md), [weighted piece decomposition](passes/11c-piece-decomposition.md), and [field transfer](passes/11d-field-transfer.md). Each record distinguishes general arguments, finite controls and machine-check scope.
 
+- Pass 13 includes the [combined formal replay](passes/pass13E-branch-replay.md) alongside the four mathematical investigations. The complete section-by-section derivations and worked examples appear on pages 19–30 of the PDF.
+
 - Pass 12 adds [contracting laws and stage load](passes/12a-contracting-laws.md), [the Hamiltonian-cycle projection](passes/12b-hamiltonian-projection.md), [the growing-dimension flat estimate](passes/12c-flat-estimate.md), and [crossing counts and signs](passes/12d-counting-and-minors.md). Each note links its original-source locations, reproducible checks and the specific evidence from Lean.
 
 ## How to continue the review
 
-Run at least three distinct proof questions in parallel in each research round. Give each question a manuscript claim, a downstream consumer, and an explicit obligation the track can settle. Bring all tracks back into one cumulative report, update the coverage map and Chat handoff, and record which earlier conclusions gained support, changed, or remain conditional. The [handoff](VP_VNP_Chat_Handoff.md) lists the next four questions.
+Run at least three distinct proof questions in parallel in each research round. Give each question a manuscript claim, a downstream consumer, and an explicit obligation the track can settle. Bring all tracks back into one cumulative report, update the coverage map and Chat handoff, and record which earlier conclusions gained support, changed, or remain conditional. For every new mathematical result, include the objects and assumptions, the step-by-step derivation, the effect of at least one changed hypothesis where informative, its direct proof consumer, exact source references and a runnable check where appropriate. The [handoff](VP_VNP_Chat_Handoff.md) lists the next four questions.
 
 ## TeX covers
 

@@ -1,0 +1,33 @@
+\newpage
+\heading{A reading route through the argument}
+\label{sec:reader}
+Start with the hypothetical counterexample. Choose a field $F$, a large size $m$, and a small circuit $C$ over $F$ for $\HC_m$. The circuit may reuse intermediate polynomials arbitrarily. To contradict its existence the argument must transform this same candidate, preserving both the polynomial identity and a bound on the number of gates. Four kinds of objects appear along the way.
+
+\textbf{Circuit and family.} A circuit is a finite list; each entry is a variable, a field element, a sum, or a product. The two inputs may be the same earlier entry. A different list is allowed at every $m$. Equality means equality of coefficients. For instance, over $\mathbb F_2$ the polynomial $x^2-x$ vanishes at both field elements but its $x^2$ coefficient is one. Checking point values over a finite field would miss that distinction. \pub{Statement.lean}{23}{Formal circuit definition.}
+
+\textbf{Grid and projection.} The grid sums weights over assignments of shared row and column bits. Each occupied cell reads those same bits wherever the corresponding row or column reappears. An identity $G(X)=\HC_m(A(X))$ lets us substitute the matrix entries $A$ into $C$. It turns an upper bound on the target circuit into an upper bound on the grid circuit. M.2 treats HC in every characteristic; E.1 treats the permanent whenever $2$ is invertible. The numbers $40$ and $3$ bound matrix dimensions per incidence. The factor $5$ bounds circuit size per gate under the affine substitution. \pub{Paper/HcGrid.lean}{18}{HC projection} · \pub{Paper/Grids.lean}{59}{permanent completeness}.
+
+\textbf{Tensor and price.} After extracting the coefficient of one variable in each block, list those coefficients as an array indexed by the chosen variable in each block. That array is a tensor. A rank-one matrix across a specified cut is a product of a function of the indices on one side and a function of the other indices. In the flat argument different summands may use different cuts. A price on a finite set of sites is a limit of scaled wire exponents: for each $\delta>0$, one spectral point $\phi$ and one scale $s\ge0$ approximate \emph{all} pair entries to within $\delta$. Choosing a separate point per cut changes the argument. \pub{Paper/Flat.lean}{264}{Coefficient identity} · \pub{Paper/Prices.lean}{23}{price definition}.
+
+\textbf{Branches and witnesses.} M.1 transfers the original candidate at unchanged size to a comparison field of the same characteristic. D.2 gives at least one applicable geometric hypothesis over that field. On the flat branch the goal is a large circuit size from a tensor cost inequality. On the contracting branch sufficiently powerful compression of the resulting weighted program would violate a diagonal identity. Both are routes to a \emph{lower bound}. On the other hand the M.4 bit table constructs a polynomial-size witness to \emph{membership in VNP}. Membership and field coverage can be settled independently of the remaining circuit arguments.
+
+\smallref{For the main quantifiers use p.~2. The new derivations start on p.~\pageref{sec:gate}, with membership on p.~\pageref{sec:membership}. Formal build and reproduction notes are on p.~\pageref{sec:reproduction}.}
+
+\newpage
+\heading{Two consistency checks from earlier passes}
+\subhead{Which quantity survives the weighted-program simulation?}
+Write $V(z)=\sum_{r\in\mathcal A(z)}\prod_{e\in r}w(e)$ for the ring-valued sum of accepting run weights, retaining repeated runs in $\mathcal A(z)$. At $g=(x+c)^2$ the degree-one component is $cx+xc=2cx$, so the coefficient of $x$ is $2c$. The summands correspond to using the variable on the left or on the right. They survive as separate contributions even when the incoming edge points to the same gate twice. In characteristic two the coefficient vanishes. Thus recovering the number of source runs from their value would change the invariant.
+
+Pass 5 also gives a case where the source accepts once with weight zero and the pointer simulator has no accepting trace. The unsupported one-bit name has weight zero in the source. The pointer machine recognizes only prefixes of its supported names and has no first transition on that input. The one term and the empty sum have the same value. The next interface is stronger: valid accepting pointer traces have unique matched encodings. The matrix construction then preserves the sum of their weights. The downstream program uses $V(z)$.
+
+With a fixed finite name table, input tree size $s$, accepting-run cost bound $\tau$, and maximum supported name length $M$, a contributing pointer trace has length at most $T=3s+(40+2M)\tau+10$. Sorting $O(T)$ records of logarithmic width over logarithmically many passes bounds one tape side by $t_0=O((s+\tau)\lg^2(s+\tau))$. Two tape sides, the input word and an end guard fit if $2t_0+s+1\le t$. A terminal idle suffix accounts for the remaining positions at each sufficiently large exact length $t$. The later cut must preserve the parent value when summing all piece outcomes; the positive or zero value of an individual branch supplies no general test of whether that branch exists.
+\smallref{\currentreview{passes/05-universal-automaton.md}{I.1 source-to-pointer example and budgets} · \currentreview{passes/06-one-cut-and-iteration.md}{J.3/J.4 cut, value and iteration}.}
+
+\subhead{Which midpoint survives passage to a completed space?}
+The curvature inequality uses one midpoint $m$ for every test point $z$:
+\[
+ d(z,m)^2\le\tfrac12 d(z,x)^2+\tfrac12 d(z,v)^2-\tfrac14 d(x,v)^2 .
+\]
+As a control, place endpoints at $0,2$ and use a fair shared swap to choose the two ordered midpoint labels $p=m_{xv}$ and $q=m_{vx}$. Each is at expected distance one from both endpoints, yet their expected mutual distance is two. Substituting $m=p,z=q$ would demand $4\le0$ for the expectation table. A.8 supplies upper bounds on new distances in one extending price. C.1 enforces the additional inequality there. In C.3 one first extends the test-point inequality by density for fixed endpoints and midpoint, then passes to a limit in the endpoints. D.2 uses the resulting common space.
+
+\smallref{\currentreview{passes/08-price-space-completion.md}{Midpoint counterexample and completion proof} · \currentreview{passes/09-curvature-bound.md}{two ordered curvature limits} · \currentreview{passes/12e-field-alternative-replay.md}{D.2 formal scope}.}

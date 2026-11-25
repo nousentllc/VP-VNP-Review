@@ -1,0 +1,72 @@
+{
+  "target": "Nc.CaseI.Multi",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 2,
+  "modules": [
+    {
+      "module": "Nc.LowDegree",
+      "source": "Nc/LowDegree.lean",
+      "sha256": "ae26842182c09a0154db023ecb736b11e86137632f5e852c0f192e3e1c28316b",
+      "exit_code": 0,
+      "seconds": 68.38
+    },
+    {
+      "module": "Nc.CaseI.Multi",
+      "source": "Nc/CaseI/Multi.lean",
+      "sha256": "943a11e4f323217f11654e5178d34b1194d898114c9a6571d8a7b702003f0946",
+      "exit_code": 0,
+      "seconds": 68.31
+    }
+  ],
+  "verification": {
+    "queries": [
+      "#check @Nc.IsStep",
+      "#check @Nc.Computes",
+      "#check @Nc.CaseI.cf_mul",
+      "#check @Nc.CaseI.dec_gate",
+      "#print axioms Nc.CaseI.cf_mul",
+      "#print axioms Nc.CaseI.Dec.add",
+      "#print axioms Nc.CaseI.Dec.mul",
+      "#print axioms Nc.CaseI.dec_gate"
+    ],
+    "exit_code": 0,
+    "output": "@Nc.IsStep : {F : Type u_1} → [inst : CommSemiring F] → {σ : Type u_2} → (ℕ → MvPolynomial σ F) → ℕ → Prop\n@Nc.Computes : {F : Type u_1} → [inst : CommSemiring F] → {σ : Type u_2} → MvPolynomial σ F → ℕ → Prop\n@Nc.CaseI.cf_mul : ∀ {F : Type u_1} [inst : CommSemiring F] {k : ℕ} {T : Type u_2} [DecidableEq T] (S : Finset (Fin k))\n  (P Q : MvPolynomial (Fin k × T) F) (x : Fin k → T),\n  Nc.CaseI.cf S (P * Q) x = ∑ A ∈ S.powerset, Nc.CaseI.cf A P x * Nc.CaseI.cf (S \\ A) Q x\n@Nc.CaseI.dec_gate : ∀ {F : Type u_1} [inst : CommSemiring F] {k : ℕ} {T : Type u_2} [DecidableEq T]\n  {l : ℕ → MvPolynomial (Fin k × T) F} {s : ℕ},\n  (∀ γ < s, Nc.IsStep l γ) →\n    2 ≤ k → ∀ γ < s, ∀ (S : Finset (Fin k)), 2 * k < 3 * S.card → Nc.CaseI.Dec l s S (Nc.CaseI.cf S (l γ))\n'Nc.CaseI.cf_mul' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Nc.CaseI.Dec.add' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Nc.CaseI.Dec.mul' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Nc.CaseI.dec_gate' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "query_file": "checks/pass13a_gate.lean",
+    "sha256": "78a6ebbbc4c9ddb8dc6e6c59c787d1538abcb98e7bc5eb7f701d0922aebc218c"
+  },
+  "E4_excerpt": {
+    "scope": "Unmodified contiguous source excerpt under its own namespace, using freshly built Nc.CaseI.Multi. Other Paper.Flat declarations and downstream E.7 were not built by this test.",
+    "source": "Paper/Flat.lean",
+    "line_start": 179,
+    "line_end": 279,
+    "source_sha256": "d855bd47ba5998d21bbc1f7a85ba1f63ee58f3002ab2e98edc53c541cfbc4638",
+    "excerpt_sha256": "74bca07aac4211e1d9f9884f552bc66b45ef135cb9f345c93f3cdfe69b6fb13d",
+    "harness_sha256": "3bfbddc9ada340a3a0e8fd9004d0b00e2606812e0ddc1bc0d18e3e7dcab9cfa6",
+    "queries": [
+      "#check @lem_balanced",
+      "#check @lem_balanced_cf",
+      "#print axioms lem_balanced",
+      "#print axioms lem_balanced_cf"
+    ],
+    "exit_code": 0,
+    "output": "@lem_balanced : ∀ {R T : Type} [inst : CommSemiring R] [inst_1 : Fintype T] [inst_2 : DecidableEq T] {k : ℕ}\n  {P : MvPolynomial (Fin k × T) R} {L : ℕ},\n  Computes P L →\n    2 ≤ k → ∃ g q, linearPart P = ∑ S with k ≤ 3 * #S ∧ 3 * #S ≤ 2 * k, ∑ δ, linearIn S (g S δ) * linearIn Sᶜ (q S δ)\n@lem_balanced_cf : ∀ {R T : Type} [inst : CommSemiring R] [Fintype T] [DecidableEq T] {k : ℕ}\n  {P : MvPolynomial (Fin k × T) R} {L : ℕ},\n  Computes P L →\n    2 ≤ k → ∃ g q, ∀ (y : Fin k → T), cf univ P y = ∑ S ∈ bal univ, ∑ δ, (g S δ fun a => y ↑a) * q S δ fun a => y ↑a\n'Paper.lem_balanced' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.lem_balanced_cf' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  }
+}
