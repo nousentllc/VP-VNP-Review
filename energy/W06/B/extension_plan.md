@@ -1,0 +1,3 @@
+# Exploratory terminal-contract extension
+
+Motivation came from the W06-E question about inventory reset. This extension was identified after implementing the core W06-B propositions and before inspecting W06-E outputs. Test whether a horizon-normalized terminal effect can be bounded structurally. Separate an accounting identity with constant inventory credit from a change in the optimal operational value. For the latter, attempt a proof conditional on a contract-preserving bounded-cost completion map. Falsify any stronger conclusion that follows from energy capacity alone. The extension is analytical, without a W06 performance or replication claim.

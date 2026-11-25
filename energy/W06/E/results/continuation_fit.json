@@ -1,0 +1,9 @@
+{
+  "development_total_cents": {
+    "45": 7824770,
+    "65": 7766350,
+    "85": 7773370
+  },
+  "selected": 65,
+  "prerequisite_gate_sha256": "40ffc314364f188f8916e5710e52e62278cc9c563e0c781047dba0c2ab0120d3"
+}

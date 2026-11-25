@@ -1,0 +1,13 @@
+{
+  "COA": 1.9289420410059392,
+  "BoxDual": 2.0056306670885533,
+  "Tests": 2.0806314998771995,
+  "Closing": 2.177541167009622,
+  "Inventory": 2.265008042100817,
+  "FalseVariants": 1.7224842919968069,
+  "kernel_COA": 5.3184714580420405,
+  "kernel_BoxDual": 4.30910341697745,
+  "kernel_Tests": 4.164401707937941,
+  "kernel_Closing": 4.420238333987072,
+  "elapsed_including_preflight_and_controls": 31.540126125095412
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "path": "inputs/2020-02-09.json",
+    "bytes": 90593,
+    "sha256": "3fcc4566b1054f7a87ecfbb6185c0257d34c2c6edd372b555651ae584564e827",
+    "git_blob": "4a71dfe55b47a02c779260e5d4cad80e4dd3d46d",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/rts_gmlc/2020-02-09.json"
+  },
+  {
+    "path": "inputs/2020-09-20.json",
+    "bytes": 90588,
+    "sha256": "4c3317cf5c9a250c3f3bda8add5b069066ade8ed11ce83aed0017bad938572f9",
+    "git_blob": "d9a7f764eca9ad20f0c8dafb02f0267bf25b4530",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/rts_gmlc/2020-09-20.json"
+  },
+  {
+    "path": "inputs/MODEL.tex",
+    "bytes": 9314,
+    "sha256": "e612d71922cf5b19a2f8e7903c8ac6b25a0953e5065c368c94571752f360b6aa",
+    "git_blob": "54a264774bb06883693170a562a007522cfb8792",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/MODEL.tex"
+  },
+  {
+    "path": "inputs/OPF_LICENSE",
+    "bytes": 1308,
+    "sha256": "95b1cd9fee1676221d74f7c0cbba622d98ac098e9b317b3848113ef4356ab4fd",
+    "git_blob": "dee2b03d0df5655d175414ea860160f363d796c8",
+    "blob_checked_from_cached_tree": false,
+    "url": "https://github.com/power-grid-lib/pglib-opf/blob/dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3/LICENSE"
+  },
+  {
+    "path": "inputs/UC_LICENSE",
+    "bytes": 1308,
+    "sha256": "b5ececfa64eb67fd5b0e5c135624f0f9004b938d399150e644f9641b659e628c",
+    "git_blob": "7a08b4873c3ff22b929b261bc20bb8fa97e5b0a5",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/LICENSE"
+  },
+  {
+    "path": "inputs/pglib_opf_case30_as.m",
+    "bytes": 11091,
+    "sha256": "46dc01a6e4528eafe417e32f2e548d7d1585e0d6de566a62544f43a481e5e9c3",
+    "git_blob": "db5e2ad1f8cf8664b866a3270f6fa477c8a74d0e",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-opf/blob/dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3/pglib_opf_case30_as.m"
+  },
+  {
+    "path": "inputs/pglib_opf_case30_as__api.m",
+    "bytes": 12304,
+    "sha256": "feda7cca508bd20e7fd6d9769674e5dbabd019a544a604c008d120188d27d4cf",
+    "git_blob": "4980084263a6db421b9eaf4463a068f986c410f1",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-opf/blob/dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3/api/pglib_opf_case30_as__api.m"
+  },
+  {
+    "path": "inputs/pglib_opf_case39_epri.m",
+    "bytes": 18778,
+    "sha256": "83a1a6ec49c9a0533b51e928f6bd95b93aea745a620e5123bedcd88f716c286b",
+    "git_blob": "82b0d2d73484786fc5be659059427fc82bd0a5ea",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-opf/blob/dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3/pglib_opf_case39_epri.m"
+  },
+  {
+    "path": "inputs/pglib_opf_case39_epri__api.m",
+    "bytes": 16351,
+    "sha256": "0ca50da27f0580860a25638ae59c90d1f2cfd33a30351adfe2f98f37e5315373",
+    "git_blob": "05d3c9f51bd54e726314fc0f6879cadbcac8e880",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-opf/blob/dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3/api/pglib_opf_case39_epri__api.m"
+  },
+  {
+    "path": "inputs/pglib_opf_case89_pegase.m",
+    "bytes": 62984,
+    "sha256": "0c2ca484db566e587df8565141dbbf053c275e9246968391cc2f560fb4e995ca",
+    "git_blob": "e2ab4c36c5f1033ff5bf5842f31f0860751f115d",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-opf/blob/dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3/pglib_opf_case89_pegase.m"
+  },
+  {
+    "path": "inputs/pglib_opf_case89_pegase__api.m",
+    "bytes": 38088,
+    "sha256": "42acfeeeb8bc83a90eec7faa165b9c5f311f62d1e8f277dc8f3ada1f2bdd92ef",
+    "git_blob": "9b5c0548be7dd4baaa01a8b6359a81d8ec2faf3f",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-opf/blob/dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3/api/pglib_opf_case89_pegase__api.m"
+  },
+  {
+    "path": "inputs/uc_model.py",
+    "bytes": 9650,
+    "sha256": "ca340c71fe78627c3fab2a2f356b4b2ec3a650c8e9883d6ef645aa2ea1b534ea",
+    "git_blob": "f82fe5504445d634dadbfdc11f14bdcd2775ea2d",
+    "blob_checked_from_cached_tree": true,
+    "url": "https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/uc_model.py"
+  }
+]

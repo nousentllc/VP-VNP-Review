@@ -1,0 +1,183 @@
+{
+  "coverage": {
+    "service": {
+      "all": 72,
+      "eligible": 70,
+      "excluded": 56,
+      "demonstrated": 14,
+      "invalid": 2,
+      "by_first_stop": {
+        "power": 25,
+        "energy": 12,
+        "unexcluded": 14,
+        "dp": 16,
+        "lp": 3
+      },
+      "exact_zero": 40,
+      "absolute_only": 56,
+      "relative_only": 16,
+      "paired_stage_minus_native": {
+        "n": 70,
+        "stage_faster": 70,
+        "stage_slower": 0,
+        "median_paired_ms": -15.212479513138533
+      },
+      "paired_stage_minus_dp": {
+        "n": 70,
+        "stage_faster": 38,
+        "stage_slower": 32,
+        "median_paired_ms": -1.2548540253192186
+      },
+      "regimes": {
+        "flat_ample": {
+          "excluded": 12
+        },
+        "forced_opposition": {
+          "excluded": 11,
+          "demonstrated": 1
+        },
+        "negative_outage": {
+          "demonstrated": 9,
+          "excluded": 2,
+          "invalid": 1
+        },
+        "scarce": {
+          "excluded": 12
+        },
+        "tight_reserve": {
+          "excluded": 7,
+          "invalid": 1,
+          "demonstrated": 4
+        },
+        "time_of_use": {
+          "excluded": 12
+        }
+      }
+    },
+    "cost": {
+      "all": 72,
+      "eligible": 70,
+      "excluded": 49,
+      "demonstrated": 21,
+      "invalid": 2,
+      "by_first_stop": {
+        "energy": 25,
+        "unexcluded": 21,
+        "dp": 14,
+        "lp": 10
+      },
+      "exact_zero": 43,
+      "absolute_only": 47,
+      "relative_only": 49,
+      "paired_stage_minus_native": {
+        "n": 70,
+        "stage_faster": 51,
+        "stage_slower": 19,
+        "median_paired_ms": -5.12816640548408
+      },
+      "paired_stage_minus_dp": {
+        "n": 70,
+        "stage_faster": 24,
+        "stage_slower": 46,
+        "median_paired_ms": 5.585541483014822
+      },
+      "regimes": {
+        "flat_ample": {
+          "excluded": 12
+        },
+        "forced_opposition": {
+          "excluded": 12
+        },
+        "negative_outage": {
+          "demonstrated": 9,
+          "excluded": 2,
+          "invalid": 1
+        },
+        "scarce": {
+          "excluded": 12
+        },
+        "tight_reserve": {
+          "excluded": 11,
+          "invalid": 1
+        },
+        "time_of_use": {
+          "demonstrated": 12
+        }
+      }
+    }
+  },
+  "timing": [
+    {
+      "objective": "service",
+      "arm": "staged",
+      "all_attempts": 216,
+      "eligible_attempts": 210,
+      "median_ms": 6.877874955534935,
+      "p95_ms": 18.52312497794628,
+      "eligible_total_s": 1.629626328824088,
+      "full_total_s": 1.630560327321291,
+      "dispatcher_deadline_misses": 0,
+      "max_worker_peak_MiB": 71.296875
+    },
+    {
+      "objective": "service",
+      "arm": "native",
+      "all_attempts": 216,
+      "eligible_attempts": 210,
+      "median_ms": 22.088646073825657,
+      "p95_ms": 51.40054109506309,
+      "eligible_total_s": 5.477176379878074,
+      "full_total_s": 5.481637505115941,
+      "dispatcher_deadline_misses": 0,
+      "max_worker_peak_MiB": 85.84375
+    },
+    {
+      "objective": "service",
+      "arm": "dp",
+      "all_attempts": 216,
+      "eligible_attempts": 210,
+      "median_ms": 5.8732080506160855,
+      "p95_ms": 15.529250027611852,
+      "eligible_total_s": 1.4703212948516011,
+      "full_total_s": 1.4722817526198924,
+      "dispatcher_deadline_misses": 0,
+      "max_worker_peak_MiB": 70.296875
+    },
+    {
+      "objective": "cost",
+      "arm": "native",
+      "all_attempts": 216,
+      "eligible_attempts": 210,
+      "median_ms": 12.924499926157296,
+      "p95_ms": 27.75124995969236,
+      "eligible_total_s": 3.0463515410665423,
+      "full_total_s": 3.048553126398474,
+      "dispatcher_deadline_misses": 0,
+      "max_worker_peak_MiB": 85.84375
+    },
+    {
+      "objective": "cost",
+      "arm": "dp",
+      "all_attempts": 216,
+      "eligible_attempts": 210,
+      "median_ms": 4.00129146873951,
+      "p95_ms": 11.658333009108901,
+      "eligible_total_s": 1.011845490662381,
+      "full_total_s": 1.016523365629837,
+      "dispatcher_deadline_misses": 0,
+      "max_worker_peak_MiB": 70.296875
+    },
+    {
+      "objective": "cost",
+      "arm": "staged",
+      "all_attempts": 216,
+      "eligible_attempts": 210,
+      "median_ms": 7.9156875144690275,
+      "p95_ms": 17.53674983046949,
+      "eligible_total_s": 1.9605207131244242,
+      "full_total_s": 1.9621442982461303,
+      "dispatcher_deadline_misses": 0,
+      "max_worker_peak_MiB": 71.296875
+    }
+  ]
+}

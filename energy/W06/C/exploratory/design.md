@@ -1,0 +1,5 @@
+# Follow-up on unresolved stressed AC cases
+
+Registered after seeing all six primary AC results. Primary finite-budget certificates excluded the 1% target on the three base cases. The three stressed cases all remained unresolved. Reuse exactly these three incumbents and original input files. This diagnostic tests whether some of the large intervals reflect missing angle and cycle restrictions. It supplies no independent holdout and cannot revise primary coverage.
+
+Keep all prior edge cuts. Add valid angle wedges when contained in (-90, 90) degrees. Form cliques by deterministic minimum-degree fill, introduce missing voltage products with safe boxes and separate Hermitian positive-semidefinite cuts using rationalized numerical eigenvectors. Each cut is necessary for true bus voltages. Up to 24 further LP rounds with all negative directions below -1e-7; continue edge and heat refinement. Stop early if 1% excluded. No SDP solver objective is presumed certified. Keep complete cuts, dual multipliers, clocks, failures and the original interval verification.

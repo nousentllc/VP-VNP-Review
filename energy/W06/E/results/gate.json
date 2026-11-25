@@ -1,0 +1,345 @@
+{
+  "created_utc": "2026-11-25T06:07:02.056112+00:00",
+  "seeds": [
+    69103,
+    69119,
+    69143,
+    69157,
+    69179,
+    69203,
+    69221,
+    69239
+  ],
+  "practical_threshold_USD_per_day": 15,
+  "ref": 70,
+  "eligible": {
+    "7": true,
+    "30": true
+  },
+  "cases": [
+    {
+      "seed": 69103,
+      "days": 7,
+      "generate_save_ns": 7563875,
+      "case_wall_ns": 112304417,
+      "ceiling_cents": 40780,
+      "price_cents": 3588970,
+      "free_fill_end": 11,
+      "offline_cents": {
+        "market_match9": 3548190,
+        "market_matchfill": 3551510,
+        "market_floor0": 3555360,
+        "market_floor50": 3544510,
+        "market_floor100": 3496510,
+        "flat_matchfill": 2633700,
+        "flat_floor50": 2630500,
+        "optional_jobs": 3358470
+      },
+      "reset_stock_gap_cents": 19200
+    },
+    {
+      "seed": 69103,
+      "days": 30,
+      "generate_save_ns": 41214209,
+      "case_wall_ns": 534258250,
+      "ceiling_cents": 254420,
+      "price_cents": 16696810,
+      "free_fill_end": 11,
+      "offline_cents": {
+        "market_match9": 16442390,
+        "market_matchfill": 16448980,
+        "market_floor0": 16440690,
+        "market_floor50": 16429950,
+        "market_floor100": 16393980,
+        "flat_matchfill": 11796200,
+        "flat_floor50": 11793000,
+        "optional_jobs": 15512950
+      },
+      "reset_stock_gap_cents": 74800
+    },
+    {
+      "seed": 69119,
+      "days": 7,
+      "generate_save_ns": 7977375,
+      "case_wall_ns": 116244084,
+      "ceiling_cents": 74480,
+      "price_cents": 4011510,
+      "free_fill_end": 7,
+      "offline_cents": {
+        "market_match9": 3937030,
+        "market_matchfill": 3925360,
+        "market_floor0": 3913180,
+        "market_floor50": 3903180,
+        "market_floor100": 3889520,
+        "flat_matchfill": 2750300,
+        "flat_floor50": 2747500,
+        "optional_jobs": 3701550
+      },
+      "reset_stock_gap_cents": 16800
+    },
+    {
+      "seed": 69119,
+      "days": 30,
+      "generate_save_ns": 44228167,
+      "case_wall_ns": 595511000,
+      "ceiling_cents": 234450,
+      "price_cents": 17208320,
+      "free_fill_end": 10,
+      "offline_cents": {
+        "market_match9": 16973870,
+        "market_matchfill": 16978950,
+        "market_floor0": 16961350,
+        "market_floor50": 16951350,
+        "market_floor100": 16928870,
+        "flat_matchfill": 11994600,
+        "flat_floor50": 11993000,
+        "optional_jobs": 15972750
+      },
+      "reset_stock_gap_cents": 67400
+    },
+    {
+      "seed": 69143,
+      "days": 7,
+      "generate_save_ns": 10834083,
+      "case_wall_ns": 120834833,
+      "ceiling_cents": 73720,
+      "price_cents": 4220200,
+      "free_fill_end": 10,
+      "offline_cents": {
+        "market_match9": 4146480,
+        "market_matchfill": 4149290,
+        "market_floor0": 4139940,
+        "market_floor50": 4129940,
+        "market_floor100": 4097210,
+        "flat_matchfill": 2716600,
+        "flat_floor50": 2715000,
+        "optional_jobs": 3894360
+      },
+      "reset_stock_gap_cents": 19200
+    },
+    {
+      "seed": 69143,
+      "days": 30,
+      "generate_save_ns": 43128917,
+      "case_wall_ns": 551698375,
+      "ceiling_cents": 226110,
+      "price_cents": 17268980,
+      "free_fill_end": 11,
+      "offline_cents": {
+        "market_match9": 17042870,
+        "market_matchfill": 17048680,
+        "market_floor0": 17037110,
+        "market_floor50": 17027110,
+        "market_floor100": 16993680,
+        "flat_matchfill": 11684700,
+        "flat_floor50": 11681500,
+        "optional_jobs": 16050630
+      },
+      "reset_stock_gap_cents": 84600
+    },
+    {
+      "seed": 69157,
+      "days": 7,
+      "generate_save_ns": 14184166,
+      "case_wall_ns": 125186250,
+      "ceiling_cents": 64580,
+      "price_cents": 3666590,
+      "free_fill_end": 11,
+      "offline_cents": {
+        "market_match9": 3602010,
+        "market_matchfill": 3610560,
+        "market_floor0": 3594390,
+        "market_floor50": 3584390,
+        "market_floor100": 3555560,
+        "flat_matchfill": 2654700,
+        "flat_floor50": 2651500,
+        "optional_jobs": 3373050
+      },
+      "reset_stock_gap_cents": 19200
+    },
+    {
+      "seed": 69157,
+      "days": 30,
+      "generate_save_ns": 42197916,
+      "case_wall_ns": 533917416,
+      "ceiling_cents": 262680,
+      "price_cents": 16101080,
+      "free_fill_end": 11,
+      "offline_cents": {
+        "market_match9": 15838400,
+        "market_matchfill": 15842630,
+        "market_floor0": 15844520,
+        "market_floor50": 15832960,
+        "market_floor100": 15787630,
+        "flat_matchfill": 11640200,
+        "flat_floor50": 11637000,
+        "optional_jobs": 14907400
+      },
+      "reset_stock_gap_cents": 81200
+    },
+    {
+      "seed": 69179,
+      "days": 7,
+      "generate_save_ns": 8408916,
+      "case_wall_ns": 115370166,
+      "ceiling_cents": 92830,
+      "price_cents": 3938340,
+      "free_fill_end": 11,
+      "offline_cents": {
+        "market_match9": 3845510,
+        "market_matchfill": 3852010,
+        "market_floor0": 3845230,
+        "market_floor50": 3834450,
+        "market_floor100": 3797010,
+        "flat_matchfill": 2647700,
+        "flat_floor50": 2644500,
+        "optional_jobs": 3597270
+      },
+      "reset_stock_gap_cents": 22400
+    },
+    {
+      "seed": 69179,
+      "days": 30,
+      "generate_save_ns": 42023708,
+      "case_wall_ns": 529476625,
+      "ceiling_cents": 208040,
+      "price_cents": 16636420,
+      "free_fill_end": 11,
+      "offline_cents": {
+        "market_match9": 16428380,
+        "market_matchfill": 16436350,
+        "market_floor0": 16426200,
+        "market_floor50": 16416200,
+        "market_floor100": 16381350,
+        "flat_matchfill": 11606200,
+        "flat_floor50": 11603000,
+        "optional_jobs": 15477500
+      },
+      "reset_stock_gap_cents": 87800
+    },
+    {
+      "seed": 69203,
+      "days": 7,
+      "generate_save_ns": 8054709,
+      "case_wall_ns": 112270584,
+      "ceiling_cents": 45780,
+      "price_cents": 3587460,
+      "free_fill_end": 11,
+      "offline_cents": {
+        "market_match9": 3541680,
+        "market_matchfill": 3547640,
+        "market_floor0": 3544120,
+        "market_floor50": 3533890,
+        "market_floor100": 3492640,
+        "flat_matchfill": 2687200,
+        "flat_floor50": 2684000,
+        "optional_jobs": 3321760
+      },
+      "reset_stock_gap_cents": 22400
+    },
+    {
+      "seed": 69203,
+      "days": 30,
+      "generate_save_ns": 41894250,
+      "case_wall_ns": 543620042,
+      "ceiling_cents": 259330,
+      "price_cents": 16916020,
+      "free_fill_end": 10,
+      "offline_cents": {
+        "market_match9": 16656690,
+        "market_matchfill": 16663510,
+        "market_floor0": 16630030,
+        "market_floor50": 16620030,
+        "market_floor100": 16608230,
+        "flat_matchfill": 11855600,
+        "flat_floor50": 11854000,
+        "optional_jobs": 15607530
+      },
+      "reset_stock_gap_cents": 81000
+    },
+    {
+      "seed": 69221,
+      "days": 7,
+      "generate_save_ns": 8402083,
+      "case_wall_ns": 118322333,
+      "ceiling_cents": 50750,
+      "price_cents": 3927470,
+      "free_fill_end": 11,
+      "offline_cents": {
+        "market_match9": 3876720,
+        "market_matchfill": 3881680,
+        "market_floor0": 3875520,
+        "market_floor50": 3865520,
+        "market_floor100": 3826680,
+        "flat_matchfill": 2679700,
+        "flat_floor50": 2676500,
+        "optional_jobs": 3657480
+      },
+      "reset_stock_gap_cents": 20800
+    },
+    {
+      "seed": 69221,
+      "days": 30,
+      "generate_save_ns": 48079583,
+      "case_wall_ns": 1024134208,
+      "ceiling_cents": 239060,
+      "price_cents": 17203360,
+      "free_fill_end": 9,
+      "offline_cents": {
+        "market_match9": 16964300,
+        "market_matchfill": 16964300,
+        "market_floor0": 16956790,
+        "market_floor50": 16946790,
+        "market_floor100": 16918050,
+        "flat_matchfill": 11647000,
+        "flat_floor50": 11647000,
+        "optional_jobs": 15972940
+      },
+      "reset_stock_gap_cents": 81600
+    },
+    {
+      "seed": 69239,
+      "days": 7,
+      "generate_save_ns": 20609208,
+      "case_wall_ns": 257941125,
+      "ceiling_cents": 122200,
+      "price_cents": 4186800,
+      "free_fill_end": 11,
+      "offline_cents": {
+        "market_match9": 4064600,
+        "market_matchfill": 4074650,
+        "market_floor0": 4067410,
+        "market_floor50": 4054640,
+        "market_floor100": 4019400,
+        "flat_matchfill": 2684200,
+        "flat_floor50": 2681000,
+        "optional_jobs": 3822640
+      },
+      "reset_stock_gap_cents": 19200
+    },
+    {
+      "seed": 69239,
+      "days": 30,
+      "generate_save_ns": 103521666,
+      "case_wall_ns": 1370851291,
+      "ceiling_cents": 312290,
+      "price_cents": 18032450,
+      "free_fill_end": 9,
+      "offline_cents": {
+        "market_match9": 17720160,
+        "market_matchfill": 17720160,
+        "market_floor0": 17713280,
+        "market_floor50": 17702740,
+        "market_floor100": 17674840,
+        "flat_matchfill": 11773500,
+        "flat_floor50": 11773500,
+        "optional_jobs": 16692720
+      },
+      "reset_stock_gap_cents": 80600
+    }
+  ],
+  "wall_ns": 6826899292,
+  "python": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 12:55:12) [Clang 14.0.6 ]",
+  "numpy": "2.2.4",
+  "platform": "macOS-27.0.1-arm64-arm-64bit"
+}

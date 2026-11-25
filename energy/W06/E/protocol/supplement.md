@@ -1,0 +1,7 @@
+# Stronger comparator and independent LP checks, supplementary
+
+The preregistered four policy contrasts have run. To challenge a gain over a zero-tail comparator, lock two further controls before executing them. They do not add confirmatory hypotheses. Test H12 with an untuned $50/MWh terminal mark corresponding to the contract's own closing credit. Add a two-stage rolling scenario policy with three equally weighted issued-price scenarios: the issued mean path and persistent positive/negative $20/MWh forecast errors, tapered by lead via min(1,lead/4). First actions are common across scenarios. Future controls may adapt once the branch is revealed, an optimistic two-stage lookahead approximation within a causal rolling policy. Supply the development-selected terminal mark to this policy and hold the other quantities at the same issued forecasts. Neither additional policy uses realized future values.
+
+Compare both descriptive results on every paired holdout with the original candidate and protection/terminal checks. Also solve the H12 no-tail comparator's explicit path-flow LP at the first 24 decision times of the first 7-day holdout. Compare optimal objectives and presence of a tied optimal first action, allowing alternative optima. Preserve every mismatch. This is an objective and formulation audit on that subset.
+
+Challenge transfer of a grouped physical action lattice by a fractional single-stage example. Failure of a candidate against an added comparator qualifies the robustness of the original confirmatory result; retain both.

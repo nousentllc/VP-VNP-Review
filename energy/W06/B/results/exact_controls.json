@@ -1,0 +1,136 @@
+{
+  "arithmetic": "fractions.Fraction",
+  "boxed": {
+    "exact_feasible_trials": 2250,
+    "tight_at_checked_witness": 120,
+    "max_slack_in_test_grid": "2189/180",
+    "endpoint_cases": [
+      {
+        "bounds": [
+          null,
+          null
+        ],
+        "reduced_cost": -2,
+        "finite_floor": null
+      },
+      {
+        "bounds": [
+          null,
+          null
+        ],
+        "reduced_cost": 0,
+        "finite_floor": "0"
+      },
+      {
+        "bounds": [
+          null,
+          null
+        ],
+        "reduced_cost": 3,
+        "finite_floor": null
+      },
+      {
+        "bounds": [
+          "-1",
+          null
+        ],
+        "reduced_cost": -2,
+        "finite_floor": null
+      },
+      {
+        "bounds": [
+          "-1",
+          null
+        ],
+        "reduced_cost": 0,
+        "finite_floor": "0"
+      },
+      {
+        "bounds": [
+          "-1",
+          null
+        ],
+        "reduced_cost": 3,
+        "finite_floor": "-3"
+      },
+      {
+        "bounds": [
+          null,
+          "1"
+        ],
+        "reduced_cost": -2,
+        "finite_floor": "-2"
+      },
+      {
+        "bounds": [
+          null,
+          "1"
+        ],
+        "reduced_cost": 0,
+        "finite_floor": "0"
+      },
+      {
+        "bounds": [
+          null,
+          "1"
+        ],
+        "reduced_cost": 3,
+        "finite_floor": null
+      },
+      {
+        "bounds": [
+          "-1",
+          "1"
+        ],
+        "reduced_cost": -2,
+        "finite_floor": "-2"
+      },
+      {
+        "bounds": [
+          "-1",
+          "1"
+        ],
+        "reduced_cost": 0,
+        "finite_floor": "0"
+      },
+      {
+        "bounds": [
+          "-1",
+          "1"
+        ],
+        "reduced_cost": 3,
+        "finite_floor": "-3"
+      }
+    ]
+  },
+  "information": {
+    "distributions": 51,
+    "common_actions_per_distribution": 21,
+    "checks": 1071,
+    "example_equal_weights": {
+      "baseline_expected_cost": "1/2",
+      "PF_floor": 0,
+      "unpenalized_ceiling": "1/2",
+      "centered_floor": "1/2",
+      "centered_ceiling": 0
+    },
+    "scope": "Penalties use knowledge of this explicit example's costs. No generic fast penalty generator."
+  },
+  "counterexamples": {
+    "equality": "U=10, L=9, feasible J=9 achieves target 1 exactly.",
+    "restriction": "True costs {0,1}, restricted costs {1}: claimed lower floor 1 exceeds true optimum 0.",
+    "positive_upper_row_multiplier": "x=0 fixed, x\u22641, c=0, z=+1 gives fabricated lower bound 1.",
+    "invalid_baseline": "True allowed costs {1}, infeasible incumbent 0 gives apparent negative ceiling.",
+    "missing_scenario": "Equal weights, ceilings (0,4); deleting the second case understates full-panel mean 2.",
+    "negative_weight": "Weights of either sign do not preserve order. With w=-1, 1\u22642 reverses.",
+    "different_measure": "Baseline losses (50,50), candidate (0,80): mean 50\u219240; upper-half CVaR 50\u219280.",
+    "unit_error": "7 kWh = 0.007 MWh; comparing 0.007 with an unconverted 1 kWh threshold falsely excludes.",
+    "rounded_witness": "x=10^-12 violates x=0 exactly despite a 10^-9 residual acceptance tolerance.",
+    "invalid_penalty": "J=0, penalty=1 yields L=1 for augmented cost; the unadjusted floor fails.",
+    "binary64": {
+      "display": "0.1",
+      "encoded": "3602879701896397/36028797018963968",
+      "decimal": "1/10"
+    }
+  }
+}

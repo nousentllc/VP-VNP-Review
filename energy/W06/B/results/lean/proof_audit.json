@@ -1,0 +1,296 @@
+{
+  "axioms": {
+    "W06.Closing.creditDifference": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Closing.noCapacityOnlyMoneyBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Closing.telescope": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Closing.terminalPremium": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Dual.boxedDual": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Dual.finiteEndpoint": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Dual.floorTermSound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Dual.mixedRowDual": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Dual.transposePair": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.equalityTarget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.incompatibleGains": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.independentActions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.infeasibleIncumbent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.infoExample": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.meanTail": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.negativeWeight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.nonattainment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.omittedCase": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.positivePenaltyFails": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.reliabilityCost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.restriction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.roundingFails": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.serviceEconomics": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.slackBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.unboundedRejection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Tests.wrongMultiplier": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.centeredPenalty": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.contractCost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.discountedNet": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.enclosureCeiling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.feasibleGain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.ignoreInformation": [],
+    "W06.infoPanelInf": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.maxInterval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.maxStops": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.minInterval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.nestedInf": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.netBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.netStop": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.operationalChain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.partialPanel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.pointCeiling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.riskCeiling": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.strictAtNonattainment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.strictStop": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.totalMono": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.transferBound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.weakStop": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.weightedPanel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "compile_exit": {
+    "BoxDual": 0,
+    "COA": 0,
+    "Closing": 0,
+    "FalseVariants": 1,
+    "Inventory": 0,
+    "Tests": 0
+  },
+  "declaration_dependency_records": 112,
+  "exact_controls_sha256": "a2bed3dbc9abce9d02ce120046e42526dae753d7a8f7637ce3991d6c434b5ee6",
+  "inspected_declarations": 49,
+  "kernel_replay": {
+    "BoxDual": 0,
+    "COA": 0,
+    "Closing": 0,
+    "Tests": 0
+  },
+  "lean": "Lean (version 4.30.0-rc2, arm64-apple-darwin24.6.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc, Release)",
+  "lean_binary_sha256": "b48bc5ab229bd8b320a224b87e20fc428dba6fa8a1c054bd4fa6def846e19997",
+  "object_dependencies": "Prebuilt and trusted. Tracked checkout sources matched pins.",
+  "packages_with_prebuilt_lean_dir": [
+    "mathlib",
+    "plausible",
+    "LeanSearchClient",
+    "importGraph",
+    "proofwidgets",
+    "aesop",
+    "Qq",
+    "batteries"
+  ],
+  "pins_verified": {
+    "Cli": "13567aed1ac4f12aea9484178e07e51f8c9f7658",
+    "LeanSearchClient": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+    "Qq": "1cc7e819b9b9bc1e87c9edcccb62e0269e00a809",
+    "aesop": "f0c6e183ea26531e82773feb4b73ab6595ca17a5",
+    "batteries": "5c57f3857ba81924a88b2cdf4f062e34ec04ff11",
+    "importGraph": "cdab3938ccabbdb044be6896e251b5814bec932e",
+    "mathlib": "896cc56a395e1615786fac56564a3fe6bfeebcc4",
+    "plausible": "86210d4ad1b08b086d0bd638637a75246523dbb8",
+    "proofwidgets": "2db6054a44326f8c0230ee0570e2ddb894816511"
+  },
+  "rejected_false_variants": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "path_inputs_identical_including_two_development": 18,
+  "holdout_site_hours": 7104,
+  "identical_Bellman_state_potentials_including_terminal": 2848000,
+  "identical_applied_hourly_actions_and_fallbacks_excluding_clocks": 56832,
+  "historical_diagnostics_identical_excluding_clocks": true,
+  "max_USD_discrepancy_independent_analytic_vs_supplied_W05_LP_upper_ceilings": {
+    "same_stock": 5.372815478562444e-13,
+    "min_stock": 4.3529984827600913e-13
+  },
+  "fresh_replay_wall_seconds_by_step": {
+    "historical/replay.py": 3.180374709190801,
+    "gate.py": 5.634220709092915,
+    "compare.py": 7.4890474998392165,
+    "audit.py": 3.7000851249322295,
+    "supplement.py": 9.857043209020048,
+    "controls.py": 0.09299900010228157,
+    "historical/splice.py": 1.1508513749577105,
+    "historical/analytic_stock.py": 0.4648507081437856,
+    "historical/check_splice.py": 0.3715398751664907
+  }
+}

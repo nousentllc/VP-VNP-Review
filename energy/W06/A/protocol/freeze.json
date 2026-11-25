@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T06:07:03.910603+00:00",
+  "status": "recorded before holdout generation or access",
+  "historical_mechanism_regression_match": true,
+  "development_seeds": [
+    7000001,
+    7000003
+  ],
+  "development_crosschecks": 48,
+  "sha256": {
+    "protocol/design.json": "4f0aa9fdd010d413d77d12a7906a1269f19eb9bbe49ef2a5d9ea7eae8cef0c58",
+    "protocol/lattice_note.md": "76b154c33bad003ef9bf94589ebffd6feb9ad0dc113eb74f1a3ded4b97e9054f",
+    "model.py": "817089c4b9deca77c8bc5104f8fa658def452400edafccfee124b5c01700e9a0",
+    "bounds.py": "a0cfbcce6c35e8ae2462f948c7cb7fa6482969ae42f874b69c9495b5c9e58855",
+    "campaign.py": "f7d6aa381b9ecd3e3e9993d6f900b9d695032a22ea61a0b5e40692713336780d"
+  }
+}

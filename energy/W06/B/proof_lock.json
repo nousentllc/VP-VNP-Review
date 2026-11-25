@@ -1,0 +1,20 @@
+{
+  "sha256": {
+    "exact_controls.py": "19e49a8b9818cea0d3261d721a88f6b606a16596ab8403bdb63aa807f4207403",
+    "extension_plan.md": "2b8af66aad38e33aace7a2de7a92c058bcc4112e7d5eaddec007a449d0a53767",
+    "formal/BoxDual.lean": "0991ea6cf57568300a315bb7384af23216945ddb0e97feddcf212dd5e5ec917b",
+    "formal/COA.lean": "9e1c036341d5795020230fedd6e467a2f2d75c0bf06e6d792d698301a0e73378",
+    "formal/Closing.lean": "c9293a15ceb9f2b950383390a3f3c6ab46423ef07c635ac378b6a885199311aa",
+    "formal/FalseVariants.lean": "9f4eed7e5a502c1f312fa7eeec07e24c01b205c92cf0f6d516b4e8909b6c7e75",
+    "formal/Inventory.lean": "a441129c3e4761e5e225a02a094cc0b350581101092c9a38430d03ef7567afa6",
+    "formal/Tests.lean": "ab62f3ffbc32b9f2616c9417a0c59537ba23ffd6a03e8f8cd1c56a1ee7cc0d18",
+    "formal/lake-manifest.json": "fab0b8a7fd1cc653ea36a1d45f2225e43fcf5956ec4cded2b781961ea9bf18bf",
+    "formal/lakefile.toml": "0aad419ab59cc0dc0c9e9776f5d7c29d075b3d1b3368726675cdeb837e9383c6",
+    "formal/lean-toolchain": "ce4c4e3d87434b9663f46de25ce34b48a0cf0d392e0a320a0787b4674a2d7b61",
+    "protocol.md": "e35964a28a62cec7091e3926cd09e4fc5ae60bc3ea595d98287cba9b7939c39d",
+    "verify.py": "34ee03e85c117a1f13f1e92ad5758000621edd9424221a55f1cf6865f7171ce3"
+  },
+  "mathlib": "896cc56a395e1615786fac56564a3fe6bfeebcc4",
+  "compiler": "3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc",
+  "lock_scope": "Inputs to the B formal and control runs, before final audit."
+}

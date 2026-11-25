@@ -1,0 +1,122 @@
+{
+  "utc": "2026-11-25T06:33:52.011189+00:00",
+  "archive": "W06_Energy_Experiments.zip",
+  "sha256": "5744be118169c207cba7987537510fa0aa9ab59772c890f4ee6441422f9a3a0f",
+  "archive_bytes": 41831466,
+  "zip_members": 345,
+  "manifest_entries": 344,
+  "release_manifest_sha256": "f9fd47c9d2344e2391b107dfd27b53f847de947cc87a25244b81c71a88b103f5",
+  "source_tex_sha256": "5d1b46bb51fd6a56c60580360caef60d90ea0093d700258fa5e47d12c7b8b475",
+  "report_pdf_sha256": "500635fd9af9b14d9165a426a97624772da6b45e5836d3a44065014e651944bc",
+  "master_v0_5_sha256": "9dab4e9ec8f1da53acc344cd5272446af18c9e49baef7b27990348c05ec73baa",
+  "zip_crc_passed": true,
+  "all_extracted_files_match_delivered_release": true,
+  "claim_count": 52,
+  "report_pages": 11,
+  "typesetting": "pdfTeX 1.40.29; clean cross-references, no overfull boxes; all 11 pages rendered.",
+  "audit_of_final_extraction": {
+    "A": {
+      "seconds": 0.6934999160002917,
+      "returncode": 0
+    },
+    "B_exact": {
+      "seconds": 0.11981795798055828,
+      "returncode": 0
+    },
+    "B_stock": {
+      "seconds": 1.3595719998702407,
+      "returncode": 0
+    },
+    "C_ac": {
+      "seconds": 3.0915085000451654,
+      "returncode": 0
+    },
+    "C_uc": {
+      "seconds": 5.66058958414942,
+      "returncode": 0
+    },
+    "C_clique": {
+      "seconds": 3.31624750001356,
+      "returncode": 0
+    },
+    "C_tree": {
+      "seconds": 5.85263504087925,
+      "returncode": 0
+    },
+    "C_physics": {
+      "seconds": 5.6599004578311,
+      "returncode": 0
+    },
+    "C_independent_rows": {
+      "seconds": 4.0914772499818355,
+      "returncode": 0
+    },
+    "C_independent_lifts": {
+      "seconds": 1.3058531659189612,
+      "returncode": 0
+    },
+    "E": {
+      "seconds": 5.327461041975766,
+      "returncode": 0
+    },
+    "E_reserve": {
+      "seconds": 0.6383246248587966,
+      "returncode": 0
+    },
+    "E_wear": {
+      "seconds": 0.3290715410839766,
+      "returncode": 0
+    },
+    "historical": {
+      "seconds": 4.044220417039469,
+      "returncode": 0
+    },
+    "splices": {
+      "seconds": 0.41367974993772805,
+      "returncode": 0
+    },
+    "stock": {
+      "seconds": 0.5321135830599815,
+      "returncode": 0
+    }
+  },
+  "formal_rebuild_of_identical_sources": {
+    "B_lean": {
+      "seconds": 222.39241670793854,
+      "returncode": 0
+    },
+    "B_flat_lean": {
+      "seconds": 116.61129274987616,
+      "returncode": 0
+    }
+  },
+  "prior_track_and_dependency_files_with_identical_hashes": 324,
+  "formal_rebuild_input_archive_sha256": "ce02b971f34eb293686406499e00dcf22dc0b9bd357de6eb15f1646943673298",
+  "compared_outcomes": {
+    "B_primary_axioms": true,
+    "B_flat_historical_checks": true,
+    "A_verified_case_rows": true,
+    "C_original_checks": true,
+    "C_lift_checks": true,
+    "E_core_historical_splices": true
+  },
+  "log_sha256": {
+    "A.log": "0328b4de08238e02c622d2053b758142a3969eb3b46b8618f893ae7be4b6fdfa",
+    "B_exact.log": "a2bed3dbc9abce9d02ce120046e42526dae753d7a8f7637ce3991d6c434b5ee6",
+    "B_stock.log": "cbcbf5fb81e4ae2c5f685d11b0e496ec3082c09349d5a5c85d8d86afd88ec5df",
+    "C_ac.log": "4e2b00a3bdc86a7cbce1d075284c95ebc1045e2a2428fa0359629497c177db51",
+    "C_clique.log": "9bab19b9e62e9a0889cf826da5879d18ea9717aa2a3b42e1f8178bf6bce24799",
+    "C_independent_lifts.log": "93b993074606e23a047e169148191918a22d290b7f0248e684387b0a30461b84",
+    "C_independent_rows.log": "27d4c02161708d6590622b5f0f61f690458d63831fc323983dd3d951d95c9864",
+    "C_physics.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C_tree.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "C_uc.log": "0654de8f22ae3dc11b150553ff2f04d13ebe7cce141105b5c0a5b620a4878f85",
+    "E.log": "a370d189bcf6a9fe092615ea05238d6c13dbdcb7c15e146e8b74396b1c19e4b8",
+    "E_reserve.log": "196f4834217e6e8e916c5ec6cdbd7502845d31af9f20508b29d24916ac286fcc",
+    "E_wear.log": "0d992bac508a70d6eefe834acd96099c2bd2df9e38d273ea0df8e7b9f4a1134b",
+    "historical.log": "b8d673f6fb43f2e3913c90fd5a3b97a4e3daadce238aa2f87ee6a7a3926fda0b",
+    "splices.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stock.log": "392219fb096d7198b59742bc6ab4cbc5e6011137fdccbc85496fe2be9c200f5c"
+  },
+  "scope": "All final ZIP members were re-extracted and byte-verified; 16 numerical and historical steps re-executed from that extraction, with the additional rainflow revaluation. The two Lean builds, axiom inventories and selected-module kernel replays ran from the immediately preceding extracted packet. Every earlier A/B/C/E and dependency file was matched byte-for-byte to the final archive. Fresh A and E campaign runs are documented in the packet. During extraction C witnesses were checked independently without repeating every solver search. Wall times and capped MILP schedules can vary."
+}

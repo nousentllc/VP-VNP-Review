@@ -1,0 +1,9 @@
+WARNING: Dynamically registering the following numeric type:
+        fractions.Fraction
+    Dynamic registration is supported for convenience, but there are known
+    limitations to this approach.  We recommend explicitly registering numeric
+    types using RegisterNumericType() or RegisterIntegerType().
+2020-02-09.json 8 sat 0.25247590317969415 3.431188999908045
+2020-02-09.json 24 sat 1.692125649013242 34.55030645895749
+2020-09-20.json 8 sat 0.7272062304977486 30.693125874968246
+2020-09-20.json 24 sat 0.34737879087665524 9.939592874841765

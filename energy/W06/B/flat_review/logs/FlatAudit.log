@@ -1,0 +1,45 @@
+@W06.Flat.propagate : ∀ {r : ℝ} {grid cap : List ℝ},
+  List.Forall₂ (fun x1 x2 => x1 ≤ x2) grid cap →
+    ∀ (prev bound : ℝ),
+      prev ≤ bound → W06.Flat.ramps r prev grid → List.Forall₂ (fun x1 x2 => x1 ≤ x2) grid (W06.Flat.pass r bound cap)
+'W06.Flat.propagate' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.Flat.backwardPass : ∀ {r : ℝ} {grid cap : List ℝ},
+  List.Forall₂ (fun x1 x2 => x1 ≤ x2) grid cap →
+    W06.Flat.internalRamps r grid → List.Forall₂ (fun x1 x2 => x1 ≤ x2) grid (W06.Flat.boundaryFree r cap)
+'W06.Flat.backwardPass' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Flat.rampEnvelope : ∀ (r prev : ℝ) (grid cap : List ℝ),
+  List.Forall₂ (fun x1 x2 => x1 ≤ x2) grid cap →
+    W06.Flat.ramps r prev grid →
+      W06.Flat.internalRamps r grid.reverse →
+        List.Forall₂ (fun x1 x2 => x1 ≤ x2) grid (W06.Flat.boundaryFree r (W06.Flat.pass r prev cap).reverse).reverse
+'W06.Flat.rampEnvelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Flat.initialCap : ∀ (g y charge discharge power cap : ℝ),
+  g = y + charge - discharge → charge ≤ power → 0 ≤ discharge → g ≤ cap → g ≤ min cap (y + power)
+'W06.Flat.initialCap' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.Flat.forcedDischarge : ∀ {I : Type u_1} [inst : Fintype I] (g y charge discharge envelope : I → ℝ),
+  (∀ (i : I), g i = y i + charge i - discharge i) →
+    (∀ (i : I), 0 ≤ charge i) →
+      (∀ (i : I), 0 ≤ discharge i) → (∀ (i : I), g i ≤ envelope i) → ∑ i, max 0 (y i - envelope i) ≤ ∑ i, discharge i
+'W06.Flat.forcedDischarge' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Flat.tariffIdentity : ∀ (p w v e b Y C D S₀ S : ℝ),
+  e ≠ 0 →
+    S = S₀ + e * C - b * D →
+      p * (Y + C - D) + w * (C + D) - v * S =
+        p * Y - v * S₀ + ((p + w) / e - v) * (S - S₀) + ((p + w) * b / e + w - p) * D
+'W06.Flat.tariffIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Flat.tariffSigns : ∀ (p w v e b : ℝ),
+  0 ≤ p → 0 ≤ w → 0 < e → e ≤ 1 → 1 ≤ b → v * e ≤ p + w → 0 ≤ (p + w) / e - v ∧ 0 ≤ (p + w) * b / e + w - p
+'W06.Flat.tariffSigns' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Flat.flatCap : ∀ (J₀ J K ks kd S₀ SB S D₀ DB D floor : ℝ),
+  J₀ = K + ks * (SB - S₀) + kd * DB →
+    J = K + ks * (S - S₀) + kd * D → 0 ≤ ks → 0 ≤ kd → floor ≤ S → D₀ ≤ D → J₀ - J ≤ ks * (SB - floor) + kd * (DB - D₀)
+'W06.Flat.flatCap' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Flat.fixedStockStop : ∀ (J₀ J K ks kd S₀ S DB D : ℝ),
+  J₀ = K + ks * (S - S₀) + kd * DB → J = K + ks * (S - S₀) + kd * D → 0 ≤ kd → DB ≤ D → J₀ - J ≤ 0
+'W06.Flat.fixedStockStop' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Flat.creditReversal : (50 + 10) / 1 - 100 < 0
+'W06.Flat.creditReversal' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Flat.negativePriceReversal : (-100 + 10) * 2 / 1 + 10 - -100 < 0
+'W06.Flat.negativePriceReversal' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Flat.variablePriceCounterexample : 1 * 0 + 0 * 100 < 0 * 0 + 1 * 100
+'W06.Flat.variablePriceCounterexample' depends on axioms: [propext, Classical.choice, Quot.sound]

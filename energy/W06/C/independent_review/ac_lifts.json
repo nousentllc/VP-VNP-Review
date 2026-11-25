@@ -1,0 +1,8 @@
+{
+  "checks": {
+    "oriented_branch_ends": 2376,
+    "soc_rank_one_identities": 4515,
+    "clique_rank_one_identities": 3418
+  },
+  "wrong_psd_imag_sign_rejected": true
+}

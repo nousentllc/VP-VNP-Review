@@ -1,0 +1,31 @@
+{
+  "service": {
+    "n": 70,
+    "improved": 29,
+    "now_zero": 58,
+    "now_excluded": 67,
+    "newly_excluded": 11,
+    "mean_old": 0.5821428571428572,
+    "mean_new": 0.1,
+    "median_extra_ms": 1.8192919669672847,
+    "residual_target_hits_by_regime": {
+      "negative_outage": 3
+    }
+  },
+  "cost": {
+    "n": 70,
+    "improved": 27,
+    "now_zero": 52,
+    "now_excluded": 61,
+    "newly_excluded": 12,
+    "mean_old": 72.98928571428571,
+    "mean_new": 15.514285714285714,
+    "median_extra_ms": 0.8063750574365258,
+    "residual_target_hits_by_regime": {
+      "time_of_use": 7,
+      "negative_outage": 2
+    }
+  },
+  "elapsed_s": 0.7462800000794232,
+  "design_sha256": "7f9ddbce5df0109408e17ec0eca79590346b6f03c3d02c3d5b4dae39afe927cf"
+}

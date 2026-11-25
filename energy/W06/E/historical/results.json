@@ -1,0 +1,58 @@
+{
+  "W05_sha256": "3cb69e43c49820a767884bee6dd1d5ff0adb279af2398a4e820f3bd9abdf3fce",
+  "review_sha256": "bda0a8aebc7ffae15468cdc3a76850067cef36e2690ca8dd8a2cb90516d9448b",
+  "exact_fill_trajectories": 252,
+  "actions_per_trajectory": 24,
+  "fields_per_action": 5,
+  "max_difference_from_archived_online_fill": 5.684341886080802e-14,
+  "exact_economic_LP_gap_pairs": 504,
+  "summary": {
+    "primary": {
+      "n": 180,
+      "service_exact_zero": 148,
+      "service_mean_ceiling_MWh": 0.04425027978285767,
+      "service_max_ceiling_MWh": 2.2647571707741974,
+      "baseline_mean_shed_MWh": 28.64365396030299,
+      "same_stock": {
+        "successful_LP": 180,
+        "mean_certified_cost_ceiling_USD": 3.7803096640003103e-13,
+        "max_certified_cost_ceiling_USD": 5.372815478562444e-13,
+        "numeric_feasible": 180,
+        "max_numeric_residual": 4.263256414560601e-14,
+        "mean_numeric_candidate_saving_USD": 5.659078144364887e-13
+      },
+      "min_stock": {
+        "successful_LP": 180,
+        "mean_certified_cost_ceiling_USD": 990.7865366742411,
+        "max_certified_cost_ceiling_USD": 1175.5319148936178,
+        "numeric_feasible": 180,
+        "max_numeric_residual": 2.842170943040401e-14,
+        "mean_numeric_candidate_saving_USD": 990.7865366742449
+      }
+    },
+    "alternative": {
+      "n": 72,
+      "service_exact_zero": 19,
+      "service_mean_ceiling_MWh": 0.23785949092508296,
+      "service_max_ceiling_MWh": 2.895088691748344,
+      "baseline_mean_shed_MWh": 71.16329991125455,
+      "same_stock": {
+        "successful_LP": 72,
+        "mean_certified_cost_ceiling_USD": 3.974757094845204e-13,
+        "max_certified_cost_ceiling_USD": 5.24753823212253e-13,
+        "numeric_feasible": 72,
+        "max_numeric_residual": 4.263256414560601e-14,
+        "mean_numeric_candidate_saving_USD": 4.244308608273665e-12
+      },
+      "min_stock": {
+        "successful_LP": 72,
+        "mean_certified_cost_ceiling_USD": 760.5772322813277,
+        "max_certified_cost_ceiling_USD": 1175.5319148936178,
+        "numeric_feasible": 72,
+        "max_numeric_residual": 4.263256414560601e-14,
+        "mean_numeric_candidate_saving_USD": 760.5772322813314
+      }
+    }
+  },
+  "wall_seconds": 3.660450875060633
+}

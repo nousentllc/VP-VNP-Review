@@ -1,0 +1,27 @@
+WARNING: Dynamically registering the following numeric type:
+        fractions.Fraction
+    Dynamic registration is supported for convenience, but there are known
+    limitations to this approach.  We recommend explicitly registering numeric
+    types using RegisterNumericType() or RegisterIntegerType().
+2020-02-09.json 8 sat 0.2524758969805377 3.7339139580726624
+Traceback (most recent call last):
+  File "/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W06/C/commitment.py", line 149, in <module>
+    run(path,T,dest)
+  File "/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W06/C/commitment.py", line 114, in run
+    write(out/'certificate.json.gz',dict(primal=exact,native_primal=x,base_dual=y,splits=splits))
+  File "/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W06/C/linear.py", line 83, in write
+    encoded=(json.dumps(data,default=str,sort_keys=True,allow_nan=False,indent=None)+'\n').encode()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.12/fractions.py", line 415, in __str__
+    return '%s/%s' % (self._numerator, self._denominator)
+                      ^^^^^^^^^^^^^^^
+ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit

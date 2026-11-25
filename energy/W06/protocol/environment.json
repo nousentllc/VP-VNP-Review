@@ -1,0 +1,18 @@
+{
+  "python": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 12:55:12) [Clang 14.0.6 ]",
+  "system": "Darwin",
+  "machine": "arm64",
+  "release": "27.0.0",
+  "packages": {
+    "numpy": "2.2.4",
+    "scipy": "1.18.0",
+    "casadi": "3.7.2",
+    "highspy": "1.12.0",
+    "pyomo": "6.9.3",
+    "z3-solver": "5.4.1.0",
+    "python-flint": "0.9.0"
+  },
+  "measurements": "Single-host trials with possible shared-host contention. Wall time is not electricity, integration cost or end-to-end operational latency.",
+  "tex": "TeX Live 2026 pdfTeX 1.40.29",
+  "lean": "Lean 4.30.0-rc2; manifests and transitive axiom records under B."
+}

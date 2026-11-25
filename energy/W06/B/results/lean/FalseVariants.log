@@ -1,0 +1,24 @@
+FalseVariants.lean:5:27: error: unsolved goals
+⊢ False
+FalseVariants.lean:6:23: error: unsolved goals
+⊢ False
+FalseVariants.lean:7:23: error: unsolved goals
+⊢ False
+FalseVariants.lean:8:31: error: unsolved goals
+⊢ False
+FalseVariants.lean:9:38: error: unsolved goals
+⊢ False
+FalseVariants.lean:10:45: error: unsolved goals
+⊢ none = some 0
+FalseVariants.lean:11:53: error: Type mismatch
+  v
+has type
+  Amount Unit Unit
+but is expected to have type
+  Amount Bool Unit
+FalseVariants.lean:12:53: error: Type mismatch
+  v
+has type
+  Amount Unit Unit
+but is expected to have type
+  Amount Unit Bool

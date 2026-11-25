@@ -1,0 +1,91 @@
+Selected development diagnostics. The final proof audit uses the pinned sources only.
+Initial proof-driver preflight required a build cache in every locked checkout. Cli lacked a separate cache and the compiler did not require one. We retained all nine source pin checks.
+The unsupported leanchecker --help invocation was stopped. The final validator calls leanchecker with explicit module names.
+
+COA-1.log
+COA 0 COA.lean:97:0: warning: automatically included section variable(s) unused in theorem `W06.riskCeiling`:
+  [Fintype S]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype S] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+
+
+BoxDual-1.log
+BoxDual 1 BoxDual.lean:100:42: error: unsolved goals
+I : Type u_1
+J : Type u_2
+inst✝² : Fintype I
+inst✝¹ : Fintype J
+K : Type u_3
+inst✝ : Fintype K
+E : K → J → ℝ
+A : I → J → ℝ
+c x l u : J → ℝ
+y d : K → ℝ
+z b : I → ℝ
+he : ∀ (k : K), dot (E k) x = d k
+ha : ∀ (i : I), dot (A i) x ≤ b i
+hz : ∀ (i : I), z i ≤ 0
+hl : ∀ (j : J), l j ≤ x j
+hu : ∀ (j : J), x j ≤ u j
+⊢ ∑ j, y j * d j = ∑ x_1, y x_1 * ∑ j, E x_1 j * x j
+BoxDual.lean:109:2: error: linarith failed to find a contradiction
+case h
+I : Type u_1
+J : Type u_2
+inst✝² : Fintype I
+inst✝¹ : Fintype J
+K : Type u_3
+inst✝ : Fintype K
+E : K → J → ℝ
+A : I → J → ℝ
+c x l u : J → ℝ
+y d : K → ℝ
+z b : I → ℝ
+he : ∀ (k : K), ∑ j, E k j * x j = d k
+ha : ∀ (i : I), ∑ j, A i j * x j ≤ b i
+hz : ∀ (i : I), z i ≤ 0
+hl : ∀ (j : J), l j ≤ x j
+hu : ∀ (j : J), x j ≤ u j
+ye : ∑ j, y j * d j = ∑ j, back E y j * x j
+za : ∑ j, z j * b j ≤ ∑ j, back A z j * x j
+box :
+  ∑ x, min (c x * l x - back E y x * l x - back A z x * l x) (c x * u x - back E y x * u x - back A z x * u x) ≤
+    ∑ x_1, c x_1 * x x_1 - ∑ x_1, back E y x_1 * x x_1 - ∑ x_1, back A z x_1 * x x_1
+a✝ :
+  ∑ j, c j * x j <
+    ∑ j, y j * d j + ∑ j, z j * b j +
+      ∑ j, min ((c j - back E y j - back A z j) * l j) ((c j - back E y j - back A z j) * u j)
+⊢ False
+failed
+BoxDual.lean:100:76: warning: This simp argument is unused:
+  he
+
+Hint: Omit it from the simp argument list.
+  simp only [h̵e̵,̵ ̵dot]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+
+build-2.log
+BoxDual 0 
+COA 1 COA.lean:149:33: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+
+
+Tests-1.log
+Tests 1 Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Tests.lean:47:51: error: unsolved goals
+case left
+x : ℝ
+⊢ (x + (1 - x)) / 2 = 1 / 2
+
+case right.right
+x : ℝ
+⊢ True ∧ True
+

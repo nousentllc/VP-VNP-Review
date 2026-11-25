@@ -1,0 +1,7 @@
+{
+  "mutated_inventory_rejected": true,
+  "nonissued_peek_rejected": true,
+  "false_one_cent_Bellman_bound_rejected": true,
+  "integral_plant_lower_bound_can_exceed_continuous_optimum": true,
+  "equal_stock_equal_service_variable_price_counterexample_saving_USD": 90
+}

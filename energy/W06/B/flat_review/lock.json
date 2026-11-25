@@ -1,0 +1,10 @@
+{
+  "FlatAudit.lean": "b2b76bf933f7a646de322cda5c4ea838529067c994d074de05d83b724d7c8479",
+  "FlatMutants.lean": "068354bf3c84acc7d240771e47287cac75231b0c704e91075cbadfad35ef9e5e",
+  "FlatTariff.lean": "d34559c553d9d51605d4a634c8455c45178dcba1592a293debab12ac3dc441e2",
+  "check_data.py": "064b25e7287a862c3c8d046c57fb5068a88189410ce7d473a16ab373cfbb2d23",
+  "inputs/holdout.json.gz": "05649e9a0d8f4d9e3a5e38cb3d92c209b7428d699501ece22a382c2d72e3a1f0",
+  "inputs/opportunity_certificates.json.gz": "6f4939121623908d539d90c396036031a4224a49efac0d7ae2dff919000eab09",
+  "inputs/source_lock.json": "8a6e4eb83eedd5ed95a5306d4eba7581e407a067985e6d13d1129708783b6d62",
+  "verify_flat.py": "237787a274c4fe78246b84eb09b6fd7f7670e939cea9b2ff131177bfc16a368e"
+}

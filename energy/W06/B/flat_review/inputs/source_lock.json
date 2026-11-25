@@ -1,0 +1,13 @@
+{
+  "parent_archive_sha256": "3cb69e43c49820a767884bee6dd1d5ff0adb279af2398a4e820f3bd9abdf3fce",
+  "members": {
+    "Energy_Explorations/W05/E/inputs/holdout.json.gz": {
+      "file": "holdout.json.gz",
+      "sha256": "05649e9a0d8f4d9e3a5e38cb3d92c209b7428d699501ece22a382c2d72e3a1f0"
+    },
+    "Energy_Explorations/W05/E/results/analysis/opportunity_certificates.json.gz": {
+      "file": "opportunity_certificates.json.gz",
+      "sha256": "6f4939121623908d539d90c396036031a4224a49efac0d7ae2dff919000eab09"
+    }
+  }
+}

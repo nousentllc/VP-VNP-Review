@@ -1,0 +1,389 @@
+@W06.pointCeiling : ∀ {u l j : ℝ}, l ≤ j → u - j ≤ u - l
+'W06.pointCeiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.strictStop : ∀ {u l j e : ℝ}, l ≤ j → u - l < e → ¬e ≤ u - j
+'W06.strictStop' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.weakStop : ∀ {u l j e : ℝ}, l ≤ j → u - l ≤ e → ¬e < u - j
+'W06.weakStop' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.minInterval : ∀ {P : Type u_1} (D : Set P) (J : P → ℝ),
+  ∀ b ∈ D, ∀ (l : ℝ), (∀ p ∈ D, l ≤ J p) → 0 ≤ J b - sInf (W06.values D J) ∧ J b - sInf (W06.values D J) ≤ J b - l
+'W06.minInterval' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.maxInterval : ∀ {P : Type u_1} (D : Set P) (J : P → ℝ),
+  ∀ b ∈ D, ∀ (h : ℝ), (∀ p ∈ D, J p ≤ h) → 0 ≤ sSup (W06.values D J) - J b ∧ sSup (W06.values D J) - J b ≤ h - J b
+'W06.maxInterval' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.maxStops : ∀ {h j b e : ℝ}, j ≤ h → (h - b < e → ¬e ≤ j - b) ∧ (h - b ≤ e → ¬e < j - b)
+'W06.maxStops' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.feasibleGain : ∀ {P : Type u_1} (D : Set P) (J : P → ℝ) {candidate : P},
+  candidate ∈ D → BddBelow (W06.values D J) → ∀ (u : ℝ), u - J candidate ≤ u - sInf (W06.values D J)
+'W06.feasibleGain' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.transferBound : ∀ {P : Type u_1} {Q : Type u_2} {D : Set P} {R : Set Q} (f : P → Q) (J : P → ℝ) (K : Q → ℝ)
+  (l : ℝ), (∀ p ∈ D, f p ∈ R) → (∀ p ∈ D, K (f p) ≤ J p) → (∀ q ∈ R, l ≤ K q) → ∀ p ∈ D, l ≤ J p
+'W06.transferBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.nestedInf : ∀ {P : Type u_1} (R F N C : Set P) (J : P → ℝ),
+  ∀ b ∈ C,
+    C ⊆ N →
+      N ⊆ F →
+        F ⊆ R →
+          ∀ (l : ℝ),
+            (∀ p ∈ R, l ≤ J p) →
+              l ≤ sInf (W06.values R J) ∧
+                sInf (W06.values R J) ≤ sInf (W06.values F J) ∧
+                  sInf (W06.values F J) ≤ sInf (W06.values N J) ∧
+                    sInf (W06.values N J) ≤ sInf (W06.values C J) ∧ sInf (W06.values C J) ≤ J b
+'W06.nestedInf' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.totalMono : ∀ {S : Type u_1} [inst : Fintype S] (w x y : S → ℝ),
+  (∀ (s : S), 0 ≤ w s) → (∀ (s : S), x s ≤ y s) → W06.total w x ≤ W06.total w y
+'W06.totalMono' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.weightedPanel : ∀ {S : Type u_1} [inst : Fintype S] (w u l j : S → ℝ),
+  (∀ (s : S), 0 ≤ w s) → (∀ (s : S), l s ≤ j s) → (W06.total w fun s => u s - j s) ≤ W06.total w fun s => u s - l s
+'W06.weightedPanel' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.partialPanel : ∀ {S : Type u_1} [inst : Fintype S] (known : S → Prop) [inst_1 : DecidablePred known]
+  (w u l fallback j : S → ℝ),
+  (∀ (s : S), 0 ≤ w s) →
+    (∀ (s : S), known s → l s ≤ j s) →
+      (∀ (s : S), ¬known s → fallback s ≤ j s) →
+        (W06.total w fun s => u s - j s) ≤ W06.total w fun s => u s - if known s then l s else fallback s
+'W06.partialPanel' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.centeredPenalty : ∀ {S : Type u_1} [inst : Fintype S] (w l j penalty : S → ℝ),
+  (∀ (s : S), 0 ≤ w s) → (∀ (s : S), l s ≤ j s + penalty s) → W06.total w penalty ≤ 0 → W06.total w l ≤ W06.total w j
+'W06.centeredPenalty' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.riskCeiling : ∀ {S : Type u_1} (risk : (S → ℝ) → ℝ) (u l j : S → ℝ) (e : ℝ),
+  (∀ (x y : S → ℝ), (∀ (s : S), x s ≤ y s) → risk x ≤ risk y) →
+    (∀ (x : S → ℝ), (risk fun s => x s + e) = risk x + e) →
+      (∀ (s : S), l s ≤ j s) → (∀ (s : S), u s - l s ≤ e) → risk u - risk j ≤ e
+'W06.riskCeiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.netBound : ∀ {unit horizon : Type} (u l j k floor : W06.Amount unit horizon),
+  l.value ≤ j.value → floor.value ≤ k.value → u.value - j.value - k.value ≤ u.value - l.value - floor.value
+'W06.netBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.netStop : ∀ {unit horizon : Type} (u l j k floor : W06.Amount unit horizon),
+  l.value ≤ j.value → floor.value ≤ k.value → u.value - l.value ≤ floor.value → u.value - j.value - k.value ≤ 0
+'W06.netStop' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.discountedNet : ∀ {S : Type u_1} [inst : Fintype S] (w u l j k f : S → ℝ),
+  (∀ (s : S), 0 ≤ w s) →
+    (∀ (s : S), l s ≤ j s) →
+      (∀ (s : S), f s ≤ k s) → (W06.total w fun s => u s - j s - k s) ≤ W06.total w fun s => u s - l s - f s
+'W06.discountedNet' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.ignoreInformation : ∀ {Ω : Type u_1} {O : Type u_2} {F : Type u_3} {A : Type u_4} (coarse : Ω → O) (fine : Ω → F)
+  (p : Ω → A), (∀ (s t : Ω), fine s = fine t → coarse s = coarse t) → W06.adapted coarse p → W06.adapted fine p
+'W06.ignoreInformation' does not depend on any axioms
+@W06.operationalChain : ∀ {Ω : Type u_1} {O : Type u_2} {A : Type u_3} (physical relaxed : Set (Ω → A)) (obs : Ω → O)
+  (deadline : (Ω → A) → Prop) (J : (Ω → A) → ℝ),
+  ∀ base ∈ physical,
+    W06.adapted obs base →
+      deadline base →
+        physical ⊆ relaxed →
+          ∀ (l : ℝ),
+            (∀ p ∈ relaxed, l ≤ J p) →
+              have N := {p | p ∈ physical ∧ W06.adapted obs p};
+              have C := {p | p ∈ N ∧ deadline p};
+              l ≤ sInf (W06.values relaxed J) ∧
+                sInf (W06.values relaxed J) ≤ sInf (W06.values physical J) ∧
+                  sInf (W06.values physical J) ≤ sInf (W06.values N J) ∧
+                    sInf (W06.values N J) ≤ sInf (W06.values C J) ∧ sInf (W06.values C J) ≤ J base
+'W06.operationalChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.contractCost : ∀ {P : Type u_1} (D : Set P) (J service risk stock : P → ℝ) (b p : P) (l : ℝ),
+  (∀ a ∈ D, service a = service b → risk a ≤ risk b → stock a = stock b → l ≤ J a) →
+    p ∈ D → service p = service b → risk p ≤ risk b → stock p = stock b → J b - J p ≤ J b - l
+'W06.contractCost' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.strictAtNonattainment : ∀ {P : Type u_1} (D : Set P) (J : P → ℝ) (l u e : ℝ),
+  (∀ p ∈ D, l ≤ J p) → (¬∃ p ∈ D, J p = l) → u - l ≤ e → ∀ p ∈ D, ¬e ≤ u - J p
+'W06.strictAtNonattainment' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.enclosureCeiling : ∀ (baseline candidate baselineUpper modelCost lower allowance : ℝ),
+  baseline ≤ baselineUpper →
+    lower ≤ modelCost → modelCost ≤ candidate + allowance → baseline - candidate ≤ baselineUpper - lower + allowance
+'W06.enclosureCeiling' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.infoPanelInf : ∀ {P : Type u_1} {S : Type u_2} [inst : Fintype S] (D : Set P),
+  ∀ b ∈ D,
+    ∀ (w l : S → ℝ) (j penalty : P → S → ℝ),
+      (∀ (s : S), 0 ≤ w s) →
+        (∀ p ∈ D, ∀ (s : S), l s ≤ j p s + penalty p s) →
+          (∀ p ∈ D, W06.total w (penalty p) ≤ 0) →
+            0 ≤ W06.total w (j b) - sInf (W06.values D fun p => W06.total w (j p)) ∧
+              W06.total w (j b) - sInf (W06.values D fun p => W06.total w (j p)) ≤ W06.total w (j b) - W06.total w l
+'W06.infoPanelInf' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.Dual.finiteEndpoint : ∀ {r l u x : ℝ}, l ≤ x → x ≤ u → min (r * l) (r * u) ≤ r * x
+'W06.Dual.finiteEndpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Dual.floorTermSound : ∀ (D : W06.Dual.Interval) (r x a : ℝ),
+  W06.Dual.contains D x → W06.Dual.floorTerm D r = some a → a ≤ r * x
+'W06.Dual.floorTermSound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.Dual.transposePair : ∀ {I : Type u_1} {J : Type u_2} [inst : Fintype I] [inst_1 : Fintype J] (A : I → J → ℝ)
+  (z : I → ℝ) (x : J → ℝ), W06.Dual.dot (W06.Dual.back A z) x = ∑ i, z i * W06.Dual.dot (A i) x
+'W06.Dual.transposePair' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.Dual.mixedRowDual : ∀ {I : Type u_1} {J : Type u_2} [inst : Fintype I] [inst_1 : Fintype J] (A : I → J → ℝ)
+  (c x : J → ℝ) (z : I → ℝ) (rows : I → W06.Dual.Interval) (cols : J → W06.Dual.Interval) (rowTerms : I → ℝ)
+  (colTerms : J → ℝ),
+  (∀ (i : I), W06.Dual.contains (rows i) (W06.Dual.dot (A i) x)) →
+    (∀ (j : J), W06.Dual.contains (cols j) (x j)) →
+      (∀ (i : I), W06.Dual.floorTerm (rows i) (z i) = some (rowTerms i)) →
+        (∀ (j : J), W06.Dual.floorTerm (cols j) (c j - W06.Dual.back A z j) = some (colTerms j)) →
+          ∑ i, rowTerms i + ∑ j, colTerms j ≤ W06.Dual.dot c x
+'W06.Dual.mixedRowDual' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.Dual.boxedDual : ∀ {I : Type u_1} {J : Type u_2} [inst : Fintype I] [inst_1 : Fintype J] {K : Type u_3}
+  [inst_2 : Fintype K] (E : K → J → ℝ) (A : I → J → ℝ) (c x l u : J → ℝ) (y d : K → ℝ) (z b : I → ℝ),
+  (∀ (k : K), W06.Dual.dot (E k) x = d k) →
+    (∀ (i : I), W06.Dual.dot (A i) x ≤ b i) →
+      (∀ (i : I), z i ≤ 0) →
+        (∀ (j : J), l j ≤ x j) →
+          (∀ (j : J), x j ≤ u j) →
+            W06.Dual.dot y d + W06.Dual.dot z b +
+                ∑ j,
+                  min ((c j - W06.Dual.back E y j - W06.Dual.back A z j) * l j)
+                    ((c j - W06.Dual.back E y j - W06.Dual.back A z j) * u j) ≤
+              W06.Dual.dot c x
+'W06.Dual.boxedDual' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.equalityTarget : 10 - 9 ≤ 1 ∧ 1 ≤ 10 - 9
+'W06.Tests.equalityTarget' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.nonattainment : sInf (Set.Ioi 0) = 0 ∧ ∀ x ∈ Set.Ioi 0, 1 - x < 1
+'W06.Tests.nonattainment' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.slackBound : (0 ≤ 5 ∧ 0 < 5 - 0) ∧ 5 - 5 = 0
+'W06.Tests.slackBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.serviceEconomics : ∀ (v : ℝ),
+  0 < v → ∃ service cost, service true = service false ∧ cost false - cost true = v ∧ 0 < cost false - cost true
+'W06.Tests.serviceEconomics' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.reliabilityCost : ∃ cost risk, cost true < cost false ∧ ¬risk true ≤ risk false
+'W06.Tests.reliabilityCost' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.meanTail : (0 + 80) / 2 < (50 + 50) / 2 ∧ max 50 50 < max 0 80
+'W06.Tests.meanTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.restriction : (∀ x ∈ {1}, 1 ≤ x) ∧ 0 ∈ {0, 1} ∧ ¬1 ≤ 0
+'W06.Tests.restriction' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.infeasibleIncumbent : (∀ x ∈ {1}, 1 ≤ x) ∧ 0 ∉ {1} ∧ 0 - 1 < 0
+'W06.Tests.infeasibleIncumbent' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.wrongMultiplier : 0 ≤ 1 ∧ 0 ≤ 0 ∧ ¬1 * 1 + min ((0 - 1) * 0) ((0 - 1) * 0) ≤ 0
+'W06.Tests.wrongMultiplier' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.omittedCase : 0 < 1 ∧ ¬(0 + 4) / 2 < 1
+'W06.Tests.omittedCase' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.negativeWeight : 1 ≤ 2 ∧ ¬-1 * 1 ≤ -1 * 2
+'W06.Tests.negativeWeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.infoExample : ∀ (x : ℝ),
+  (x + (1 - x)) / 2 = 1 / 2 ∧ (1 / 2 - x + (x - 1 / 2)) / 2 = 0 ∧ x + (1 / 2 - x) = 1 / 2 ∧ 1 - x + (x - 1 / 2) = 1 / 2
+'W06.Tests.infoExample' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.independentActions : ∃ x y, 0 ≤ x ∧ x ≤ 1 ∧ 0 ≤ y ∧ y ≤ 1 ∧ (x + (1 - y)) / 2 = 0 ∧ x ≠ y
+'W06.Tests.independentActions' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.positivePenaltyFails : 1 ≤ 0 + 1 ∧ ¬1 ≤ 0
+'W06.Tests.positivePenaltyFails' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.unboundedRejection : W06.Dual.floorTerm (W06.Dual.Interval.lower 0) (-1) = none ∧
+  W06.Dual.floorTerm (W06.Dual.Interval.upper 0) 1 = none ∧
+    W06.Dual.floorTerm W06.Dual.Interval.free 1 = none ∧ W06.Dual.floorTerm W06.Dual.Interval.free 0 = some 0
+'W06.Tests.unboundedRejection' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.roundingFails : ∀ (δ : ℝ), 0 < δ → ∃ x, |x| ≤ δ ∧ x ≠ 0
+'W06.Tests.roundingFails' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Tests.incompatibleGains : ∀ (b : Bool), ¬((if b = true then 1 else 0) = 1 ∧ (if b = true then 0 else 1) = 1)
+'W06.Tests.incompatibleGains' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Closing.telescope : ∀ (stock : ℕ → ℝ) (v : ℝ) (n : ℕ),
+  ∑ t ∈ Finset.range n, v * (stock (t + 1) - stock t) = v * (stock n - stock 0)
+'W06.Closing.telescope' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Closing.creditDifference : ∀ (s₀ sT qT lo hi v days : ℝ),
+  sT ≤ hi → lo ≤ qT → 0 ≤ v → 0 < days → (v * (sT - s₀) - v * (qT - s₀)) / days ≤ v * (hi - lo) / days
+'W06.Closing.creditDifference' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W06.Closing.terminalPremium : ∀ {P : Type u_1} (weak strong : Set P) (J : P → ℝ),
+  ∀ base ∈ strong,
+    strong ⊆ weak →
+      ∀ (K l : ℝ),
+        (∀ p ∈ weak, l ≤ J p) →
+          (∀ p ∈ weak, ∃ q ∈ strong, J q ≤ J p + K) →
+            0 ≤ sInf (W06.values strong J) - sInf (W06.values weak J) ∧
+              sInf (W06.values strong J) - sInf (W06.values weak J) ≤ K
+'W06.Closing.terminalPremium' depends on axioms: [propext, Classical.choice, Quot.sound]
+W06.Closing.noCapacityOnlyMoneyBound : ∀ (claimed : ℝ), ∃ price, 0 ≤ price ∧ claimed < price * (1 - 0)
+'W06.Closing.noCapacityOnlyMoneyBound' depends on axioms: [propext, Classical.choice, Quot.sound]
+LOCAL-EDGES W06.Amount.noConfusion [W06.Amount.casesOn, W06.Amount.noConfusionType, W06.Amount]
+LOCAL-EDGES W06.strictAtNonattainment []
+LOCAL-EDGES W06.Tests.omittedCase []
+LOCAL-EDGES W06.Dual.Interval.closed.injEq [W06.Dual.Interval.closed, W06.Dual.Interval, W06.Dual.Interval.closed.inj]
+LOCAL-EDGES W06.Dual.Interval.casesOn [W06.Dual.Interval.lower,
+ W06.Dual.Interval.upper,
+ W06.Dual.Interval.closed,
+ W06.Dual.Interval.rec,
+ W06.Dual.Interval,
+ W06.Dual.Interval.free]
+LOCAL-EDGES W06.Tests.independentActions []
+LOCAL-EDGES W06.Amount.mk._flat_ctor [W06.Amount.mk, W06.Amount]
+LOCAL-EDGES W06.Amount.casesOn [W06.Amount.rec, W06.Amount.mk, W06.Amount]
+LOCAL-EDGES W06.Tests.nonattainment []
+LOCAL-EDGES W06.discountedNet [W06.totalMono, W06.total]
+LOCAL-EDGES W06.weakStop []
+LOCAL-EDGES W06.totalMono [W06.total]
+LOCAL-EDGES W06.Tests.negativeWeight []
+LOCAL-EDGES W06.Dual.Interval.lower [W06.Dual.Interval.lower, W06.Dual.Interval]
+LOCAL-EDGES W06.Dual.Interval.upper [W06.Dual.Interval.upper, W06.Dual.Interval]
+LOCAL-EDGES W06.netStop [W06.Amount.value, W06.Amount]
+LOCAL-EDGES W06.Dual.floorTerm.eq_1 [W06.Dual.floorTerm, W06.Dual.Interval.closed]
+LOCAL-EDGES W06.Closing.terminalPremium [W06.values]
+LOCAL-EDGES W06.Tests.infoExample []
+LOCAL-EDGES W06.adapted []
+LOCAL-EDGES W06.pointCeiling []
+LOCAL-EDGES W06.Dual.Interval.upper.elim [W06.Dual.Interval.upper,
+ W06.Dual.Interval.ctorIdx,
+ W06.Dual.Interval,
+ W06.Dual.Interval.ctorElim]
+LOCAL-EDGES W06.maxStops []
+LOCAL-EDGES W06.Dual.Interval.closed.elim [W06.Dual.Interval.closed,
+ W06.Dual.Interval.ctorIdx,
+ W06.Dual.Interval,
+ W06.Dual.Interval.ctorElim]
+LOCAL-EDGES W06.Dual.dot []
+LOCAL-EDGES W06.Dual.finiteEndpoint []
+LOCAL-EDGES W06.Dual.dot.eq_1 [W06.Dual.dot]
+LOCAL-EDGES W06.Dual.floorTerm [W06.Dual.Interval, W06.Dual.contains.match_1]
+LOCAL-EDGES W06.centeredPenalty [W06.totalMono, W06.total]
+LOCAL-EDGES W06.Tests.serviceEconomics []
+LOCAL-EDGES W06.Amount.ctorIdx [W06.Amount]
+LOCAL-EDGES W06.Closing.noCapacityOnlyMoneyBound []
+LOCAL-EDGES W06.strictStop []
+LOCAL-EDGES W06.maxInterval [W06.values]
+LOCAL-EDGES W06.Amount._sizeOf_inst [W06.Amount._sizeOf_1, W06.Amount]
+LOCAL-EDGES W06.Dual.Interval.closed [W06.Dual.Interval.closed, W06.Dual.Interval]
+LOCAL-EDGES W06.Dual.back []
+LOCAL-EDGES W06.operationalChain [W06.adapted, W06.values, W06.nestedInf]
+LOCAL-EDGES W06.Dual.floorTerm.eq_4 [W06.Dual.floorTerm, W06.Dual.Interval.free]
+LOCAL-EDGES W06.Dual.floorTerm.eq_2 [W06.Dual.Interval.lower, W06.Dual.floorTerm]
+LOCAL-EDGES W06.Dual.Interval._sizeOf_inst [W06.Dual.Interval._sizeOf_1, W06.Dual.Interval]
+LOCAL-EDGES W06.Tests.unboundedRejection [W06.Dual.Interval.lower,
+ W06.Dual.Interval.upper,
+ W06.Dual.floorTerm,
+ W06.Dual.Interval.free]
+LOCAL-EDGES W06.Dual.Interval._sizeOf_1 [W06.Dual.Interval.rec, W06.Dual.Interval]
+LOCAL-EDGES W06.Dual.Interval.lower.injEq [W06.Dual.Interval.lower, W06.Dual.Interval.lower.inj, W06.Dual.Interval]
+LOCAL-EDGES W06.Dual.Interval.free.elim [W06.Dual.Interval.ctorIdx,
+ W06.Dual.Interval,
+ W06.Dual.Interval.ctorElim,
+ W06.Dual.Interval.free]
+LOCAL-EDGES W06.Dual.Interval.rec [W06.Dual.Interval.lower,
+ W06.Dual.Interval.upper,
+ W06.Dual.Interval.closed,
+ W06.Dual.Interval,
+ W06.Dual.Interval.free]
+LOCAL-EDGES W06.Dual.Interval.noConfusion [W06.Dual.Interval.casesOn,
+ W06.Dual.Interval,
+ W06.Dual.Interval.noConfusionType]
+LOCAL-EDGES W06.Dual.transposePair [W06.Dual.dot, W06.Dual.back]
+LOCAL-EDGES W06.Dual.Interval.ctorIdx [W06.Dual.Interval.casesOn, W06.Dual.Interval]
+LOCAL-EDGES W06.Amount.mk.inj [W06.Amount.mk, W06.Amount.mk.noConfusion, W06.Amount]
+LOCAL-EDGES W06.Dual.Interval.upper.sizeOf_spec [W06.Dual.Interval.upper,
+ W06.Dual.Interval._sizeOf_inst,
+ W06.Dual.Interval]
+LOCAL-EDGES W06.Amount._sizeOf_1 [W06.Amount.rec, W06.Amount]
+LOCAL-EDGES W06.total.eq_1 [W06.total]
+LOCAL-EDGES W06.Dual.Interval.lower.inj [W06.Dual.Interval.lower,
+ W06.Dual.Interval,
+ W06.Dual.Interval.lower.noConfusion]
+LOCAL-EDGES W06.Dual.Interval.ctorElimType [W06.Dual.Interval.lower,
+ W06.Dual.Interval.upper,
+ W06.Dual.Interval.closed,
+ W06.Dual.Interval,
+ W06.Dual.Interval.free]
+LOCAL-EDGES W06.Dual.Interval [W06.Dual.Interval.lower,
+ W06.Dual.Interval.upper,
+ W06.Dual.Interval.closed,
+ W06.Dual.Interval.free]
+LOCAL-EDGES W06.Dual.back.eq_1 [W06.Dual.back]
+LOCAL-EDGES W06.Amount.mk.sizeOf_spec [W06.Amount._sizeOf_inst, W06.Amount.mk, W06.Amount]
+LOCAL-EDGES W06.Dual.Interval.lower.sizeOf_spec [W06.Dual.Interval.lower,
+ W06.Dual.Interval._sizeOf_inst,
+ W06.Dual.Interval]
+LOCAL-EDGES W06.Dual.Interval.upper.inj [W06.Dual.Interval.upper,
+ W06.Dual.Interval,
+ W06.Dual.Interval.upper.noConfusion]
+LOCAL-EDGES W06.contractCost [W06.pointCeiling]
+LOCAL-EDGES W06.Dual.floorTerm.eq_3 [W06.Dual.Interval.upper, W06.Dual.floorTerm]
+LOCAL-EDGES W06.Dual.Interval.upper.noConfusion [W06.Dual.Interval.upper,
+ W06.Dual.Interval.noConfusion,
+ W06.Dual.Interval]
+LOCAL-EDGES W06.Dual.Interval.upper.injEq [W06.Dual.Interval.upper, W06.Dual.Interval, W06.Dual.Interval.upper.inj]
+LOCAL-EDGES W06.Tests.wrongMultiplier []
+LOCAL-EDGES W06.Tests.roundingFails []
+LOCAL-EDGES W06.Dual.Interval.lower.elim [W06.Dual.Interval.lower,
+ W06.Dual.Interval.ctorIdx,
+ W06.Dual.Interval,
+ W06.Dual.Interval.ctorElim]
+LOCAL-EDGES W06.riskCeiling []
+LOCAL-EDGES W06.Tests.incompatibleGains []
+LOCAL-EDGES W06.enclosureCeiling []
+LOCAL-EDGES W06.Closing.creditDifference []
+LOCAL-EDGES W06.Amount.rec [W06.Amount.mk, W06.Amount]
+LOCAL-EDGES W06.Dual.Interval.lower.noConfusion [W06.Dual.Interval.lower,
+ W06.Dual.Interval.noConfusion,
+ W06.Dual.Interval]
+LOCAL-EDGES W06.Dual.contains.match_1 [W06.Dual.Interval.casesOn,
+ W06.Dual.Interval.lower,
+ W06.Dual.Interval.upper,
+ W06.Dual.Interval.closed,
+ W06.Dual.Interval,
+ W06.Dual.Interval.free]
+LOCAL-EDGES W06.Dual.Interval.closed.inj [W06.Dual.Interval.closed,
+ W06.Dual.Interval,
+ W06.Dual.Interval.closed.noConfusion]
+LOCAL-EDGES W06.Amount.noConfusionType [W06.Amount.casesOn, W06.Amount]
+LOCAL-EDGES W06.Amount.recOn [W06.Amount.rec, W06.Amount.mk, W06.Amount]
+LOCAL-EDGES W06.transferBound []
+LOCAL-EDGES W06.Dual.Interval.free.sizeOf_spec [W06.Dual.Interval._sizeOf_inst,
+ W06.Dual.Interval,
+ W06.Dual.Interval.free]
+LOCAL-EDGES W06.netBound [W06.Amount.value, W06.Amount]
+LOCAL-EDGES W06.Dual.Interval.closed.sizeOf_spec [W06.Dual.Interval.closed,
+ W06.Dual.Interval._sizeOf_inst,
+ W06.Dual.Interval]
+LOCAL-EDGES W06.Dual.Interval.recOn [W06.Dual.Interval.lower,
+ W06.Dual.Interval.upper,
+ W06.Dual.Interval.closed,
+ W06.Dual.Interval.rec,
+ W06.Dual.Interval,
+ W06.Dual.Interval.free]
+LOCAL-EDGES W06.Amount.mk.injEq [W06.Amount.mk.inj, W06.Amount.mk, W06.Amount]
+LOCAL-EDGES W06.Dual.Interval.noConfusionType [W06.Dual.Interval.casesOn,
+ W06.Dual.Interval.upper.elim,
+ W06.Dual.Interval.closed.elim,
+ W06.Dual.Interval.free.elim,
+ W06.Dual.Interval.ctorIdx,
+ W06.Dual.Interval,
+ W06.Dual.Interval.lower.elim]
+LOCAL-EDGES W06.Tests.reliabilityCost []
+LOCAL-EDGES W06.Tests.infeasibleIncumbent []
+LOCAL-EDGES W06.Dual.Interval.closed.noConfusion [W06.Dual.Interval.closed,
+ W06.Dual.Interval.noConfusion,
+ W06.Dual.Interval]
+LOCAL-EDGES W06.Tests.slackBound []
+LOCAL-EDGES W06.Amount.value [W06.Amount]
+LOCAL-EDGES W06.feasibleGain [W06.values]
+LOCAL-EDGES W06.Tests.restriction []
+LOCAL-EDGES W06.Amount.mk [W06.Amount.mk, W06.Amount]
+LOCAL-EDGES W06.values []
+LOCAL-EDGES W06.ignoreInformation [W06.adapted]
+LOCAL-EDGES W06.Tests.equalityTarget []
+LOCAL-EDGES W06.infoPanelInf [W06.centeredPenalty, W06.values, W06.total, W06.minInterval]
+LOCAL-EDGES W06.weightedPanel [W06.totalMono, W06.pointCeiling, W06.total]
+LOCAL-EDGES W06.Dual.boxedDual [W06.Dual.dot, W06.Dual.finiteEndpoint, W06.Dual.back, W06.Dual.transposePair]
+LOCAL-EDGES W06.Dual.mixedRowDual [W06.Dual.dot,
+ W06.Dual.floorTerm,
+ W06.Dual.back,
+ W06.Dual.transposePair,
+ W06.Dual.Interval,
+ W06.Dual.floorTermSound,
+ W06.Dual.contains]
+LOCAL-EDGES W06.total []
+LOCAL-EDGES W06.Dual.Interval.ctorElim [W06.Dual.Interval.casesOn,
+ W06.Dual.Interval.lower,
+ W06.Dual.Interval.upper,
+ W06.Dual.Interval.closed,
+ W06.Dual.Interval.ctorIdx,
+ W06.Dual.Interval.ctorElimType,
+ W06.Dual.Interval,
+ W06.Dual.Interval.free]
+LOCAL-EDGES W06.Amount.mk.noConfusion [W06.Amount.noConfusion, W06.Amount.mk, W06.Amount]
+LOCAL-EDGES W06.Dual.Interval.free [W06.Dual.Interval, W06.Dual.Interval.free]
+LOCAL-EDGES W06.Closing.telescope []
+LOCAL-EDGES W06.Tests.positivePenaltyFails []
+LOCAL-EDGES W06.Amount [W06.Amount.mk]
+LOCAL-EDGES W06.minInterval [W06.values]
+LOCAL-EDGES W06.Dual.floorTermSound [W06.Dual.Interval.casesOn,
+ W06.Dual.Interval.lower,
+ W06.Dual.Interval.upper,
+ W06.Dual.finiteEndpoint,
+ W06.Dual.floorTerm,
+ W06.Dual.Interval.closed,
+ W06.Dual.Interval,
+ W06.Dual.Interval.free,
+ W06.Dual.contains]
+LOCAL-EDGES W06.Tests.meanTail []
+LOCAL-EDGES W06.partialPanel [W06.weightedPanel, W06.total]
+LOCAL-EDGES W06.Dual.contains [W06.Dual.Interval, W06.Dual.contains.match_1]
+LOCAL-EDGES W06.nestedInf [W06.values]

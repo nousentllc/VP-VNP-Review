@@ -1,0 +1,91 @@
+{
+  "archived_numeric_output_sha256": "52799418579b7216916d94f54d8f7f63cff7eaf451a95f75f2b1e41db423c218",
+  "axioms": {
+    "W06.Flat.backwardPass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.creditReversal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.fixedStockStop": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.flatCap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.forcedDischarge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.initialCap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.negativePriceReversal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.propagate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.rampEnvelope": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.tariffIdentity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.tariffSigns": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W06.Flat.variablePriceCounterexample": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "exit": {
+    "FlatAudit": 0,
+    "FlatMutants": 1,
+    "FlatTariff": 0,
+    "kernel_FlatTariff": 0
+  },
+  "lean_sha256": "b48bc5ab229bd8b320a224b87e20fc428dba6fa8a1c054bd4fa6def846e19997",
+  "pins": {
+    "Cli": "13567aed1ac4f12aea9484178e07e51f8c9f7658",
+    "LeanSearchClient": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+    "Qq": "1cc7e819b9b9bc1e87c9edcccb62e0269e00a809",
+    "aesop": "f0c6e183ea26531e82773feb4b73ab6595ca17a5",
+    "batteries": "5c57f3857ba81924a88b2cdf4f062e34ec04ff11",
+    "importGraph": "cdab3938ccabbdb044be6896e251b5814bec932e",
+    "mathlib": "896cc56a395e1615786fac56564a3fe6bfeebcc4",
+    "plausible": "86210d4ad1b08b086d0bd638637a75246523dbb8",
+    "proofwidgets": "2db6054a44326f8c0230ee0570e2ddb894816511"
+  },
+  "rejected_lines": [
+    3,
+    4,
+    5
+  ],
+  "replay_comparison": "Exact uncompressed JSON bytes; gzip container metadata may vary across Python versions.",
+  "same_kernel_module_replay": true,
+  "version": "Lean (version 4.30.0-rc2, arm64-apple-darwin24.6.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc, Release)"
+}

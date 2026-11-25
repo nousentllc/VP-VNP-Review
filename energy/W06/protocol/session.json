@@ -1,0 +1,23 @@
+{
+  "session_id": "CRGC-W06",
+  "session_date": "2026-11-25",
+  "title": "Certified Opportunity Assessment",
+  "research_question": "What engineering improvement can be excluded before building a controller?",
+  "inputs": [
+    {
+      "path": "dependencies/CRGC_Whitepaper_v0.5.tex",
+      "sha256": "9dab4e9ec8f1da53acc344cd5272446af18c9e49baef7b27990348c05ec73baa"
+    },
+    {
+      "path": "dependencies/W05_Energy_Experiments.zip",
+      "sha256": "3cb69e43c49820a767884bee6dd1d5ff0adb279af2398a4e820f3bd9abdf3fce"
+    },
+    {
+      "path": "dependencies/CRGC_W05_Independent_Opportunity_Review.zip",
+      "sha256": "bda0a8aebc7ffae15468cdc3a76850067cef36e2690ca8dd8a2cb90516d9448b"
+    }
+  ],
+  "external_retrieval": "Pinned public PGLib source artifacts and primary methods literature",
+  "analysis": "Separate mathematical, numerical and synthetic operational evidence; track-specific preregistrations, independent checks, negative controls and exploratory extensions",
+  "deliverable": "Standalone W06 results, code, proofs, records and archive; v0.5 remains an input."
+}

@@ -1,0 +1,900 @@
+{
+  "panels": [
+    {
+      "days": 7,
+      "all_feasible": 8,
+      "mean_headroom_USD_day": {
+        "price": 120.7357142857143,
+        "continuation": 48.4875,
+        "scenario": 48.63214285714285
+      },
+      "continuation_gain_vs_price_USD_day": 72.24821428571428,
+      "continuation_gain_vs_scenario_USD_day": 0.14464285714285707,
+      "range_vs_scenario": [
+        -4.514285714285714,
+        9.157142857142857
+      ],
+      "n_over_15_vs_scenario": 0,
+      "accepted_optional_per_policy": {
+        "price": 829,
+        "continuation": 915,
+        "scenario": 926
+      },
+      "checked_edges": 174036
+    },
+    {
+      "days": 30,
+      "all_feasible": 8,
+      "mean_headroom_USD_day": {
+        "price": 110.94375,
+        "continuation": 49.82208333333333,
+        "scenario": 47.041666666666664
+      },
+      "continuation_gain_vs_price_USD_day": 61.12166666666667,
+      "continuation_gain_vs_scenario_USD_day": -2.7804166666666665,
+      "range_vs_scenario": [
+        -5.756666666666666,
+        0.02333333333333333
+      ],
+      "n_over_15_vs_scenario": 0,
+      "accepted_optional_per_policy": {
+        "price": 3607,
+        "continuation": 3866,
+        "scenario": 3877
+      },
+      "checked_edges": 743751
+    }
+  ],
+  "by_case": [
+    {
+      "seed": 69103,
+      "days": 7,
+      "offline_cents": 3554390,
+      "checked_edges": 21416,
+      "policies": {
+        "price": {
+          "idx": 37,
+          "total": 3652000,
+          "up": 35,
+          "down": 41,
+          "optional": 114,
+          "receipts": 566,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.067375,
+          "cents": 3607000,
+          "wall_s": 0.001873667
+        },
+        "continuation": {
+          "idx": 37,
+          "total": 3623160,
+          "up": 35,
+          "down": 41,
+          "optional": 114,
+          "receipts": 544,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.425958,
+          "cents": 3578160,
+          "wall_s": 0.023724417
+        },
+        "scenario": {
+          "idx": 37,
+          "total": 3620570,
+          "up": 35,
+          "down": 41,
+          "optional": 116,
+          "receipts": 563,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 1.733541,
+          "cents": 3575570,
+          "wall_s": 0.071320416
+        }
+      }
+    },
+    {
+      "seed": 69119,
+      "days": 7,
+      "offline_cents": 3945860,
+      "checked_edges": 22563,
+      "policies": {
+        "price": {
+          "idx": 39,
+          "total": 4089780,
+          "up": 40,
+          "down": 37,
+          "optional": 103,
+          "receipts": 489,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.087,
+          "cents": 4044780,
+          "wall_s": 0.002067708
+        },
+        "continuation": {
+          "idx": 39,
+          "total": 4007340,
+          "up": 40,
+          "down": 37,
+          "optional": 119,
+          "receipts": 663,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.425166,
+          "cents": 3962340,
+          "wall_s": 0.0254815
+        },
+        "scenario": {
+          "idx": 39,
+          "total": 4012420,
+          "up": 40,
+          "down": 37,
+          "optional": 120,
+          "receipts": 678,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 2.91,
+          "cents": 3967420,
+          "wall_s": 0.074901
+        }
+      }
+    },
+    {
+      "seed": 69143,
+      "days": 7,
+      "offline_cents": 4154440,
+      "checked_edges": 22645,
+      "policies": {
+        "price": {
+          "idx": 39,
+          "total": 4293070,
+          "up": 42,
+          "down": 39,
+          "optional": 107,
+          "receipts": 516,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.023042,
+          "cents": 4248070,
+          "wall_s": 0.001708917
+        },
+        "continuation": {
+          "idx": 38,
+          "total": 4232750,
+          "up": 42,
+          "down": 39,
+          "optional": 119,
+          "receipts": 630,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 1.173583,
+          "cents": 4187750,
+          "wall_s": 0.026439416
+        },
+        "scenario": {
+          "idx": 38,
+          "total": 4233620,
+          "up": 42,
+          "down": 39,
+          "optional": 120,
+          "receipts": 645,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 2.624042,
+          "cents": 4188620,
+          "wall_s": 0.073682416
+        }
+      }
+    },
+    {
+      "seed": 69157,
+      "days": 7,
+      "offline_cents": 3612950,
+      "checked_edges": 21797,
+      "policies": {
+        "price": {
+          "idx": 39,
+          "total": 3716750,
+          "up": 41,
+          "down": 38,
+          "optional": 109,
+          "receipts": 557,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.43075,
+          "cents": 3671750,
+          "wall_s": 0.002664541
+        },
+        "continuation": {
+          "idx": 38,
+          "total": 3695550,
+          "up": 41,
+          "down": 38,
+          "optional": 112,
+          "receipts": 602,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 1.065792,
+          "cents": 3650550,
+          "wall_s": 0.02774575
+        },
+        "scenario": {
+          "idx": 38,
+          "total": 3692390,
+          "up": 41,
+          "down": 38,
+          "optional": 114,
+          "receipts": 599,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 1.629417,
+          "cents": 3647390,
+          "wall_s": 0.066962833
+        }
+      }
+    },
+    {
+      "seed": 69179,
+      "days": 7,
+      "offline_cents": 3864980,
+      "checked_edges": 22312,
+      "policies": {
+        "price": {
+          "idx": 38,
+          "total": 4011760,
+          "up": 40,
+          "down": 38,
+          "optional": 93,
+          "receipts": 427,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.018208,
+          "cents": 3966760,
+          "wall_s": 0.001665959
+        },
+        "continuation": {
+          "idx": 38,
+          "total": 3952430,
+          "up": 40,
+          "down": 38,
+          "optional": 117,
+          "receipts": 644,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 1.890375,
+          "cents": 3907430,
+          "wall_s": 0.024865792
+        },
+        "scenario": {
+          "idx": 38,
+          "total": 3951850,
+          "up": 40,
+          "down": 38,
+          "optional": 118,
+          "receipts": 659,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 1.915334,
+          "cents": 3906850,
+          "wall_s": 0.067578917
+        }
+      }
+    },
+    {
+      "seed": 69203,
+      "days": 7,
+      "offline_cents": 3552760,
+      "checked_edges": 20285,
+      "policies": {
+        "price": {
+          "idx": 37,
+          "total": 3654180,
+          "up": 40,
+          "down": 36,
+          "optional": 111,
+          "receipts": 532,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.052041,
+          "cents": 3609180,
+          "wall_s": 0.001759458
+        },
+        "continuation": {
+          "idx": 37,
+          "total": 3614970,
+          "up": 40,
+          "down": 36,
+          "optional": 114,
+          "receipts": 555,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 1.416042,
+          "cents": 3569970,
+          "wall_s": 0.02509075
+        },
+        "scenario": {
+          "idx": 37,
+          "total": 3612050,
+          "up": 40,
+          "down": 36,
+          "optional": 114,
+          "receipts": 555,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.676083,
+          "cents": 3567050,
+          "wall_s": 0.065586875
+        }
+      }
+    },
+    {
+      "seed": 69221,
+      "days": 7,
+      "offline_cents": 3891930,
+      "checked_edges": 22009,
+      "policies": {
+        "price": {
+          "idx": 38,
+          "total": 4019470,
+          "up": 39,
+          "down": 42,
+          "optional": 106,
+          "receipts": 512,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.053458,
+          "cents": 3974470,
+          "wall_s": 0.001916042
+        },
+        "continuation": {
+          "idx": 37,
+          "total": 3975860,
+          "up": 39,
+          "down": 42,
+          "optional": 119,
+          "receipts": 663,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.2405,
+          "cents": 3930860,
+          "wall_s": 0.023820958
+        },
+        "scenario": {
+          "idx": 37,
+          "total": 3973560,
+          "up": 39,
+          "down": 42,
+          "optional": 119,
+          "receipts": 652,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.910417,
+          "cents": 3928560,
+          "wall_s": 0.065626667
+        }
+      }
+    },
+    {
+      "seed": 69239,
+      "days": 7,
+      "offline_cents": 4084140,
+      "checked_edges": 21009,
+      "policies": {
+        "price": {
+          "idx": 38,
+          "total": 4260560,
+          "up": 35,
+          "down": 36,
+          "optional": 86,
+          "receipts": 377,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.017167,
+          "cents": 4215560,
+          "wall_s": 0.001657458
+        },
+        "continuation": {
+          "idx": 38,
+          "total": 4190920,
+          "up": 35,
+          "down": 36,
+          "optional": 101,
+          "receipts": 503,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.291458,
+          "cents": 4145920,
+          "wall_s": 0.023132042
+        },
+        "scenario": {
+          "idx": 37,
+          "total": 4197330,
+          "up": 35,
+          "down": 36,
+          "optional": 105,
+          "receipts": 541,
+          "ending": 9,
+          "steps": 168,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.592,
+          "cents": 4152330,
+          "wall_s": 0.064549208
+        }
+      }
+    },
+    {
+      "seed": 69103,
+      "days": 30,
+      "offline_cents": 16497020,
+      "checked_edges": 93402,
+      "policies": {
+        "price": {
+          "idx": 38,
+          "total": 16888440,
+          "up": 164,
+          "down": 171,
+          "optional": 462,
+          "receipts": 2266,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.0555,
+          "cents": 16843440,
+          "wall_s": 0.007416292
+        },
+        "continuation": {
+          "idx": 38,
+          "total": 16676770,
+          "up": 164,
+          "down": 171,
+          "optional": 484,
+          "receipts": 2497,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.252125,
+          "cents": 16631770,
+          "wall_s": 0.101636125
+        },
+        "scenario": {
+          "idx": 38,
+          "total": 16675390,
+          "up": 164,
+          "down": 171,
+          "optional": 492,
+          "receipts": 2551,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 2.26725,
+          "cents": 16630390,
+          "wall_s": 0.292714667
+        }
+      }
+    },
+    {
+      "seed": 69119,
+      "days": 30,
+      "offline_cents": 17011100,
+      "checked_edges": 94904,
+      "policies": {
+        "price": {
+          "idx": 38,
+          "total": 17340360,
+          "up": 167,
+          "down": 164,
+          "optional": 467,
+          "receipts": 2308,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.117333,
+          "cents": 17295360,
+          "wall_s": 0.008040333
+        },
+        "continuation": {
+          "idx": 37,
+          "total": 17188770,
+          "up": 167,
+          "down": 164,
+          "optional": 498,
+          "receipts": 2641,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.205667,
+          "cents": 17143770,
+          "wall_s": 0.098773834
+        },
+        "scenario": {
+          "idx": 38,
+          "total": 17177270,
+          "up": 167,
+          "down": 164,
+          "optional": 502,
+          "receipts": 2679,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 2.427375,
+          "cents": 17132270,
+          "wall_s": 0.281846875
+        }
+      }
+    },
+    {
+      "seed": 69143,
+      "days": 30,
+      "offline_cents": 17078910,
+      "checked_edges": 93671,
+      "policies": {
+        "price": {
+          "idx": 38,
+          "total": 17456240,
+          "up": 174,
+          "down": 157,
+          "optional": 452,
+          "receipts": 2171,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.02975,
+          "cents": 17411240,
+          "wall_s": 0.007311375
+        },
+        "continuation": {
+          "idx": 38,
+          "total": 17264500,
+          "up": 174,
+          "down": 157,
+          "optional": 491,
+          "receipts": 2613,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 1.749542,
+          "cents": 17219500,
+          "wall_s": 0.101877625
+        },
+        "scenario": {
+          "idx": 38,
+          "total": 17259000,
+          "up": 174,
+          "down": 157,
+          "optional": 494,
+          "receipts": 2658,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.577458,
+          "cents": 17214000,
+          "wall_s": 0.273256666
+        }
+      }
+    },
+    {
+      "seed": 69157,
+      "days": 30,
+      "offline_cents": 15881700,
+      "checked_edges": 90900,
+      "policies": {
+        "price": {
+          "idx": 38,
+          "total": 16234120,
+          "up": 166,
+          "down": 163,
+          "optional": 453,
+          "receipts": 2252,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.040792,
+          "cents": 16189120,
+          "wall_s": 0.007261083
+        },
+        "continuation": {
+          "idx": 38,
+          "total": 16062230,
+          "up": 166,
+          "down": 163,
+          "optional": 467,
+          "receipts": 2319,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.189584,
+          "cents": 16017230,
+          "wall_s": 0.097959167
+        },
+        "scenario": {
+          "idx": 37,
+          "total": 16048920,
+          "up": 166,
+          "down": 163,
+          "optional": 468,
+          "receipts": 2301,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.639791,
+          "cents": 16003920,
+          "wall_s": 0.273605417
+        }
+      }
+    },
+    {
+      "seed": 69179,
+      "days": 30,
+      "offline_cents": 16484750,
+      "checked_edges": 92829,
+      "policies": {
+        "price": {
+          "idx": 39,
+          "total": 16838920,
+          "up": 172,
+          "down": 166,
+          "optional": 442,
+          "receipts": 2153,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.088917,
+          "cents": 16793920,
+          "wall_s": 0.0082655
+        },
+        "continuation": {
+          "idx": 38,
+          "total": 16654470,
+          "up": 172,
+          "down": 166,
+          "optional": 482,
+          "receipts": 2456,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.474875,
+          "cents": 16609470,
+          "wall_s": 0.103865583
+        },
+        "scenario": {
+          "idx": 38,
+          "total": 16654540,
+          "up": 172,
+          "down": 166,
+          "optional": 478,
+          "receipts": 2440,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.725625,
+          "cents": 16609540,
+          "wall_s": 0.277736458
+        }
+      }
+    },
+    {
+      "seed": 69203,
+      "days": 30,
+      "offline_cents": 16691330,
+      "checked_edges": 92647,
+      "policies": {
+        "price": {
+          "idx": 39,
+          "total": 17038190,
+          "up": 177,
+          "down": 165,
+          "optional": 463,
+          "receipts": 2325,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.082917,
+          "cents": 16993190,
+          "wall_s": 0.007876042
+        },
+        "continuation": {
+          "idx": 39,
+          "total": 16887220,
+          "up": 177,
+          "down": 165,
+          "optional": 492,
+          "receipts": 2562,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.42525,
+          "cents": 16842220,
+          "wall_s": 0.101664125
+        },
+        "scenario": {
+          "idx": 39,
+          "total": 16869950,
+          "up": 177,
+          "down": 165,
+          "optional": 490,
+          "receipts": 2543,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 2.075167,
+          "cents": 16824950,
+          "wall_s": 0.281744792
+        }
+      }
+    },
+    {
+      "seed": 69221,
+      "days": 30,
+      "offline_cents": 17012710,
+      "checked_edges": 94151,
+      "policies": {
+        "price": {
+          "idx": 39,
+          "total": 17416490,
+          "up": 160,
+          "down": 165,
+          "optional": 461,
+          "receipts": 2251,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.0345,
+          "cents": 17371490,
+          "wall_s": 0.0073805
+        },
+        "continuation": {
+          "idx": 38,
+          "total": 17198490,
+          "up": 160,
+          "down": 165,
+          "optional": 494,
+          "receipts": 2526,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 2.079667,
+          "cents": 17153490,
+          "wall_s": 0.106472875
+        },
+        "scenario": {
+          "idx": 38,
+          "total": 17191830,
+          "up": 160,
+          "down": 165,
+          "optional": 496,
+          "receipts": 2556,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 53.31275,
+          "cents": 17146830,
+          "wall_s": 0.565963708
+        }
+      }
+    },
+    {
+      "seed": 69239,
+      "days": 30,
+      "offline_cents": 17766970,
+      "checked_edges": 91247,
+      "policies": {
+        "price": {
+          "idx": 38,
+          "total": 18234380,
+          "up": 163,
+          "down": 171,
+          "optional": 407,
+          "receipts": 1881,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 0.055708,
+          "cents": 18189380,
+          "wall_s": 0.0073555
+        },
+        "continuation": {
+          "idx": 37,
+          "total": 18047770,
+          "up": 163,
+          "down": 171,
+          "optional": 458,
+          "receipts": 2360,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 1.487125,
+          "cents": 18002770,
+          "wall_s": 0.09915
+        },
+        "scenario": {
+          "idx": 37,
+          "total": 18036590,
+          "up": 163,
+          "down": 171,
+          "optional": 457,
+          "receipts": 2356,
+          "ending": 9,
+          "steps": 720,
+          "fallbacks": 0,
+          "misses": 0,
+          "msmax": 1.697708,
+          "cents": 17991590,
+          "wall_s": 0.276838416
+        }
+      }
+    }
+  ],
+  "registered_primary_inputs_reused": true,
+  "audit_seconds": 0.334328625
+}

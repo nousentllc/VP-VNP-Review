@@ -1,0 +1,246 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,tabularx,longtable,xcolor}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\definecolor{ink}{HTML}{173B4C}
+\hypersetup{colorlinks=true,linkcolor=ink,urlcolor=ink,pdftitle={CRGC W06: Certified Opportunity Assessment},pdfauthor={CRGC research campaign}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4.2pt plus 1pt minus 1pt}
+\emergencystretch=2.2em
+\urlstyle{same}
+\begin{document}
+{\small\textsc{Computationally Recoverable Grid Capability} \hfill Private research handoff, 25 November 2026}\par
+\vspace{8pt}
+{\color{ink}\fontsize{24}{27}\selectfont\bfseries Certified Opportunity Assessment}\par
+{\large W06 technical results for storage, chronological control and network optimization}\par
+\vspace{4pt}\hrule\vspace{5pt}
+\textbf{Decision.} Retire the fixed-service, fixed-stock cost target for the verified W05 fill trajectories under their flat tariff. A storage balance identity and an independently checked discharge floor prove that the maximum improvement is exactly zero. When the terminal contract permits drawing down stock, the ceiling on the four 30-day W05-scale splices is less than \$39.19 per day. The daily diagnostic had allowed a fresh starting inventory each day.
+
+On a fresh synthetic site with variable prices and continuing obligations, inventory-aware control had measurable decision value against the registered rules. A stronger stochastic rolling comparator erased the candidate's lead. Some primary reservations lacked one-hour energy deliverability. Requiring a feasible call and recovery on the same 16 paths kept the stochastic comparator ahead at 30 days.
+
+\begin{tabularx}{\linewidth}{@{}p{.075\linewidth}Xp{.33\linewidth}@{}}
+\toprule
+Track & Measured or proved result & Research decision\\\midrule
+B & 61 checked Lean declarations across the core and flat-tariff addendum. Feasibility, common information, units and endpoint signs are explicit hypotheses. & Use the stopping rules. Check the mapping from each engineering model to its formal premises.\\
+A & A material service gain was excluded on 56/72 deterministic paths and equal-service cost savings on 49/72. Direct exact optimization used less aggregate time than staged screening. & Benchmark direct solving before building a cascade. Re-evaluate headroom against a stronger incumbent.\\
+E & All 504 W05 economic bounds reproduced. The fresh 30-day candidate saved \$40.45/site-day against the price rule, and cost \$2.35/site-day more than the three-scenario comparator. & Advance the stochastic benchmark and test explicit activation contracts. Deployment economics remain open.\\
+C & Primary intervals excluded a 1\% reduction on 3/6 static AC cases and 3/4 conventional UC cases. Exploratory clique cuts closed one further stressed AC case. & Retire the narrow 1\% target on the excluded instances. Investigate the open intervals with stronger bounds.\\\bottomrule
+\end{tabularx}
+
+\section{Contract, evidence and interpretation}
+Each experiment asks what an alternative could save against a specified feasible baseline, over a fixed horizon, with stated service, information and implementation constraints. For cost minimization, the baseline supplies a witness with cost $U_0$. A globally valid lower bound $L$ yields the gain ceiling $U_0-L$. An enclosure $U\ge U_0$ is safe for the same purpose. A feasible alternative under the full contract establishes an achieved modeled reduction. A strict stop at $(1-\rho)U<L$ excludes a relative gain of at least $\rho$ for the actual positive incumbent $U_0\le U$, for $0<\rho<1$.
+
+The byte-identified v0.5 master, W05 experiment release and independent economic review supply the historical specification and prior evidence. External sources on weak duality, information relaxation, storage optimization and OPF/UC establish the methods' precedents. The new measurements come from the frozen experiments and benchmark inputs. Distinct checkers share the source models and raw data.
+
+\begin{tabularx}{\linewidth}{@{}p{.19\linewidth}Xp{.30\linewidth}@{}}
+\toprule
+Experiment & Unit, baseline and information & Meaning of a stop\\\midrule
+A, deterministic storage & Six seed blocks, 12/24-hour paths in six designed regimes. All parties receive the issued schedule. & A combined absolute/relative target in MWh or dollars per path.\\
+E, online site & Eight seed families with 7/30-day horizons, common issued forecasts, time-coupled states and booked service. & Test headroom before candidate calibration, then compare realized modeled costs under the same contract.\\
+C, static AC and UC & Three networks in base/stressed conditions, and two UC dates with 8/24-hour horizons. Feasible baseline at each horizon. & Exclude a 1\% cost reduction. Validate both the baseline and the objective floor.\\\bottomrule
+\end{tabularx}
+
+The targets, denominators and missing cases retain their track-specific meaning. In the absence of an implementation-cost floor, modeled gains and ceilings provide break-even amounts for the stated asset and horizon. No capital, integration, settlement or physical deployment budget was observed.
+\section{W06-B. When is there enough evidence to stop?}
+Fix the horizon, objective, units, feasible trajectories, information available at each decision, reliability contract and computation deadline. In a minimization problem let $D$ contain every admissible competing policy, $b\in D$ the feasible baseline, $U=J(b)$ and $L\leq J(p)$ for all $p\in D$. The checked declaration \texttt{W06.minInterval} gives
+\[
+ 0\ \leq\ U-\inf_{p\in D}J(p)\ \leq\ U-L .
+\]
+Baseline membership supplies nonemptiness. The floor supplies boundedness below. The pointwise ceiling $U-J(p)\leq U-L$ needs neither an attained optimum nor convexity. An admissible alternative supplies a lower witness on achievable gain. Feasibility in a clairvoyant comparison model establishes a different claim. The companion \texttt{maxInterval} uses an upper bound and supremum. Empty domains and missing incumbents receive a failure status.
+
+\textbf{The boundary matters.} A ceiling $<\varepsilon$ rules out gains $\geq\varepsilon$. A ceiling $\leq\varepsilon$ rules out gains $>\varepsilon$. For $U=10,L=9$, a feasible cost of 9 achieves a target of 1 exactly. One can strengthen the second rule if a separate proof establishes that no admissible policy attains $L$. Then even at equality every individual gain is strictly below target (\texttt{strictAtNonattainment}). For costs $x>0$, baseline 1 and floor 0 this happens without a uniformly smaller ceiling. A known implementation-cost floor $K$, denominated over the same horizon, bounds net gain by $U-L-K$. Unit and accounting-horizon tags in \texttt{netStop} reject mismatched arguments. The modeler must establish that each input deserves its tag.
+
+\textbf{Finite scenarios and information.} With a common policy and nonnegative weights, the gain ceiling is $\sum_s w_s(U_s-L_s)$. Weights sum to one for a mean. Statistical independence plays no role in this deterministic inequality. A failed case retains its original weight and needs a separately valid fallback floor before contributing to an all-case ceiling (\texttt{partialPanel}). To see the consequence, true per-case ceilings 0 and 4 with equal weights average to 2. Dropping the second case would falsely exclude a target of 1 if those ceilings were achieved. For common objective values, imposing physical constraints, observation compatibility and a deadline successively raises the infimum (\texttt{operationalChain}). Compatibility means identical admissible observations induce the same action. Finer information can be ignored, provided old policies remain implementable at the same cost.
+
+A stronger bound can remove artificial clairvoyance. If $L'_s\leq J_s(p)+z_s(p)$ and $\sum_s w_s z_s(p)\leq0$ for \emph{every} admissible common policy, $\sum_s w_s L'_s$ is a floor on optimal common-policy cost (\texttt{infoPanelInf}). With two indistinguishable equiprobable futures, choose one action $x\in[0,1]$ and incur losses $x$ or $1-x$. A clairvoyant controller reaches zero in each future. Every shared action costs $1/2$ on average. Penalties $1/2-x$ and $x-1/2$ yield two augmented path costs of $1/2$ and exactly zero opportunity against any shared baseline. Constructing valid inexpensive penalties on energy histories remains open. This is finite weak duality in the established information-relaxation framework. \href{https://doi.org/10.1287/opre.1090.0796}{Brown, Smith \& Sun (2010), \S2}.
+
+\textbf{Numerical certificates.} For $Ex=d,\ Ax\leq b,\ \ell\leq x\leq u$, choose arbitrary $y$ and componentwise $z\leq0$. The declaration \texttt{W06.Dual.boxedDual} expands both transpose contractions and proves
+\[
+ L=d^\top y+b^\top z+\sum_j\min(r_j\ell_j,r_j u_j)\leq c^\top x,
+ \qquad r=c-E^\top y-A^\top z.
+\]
+A later computation may propose multipliers. Soundness needs their signs, the stored coefficients, all endpoints, and feasibility checked for the intended model. The mixed-row theorem also supports one-sided and absent bounds. A lower-only interval permits a nonnegative residual, an upper-only interval a nonpositive residual, and a free coordinate requires residual zero for this separable certificate. An unsupported direction leaves that certificate unavailable. A different multiplier or coupled relaxation may still prove a bound. Exact rational controls checked 2,250 feasible model/multiplier combinations, 12 endpoint/sign configurations and 1,071 weighted common-action examples. An infeasible baseline, a restriction masquerading as a relaxation, or a positive multiplier on an upper-only row can create a false stop. These are specializations of established optimality and numerical-validation arguments. \href{https://stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf}{Boyd \& Vandenberghe, \S5.5.1}; \href{https://optimization-online.org/2002/06/494/}{Neumaier \& Shcherbina}.
+
+\textbf{Economic, reliability and terminal contracts.} Equal service can coexist with arbitrarily different costs. On two equiprobable cases, changing losses $(50,50)$ to $(0,80)$ reduces the mean by 10 while upper-half CVaR rises by 30. A pointwise uniform gain ceiling transfers to a monotone cash-translation-invariant risk functional (\texttt{riskCeiling}). For a continuous path at constant inventory credit, intermediate valuations cancel exactly (\texttt{W06.Closing.telescope}). Two schedules opening at the same SOC differ by at most $v(u-\ell)$ in the end-inventory accounting component. An analogous statement for \emph{all} dispatch costs needs stronger evidence. If every weaker-terminal-contract schedule has a feasible stricter-contract completion increasing total cost by at most $K$, then
+\[
+ 0\leq \inf J_{\rm strict}-\inf J_{\rm floor}\leq K .
+\]
+The proof bounds each weak cost from below by the strong infimum minus $K$, then takes the weak infimum (\texttt{terminalPremium}). A horizon-independent $K$ would give a $K/T$ mean premium over $T$ days. One additional final MWh can face arbitrarily high replacement prices, so a fixed battery capacity alone cannot establish such a dollar bound.
+
+\textbf{Verification and disposition.} Lean 4.30.0-rc2 compiled 49 named propositions and inventoried their transitive axioms. Eight intentionally false statements or unit/horizon substitutions failed on their designated lines. Lean's distributed \texttt{leanchecker} replayed the declarations of all four positive theorem modules using the same kernel and prebuilt imports. The run took 31.54\,s including source/pin checks, negative controls and replay. The nine dependency revisions are recorded in \path{B/proof_lock.json} and its locked Lake manifest. The axiom inventory includes only subsets of \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. Run \path{B/verify.py} as directed in \path{B/README.md}. Raw types, exits, timing and diagnostics are in \path{B/results/lean/}. The proofs establish conditional model inequalities. Live plant correspondence, a verified parser for the numerical archives, an independent kernel replication, and any population or deployment claim remain separate obligations. Advance checked bounds and contract matching. Develop information penalties only where cheaper bounds leave a consequential interval.
+
+\subsection*{Post hoc cross-check of the historical flat tariff}
+A simplified certificate explains the independent W05 cost result exactly. Let $Y$ denote total service, $C,D$ total AC charge and discharge energy, $S_0,S_T$ initial and closing stored energy, $e$ stored energy per unit charged and $b$ stored energy drawn per unit discharged. At constant import price $p$, symmetric throughput price $w$ and terminal credit $v$, substitution of $S_T-S_0=eC-bD$ gives
+\[
+ J=pY-vS_0+k_S(S_T-S_0)+k_DD,\qquad
+ k_S=(p+w)/e-v,\quad k_D=(p+w)b/e+w-p .
+\]
+The archived parameters yield $k_S=13.8298$ dollars per stored MWh and $k_D=28.6342$ dollars per discharged AC MWh. Matching hourly service $y_t$, propagate the initial grid cap and both adjacent-hour ramp inequalities to obtain time-specific import ceilings $G_t$. Every feasible competitor then has $D\geq D_{\min}=\sum_t(y_t-G_t)_+$. The analytical cap against a feasible baseline is $k_S(S_B-S_{\min})+k_D(D_B-D_{\min})$ when both coefficients are nonnegative. In 252 original days and 12 retrospective splices fill attained $D_{\min}$ exactly. Equal closing stock therefore gives a \emph{zero} cost ceiling on all 264 paths. Under a closing floor, only the terminal term survives as an upper bound. An alternative schedule attaining it requires a separate witness.
+
+Twelve additional Lean propositions check the tariff identity, sign conditions, ramp-envelope sweeps, discharge floor, cap and counterexamples. An independent implementation computed the envelope using all pairwise time distances and checked 10,272 hourly transitions with exact fractions. Excessive stock credit, sufficiently negative import prices, or time-varying import prices invalidate a premise or the constant-coefficient decomposition. The checks concern the historical matched-service tariff. Variable-priced multi-day W06 operation has a different objective. Files, three additional rejected examples and proof replay are in \path{B/flat_review/}. The two separately audited runs together cover 61 named propositions, five positive theorem modules in same-kernel replay, and eleven deliberate rejections.
+\section{W06-A: can cheap screening beat direct optimization?}
+Six previously unused seed blocks were crossed with 12- and 24-hour horizons and six operating regimes, giving 72 equally weighted paths per objective. The study model has one integer-command storage unit. Each charge block draws 1.25 MWh and stores 1 MWh. Each discharge block delivers 1 MWh. Grid imports, command ramps, charge and discharge availability, time-dependent SOC floors and the closing contract are enforced. The model meters service in quarter-MWh increments. Half of the seed blocks require the initial stock at closing. The others permit a lower closing stock and credit final inventory at \$35/MWh relative to starting stock. Scenarios include negative prices during some charging hours, outages, mandatory charge/discharge opposition and time-of-use rates. All planners see the same deterministic path at issuance. An absent witness and a deliberately infeasible one remain in the denominator. The W05-A historical mechanism replay matched its archived digest before W06 case generation. The dated W06-A code lock is in \path{A/protocol/freeze.json}.
+
+The primary comparator constructs and checks a feasible schedule using two sweeps of exact four-hour subproblems with compatible boundary states. It minimizes shed, breaking ties by cost. The service target is at least $\max(1\text{ MWh},0.03 U_\text{shed})$. The economic target is at least $\max(\$20,0.03|U_\text{cost}|)$, holding the original baseline's delivered load fixed \emph{every hour}. Costs include imports, a linear throughput charge and the specified terminal credit. Larger load service therefore cannot masquerade as cost reduction.
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+First exclusion tier or final case disposition & Service & Cost \\
+\midrule
+Independent hourly power/import boxes & 25 & 0 \\
+Additional from interval energy and ramp bounds & 12 & 25 \\
+Additional from full LP and rational dual check & 3 & 10 \\
+Additional from integer-objective rounding & 0 & 0 \\
+Additional from exact discrete optimization & 16 & 14 \\
+Exact feasible improvement meets target & 14 & 21 \\
+Missing or rejected baseline & 2 & 2 \\
+\midrule
+All paths per objective & 72 & 72 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The inexpensive service bound uses hourly import/discharge limits followed by disjoint interval energy deficits, endpoint SOC envelopes and signed-command ramp bounds. For a fixed delivered profile, the financial bound enumerates admissible integer terminal inventories, relaxes each hour to an import box, and fills a lower bound on total imports in order of marginal tariff while respecting negative prices. The full LP relaxes integer commands, quarter-MWh metering and the converter-mode binary. Every bound uses independently reconstructed rational reduced costs and finite variable boxes. Whole-horizon forward state search then minimizes the original integer objective over SOC and prior command. A separate backward recurrence verified the initial objective, traversing 267,606 feasible state/action arcs across primary instances and controls. Numerical MILP incumbents, independently checked in the integer model, attained the same optimum on 140 eligible objective cells and eight constructed controls. Native numerical lower bounds agreed to $10^{-6}$ native units. The generic solver's floating bounds provide a cross-check.
+
+The service and cost targets were excluded on 56/72 (77.8\%) and 49/72 (68.1\%) paths, with exactly zero opportunity on 40 and 43 eligible paths. The LP remained strictly below the discrete optimum on 32/70 service cells and 45/70 economic cells. Even after LP and lattice rounding, 30 service cells and 35 economic cells needed an exact discrete search. The eight analytic controls included known achievable gains of zero, 0.75, 1 and 2 MWh, and zero, \$15, \$20 and \$40. A strict ceiling test kept the equality examples eligible. A changed dual sign, infeasible SOC witness and omitted outcome each triggered rejection. All 12 ample and all 12 scarce paths excluded both targets. Nine negative-price/outage paths met each target, and all 12 time-of-use paths met the cost target. The counts are experimental design frequencies. Individual physical bounds, targets, witnesses and exact duals are in \path{A/analysis/cases.csv} and \path{A/results/shadow.json.gz}.
+
+\paragraph{The price of the certificate.}
+Across 216 warm calls per arm and objective, including missing baselines, staged screening, native MILP and direct exact state search consumed respectively 1.631, 5.482 and 1.472 seconds for service and 1.962, 3.049 and 1.017 seconds for cost. Each call rebuilt and checked the baseline. Timings include parent dispatch, serializing results and verification performed within the arm. Across three rotated repeats, the service LP tier used 0.646 seconds for 99 calls and nine additional timed exclusions; the cost LP tier used 1.023 seconds for 135 calls and 30 additional timed exclusions. Staging beat direct DP on 38/70 service case medians and 24/70 cost case medians. No warm dispatch exceeded the 0.5-second deadline. Launch and public-fixture warm-up alone consumed 1.02--1.30 seconds per worker. Peak RSS of the three timed workers ranged from 70.30 to 85.84 MiB. The complete run, including the separate all-tier audit, took 23.44 seconds; an independent replay of saved evidence took 0.36 seconds. These totals identify a small tractable regime where direct optimization with an exact witness can be cheaper than proving saturation in stages. Hardware, process reuse and concurrency affect that comparison. See \path{A/results/timed.json.gz} and \path{A/results/run.json}.
+
+\paragraph{Post-primary attempt to erode the finding.}
+Two eight-hour improvement sweeps were added to the original comparator on the same paths, keeping the original thresholds, cost-service profiles and exact optima fixed. Exclusions rose to 67/72 for service and 61/72 for cost. Across 70 eligible paths the mean residual opportunity fell from 0.582 to 0.100 MWh per path and from \$72.99 to \$15.51 per path, for median incremental planning costs of 1.82 and 0.81 milliseconds respectively. Three outage paths still reached the service target; seven time-of-use and two outage paths still reached the financial target. This exploratory sensitivity identifies the comparator itself as a major source of apparent opportunity. The design and full alternative schedules are in \path{A/exploratory/}. Storage quantization, full forecast availability, path-specific terminal contracts and synthetic tariffs delimit every result. An implementable real-time gain requires a validated plant, information and cost contract.
+\section{W06-E: closing inventory and multi-day decision value}
+\label{sec:w06e}
+\subsection{An exact zero at the original W05 scale}
+We independently rebuilt the greedy fill trajectory for each of the 252 historical 24-hour scenarios. All 30,240 rational action fields agreed with the archived witnesses. The largest difference from the logged online floating-point actions was $5.69\times10^{-14}$ in the corresponding field units. The independent review script reproduced all 504 rational LP gap fractions. Holding hourly service and closing stock fixed, its mean cost ceilings were below $4\times 10^{-13}$ dollars/day in each panel. Relaxing to the original 95 MWh floor with a \$50/MWh closing credit reproduced \$990.79 and \$760.58 per independently initialized day.
+
+\paragraph{A physical specialization.}
+A post hoc check strengthens the matched-stock result to an exact zero. Let $Y$ be total served energy at a fixed hourly service profile, $C,D$ aggregate AC charging and discharging, and $S_0,S_T$ inventory. For constant import price $p$, throughput charge $w$ per AC MWh, closing credit $v$ and the stock equation $S_T-S_0=\eta C-bD$, elimination of $C$ yields
+\[
+ J=pY-vS_0+k_S(S_T-S_0)+k_DD,\qquad
+ k_S=(p+w)/\eta-v,\quad k_D=(p+w)b/\eta+w-p .
+\]
+The coefficients are positive for the historical tariff and literal archived efficiency coefficients. With served load $y_t$, any admissible upper envelope $G_t$ on imports implies $D\geq D_{\min}=\sum_t (y_t-G_t)_+$. We intersected feeder capacity with $y_t$ plus maximum charging power, propagated grid ramp limits in both directions and checked every equality in rational arithmetic. If baseline discharge attains $D_{\min}$, fixing its final inventory precludes a cheaper schedule. Allowing $S_T\geq S_{\min}$ instead bounds improvement by $k_S(S_{\mathrm{fill}}-S_{\min})$. This is an upper bound for any horizon satisfying those hypotheses, regardless of the number of midnight boundaries. Variable prices, additional reserve payments and a baseline with avoidable discharge require a different argument.
+
+The fill rule attained $D_{\min}$ on \emph{every} historical case. We also spliced archived synthetic days by ascending seed and maintained both SOC and the preceding grid import across each boundary. Two seed blocks for each of the primary base and outage-reserve regimes supplied four 30-day paths and four nested seven-day paths. Two blocks per alternative regime supplied four further seven-day paths. All twelve passed literal rational primal and discharge checks. At the 180 MWh plant maximum, the stock-only ceiling is at most $(60/0.94-50)(180-95)\simeq\$1{,}175.53$ over the entire path, using the stored efficiency in the exact calculation. The 30-day ceilings were \$39.18/day in all four paths. Seven-day ceilings ranged from \$89.66 to \$167.93/day. Relaxed LP dual bounds agreed with these analytic ceilings within $1.06\times10^{-11}$ dollars per path. The splices test the specific carryover mechanism. They were constructed from independent historical draws and do not describe a measured month.
+
+\subsection{A fresh chronological site and opportunity gate}
+The protocol and executable generator were frozen on 25 November 2026 before holdout generation. Two separate development seeds supplied an untuned-controller comparison and calibration set. Eight untouched seed families supplied paired seven- and thirty-day paths, totaling 7,104 simulated site-hours. Each path carried previous signed dispatch, SOC and high/low booked jobs across midnight; pending jobs crossed every one of 280 internal midnights. Protected load is mandatory. High-priority 0.7 MWh and low-priority 0.4 MWh jobs must complete when due, two and five hours after booking. The fixed-service objective holds the entire hourly profile constant across policies. Job scheduling within flexible windows remains open.
+
+The second plant is a 12 MWh synthetic battery, with signed internal dispatch in one-MWh blocks, rates up to two blocks/hour, a two-block hourly setpoint ramp, initial/final SOC 9 MWh, and operating range 2--11 MWh. Charging consumes 1.1 grid MWh/block and discharge supplies 0.9. Power outages and inaccessible energy, asymmetric reserve commitments, uncertain prices and an optional upward availability payment compete for dispatch. Operating cost includes energy, \$8 per AC MWh of throughput and \$6 for the second block in an hour, less modeled reserve receipts and terminal credit. The receipt is a private cash flow. The wear proxy has no cell or replacement-cost calibration. Existing stochastic dispatch and cycle-aging research motivates these distinctions.\footnote{N. Zheng, J. Jaworski and B. Xu, \emph{Arbitraging Variable Efficiency Energy Storage Using Analytical Stochastic Dynamic Programming}, \url{https://doi.org/10.1109/TPWRS.2022.3154353}. B. Xu et al., \emph{Factoring the Cycle Aging Cost of Batteries Participating in Electricity Markets}, \url{https://arxiv.org/abs/1707.04567}.}
+
+Each controller receives metered current conditions, known bookings and the same 12-hour issue with uncertain future price, workload and availability. H6 ignores the tail. A publicly outage-free last 16 hours and a common reachability check support hard closing stock. Fixed terminal, alternate floor/credit and optional-job objectives have separate records. An integer Bellman calculation over 50 stock/previous-setpoint states certifies the exact perfect-foresight optimum for the discrete plant. The independent checker reconstructed 8,260,320 feasible edge evaluations across eight contracts, checked the stored potentials at every state, and recovered attaining paths. The online price rule, selected on development paths with a \$70/MWh inventory mark, left mean physical ceilings of \$100.91 and \$83.18/site-day. Both exceeded the preregistered \$15 target, releasing the candidate evaluation. Only then was a terminal mark selected from \$45, \$65 and \$85/MWh on the development paths; \$65 won. Holding exact integer dispatch is essential. A minimum cost over a restricted actuator grid need not lower-bound a continuously adjustable plant.
+
+\subsection{Separate terminal effects and causal policy gains}
+In the fresh flat-tariff control with fixed hourly service, the difference between optimal cost at the fill rule's end stock and optimal cost under a floor plus credit averaged \$4.21/day at seven days and \$0.67/day at thirty days. Artificially restarting inventory and the previous battery setpoint every day yielded \$28.43 and \$26.63/day on the same hourly service. With variable prices and reserve revenue, the corresponding continuous-path terminal effects were \$25.39 and \$7.35/day. At zero credit the optimal relaxed end stock was 2 MWh on all paths. At \$100/MWh it ranged from 4 to 11 MWh across the panels.
+
+\begin{center}\small
+\begin{tabular}{lrr}
+\hline
+Mean cost difference, USD per site-day & 7 days & 30 days\\\hline
+Price rule minus offline optimum & 100.91 & 83.18\\
+Adapted fill minus offline optimum & 373.67 & 382.23\\
+Rolling H6, zero tail minus offline optimum & 199.27 & 186.59\\
+Rolling H12, zero tail minus offline optimum & 92.55 & 91.14\\
+H12 with \$65 mark minus offline optimum & 45.59 & 42.73\\\hline
+Price rule minus \$65 controller & 55.32 & 40.45\\
+H12 zero tail minus \$65 controller & 46.96 & 48.40\\
+H12 \$50 mark minus \$65 controller (supplement) & 38.49 & 39.14\\
+Three-scenario H12 minus \$65 controller (supplement) & $-2.03$ & $-2.35$\\\hline
+\end{tabular}
+\end{center}
+
+Each preregistered contrast exceeded \$15 on all eight seed families, with Holm-adjusted one-sided sign-test $p=0.015625$ in all four comparisons. Conservative paired median intervals from the minimum and maximum seed differences were \$17.83--86.69 and \$29.95--52.93 versus the price rule, and \$26.17--71.66 and \$42.94--54.75 versus H12 zero tail. These are generator-conditional seed comparisons, with 99.22\% marginal sign-interval coverage under independent draws and no ties. No confidence statement transfers to an external fleet. The H12 policy at the \$65 mark failed the practical target on every path against a stronger, post hoc three-scenario rolling comparator using the same information and mark. Its first action is common across branches; future recourse in the lookahead is optimistic. At 24 prespecified supplemental times an explicit HiGHS network-flow LP matched the rolling H12 Bellman objective and admitted the applied first action among its optima.
+
+Protected load and all booked jobs were served in every primary/controller comparison, with hard reserve headroom and equal closing inventory. An offline alternative paying \$18 per missed low-priority job reduced its objective by \$327.79 and \$328.03/day while missing 980 of 1,253 and 4,278 of 5,558 low-priority jobs. It fails service noninferiority. The original replay took 3.66 seconds. The fresh gate including generation and serialization took 6.83 seconds, primary online evaluation 17.91 seconds, independent audit 3.32 seconds, and supplemental controls/LP checks 8.70 seconds. The 42,624 primary and diagnostic decisions had zero measured one-second deadline misses and 83 proposals rejected by the common safety check. All applied fallbacks passed the plant audit. The supplemental controllers also met the clock on this run. No timed host result certifies an actuation deadline. Advance terminal-aware stochastic control to independent traces, alternative issuers and physically calibrated wear/reserve testing. Retire annualization of independently initialized daily inventory savings and broad superiority of the fitted mark. Incremental deployment costs and field benefit remain unknown. Reproduction entry points, raw decisions, equality witnesses and policy failures are in \texttt{E/README.md}.
+
+\paragraph{Post hoc reserve deliverability challenge.}
+An independent perturbation of the primary continuation schedule found inventory or accessibility conflicts in 137 of 1,655 hypothetical upward calls and 133 of 1,629 downward calls. Those primary results priced scheduled standby headroom. A separately frozen study reused the 16 paths and tested base command $q$, mandatory one-hour commands $q-u$ and $q+d$, and the combined mandatory-plus-optional upward command $q-u-1$ whenever an extra block was sold. Each branch must preserve hourly service, power, ramp from its true previous command, feeder import, stock and accessible energy. Each activated endpoint must permit a causal recovery to closing SOC 9 under later observed deratings and no second call. Exact backward viability kernels cover every admissible future hourly power level, including the published clear end window. This contract prices stored-energy blocks; AC response depends on the charge/discharge efficiency.
+
+All 16 paths admitted the stronger service. Each of three policies passed every mandatory one-hour perturbation, plus 4,436, 4,781 and 4,803 stacked optional upward calls for price, continuation and three-scenario control, respectively. Independent checks covered 917,787 Bellman edge evaluations. All 21,312 nominal decisions met the one-second clock and needed zero fallbacks. Mean seven-/thirty-day continuation improvements over the price rule were \$72.25/\$61.12 per site-day. Against the three-scenario controller, mean differences were $+\$0.14/-\$2.78$ and none of the 16 paired contrasts reached \$15. All monetary comparisons use the same strengthened standing-service contract and zero realized calls. Activated operating cost, repeated-call deliverability and external deployment reliability remain open. See \texttt{E/reserve\_activation\_followup/}.
+\paragraph{Cycle-depth wear sensitivity.}
+As a final post hoc check, we rescored all 160 fixed matched-stock policy paths across the original and one-call contracts. We replaced the throughput and rate surcharges with whole-path rainflow damage using the NMC case-study curve $\Phi(d)=0.000524d^{2.03}$, normalized to 12 MWh nameplate, with both half and full cycles. Two cycle counters agreed on every depth histogram. Illustrative pack replacement prices of \$50, \$150 and \$300/kWh probe sensitivity to wear cost. No cell calibration or lifetime measurements are available.\footnote{B. Xu et al., \emph{Factoring the Cycle Aging Cost of Batteries Participating in Electricity Markets}, Eq.~24, \url{https://arxiv.org/abs/1707.04567}. Y. Shi et al., \emph{A Convex Cycle-based Degradation Model for Battery Energy Storage Planning and Operation}, Algorithm~1 and Table~I, \url{https://arxiv.org/abs/1703.07968}.}
+
+At \$150/kWh, continuation saved \$50.26/\$31.10 per site-day against the price rule on the original seven-/thirty-day contract, while three-scenario dispatch was cheaper than continuation by \$7.32/\$3.90. On the one-call contract the corresponding continuation gains versus the rule were \$82.15/\$64.01; three-scenario dispatch saved \$3.07/\$2.54 versus continuation. The small seven-day one-call ranking reversed near \$59.16/kWh. Dispatch and services were fixed. New-optimum ceilings used the old lower bound less a rigorous maximum of old wear, plus the fixed incumbent's new cost, bounded using $d^{2.03}\le d^2$. These conservative thirty-day ceilings against continuation averaged \$687.24/day and \$662.16/day at \$150/kWh. No new rainflow-optimal dispatch or material-gain exclusion follows.
+\section{W06-C: static AC dispatch and conventional unit commitment}
+The target was a reduction of at least 1\% from a strong feasible incumbent on the identical model. We fixed three previously unused networks and their stressed variants, two new RTS-GMLC dates, their horizons, the bound hierarchy and solver budgets before downloading the case files. The baselines used full local AC solves or unrestricted MILPs. The network model is a static snapshot. The commitment model uses system-wide demand and reserve with thermal ramping, startup histories and piecewise costs. Security contingencies, AC-constrained commitment and accredited capacity require different tests.
+
+\subsection{An upper witness for a nonlinear equality model}
+A small residual alone leaves feasibility open. For each of two full polar IPOPT starts, we reserved small margins on box, angle and thermal inequalities. We reconstructed the rectangular equations $F(V,P,Q)=0$ from decimal inputs at 160-bit ball precision, fixed the reference phase and chose independent columns of the balance Jacobian. Remaining coordinates are held constant. Let $R$ be a dyadic approximate inverse, $x$ the center and $X$ the selected coordinate box of radius $r=10^{-10}$. The replayer bounds
+\[
+ e=\|R F(x)\|_\infty,\qquad q=\sup_{J\in F'(X)}\|I-RJ\|_\infty .
+\]
+For $e+qr<r$ and $q<1$, the preconditioned map sends the box to its interior and contracts there. Nonsingularity of $RJ$ implies nonsingularity of $R$. The resulting zero lies in the box for which both-end thermal flows, voltage, relative phase, generator outputs and cost are enclosed. Both starts on every snapshot passed. A separate tapped-series current implementation obtained a worst midpoint complex nodal residual below $7.2\times10^{-10}$ MVA. The interval existence argument supplies the upper witness. Interval verification of nonlinear systems and ball arithmetic have established precedents. \href{https://www.tuhh.de/ti3/paper/rump/Ru94.pdf}{Rump}; \href{https://arxiv.org/abs/1611.02831}{Johansson}.
+
+\subsection{Network lower bounds}
+With nonnegative real branch losses and bus shunt conductance, $\sum_jP_j\geq\sum_iP_i^d$. For any $\lambda\ge0$, the dispatch floor is $\lambda\sum P_i^d +\sum_j\min_{P_j\in[\ell_j,u_j]}(c_j(P_j)-\lambda P_j)$. All six cases remained open at 1\% on this tier. The next tier lifts squared voltages $w_i$ and oriented products $W_{ij}=V_i\overline{V_j}$. For any rational complex $k$, physical voltages satisfy $w_i-2\operatorname{Re}(\bar k W_{ij})+|k|^2w_j\ge0$. Rational supporting inequalities also enclose thermal circles and convex cost epigraphs. Rounded tap coefficients receive an outward row allowance over the entire variable box. Each suggested LP dual is checked with exact residual endpoint charges. The maximum of independently valid floors is safe regardless of solver convergence. These finite outer approximations build on established conic relaxations. \href{https://arxiv.org/abs/1506.05202}{Copperplate and network flow}; \href{https://arxiv.org/abs/1502.07847}{QC and SOC relaxations}.
+\begin{center}\small\begin{tabular}{llrrrrr}\toprule
+AC network & Regime & Witness $U$ & Primary $L$ & Ceiling (\%) & Follow-up (\%) & Primary s\\\midrule
+30 & base & 804 & 799 & 0.402 & --- & 0.46\\
+30 & stressed & 5,004 & 2,767 & 44.681 & 4.103 & 0.70\\
+39 & base & 138,417 & 137,273 & 0.825 & --- & 0.42\\
+39 & stressed & 256,772 & 253,130 & 1.418 & 0.688 & 0.48\\
+89 & base & 107,287 & 106,347 & 0.876 & --- & 2.37\\
+89 & stressed & 129,577 & 113,369 & 12.508 & 11.909 & 7.38\\
+\bottomrule\end{tabular}\end{center}
+Costs above are rounded outward to whole benchmark units. Percentages use the original rational endpoints and are displayed to three decimals. The calculation for a stop uses the unrounded numbers. The cuts were derived from valid physics even when a local or relaxed solution suggested a separating direction. On the three previously unresolved cases, deterministic chordal extension supplied missing voltage products and clique cuts $h^*Wh\ge0$ for rationalized vectors $h$. The intervals on the stressed 30-, 39-, and 89-bus cases tightened to 4.103\%, 0.688\%, and 11.909\%. Additional time was 1.32, 0.51, and 213.88 s respectively. Only the 39-bus case crossed the target. The large time expense on the 89-bus case is an observed cost of certification. The remaining 11.909\% is a ceiling with no corresponding demonstrated gain.
+
+\subsection{A certificate for conventional unit commitment}
+We used the pinned upstream PGLib-UC algebra on the original initial histories. The 8- and 24-hour runs on a given date overlap. All decisions, start categories, minimum run times, reserve and production costs used the published formulation. We solved the full LP relaxation and evaluated each row multiplier and its box residual in rational arithmetic on the decimal model. The independent mixed-integer upper witness came from HiGHS commitments followed by an exact continuous schedule search with Z3 and rational checks. A conditional search with fixed commitments can find an upper witness for the full model. For a lower bound the two complementary branches must both be covered. The source methods are described by the \href{https://github.com/power-grid-lib/pglib-uc/blob/39a7f38cf4703de92f0291f0c873c2e98c789301/MODEL.tex}{PGLib-UC formulation} and \href{https://doi.org/10.1287/ijoc.2019.0944}{Knueven, Ostrowski and Watson}.
+
+\begin{center}\small\begin{tabular}{lrrrrrr}\toprule
+Date (2020) & Hours & Witness $U$ & Primary $L$ & Ceiling (\%) & Native gap (\%) & Primary s\\\midrule
+02-09 & 8 & 439,304 & 438,194 & 0.252 & 0.074 & 1.10\\
+02-09 & 24 & 1,271,466 & 1,249,864 & 1.699 & 1.309 & 33.61\\
+09-20 & 8 & 234,414 & 232,709 & 0.727 & 0.149 & 31.21\\
+09-20 & 24 & 1,375,649 & 1,370,870 & 0.347 & 0.062 & 13.24\\
+\bottomrule\end{tabular}\end{center}
+The native gap is the solver's own numerical claim. February 24-hour and September 8-hour calls reached the 30-second MILP time limit; September 8-hour still obtained a rigorous exclusion. The February 24-hour primary split improved its exact LP floor but left 1.699\% open. A post hoc 31-node, 16-leaf tree reduced the ceiling to 1.634\% in another 20.00 s. Each split covers both integer values; a failed node without a checked infeasibility proof must retain its parent floor.
+
+\textbf{Validation failures.} The first exact multiplier encoding exceeded Python's integer serialization limit. A common decimal multiplier grid fixed the transport. More consequentially, a Pyomo bound accessor silently rounded some decimal right-hand sides, and native variable ordering failed cross-process replay. The reissued models extract the original bounds and serialize canonical row and column names. All four schedules passed 55,338 independent original-formulation row evaluations, exact objective checks, startup-category checks and supply/reserve reconstruction. Earlier attempted records are preserved under \path{C/diagnostics/}; only the reissued certificates earn the reported exclusions. A distinct checker also tested 4,515 edge-cut and 3,418 clique-cut identities on exact rank-one controls. These checks assess the certificate implementations; they supply no grid population estimate.
+\section{Disposition and independent review}
+\begin{tabularx}{\linewidth}{@{}p{.16\linewidth}Xp{.29\linewidth}@{}}
+\toprule
+Direction & Advance or retire & Evidence needed to change the decision\\\midrule
+COA foundations & Adopt weak-duality and contract checks as the first step in a research proposal. The information-penalty example can tighten the perfect-foresight ceiling. & A valid, affordable penalty on a realistic observation history; an independently validated model-to-proof translation.\\
+Screening & Retire automatic escalation through every tier on these small discrete paths. Keep cheap tests where a weak baseline, size or a hard deadline makes direct solving expensive. & Prospectively replicate marginal exclusion per end-to-end second against an implementation-appropriate exact or global comparator.\\
+Daily inventory & Retire repeated daily monetization of a single drawdown on a continuously operated battery under the verified flat tariff and equal-service assumptions. & A changed tariff or physical obligation, verified avoidable discharge, or a different starting/closing contract with actual recharge costs.\\
+Online decisions & Keep the coupled inventory experiment. Use the strongest tested stochastic policy as the next comparator. Gross policy comparisons remain specific to booked service and the tested reserve contract. & Auditable issued forecasts, actual reserve calls, nodal prices, calibrated lifetime cost, and risk/terminal matched operation on a new panel.\\
+AC and UC & Stop at the registered target on the closed cases. On open cases, measure the cost of tighter relaxations and independent branch proofs before developing another primal heuristic. & A feasible better dispatch or a tighter valid floor. Operational claims additionally require security constraints, outages and validated model inputs.\\\bottomrule
+\end{tabularx}
+
+\textbf{Economic boundary.} If the best provable gross improvement is $\Omega$ and a credible matched-horizon incremental cost floor is $K_{\min}$, net benefit cannot exceed $\Omega-K_{\min}$. No actual implementation, replacement, financing, telemetry or deployment-cost floor was supplied. In particular, gross synthetic site cash flow, solver wall time and avoided system resource cost are different quantities. The campaign supplies neither a regional dollar estimate nor a reliability or capacity accreditation result.
+
+\clearpage
+\section*{Reviewer replay and evidence map}
+Use \path{claims.csv} to locate each mathematical declaration, scenario, witness or failed test. Start with \path{B/results/lean/} for the core proof and \path{B/flat_review/} for the tariff identity. Check \path{A/analysis/cases.csv} against the archived shadow and timed records, \path{E/results/paired_paths.csv} against the issued forecasts and stock traces, and the \path{summary.json} records under \path{C/ac_results/} and \path{C/uc_results/} against the original data. C's signed lower witnesses and fixed-point upper enclosures can be replayed without rerunning the optimization. Each follow-up states its reuse of earlier cases and the stronger comparator or hypothesis it tests.
+
+The archive contains the unmodified v0.5 source, full W05 evidence archive and original independent review ZIP. Python, solver and mathlib pins are recorded under \path{requirements.txt}, \path{protocol/}, \path{B/formal/} and \path{C/source_lock.json}. The root checksum manifest covers each release member except itself. The accompanying extraction receipt identifies the ZIP and the checks rerun after extraction. Each measured clock is attached to the particular host and budget. No live operating system, market settlement or plant actuation was involved.
+
+\subsection*{Reproduce the result at the source}
+Extract the supplied ZIP into a private directory, enter \path{W06/}, install the Python packages pinned in \path{requirements.txt} into a new environment, and choose a new audit directory outside the packet. The numerical audit uses the archived witnesses and bounded offline historical inputs. The Lean flags request a new build with the pinned compiler and package checkouts.
+\begin{verbatim}
+python3 reproduce.py integrity
+python3 reproduce.py audit --out /tmp/crgc-w06-audit
+python3 reproduce.py audit --out /tmp/crgc-w06-proof-audit \
+    --lean "$LEAN_BIN" --packages "$PACKAGES"
+\end{verbatim}
+
+\begin{tabularx}{\linewidth}{@{}p{.19\linewidth}Xp{.27\linewidth}@{}}
+\toprule
+Reviewer question & First object to inspect & A result worth reporting\\\midrule
+Can the stop give the wrong answer at equality? & \path{B/formal/Tests.lean} and the intentionally rejected variants. Compare an attained minimum with a strictly unattained lower bound. & A claimed weak-target exclusion with a valid equality witness.\\
+Did a case disappear? & \path{A/analysis/cases.csv}, the design's equal weights, and the complete application-level denominators. & A missing/ineligible row counted as a stop, or a solver timeout counted as a certificate.\\
+Did an online policy see the future? & \path{E/inputs/} and \path{protocol/reviews/E_forecast_and_reserve.md}. Replay decisions using only the issued array. & An action requiring an unrevealed forecast innovation or an unmatched obligation.\\
+Would the battery actually deliver? & \path{E/reserve_activation_followup/}. Check the original state, activated command, feeder, stock, ramp and recovery path. & Any infeasible call under the precise one-call contract, or a claim that standby costs include an activated trajectory.\\
+Does the network certificate bound the original problem? & \path{C/independent_review/}. Recheck both ends of a phase-shifting line, the Hermitian signs and the original startup/production constraints. & A valid feasible point cut away by a lower relaxation, an unclosed branch, or a feasible-versus-native objective discrepancy.\\\bottomrule
+\end{tabularx}
+
+The packet preserves intermediate UC attempts, the exploratory reuse of holdout cases, competing policy wins, and every unresolved interval. A new operating context requires a new contract, feasible baseline, source lock and uncertainty assessment before reusing any stopping decision.
+\end{document}
+
