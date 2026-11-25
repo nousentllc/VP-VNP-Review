@@ -6,6 +6,8 @@ The first Git checkpoint, `review-2026-11-24`, captures passes 1–4 together. T
 
 [Read the cumulative research report (PDF)](report/VP_VNP_Research_Review.pdf) or [open its editable TeX source](report/VP_VNP_Research_Review.tex). The report updates the nine-pass edition with the simultaneous extension in A.7 and A.8.
 
+[Download the complete ten-pass packet](handoff/VP_VNP_Review_2026-11-25_pass10.zip). It contains all 374 research files from commit `5ee75d1`, including the PDF, TeX, logo, pinned manuscript and full C.1 replay and A.7/A.8 verification records. ZIP SHA-256 `8540079c2ee44e2ddf9c3d7667227fc7e9411ad52e82eabab82fdd0c4e020f9a`.
+
 The [archived nine-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/8295d58c59adeaa750235483330bba66475828c1/handoff/VP_VNP_Review_2026-11-24_pass09.zip) preserves the handoff from research commit `f6909ed`.
 
 The [archived eight-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/7af4005af05cad5fac6ba184a24704b7b15f5465/handoff/VP_VNP_Review_2026-11-24_pass08.zip) preserves the handoff from research commit `8ee44fe`.
