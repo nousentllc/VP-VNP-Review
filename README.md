@@ -6,6 +6,8 @@ The first Git checkpoint, `review-2026-11-24`, captures passes 1–4 together. T
 
 [Read the cumulative research report (PDF)](report/VP_VNP_Research_Review.pdf) or [open its editable TeX source](report/VP_VNP_Research_Review.tex). The report updates Edition 5 of the Markdown handoff through pass 9.
 
+[Download the complete nine-pass packet](handoff/VP_VNP_Review_2026-11-24_pass09.zip). It contains all 369 research files from commit `f6909ed`, including the PDF, TeX, logo, pinned manuscript and full C.1 replay record. ZIP SHA-256 `1a2227d6cf7fe90685707ef7270571931b3e11a67f12d7826b0bf7385a6a90e3`.
+
 The [archived eight-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/7af4005af05cad5fac6ba184a24704b7b15f5465/handoff/VP_VNP_Review_2026-11-24_pass08.zip) preserves the handoff from research commit `8ee44fe`.
 
 The [archived seven-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/ec35fabf2077827a470a6d02151da905cdef97aa/handoff/VP_VNP_Review_2026-11-24_pass07.zip) preserves the earlier handoff from research commit `c5d9ac1`.
