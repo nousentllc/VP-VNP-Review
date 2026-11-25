@@ -1,0 +1,11 @@
+Verified publisher tree, 333 files, and the separate checker blob.
+Verified 57 distinct claim IDs, populated fields and local line anchors.
+Verified the source hashes and recorded outcomes of 18 earlier controls.
+Reproduced pass14a_flat byte for byte.
+Reproduced pass14b_tower byte for byte.
+Reproduced pass14c_compiler byte for byte.
+Reviewed all native module diagnostics; only the five expected challenge placeholders appear.
+Verified 324 publisher source hashes and build results, 5 isolated signature pairs, 10 intermediate types, and 22 axiom readbacks.
+Verified the independent /12 circuit readback and the Paper.Rate object cross-reference.
+Verified Linux artifact bytes and all three members, the full build warning audit, both theorem exports, and both kernels' acceptance of the solution.
+Edition 11 source, coverage, receipts and finite controls agree. This command did not invoke Lean or Comparator.

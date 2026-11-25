@@ -1,0 +1,19 @@
+{
+  "checked_at_utc": "2026-11-25T21:52:35.078516+00:00",
+  "verified_head": "b96a0a7e6b66421b7de6793e31fa17b38c0fbb62",
+  "edition": 11,
+  "passes": 14,
+  "research_commit": "bf956990d0f1f0002fa08989433ed51c32168b2a",
+  "publisher_pin": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "visibility": "public; preserved as explicitly requested",
+  "archive_files_checked_against_research_commit": 478,
+  "archive_sha256": "637c97d243108169d22faec01a4d494c55a939fa56af810ca14ca43692031af6",
+  "offline_verifier_exit": 0,
+  "claim_ids": 57,
+  "publisher_sources": 333,
+  "native_module_receipts": 324,
+  "theorem_signature_pairs": 5,
+  "finite_controls_reproduced": 3,
+  "new_Lean_or_Comparator_run": false,
+  "scope": "Verified current release bytes, historical receipts, coverage anchors and finite controls. Does not newly establish manuscript/formal-model equivalence or transfer any VP–VNP theorem to RCMG."
+}
