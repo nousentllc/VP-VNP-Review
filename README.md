@@ -38,7 +38,7 @@ mkdir -p /tmp/vp-vnp-review-pdf
 
 ## Review packets
 
-The packet beside this report contains the pinned publisher sources, this edition’s report and the executable evidence. Its file count and digest are recorded in the publication commit.
+[Download the complete Edition 11 packet](handoff/VP_VNP_Review_2026-11-25_pass14.zip). Its 478 verified files reproduce the research tree at commit `bf956990d0f1f0002fa08989433ed51c32168b2a`, including the 53-page PDF, editable sources, publisher release and execution receipts. ZIP SHA-256 `637c97d243108169d22faec01a4d494c55a939fa56af810ca14ca43692031af6`.
 
 The [archived thirteen-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/3754047be3854ef313df17ae5117c6ca5a66b4b8/handoff/VP_VNP_Review_2026-11-25_pass13.zip) preserves Edition 10 from research commit 4350383. Its ZIP SHA-256 is 06523551fe89e37d9b691c2ff05cf98a2cf65c646d1abb3a38ed381a17e09cea.
 
