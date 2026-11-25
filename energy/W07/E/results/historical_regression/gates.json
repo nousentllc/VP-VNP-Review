@@ -1,0 +1,135 @@
+{
+  "cases": [
+    {
+      "seed": 69103,
+      "days": 7,
+      "feasible": true,
+      "offline_cents": 3554390,
+      "wall_ns": 1973708
+    },
+    {
+      "seed": 69119,
+      "days": 7,
+      "feasible": true,
+      "offline_cents": 3945860,
+      "wall_ns": 1971208
+    },
+    {
+      "seed": 69143,
+      "days": 7,
+      "feasible": true,
+      "offline_cents": 4154440,
+      "wall_ns": 2059500
+    },
+    {
+      "seed": 69157,
+      "days": 7,
+      "feasible": true,
+      "offline_cents": 3612950,
+      "wall_ns": 1948125
+    },
+    {
+      "seed": 69179,
+      "days": 7,
+      "feasible": true,
+      "offline_cents": 3864980,
+      "wall_ns": 2036084
+    },
+    {
+      "seed": 69203,
+      "days": 7,
+      "feasible": true,
+      "offline_cents": 3552760,
+      "wall_ns": 2026291
+    },
+    {
+      "seed": 69221,
+      "days": 7,
+      "feasible": true,
+      "offline_cents": 3891930,
+      "wall_ns": 1932792
+    },
+    {
+      "seed": 69239,
+      "days": 7,
+      "feasible": true,
+      "offline_cents": 4084140,
+      "wall_ns": 1911500
+    },
+    {
+      "seed": 69103,
+      "days": 30,
+      "feasible": true,
+      "offline_cents": 16497020,
+      "wall_ns": 8489125
+    },
+    {
+      "seed": 69119,
+      "days": 30,
+      "feasible": true,
+      "offline_cents": 17011100,
+      "wall_ns": 8350541
+    },
+    {
+      "seed": 69143,
+      "days": 30,
+      "feasible": true,
+      "offline_cents": 17078910,
+      "wall_ns": 8897333
+    },
+    {
+      "seed": 69157,
+      "days": 30,
+      "feasible": true,
+      "offline_cents": 15881700,
+      "wall_ns": 8261000
+    },
+    {
+      "seed": 69179,
+      "days": 30,
+      "feasible": true,
+      "offline_cents": 16484750,
+      "wall_ns": 8169708
+    },
+    {
+      "seed": 69203,
+      "days": 30,
+      "feasible": true,
+      "offline_cents": 16691330,
+      "wall_ns": 8846958
+    },
+    {
+      "seed": 69221,
+      "days": 30,
+      "feasible": true,
+      "offline_cents": 17012710,
+      "wall_ns": 10723083
+    },
+    {
+      "seed": 69239,
+      "days": 30,
+      "feasible": true,
+      "offline_cents": 17766970,
+      "wall_ns": 8349458
+    }
+  ],
+  "inputs_sha256": {
+    "69103_7": "4c4db3f086a0f6fb51a1a8f2d71ed621269752c5eacb3c68b80d573f60ac1dd6",
+    "69119_7": "9a40b4bd859f2ed42d9776b66ae7822c9efd8f64de0519bd5bb79f04db80e407",
+    "69143_7": "addea7bb84bb9ad427daedafa20e6a0a1b731fa33a7006ba9405a3d01f768bce",
+    "69157_7": "2049fcb8ac872276d77047c22968c1a9d83f03540313df6b6bfaac9bdb56c01e",
+    "69179_7": "4315705c14d4e12f2a774cbe6e53d256058e2aab7efdd1dab656e3d880b38b80",
+    "69203_7": "54b07953b6fd730ec84f6eae016429bf86d7ef612ff427e2b614fe605e25636c",
+    "69221_7": "13a090dc31372f775a88287c4891095a2675d2c03889f3888c7b4a7d1f833774",
+    "69239_7": "d0d13f4e97439b9a2df06040c326394ba1c4ed45751bbe9e7fb41cadef5a3a61",
+    "69103_30": "7fec2c5df934c90955207341d32a19d2ab99cd76e87026a0f52c3a0cf8112039",
+    "69119_30": "f27eaf265c2afd2209624d162e39a8f7e7010b0cdf7b8e53801bd2030a923bd8",
+    "69143_30": "df906fead5562962bd09dd5dd8b97369d0a5b911f30c60f93dccb37ee016cd03",
+    "69157_30": "88e170486347e70b8d3fed4520d799e850f7354c9134cb714e4b29c982b2bc4d",
+    "69179_30": "b3c4ffb9ef549c4c048ff493329a697e338dbd562d2660c267cc47337a260335",
+    "69203_30": "b88260a295c1eaa584d11dda76004c5e9a6e9d06d9c66ad9a13f696c677b6d89",
+    "69221_30": "7acfac18a52f763ccb98a9d057295ea12f094671073fde13962cdcc8d20cbc50",
+    "69239_30": "4b476b229c5e6a742229e58c0e66fd4bff7738977e3eca66216a4598cc1b631c"
+  },
+  "gate_complete_before_holdout_policy_costing": true
+}

@@ -1,0 +1,9 @@
+{
+  "byte_identical_deterministic_files": 403,
+  "deterministic_bytes": 1180769,
+  "certificates": 192,
+  "policy_trajectory_files": 192,
+  "frozen_cases": 12,
+  "summary_all_fields_structurally_identical": true,
+  "audit_counts_equal_excluding_elapsed_time": true
+}

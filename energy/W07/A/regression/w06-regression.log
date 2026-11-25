@@ -1,0 +1,1 @@
+{"case_objectives": 144, "controls": 8, "eligible": 140, "verified_comparisons_including_controls": {"native_primal_equals_DP": 148, "native_dual_matches_DP_to_1e-6": 148}, "mutations": {"infeasible_SOC_witness_rejected": true, "wrong_inequality_sign_rejected": true, "missing_panel_row_rejected": true}, "independent_backward_arcs": 267606}

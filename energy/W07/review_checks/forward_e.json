@@ -1,0 +1,42 @@
+{
+  "cases": 192,
+  "issued_future_rows": 8712,
+  "immediate_rows": 864,
+  "ledger_hours": 49994,
+  "policy_key_count": 27047,
+  "load_observed": [
+    18,
+    48
+  ],
+  "robust_three_fallback_hours": 0,
+  "per_budget": {
+    "0": {
+      "gain_USD_day": "-587/120",
+      "ceiling_USD_day": "2368/45",
+      "excluded": 4
+    },
+    "1": {
+      "gain_USD_day": "-889/160",
+      "ceiling_USD_day": "15829/288",
+      "excluded": 1
+    },
+    "2": {
+      "gain_USD_day": "-413/60",
+      "ceiling_USD_day": "8361/160",
+      "excluded": 1
+    },
+    "4": {
+      "gain_USD_day": "-2441/360",
+      "ceiling_USD_day": "92351/1440",
+      "excluded": 0
+    }
+  },
+  "looser_path_floor_diff": 135,
+  "strongest_scope_counterexample": {
+    "seed": 73433,
+    "K": 2,
+    "cal": "standby",
+    "L": 1659660,
+    "unshielded": 1623060
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "compared_command_truth_values": 230000,
+  "kernel_sha256": "ea7e15ce61a4603845165101cc29f7ac91a7a7af2428c76b97693a50ab49dc9e",
+  "preobservation_occupancy_bits": 18000,
+  "strict_adjacent_budget_state_time_cells": 178,
+  "terminal_states_and_budgets": 250,
+  "viable_commands": 87571
+}

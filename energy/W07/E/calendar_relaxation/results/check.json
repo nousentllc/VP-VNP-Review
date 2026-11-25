@@ -1,0 +1,517 @@
+{
+  "groups": [
+    {
+      "K": 0,
+      "mean_PF_ceiling_USD_day": 52.62222222222222,
+      "mean_partial_ceiling_USD_day": 52.62222222222222,
+      "hidden_calendar_tightening_USD_day": 0.0,
+      "exclusions_over_seed_means": 1
+    },
+    {
+      "K": 1,
+      "mean_PF_ceiling_USD_day": 54.96180555555556,
+      "mean_partial_ceiling_USD_day": 54.38194444444444,
+      "hidden_calendar_tightening_USD_day": 0.5798611111111112,
+      "exclusions_over_seed_means": 0
+    },
+    {
+      "K": 2,
+      "mean_PF_ceiling_USD_day": 52.25625,
+      "mean_partial_ceiling_USD_day": 49.49652777777778,
+      "hidden_calendar_tightening_USD_day": 2.7597222222222224,
+      "exclusions_over_seed_means": 0
+    },
+    {
+      "K": 4,
+      "mean_PF_ceiling_USD_day": 64.13263888888889,
+      "mean_partial_ceiling_USD_day": 61.40416666666667,
+      "hidden_calendar_tightening_USD_day": 2.7284722222222224,
+      "exclusions_over_seed_means": 0
+    }
+  ],
+  "panels": [
+    {
+      "seed": 73091,
+      "K": 0,
+      "baseline_sum": 6511160,
+      "PF_sum": 6477080,
+      "partial_sum": 6477080,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 28.4,
+      "excludes": false
+    },
+    {
+      "seed": 73091,
+      "K": 1,
+      "baseline_sum": 6530210,
+      "PF_sum": 6490510,
+      "partial_sum": 6490840,
+      "reduction_USD_per_site_day": 0.275,
+      "remaining_USD_per_site_day": 32.80833333333333,
+      "excludes": false
+    },
+    {
+      "seed": 73091,
+      "K": 2,
+      "baseline_sum": 6549820,
+      "PF_sum": 6504840,
+      "partial_sum": 6507050,
+      "reduction_USD_per_site_day": 1.8416666666666666,
+      "remaining_USD_per_site_day": 35.641666666666666,
+      "excludes": false
+    },
+    {
+      "seed": 73091,
+      "K": 4,
+      "baseline_sum": 6597190,
+      "PF_sum": 6523540,
+      "partial_sum": 6525750,
+      "reduction_USD_per_site_day": 1.8416666666666666,
+      "remaining_USD_per_site_day": 59.53333333333333,
+      "excludes": false
+    },
+    {
+      "seed": 73127,
+      "K": 0,
+      "baseline_sum": 5993480,
+      "PF_sum": 5961000,
+      "partial_sum": 5961000,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 27.066666666666666,
+      "excludes": false
+    },
+    {
+      "seed": 73127,
+      "K": 1,
+      "baseline_sum": 6000290,
+      "PF_sum": 5969880,
+      "partial_sum": 5971090,
+      "reduction_USD_per_site_day": 1.0083333333333333,
+      "remaining_USD_per_site_day": 24.333333333333332,
+      "excludes": false
+    },
+    {
+      "seed": 73127,
+      "K": 2,
+      "baseline_sum": 6017300,
+      "PF_sum": 5986070,
+      "partial_sum": 5994380,
+      "reduction_USD_per_site_day": 6.925,
+      "remaining_USD_per_site_day": 19.1,
+      "excludes": false
+    },
+    {
+      "seed": 73127,
+      "K": 4,
+      "baseline_sum": 6084680,
+      "PF_sum": 6035800,
+      "partial_sum": 6044480,
+      "reduction_USD_per_site_day": 7.233333333333333,
+      "remaining_USD_per_site_day": 33.5,
+      "excludes": false
+    },
+    {
+      "seed": 73171,
+      "K": 0,
+      "baseline_sum": 6272760,
+      "PF_sum": 6124600,
+      "partial_sum": 6124600,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 123.46666666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73171,
+      "K": 1,
+      "baseline_sum": 6289480,
+      "PF_sum": 6136530,
+      "partial_sum": 6137520,
+      "reduction_USD_per_site_day": 0.825,
+      "remaining_USD_per_site_day": 126.63333333333334,
+      "excludes": false
+    },
+    {
+      "seed": 73171,
+      "K": 2,
+      "baseline_sum": 6273390,
+      "PF_sum": 6140060,
+      "partial_sum": 6141730,
+      "reduction_USD_per_site_day": 1.3916666666666666,
+      "remaining_USD_per_site_day": 109.71666666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73171,
+      "K": 4,
+      "baseline_sum": 6315640,
+      "PF_sum": 6153700,
+      "partial_sum": 6154430,
+      "reduction_USD_per_site_day": 0.6083333333333333,
+      "remaining_USD_per_site_day": 134.34166666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73217,
+      "K": 0,
+      "baseline_sum": 6701560,
+      "PF_sum": 6651600,
+      "partial_sum": 6651600,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 41.63333333333333,
+      "excludes": false
+    },
+    {
+      "seed": 73217,
+      "K": 1,
+      "baseline_sum": 6718150,
+      "PF_sum": 6661340,
+      "partial_sum": 6662140,
+      "reduction_USD_per_site_day": 0.6666666666666666,
+      "remaining_USD_per_site_day": 46.675,
+      "excludes": false
+    },
+    {
+      "seed": 73217,
+      "K": 2,
+      "baseline_sum": 6716880,
+      "PF_sum": 6659630,
+      "partial_sum": 6660700,
+      "reduction_USD_per_site_day": 0.8916666666666667,
+      "remaining_USD_per_site_day": 46.81666666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73217,
+      "K": 4,
+      "baseline_sum": 6725900,
+      "PF_sum": 6661290,
+      "partial_sum": 6661890,
+      "reduction_USD_per_site_day": 0.5,
+      "remaining_USD_per_site_day": 53.34166666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73261,
+      "K": 0,
+      "baseline_sum": 6533440,
+      "PF_sum": 6469280,
+      "partial_sum": 6469280,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 53.46666666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73261,
+      "K": 1,
+      "baseline_sum": 6545160,
+      "PF_sum": 6478580,
+      "partial_sum": 6478580,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 55.483333333333334,
+      "excludes": false
+    },
+    {
+      "seed": 73261,
+      "K": 2,
+      "baseline_sum": 6569040,
+      "PF_sum": 6500050,
+      "partial_sum": 6500050,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 57.49166666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73261,
+      "K": 4,
+      "baseline_sum": 6568660,
+      "PF_sum": 6495420,
+      "partial_sum": 6496890,
+      "reduction_USD_per_site_day": 1.225,
+      "remaining_USD_per_site_day": 59.80833333333333,
+      "excludes": false
+    },
+    {
+      "seed": 73303,
+      "K": 0,
+      "baseline_sum": 6727720,
+      "PF_sum": 6710120,
+      "partial_sum": 6710120,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 14.666666666666666,
+      "excludes": true
+    },
+    {
+      "seed": 73303,
+      "K": 1,
+      "baseline_sum": 6752440,
+      "PF_sum": 6726580,
+      "partial_sum": 6726580,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 21.55,
+      "excludes": false
+    },
+    {
+      "seed": 73303,
+      "K": 2,
+      "baseline_sum": 6784210,
+      "PF_sum": 6747950,
+      "partial_sum": 6750820,
+      "reduction_USD_per_site_day": 2.3916666666666666,
+      "remaining_USD_per_site_day": 27.825,
+      "excludes": false
+    },
+    {
+      "seed": 73303,
+      "K": 4,
+      "baseline_sum": 6798140,
+      "PF_sum": 6754200,
+      "partial_sum": 6756100,
+      "reduction_USD_per_site_day": 1.5833333333333333,
+      "remaining_USD_per_site_day": 35.03333333333333,
+      "excludes": false
+    },
+    {
+      "seed": 73347,
+      "K": 0,
+      "baseline_sum": 6097440,
+      "PF_sum": 5993720,
+      "partial_sum": 5993720,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 86.43333333333334,
+      "excludes": false
+    },
+    {
+      "seed": 73347,
+      "K": 1,
+      "baseline_sum": 6105400,
+      "PF_sum": 5995790,
+      "partial_sum": 5995790,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 91.34166666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73347,
+      "K": 2,
+      "baseline_sum": 6113350,
+      "PF_sum": 6007220,
+      "partial_sum": 6009080,
+      "reduction_USD_per_site_day": 1.55,
+      "remaining_USD_per_site_day": 86.89166666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73347,
+      "K": 4,
+      "baseline_sum": 6186100,
+      "PF_sum": 6058300,
+      "partial_sum": 6061420,
+      "reduction_USD_per_site_day": 2.6,
+      "remaining_USD_per_site_day": 103.9,
+      "excludes": false
+    },
+    {
+      "seed": 73391,
+      "K": 0,
+      "baseline_sum": 7640440,
+      "PF_sum": 7524880,
+      "partial_sum": 7524880,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 96.3,
+      "excludes": false
+    },
+    {
+      "seed": 73391,
+      "K": 1,
+      "baseline_sum": 7632230,
+      "PF_sum": 7528850,
+      "partial_sum": 7528850,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 86.15,
+      "excludes": false
+    },
+    {
+      "seed": 73391,
+      "K": 2,
+      "baseline_sum": 7628420,
+      "PF_sum": 7551670,
+      "partial_sum": 7559920,
+      "reduction_USD_per_site_day": 6.875,
+      "remaining_USD_per_site_day": 57.083333333333336,
+      "excludes": false
+    },
+    {
+      "seed": 73391,
+      "K": 4,
+      "baseline_sum": 7648440,
+      "PF_sum": 7593250,
+      "partial_sum": 7599290,
+      "reduction_USD_per_site_day": 5.033333333333333,
+      "remaining_USD_per_site_day": 40.958333333333336,
+      "excludes": false
+    },
+    {
+      "seed": 73433,
+      "K": 0,
+      "baseline_sum": 6530680,
+      "PF_sum": 6492240,
+      "partial_sum": 6492240,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 32.03333333333333,
+      "excludes": false
+    },
+    {
+      "seed": 73433,
+      "K": 1,
+      "baseline_sum": 6558280,
+      "PF_sum": 6518310,
+      "partial_sum": 6518460,
+      "reduction_USD_per_site_day": 0.125,
+      "remaining_USD_per_site_day": 33.18333333333333,
+      "excludes": false
+    },
+    {
+      "seed": 73433,
+      "K": 2,
+      "baseline_sum": 6585460,
+      "PF_sum": 6552670,
+      "partial_sum": 6554920,
+      "reduction_USD_per_site_day": 1.875,
+      "remaining_USD_per_site_day": 25.45,
+      "excludes": false
+    },
+    {
+      "seed": 73433,
+      "K": 4,
+      "baseline_sum": 6652560,
+      "PF_sum": 6592670,
+      "partial_sum": 6594680,
+      "reduction_USD_per_site_day": 1.675,
+      "remaining_USD_per_site_day": 48.233333333333334,
+      "excludes": false
+    },
+    {
+      "seed": 73477,
+      "K": 0,
+      "baseline_sum": 5622120,
+      "PF_sum": 5565280,
+      "partial_sum": 5565280,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 47.36666666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73477,
+      "K": 1,
+      "baseline_sum": 5631990,
+      "PF_sum": 5578420,
+      "partial_sum": 5578420,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 44.641666666666666,
+      "excludes": false
+    },
+    {
+      "seed": 73477,
+      "K": 2,
+      "baseline_sum": 5650580,
+      "PF_sum": 5598300,
+      "partial_sum": 5603810,
+      "reduction_USD_per_site_day": 4.591666666666667,
+      "remaining_USD_per_site_day": 38.975,
+      "excludes": false
+    },
+    {
+      "seed": 73477,
+      "K": 4,
+      "baseline_sum": 5696970,
+      "PF_sum": 5619840,
+      "partial_sum": 5625210,
+      "reduction_USD_per_site_day": 4.475,
+      "remaining_USD_per_site_day": 59.8,
+      "excludes": false
+    },
+    {
+      "seed": 73519,
+      "K": 0,
+      "baseline_sum": 5730400,
+      "PF_sum": 5691680,
+      "partial_sum": 5691680,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 32.266666666666666,
+      "excludes": false
+    },
+    {
+      "seed": 73519,
+      "K": 1,
+      "baseline_sum": 5727630,
+      "PF_sum": 5690670,
+      "partial_sum": 5691220,
+      "reduction_USD_per_site_day": 0.4583333333333333,
+      "remaining_USD_per_site_day": 30.341666666666665,
+      "excludes": false
+    },
+    {
+      "seed": 73519,
+      "K": 2,
+      "baseline_sum": 5731640,
+      "PF_sum": 5689020,
+      "partial_sum": 5690560,
+      "reduction_USD_per_site_day": 1.2833333333333334,
+      "remaining_USD_per_site_day": 34.233333333333334,
+      "excludes": false
+    },
+    {
+      "seed": 73519,
+      "K": 4,
+      "baseline_sum": 5764790,
+      "PF_sum": 5706200,
+      "partial_sum": 5709510,
+      "reduction_USD_per_site_day": 2.7583333333333333,
+      "remaining_USD_per_site_day": 46.06666666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73561,
+      "K": 0,
+      "baseline_sum": 7041920,
+      "PF_sum": 6983880,
+      "partial_sum": 6983880,
+      "reduction_USD_per_site_day": 0.0,
+      "remaining_USD_per_site_day": 48.36666666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73561,
+      "K": 1,
+      "baseline_sum": 7075760,
+      "PF_sum": 7000110,
+      "partial_sum": 7004430,
+      "reduction_USD_per_site_day": 3.6,
+      "remaining_USD_per_site_day": 59.44166666666667,
+      "excludes": false
+    },
+    {
+      "seed": 73561,
+      "K": 2,
+      "baseline_sum": 7093490,
+      "PF_sum": 7023610,
+      "partial_sum": 7027810,
+      "reduction_USD_per_site_day": 3.5,
+      "remaining_USD_per_site_day": 54.733333333333334,
+      "excludes": false
+    },
+    {
+      "seed": 73561,
+      "K": 4,
+      "baseline_sum": 7126230,
+      "PF_sum": 7047580,
+      "partial_sum": 7051430,
+      "reduction_USD_per_site_day": 3.2083333333333335,
+      "remaining_USD_per_site_day": 62.333333333333336,
+      "excludes": false
+    }
+  ],
+  "branches": 1356206,
+  "edges": 1345247,
+  "checker_seconds": 2.2197473749984056
+}

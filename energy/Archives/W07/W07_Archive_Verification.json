@@ -1,0 +1,255 @@
+{
+  "verified_utc": "2026-11-25T15:38:41.084952+00:00",
+  "archive": "W07_Energy_Experiments.zip",
+  "sha256": "415e55427ec281d94f123bb588ddc644100952386516da86d08872136b21b11b",
+  "archive_bytes": 6633409,
+  "zip_members": 759,
+  "manifest_entries": 758,
+  "zip_crc_passed": true,
+  "all_members_match_fresh_extraction_and_delivered_source": true,
+  "embedded_manifest_sha256": "001bd70d290f21f9512b213081e1b3b8ae390f5ebfabd290e49ac98c1a514450",
+  "claim_count": 44,
+  "claim_ledger_sha256": "938b5dc223999fcb94b0c10452cd723b7c6c6121a9081d7415f7bf6932458585",
+  "compiled_pdfs": {
+    "W07_Results.pdf": {
+      "pages": 10,
+      "sha256": "0deaf64d21c3b2c83d044da3083990b31a3020fa528754366d9d6c958669b8b4",
+      "visual_inspection": "all rendered pages inspected; final build has no unresolved references or overfull boxes"
+    },
+    "CRGC_Whitepaper_v0.6.pdf": {
+      "pages": 91,
+      "sha256": "86eb920486311017fdcc0e3894630e6c595b45330308feb9785023038993e530",
+      "visual_inspection": "all rendered pages inspected; final build has no unresolved references or overfull boxes"
+    }
+  },
+  "standalone_report_tex_sha256": "4b9998dafee1925048a877281af31bd686613698326bfd179d0d241f437cc1e2",
+  "master_source_sha256": "3de842fae522bdc3c77975f4a2d34011b000cf7a1f7f8cca854e218c098c9598",
+  "ordered_master_blocks": 26,
+  "master_native_lines": 2085,
+  "checks": {
+    "A": {
+      "steps": {
+        "A_verify": {
+          "returncode": 0,
+          "seconds": 0.4925087920855731
+        },
+        "A_strong_baseline": {
+          "returncode": 0,
+          "seconds": 0.15467716590501368
+        },
+        "A_regression": {
+          "returncode": 0,
+          "seconds": 0.40023854095488787
+        },
+        "A_fresh": {
+          "returncode": 0,
+          "seconds": 9.18149883300066
+        },
+        "A_fresh_verify": {
+          "returncode": 0,
+          "seconds": 0.47484387503936887
+        }
+      },
+      "track_wall_seconds": 10.804653917206451,
+      "logs_sha256": {
+        "A_fresh.log": "be3ecd41f0e4bf49058e4b85a9a1de46204156c8847fd8e4416a9ce29fc870e6",
+        "A_fresh.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "A_fresh_verify.log": "2191a16b0738e64e492f3b38968f8c92f7bde60d08144d42491c9bce43aa5a1b",
+        "A_fresh_verify.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "A_regression.log": "0328b4de08238e02c622d2053b758142a3969eb3b46b8618f893ae7be4b6fdfa",
+        "A_regression.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "A_strong_baseline.log": "4db5a3508d41ed4af75a366742f4c976ffa808f8f3adff3c41058efb03434b0d",
+        "A_strong_baseline.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "A_verify.log": "2191a16b0738e64e492f3b38968f8c92f7bde60d08144d42491c9bce43aa5a1b",
+        "A_verify.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "B": {
+      "steps": {
+        "B_controls": {
+          "returncode": 0,
+          "seconds": 0.38948466698639095
+        },
+        "B_correspondence_A": {
+          "returncode": 0,
+          "seconds": 0.20860433299094439
+        },
+        "B_correspondence_E": {
+          "returncode": 0,
+          "seconds": 0.15044454182498157
+        },
+        "B_lean": {
+          "returncode": 0,
+          "seconds": 31.56347450008616
+        },
+        "B_real": {
+          "returncode": 0,
+          "seconds": 8.591046499786898
+        }
+      },
+      "track_wall_seconds": 41.00995304109529,
+      "logs_sha256": {
+        "B_controls.log": "52c4423b47e3855c0254729929df32f8d7eae119e42abbda9dc064f12baace6a",
+        "B_controls.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "B_correspondence_A.log": "e747eef53af25cd561a09336073d270a4fafe160be2d325c26cc79bef933decb",
+        "B_correspondence_A.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "B_correspondence_E.log": "972f35d7e3a0f0f6714166c4e71aeac52faef8333dc05b1ff4820d5307572983",
+        "B_correspondence_E.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "B_lean.log": "bc62823390c52612bb428d0d560dc7bb69b3144eb121d54e32bdb49f90cbf5a6",
+        "B_lean.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "B_real.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "B_real.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "C": {
+      "steps": {
+        "C_certificates": {
+          "returncode": 0,
+          "seconds": 48.32794583286159
+        },
+        "C_longer_witness": {
+          "returncode": 0,
+          "seconds": 2.6072693751193583
+        },
+        "C_official_longer_rows": {
+          "returncode": 0,
+          "seconds": 2.81108216708526
+        }
+      },
+      "track_wall_seconds": 53.83709500008263,
+      "logs_sha256": {
+        "C_certificates.log": "b510b4ad6fab4a934cb6266e6ec337292d03a6a517eea30934c97f339cf52f2e",
+        "C_certificates.stderr": "8b434cc69554a08c24adb475e5494231387ee8045cab6fcc6a0a0abeb74f1ed0",
+        "C_longer_witness.log": "b0523df4a17a219a9dc7c26f718fd6e138325a263dd247a04aded65f67862a46",
+        "C_longer_witness.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "C_official_longer_rows.log": "7f3def33b5533f3d5618aa92fdce597bce174f97cfd84236bf9d37dd1b2d4a92",
+        "C_official_longer_rows.stderr": "3f2b27bcfaa11ca4c52a914db9a64f74a4a8a6d44a2fc259267c29c7eb37e07b"
+      }
+    },
+    "E": {
+      "steps": {
+        "E_verify": {
+          "returncode": 0,
+          "seconds": 0.5576631249859929
+        },
+        "E_policy": {
+          "returncode": 0,
+          "seconds": 1.739807666046545
+        },
+        "E_calendar": {
+          "returncode": 0,
+          "seconds": 1.1372244579251856
+        },
+        "E_forward": {
+          "returncode": 0,
+          "seconds": 2.981659875018522
+        },
+        "E_historical": {
+          "returncode": 0,
+          "seconds": 5.576756250113249
+        },
+        "E_freeze": {
+          "returncode": 0,
+          "seconds": 0.12135933293029666
+        },
+        "E_fresh": {
+          "returncode": 0,
+          "seconds": 5.076467833016068
+        },
+        "E_cost": {
+          "returncode": 0,
+          "seconds": 0.30004124995321035
+        },
+        "E_compare": {
+          "returncode": 0,
+          "seconds": 0.07960075000301003
+        },
+        "E_fresh_calendar": {
+          "returncode": 0,
+          "seconds": 0.7163089581299573
+        },
+        "E_fresh_calendar_verify": {
+          "returncode": 0,
+          "seconds": 1.106682708952576
+        }
+      },
+      "track_wall_seconds": 19.635949708055705,
+      "logs_sha256": {
+        "E_calendar.log": "029fe16f58908542928ea5bfb18d7916d06c9adf24841c84d6743777a4b1b0a6",
+        "E_calendar.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_compare.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_compare.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_cost.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_cost.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_forward.log": "6b4ac3c85ac5c627ae689df5733eaf5214f26d2b0983e9f7d247ac32b23c3cde",
+        "E_forward.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_freeze.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_freeze.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_fresh.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_fresh.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_fresh_calendar.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_fresh_calendar.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_fresh_calendar_verify.log": "029fe16f58908542928ea5bfb18d7916d06c9adf24841c84d6743777a4b1b0a6",
+        "E_fresh_calendar_verify.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_historical.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_historical.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_policy.log": "3c703da0f5c3ea002c09c276e7b61c29f5ca777a2b2926b6492b38b8d8ecddee",
+        "E_policy.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "E_verify.log": "313c6869edbcdb8167c3e507cbf9dfed0830589b094172044bffb0fd669a118f",
+        "E_verify.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "master": {
+      "steps": {
+        "master_export": {
+          "returncode": 0,
+          "seconds": 0.04327404196374118
+        }
+      },
+      "track_wall_seconds": 0.13894549990072846,
+      "logs_sha256": {
+        "master_export.log": "9715a9f05e68699e574ab36aee2d34c00a4f42a78a280f010da599982498f58a",
+        "master_export.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "total_successful_replay_steps": 25,
+  "research_evidence": {
+    "core_lean_theorems": 31,
+    "exploratory_infimum_theorems": 4,
+    "deliberately_false_examples_rejected": 9,
+    "lean_source_dependencies": "Nine checked revisions. Fresh project-module builds and local kernel replay using supplied external compiler and previously built pinned libraries.",
+    "A": {
+      "checked": {
+        "causal_rows": 7845,
+        "center_count_rows": 1515,
+        "families": 15,
+        "scenario_leaves": 480,
+        "planted_witnesses": 3
+      },
+      "first_stop": {
+        "analytic": 3,
+        "PF": 3,
+        "prefix3": 5,
+        "prefix1": 1,
+        "demonstrated": 3
+      },
+      "wrong_target_classifications": 0
+    },
+    "E_fresh_match": {
+      "byte_identical_deterministic_files": 403,
+      "deterministic_bytes": 1180769,
+      "certificates": 192,
+      "policy_trajectory_files": 192,
+      "frozen_cases": 12,
+      "summary_all_fields_structurally_identical": true,
+      "audit_counts_equal_excluding_elapsed_time": true
+    },
+    "additional_UC_schedule": {
+      "original_rows_checked": 42899,
+      "exact_gain": "218581201/10000",
+      "cost_gain_pct": 1.0581987519124758
+    }
+  },
+  "scope": "Archive-external same-host receipt. All 25 replay stages ran from the final extraction. Fresh A/E generation and optimization, local Lean builds with kernel replay, original C witness and lower-bound checks, separate original-formulation and economic implementations. The release replay verified C certificates without repeating deadline-limited C solver searches. W07 experiments use public benchmarks and synthetic contracts. Independent reviewer adjudication and field replication remain pending."
+}

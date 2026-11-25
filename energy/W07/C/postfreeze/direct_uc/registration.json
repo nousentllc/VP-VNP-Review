@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-25T07:30:51.730004+00:00",
+  "classification": "Exploratory response to the single unresolved UC row, zero impact on original classification.",
+  "target": "On April 3 at 48h test a 120-second unrestricted HiGHS call, unchanged rows, thread, preset, seed and exact witness recovery. Evaluate actual percentage gain against immutable 30-second rational incumbent; retain failures, native gap and remaining certified room. One attempt.",
+  "source_sha256": "e831889f17cb0555cafe911b86e74a9af6188afebca8792cefaaa2c73a20e327"
+}

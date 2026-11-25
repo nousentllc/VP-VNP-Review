@@ -1,0 +1,23 @@
+{
+  "designation": "supplemental post-freeze reconstruction",
+  "families": 15,
+  "recovered_policy_values": 75,
+  "recovered_selected_actions": 945,
+  "winners": {
+    "72161": "idle",
+    "72167": "idle",
+    "72169": "idle",
+    "72307": "40",
+    "72313": "24",
+    "72337": "24",
+    "72421": "40",
+    "72431": "40",
+    "72461": "40",
+    "72503": "24",
+    "72533": "40",
+    "72547": "40",
+    "72613": "40",
+    "72643": "40",
+    "72647": "40"
+  }
+}

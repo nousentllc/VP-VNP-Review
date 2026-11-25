@@ -1,0 +1,29 @@
+{
+  "axioms": {
+    "W07.Extra.no_finite_lower_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Extra.penalized_infimum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Extra.real_infimum_trap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Extra.unbounded_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean": "Lean (version 4.30.0-rc2, arm64-apple-darwin24.6.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc, Release)",
+  "local_edges": 4,
+  "replay_exit": 0,
+  "seconds": 20.339825332863256,
+  "source_pins": 9
+}

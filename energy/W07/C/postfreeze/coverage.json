@@ -1,0 +1,38 @@
+{
+  "cases": [
+    {
+      "case": "pglib_opf_case162_ieee_dtc.m",
+      "physical_branches": 284,
+      "both_end_rows": 1136,
+      "exact_zero_width": 0,
+      "nonunity_taps": 31,
+      "nonzero_phase_shifts": 0
+    },
+    {
+      "case": "pglib_opf_case162_ieee_dtc__api.m",
+      "physical_branches": 284,
+      "both_end_rows": 1136,
+      "exact_zero_width": 0,
+      "nonunity_taps": 31,
+      "nonzero_phase_shifts": 0
+    },
+    {
+      "case": "pglib_opf_case60_c.m",
+      "physical_branches": 88,
+      "both_end_rows": 352,
+      "exact_zero_width": 0,
+      "nonunity_taps": 4,
+      "nonzero_phase_shifts": 0
+    },
+    {
+      "case": "pglib_opf_case60_c__api.m",
+      "physical_branches": 88,
+      "both_end_rows": 352,
+      "exact_zero_width": 0,
+      "nonunity_taps": 4,
+      "nonzero_phase_shifts": 0
+    }
+  ],
+  "synthetic_phase_reversal_detected_at_both_ends": true,
+  "precision_bits": 240
+}

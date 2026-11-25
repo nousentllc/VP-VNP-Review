@@ -1,0 +1,290 @@
+@W07.Info.strengthen : ∀ {S : Type u_1} {T : Type u_2} {A : Type u_3} (F : Set (T → S → A)) (D E : T → S → S → Prop),
+  (∀ (t : T) (i j : S), D t i j → E t i j) → W07.Info.relaxedDomain F E ⊆ W07.Info.relaxedDomain F D
+'W07.Info.strengthen' does not depend on any axioms
+@W07.Info.projection : ∀ {S : Type u_1} {T : Type u_2} {H : Type u_3} {A : Type u_4} (F : Set (T → S → A))
+  (D : T → S → S → Prop) (hist : T → S → H) (policy : T → H → A),
+  (∀ (t : T) (i j : S), D t i j → hist t i = hist t j) →
+    (fun t s => policy t (hist t s)) ∈ F → (fun t s => policy t (hist t s)) ∈ W07.Info.relaxedDomain F D
+'W07.Info.projection' does not depend on any axioms
+@W07.Info.lower_transfer : ∀ {P : Type u_1} (J : P → ℝ) {F : Set P} {l : ℝ},
+  F.Nonempty → (∀ p ∈ F, l ≤ J p) → l ≤ W07.Info.value J F
+'W07.Info.lower_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.restrict_value : ∀ {P : Type u_1} (J : P → ℝ) {large small : Set P},
+  small ⊆ large → small.Nonempty → BddBelow (J '' large) → W07.Info.value J large ≤ W07.Info.value J small
+'W07.Info.restrict_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.nested_information : ∀ {P : Type u_1} (J : P → ℝ) {pf d₁ d₂ causal deadline : Set P} {b : P},
+  d₁ ⊆ pf →
+    d₂ ⊆ d₁ →
+      causal ⊆ d₂ →
+        deadline ⊆ causal →
+          b ∈ deadline →
+            BddBelow (J '' pf) →
+              W07.Info.value J pf ≤ W07.Info.value J d₁ ∧
+                W07.Info.value J d₁ ≤ W07.Info.value J d₂ ∧
+                  W07.Info.value J d₂ ≤ W07.Info.value J causal ∧
+                    W07.Info.value J causal ≤ W07.Info.value J deadline ∧ W07.Info.value J deadline ≤ J b
+'W07.Info.nested_information' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.max_floor : ∀ {a b j : ℝ}, a ≤ j → b ≤ j → max a b ≤ j
+'W07.Info.max_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.strict_stop : ∀ {U L J ε : ℝ}, L ≤ J → U - L < ε → ¬ε ≤ U - J
+'W07.Info.strict_stop' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.equality_stop_nonattained : ∀ {U L J ε : ℝ}, L < J → U - L = ε → ¬ε ≤ U - J
+'W07.Info.equality_stop_nonattained' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.covered_weight : ∀ {S : Type u_1} [inst : Fintype S] (w u j l b : S → ℝ) (valid : S → Prop)
+  [inst_1 : DecidablePred valid],
+  (∀ (s : S), 0 ≤ w s) →
+    (∀ (s : S), u s ≤ b s) →
+      (∀ (s : S), valid s → l s ≤ j s) →
+        ∀ (backup : S → ℝ),
+          (∀ (s : S), ¬valid s → backup s ≤ j s) →
+            ∑ s, w s * (u s - j s) ≤ ∑ s, w s * (b s - if valid s then l s else backup s)
+'W07.Info.covered_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.penalty_transfer : ∀ {P : Type u_1} {Q : Type u_2} (causal : Set P) (relax : Set Q) (map : P → Q) (J : P → ℝ)
+  (F M : Q → ℝ) (L : ℝ),
+  (∀ p ∈ causal, map p ∈ relax) →
+    (∀ p ∈ causal, F (map p) ≤ J p) →
+      (∀ p ∈ causal, M (map p) ≤ 0) → (∀ z ∈ relax, L ≤ F z + M z) → ∀ p ∈ causal, L ≤ J p
+'W07.Info.penalty_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.history_centering : ∀ {S : Type u_1} {H : Type u_2} {A : Type u_3} [inst : Fintype S] [Fintype H]
+  [inst_2 : DecidableEq H] (w : S → ℝ) (hist : S → H) (inc : S → A → ℝ) (choose : H → A),
+  (∀ (h : H) (a : A), (∑ s, if hist s = h then w s * inc s a else 0) = 0) → ∑ s, w s * inc s (choose (hist s)) = 0
+'W07.Info.history_centering' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.accumulated_centering : ∀ {S : Type u_1} {T : Type u_2} [inst : Fintype S] [inst_1 : Fintype T] (w : S → ℝ)
+  (m : T → S → ℝ), (∀ (t : T), ∑ s, w s * m t s = 0) → ∑ s, w s * ∑ t, m t s = 0
+'W07.Info.accumulated_centering' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.penalty_debit : ∀ {P : Type u_1} {Q : Type u_2} (causal : Set P) (relax : Set Q) (map : P → Q) (J : P → ℝ)
+  (F M : Q → ℝ) (L η : ℝ),
+  (∀ p ∈ causal, map p ∈ relax) →
+    (∀ p ∈ causal, F (map p) ≤ J p) →
+      (∀ p ∈ causal, M (map p) ≤ η) → (∀ z ∈ relax, L ≤ F z + M z) → ∀ p ∈ causal, L - η ≤ J p
+'W07.Info.penalty_debit' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Info.history_upper : ∀ {S : Type u_1} {H : Type u_2} {A : Type u_3} [inst : Fintype S] [inst_1 : Fintype H]
+  [inst_2 : DecidableEq H] (w : S → ℝ) (hist : S → H) (inc : S → A → ℝ) (choose : H → A) (cap : H → ℝ),
+  (∀ (h : H) (a : A), (∑ s, if hist s = h then w s * inc s a else 0) ≤ cap h) →
+    ∑ s, w s * inc s (choose (hist s)) ≤ ∑ h, cap h
+'W07.Info.history_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Game.strategy_to_kernel : ∀ {X A R U D : Type} (g : W07.Game.Contract X A R U D) (n b : ℕ) (x : X)
+  (p : W07.Game.Plan X A R U n), W07.Game.Safe g n b x p → W07.Game.Kernel g n b x
+'W07.Game.strategy_to_kernel' does not depend on any axioms
+@W07.Game.kernel_to_strategy : ∀ {X A R U D : Type} [Inhabited A] [Inhabited U] (g : W07.Game.Contract X A R U D)
+  (n b : ℕ) (x : X), W07.Game.Kernel g n b x → ∃ p, W07.Game.Safe g n b x p
+'W07.Game.kernel_to_strategy' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Game.causal_equivalence : ∀ {X A R U D : Type} [Inhabited A] [Inhabited U] (g : W07.Game.Contract X A R U D)
+  (n b : ℕ) (x : X), W07.Game.Kernel g n b x ↔ ∃ p, W07.Game.Safe g n b x p
+'W07.Game.causal_equivalence' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W07.Game.budget_shrink : ∀ {X A R U D : Type} (g : W07.Game.Contract X A R U D),
+  (∀ (lo hi : ℕ) (x : X), lo ≤ hi → g.terminal hi x → g.terminal lo x) →
+    (∀ (n : ℕ) (x : X) (lo hi : ℕ) (a : A) (r : R), lo ≤ hi → g.call n x lo a r → g.call n x hi a r) →
+      (∀ (n lo hi : ℕ) (r : R), lo ≤ hi → g.budget n lo r ≤ g.budget n hi r) →
+        ∀ (n lo hi : ℕ) (x : X), lo ≤ hi → W07.Game.Kernel g n hi x → W07.Game.Kernel g n lo x
+'W07.Game.budget_shrink' does not depend on any axioms
+W07.Game.decrement_order : ∀ (lo hi cost : ℕ), lo ≤ hi → lo - cost ≤ hi - cost
+'W07.Game.decrement_order' does not depend on any axioms
+W07.Control.perfect_witness : W07.Control.total W07.Control.forecast W07.Control.hindsight = 0
+'W07.Control.perfect_witness' does not depend on any axioms
+W07.Control.partial_root_floor : ∀ (a b₀₀ b₀₁ b₁₀ b₁₁ : Bool),
+  8 ≤
+    W07.Control.total (W07.Control.constant a) fun x z =>
+      if x = true then if z = true then b₁₁ else b₁₀ else if z = true then b₀₁ else b₀₀
+'W07.Control.partial_root_floor' does not depend on any axioms
+W07.Control.partial_root_attained : W07.Control.total (W07.Control.constant false) W07.Control.hindsight = 8
+'W07.Control.partial_root_attained' does not depend on any axioms
+W07.Control.causal_floor : ∀ (a l h : Bool), 16 ≤ W07.Control.total (W07.Control.constant a) (W07.Control.react l h)
+'W07.Control.causal_floor' does not depend on any axioms
+W07.Control.causal_attained : W07.Control.total (W07.Control.constant false) W07.Control.forecast = 16
+'W07.Control.causal_attained' does not depend on any axioms
+W07.Control.false_merge_floor : ∀ (a b : Bool), 24 ≤ W07.Control.total (W07.Control.constant a) (W07.Control.constant b)
+'W07.Control.false_merge_floor' does not depend on any axioms
+W07.Control.baseline_cost : W07.Control.total (W07.Control.constant false) (W07.Control.constant false) = 24
+'W07.Control.baseline_cost' does not depend on any axioms
+W07.Control.threshold_equality : 3 - 2 = 1 ∧ 1 ≤ 3 - 2
+'W07.Control.threshold_equality' depends on axioms: [propext, Classical.choice, Quot.sound]
+W07.Control.weight_omission : 9 / 10 * 0 + 1 / 10 * 100 = 10
+'W07.Control.weight_omission' depends on axioms: [propext, Classical.choice, Quot.sound]
+W07.Control.negative_mass : 0 ≤ 1 ∧ -1 * 1 < -1 * 0
+'W07.Control.negative_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+W07.Control.missing_baseline : 0 ≤ 0 ∧ 12 - 0 > 1
+'W07.Control.missing_baseline' depends on axioms: [propext, Classical.choice, Quot.sound]
+W07.Control.act_order : (∀ (c : Bool), ∃ u, u = c) ∧ ¬∃ u, ∀ (c : Bool), u = c
+'W07.Control.act_order' does not depend on any axioms
+LOCAL-EDGES W07.Game.Safe._f [W07.Game.Contract.call,
+ W07.Game.Contract.next,
+ W07.Game.Contract.terminal,
+ W07.Game.Contract.nominal,
+ W07.Game.Contract.disturb,
+ W07.Game.Plan,
+ W07.Game.Contract.budget,
+ W07.Game.Contract.reply,
+ W07.Game.Safe.match_1,
+ W07.Game.Contract.legal,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Game.Contract.call [W07.Game.Contract]
+LOCAL-EDGES W07.Control.total [W07.Control.loss]
+LOCAL-EDGES W07.Game.Contract.mk.inj [W07.Game.Contract.mk.noConfusion, W07.Game.Contract.mk, W07.Game.Contract]
+LOCAL-EDGES W07.Game.Kernel._sunfold [W07.Game.Contract.call,
+ W07.Game.Contract.next,
+ W07.Game.Contract.terminal,
+ W07.Game.Contract.nominal,
+ W07.Game.Kernel.match_1,
+ W07.Game.Contract.disturb,
+ W07.Game.Contract.budget,
+ W07.Game.Contract.reply,
+ W07.Game.Kernel,
+ W07.Game.Contract.legal,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Game.Contract.recOn [W07.Game.Contract.rec, W07.Game.Contract.mk, W07.Game.Contract]
+LOCAL-EDGES W07.Game.Contract.next [W07.Game.Contract]
+LOCAL-EDGES W07.Game.Plan._unsafe_rec [W07.Game.Plan._unsafe_rec, W07.Game.Plan.match_1]
+LOCAL-EDGES W07.Game.causal_equivalence [W07.Game.Plan,
+ W07.Game.Safe,
+ W07.Game.kernel_to_strategy,
+ W07.Game.Kernel,
+ W07.Game.strategy_to_kernel,
+ W07.Game.causal_equivalence.match_1_1,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Info.projection [W07.Info.relaxedDomain]
+LOCAL-EDGES W07.Info.covered_weight []
+LOCAL-EDGES W07.Control.perfect_witness [W07.Control.total, W07.Control.forecast, W07.Control.hindsight]
+LOCAL-EDGES W07.Control.forecast []
+LOCAL-EDGES W07.Control.partial_root_attained [W07.Control.total, W07.Control.constant, W07.Control.hindsight]
+LOCAL-EDGES W07.Control.act_order []
+LOCAL-EDGES W07.Game.Contract._sizeOf_1 [W07.Game.Contract.rec, W07.Game.Contract]
+LOCAL-EDGES W07.Info.history_centering []
+LOCAL-EDGES W07.Game.Contract.terminal [W07.Game.Contract]
+LOCAL-EDGES W07.Control.partial_root_floor [W07.Control.total, W07.Control.constant]
+LOCAL-EDGES W07.Info.restrict_value [W07.Info.value]
+LOCAL-EDGES W07.Info.history_upper []
+LOCAL-EDGES W07.Game.Contract.nominal [W07.Game.Contract]
+LOCAL-EDGES W07.Control.causal_attained [W07.Control.total, W07.Control.forecast, W07.Control.constant]
+LOCAL-EDGES W07.Game.Contract.rec [W07.Game.Contract.mk, W07.Game.Contract]
+LOCAL-EDGES W07.Game.defaultPlan._unsafe_rec [W07.Game.defaultPlan._unsafe_rec, W07.Game.Plan, W07.Game.Plan.match_1]
+LOCAL-EDGES W07.Game.Plan._f [W07.Game.Plan.match_1]
+LOCAL-EDGES W07.Game.decrement_order []
+LOCAL-EDGES W07.Game.Contract.mk.injEq [W07.Game.Contract.mk.inj, W07.Game.Contract.mk, W07.Game.Contract]
+LOCAL-EDGES W07.Game.Contract._sizeOf_inst [W07.Game.Contract._sizeOf_1, W07.Game.Contract]
+LOCAL-EDGES W07.Game.Kernel.match_1 []
+LOCAL-EDGES W07.Game.Contract.mk.noConfusion [W07.Game.Contract.noConfusion, W07.Game.Contract.mk, W07.Game.Contract]
+LOCAL-EDGES W07.Game.Contract.disturb [W07.Game.Contract]
+LOCAL-EDGES W07.Info.max_floor []
+LOCAL-EDGES W07.Game.Plan [W07.Game.Plan._f]
+LOCAL-EDGES W07.Control.react []
+LOCAL-EDGES W07.Control.missing_baseline []
+LOCAL-EDGES W07.Game.defaultPlan [W07.Game.Plan, W07.Game.defaultPlan._f]
+LOCAL-EDGES W07.Game.Contract.mk._flat_ctor [W07.Game.Contract.mk, W07.Game.Contract]
+LOCAL-EDGES W07.Control.loss []
+LOCAL-EDGES W07.Game.Safe [W07.Game.Safe._f, W07.Game.Plan, W07.Game.Contract]
+LOCAL-EDGES W07.Info.relaxedDomain []
+LOCAL-EDGES W07.Game.Plan._sunfold [W07.Game.Plan, W07.Game.Plan.match_1]
+LOCAL-EDGES W07.Control.threshold_equality []
+LOCAL-EDGES W07.Control.constant []
+LOCAL-EDGES W07.Info.strengthen [W07.Info.relaxedDomain]
+LOCAL-EDGES W07.Control.negative_mass []
+LOCAL-EDGES W07.Game.Contract.budget [W07.Game.Contract]
+LOCAL-EDGES W07.Info.accumulated_centering []
+LOCAL-EDGES W07.Game.Contract.reply [W07.Game.Contract]
+LOCAL-EDGES W07.Info.penalty_debit []
+LOCAL-EDGES W07.Game.kernel_to_strategy [W07.Game.Contract.call,
+ W07.Game.Contract.next,
+ W07.Game.Contract.nominal,
+ W07.Game.Contract.disturb,
+ W07.Game.Plan,
+ W07.Game.defaultPlan,
+ W07.Game.Safe,
+ W07.Game.Contract.budget,
+ W07.Game.Contract.reply,
+ W07.Game.Kernel,
+ W07.Game.Contract.legal,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Game.Contract.noConfusion [W07.Game.Contract.casesOn,
+ W07.Game.Contract.noConfusionType,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Control.baseline_cost [W07.Control.total, W07.Control.constant]
+LOCAL-EDGES W07.Game.budget_shrink [W07.Game.Contract.call,
+ W07.Game.Contract.next,
+ W07.Game.Contract.terminal,
+ W07.Game.Contract.nominal,
+ W07.Game.Contract.disturb,
+ W07.Game.Contract.budget,
+ W07.Game.Contract.reply,
+ W07.Game.Kernel,
+ W07.Game.Contract.legal,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Game.Contract.mk [W07.Game.Contract.mk, W07.Game.Contract]
+LOCAL-EDGES W07.Game.Contract.casesOn [W07.Game.Contract.rec, W07.Game.Contract.mk, W07.Game.Contract]
+LOCAL-EDGES W07.Game.Kernel [W07.Game.Kernel._f, W07.Game.Contract]
+LOCAL-EDGES W07.Game.defaultPlan._sunfold [W07.Game.Plan, W07.Game.defaultPlan, W07.Game.Plan.match_1]
+LOCAL-EDGES W07.Control.hindsight []
+LOCAL-EDGES W07.Game.Safe._sunfold [W07.Game.Contract.call,
+ W07.Game.Contract.next,
+ W07.Game.Contract.terminal,
+ W07.Game.Contract.nominal,
+ W07.Game.Contract.disturb,
+ W07.Game.Plan,
+ W07.Game.Safe,
+ W07.Game.Contract.budget,
+ W07.Game.Contract.reply,
+ W07.Game.Safe.match_1,
+ W07.Game.Contract.legal,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Control.false_merge_floor [W07.Control.total, W07.Control.constant]
+LOCAL-EDGES W07.Game.strategy_to_kernel [W07.Game.Contract.call,
+ W07.Game.Contract.next,
+ W07.Game.Contract.nominal,
+ W07.Game.Contract.disturb,
+ W07.Game.Plan,
+ W07.Game.Safe,
+ W07.Game.Contract.budget,
+ W07.Game.Contract.reply,
+ W07.Game.Kernel,
+ W07.Game.Contract.legal,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Game.Contract.ctorIdx [W07.Game.Contract]
+LOCAL-EDGES W07.Game.Safe.match_1 [W07.Game.Plan]
+LOCAL-EDGES W07.Info.lower_transfer [W07.Info.value]
+LOCAL-EDGES W07.Game.causal_equivalence.match_1_1 [W07.Game.Plan, W07.Game.Safe, W07.Game.Contract]
+LOCAL-EDGES W07.Game.Kernel._unsafe_rec [W07.Game.Contract.call,
+ W07.Game.Contract.next,
+ W07.Game.Contract.terminal,
+ W07.Game.Contract.nominal,
+ W07.Game.Kernel.match_1,
+ W07.Game.Contract.disturb,
+ W07.Game.Contract.budget,
+ W07.Game.Contract.reply,
+ W07.Game.Kernel._unsafe_rec,
+ W07.Game.Contract.legal,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Game.Contract.noConfusionType [W07.Game.Contract.casesOn, W07.Game.Contract]
+LOCAL-EDGES W07.Control.causal_floor [W07.Control.total, W07.Control.react, W07.Control.constant]
+LOCAL-EDGES W07.Game.Plan.match_1 []
+LOCAL-EDGES W07.Game.Contract.mk.sizeOf_spec [W07.Game.Contract._sizeOf_inst, W07.Game.Contract.mk, W07.Game.Contract]
+LOCAL-EDGES W07.Game.defaultPlan._f [W07.Game.Plan, W07.Game.Plan.match_1]
+LOCAL-EDGES W07.Game.Contract.legal [W07.Game.Contract]
+LOCAL-EDGES W07.Game.Kernel._f [W07.Game.Contract.call,
+ W07.Game.Contract.next,
+ W07.Game.Contract.terminal,
+ W07.Game.Contract.nominal,
+ W07.Game.Kernel.match_1,
+ W07.Game.Contract.disturb,
+ W07.Game.Contract.budget,
+ W07.Game.Contract.reply,
+ W07.Game.Contract.legal,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Game.Safe._unsafe_rec [W07.Game.Contract.call,
+ W07.Game.Contract.next,
+ W07.Game.Contract.terminal,
+ W07.Game.Contract.nominal,
+ W07.Game.Contract.disturb,
+ W07.Game.Plan,
+ W07.Game.Contract.budget,
+ W07.Game.Contract.reply,
+ W07.Game.Safe.match_1,
+ W07.Game.Contract.legal,
+ W07.Game.Safe._unsafe_rec,
+ W07.Game.Contract]
+LOCAL-EDGES W07.Info.nested_information [W07.Info.restrict_value, W07.Info.value]
+LOCAL-EDGES W07.Info.strict_stop []
+LOCAL-EDGES W07.Info.equality_stop_nonattained []
+LOCAL-EDGES W07.Game.Contract [W07.Game.Contract.mk]
+LOCAL-EDGES W07.Info.penalty_transfer []
+LOCAL-EDGES W07.Control.weight_omission []
+LOCAL-EDGES W07.Info.value []

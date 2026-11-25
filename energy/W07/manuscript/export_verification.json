@@ -1,0 +1,17 @@
+{
+  "source_page": "https://chatgpt.com/space/page_10dd5f2c3aec8191bd51e5fd3a9a96d6",
+  "source_sha256": "3de842fae522bdc3c77975f4a2d34011b000cf7a1f7f8cca854e218c098c9598",
+  "pdf_sha256": "86eb920486311017fdcc0e3894630e6c595b45330308feb9785023038993e530",
+  "ordered_payloads": 26,
+  "source_lines": 2085,
+  "bibliography_items": 53,
+  "adjudicated_rows_found": {
+    "ADMIT": 42,
+    "NARROW": 9,
+    "HOLD": 1
+  },
+  "pages": 91,
+  "pdf_pages_with_text": 91,
+  "compiler": "pdfTeX 1.40.29, TeX Live 2026, three passes; rendering inspected on six contact sheets. Earlier minimal TeX environment lacked tikz.sty. Complete existing installation used for the unchanged export.",
+  "undefined_references_or_overfull_boxes": false
+}

@@ -1,0 +1,504 @@
+{
+  "groups": [
+    {
+      "K": 0,
+      "calendar_seed_paths": 48,
+      "exclusions": 4,
+      "mean_ceiling_USD_day": 52.62222222222222,
+      "weighted_panel_ceiling_excludes_15": false,
+      "ceiling_range": [
+        14.666666666666666,
+        123.46666666666667
+      ],
+      "W06_and_robust_failures": {
+        "W06_standby_three": 0,
+        "robust_three": 0,
+        "W06_one_three": 0,
+        "robust_single": 0
+      },
+      "realized": {
+        "delivered_up": 0,
+        "delivered_down": 0,
+        "up_response_deciMWh": 0,
+        "down_response_deciMWh": 0,
+        "unavailable_standby_hours": 156,
+        "unavailable_requests_with_positive_budget": 0,
+        "calendar_attempts_after_budget_spent": 144,
+        "energy_cents": 79206320,
+        "wear_cents": 1614400,
+        "activation_receipts_cents": 0,
+        "capacity_receipts_cents": 1257600,
+        "forgone_standby_cents": 124800,
+        "gross_import_deciMWh": 114064,
+        "service_interruption_deciMWh_on_completed_hours": 0,
+        "activation_hour_cost_change_cents": 0,
+        "subsequent_noncall_cost_change_cents": 0
+      },
+      "gain_single_over_three": {
+        "0": {
+          "per_seed": [
+            -2.2,
+            3.6333333333333333,
+            -6.7,
+            2.033333333333333,
+            -36.3,
+            2.3666666666666667,
+            7.133333333333334,
+            -14.8,
+            -16.133333333333333,
+            4.766666666666667,
+            -0.36666666666666664,
+            -2.1333333333333333
+          ],
+          "mean_USD_day": -4.891666666666667,
+          "CI95_conditional_percentile": [
+            -12.264305555555554,
+            1.075
+          ],
+          "attained_inclusive_15": 0
+        },
+        "50": {
+          "per_seed": [
+            -2.2,
+            4.036666666666667,
+            -7.946666666666666,
+            -5.873333333333333,
+            -40.04,
+            -2.486666666666667,
+            3.54,
+            -13.386666666666667,
+            -12.886666666666667,
+            4.766666666666667,
+            -0.36666666666666664,
+            3.75
+          ],
+          "mean_USD_day": -5.757777777777777,
+          "CI95_conditional_percentile": [
+            -13.355083333333331,
+            0.006694444444442209
+          ],
+          "attained_inclusive_15": 0
+        },
+        "150": {
+          "per_seed": [
+            -2.2,
+            -20.48,
+            -3.7866666666666666,
+            -0.36,
+            -47.49333333333333,
+            -22.85,
+            -18.313333333333333,
+            -10.58,
+            -17.046666666666667,
+            4.766666666666667,
+            -0.36666666666666664,
+            -5.8133333333333335
+          ],
+          "mean_USD_day": -12.043611111111112,
+          "CI95_conditional_percentile": [
+            -20.36168055555556,
+            -5.026645833333335
+          ],
+          "attained_inclusive_15": 0
+        },
+        "300": {
+          "per_seed": [
+            -2.2,
+            -57.26,
+            2.466666666666667,
+            7.92,
+            -58.69,
+            -53.4,
+            -51.086666666666666,
+            -6.3533333333333335,
+            -23.3,
+            4.766666666666667,
+            -0.36666666666666664,
+            -20.173333333333332
+          ],
+          "mean_USD_day": -21.473055555555554,
+          "CI95_conditional_percentile": [
+            -35.92011805555555,
+            -7.550270833333335
+          ],
+          "attained_inclusive_15": 0
+        }
+      }
+    },
+    {
+      "K": 1,
+      "calendar_seed_paths": 48,
+      "exclusions": 1,
+      "mean_ceiling_USD_day": 54.96180555555556,
+      "weighted_panel_ceiling_excludes_15": false,
+      "ceiling_range": [
+        10.466666666666667,
+        132.46666666666667
+      ],
+      "W06_and_robust_failures": {
+        "W06_standby_three": 11,
+        "robust_three": 0,
+        "W06_one_three": 0,
+        "robust_single": 0
+      },
+      "realized": {
+        "delivered_up": 12,
+        "delivered_down": 24,
+        "up_response_deciMWh": 108,
+        "down_response_deciMWh": 264,
+        "unavailable_standby_hours": 156,
+        "unavailable_requests_with_positive_budget": 2,
+        "calendar_attempts_after_budget_spent": 106,
+        "energy_cents": 79438820,
+        "wear_cents": 1558400,
+        "activation_receipts_cents": 12600,
+        "capacity_receipts_cents": 1257600,
+        "forgone_standby_cents": 124800,
+        "gross_import_deciMWh": 114012,
+        "service_interruption_deciMWh_on_completed_hours": 0,
+        "activation_hour_cost_change_cents": 17960,
+        "subsequent_noncall_cost_change_cents": -452020
+      },
+      "gain_single_over_three": {
+        "0": {
+          "per_seed": [
+            -2.3833333333333333,
+            -0.3916666666666666,
+            -3.358333333333333,
+            -4.566666666666666,
+            -37.891666666666666,
+            -3.8916666666666666,
+            16.15,
+            -13.666666666666668,
+            -15.616666666666667,
+            -1.0083333333333333,
+            -0.8833333333333333,
+            0.8333333333333334
+          ],
+          "mean_USD_day": -5.55625,
+          "CI95_conditional_percentile": [
+            -13.002100694444442,
+            0.8632118055555539
+          ],
+          "attained_inclusive_15": 1
+        },
+        "50": {
+          "per_seed": [
+            -2.3833333333333333,
+            3.14,
+            -6.816666666666666,
+            -10.175833333333333,
+            -38.13333333333333,
+            -4.908333333333333,
+            12.18,
+            -10.606666666666667,
+            -13.181666666666667,
+            -1.0083333333333333,
+            1.5383333333333333,
+            9.024999999999999
+          ],
+          "mean_USD_day": -5.110902777777778,
+          "CI95_conditional_percentile": [
+            -12.669258680555552,
+            1.1869913194444406
+          ],
+          "attained_inclusive_15": 0
+        },
+        "150": {
+          "per_seed": [
+            -2.3833333333333333,
+            -9.795,
+            -8.411666666666667,
+            -10.731666666666667,
+            -34.945,
+            -22.260833333333334,
+            -10.423333333333334,
+            -8.501666666666667,
+            -16.301666666666666,
+            -1.0083333333333333,
+            11.716666666666667,
+            -0.5899999999999997
+          ],
+          "mean_USD_day": -9.469652777777778,
+          "CI95_conditional_percentile": [
+            -15.957270833333332,
+            -3.2257604166666725
+          ],
+          "attained_inclusive_15": 0
+        },
+        "300": {
+          "per_seed": [
+            -2.3833333333333333,
+            -29.198333333333334,
+            -10.791666666666666,
+            -11.5575,
+            -30.165,
+            -48.3,
+            -44.325,
+            -5.331666666666667,
+            -20.991666666666667,
+            -1.0083333333333333,
+            26.98,
+            -15.023333333333333
+          ],
+          "mean_USD_day": -16.007986111111112,
+          "CI95_conditional_percentile": [
+            -26.70579513888889,
+            -4.676300347222223
+          ],
+          "attained_inclusive_15": 1
+        }
+      }
+    },
+    {
+      "K": 2,
+      "calendar_seed_paths": 48,
+      "exclusions": 1,
+      "mean_ceiling_USD_day": 52.25625,
+      "weighted_panel_ceiling_excludes_15": false,
+      "ceiling_range": [
+        10.433333333333334,
+        130.36666666666667
+      ],
+      "W06_and_robust_failures": {
+        "W06_standby_three": 20,
+        "robust_three": 0,
+        "W06_one_three": 13,
+        "robust_single": 0
+      },
+      "realized": {
+        "delivered_up": 35,
+        "delivered_down": 36,
+        "up_response_deciMWh": 315,
+        "down_response_deciMWh": 396,
+        "unavailable_standby_hours": 156,
+        "unavailable_requests_with_positive_budget": 5,
+        "calendar_attempts_after_budget_spent": 68,
+        "energy_cents": 79651230,
+        "wear_cents": 1504800,
+        "activation_receipts_cents": 24850,
+        "capacity_receipts_cents": 1257600,
+        "forgone_standby_cents": 124800,
+        "gross_import_deciMWh": 113936,
+        "service_interruption_deciMWh_on_completed_hours": 0,
+        "activation_hour_cost_change_cents": -250890,
+        "subsequent_noncall_cost_change_cents": -591130
+      },
+      "gain_single_over_three": {
+        "0": {
+          "per_seed": [
+            -1.6500000000000001,
+            -1.7666666666666666,
+            -8.308333333333334,
+            3.775,
+            -35.68333333333334,
+            2.7416666666666667,
+            4.999999999999999,
+            -16.683333333333334,
+            -4.9,
+            -1.7583333333333333,
+            -7.216666666666666,
+            -16.15
+          ],
+          "mean_USD_day": -6.883333333333334,
+          "CI95_conditional_percentile": [
+            -13.675069444444446,
+            -1.3319270833333345
+          ],
+          "attained_inclusive_15": 0
+        },
+        "50": {
+          "per_seed": [
+            -1.6500000000000001,
+            -0.445,
+            -11.395,
+            0.5333333333333334,
+            -35.471666666666664,
+            0.4749999999999999,
+            2.826666666666666,
+            -16.9075,
+            0.011666666666666603,
+            -3.203333333333333,
+            -5.071666666666667,
+            -9.01
+          ],
+          "mean_USD_day": -6.608958333333333,
+          "CI95_conditional_percentile": [
+            -13.187654513888889,
+            -1.6179600694444465
+          ],
+          "attained_inclusive_15": 0
+        },
+        "150": {
+          "per_seed": [
+            -1.6500000000000001,
+            -13.136666666666667,
+            -12.243333333333332,
+            4.715,
+            -34.04666666666667,
+            -14.715,
+            -8.85,
+            -17.375833333333333,
+            -4.486666666666667,
+            -1.435,
+            1.8866666666666667,
+            -14.395833333333332
+          ],
+          "mean_USD_day": -9.644444444444444,
+          "CI95_conditional_percentile": [
+            -15.625597222222222,
+            -4.215506944444461
+          ],
+          "attained_inclusive_15": 0
+        },
+        "300": {
+          "per_seed": [
+            -1.6500000000000001,
+            -32.17166666666667,
+            -13.506666666666666,
+            10.991666666666667,
+            -31.91,
+            -37.50666666666667,
+            -26.365000000000002,
+            -18.06083333333333,
+            -11.246666666666666,
+            1.2216666666666671,
+            12.32,
+            -22.4825
+          ],
+          "mean_USD_day": -14.197222222222223,
+          "CI95_conditional_percentile": [
+            -22.954303819444448,
+            -4.863843750000011
+          ],
+          "attained_inclusive_15": 0
+        }
+      }
+    },
+    {
+      "K": 4,
+      "calendar_seed_paths": 48,
+      "exclusions": 0,
+      "mean_ceiling_USD_day": 64.13263888888889,
+      "weighted_panel_ceiling_excludes_15": false,
+      "ceiling_range": [
+        16.1,
+        181.3
+      ],
+      "W06_and_robust_failures": {
+        "W06_standby_three": 23,
+        "robust_three": 0,
+        "W06_one_three": 20,
+        "robust_single": 0
+      },
+      "realized": {
+        "delivered_up": 61,
+        "delivered_down": 64,
+        "up_response_deciMWh": 549,
+        "down_response_deciMWh": 702,
+        "unavailable_standby_hours": 156,
+        "unavailable_requests_with_positive_budget": 19,
+        "calendar_attempts_after_budget_spent": 0,
+        "energy_cents": 80253250,
+        "wear_cents": 1373400,
+        "activation_receipts_cents": 43750,
+        "capacity_receipts_cents": 1257600,
+        "forgone_standby_cents": 124800,
+        "gross_import_deciMWh": 113792,
+        "service_interruption_deciMWh_on_completed_hours": 0,
+        "activation_hour_cost_change_cents": -340730,
+        "subsequent_noncall_cost_change_cents": -53450
+      },
+      "gain_single_over_three": {
+        "0": {
+          "per_seed": [
+            -1.7916666666666667,
+            -8.883333333333333,
+            -10.466666666666667,
+            5.5,
+            -19.825,
+            4.533333333333333,
+            -0.4,
+            -23.566666666666666,
+            -3.591666666666667,
+            -4.575,
+            0.6083333333333327,
+            -18.90833333333333
+          ],
+          "mean_USD_day": -6.780555555555555,
+          "CI95_conditional_percentile": [
+            -12.202100694444443,
+            -1.6811979166666713
+          ],
+          "attained_inclusive_15": 0
+        },
+        "50": {
+          "per_seed": [
+            0.5433333333333332,
+            -4.223333333333334,
+            -15.158333333333333,
+            5.253333333333334,
+            -19.746666666666666,
+            3.078333333333333,
+            -0.4,
+            -23.836666666666666,
+            -3.591666666666667,
+            -7.243333333333333,
+            0.10833333333333273,
+            -13.708333333333334
+          ],
+          "mean_USD_day": -6.577083333333333,
+          "CI95_conditional_percentile": [
+            -11.855711805555554,
+            -1.6907673611111167
+          ],
+          "attained_inclusive_15": 0
+        },
+        "150": {
+          "per_seed": [
+            4.218333333333333,
+            -5.576666666666666,
+            -18.211666666666666,
+            8.42,
+            -17.593333333333334,
+            -8.826666666666666,
+            -0.4,
+            -21.055,
+            -3.591666666666667,
+            -1.5841666666666667,
+            0.10833333333333334,
+            -19.631666666666668
+          ],
+          "mean_USD_day": -6.977013888888889,
+          "CI95_conditional_percentile": [
+            -12.473206597222223,
+            -1.6211736111111115
+          ],
+          "attained_inclusive_15": 0
+        },
+        "300": {
+          "per_seed": [
+            9.725000000000001,
+            -7.6033333333333335,
+            -22.785,
+            13.176666666666668,
+            -14.363333333333333,
+            -26.686666666666667,
+            -0.4,
+            -16.871666666666666,
+            -3.591666666666667,
+            6.905833333333334,
+            0.10833333333333317,
+            -28.528333333333336
+          ],
+          "mean_USD_day": -7.576180555555555,
+          "CI95_conditional_percentile": [
+            -15.383258680555555,
+            0.1069652777777701
+          ],
+          "attained_inclusive_15": 0
+        }
+      }
+    }
+  ]
+}

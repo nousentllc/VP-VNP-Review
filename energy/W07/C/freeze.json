@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-25T07:20:17.602483+00:00",
+  "scope": "Untuned W06 solvers and independent checkers. Holdout content unopened at design lock. One four-snapshot AC panel: two distinct networks, normal and API stressed, paired. Two UC dates, first 24 h and full 48 h, dependent within date. Equal weights within each panel, no pooled or population inference, no replacement.",
+  "objective": "Fuel / startup production costs under published snapshot or chronological horizon and original initial state, no extra terminal contract. Positive verified incumbent U. Certify exclusion of inclusive 1 percent ONLY if L > 99 U / 100. Missing baseline in denominator. A different feasible witness improves a baseline only if its upper endpoint is below the baseline lower cost endpoint.",
+  "methods": "AC two original nonlinear IPOPT starts, rigorous Arb enclosure, copperplate, up to 12 SOC/thermal outer-cut LP rounds then at most 12 deterministic chordal PSD/wedge rounds on unresolved verified cases. UC unrestricted single-thread HiGHS 30 s, exact decimal upstream build, fixed-binary Z3 recovery, full LP and binary split, then at most 15 nodes with both children and inherited floors. Numerical solver gaps separately. No contingency, grouping or elimination.",
+  "validation": "Rebuild all returned rational duals and interval results, independent equation and rank-one checks, original UC Pyomo row audit and branch coverage. W06 regression stored certificate replay with same checkers on W06 source. Cold process wall clocks and stage times. Retain failing starts, numerical exceptions and post-freeze deviations.",
+  "source_lock": "sources.json",
+  "code_sha256": {
+    "ac.py": "3151c090f87232162066253500a18a3fdafb17522c6614385e9ffbdacca018c9",
+    "ac_bound.py": "f66a7c82d3f381f57ef1957637b13e916aa23a42bf18a8048a66d01a2d89013e",
+    "ac_witness.py": "9cd2e7bcad064031038ec9add6e297cd6b1bcc29c96693325f3b20cc94a13dae",
+    "clique.py": "1680cd3dec1e99a52f4fe3edba76e46f8ffa428e0c83f945dbc1c16341613a97",
+    "commitment.py": "afb1885cacb9bcba838ec80c2c6607f8e363b12df0a36382cccf0d5a2549ce1e",
+    "independent.py": "f2497f82a1475241e4496ebaf9ab07e980bd408c7134513e6fec92242a0a5983",
+    "independent_review/ac_lifts.py": "482a34e90aea647dd22312b58dd80a6bbb4122611a801dc867bbc384db5de175",
+    "independent_review/review.py": "70885838fabad92cbe11e0a0e3f2b05a51ced36c025fd2539ca5f64f1cdb52b3",
+    "inputs/MODEL.tex": "e612d71922cf5b19a2f8e7903c8ac6b25a0953e5065c368c94571752f360b6aa",
+    "inputs/OPF_LICENSE": "95b1cd9fee1676221d74f7c0cbba622d98ac098e9b317b3848113ef4356ab4fd",
+    "inputs/UC_LICENSE": "b5ececfa64eb67fd5b0e5c135624f0f9004b938d399150e644f9641b659e628c",
+    "inputs/uc_model.py": "ca340c71fe78627c3fab2a2f356b4b2ec3a650c8e9883d6ef645aa2ea1b534ea",
+    "linear.py": "73423d150c03b1f9ab45a0486f70da8b2574eaf7644f8468fc025fb394bddd9b",
+    "network.py": "aa7877af91daf05d6e6df6e1ef754f6980d4f21ff7afd79b61269684f06c6966",
+    "run_campaign.py": "74c5bb978f830fb8428844fa06879e2bf4ed68a755e8c6e0a1a6800c2eced578",
+    "sources.json": "70d119060894015a54d89eadc6a957059e79c4f8c808593d4c4397a5e3b1ada5",
+    "uc_tree.py": "0d5616d7c1a802b4f6a2f7d9536ebca835b76140476c043f53ab48889e817c3a"
+  }
+}

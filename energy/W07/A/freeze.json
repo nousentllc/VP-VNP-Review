@@ -1,0 +1,14 @@
+{
+  "frozen_utc": "2026-11-25T07:23:44.967051+00:00",
+  "files": {
+    "design.json": "a33d36b1b5733d7caa173e4fa0e22c83335e4fa29a4eefd8c45c1de35428e086",
+    "model.py": "14a4d84efe38660d27cda5f4403a47ea4de8e76e3d4d81715502f7f0c2e8fa14",
+    "native.py": "6dd4d1d6fbf902334ba8f2c00a41a5be45d276e594847593c3900fc65001782c",
+    "independent.py": "dfce9890cc136af12bc11c55ff76ce960dd6a6ae5e9d644d11e8e0c1400da010",
+    "run.py": "176b536a31cc797c680c7753c945cb89d575da0e91d85b59a72ac62b4f8cc707",
+    "freeze.py": "c89372cfcdf880326949cd985e30163a01e03d68d902aef5189cb1d5e36920f4",
+    "verify.py": "b450cdb05f88701e808aef9a0f11cd6bc24529dbffc92e56dbbf016107ff9124",
+    "requirements.txt": "79a0d9e124b5aa5f29999dea50caf1666427672b5968d8ae619be88980db9f78"
+  },
+  "holdout_status": "unopened; development and W06 regression only"
+}

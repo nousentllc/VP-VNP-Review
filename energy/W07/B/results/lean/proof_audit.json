@@ -1,0 +1,157 @@
+{
+  "axioms": {
+    "W07.Control.act_order": [],
+    "W07.Control.baseline_cost": [],
+    "W07.Control.causal_attained": [],
+    "W07.Control.causal_floor": [],
+    "W07.Control.false_merge_floor": [],
+    "W07.Control.missing_baseline": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Control.negative_mass": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Control.partial_root_attained": [],
+    "W07.Control.partial_root_floor": [],
+    "W07.Control.perfect_witness": [],
+    "W07.Control.threshold_equality": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Control.weight_omission": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Game.budget_shrink": [],
+    "W07.Game.causal_equivalence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Game.decrement_order": [],
+    "W07.Game.kernel_to_strategy": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Game.strategy_to_kernel": [],
+    "W07.Info.accumulated_centering": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.covered_weight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.equality_stop_nonattained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.history_centering": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.history_upper": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.lower_transfer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.max_floor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.nested_information": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.penalty_debit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.penalty_transfer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.projection": [],
+    "W07.Info.restrict_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W07.Info.strengthen": [],
+    "W07.Info.strict_stop": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "compile_exit": {
+    "FalseVariants": 1,
+    "Information": 0,
+    "Inventory": 0,
+    "Viability": 0,
+    "Witnesses": 0
+  },
+  "declaration_dependency_records": 82,
+  "exact_controls_sha256": "52c4423b47e3855c0254729929df32f8d7eae119e42abbda9dc064f12baace6a",
+  "inspected_declarations": 31,
+  "kernel_replay": {
+    "Information": 0,
+    "Viability": 0,
+    "Witnesses": 0
+  },
+  "lean": "Lean (version 4.30.0-rc2, arm64-apple-darwin24.6.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc, Release)",
+  "lean_binary_sha256": "b48bc5ab229bd8b320a224b87e20fc428dba6fa8a1c054bd4fa6def846e19997",
+  "object_dependencies": "Prebuilt and trusted. Tracked checkout sources matched pins.",
+  "packages_with_prebuilt_lean_dir": [
+    "mathlib",
+    "plausible",
+    "LeanSearchClient",
+    "importGraph",
+    "proofwidgets",
+    "aesop",
+    "Qq",
+    "batteries"
+  ],
+  "pins_verified": {
+    "Cli": "13567aed1ac4f12aea9484178e07e51f8c9f7658",
+    "LeanSearchClient": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+    "Qq": "1cc7e819b9b9bc1e87c9edcccb62e0269e00a809",
+    "aesop": "f0c6e183ea26531e82773feb4b73ab6595ca17a5",
+    "batteries": "5c57f3857ba81924a88b2cdf4f062e34ec04ff11",
+    "importGraph": "cdab3938ccabbdb044be6896e251b5814bec932e",
+    "mathlib": "896cc56a395e1615786fac56564a3fe6bfeebcc4",
+    "plausible": "86210d4ad1b08b086d0bd638637a75246523dbb8",
+    "proofwidgets": "2db6054a44326f8c0230ee0570e2ddb894816511"
+  },
+  "rejected_false_variants": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    16
+  ]
+}

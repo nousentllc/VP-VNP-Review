@@ -1,0 +1,1 @@
+An initial clean execution of the copied W06 verifier encountered a missing W06 model module. The W06 model and its design were added with their original bytes. The fresh-directory replay then recovered the same archived findings; see repack_replay.log. This was a packaging dependency. No W07 experimental result changed.

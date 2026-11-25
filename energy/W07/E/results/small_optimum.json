@@ -1,0 +1,38 @@
+{
+  "prices": [
+    15,
+    120,
+    160,
+    60,
+    30
+  ],
+  "load_deciMWh": 34,
+  "signs": [
+    1,
+    1,
+    -1,
+    0,
+    0
+  ],
+  "budget": 2,
+  "call_probability_given_eligible_and_remaining": "1/2",
+  "leaves": 7,
+  "wear_per_half_cycle_150_cents": {
+    "1": 304,
+    "2": 1241,
+    "3": 2827,
+    "4": 5070,
+    "5": 7975,
+    "6": 11547,
+    "7": 15790,
+    "8": 20707,
+    "9": 26300
+  },
+  "linear_exact_optimal_expected_cents": "275175/4",
+  "fixed_linear_policy_rain_expected_cents": "540095/8",
+  "reoptimized_rain_expected_cents": "539549/8",
+  "saving_from_reoptimization_cents": "273/4",
+  "linear_first_q": 0,
+  "rain_first_q": 0,
+  "cross_checked_complete_tree": true
+}

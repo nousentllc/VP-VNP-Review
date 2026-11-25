@@ -1,0 +1,11 @@
+{
+  "reconstructed_completed_nominals": 49994,
+  "reconstructed_failed_attempts": 87,
+  "distinct_issued_epoch_budget_price_arm_groups": 7332,
+  "rolled_midnight_boundaries_checked": 24,
+  "verified_booked_jobs": 1633,
+  "slowest_group_seconds": 0.0039587910287082195,
+  "groups_over_one_second": 0,
+  "wall_seconds": 1.895824084058404,
+  "scope": "Independent forecast-only reconstruction. Group timings are batch audit timings, not live device deadline measurements."
+}

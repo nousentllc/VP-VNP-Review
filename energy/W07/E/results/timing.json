@@ -1,0 +1,12 @@
+{
+  "kernels_write": 0.12140083289705217,
+  "baseline_build_all_state_feedback_tables": 5.080708499997854,
+  "baseline_application": 0.45657254732213914,
+  "oracle_solve": 0.9501846267376095,
+  "certificate_serialization": 0.7605312918312848,
+  "registered_policy_comparison_and_serialization": 3.6388014999683946,
+  "small_exact_economics": 0.04683204204775393,
+  "independent_verification": 0.9989978328812867,
+  "total_in_process_s": 12.0586977081839,
+  "peak_process_ru_maxrss_native": 50003968
+}

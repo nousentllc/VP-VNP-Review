@@ -1,0 +1,19 @@
+{
+  "compiler": "3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc",
+  "mathlib": "896cc56a395e1615786fac56564a3fe6bfeebcc4",
+  "recorded_utc": "2026-11-25T07:23:46.159065+00:00",
+  "scope": "Formal input freeze before release build; universal theorem proofs and designed arithmetic controls. Cross-track correspondence is a separate check.",
+  "sha256": {
+    "exact_controls.py": "23062a387757f530f4e42f25e03ad3b0fb0da351525b5df0c4ac60caef9da4fa",
+    "formal/FalseVariants.lean": "310a4811369d0bd4a51181f79a040d586c46673a20553193c1285ac9c8a4fe95",
+    "formal/Information.lean": "2774ff8c9d172facfb4965445f86dcc8fc226b690e41d087041f0a0a3d27defd",
+    "formal/Inventory.lean": "c3b51abdc1534523aeac608ebab37f94d8a60db2105eff50fe81e4ff4a2b8d96",
+    "formal/Viability.lean": "95324ba85b876e5b37c3e048e56016c7047c2f8f3c47233f62f1744e5a1c21a7",
+    "formal/Witnesses.lean": "ac89bf71e37d3fc4dc4afc27389ed38d800bea93ed293adb2d6bb2666f61fdf3",
+    "formal/lake-manifest.json": "9e02816e9226055e1706ebf62edf60ec09a6b12697a1182badbd7597be8cfd81",
+    "formal/lakefile.toml": "e14383e5480e64475edadd298d58004d76c6e1f31e07368806c012c4af7705d7",
+    "formal/lean-toolchain": "ce4c4e3d87434b9663f46de25ce34b48a0cf0d392e0a320a0787b4674a2d7b61",
+    "protocol.md": "385bbde2dcb6e4f6b4b4cc614127d4aaf34e454170ea932944df21dcdd1c92ac",
+    "verify.py": "74011c37cda15d0dca21350ffcf4aff5eabcc388191357ea3328660c964db327"
+  }
+}

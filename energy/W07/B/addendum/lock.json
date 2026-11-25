@@ -1,0 +1,11 @@
+{
+  "scope": "Exploratory formal extension after core lock; no fresh engineering outcomes used in its derivation.",
+  "sha256": {
+    "Infimum.lean": "459ed45d2dc59d052fd8d1c6e4e7bf7156227eccda81e15e16fcd900fd632559",
+    "verify_addendum.py": "3020b53f0ea716e6d14b54cf8ff6ed621f9e17974de46dd9a83d2be33b6a2716",
+    "../formal/Information.lean": "2774ff8c9d172facfb4965445f86dcc8fc226b690e41d087041f0a0a3d27defd",
+    "../verify.py": "74011c37cda15d0dca21350ffcf4aff5eabcc388191357ea3328660c964db327",
+    "../formal/lake-manifest.json": "9e02816e9226055e1706ebf62edf60ec09a6b12697a1182badbd7597be8cfd81",
+    "../formal/lean-toolchain": "ce4c4e3d87434b9663f46de25ce34b48a0cf0d392e0a320a0787b4674a2d7b61"
+  }
+}

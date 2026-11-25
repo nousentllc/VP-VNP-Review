@@ -1,0 +1,1733 @@
+{
+  "cases": [
+    {
+      "seed": 73091,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1627790,
+      "oracle": 1619270,
+      "ceiling_cents": 8520,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1627790,
+      "oracle": 1619270,
+      "ceiling_cents": 8520,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1627790,
+      "oracle": 1619270,
+      "ceiling_cents": 8520,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1627790,
+      "oracle": 1619270,
+      "ceiling_cents": 8520,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1639950,
+      "oracle": 1628000,
+      "ceiling_cents": 11950,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1629310,
+      "oracle": 1620460,
+      "ceiling_cents": 8850,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1631970,
+      "oracle": 1621590,
+      "ceiling_cents": 10380,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1628980,
+      "oracle": 1620460,
+      "ceiling_cents": 8520,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1661150,
+      "oracle": 1643860,
+      "ceiling_cents": 17290,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1630720,
+      "oracle": 1622200,
+      "ceiling_cents": 8520,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1633650,
+      "oracle": 1622430,
+      "ceiling_cents": 11220,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1624300,
+      "oracle": 1616350,
+      "ceiling_cents": 7950,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1661150,
+      "oracle": 1643860,
+      "ceiling_cents": 17290,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1645780,
+      "oracle": 1627970,
+      "ceiling_cents": 17810,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1647980,
+      "oracle": 1626290,
+      "ceiling_cents": 21690,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73091,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1642280,
+      "oracle": 1625420,
+      "ceiling_cents": 16860,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1498370,
+      "oracle": 1490250,
+      "ceiling_cents": 8120,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1498370,
+      "oracle": 1490250,
+      "ceiling_cents": 8120,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1498370,
+      "oracle": 1490250,
+      "ceiling_cents": 8120,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1498370,
+      "oracle": 1490250,
+      "ceiling_cents": 8120,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1505240,
+      "oracle": 1498490,
+      "ceiling_cents": 6750,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1498950,
+      "oracle": 1490340,
+      "ceiling_cents": 8610,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1493850,
+      "oracle": 1490710,
+      "ceiling_cents": 3140,
+      "excludes_15_per_day": true
+    },
+    {
+      "seed": 73127,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1502250,
+      "oracle": 1490340,
+      "ceiling_cents": 11910,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1525900,
+      "oracle": 1516670,
+      "ceiling_cents": 9230,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1498600,
+      "oracle": 1490530,
+      "ceiling_cents": 8070,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1497740,
+      "oracle": 1488430,
+      "ceiling_cents": 9310,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1495060,
+      "oracle": 1490440,
+      "ceiling_cents": 4620,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1526120,
+      "oracle": 1516670,
+      "ceiling_cents": 9450,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1513820,
+      "oracle": 1505710,
+      "ceiling_cents": 8110,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1525200,
+      "oracle": 1504600,
+      "ceiling_cents": 20600,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73127,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1519540,
+      "oracle": 1508820,
+      "ceiling_cents": 10720,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1568190,
+      "oracle": 1531150,
+      "ceiling_cents": 37040,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1568190,
+      "oracle": 1531150,
+      "ceiling_cents": 37040,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1568190,
+      "oracle": 1531150,
+      "ceiling_cents": 37040,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1568190,
+      "oracle": 1531150,
+      "ceiling_cents": 37040,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1575620,
+      "oracle": 1540330,
+      "ceiling_cents": 35290,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1570880,
+      "oracle": 1531140,
+      "ceiling_cents": 39740,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1572050,
+      "oracle": 1533870,
+      "ceiling_cents": 38180,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1570930,
+      "oracle": 1531190,
+      "ceiling_cents": 39740,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1569510,
+      "oracle": 1543850,
+      "ceiling_cents": 25660,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1569450,
+      "oracle": 1530340,
+      "ceiling_cents": 39110,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1565700,
+      "oracle": 1535030,
+      "ceiling_cents": 30670,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1568730,
+      "oracle": 1530840,
+      "ceiling_cents": 37890,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1569510,
+      "oracle": 1543850,
+      "ceiling_cents": 25660,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1588110,
+      "oracle": 1533950,
+      "ceiling_cents": 54160,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1570310,
+      "oracle": 1542580,
+      "ceiling_cents": 27730,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73171,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1587710,
+      "oracle": 1533320,
+      "ceiling_cents": 54390,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1675390,
+      "oracle": 1662900,
+      "ceiling_cents": 12490,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1675390,
+      "oracle": 1662900,
+      "ceiling_cents": 12490,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1675390,
+      "oracle": 1662900,
+      "ceiling_cents": 12490,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1675390,
+      "oracle": 1662900,
+      "ceiling_cents": 12490,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1694360,
+      "oracle": 1676100,
+      "ceiling_cents": 18260,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1676030,
+      "oracle": 1663360,
+      "ceiling_cents": 12670,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1671290,
+      "oracle": 1658520,
+      "ceiling_cents": 12770,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1676470,
+      "oracle": 1663360,
+      "ceiling_cents": 13110,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1695810,
+      "oracle": 1680860,
+      "ceiling_cents": 14950,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1677330,
+      "oracle": 1663550,
+      "ceiling_cents": 13780,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1669600,
+      "oracle": 1655180,
+      "ceiling_cents": 14420,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1674140,
+      "oracle": 1660040,
+      "ceiling_cents": 14100,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1695810,
+      "oracle": 1680860,
+      "ceiling_cents": 14950,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1677400,
+      "oracle": 1662850,
+      "ceiling_cents": 14550,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1674190,
+      "oracle": 1657540,
+      "ceiling_cents": 16650,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73217,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1678500,
+      "oracle": 1660040,
+      "ceiling_cents": 18460,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1633360,
+      "oracle": 1617320,
+      "ceiling_cents": 16040,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1633360,
+      "oracle": 1617320,
+      "ceiling_cents": 16040,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1633360,
+      "oracle": 1617320,
+      "ceiling_cents": 16040,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1633360,
+      "oracle": 1617320,
+      "ceiling_cents": 16040,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1647750,
+      "oracle": 1625310,
+      "ceiling_cents": 22440,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1631460,
+      "oracle": 1616530,
+      "ceiling_cents": 14930,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1632620,
+      "oracle": 1618340,
+      "ceiling_cents": 14280,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1633330,
+      "oracle": 1618400,
+      "ceiling_cents": 14930,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1661030,
+      "oracle": 1638650,
+      "ceiling_cents": 22380,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1634630,
+      "oracle": 1619700,
+      "ceiling_cents": 14930,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1638040,
+      "oracle": 1620640,
+      "ceiling_cents": 17400,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1635340,
+      "oracle": 1621060,
+      "ceiling_cents": 14280,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1661030,
+      "oracle": 1638650,
+      "ceiling_cents": 22380,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1635380,
+      "oracle": 1618060,
+      "ceiling_cents": 17320,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1639560,
+      "oracle": 1621200,
+      "ceiling_cents": 18360,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73261,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1632690,
+      "oracle": 1617510,
+      "ceiling_cents": 15180,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1681930,
+      "oracle": 1677530,
+      "ceiling_cents": 4400,
+      "excludes_15_per_day": true
+    },
+    {
+      "seed": 73303,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1681930,
+      "oracle": 1677530,
+      "ceiling_cents": 4400,
+      "excludes_15_per_day": true
+    },
+    {
+      "seed": 73303,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1681930,
+      "oracle": 1677530,
+      "ceiling_cents": 4400,
+      "excludes_15_per_day": true
+    },
+    {
+      "seed": 73303,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1681930,
+      "oracle": 1677530,
+      "ceiling_cents": 4400,
+      "excludes_15_per_day": true
+    },
+    {
+      "seed": 73303,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1695200,
+      "oracle": 1686620,
+      "ceiling_cents": 8580,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1684330,
+      "oracle": 1678830,
+      "ceiling_cents": 5500,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1686560,
+      "oracle": 1680100,
+      "ceiling_cents": 6460,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1686350,
+      "oracle": 1681030,
+      "ceiling_cents": 5320,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1714700,
+      "oracle": 1698960,
+      "ceiling_cents": 15740,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1687650,
+      "oracle": 1682800,
+      "ceiling_cents": 4850,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1691710,
+      "oracle": 1682420,
+      "ceiling_cents": 9290,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1690150,
+      "oracle": 1683770,
+      "ceiling_cents": 6380,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1714700,
+      "oracle": 1698960,
+      "ceiling_cents": 15740,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1692550,
+      "oracle": 1687720,
+      "ceiling_cents": 4830,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1692610,
+      "oracle": 1678390,
+      "ceiling_cents": 14220,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73303,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1698280,
+      "oracle": 1689130,
+      "ceiling_cents": 9150,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1524360,
+      "oracle": 1498430,
+      "ceiling_cents": 25930,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1524360,
+      "oracle": 1498430,
+      "ceiling_cents": 25930,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1524360,
+      "oracle": 1498430,
+      "ceiling_cents": 25930,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1524360,
+      "oracle": 1498430,
+      "ceiling_cents": 25930,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1539470,
+      "oracle": 1503840,
+      "ceiling_cents": 35630,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1523460,
+      "oracle": 1498520,
+      "ceiling_cents": 24940,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1518790,
+      "oracle": 1494690,
+      "ceiling_cents": 24100,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1523680,
+      "oracle": 1498740,
+      "ceiling_cents": 24940,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1556950,
+      "oracle": 1524120,
+      "ceiling_cents": 32830,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1523770,
+      "oracle": 1498830,
+      "ceiling_cents": 24940,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1514030,
+      "oracle": 1489330,
+      "ceiling_cents": 24700,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1518600,
+      "oracle": 1494940,
+      "ceiling_cents": 23660,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1556950,
+      "oracle": 1524120,
+      "ceiling_cents": 32830,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1535650,
+      "oracle": 1509690,
+      "ceiling_cents": 25960,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1547620,
+      "oracle": 1511990,
+      "ceiling_cents": 35630,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73347,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1545880,
+      "oracle": 1512500,
+      "ceiling_cents": 33380,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1910110,
+      "oracle": 1881220,
+      "ceiling_cents": 28890,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1910110,
+      "oracle": 1881220,
+      "ceiling_cents": 28890,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1910110,
+      "oracle": 1881220,
+      "ceiling_cents": 28890,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1910110,
+      "oracle": 1881220,
+      "ceiling_cents": 28890,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1916440,
+      "oracle": 1889970,
+      "ceiling_cents": 26470,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1904630,
+      "oracle": 1880210,
+      "ceiling_cents": 24420,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1908840,
+      "oracle": 1880770,
+      "ceiling_cents": 28070,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1902320,
+      "oracle": 1877900,
+      "ceiling_cents": 24420,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1916240,
+      "oracle": 1910630,
+      "ceiling_cents": 5610,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1898230,
+      "oracle": 1878760,
+      "ceiling_cents": 19470,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1913270,
+      "oracle": 1884400,
+      "ceiling_cents": 28870,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1900680,
+      "oracle": 1877880,
+      "ceiling_cents": 22800,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1916990,
+      "oracle": 1910630,
+      "ceiling_cents": 6360,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1910550,
+      "oracle": 1895080,
+      "ceiling_cents": 15470,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1913970,
+      "oracle": 1897700,
+      "ceiling_cents": 16270,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73391,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1906930,
+      "oracle": 1889840,
+      "ceiling_cents": 17090,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1632670,
+      "oracle": 1623060,
+      "ceiling_cents": 9610,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1632670,
+      "oracle": 1623060,
+      "ceiling_cents": 9610,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1632670,
+      "oracle": 1623060,
+      "ceiling_cents": 9610,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1632670,
+      "oracle": 1623060,
+      "ceiling_cents": 9610,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1653510,
+      "oracle": 1637270,
+      "ceiling_cents": 16240,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1634850,
+      "oracle": 1626670,
+      "ceiling_cents": 8180,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1635680,
+      "oracle": 1626090,
+      "ceiling_cents": 9590,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1634240,
+      "oracle": 1628280,
+      "ceiling_cents": 5960,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1675500,
+      "oracle": 1659660,
+      "ceiling_cents": 15840,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1638840,
+      "oracle": 1632560,
+      "ceiling_cents": 6280,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1632980,
+      "oracle": 1629850,
+      "ceiling_cents": 3130,
+      "excludes_15_per_day": true
+    },
+    {
+      "seed": 73433,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1638140,
+      "oracle": 1630600,
+      "ceiling_cents": 7540,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1675500,
+      "oracle": 1659660,
+      "ceiling_cents": 15840,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1672170,
+      "oracle": 1655880,
+      "ceiling_cents": 16290,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1638980,
+      "oracle": 1629450,
+      "ceiling_cents": 9530,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73433,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1665910,
+      "oracle": 1647680,
+      "ceiling_cents": 18230,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1405530,
+      "oracle": 1391320,
+      "ceiling_cents": 14210,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1405530,
+      "oracle": 1391320,
+      "ceiling_cents": 14210,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1405530,
+      "oracle": 1391320,
+      "ceiling_cents": 14210,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1405530,
+      "oracle": 1391320,
+      "ceiling_cents": 14210,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1413400,
+      "oracle": 1399550,
+      "ceiling_cents": 13850,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1405180,
+      "oracle": 1391630,
+      "ceiling_cents": 13550,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1407360,
+      "oracle": 1393960,
+      "ceiling_cents": 13400,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1406050,
+      "oracle": 1393280,
+      "ceiling_cents": 12770,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1430010,
+      "oracle": 1412010,
+      "ceiling_cents": 18000,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1403690,
+      "oracle": 1394360,
+      "ceiling_cents": 9330,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1411020,
+      "oracle": 1396240,
+      "ceiling_cents": 14780,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1405860,
+      "oracle": 1395690,
+      "ceiling_cents": 10170,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1430010,
+      "oracle": 1412010,
+      "ceiling_cents": 18000,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1425850,
+      "oracle": 1409330,
+      "ceiling_cents": 16520,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1416860,
+      "oracle": 1394140,
+      "ceiling_cents": 22720,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73477,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1424250,
+      "oracle": 1404360,
+      "ceiling_cents": 19890,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1432600,
+      "oracle": 1422920,
+      "ceiling_cents": 9680,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1432600,
+      "oracle": 1422920,
+      "ceiling_cents": 9680,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1432600,
+      "oracle": 1422920,
+      "ceiling_cents": 9680,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1432600,
+      "oracle": 1422920,
+      "ceiling_cents": 9680,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1438580,
+      "oracle": 1430130,
+      "ceiling_cents": 8450,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1432360,
+      "oracle": 1422570,
+      "ceiling_cents": 9790,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1427740,
+      "oracle": 1418260,
+      "ceiling_cents": 9480,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1428950,
+      "oracle": 1419710,
+      "ceiling_cents": 9240,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1451120,
+      "oracle": 1437000,
+      "ceiling_cents": 14120,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1430140,
+      "oracle": 1419360,
+      "ceiling_cents": 10780,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1425650,
+      "oracle": 1416530,
+      "ceiling_cents": 9120,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1424730,
+      "oracle": 1416130,
+      "ceiling_cents": 8600,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1451120,
+      "oracle": 1437000,
+      "ceiling_cents": 14120,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1435940,
+      "oracle": 1422560,
+      "ceiling_cents": 13380,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1437620,
+      "oracle": 1423580,
+      "ceiling_cents": 14040,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73519,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1440110,
+      "oracle": 1423060,
+      "ceiling_cents": 17050,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 0,
+      "calendar": "standby",
+      "baseline": 1760480,
+      "oracle": 1745970,
+      "ceiling_cents": 14510,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 0,
+      "calendar": "dawn",
+      "baseline": 1760480,
+      "oracle": 1745970,
+      "ceiling_cents": 14510,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 0,
+      "calendar": "peak",
+      "baseline": 1760480,
+      "oracle": 1745970,
+      "ceiling_cents": 14510,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 0,
+      "calendar": "mixed",
+      "baseline": 1760480,
+      "oracle": 1745970,
+      "ceiling_cents": 14510,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 1,
+      "calendar": "standby",
+      "baseline": 1780750,
+      "oracle": 1754870,
+      "ceiling_cents": 25880,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 1,
+      "calendar": "dawn",
+      "baseline": 1765520,
+      "oracle": 1748590,
+      "ceiling_cents": 16930,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 1,
+      "calendar": "peak",
+      "baseline": 1764190,
+      "oracle": 1748060,
+      "ceiling_cents": 16130,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 1,
+      "calendar": "mixed",
+      "baseline": 1765300,
+      "oracle": 1748590,
+      "ceiling_cents": 16710,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 2,
+      "calendar": "standby",
+      "baseline": 1780980,
+      "oracle": 1763290,
+      "ceiling_cents": 17690,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 2,
+      "calendar": "dawn",
+      "baseline": 1766820,
+      "oracle": 1751760,
+      "ceiling_cents": 15060,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 2,
+      "calendar": "peak",
+      "baseline": 1763720,
+      "oracle": 1750740,
+      "ceiling_cents": 12980,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 2,
+      "calendar": "mixed",
+      "baseline": 1781970,
+      "oracle": 1757820,
+      "ceiling_cents": 24150,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 4,
+      "calendar": "standby",
+      "baseline": 1780980,
+      "oracle": 1763290,
+      "ceiling_cents": 17690,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 4,
+      "calendar": "dawn",
+      "baseline": 1780700,
+      "oracle": 1760660,
+      "ceiling_cents": 20040,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 4,
+      "calendar": "peak",
+      "baseline": 1782050,
+      "oracle": 1760690,
+      "ceiling_cents": 21360,
+      "excludes_15_per_day": false
+    },
+    {
+      "seed": 73561,
+      "K": 4,
+      "calendar": "mixed",
+      "baseline": 1782500,
+      "oracle": 1762940,
+      "ceiling_cents": 19560,
+      "excludes_15_per_day": false
+    }
+  ],
+  "complete_before_registered_comparators": true
+}

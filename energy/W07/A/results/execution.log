@@ -1,0 +1,15 @@
+flat 72161 analytic
+flat 72167 analytic
+flat 72169 analytic
+time_of_use 72307 PF
+time_of_use 72313 PF
+time_of_use 72337 PF
+ambiguous 72421 prefix3
+ambiguous 72431 prefix1
+ambiguous 72461 prefix3
+rare_outage 72503 prefix3
+rare_outage 72533 prefix3
+rare_outage 72547 prefix3
+positive 72613 demonstrated
+positive 72643 demonstrated
+positive 72647 demonstrated

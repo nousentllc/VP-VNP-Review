@@ -1,0 +1,66 @@
+{
+  "branching": {
+    "arrays": 256,
+    "baseline": "3",
+    "causal": "2",
+    "causal_arrays": 8,
+    "centered_floor": "2",
+    "false_merge": "3",
+    "fitted_floor": "3",
+    "fitted_mean": "0",
+    "maximum_bias": "2",
+    "partial": "1",
+    "pf": "0"
+  },
+  "history_chosen_mean": "1",
+  "marginal_means": [
+    "0",
+    "0"
+  ],
+  "mass_sensitivity": {
+    "centered_reproduced": 16,
+    "positive_weight_panels": 16,
+    "tested_arrays": 4096
+  },
+  "missing_baseline_examples": {
+    "possible_costs": [
+      0,
+      12
+    ],
+    "same_floor": 0,
+    "selected_target": 1
+  },
+  "no_recharge_budget_kernels": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4
+    ]
+  ],
+  "omitted_original_weight_gain": "10",
+  "renormalized_retained_gain": 0,
+  "strict_threshold": {
+    "equality_achieved": true,
+    "target": 1
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "replicated_panels": [
+    {
+      "days": 7,
+      "all_feasible": 8,
+      "mean_headroom_USD_day": {
+        "price": 120.7357142857143,
+        "continuation": 48.4875,
+        "scenario": 48.63214285714285
+      },
+      "continuation_gain_vs_price_USD_day": 72.24821428571428,
+      "continuation_gain_vs_scenario_USD_day": 0.14464285714285707,
+      "range_vs_scenario": [
+        -4.514285714285714,
+        9.157142857142857
+      ],
+      "n_over_15_vs_scenario": 0,
+      "accepted_optional_per_policy": {
+        "price": 829,
+        "continuation": 915,
+        "scenario": 926
+      },
+      "checked_edges": 174036
+    },
+    {
+      "days": 30,
+      "all_feasible": 8,
+      "mean_headroom_USD_day": {
+        "price": 110.94375,
+        "continuation": 49.82208333333333,
+        "scenario": 47.041666666666664
+      },
+      "continuation_gain_vs_price_USD_day": 61.12166666666667,
+      "continuation_gain_vs_scenario_USD_day": -2.7804166666666665,
+      "range_vs_scenario": [
+        -5.756666666666666,
+        0.02333333333333333
+      ],
+      "n_over_15_vs_scenario": 0,
+      "accepted_optional_per_policy": {
+        "price": 3607,
+        "continuation": 3866,
+        "scenario": 3877
+      },
+      "checked_edges": 743751
+    }
+  ],
+  "counterexample": {
+    "continuation": {
+      "first_hour": 4,
+      "state": [
+        9,
+        0
+      ],
+      "nominal": 1,
+      "first_down_applied": 2,
+      "after": [
+        11,
+        2
+      ],
+      "next_nominals": [
+        0
+      ],
+      "next_down_end_SOC": 12,
+      "feasible_two_call_responses": []
+    },
+    "scenario": {
+      "first_hour": 4,
+      "state": [
+        9,
+        0
+      ],
+      "nominal": 1,
+      "first_down_applied": 2,
+      "after": [
+        11,
+        2
+      ],
+      "next_nominals": [
+        0
+      ],
+      "next_down_end_SOC": 12,
+      "feasible_two_call_responses": []
+    }
+  },
+  "seconds": 5.038868833100423,
+  "raw_by_case_matches_historical_reference_excluding_timers": true
+}

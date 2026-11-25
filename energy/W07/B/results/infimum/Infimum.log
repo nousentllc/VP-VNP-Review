@@ -1,0 +1,8 @@
+'W07.Extra.penalized_infimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'W07.Extra.unbounded_image' depends on axioms: [propext, Classical.choice, Quot.sound]
+'W07.Extra.no_finite_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'W07.Extra.real_infimum_trap' depends on axioms: [propext, Classical.choice, Quot.sound]
+LOCAL-EDGES W07.Extra.penalized_infimum [W07.Info.penalty_debit, W07.Info.lower_transfer, W07.Info.value]
+LOCAL-EDGES W07.Extra.unbounded_image []
+LOCAL-EDGES W07.Extra.no_finite_lower_bound []
+LOCAL-EDGES W07.Extra.real_infimum_trap [W07.Extra.no_finite_lower_bound, W07.Extra.unbounded_image, W07.Info.value]

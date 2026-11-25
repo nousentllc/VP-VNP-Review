@@ -8,6 +8,9 @@ The **energy-explorations** branch of the private VP-VNP-Review repository holds
 | W04 | BESS warm starts, AIPC, stochastic control, AC-OPF and generator grouping | [PDF](W04/W04_Results.pdf) · [Evidence ledger](W04/claims.csv) · [Reproduction instructions](W04/README.md) |
 | W05 | AIPC reconstruction and bounds, prediction and continuation value, BESS and AC-OPF | [PDF](W05/W05_Results.pdf) · [Evidence ledger](W05/claims.csv) · [Reproduction instructions](W05/README.md) |
 | W06 | Certified opportunity assessment for storage, AC power flow and unit commitment | [PDF](W06/W06_Results.pdf) · [Evidence ledger](W06/claims.csv) · [Reproduction instructions](W06/README.md) |
+| W07 | Causal opportunity bounds, multi-call activation and benchmark AC/UC certificates | [PDF](W07/W07_Results.pdf) · [Evidence ledger](W07/claims.csv) · [Replay guide](W07/README.md) |
+
+Current manuscript [v0.6 PDF](Manuscripts/v0.6/CRGC_Whitepaper_v0.6.pdf) · [LaTeX](Manuscripts/v0.6/CRGC_Whitepaper_v0.6.tex). [W06 independent adjudication](Reviews/W06/Independent_Adjudication/W06_Adjudication.csv) · [W07 independent-review assignment](Reviews/W07/W07_Independent_Review_Prompt.md) · [W07 archive](Archives/W07/W07_Energy_Experiments.zip) · [verification receipt](Archives/W07/W07_Archive_Verification.json).
 
 The subsequent W05 opportunity review reuses the archived W05 scenarios. [Review](Reviews/W05/Independent_Opportunity/README.md) · [Replay verification](Reviews/W05/Independent_Opportunity/verification.json) · [v0.5 manuscript](Manuscripts/v0.5/CRGC_Whitepaper_v0.5.pdf)
 

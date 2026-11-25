@@ -1,0 +1,15 @@
+{
+  "input": "2020-04-03.json",
+  "T": 48,
+  "exact_primal_official_rows": 42899,
+  "zero_tol_primal": true,
+  "startup_history": {
+    "true_starts": 13,
+    "category_matches_elapsed_offline": 13
+  },
+  "independently_expanded_original_rows": 42899,
+  "primal_U": "1277336707/625",
+  "exact_full_L": "50806372479027343767460023347/25000000000000000000000",
+  "exact_combined_L": "101638879983640305174366315219/50000000000000000000000",
+  "splits": 2
+}

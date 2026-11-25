@@ -1,0 +1,28 @@
+[
+  {
+    "case": "2020-04-03_24",
+    "rows": 21059,
+    "root_checked": true,
+    "tree_nodes": 0
+  },
+  {
+    "case": "2020-04-03_48",
+    "rows": 42899,
+    "tree_nodes": 15,
+    "leaves": 8,
+    "assigned_binary_cube_mass": "1",
+    "checked_lower": "101647631374814707668700874577/50000000000000000000000"
+  },
+  {
+    "case": "2020-10-27_24",
+    "rows": 21059,
+    "root_checked": true,
+    "tree_nodes": 0
+  },
+  {
+    "case": "2020-10-27_48",
+    "rows": 42899,
+    "root_checked": true,
+    "tree_nodes": 0
+  }
+]

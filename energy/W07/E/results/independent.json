@@ -1,0 +1,16 @@
+{
+  "long_admissible_edges": 87571,
+  "viable_state_hours_by_budget": [
+    3542,
+    3373,
+    3367,
+    3365,
+    3364
+  ],
+  "independent_full_small_tree_root_states": 1500,
+  "oracle_edges": 1847927,
+  "simulations": 768,
+  "actual_commands": 49994,
+  "failed_trajectories": 87,
+  "seconds": 0.9968995829112828
+}

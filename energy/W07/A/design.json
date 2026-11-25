@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "development_seeds": [
+    70211,
+    70213,
+    70217,
+    70219,
+    70223
+  ],
+  "holdout_by_stratum": {
+    "flat": [
+      72161,
+      72167,
+      72169
+    ],
+    "time_of_use": [
+      72307,
+      72313,
+      72337
+    ],
+    "ambiguous": [
+      72421,
+      72431,
+      72461
+    ],
+    "rare_outage": [
+      72503,
+      72533,
+      72547
+    ],
+    "positive": [
+      72613,
+      72643,
+      72647
+    ]
+  },
+  "family_weight": "1/15",
+  "chronology": "Six 4h epochs comprising one site-day. Public Markov regime tables and initial mark 0 are disclosed before dispatch; at later epochs only the realized current/past binary marks are observed. Issued branch probabilities and next-epoch conditional price/capacity forecasts depend only on decision-time information. No realized leaf, seed or scenario index is a controller argument.",
+  "economics": "All prices in dollars per quarter MWh. Fixed protected load is 8 to 10 quarter MWh per epoch. Metered ordinary import, unlimited separately priced firm backup and throughput wear. No lost load, export, unserved or differentiated revenue. Terminal inventory exactly 2 MWh; initial 2, capacity 4. One action per epoch in {-1,0,+1} internal MWh; charge 5 quarter MWh, discharge supplies 4, absolute changes at most 1 including initial previous action 0.",
+  "baseline": "Ex ante cheapest admissible of idle and four exact H12 adaptive rolling policies with terminal inventory slopes 0,11,24,40 $/MWh, selected by exact expectation under the public scenario law. All five are checked; no realized future is used. Fixed tie order idle then listed slopes. Global endpoint recoverability.",
+  "risk": "Expected total matched procurement and wear, all protected service covered pathwise, endpoint equal on every positive-weight leaf.",
+  "threshold": "inclusive max($15/site-day,0.01*abs(exact baseline expected cost)); strict ceiling < threshold excludes, equality remains attainable",
+  "stages": [
+    "analytic",
+    "PF",
+    "prefix1",
+    "prefix3",
+    "penalty",
+    "causal"
+  ],
+  "stopping": "First strict exclusion using running maximum of checked lower values, else direct exact causal solve; report terminal reachable target with a policy. Missing baseline retains original family weight with status unknown.",
+  "compared": [
+    "staged",
+    "direct exact Markov DP",
+    "direct binary tree-MILP (SciPy/HiGHS)"
+  ],
+  "audit": "Independent leaf-group rational Bellman checker for each issued certificate; complete action/branch enumeration and uniform local centering; compare native feasible policy by exact replay, label native dual numerical. Leakage probes include future suffix mutation, repeated-prefix action checks, and leaf-order invariance.",
+  "timing": "One separately launched cold process per arm and family in deterministic rotating arm order. Include law/baseline generation, exact checking, native build, verification, JSON and process startup. Report worker clocks, parent elapsed and lifetime peak RSS; no learned/precomputed value tables. A separate all-tier shadow audit gets no timing credit.",
+  "scope": "Designed seed-family average only. Public tariff laws with synthetic binary innovations and a fully specified finite alphabet; no field-frequency inference, reserve deliverability, deployment or system-cost claims.",
+  "positive_control": "Positive stratum has protected tariff spike outside initial H12 horizon. Independently score predeclared feasible commands (+1,+1,0,0,-1,-1) against the selected portfolio, as well as separately constructed analytical controls at strict equality."
+}

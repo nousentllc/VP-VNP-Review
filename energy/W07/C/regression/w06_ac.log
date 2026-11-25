@@ -1,0 +1,6 @@
+pglib_opf_case30_as audit True
+pglib_opf_case30_as__api audit False
+pglib_opf_case39_epri audit True
+pglib_opf_case39_epri__api audit False
+pglib_opf_case89_pegase audit True
+pglib_opf_case89_pegase__api audit False

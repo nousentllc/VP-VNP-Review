@@ -1,0 +1,17 @@
+{
+  "checked": {
+    "causal_rows": 7845,
+    "center_count_rows": 1515,
+    "families": 15,
+    "scenario_leaves": 480,
+    "planted_witnesses": 3
+  },
+  "first_stop": {
+    "analytic": 3,
+    "PF": 3,
+    "prefix3": 5,
+    "prefix1": 1,
+    "demonstrated": 3
+  },
+  "wrong_target_classifications": 0
+}

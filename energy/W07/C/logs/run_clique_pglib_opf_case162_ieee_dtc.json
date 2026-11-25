@@ -1,0 +1,9 @@
+{
+  "job": "run_clique_pglib_opf_case162_ieee_dtc",
+  "command": [
+    "-c",
+    "from clique import run;from pathlib import Path;run(Path('/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W07/C/inputs/pglib_opf_case162_ieee_dtc.m'),Path('/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W07/C/ac_results/pglib_opf_case162_ieee_dtc'),Path('/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W07/C/exploratory/results/pglib_opf_case162_ieee_dtc'))"
+  ],
+  "returncode": 1,
+  "process_wall_s": 35.226499166106805
+}

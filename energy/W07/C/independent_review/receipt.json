@@ -1,0 +1,162 @@
+{
+  "AC": [
+    {
+      "input": "pglib_opf_case162_ieee_dtc.m",
+      "modes": [
+        {
+          "mode": "dc",
+          "max_bus_complex_MVA_mismatch": 1.8498069579501348e-11,
+          "max_thermal_ratio": 0.9999899999359225,
+          "max_angle_violation_deg": 0.0,
+          "max_generator_violation": 0.0,
+          "min_voltage_margin": 2.0000033660982908e-05,
+          "midpoint_cost_vs_rigorous_upper": -3.8489815779030323e-07
+        },
+        {
+          "mode": "flat",
+          "max_bus_complex_MVA_mismatch": 2.1149591287391376e-11,
+          "max_thermal_ratio": 0.9999899999359225,
+          "max_angle_violation_deg": 0.0,
+          "max_generator_violation": 0.0,
+          "min_voltage_margin": 2.0000033660982908e-05,
+          "midpoint_cost_vs_rigorous_upper": -3.8488360587507486e-07
+        }
+      ],
+      "copper_checked": true
+    },
+    {
+      "input": "pglib_opf_case162_ieee_dtc__api.m",
+      "modes": [
+        {
+          "mode": "dc",
+          "max_bus_complex_MVA_mismatch": 3.8462207349264765e-09,
+          "max_thermal_ratio": 0.9999899999455523,
+          "max_angle_violation_deg": 0.0,
+          "max_generator_violation": 0.0,
+          "min_voltage_margin": 2.0000031242695115e-05,
+          "midpoint_cost_vs_rigorous_upper": -3.849127097055316e-07
+        },
+        {
+          "mode": "flat",
+          "max_bus_complex_MVA_mismatch": 3.846505923883432e-09,
+          "max_thermal_ratio": 0.9999899999455523,
+          "max_angle_violation_deg": 0.0,
+          "max_generator_violation": 0.0,
+          "min_voltage_margin": 2.0000031242695115e-05,
+          "midpoint_cost_vs_rigorous_upper": -3.8489815779030323e-07
+        }
+      ],
+      "copper_checked": true
+    },
+    {
+      "input": "pglib_opf_case60_c.m",
+      "modes": [
+        {
+          "mode": "dc",
+          "max_bus_complex_MVA_mismatch": 7.82636294556182e-12,
+          "max_thermal_ratio": 0.9999899934046143,
+          "max_angle_violation_deg": 0.0,
+          "max_generator_violation": 0.0,
+          "min_voltage_margin": 2.000265313628624e-05,
+          "midpoint_cost_vs_rigorous_upper": -2.0001607481390238e-07
+        },
+        {
+          "mode": "flat",
+          "max_bus_complex_MVA_mismatch": 8.390182977238143e-12,
+          "max_thermal_ratio": 0.9999899934046145,
+          "max_angle_violation_deg": 0.0,
+          "max_generator_violation": 0.0,
+          "min_voltage_margin": 2.000265313628624e-05,
+          "midpoint_cost_vs_rigorous_upper": -2.00001522898674e-07
+        }
+      ],
+      "copper_checked": true
+    },
+    {
+      "input": "pglib_opf_case60_c__api.m",
+      "modes": [
+        {
+          "mode": "dc",
+          "max_bus_complex_MVA_mismatch": 9.026756839877024e-12,
+          "max_thermal_ratio": 0.9999899997380219,
+          "max_angle_violation_deg": 0.0,
+          "max_generator_violation": 0.0,
+          "min_voltage_margin": 2.0000646591578075e-05,
+          "midpoint_cost_vs_rigorous_upper": -1.00000761449337e-07
+        },
+        {
+          "mode": "flat",
+          "max_bus_complex_MVA_mismatch": 1.2559694572451856e-11,
+          "max_thermal_ratio": 0.9999899997380217,
+          "max_angle_violation_deg": 0.0,
+          "max_generator_violation": 0.0,
+          "min_voltage_margin": 2.0000646591578075e-05,
+          "midpoint_cost_vs_rigorous_upper": -1.00000761449337e-07
+        }
+      ],
+      "copper_checked": true
+    }
+  ],
+  "UC": [
+    {
+      "input": "2020-04-03.json",
+      "T": 24,
+      "exact_primal_official_rows": 21059,
+      "zero_tol_primal": true,
+      "startup_history": {
+        "true_starts": 10,
+        "category_matches_elapsed_offline": 10
+      },
+      "independently_expanded_original_rows": 21059,
+      "primal_U": "12035391139/10000",
+      "exact_full_L": "59879107537923118577718884089/50000000000000000000000",
+      "exact_combined_L": "59879107537923118577718884089/50000000000000000000000",
+      "splits": 0
+    },
+    {
+      "input": "2020-04-03.json",
+      "T": 48,
+      "exact_primal_official_rows": 42899,
+      "zero_tol_primal": true,
+      "startup_history": {
+        "true_starts": 5,
+        "category_matches_elapsed_offline": 5
+      },
+      "independently_expanded_original_rows": 42899,
+      "primal_U": "20655968513/10000",
+      "exact_full_L": "50806372479027343767460023347/25000000000000000000000",
+      "exact_combined_L": "101638879983640305174366315219/50000000000000000000000",
+      "splits": 2
+    },
+    {
+      "input": "2020-10-27.json",
+      "T": 24,
+      "exact_primal_official_rows": 21059,
+      "zero_tol_primal": true,
+      "startup_history": {
+        "true_starts": 2,
+        "category_matches_elapsed_offline": 2
+      },
+      "independently_expanded_original_rows": 21059,
+      "primal_U": "159071849/200",
+      "exact_full_L": "19673581574410370897194578853/25000000000000000000000",
+      "exact_combined_L": "19693416599631963827194578853/25000000000000000000000",
+      "splits": 2
+    },
+    {
+      "input": "2020-10-27.json",
+      "T": 48,
+      "exact_primal_official_rows": 42899,
+      "zero_tol_primal": true,
+      "startup_history": {
+        "true_starts": 8,
+        "category_matches_elapsed_offline": 8
+      },
+      "independently_expanded_original_rows": 42899,
+      "primal_U": "4476652627/2500",
+      "exact_full_L": "44364553721894616101964366019/25000000000000000000000",
+      "exact_combined_L": "44364553721894616101964366019/25000000000000000000000",
+      "splits": 0
+    }
+  ]
+}

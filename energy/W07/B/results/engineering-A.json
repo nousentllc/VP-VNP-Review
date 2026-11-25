@@ -1,0 +1,8 @@
+{
+  "families": 15,
+  "history_cells": 465,
+  "leaf_weights_per_family": 32,
+  "local_state_action_centering_checks": 10575,
+  "records_sha256": "91305d1938013658a4b1690932d69895e0112423a5bd2dd1a0ca81d50888b897",
+  "source_sha256": "14a4d84efe38660d27cda5f4403a47ea4de8e76e3d4d81715502f7f0c2e8fa14"
+}

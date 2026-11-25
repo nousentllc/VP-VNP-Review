@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W07/C/clique.py", line 80, in run
+    solver,x,y=h.lp.optimize();l=h.lp.dual(y);assert l<=U;L=max(l,L)
+                                 ^^^^^^^^^^^^
+  File "/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W07/C/linear.py", line 31, in dual
+    assert len(self.rows) == len(multipliers)
+                             ^^^^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
