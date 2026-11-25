@@ -21,10 +21,10 @@
     ".github/workflows/lean-projects.yml"
   ],
   "local_replay": {
-    "scope": "Fresh publisher-module builds, retained-object readbacks and isolated declarations are distinguished by pass and target below. The shared replay runner uses pinned Lean and prebuilt mathlib dependencies.",
+    "scope": "Review-run verification, distinguished by pass and execution site. The complete native project rebuild used pinned prebuilt external libraries. The separate Linux job built the project and ran the publisher Comparator and nanoda.",
     "pass09_full_module_record": "checks/pass09_endpoint_replay_results.json",
-    "entire_separation_replayed": false,
-    "comparator_replayed": false,
+    "entire_separation_replayed": true,
+    "comparator_replayed": true,
     "pass10_extension_record": "checks/pass10_formal_results.json",
     "pass11": {
       "crossing": {
@@ -109,6 +109,40 @@
         "scope": "Fresh union of Paper.Flat (115) and Paper.Laws (113), 110 shared and 118 unique project modules. Ten types and ten axiom queries. The complete exact separation, remaining downstream branches and Comparator are separate targets."
       },
       "reader_check": "checks/pass13_reader_check.py"
+    },
+    "comparator_replay_location": "Linux GitHub Actions runner in the review repository; separate from the native macOS rebuild.",
+    "pass14": {
+      "review_baseline": "3754047be3854ef313df17ae5117c6ca5a66b4b8",
+      "full_local_build": {
+        "record": "checks/pass14_release.json",
+        "runner": "checks/pass14_release.py",
+        "scope": "All 323 modules in four default-target closures and the original reporting script compiled afresh, on the pinned external library cache. Five isolated pairs of challenge and solution signatures agree. 22 solution-side axiom records. All public declarations include the exact and approximate endpoints."
+      },
+      "review_owned_linux_comparator": {
+        "record": "checks/pass14_comparator.json",
+        "workflow": ".github/workflows/pass14-comparator.yml",
+        "run_url": "https://github.com/nousentllc/VP-VNP-Review/actions/runs/45691617731",
+        "job_id": 139478246305,
+        "scope": "Separate Linux execution in the review repository using the publisher checker, configured five targets, and compulsory nanoda proof replay.",
+        "artifact": "checks/pass14_linux_artifact.zip",
+        "original_log": "checks/pass14_comparator.log",
+        "workflow_commit": "3524ec471d5e2dee4cd70bd3c60f1dcc94dc43cc"
+      },
+      "flat_circuit_strict_bound": {
+        "scalar": "checks/pass14a_margin_results.json",
+        "circuit": "checks/pass14a_circuit_results.json",
+        "scope": "Independent /12 implication checked against the exact fresh Paper.Rate object in the local full build; outside the public five-theorem Comparator configuration."
+      },
+      "prior_finite_controls": "checks/pass14_prior_controls.json",
+      "finite_controls": [
+        "checks/pass14a_flat_results.json",
+        "checks/pass14b_tower_results.json",
+        "checks/pass14c_compiler_results.json"
+      ],
+      "reader_check": "checks/pass14_reader_check.py",
+      "build_report": "checks/pass14_report_rebuild.py",
+      "chain": "passes/14e-circuit-to-contradiction.md",
+      "transferable_mechanisms": "report/transferable-mechanisms.md"
     }
   }
 }

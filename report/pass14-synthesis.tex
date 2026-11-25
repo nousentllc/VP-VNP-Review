@@ -1,0 +1,36 @@
+\clearpage
+\heading{A candidate circuit, followed to the contradiction}\label{sec:14chain}
+Fix a characteristic $p$ and choose one algebraically closed comparison field $K$ for $p$. Its branch bounds give a cutoff before the original field $F$ is chosen. A candidate over $F$ is a list of $s$ gates computing $\HC_m$ as a formal polynomial. It may vary with $m$. M.1 specializes its finitely generated coefficient algebra and keeps the same gate bound. This is why one threshold obtained over $K$ can work for all $F$ of this characteristic. M.2 gives the target family grid completeness with dimension factor $40$. For the permanent the corresponding factor is $3$ and $2$ must be invertible. Both substitutions can cost up to five gates per original gate.
+
+D.2 supplies at least one applicable hypothesis over $K$. In the flat case E.4 decomposes the coefficient tensor of the grid circuit of size $L\le5s$. The cuts can vary across the summands. The simultaneous measurement and summation derived in 14A force the printed bound $\log_2 L\ge\ell k\sqrt{k}/16$. E.11 chooses $k=r^2$, $\ell=100r$ at each sufficiently large matrix size. The grid fits with $\log_2 m$ of order $r^3$ and forces $\log_2 L\ge (25/4)r^4$. Absorbing $\log_2 5$ gives $\log_2 s>(\log_2 m)^{4/3}/1600^2$. The stricter local coefficient in 14A is additional to this published conclusion.
+
+\subhead{Producing exactly what the contracting case forbids}
+Now suppose the comparison field satisfies the contracting hypothesis. G.2 and H.1--H.2 construct finite laws and a routing scheme over a finitely generated subring $A\subset K$. J.2--J.4 turn the scheme into the cut hypothesis for \emph{one} setting $(A,\theta,h,C_0,v_0)$, with $h\ge17$ and $H=16h$. The finite list of named generators $\theta$ and $H$ are held fixed in both calls below.
+
+Write $M$ for the target matrix size in this calculation and $\lg n=\lfloor\log_2 n\rfloor+1$ for $n\ge1$. Suppose a candidate has at most $M^a$ gates at a sufficiently large $M$ with $(\lg M)^{Ca}\le M$. K.3 supplies constants $B_0,C_1,v_1$. K.6 supplies $C_2,v_2$ at the same setting. The scale lemma gives one $v\ge v_1+v_2+4$ with
+\[
+ v^{B_0}\le M,\quad M^a\le v^{2B_0a},\quad
+ (\lg v)^{(C_2+1)C_1(2B_0a+1)}\le v.
+\]
+Put $d=2B_0a$ and $b=C_1(d+1)$. The last inequality pays for both exponents $C_1d$ and $C_2b$. K.3 therefore produces an accelerator over $K$ with size parameter $v^b$ at scale $v$. Applied over the same nonzero $A$-algebra, K.6 excludes an accelerator with exactly those parameters. Choosing the scale separately for each theorem would leave a gap here.
+
+\smallref{\pub{Paper/Cuts.lean}{570}{One cutting setting} · \pub{Paper/Circuit.lean}{294}{K.3 producer} · \pub{Paper/NoAcc.lean}{353}{K.6 exclusion} · \pub{Paper/Scales.lean}{108}{choosing the scale} · \pub{Paper/Scales.lean}{141}{matching the two predicates}.}
+
+\clearpage
+\heading{Why the contradiction survives specialization}
+K.6 must exclude an accelerator with a circuit-dependent table of field elements. First adjoin its finitely many constants to $A$. The resulting algebra is of finite type over $\mathbb Z$. A maximal quotient gives a finite field $E$ and transports the accelerator with the same size and height bounds. The proof uses a quotient of that finitely generated algebra. An embedding of the whole original field could fail to exist.
+
+For each $j\ge0$ consider the function $E\to E$, $c\mapsto c^{2^j}$. There are only finitely many functions on $E$. Some bound $M_E$ therefore supplies, for each $j$, one index $r(j)<M_E$ that gives the \emph{same function} for every $c$. K.4 rewrites the weighted value as a sum over recorded name counts. K.5 repeatedly combines the cutting procedure with the shorter evaluator, so a sufficiently large scale accommodates the finite power table and the program's own description. These steps have detailed time and size premises in the original proof.
+
+\subhead{The domain check in the self-application}
+A program $P$ applied to its own description has a branch of weight one. On the other branch it guesses a tally-exponent vector $e$, contributes its scalar $\lambda^e$, and runs the accelerator on the associated bounded instance $z_e$. The ordering is essential. First prove the size bound on $z_e$. Universal halting on bounded inputs then yields halting of $P(P)$ and the required time bound for its accepting runs. K.4 then uses the verified lookup of every name and the bound on bill length to form postponed instances with empty bills. Their accepting costs fit within $v^H$. This proves plainness of $z_e$ and licenses the accelerator's value clause. Denoting the self-value by $V$, the two evaluations give
+\[
+ V=\sum_e\lambda^e\operatorname{val}(z_e),
+ \qquad V=1+\sum_e\lambda^e\operatorname{val}(z_e).
+\]
+Subtracting gives $0=1$ in $E$. An empty run list or cancelling weights would still obey the sum identities. A zero coefficient ring would invalidate this last contradiction, hence the nontriviality assumption. Our human reconstruction covers the way these contracts compose. The detailed instruction budgets for bounded self-input and postponement remain suitable for a separate line-by-line review.
+
+\subhead{Return to all fields and all large sizes}
+Let $u=\log_2 m$. In the contracting case the exponent $c_K u^2/\log_2 u$ eventually exceeds $u^{4/3}/1600^2$, since $1600^2c_K u^{2/3}/\log_2 u\to\infty$. Thus the characteristic-dependent threshold absorbs the branch constant. In either branch, transfer yields the stated bound with the absolute multiplier $1/1600^2$. Finally, if $\HC$ had VP circuits of size at most $m^C+C$ for all $m$, choose $m$ past both thresholds so that $m^{(\log_2m)^{1/3}/1600^2}\ge m^C+C$. The strict lower bound contradicts that size budget. The rooted witness from 13D puts $\HC$ in VNP. VP itself embeds in VNP with zero extra bits.
+
+\smallref{\pub{Paper/NoAcc.lean}{23}{Finite quotient} · \pub{Paper/NoAcc.lean}{50}{common index for powers} · \pub{Paper/NoAcc.lean}{211}{diagonal equality} · \pub{Paper/Fields.lean}{64}{rate comparison} · \pub{Paper/Fields.lean}{142}{strict inclusion} · \pub{Solution.lean}{34}{released statement}.}

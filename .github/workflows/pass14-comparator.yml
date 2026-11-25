@@ -1,10 +1,6 @@
 name: Pass 14 pinned proof and Comparator
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - .github/workflows/pass14-comparator.yml
 
 permissions:
   contents: read
@@ -49,9 +45,7 @@ jobs:
           lean --version
           lake exe cache get
           lake build 2>&1 | tee "$RUNNER_TEMP/pass14-build.log"
-          if grep -F "declaration uses 'sorry'" "$RUNNER_TEMP/pass14-build.log" | grep -v -E '(^|[ /])Challenge(/[^ :]*)?\.lean:'; then
-            exit 1
-          fi
+          python3 "$GITHUB_WORKSPACE/checks/pass14_warnings.py" "$RUNNER_TEMP/pass14-build.log"
           lake env lean scripts/PrintAxioms.lean
       - name: Verify all five declarations with the unmodified publisher Comparator driver
         run: |

@@ -1,0 +1,14 @@
+\clearpage
+\heading{Mechanisms worth carrying into other work}\label{sec:14transfer}
+These are mathematical observations from the VP--VNP investigation. Each comes with a test that could fail in another setting. RCMG Campaign 6 has its own sources and claims.
+
+\subhead{Compositional preservation requires a shared boundary}
+When two pieces expose a boundary index $i$, gluing computes $\sum_i f(i)g(i)$. Guessing an index independently on each side gives $(\sum_i f(i))(\sum_jg(j))$. For $f=(1,-1)$ and $g=(1,0)$, the first expression is one and the second is zero. H.2 enforces equality of boundary words at the relays, with equality of network values after summing admissible outcomes. For reuse elsewhere, identify what a later piece can observe about an intermediate boundary and prove the local identity with those data held fixed.
+
+\subhead{Computational resource geometry has accounting units}
+In H.2 a route has a capacity, a congestion count, and a cost for carrying its common label. A saving in one quantity gives an algorithmic bound only once the same routing bounds the other two. In E.7, fixing the alphabet size $J$ leaves at most $(n+1)^J$ types in the $n$th power. Their normalized cost $J\log(n+1)/n$ vanishes. The shared selector can have $J^n$ choices, whose contribution $g(P)\log J$ survives normalization. For a proposed transfer one needs a common unit of cost, bounds at every layer, and the order in which any scale or dimension varies. The H.1 finite tower check exhibits the extra descendants allowed by a nonbijective host.
+
+\subhead{Continuation-stable representations have a specified domain}
+Suppose two representations agree on a domain $D$. They can replace one another in a larger argument when each permitted continuation stays in $D$, reads the common output and has the requisite resource bounds. K.3 uses a value on a genuine delimited word with padding after the delimiter. The grid polynomial also needs a circuit size and degree bound. A continuation reading arbitrary coefficients would impose a stronger condition. For the elementary example $P=x$, $Q=x+x(x-1)$, evaluation agrees on the Boolean domain in any field, but the $x^2$ coefficients differ. The off-domain word example in 14C puts this distinction inside the paper.
+
+\smallref{\newreview{report/transferable-mechanisms.md}{Separate transfer register} · \newreview{passes/14a-flat.md}{fixed-alphabet sum} · \newreview{passes/14b-tower.md}{shared routing} · \newreview{passes/14c-compiler.md}{domain of continuation}.}
