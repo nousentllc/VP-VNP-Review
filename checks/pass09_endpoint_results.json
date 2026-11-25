@@ -1,0 +1,27 @@
+{
+  "review_date": "2026-11-24",
+  "file": "checks/pass09_endpoint.lean",
+  "sha256": "c7263bb776f60873611bb1cf09c18cb96818ec574e68f59da41c1b7487657e4b",
+  "lean": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "source_declaration": {
+    "file": "primary/vp-vnp/Nc/Cat/Window.lean",
+    "lines": [
+      127,
+      137
+    ],
+    "declaration": "conc",
+    "exact_text_matched": true
+  },
+  "scope": "One publisher declaration and four independent audit declarations. The existence of fan data and their direction estimates, including the lattice second differences, enter as hypotheses.",
+  "reproduction": "From the review directory, set the pinned Lean toolchain and LEAN_PATH to the compiled mathlib dependencies listed in primary/vp-vnp/lake-manifest.json, then run lean -j1 checks/pass09_endpoint.lean.",
+  "exit_code": 0,
+  "printed_axioms": [
+    "'Pass09Endpoint.conc' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'Pass09Endpoint.shear_limit' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'Pass09Endpoint.mesh_remainder' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'Pass09Endpoint.mesh_limit' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'Pass09Endpoint.two_limits' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ]
+}

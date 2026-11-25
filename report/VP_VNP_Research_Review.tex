@@ -1,0 +1,152 @@
+% !TeX program = lualatex
+% Compile twice from this directory with LuaLaTeX; keep nous-black.png beside this file.
+% Nous Black.png, No Oval Watermark, SHA-256 bdfff8716596a351b480896d4bc21a7786470d6283c050b4ee801e3a88d061b6.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[letterpaper,left=1.02in,right=1.02in,top=.92in,bottom=.9in,headheight=15pt,headsep=17pt,footskip=30pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}[Scale=MatchLowercase]
+\usepackage{amsmath,amssymb,graphicx,xcolor,fancyhdr,hyperref}
+\definecolor{ink}{HTML}{152C35}
+\definecolor{accent}{HTML}{145754}
+\definecolor{muted}{HTML}{3D575E}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,
+  pdftitle={The VP–VNP lower bound: How the four-point curvature estimate survives the limits},
+  pdfauthor={Uriel Research},pdfsubject={Cumulative proof audit of Claude (Anthropic), passes 1–9},
+  pdfdisplaydoctitle=true}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5.5pt}
+\setlength{\emergencystretch}{1.5em}
+\setlength{\abovedisplayskip}{7pt}
+\setlength{\belowdisplayskip}{7pt}
+\raggedbottom
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\small\color{muted}Uriel Research}
+\fancyhead[R]{\sffamily\small\color{muted}VP--VNP proof review}
+\fancyfoot[R]{\sffamily\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{.3pt}
+\fancypagestyle{cover}{\fancyhf{}\fancyfoot[R]{\sffamily\small\color{muted}\thepage}\renewcommand{\headrulewidth}{0pt}}
+\newcommand{\heading}[1]{\par{\LARGE\bfseries\color{ink}#1\par}\vspace{4pt}}
+\newcommand{\subhead}[1]{\par\addvspace{7pt}{\large\bfseries\color{ink}#1\par}\nobreak}
+\newcommand{\pub}[3]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/#1\#L#2}{#3}}
+\newcommand{\paper}[1]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/paper.pdf}{#1}}
+\newcommand{\review}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/8ee44fe1227d91898bcfc0a84dd44d8d3af18dbc/#1}{#2}}
+\newcommand{\smallref}[1]{{\small\sffamily\color{muted}#1\par}}
+\newcommand{\HC}{\mathrm{HC}}
+\newcommand{\Perm}{\mathrm{PERM}}
+\begin{document}
+\thispagestyle{cover}
+\begin{center}
+  {\fontsize{29}{34}\selectfont\bfseries\color{ink}The VP--VNP lower bound\par}
+  \vspace{4pt}
+  {\Large\color{muted}How the four-point curvature estimate survives the limits\par}
+  \vspace{8pt}
+  \includegraphics[height=.82in]{nous-black.png}\par
+  \vspace{3pt}
+  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 24, 2026\enspace $\cdot$ \enspace Passes 1--9\par}
+\end{center}
+\vspace{5pt}
+\subhead{What changed in pass 9}
+The previous review traced how Proposition C.3 completes a space while retaining one midpoint inequality against all test points. It left open where the negative term in that inequality comes from. In Theorem C.1, four estimates on a lattice seminorm and the parallelogram law supply the term. The decisive check is that the remaining error can be bounded using only the four original points.
+
+For a fixed price $w$, let $w(x,m),w(v,m)\le D$ and $w(x,v)=2D$. Put $b=w(z,m)$. The proof yields the following bound at every integer $T\ge2$:
+\[
+ \underbrace{b^2-\tfrac12\bigl(w(z,x)^2+w(z,v)^2\bigr)+D^2}_{\text{defect of the proposed midpoint inequality}}
+ \ \le\ \frac{6D^2+6Db+b^2}{T}.
+\]
+The defect on the left is independent of $T$. Letting $T$ grow gives the desired sign. This implication uses A.8 to construct the fans and C.2 for the parallelogram law. Pages 3--4 show where the errors from averaging and the long lattice displacement go.
+
+The price hypothesis matters. On the unit square with distances measured along its edges, take opposite corners for $x,v$ and the remaining two corners for $m,z$. Then $D=1$, $b=2$ and both distances from $z$ to $x,v$ are one. C.1 would require $4\le0$. The ordinary metric satisfies all the stated distance conditions on the triangle through $m$, yet it cannot be a price.
+
+\subhead{What this establishes for the circuit argument}
+C.1 supplies the curvature input that C.3 passes to the field alternative in D.2. The mathematical status of that link has advanced from a cited input to a derivation conditional on identified lemmas. The superpolynomial circuit lower bound remains the claim of Claude (Anthropic), whose proof has additional dependencies in both branches.
+
+\smallref{Manuscript: \paper{Appendix C, pp.~25--28}. Formal endpoints:
+  \pub{Paper/Fan.lean}{929}{fan estimate} and \pub{Paper/Fan.lean}{987}{Theorem C.1}.
+  Prior review: \review{VP_VNP_Chat_Handoff.md}{Edition 5, through pass 8}.}
+
+\newpage
+\heading{Where every circuit enters}
+For each $m$, take a generic $m\times m$ matrix $X=(X_{ij})$ of independent variables over a field. The Hamiltonian cycle polynomial $\HC_m$ sums $\prod_i X_{i,\sigma(i)}$ over permutations $\sigma$ consisting of one cycle. The permanent $\Perm_m$ takes the same sum over all permutations.
+
+Theorem 1.1 asserts that some absolute $c>0$ works as follows. For each characteristic $p$, there is $m_0(p)$ such that for every field of that characteristic, every $m\ge m_0(p)$, and every circuit computing $\HC_m$,
+\[
+  \operatorname{size}(C)>m^{\,c(\log_2 m)^{1/3}} .
+\]
+The stated bound also applies to $\Perm_m$ when $p\ne2$. The circuit is a list of variables, field constants and binary sums or products of earlier entries. Size counts all entries. A gate may be reused, and the target must occur as a formal polynomial. This allows nonuniform circuits, unrestricted depth, cancellation and field-dependent constants. The paper treats approximation separately.
+
+\subhead{D.2 splits the argument by field}
+\textbf{Flat branch (passes 1--2).} E.4 starts with an arbitrary circuit for the auxiliary polynomial. Its decomposition permits up to the circuit size in products \emph{per balanced subset}. Different summands can use different cuts. E.7 pays for recombining them, while E.9 supplies a single spectral point for all candidate cuts. Fixing one cut in advance would lose coverage.
+
+\textbf{Contracting branch (passes 3--6).} K.2 turns an arbitrary circuit into a program computing the sum of accepting-run weights. I.1 preserves that value and the stated exact-time evaluation once the time threshold is met. The interpreter can discard a zero-weight accepting branch for an unsupported name. The proofs using this construction consume the sum. J.2--J.4 use a bounded outcome sum and account for constructing and concatenating the piece lists. M.1--M.4 handle field transfer and the Hamiltonian-cycle substitution.
+
+\textbf{Shared geometry (passes 7--9).} D.2 uses simultaneous rank averages, nonnegative defects, rank rigidity and the price-space cube. Requiring only a witness $m$ for each test point $z$ in the squared inequality would be vacuous, since $m=z$ always works. C.3 supplies one midpoint for all $z$ in the complete space. C.1 now explains the required curvature coefficient within a price.
+
+The original QFTN and Uriel-GEMA audit motivated a question about this paper: where does a local construction become a restriction on every circuit? For this proof, the answer lies in the two circuit transformations and the field alternative covering their cases. Imported geometric lemmas and the machine model remain points at which that coverage can be tested independently.
+
+\smallref{Manuscript: \paper{D.2, pp.~30--31; E.4--E.11, pp.~33--37; K.2--K.7, pp.~56--59; M.1--M.4, pp.~60--62}. Review evidence: \review{passes/02-flat-branch.md}{mixed cuts},
+\review{passes/05-universal-automaton.md}{weighted runs}, \review{passes/06-one-cut-and-iteration.md}{iteration costs}, \review{passes/07-field-alternative.md}{field coverage}, \review{passes/08-price-space-completion.md}{completion}.}
+
+\newpage
+\heading{Curvature from four fan estimates}
+A $K$-price is a pseudometric whose restriction to any finite configuration can be approximated on all pairs at once by one nonnegative multiple of a spectral-point distance over $K$. The triangle inequality and $w(x,v)=2D$ force both legs through $m$ to have length $D$. Set
+\[
+ \Gamma=b^2-\tfrac12\bigl(w(z,x)^2+w(z,v)^2\bigr),\qquad \theta=1/T.
+\]
+
+\subhead{The fan and its averaged lengths}
+At fixed $T\ge2$ and fan size $n$, A.8 first supplies two chains from $x$ and $v$ to $m$ using a common random choice. A second shared choice supplies points between each chain point $\gamma_i$ and $z$. Write $L_i=w_{\rm fan}(z,\gamma_i)$. The fan extends the original price, and
+$|L_{i+1}-L_i|\le D/n^2$, $0\le L_i\le D+b$. Distances to $z$ along a spoke equal $\rho L_i$, with $\rho=1-j/(Tn^2)$ at level $j$. Equality here follows from the two endpoint upper bounds and the triangle inequality.
+
+Pull back the price scaled by $n^2$ to the two lattice sheets. Average its squared lengths in $n^2$-by-$n$ boxes over both sheets with the translation-invariant limiting mean. Let $\nu(g)$ be the resulting root-mean-square length and
+$N(g)=\inf_{S\ge1}\nu(Sg)/S$. Put $\Lambda_2=\mathbb E[L_i^2]\le(D+b)^2$. At this $T$, the four fan estimates are
+\[
+\begin{aligned}
+ N(1,0)&\ge D,\\
+ N(1,-1)^2&\le D^2(1-\theta+\theta^2),\\
+ N(0,1)^2&\le\theta^2\Lambda_2,\\
+ N(1,-1-A)^2&\ge A^2\theta^2\Lambda_2
+      +A\theta\Gamma-4A\theta^2D(D+b).
+\end{aligned}
+\]
+The first bound telescopes the two sheets to their common end. For the next two bounds a single step suffices. The last bound must hold for the normalized length at \emph{every} positive $S$ before taking the infimum.
+
+\subhead{Where the explicit error comes from}
+Hold $A,S,T$ fixed and take $n$ large enough that $AS\le n$. Across an $S$-step displacement,
+$n^2|L_{i+S}^2-L_i^2|\le2SD(D+b)$ and $1-\rho\le2\theta$ in the averaging window. Removing $\rho$ from the squared cross term therefore costs at most $4AS^2\theta^2D(D+b)$. Normalization divides by $S^2$. For clamped indices, the finite-box average of the squared-length difference times $n^2$ differs from $S\Gamma$ by at most $D(D+b)S(S-1)/n^2$. This discrepancy vanishes for each fixed $S$.
+
+\smallref{Manuscript: \paper{pp.~25--28, Fig.~5 and (C.3)}. Source: \pub{Paper/Prices.lean}{23}{price definition},
+\pub{Paper/Fan.lean}{166}{fan construction}, \pub{Paper/Fan.lean}{592}{first estimate}, \pub{Paper/Fan.lean}{759}{difference bound}, \pub{Paper/Fan.lean}{910}{long displacement}.}
+
+\newpage
+\heading{Why the residual vanishes}
+For each fixed $T$, one family of fans and one limiting mean give the same $N$ and $\Lambda_2$ for all $A,S$. The box sizes grow first with displacements held fixed. Ordinary convergence of every box average is unnecessary. Subadditivity of $\nu$ then identifies $N(g)$ with the ordinary large-$S$ limit of $\nu(Sg)/S$.
+
+\subhead{First remove the displacement at fixed $T$}
+Lemma C.2 makes the second difference of $f(\ell)=N(1,-1-\ell)^2$ equal $2N(0,1)^2$. Thus $\psi(\ell)=f(\ell)-\ell^2\theta^2\Lambda_2$ has nonpositive second differences. Its integer slopes decrease, so
+\[
+ \psi(A)\le\psi(0)+A\bigl(\psi(0)-\psi(-1)\bigr).
+\]
+Insert the four estimates. After division by $A\theta>0$ the only intercept term is $N(1,-1)^2/(A\theta)$. It tends to zero as $A\to\infty$ at the fixed $T$. In the original normalization the resulting bound is
+\[
+ \theta\Gamma-4\theta^2 D(D+b)
+ \ \le\ D^2(-\theta+\theta^2)+\theta^2\Lambda_2 .
+\]
+
+\subhead{Then remove the mesh parameter}
+Divide by $\theta>0$ and use $\Lambda_2\le(D+b)^2$. This gives
+\[
+ \Gamma+D^2 \le \frac{D^2+(D+b)^2+4D(D+b)}{T}.
+\]
+Each $T$ can have its own fan and averaged lengths. The numerator depends only on the original points, so $T\to\infty$ gives $\Gamma\le-D^2$. A joint limit such as $A=T$ would leave $1/(A\theta)=1$ and would not justify the intercept step. The successive estimates avoid that interchange.
+
+\subhead{Verification and the next proof obligation}
+The review derived the residual and traced the fan estimates in the pinned source. Lean 4.33.1 checked the publisher's discrete-concavity lemma and four independent declarations, including the combined endpoint with witnesses chosen once per $T$ for all $A$. Exact rational arithmetic checked 102 finite-box cases and five growing-step identities. Pass 8 separately replayed the two completion lemmas. Full independent replays of the C.1 module, the separation build and Comparator remain open.
+
+The next dependency runs from A.7 to A.8. Why can one spectral extension preserve all old distances and bound every requested new pair simultaneously? C.1 needs both properties in one fan.
+
+\smallref{Manuscript: \paper{Appendix C, especially pp.~27--28}. Source: \pub{Paper/Means.lean}{465}{C.2 parallelogram law},
+\pub{Paper/Fan.lean}{929}{endpoint bound}, \pub{Paper/Fan.lean}{987}{final limit}. This first standalone reader edition extends \review{VP_VNP_Chat_Handoff.md}{the pass-8 handoff}. Source pin: \texttt{11b6c7e3c927}.}
+\end{document}
