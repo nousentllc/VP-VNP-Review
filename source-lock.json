@@ -1,5 +1,5 @@
 {
-  "review_date": "2026-11-24",
+  "review_date": "2026-11-25",
   "repository": "https://github.com/anthropics/formal-math",
   "commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
   "commit_timestamp_utc": "2026-11-23T21:43:48Z",
@@ -21,9 +21,10 @@
     ".github/workflows/lean-projects.yml"
   ],
   "local_replay": {
-    "scope": "Theorem C.1 (Paper.Fan) and its 43 transitive project imports, plus focused review declarations reported in the individual passes.",
+    "scope": "Theorem C.1 and its 43 project imports (pass 9), the 24-module Paper.Prices closure with direct statement and axiom checks of A.7 and A.8 (pass 10), and focused declarations reported in the individual passes.",
     "pass09_full_module_record": "checks/pass09_endpoint_replay_results.json",
     "entire_separation_replayed": false,
-    "comparator_replayed": false
+    "comparator_replayed": false,
+    "pass10_extension_record": "checks/pass10_formal_results.json"
   }
 }

@@ -25,7 +25,7 @@ def source_file(module):
     return Path(*module.split(".")).with_suffix(".lean")
 
 
-def dependency_order():
+def dependency_order(target_module=TARGET):
     order = []
     seen = set()
 
@@ -43,11 +43,13 @@ def dependency_order():
                         raise ValueError(f"Unexpected external import {dep} in {module}")
         order.append(module)
 
-    visit(TARGET)
+    visit(target_module)
     return order
 
 
-def run_replay(lean, mathlib, work):
+def run_replay(lean, mathlib, work, *, target_module=TARGET, query_file=None):
+    if target_module != TARGET and query_file is None:
+        raise ValueError("A different proof target requires its own Lean query file")
     note = json.loads((REVIEW / "source-lock.json").read_text())
     packages = json.loads((SOURCE / "lake-manifest.json").read_text())["packages"]
     objects = work / "objects"
@@ -74,9 +76,9 @@ def run_replay(lean, mathlib, work):
     if f"version {pin.split(':v')[-1]}," not in version:
         raise ValueError(f"Expected Lean {pin}, got {version}")
     options = ["-j1", "-DautoImplicit=false"]
-    modules = dependency_order()
+    modules = dependency_order(target_module)
     result = {
-        "target": TARGET,
+        "target": target_module,
         "publisher_commit": note["commit"],
         "lean_version": version,
         "lean_toolchain": pin,
@@ -108,12 +110,16 @@ def run_replay(lean, mathlib, work):
         if build.returncode:
             print(row.get("output", ""), flush=True)
             return result, build.returncode
-    queries = [
-        "#check @Paper.thm_cn", "#print axioms Paper.lem_means",
-        "#print axioms Paper.thm_cn_end", "#print axioms Paper.thm_cn",
-    ]
-    query = work / "Verify.lean"
-    query.write_text("import Paper.Fan\n" + "\n".join(queries) + "\n")
+    if query_file is None:
+        queries = [
+            "#check @Paper.thm_cn", "#print axioms Paper.lem_means",
+            "#print axioms Paper.thm_cn_end", "#print axioms Paper.thm_cn",
+        ]
+        query = work / "Verify.lean"
+        query.write_text("import Paper.Fan\n" + "\n".join(queries) + "\n")
+    else:
+        query = query_file
+        queries = [line for line in query.read_text().splitlines() if line.startswith("#")]
     verify = subprocess.run(
         [lean, *options, str(query)], cwd=SOURCE, env=env, capture_output=True, text=True
     )
@@ -121,6 +127,9 @@ def run_replay(lean, mathlib, work):
         "queries": queries, "exit_code": verify.returncode,
         "output": (verify.stdout + verify.stderr).replace(str(work), "<build>").strip(),
     }
+    if query_file is not None:
+        result["verification"]["query_file"] = query.relative_to(REVIEW).as_posix()
+        result["verification"]["sha256"] = hashlib.sha256(query.read_bytes()).hexdigest()
     print(result["verification"]["output"], flush=True)
     return result, verify.returncode
 

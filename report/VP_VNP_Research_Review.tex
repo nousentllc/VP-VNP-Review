@@ -12,8 +12,8 @@
 \definecolor{accent}{HTML}{145754}
 \definecolor{muted}{HTML}{3D575E}
 \hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,
-  pdftitle={The VP–VNP lower bound: How the four-point curvature estimate survives the limits},
-  pdfauthor={Uriel Research},pdfsubject={Cumulative proof audit of Claude (Anthropic), passes 1–9},
+  pdftitle={The VP–VNP lower bound: How one extension preserves every old distance},
+  pdfauthor={Uriel Research},pdfsubject={Cumulative proof audit of Claude (Anthropic), passes 1–10},
   pdfdisplaydoctitle=true}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5.5pt}
@@ -41,31 +41,32 @@
 \begin{center}
   {\fontsize{29}{34}\selectfont\bfseries\color{ink}The VP--VNP lower bound\par}
   \vspace{4pt}
-  {\Large\color{muted}How the four-point curvature estimate survives the limits\par}
+  {\Large\color{muted}How one extension preserves every old distance\par}
   \vspace{8pt}
   \includegraphics[height=.82in]{nous-black.png}\par
   \vspace{3pt}
-  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 24, 2026\enspace $\cdot$ \enspace Passes 1--9\par}
+  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 25, 2026\enspace $\cdot$ \enspace Passes 1--10\par}
 \end{center}
 \vspace{5pt}
-\subhead{What changed in pass 9}
-The previous review traced how Proposition C.3 completes a space while retaining one midpoint inequality against all test points. It left open where the negative term in that inequality comes from. In Theorem C.1, four estimates on a lattice seminorm and the parallelogram law supply the term. The decisive check is that the remaining error can be bounded using only the four original points.
+\subhead{What changed in pass 10}
+Theorem C.1 constructs a fan by placing many new labels at old points in correlated random choices. Those placements must preserve the \emph{entire} original price and control every new pair in one enlarged space. Propositions A.7 and A.8 supply exactly this. The construction on finite spectral prices uses a single tensor: the product of the two-dimensional wires for all ordered pairs of old labels.
 
-For a fixed price $w$, let $w(x,m),w(v,m)\le D$ and $w(x,v)=2D$. Put $b=w(z,m)$. The proof yields the following bound at every integer $T\ge2$:
+Each old wire has an upper bound. A.7 supplies one spectral point attaining equality on the product. After taking logarithms, every individual deficit is nonnegative and their finite sum is zero. Every old pair therefore attains its original distance. The same spectral point bounds all the new wires, with room for strict inequality. Two compactness arguments extend this conclusion to general prices and arbitrary label sets.
+
+For old labels $Y$, new labels $Q$, and a shared random map $\sigma_\omega$ fixing $Y$, A.8 yields \emph{one} price $w'$ over the original field with
 \[
- \underbrace{b^2-\tfrac12\bigl(w(z,x)^2+w(z,v)^2\bigr)+D^2}_{\text{defect of the proposed midpoint inequality}}
- \ \le\ \frac{6D^2+6Db+b^2}{T}.
+ w'(y,y')=w(y,y')\quad(y,y'\in Y),\qquad
+ w'(a,b)\le\mathbb E_\omega\,w(\sigma_\omega a,\sigma_\omega b)
+ \quad(a,b\in Y\sqcup Q).
 \]
-The defect on the left is independent of $T$. Letting $T$ grow gives the desired sign. This implication uses A.8 to construct the fans and C.2 for the parallelogram law. Pages 3--4 show where the errors from averaging and the long lattice displacement go.
-
-The price hypothesis matters. On the unit square with distances measured along its edges, take opposite corners for $x,v$ and the remaining two corners for $m,z$. Then $D=1$, $b=2$ and both distances from $z$ to $x,v$ are one. C.1 would require $4\le0$. The ordinary metric satisfies all the stated distance conditions on the triangle through $m$, yet it cannot be a price.
+Each new label has finite range and measurable placement events. The whole random map may take infinitely many values. Pages 5--6 explain which witness survives each step and why recombining pairwise choices would lose the proof.
 
 \subhead{What this establishes for the circuit argument}
-C.1 supplies the curvature input that C.3 passes to the field alternative in D.2. We derived its endpoint from the fan estimates and independently replayed the entire formal proof of C.1 over the pinned libraries. Lean checked the statement for an arbitrary field and price. The superpolynomial circuit lower bound remains the claim of Claude (Anthropic), whose proof has additional dependencies in both branches.
+C.1 and C.3 use A.8 to construct the price geometry that D.2 needs to cover every field. Pass 9 independently replayed C.1 and derived its finite-mesh curvature error. Pass 10 traced the extension and independently rebuilt A.7 and A.8 with their project dependencies. The next mathematical question is how the crossing inequality (B.2) yields C.2's parallelogram law. The superpolynomial circuit lower bound remains the claim of Claude (Anthropic).
 
-\smallref{Manuscript: \paper{Appendix C, pp.~25--28}. Formal endpoints:
-  \pub{Paper/Fan.lean}{929}{fan estimate} and \pub{Paper/Fan.lean}{987}{Theorem C.1}.
-  Prior review: \review{VP_VNP_Chat_Handoff.md}{Edition 5, through pass 8}.}
+\smallref{Manuscript: \paper{\S A.6, pp.~21--22; Appendix C, pp.~25--28}. Formal statements:
+  \pub{Paper/Extension.lean}{166}{A.7} and \pub{Paper/Prices.lean}{366}{A.8}. Prior edition:
+  \href{https://github.com/nousentllc/VP-VNP-Review/blob/8295d58c59adeaa750235483330bba66475828c1/report/VP_VNP_Research_Review.pdf}{the nine-pass report}.}
 
 \newpage
 \heading{Where every circuit enters}
@@ -82,7 +83,7 @@ The stated bound also applies to $\Perm_m$ when $p\ne2$. The circuit is a list o
 
 \textbf{Contracting branch (passes 3--6).} K.2 turns an arbitrary circuit into a program computing the sum of accepting-run weights. I.1 preserves that value and the stated exact-time evaluation once the time threshold is met. The interpreter can discard a zero-weight accepting branch for an unsupported name. The proofs using this construction consume the sum. J.2--J.4 use a bounded outcome sum and account for constructing and concatenating the piece lists. M.1--M.4 handle field transfer and the Hamiltonian-cycle substitution.
 
-\textbf{Shared geometry (passes 7--9).} D.2 uses simultaneous rank averages, nonnegative defects, rank rigidity and the price-space cube. Requiring only a witness $m$ for each test point $z$ in the squared inequality would be vacuous, since $m=z$ always works. C.3 supplies one midpoint for all $z$ in the complete space. C.1 now explains the required curvature coefficient within a price.
+\textbf{Shared geometry (passes 7--10).} D.2 uses simultaneous rank averages, nonnegative defects, rank rigidity and the price-space cube. Requiring only a witness $m$ for each test point $z$ in the squared inequality would be vacuous, since $m=z$ always works. C.3 supplies one midpoint for all $z$ in the complete space. C.1 derives the curvature coefficient, and A.8 supplies the common price in which its fan is constructed.
 
 The original QFTN and Uriel-GEMA audit motivated a question about this paper: where does a local construction become a restriction on every circuit? For this proof, the answer lies in the two circuit transformations and the field alternative covering their cases. Imported geometric lemmas and the machine model remain points at which that coverage can be tested independently.
 
@@ -91,7 +92,7 @@ The original QFTN and Uriel-GEMA audit motivated a question about this paper: wh
 
 \newpage
 \heading{Curvature from four fan estimates}
-A $K$-price is a pseudometric whose restriction to any finite configuration can be approximated on all pairs at once by one nonnegative multiple of a spectral-point distance over $K$. The triangle inequality and $w(x,v)=2D$ force both legs through $m$ to have length $D$. Set
+A $K$-price is a pseudometric whose restriction to any finite configuration can be approximated on all pairs at once by one nonnegative multiple of a spectral-point distance over $K$. Assume $w(x,m),w(v,m)\le D$ and $w(x,v)=2D$. The triangle inequality forces both legs through $m$ to have length $D$. Set $b=w(z,m)$ and
 \[
  \Gamma=b^2-\tfrac12\bigl(w(z,x)^2+w(z,v)^2\bigr),\qquad \theta=1/T.
 \]
@@ -138,7 +139,8 @@ Insert the four estimates. After division by $A\theta>0$ the only intercept term
 \subhead{Then remove the mesh parameter}
 Divide by $\theta>0$ and use $\Lambda_2\le(D+b)^2$. This gives
 \[
- \Gamma+D^2 \le \frac{D^2+(D+b)^2+4D(D+b)}{T}.
+ \Gamma+D^2 \le \frac{D^2+(D+b)^2+4D(D+b)}{T}
+     =\frac{6D^2+6Db+b^2}{T}.
 \]
 Each $T$ can have its own fan and averaged lengths. The numerator depends only on the original points, so $T\to\infty$ gives $\Gamma\le-D^2$. A joint limit such as $A=T$ would leave $1/(A\theta)=1$ and would not justify the intercept step. The successive estimates avoid that interchange.
 
@@ -147,9 +149,64 @@ Lean 4.33.1 freshly compiled all 44 unchanged publisher modules needed for \text
 
 A separate check covered the discrete-concavity lemma and four independent declarations, including the endpoint with witnesses chosen once per $T$ for all $A$. Exact arithmetic checked 102 finite-box cases and five growing-step identities. Pass 8 replayed two C.3 completion lemmas. Full independent replays of the C.3 module, separation build and Comparator remain open.
 
-\subhead{What to read next}
-Trace the mathematical argument from A.7 to A.8. Why can one spectral extension preserve all old distances and bound every requested new pair simultaneously? A formal replay now covers this dependency as used by C.1. Explaining how the simultaneous extension works is the next reading task.
+\subhead{A four-point test for the price hypothesis}
+On the unit square with distances measured along its edges, take opposite corners for $x,v$ and the remaining corners for $m,z$. Then $D=1$, $b=2$ and the distances from $z$ to $x,v$ are both one. C.1 would require $4\le0$. This metric obeys the distance hypotheses on the triangle through $m$ yet cannot be a price.
 
 \smallref{Manuscript: \paper{Appendix C, especially pp.~27--28}. Source: \pub{Paper/Means.lean}{465}{C.2 parallelogram law},
-\pub{Paper/Fan.lean}{929}{endpoint bound}, \pub{Paper/Fan.lean}{987}{final limit}. This first standalone reader edition extends \review{VP_VNP_Chat_Handoff.md}{the pass-8 handoff}. Source pin: \texttt{11b6c7e3c927}.}
+\pub{Paper/Fan.lean}{929}{endpoint bound}, \pub{Paper/Fan.lean}{987}{final limit}. Source pin: \texttt{11b6c7e3c927}.}
+
+\newpage
+\heading{How a single tensor fixes every old wire}
+\textbf{A.7 in finite sets.} Let $\iota:I\to I'$ be the inclusion of parties, let $\pi_\ell:I'\to I$ be retractions with $\pi_\ell\iota=\mathrm{id}$, and choose weights $\theta_\ell\ge0$ summing to one. Fix a spectral point $\varphi$ on $I$ and \emph{one} old tensor $C$. Proposition A.7 gives a spectral point $\varphi'$ on $I'$ satisfying
+\[
+ \varphi'(t)\le f(t):=\prod_\ell\varphi(\pi_\ell t)^{\theta_\ell}
+ \quad\text{for every }t,\qquad \varphi'(\iota C)=\varphi(C).
+\]
+The old tensor is chosen before the witness. For a different choice of $C$ the existence statement may select a different $\varphi'$.
+
+\subhead{Why the tight bound can be attained}
+The proof sets $p(t)=\inf_{\text{covers }(b_j)\text{ of }t}\sum_j f(b_j)$. A cover writes the tensor as a sum of restrictions of the covering tensors. A cover of $\iota A$ induces a cover of $A$ with each summand restricted from every corresponding $\pi_\ell b_j$. Thus $\varphi(A)\le\sum_j f(b_j)$ for each cover. The one-term cover gives the reverse bound because $\pi_\ell\iota=\mathrm{id}$. The resulting gauge $p\le f$ agrees with $\varphi$ on \emph{every} old tensor.
+
+To extract a spectral point attaining equality on the designated $C$, put $c=\varphi(C)$. For $c>0$ localize the gauge using $q(t)=\inf_{r\ge0}p(t\,(\iota C)^r)/c^r$. The equality $p((\iota C)^r)=c^r$ permits this normalization. A.5 selects a spectral point below $q$ retaining the constraint $1\le\varphi'(\iota C)/c$. The upper bound is $c$. When $c=0$, domination and nonnegativity already force equality.
+
+\subhead{A.8 chooses the tensor that encodes all the constraints}
+For a finite old set $P$ take $C=\prod_{u,v\in P}\langle2\rangle_{uv}$, over all \emph{ordered} pairs, including the diagonal. The binary wire has spectral value $2^{d_\varphi(u,v)}$. Apply A.7 once. On each enlarged wire $(a,b)$, monotonicity of $\log_2$ turns its product bound into $d_{\varphi'}(a,b)\le\sum_\ell\theta_\ell d_\varphi(\pi_\ell a,\pi_\ell b)$. Old pairs are fixed by each placement and hence their deficits are nonnegative. Multiplicativity and $\varphi'(\iota C)=\varphi(C)$ give
+\[
+ \sum_{u,v\in P}\bigl[d_\varphi(u,v)-d_{\varphi'}(\iota u,\iota v)\bigr]=0 .
+\]
+Each term is zero. This accounts for all old distances while leaving only upper bounds on pairs involving a new label.
+
+\subhead{What would fail for a different choice of tensor}
+On two parties use the identity retraction, take $\varphi$ to be matrix rank, and let $\psi$ equal one on nonzero matrices and zero on the zero matrix. Both are spectral points; $\psi\le\varphi$ and they agree on the unit $C=1$. Yet $\psi(I_2)=1$ and $\varphi(I_2)=2$, so the old binary-wire distance drops from one to zero. Agreement on a single arbitrary test tensor gives no general wire preservation. The manuscript presents Appendices A--L over the reals (p.~18); the formal A.7 and A.8 declarations quantify over a field $K$.
+
+\smallref{Manuscript: \paper{spectral examples, pp.~18--19; \S A.6, pp.~21--22}. Source: \pub{Paper/Extension.lean}{44}{cover descent},
+\pub{Paper/Extension.lean}{105}{gauge equality}, \pub{Paper/Extension.lean}{152}{localization}, \pub{Paper/Extension.lean}{166}{selected tensor},
+\pub{Paper/Prices.lean}{160}{all-wire product and individual equalities}.}
+
+\newpage
+\heading{From a finite witness to one global price}
+\subhead{The finite approximation pays the error once}
+For finite old and new sets, let $E(a,b)=\sum_\ell\theta_\ell w(\pi_\ell a,\pi_\ell b)$. By the price definition, for every $n$ one $\varphi_n$ and one scale $s_n\ge0$ approximate \emph{all} old entries within $\varepsilon_n=1/(n+1)$. Extend $\varphi_n$ as on page 5 and put $d_n=s_n d_{\varphi'_n}$. An old coordinate is within $\varepsilon_n$ of its original value. For all enlarged pairs,
+\[
+ d_n(a,b)\le \sum_\ell\theta_\ell
+   \bigl[w(\pi_\ell a,\pi_\ell b)+\varepsilon_n\bigr]=E(a,b)+\varepsilon_n .
+\]
+The weights sum to one, so the error is independent of the number of maps and pairs. The price tables bounded by $E+1$ form a compact set. One cofinal ultrafilter on $n$ gives a cluster price for the whole table. Sending $\varepsilon_n$ to zero gives exact old coordinates and all the upper bounds.
+
+\subhead{Arbitrary label sets share one limiting choice}
+For any finite test set $S\subseteq Y\sqcup Q$, take its new labels and adjoin all their possible placements to its old labels. This gives finite sets because each new label has finite range. On the common probability space, the realized \emph{joint} placement on these new labels takes finitely many values. Its event weights preserve dependence between coordinates. The finite result gives a price on $S$ between a lower table (old $w$ on old pairs and zero elsewhere) and the expected-distance table $E$.
+
+Finite witnesses need not agree in advance. Order the finite test sets by inclusion and take one ultrafilter containing every inclusion tail. On each finite restriction compactness gives a limiting price. Two restrictions containing the same pair take the limit of the same real coordinate along this ultrafilter. Uniqueness of that limit makes the tables agree on overlaps. Their common function is a price by the finite-restriction definition and satisfies every bound simultaneously.
+
+\textbf{Why equality on new pairs would fail.} Take two old points a unit apart. A fair coin assigns two new labels to opposite endpoints, then swaps them. Each label's distance to each old endpoint is at most $1/2$, hence exactly $1/2$ by the triangle inequality. Both labels are midpoints of the old pair; C.1 forces their mutual distance to zero, although its expected value under placement is one.
+
+\textbf{Independent replay.} Lean 4.33.1 compiled all 24 original project modules in the \texttt{Paper.Prices} import closure, including \texttt{Paper.Extension}. The source files matched the pinned publisher versions. The 26 statement and axiom queries covered 13 declarations. Each listed only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. \href{https://github.com/nousentllc/VP-VNP-Review/blob/main/checks/pass10_formal_results.json}{Pass 10 replay record.}
+
+\subhead{Next mathematical pass}
+Trace the crossing identity in Proposition B.2 through Proposition B.3 to displayed inequality (B.2). Then check how the inequality passes to the averaged lengths in C.2. The proposition number and the equation number refer to different steps.
+
+\smallref{Manuscript: \paper{A.8, pp.~21--22; Appendix B, pp.~22--25; C.2, pp.~25--27}.
+Source: \pub{Paper/Prices.lean}{259}{finite approximation}, \pub{Paper/Prices.lean}{316}{joint placements},
+\pub{Paper/Prices.lean}{210}{compactness}, \pub{Paper/Prices.lean}{366}{A.8}, \pub{Paper/Identity.lean}{699}{B.2},
+\pub{Paper/Crossing.lean}{440}{B.3}, \pub{Paper/Crossing.lean}{465}{display (B.2)}, \pub{Paper/Means.lean}{96}{C.2 consumer}.}
 \end{document}

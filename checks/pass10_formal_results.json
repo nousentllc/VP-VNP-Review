@@ -1,0 +1,260 @@
+{
+  "target": "Paper.Prices",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 24,
+  "modules": [
+    {
+      "module": "Ov.Core.Tensor",
+      "source": "Ov/Core/Tensor.lean",
+      "sha256": "82361b4ace7bf2776a8177e96b56e54b2d323e44bf4851b52dc17d597e6261a8",
+      "exit_code": 0,
+      "seconds": 59.69,
+      "git_blob": "c4f9278ffb8dac80fbd6931b62e3ec38ec1f63e1"
+    },
+    {
+      "module": "Ov.Core.Basic",
+      "source": "Ov/Core/Basic.lean",
+      "sha256": "fd2ecd07720ee48ab976d965bf1cb8c35b332cd53d1f30336a35ea7783c89f82",
+      "exit_code": 0,
+      "seconds": 30.93,
+      "git_blob": "0b03eab50216d873d32f7df81549e4733c587ed5"
+    },
+    {
+      "module": "Ov.Core.Equi",
+      "source": "Ov/Core/Equi.lean",
+      "sha256": "204997a8e1016bfbbde394ba194b088bc3115063e712898ff752e1c00b202965",
+      "exit_code": 0,
+      "seconds": 34.53,
+      "git_blob": "63c78204c1d07b9d73a1d008c5598ab54dbc0ba5"
+    },
+    {
+      "module": "Ov.Core.Spec",
+      "source": "Ov/Core/Spec.lean",
+      "sha256": "5e4dfb72550e2698ed84ceff3bd706237260fa570f5a1aeb78ad999ffed444ea",
+      "exit_code": 0,
+      "seconds": 14.4,
+      "git_blob": "4414b88b2138eaba871f6b3466aa0120383a0637"
+    },
+    {
+      "module": "Ov.Core.Network",
+      "source": "Ov/Core/Network.lean",
+      "sha256": "e6ca4355f5d3394d90fc0145dd1cf2e0e6ddf7e7b3ebfcfc0be9a6da3fca2804",
+      "exit_code": 0,
+      "seconds": 33.54,
+      "git_blob": "eedf880d5a70086ec03725ab4810517c862af341"
+    },
+    {
+      "module": "Ov.Core.Unit",
+      "source": "Ov/Core/Unit.lean",
+      "sha256": "f4404f308e72a7777e80cd56899f8cd4090539ac3f7c3312bcd2b459434edf1e",
+      "exit_code": 0,
+      "seconds": 28.8,
+      "git_blob": "212f3f899688401bfd345b67e1984e533f30b365"
+    },
+    {
+      "module": "Nc.PermCoeff",
+      "source": "Nc/PermCoeff.lean",
+      "sha256": "9c9c454a714148de9f2cc2b2ceab3c65bd287dbc9714a52b314d842c7aa64b28",
+      "exit_code": 0,
+      "seconds": 20.32,
+      "git_blob": "86af7770a9d6ad016783d61c76f89439e39b2179"
+    },
+    {
+      "module": "Nc.PermGrid",
+      "source": "Nc/PermGrid.lean",
+      "sha256": "f5e202c98cb933c92ac6a4a6c1ff0bb20ca133b0d9390dccc9d9c9bd5250964a",
+      "exit_code": 0,
+      "seconds": 8.05,
+      "git_blob": "44f63763e08fa263147136289ef00e892c7ac634"
+    },
+    {
+      "module": "Nc.PermSum",
+      "source": "Nc/PermSum.lean",
+      "sha256": "3b5ac4084e6446f03784d90738f15db9347536089682cc265d3d9c45f954bf9f",
+      "exit_code": 0,
+      "seconds": 6.56,
+      "git_blob": "dc612d566717e50d8fad2600c8e8ac21f120dbde"
+    },
+    {
+      "module": "Nc.PermPad",
+      "source": "Nc/PermPad.lean",
+      "sha256": "2f2141f118afde65f62b4866003623581d65e941d88e162e6e6f5bdaf406c2b1",
+      "exit_code": 0,
+      "seconds": 7.31,
+      "git_blob": "8086aa46a533a5a619436a6f6290e6e8308284ac"
+    },
+    {
+      "module": "Nc.LowDegree",
+      "source": "Nc/LowDegree.lean",
+      "sha256": "ae26842182c09a0154db023ecb736b11e86137632f5e852c0f192e3e1c28316b",
+      "exit_code": 0,
+      "seconds": 4.87,
+      "git_blob": "67486500737d07db480c2d0deeb645437278cdfe"
+    },
+    {
+      "module": "Nc.PermValiant",
+      "source": "Nc/PermValiant.lean",
+      "sha256": "9b641520ee81b2633c6bad023ad8fa0387f16260fc687554b48b371809b72e7e",
+      "exit_code": 0,
+      "seconds": 5.16,
+      "git_blob": "185b83957a0e2609d8326cee17db2df9c7f3713b"
+    },
+    {
+      "module": "Nc.Rate.Defs",
+      "source": "Nc/Rate/Defs.lean",
+      "sha256": "fc75e02af3fdc602affaf2ef55c9052b3aff800fce76b992ee5e1b6cb3f4b032",
+      "exit_code": 0,
+      "seconds": 4.15,
+      "git_blob": "c37fcff36e274180dc52f0c3d3fd20d33a0bf878"
+    },
+    {
+      "module": "Paper.Tensors",
+      "source": "Paper/Tensors.lean",
+      "sha256": "8f1175002e097a2448272f867a277d2c915e12e97bff0856c857eb3c07fc7c6b",
+      "exit_code": 0,
+      "seconds": 4.75,
+      "git_blob": "ba0e5b1234a43492c40888b87254dc6baee58e65"
+    },
+    {
+      "module": "Ov.Duality.Abstract",
+      "source": "Ov/Duality/Abstract.lean",
+      "sha256": "2a6b150473038fdbe1091be41e87637edd6236d6ba017471a9d8e72c50f1acea",
+      "exit_code": 0,
+      "seconds": 5.06,
+      "git_blob": "b516c1e90a36117c81d7440ea6b0e28a2a34fbd0"
+    },
+    {
+      "module": "Ov.Duality.Cert",
+      "source": "Ov/Duality/Cert.lean",
+      "sha256": "fa025a58095062c763121b3c9fea376711d9d88724dddf5b4cc3c7d283fc3929",
+      "exit_code": 0,
+      "seconds": 4.62,
+      "git_blob": "63df519c1a472b29e6bdcaa829e64366ecc83b6d"
+    },
+    {
+      "module": "Ov.Duality.PreSpec",
+      "source": "Ov/Duality/PreSpec.lean",
+      "sha256": "2de4951d87da423398aeaf3d81ed09046aa76ccd8452d149bca0b0146ff95ae2",
+      "exit_code": 0,
+      "seconds": 4.57,
+      "git_blob": "217829ab041ed51baa8e6febb1e3b1c586c10446"
+    },
+    {
+      "module": "Ov.Duality.Minimal",
+      "source": "Ov/Duality/Minimal.lean",
+      "sha256": "f3443cf9d3082e68999ee963b5d2ded0f3f8795e53615281164b93447b344e98",
+      "exit_code": 0,
+      "seconds": 5.32,
+      "git_blob": "c1a34074e57d876063e6f951b3767b96b7d334c9"
+    },
+    {
+      "module": "Nc.Price.Cover",
+      "source": "Nc/Price/Cover.lean",
+      "sha256": "5eaa46c1193f7a2a5064a72c89a554fa55dc30733cc7cfe54eb15f9414efeeea",
+      "exit_code": 0,
+      "seconds": 5.07,
+      "git_blob": "c223756071dc378bd3f2d8d0d5cd96a9701453d5"
+    },
+    {
+      "module": "Paper.Gauges",
+      "source": "Paper/Gauges.lean",
+      "sha256": "2d9dd75dbbac400786fc99b729f5ef49ee87792cb35653908103c881f359fabf",
+      "exit_code": 0,
+      "seconds": 9.83,
+      "git_blob": "4c4a278db99394611b9620f23883259ff5a67a12"
+    },
+    {
+      "module": "Paper.Extension",
+      "source": "Paper/Extension.lean",
+      "sha256": "57727544abd9cf4e81d646247744c224723d8e885e0c6e0c5bf923c23eb77966",
+      "exit_code": 0,
+      "seconds": 4.91,
+      "git_blob": "16ae47633c6ebf204e025cb94385108ddc133454"
+    },
+    {
+      "module": "Ov.Core.Wire",
+      "source": "Ov/Core/Wire.lean",
+      "sha256": "0b3546c46869176c8a87e654054c5144673148ecc21d003cf28c8215880e1331",
+      "exit_code": 0,
+      "seconds": 4.74,
+      "git_blob": "2b1ef8907eee7869c2101a3ab84fa3e4e852d9c4"
+    },
+    {
+      "module": "Nc.Price.Basic",
+      "source": "Nc/Price/Basic.lean",
+      "sha256": "4bc47dea2b477d57317e5d2d377d1aad5ec5fe83bca71edc307fd44f7e38686d",
+      "exit_code": 0,
+      "seconds": 4.57,
+      "git_blob": "8a40a08888ffad0836d6a51accaead1c03b31461"
+    },
+    {
+      "module": "Paper.Prices",
+      "source": "Paper/Prices.lean",
+      "sha256": "e137c48f814f79a378fbdef67a82da516973c09eaf4d59a0d01380cfb4518312",
+      "exit_code": 0,
+      "seconds": 6.84,
+      "git_blob": "ac986aa8cc62dff164181ce29c58501af73fce0c"
+    }
+  ],
+  "verification": {
+    "query_file": "checks/pass10_formal.lean",
+    "sha256": "765a9ca18a182cd0f07bb10dd3dbc57cbdb731ef8a9c83491294fd3989e47089",
+    "queries": [
+      "#check @Paper.prop_extend_product",
+      "#print axioms Paper.prop_extend_product",
+      "#check @Paper.prop_extend_cover",
+      "#print axioms Paper.prop_extend_cover",
+      "#check @Paper.prop_extend_lower",
+      "#print axioms Paper.prop_extend_lower",
+      "#check @Paper.prop_extend_upper",
+      "#print axioms Paper.prop_extend_upper",
+      "#check @Paper.prop_extend_gauge",
+      "#print axioms Paper.prop_extend_gauge",
+      "#check @Paper.prop_extend_localize",
+      "#print axioms Paper.prop_extend_localize",
+      "#check @Paper.prop_extend",
+      "#print axioms Paper.prop_extend",
+      "#check @Paper.prop_random_spectral",
+      "#print axioms Paper.prop_random_spectral",
+      "#check @Paper.prop_random_compact",
+      "#print axioms Paper.prop_random_compact",
+      "#check @Paper.prop_random_limit",
+      "#print axioms Paper.prop_random_limit",
+      "#check @Paper.prop_random_values",
+      "#print axioms Paper.prop_random_values",
+      "#check @Paper.prop_random",
+      "#print axioms Paper.prop_random",
+      "#check @Paper.prop_random_finite",
+      "#print axioms Paper.prop_random_finite"
+    ],
+    "exit_code": 0,
+    "output": "@Paper.prop_extend_product : ∀ {K : Type} [inst : Field K] {I : Type} [inst_1 : Fintype I] [inst_2 : DecidableEq I]\n  {I' : Type} [inst_3 : Fintype I'] [inst_4 : DecidableEq I'] {L : Type} [inst_5 : Fintype L] (π : L → I' → I)\n  (θ : L → ℝ),\n  (∀ (l : L), 0 ≤ θ l) →\n    ∀ (φ : Ov.Spec K I),\n      (∀ (t : Ov.Ten K I'), 0 ≤ Paper.extendProduct π θ φ t) ∧\n        Paper.extendProduct π θ φ 1 = 1 ∧\n          (∀ (s t : Ov.Ten K I'),\n              Paper.extendProduct π θ φ (s * t) = Paper.extendProduct π θ φ s * Paper.extendProduct π θ φ t) ∧\n            ∀ {s t : Ov.Ten K I'}, s.Restr t → Paper.extendProduct π θ φ s ≤ Paper.extendProduct π θ φ t\n'Paper.prop_extend_product' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_extend_cover : ∀ {K : Type} [inst : Field K] {I : Type} [inst_1 : Fintype I] [inst_2 : DecidableEq I]\n  {I' : Type} [inst_3 : Fintype I'] [inst_4 : DecidableEq I'] (ι : I → I') {A : Ov.Ten K I} {κ : Type}\n  [inst_5 : Fintype κ] {b : κ → Ov.Ten K I'},\n  (Ov.Ten.push ι A).SumRestr b →\n    ∃ c, A.SumRestr c ∧ ∀ (k : κ) (π : I' → I), (∀ (i : I), π (ι i) = i) → (c k).Restr (Ov.Ten.push π (b k))\n'Paper.prop_extend_cover' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_extend_lower : ∀ {K : Type} [inst : Field K] {I : Type} [inst_1 : Fintype I] [inst_2 : DecidableEq I]\n  {I' : Type} [inst_3 : Fintype I'] [inst_4 : DecidableEq I'] {L : Type} [inst_5 : Fintype L] (ι : I → I')\n  (π : L → I' → I),\n  (∀ (l : L) (i : I), π l (ι i) = i) →\n    ∀ (θ : L → ℝ),\n      (∀ (l : L), 0 ≤ θ l) →\n        ∑ l, θ l = 1 →\n          ∀ (φ : Ov.Spec K I) (A : Ov.Ten K I) {κ : Type} [inst_6 : Fintype κ] (b : κ → Ov.Ten K I'),\n            (Ov.Ten.push ι A).SumRestr b → φ.F A ≤ ∑ k, Paper.extendProduct π θ φ (b k)\n'Paper.prop_extend_lower' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_extend_upper : ∀ {K : Type} [inst : Field K] {I : Type} [inst_1 : Fintype I] [inst_2 : DecidableEq I]\n  {I' : Type} [inst_3 : Fintype I'] [inst_4 : DecidableEq I'] {L : Type} [inst_5 : Fintype L] (ι : I → I')\n  (π : L → I' → I),\n  (∀ (l : L) (i : I), π l (ι i) = i) →\n    ∀ (θ : L → ℝ),\n      ∑ l, θ l = 1 → ∀ (φ : Ov.Spec K I) (A : Ov.Ten K I), Paper.extendProduct π θ φ (Ov.Ten.push ι A) = φ.F A\n'Paper.prop_extend_upper' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_extend_gauge : ∀ {K : Type} [inst : Field K] {I : Type} [inst_1 : Fintype I] [inst_2 : DecidableEq I]\n  {I' : Type} [inst_3 : Fintype I'] [inst_4 : DecidableEq I'] {L : Type} [inst_5 : Fintype L] (ι : I → I')\n  (π : L → I' → I),\n  (∀ (l : L) (i : I), π l (ι i) = i) →\n    ∀ (θ : L → ℝ),\n      (∀ (l : L), 0 ≤ θ l) →\n        ∑ l, θ l = 1 →\n          ∀ (φ : Ov.Spec K I),\n            ∃ p,\n              (∀ (t : Ov.Ten K I'), p.p t ≤ Paper.extendProduct π θ φ t) ∧\n                ∀ (A : Ov.Ten K I), p.p (Ov.Ten.push ι A) = φ.F A\n'Paper.prop_extend_gauge' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_extend_localize : ∀ {K : Type} [inst : Field K] {I : Type} [inst_1 : Fintype I] [inst_2 : DecidableEq I]\n  (p : Ov.PreSpec K I) (f : Ov.Ten K I),\n  0 < p.p f →\n    (∀ (n : ℕ), p.p (f.kpow n) = p.p f ^ n) →\n      ∃ q, (∀ (t : Ov.Ten K I), q.p t ≤ p.p t) ∧ ∀ (t : Ov.Ten K I), q.p (t * 1) ≤ (p.p f)⁻¹ * q.p (t * f)\n'Paper.prop_extend_localize' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_extend : ∀ {K : Type} [inst : Field K] {I : Type} [inst_1 : Fintype I] [inst_2 : DecidableEq I] {I' : Type}\n  [inst_3 : Fintype I'] [inst_4 : DecidableEq I'] {L : Type} [inst_5 : Fintype L] (ι : I → I') (π : L → I' → I),\n  (∀ (l : L) (i : I), π l (ι i) = i) →\n    ∀ (θ : L → ℝ),\n      (∀ (l : L), 0 ≤ θ l) →\n        ∑ l, θ l = 1 →\n          ∀ (φ : Ov.Spec K I) (C : Ov.Ten K I),\n            ∃ φ', (∀ (t : Ov.Ten K I'), φ'.F t ≤ ∏ l, φ.F (Ov.Ten.push (π l) t) ^ θ l) ∧ φ'.F (Ov.Ten.push ι C) = φ.F C\n'Paper.prop_extend' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_random_spectral : ∀ {K : Type} [inst : Field K] {P Q : Type} [inst_1 : Fintype P] [inst_2 : DecidableEq P]\n  [inst_3 : Fintype Q] [inst_4 : DecidableEq Q] (F : Ov.Spec K P) {m : ℕ} (θ : Fin m → ℝ),\n  (∀ (l : Fin m), 0 ≤ θ l) →\n    ∑ l, θ l = 1 →\n      ∀ (σ : Fin m → Q → P),\n        ∃ F',\n          (∀ (p p' : P), F'.e (Sum.inl p) (Sum.inl p') = F.e p p') ∧\n            ∀ (a b : P ⊕ Q), F'.e a b ≤ ∑ l, θ l * F.e (Sum.elim id (σ l) a) (Sum.elim id (σ l) b)\n'Paper.prop_random_spectral' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_random_compact : ∀ {K : Type} [inst : Field K] {Z : Type u_1} (A B : Z → Z → ℝ),\n  (∀ (S : Finset Z), ∃ d, Nc.Price.IsPrice K d ∧ ∀ (a b : ↥S), A ↑a ↑b ≤ d a b ∧ d a b ≤ B ↑a ↑b) →\n    ∃ w', Nc.Price.IsPrice K w' ∧ ∀ (a b : Z), A a b ≤ w' a b ∧ w' a b ≤ B a b\n'Paper.prop_random_compact' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_random_limit : ∀ {K : Type} [inst : Field K] {P Q : Type} [Fintype P] [DecidableEq P] [Fintype Q]\n  [DecidableEq Q] {w : P → P → ℝ},\n  Nc.Price.IsPrice K w →\n    ∀ {m : ℕ} (θ : Fin m → ℝ),\n      (∀ (l : Fin m), 0 ≤ θ l) →\n        ∑ l, θ l = 1 →\n          ∀ (σ : Fin m → Q → P),\n            ∃ w',\n              Nc.Price.IsPrice K w' ∧\n                (∀ (p p' : P), w' (Sum.inl p) (Sum.inl p') = w p p') ∧\n                  ∀ (a b : P ⊕ Q), w' a b ≤ ∑ l, θ l * w (Sum.elim id (σ l) a) (Sum.elim id (σ l) b)\n'Paper.prop_random_limit' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_random_values : ∀ {Y Q Ω : Type} [inst : MeasurableSpace Ω] (μ : MeasureTheory.Measure Ω)\n  [MeasureTheory.IsProbabilityMeasure μ] (σ : Q → Ω → Y),\n  (∀ (κ : Q), (Set.range (σ κ)).Finite) →\n    (∀ (κ : Q) (y : Y), MeasurableSet (σ κ ⁻¹' {y})) →\n      ∀ (T : Finset Q),\n        ∃ m θ π,\n          (∀ (l : Fin m), 0 ≤ θ l) ∧\n            ∑ l, θ l = 1 ∧ ∀ (f : (↥T → Y) → ℝ), ∫ (ω : Ω), f fun κ => σ (↑κ) ω ∂μ = ∑ l, θ l * f (π l)\n'Paper.prop_random_values' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_random : ∀ {K : Type} [inst : Field K] {Y Q : Type} {w : Y → Y → ℝ},\n  Nc.Price.IsPrice K w →\n    ∀ {Ω : Type} [inst_1 : MeasurableSpace Ω] (μ : MeasureTheory.Measure Ω) [MeasureTheory.IsProbabilityMeasure μ]\n      (σ : Q → Ω → Y),\n      (∀ (κ : Q), (Set.range (σ κ)).Finite) →\n        (∀ (κ : Q) (y : Y), MeasurableSet (σ κ ⁻¹' {y})) →\n          ∃ w',\n            Nc.Price.IsPrice K w' ∧\n              (∀ (y y' : Y), w' (Sum.inl y) (Sum.inl y') = w y y') ∧\n                ∀ (o o' : Y ⊕ Q),\n                  w' o o' ≤ ∫ (ω : Ω), w (Sum.elim id (fun κ => σ κ ω) o) (Sum.elim id (fun κ => σ κ ω) o') ∂μ\n'Paper.prop_random' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Paper.prop_random_finite : ∀ {K : Type} [inst : Field K] {Y Q : Type} {w : Y → Y → ℝ},\n  Nc.Price.IsPrice K w →\n    ∀ {Λ : Type} [inst_1 : Fintype Λ] (θ : Λ → ℝ),\n      (∀ (l : Λ), 0 ≤ θ l) →\n        ∑ l, θ l = 1 →\n          ∀ (σ : Λ → Q → Y),\n            ∃ w',\n              Nc.Price.IsPrice K w' ∧\n                (∀ (y y' : Y), w' (Sum.inl y) (Sum.inl y') = w y y') ∧\n                  ∀ (o o' : Y ⊕ Q), w' o o' ≤ ∑ l, θ l * w (Sum.elim id (σ l) o) (Sum.elim id (σ l) o')\n'Paper.prop_random_finite' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  },
+  "readback_history": [
+    "All 24 publisher modules compiled successfully on first invocation. The initial query file included pp.width, an unsupported display option in this Lean version. Removing that option and rerunning the same 26 queries against the retained objects returned exit code 0."
+  ],
+  "source_check": {
+    "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+    "root_git_tree": "d60b29743cf59121811be35b128cfbd40e3fa3fe",
+    "subtree_git_tree": "b076b4b081298c4e909bac3f87f0e4462d1fb2cb",
+    "matched_sources": 24
+  }
+}
