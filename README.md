@@ -35,6 +35,8 @@ The original pinned paper and proof files are in `primary/`. The [source lock](s
 
 ## Review packets
 
+[Download the complete thirteen-pass packet](handoff/VP_VNP_Review_2026-11-25_pass13.zip). It contains all 443 research files from commit `4350383`, including four new mathematical audits, the combined branch verification, the 32-page PDF and all TeX components, logo, pinned manuscript and executable checks. ZIP SHA-256 `06523551fe89e37d9b691c2ff05cf98a2cf65c646d1abb3a38ed381a17e09cea`.
+
 The [archived twelve-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/2f263c05d27afe803489583f94833e48a1ba972e/handoff/VP_VNP_Review_2026-11-25_pass12.zip) preserves Edition 9 from research commit `3973fb8`.
 
 The [archived eleven-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/33edc6eb465bb2c565e82d3461fd418c1890d65e/handoff/VP_VNP_Review_2026-11-25_pass11.zip) preserves Edition 8 from research commit `e15d655`.
