@@ -1,0 +1,42 @@
+{
+  "edition": 11,
+  "baseline": "3754047be3854ef313df17ae5117c6ca5a66b4b8",
+  "pdf": "report/VP_VNP_Research_Review.pdf",
+  "pages": 53,
+  "pdf_sha256": "19a4aad0476ba25ac1e57763c1531dfd8b7cf2ed7e57e014c39ef5ba685f0055",
+  "engine": "This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)",
+  "source_date_epoch": 1795636800,
+  "inputs_sha256": {
+    "report/VP_VNP_Research_Review.tex": "dc5addbf5accdce8aaaad8f2368ea5401a9ee8932835f45ed0d826681be1debc",
+    "report/nous-black.png": "bdfff8716596a351b480896d4bc21a7786470d6283c050b4ee801e3a88d061b6",
+    "report/pass13-conclusions.tex": "8759e385a7d49c76b9e25fc07afd075245bf33c25eb42606fa2b4412ea393e75",
+    "report/pass13a.tex": "75a2e7f0950599d5c1915710611c1493b4f0a6a8e1c561fff94a56fbef701365",
+    "report/pass13b.tex": "1de08db5150eb41e2dfe5f3dc60e66e1437c9c28798ba640dacc8bef140b5e47",
+    "report/pass13c.tex": "cce678c8f84231802d9b51f9692ed09f074ab8af806831cf3bc7d6de9e67d39f",
+    "report/pass13d.tex": "256f423f1e2e5933448f2b27e96da3a07880a283b6614af6a03cb5b5a1c48746",
+    "report/pass14-mechanisms.tex": "64361bba6f0dcbabdf5d2f7541658ccd64891e897bd52cef99c821e73521329d",
+    "report/pass14-synthesis.tex": "20ced4fbdc1b8ea259410e500458cbfc3208b7cc2001f617bd8483332d1d26b7",
+    "report/pass14a.tex": "5bea3abd4d69c79cc4d8447d45d06ba178059aa4d2152d3c832adf0fb1333c3a",
+    "report/pass14b.tex": "c89b29a38e81179b0c98e0168f351fa5de2dd120b824ab5a5bff5a6cee6f9f1f",
+    "report/pass14c.tex": "cd3c04a222b7d09e200102bebba51f931352e1795e118f8e513a409c21ac9fcb",
+    "report/pass14d.tex": "6dcca39093b90cf0ecddcb7b5ece484ca25f71fbf4ba5b5e82dca9ded6d76f68",
+    "report/reader-route.tex": "1292ddb5bd4610848180c05fda11ebd0395dd54dfbf778c717ea55831c3c5163"
+  },
+  "selected_runtime_inputs_sha256": {
+    "article.cls": "c09f5982893f8a092e69435caa151eef0d3cb4d7495abf23f08b640191cf81f6",
+    "geometry.sty": "d541ce56a3f45e2462be958ec62a50404213f26b241c7d7ad3e812685d38f5d8",
+    "fontspec.sty": "b190fc3e1a226b1deeffd441183406d3c9bc490f582ff4f5f5d8d927072f6469",
+    "amsmath.sty": "8bf35130be39e123cbd0e4f0c09d3806d745d4c08ee391a543a8b9675191e6a7",
+    "amssymb.sty": "70838b061b56569dd3ed9f339b1bdd1c78ba185de49f27ceae331c97f48b5986",
+    "graphicx.sty": "ed13d7b0b9b619804d9dc97030aa7d121b542a04174da1a59a8e5f43c6e834da",
+    "xcolor.sty": "478888f8e8f00345fd645b6cdd6fa7db1e9efdd6f585b25c89bb3665d9029295",
+    "fancyhdr.sty": "9130c52f91087abc6d223164ffa587e207e3257fcbcd069ef09ecb5391043f14",
+    "hyperref.sty": "4feb3ecbd4613dda2ca79a31a3a9d9ba83a6c5ff17573ec7d0f165084dc49eb4",
+    "lmroman10-regular.otf": "1aa18cfefa58132c52ce5de70db1fd1154201c19cd2b2cdaffba4906a33e6852",
+    "lmmono10-regular.otf": "22deb6d3be3ffcb40b33f0e010afb256c677d97c2a2bdee1f5740cdc97751558",
+    "lmsans10-regular.otf": "d431b786b9b603662718e79cfe9b441f47a8b0b3e854dde89d5acb3ed7cfd682"
+  },
+  "first_page_embedded_logo_pixels_match_original": true,
+  "minimum_extracted_characters_per_page": 1760,
+  "reproduction": "Use checks/pass14_report_rebuild.py with matching engine, fonts and TeX packages. The runtime-input hashes cover the principal classes, packages and text-font files, a subset of all installed TeX resources."
+}

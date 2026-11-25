@@ -2,6 +2,8 @@
 % Compile twice from this directory with LuaLaTeX; keep nous-black.png beside this file.
 % Nous Black.png, No Oval Watermark, SHA-256 bdfff8716596a351b480896d4bc21a7786470d6283c050b4ee801e3a88d061b6.
 \documentclass[11pt,letterpaper]{article}
+% LuaTeX's optional trailer ID otherwise depends on the build directory.
+\pdfvariable suppressoptionalinfo 512\relax
 \usepackage[letterpaper,left=1.02in,right=1.02in,top=.92in,bottom=.9in,headheight=15pt,headsep=17pt,footskip=30pt]{geometry}
 \usepackage{fontspec}
 \setmainfont{Latin Modern Roman}
@@ -13,7 +15,7 @@
 \definecolor{muted}{HTML}{3D575E}
 \hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,
   pdftitle={The VP–VNP lower bound — From weighted networks to circuit lower bounds},
-  pdfauthor={Uriel Research},pdfsubject={Cumulative audit of the exact-circuit claim in VP ≠ VNP Over Every Field, passes 1–13},
+  pdfauthor={Uriel Research},pdfsubject={Cumulative audit of the exact-circuit claim in VP ≠ VNP Over Every Field, passes 1–14},
   pdfdisplaydoctitle=true}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5.5pt}
@@ -35,6 +37,7 @@
 \newcommand{\paper}[1]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/paper.pdf}{#1}}
 \newcommand{\review}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/33edc6eb465bb2c565e82d3461fd418c1890d65e/#1}{#2}}
 \newcommand{\currentreview}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/e66f5c5257493c2548903380bfc6a72fb0289c7b/#1}{#2}}
+\newcommand{\newreview}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/d2ea537e30a754669a6131f73591e2303b3689fe/#1}{#2}}
 \newcommand{\smallref}[1]{{\small\sffamily\color{muted}#1\par}}
 \newcommand{\HC}{\mathrm{HC}}
 \newcommand{\Perm}{\mathrm{PERM}}
@@ -47,22 +50,22 @@
   \vspace{8pt}
   \includegraphics[height=.82in]{nous-black.png}\par
   \vspace{3pt}
-  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 25, 2026\enspace $\cdot$ \enspace Edition 10, passes 1--13\par}
+  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 25, 2026\enspace $\cdot$ \enspace Edition 11, passes 1--14\par}
 \end{center}
 \vspace{5pt}
-\subhead{Can an arbitrary circuit escape the lower-bound argument?}
-The manuscript claims a superpolynomial lower bound for the Hamiltonian-cycle polynomial over every field. This edition follows a candidate circuit through gate reuse, two different projections, and the field-dependent law used by the contracting branch. Our audit also derives the separate Boolean witness that puts the target family in VNP.
+\subhead{Following a small circuit to a contradiction}
+The claimed separation rests on two ways of excluding the same hypothetical small circuit. In the flat case the review follows how a sum of differently cut tensors forces a large circuit. In the contracting case it reconstructs how local routing laws produce a weighted evaluator with guarantees strong enough to contradict its own evaluation on a bounded input.
 
-\textbf{Gate reuse.} For each balanced set of variable blocks, E.4 groups all occurrences of an earlier gate into a single cofactor. Two paths reaching the same gate may add or cancel. The proof retains their algebraic sum while charging the gate once per cut.
+\textbf{Flat branch.} One spectral measurement must cover every candidate hub placement before the cut is chosen. Pages~\pageref{sec:14flat} onward derive the bound and isolate the loss from approximating all those distances.
 
-\textbf{Field dependence.} Each occupied cell of the permanent gadget contributes a factor of two. Inverting two cancels that factor locally. The HC construction counts each assignment by a unique route and works in characteristic two. In the contracting case, G.2 turns a comparison of real prices into a law with integer bit lengths. Rounding, the shared index, and the order of the parameter choices determine the gain.
+\textbf{Contracting branch.} A concrete tower turns G.2's laws into compatible routes through successive levels (p.~\pageref{sec:14tower}). The compiler then carries an arbitrary circuit, including its shared gates and named constants, into a sum of accepting weights (p.~\pageref{sec:14compiler}). The printed word polynomial and the constructed clause polynomial can differ after the delimiter. The proof uses their values on legal encodings.
 
-\textbf{Membership.} A Boolean table specifies a rooted order of the vertices. A weight-preserving bijection and an explicit circuit-size calculation supply the VNP witness. The global separation still depends on the circuit lower bounds.
+\textbf{The whole chain.} Pages~\pageref{sec:14chain} onward match the positive and negative accelerator statements at one common scale. The local build checked all 324 Lean sources. The independent Linux Comparator accepted all five public statements, including the complete encoded separation (p.~\pageref{sec:14formal}).
 
-\subhead{How to read this edition}
-Begin with the claim and circuit model on p.~2 or the guided route on p.~\pageref{sec:reader}. Pages 3--16 record earlier derivations. The four new investigations cover gate reuse (p.~\pageref{sec:gate}), uniform gain (p.~\pageref{sec:gain}), permanent projection (p.~\pageref{sec:perm}) and HC membership (p.~\pageref{sec:membership}). The closing evidence guide on p.~\pageref{sec:reproduction} gives reproducible checks and identifies which hypotheses are still carrying the overall conclusion.
+\subhead{Reading and reproducing this edition}
+Start on p.~2 for the theorem and the circuit model. Pages~3--32 preserve the earlier mathematical baseline. A separate register on p.~\pageref{sec:14transfer} records transferable mechanisms and their limits. The repository includes the pinned paper, editable derivations, exact examples, executable checks and verification receipts. The research questions and review direction came from the project owner. Uriel, an AI research agent, prepared the derivations, checks and report.
 
-\smallref{\paper{Publisher manuscript, Theorem 1.1 and Appendices A--M} · \currentreview{VP_VNP_Chat_Handoff.md}{Chat handoff} · \currentreview{report/proof-coverage.csv}{claim-by-claim evidence}.}
+\smallref{\paper{Publisher manuscript, Theorem 1.1 and Appendices A--M} · \newreview{report/proof-coverage.csv}{claim-level register} · \newreview{passes/14e-circuit-to-contradiction.md}{candidate circuit to contradiction}.}
 
 \newpage
 \heading{Where every circuit enters}
@@ -418,4 +421,10 @@ An additional fresh build covered all 54 project modules leading to D.2, includi
 \input{pass13c}
 \input{pass13d}
 \input{pass13-conclusions}
+\input{pass14a}
+\input{pass14b}
+\input{pass14c}
+\input{pass14-synthesis}
+\input{pass14d}
+\input{pass14-mechanisms}
 \end{document}

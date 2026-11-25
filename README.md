@@ -1,41 +1,46 @@
 # VP–VNP research review
 
-This repository follows an independent review of the proposed lower bound for exact arithmetic circuits in *VP ≠ VNP Over Every Field*. The [Edition 10 research report (PDF)](report/VP_VNP_Research_Review.pdf) presents the derivations. The [cumulative Chat handoff](VP_VNP_Chat_Handoff.md) gives the current conclusions, their limits, and the next proof questions. The [51-entry coverage map](report/proof-coverage.csv) links each audited claim to the publisher’s source and our reasoning.
+Edition 11 reconstructs how the proposed lower bound in *VP ≠ VNP Over Every Field* applies to an arbitrary exact arithmetic circuit. Begin with the [cumulative report](report/VP_VNP_Research_Review.pdf), its [editable LuaLaTeX source](report/VP_VNP_Research_Review.tex), or the [handoff for Chat](VP_VNP_Chat_Handoff.md). The [claim register](report/proof-coverage.csv) connects individual conclusions to the printed manuscript, the pinned source and specific verification records.
 
-## A reader’s route
+## A reader's route through the argument
 
-1. Start with Theorem 1.1 on p. 2 of the [archived manuscript](primary/vp-vnp/paper.pdf) and the [formal circuit definition](primary/vp-vnp/Statement.lean#L23). Fix a field, a matrix size, and a hypothetical small circuit. The target is an identity of formal polynomials.
-2. Read the two projections side by side. The [HC construction](passes/12b-hamiltonian-projection.md) matches each assignment to one structural cycle. The [permanent construction](passes/pass13C-permanent.md) counts signed choices and normalizes a factor of two. In the report the calculation is carried out before its effect on circuit size is claimed.
-3. Follow the field alternative into either branch. The [gate-reuse audit](passes/pass13A-gate-reuse.md) explains why reuse does not evade E.4’s charge per balanced cut. The [contracting-law audit](passes/pass13B-gain.md) derives the parameter order under which the common index fits each channel. The [field-alternative replay](passes/12e-field-alternative-replay.md) identifies the disjunction consumed here.
-4. Read the [rooted HC witness](passes/pass13D-membership.md) to see why the family is in VNP over every field. M.4 additionally needs the proposed lower bound to place the family outside VP. Each track ends with the first further step its derivation still requires.
+1. Fix a field, a matrix size and a hypothetical circuit. Earlier gates may be reused, constants may depend on the field and size, and cancellations are allowed. M.1 specializes all coefficients together to a comparison field. Read the HC and permanent projections to see why their characteristic restrictions differ. [Model](primary/vp-vnp/Statement.lean#L23) · [Theorem 1.1](primary/vp-vnp/paper.pdf#page=2) · [HC](passes/12b-hamiltonian-projection.md) · [Permanent](passes/pass13C-permanent.md)
+2. In the flat branch, E.4 charges each reused gate once per balanced subset. E.7 permits differently cut summands. E.8–E.9 supply one spectral witness for all possible paying cuts. E.10 gives log₂L≥ℓk√k/16 under the printed hypotheses, and the independent calculation sharpens the local constant to a strict denominator 12. E.11 converts the auxiliary scale into a bound for every sufficiently large target size. [Shared gates](passes/pass13A-gate-reuse.md) · [Price and circuit estimates](passes/14a-flat.md)
+3. In the contracting branch, H.1 constructs the tower and H.2 applies the G.2 identities, routes packets, preserves weighted values and accounts for resources. K.2 and K.3 take any small circuit and produce a bounded weighted evaluator for short plain instances. The concrete formal word polynomial can differ from the printed one away from its legal inputs. K.2 compiles an exact circuit for the clause polynomial. K.3 uses its degree bound and then invokes their common evaluations on canonical inputs. [Tower and laws](passes/14b-tower.md) · [Circuit compiler](passes/14c-compiler.md)
+4. Follow the exact matching of field, size, scale and program in K.3 and K.6. The diagonal yields V=1+V in a nonzero ring. The separate membership witness places HC in VNP, and the exact lower bound excludes it from VP. [Arbitrary circuit to contradiction](passes/14e-circuit-to-contradiction.md) · [Rooted HC witness](passes/pass13D-membership.md)
+5. Compare that mathematical reconstruction with the [complete-release verification record](passes/14d-formal.md) and the [coverage register](report/proof-coverage.csv). The native Lean rebuild compiled all 324 publisher sources, including the complete exact and approximate endpoints. The separate Linux run accepted all five public declarations with nanoda enabled. The proof-term checks and the remaining manuscript/implementation correspondence have distinct scopes. Reusable ideas are recorded in the [transferable-mechanism register](report/transferable-mechanisms.md).
 
-## Reproduce Edition 10
+## Reproduce Edition 11
 
-Run the following from the repository root. Python 3.9 or newer and its standard library suffice for this check. It verifies the pinned source tree, coverage anchors and recorded formal readbacks against the checked-out files, then reruns all four independent finite controls.
+The [source lock](source-lock.json) identifies the publisher commit, 11b6c7e3c927df2658f513b6b68ea7f8929c62c5, original PDF and locked libraries. First run `python3 checks/pass14_reader_check.py` to verify the complete package offline. Run the three finite controls individually from the repository root with Python 3.9+ and its standard library. Each script emits deterministic JSON that can be compared with the corresponding checked-in result.
 
-```sh
-python3 checks/pass13_reader_check.py
-```
+~~~sh
+python3 checks/pass14a_flat.py
+python3 checks/pass14b_tower.py
+python3 checks/pass14c_compiler.py
+~~~
 
-To rerun a formal proof, install Lean 4.33.1 and prepare mathlib and its dependencies at the revisions in [the publisher’s manifest](primary/vp-vnp/lake-manifest.json). Set `MATHLIB_DIR` to that built mathlib checkout, with the other packages in its ordinary Lake package directory. With the pinned `lean` on your path, these commands build fresh project modules in a temporary directory. Change `--jobs` to suit available memory. Separate commands for the narrower replays appear in the pass notes.
+For a fresh build of the entire original Lean project, install Lean 4.33.1 and prepare a built mathlib checkout and dependencies at the revisions in the [Lake manifest](primary/vp-vnp/lake-manifest.json). Set MATHLIB_DIR to its path. The runner checks all package revisions, builds from source into a previously absent directory, compares challenge and solution signatures in separate environments, and queries the permitted axiom dependencies. Pass the objects subdirectory shown below to check the review's separate /12 circuit theorem. The complete local-project build uses prebuilt external packages. [Release runner](checks/pass14_release.py) · [Independent arithmetic and circuit bridge](checks/pass14a_margin_replay.py)
 
-```sh
-python3 checks/pass13_joint_replay.py --mathlib "$MATHLIB_DIR" --jobs 3 --output /tmp/pass13-branches.json
-python3 checks/pass09_endpoint_replay.py --target-module Nc.Hc.Vnp --query-file checks/pass13d_membership.lean --mathlib "$MATHLIB_DIR" --output /tmp/pass13-hc.json
-```
+~~~sh
+python3 checks/pass14_release.py --mathlib "$MATHLIB_DIR" --jobs 3 --work-dir /tmp/vp-vnp-pass14-fresh --output /tmp/pass14-release.json
+python3 checks/pass14a_margin_replay.py --mathlib "$MATHLIB_DIR" --objects /tmp/vp-vnp-pass14-fresh/objects --output /tmp/pass14-margin.json
+~~~
 
-The [editable master TeX](report/VP_VNP_Research_Review.tex) includes all body fragments by relative path. From a checkout with LuaLaTeX, Latin Modern fonts, and the listed TeX packages, rebuild into a separate directory. Two runs resolve page references and bookmarks. The front cover uses the archived Nous PNG directly beneath the title and subtitle.
+The [original Linux build and Comparator logs](checks/pass14_linux_artifact.zip) are preserved with their GitHub artifact digest. For the hosted verification use the [pinned-project workflow](.github/workflows/pass14-comparator.yml). It checks the project and driver against their original Git objects, builds the default Lake targets on a disposable Linux runner and invokes the publisher's Comparator with the locked five-theorem configuration. The independent [Linux run 45691617731](https://github.com/nousentllc/VP-VNP-Review/actions/runs/45691617731) completed the unmodified driver and returned its exact acceptance marker. [Machine receipt](checks/pass14_comparator.json). The [formal track](passes/14d-formal.md) records which stages ran, their actual outcomes and evidence retention. The [publisher configuration](primary/vp-vnp/comparator.json) lists the five names, three permitted axioms and Nanoda setting.
 
-```sh
+The report uses one editable master source with included body fragments and the original Nous PNG below the title and subtitle. For the byte-reproducible build, run `python3 checks/pass14_report_rebuild.py --lualatex lualatex --output /tmp/vp-vnp-ed11.pdf` with the release engine, fonts and package versions. The helper fixes the PDF clock, checks typesetting and keeps the release file intact. The [PDF build receipt](report/edition11-build.json) records the engine, source hashes, logo check and PDF digest. For ordinary editing, run LuaLaTeX twice for the references and links.
+
+~~~sh
 mkdir -p /tmp/vp-vnp-review-pdf
 (cd report && lualatex -halt-on-error -output-directory=/tmp/vp-vnp-review-pdf VP_VNP_Research_Review.tex && lualatex -halt-on-error -output-directory=/tmp/vp-vnp-review-pdf VP_VNP_Research_Review.tex)
-```
-
-The original pinned paper and proof files are in `primary/`. The [source lock](source-lock.json) identifies the publisher revision, licensing and pass-specific verification scopes. Evidence from formal builds, independent derivations, and finite examples is distinguished in the report and pass records.
+~~~
 
 ## Review packets
 
-[Download the complete thirteen-pass packet](handoff/VP_VNP_Review_2026-11-25_pass13.zip). It contains all 443 research files from commit `4350383`, including four new mathematical audits, the combined branch verification, the 32-page PDF and all TeX components, logo, pinned manuscript and executable checks. ZIP SHA-256 `06523551fe89e37d9b691c2ff05cf98a2cf65c646d1abb3a38ed381a17e09cea`.
+The packet beside this report contains the pinned publisher sources, this edition’s report and the executable evidence. Its file count and digest are recorded in the publication commit.
+
+The [archived thirteen-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/3754047be3854ef313df17ae5117c6ca5a66b4b8/handoff/VP_VNP_Review_2026-11-25_pass13.zip) preserves Edition 10 from research commit 4350383. Its ZIP SHA-256 is 06523551fe89e37d9b691c2ff05cf98a2cf65c646d1abb3a38ed381a17e09cea.
 
 The [archived twelve-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/2f263c05d27afe803489583f94833e48a1ba972e/handoff/VP_VNP_Review_2026-11-25_pass12.zip) preserves Edition 9 from research commit `3973fb8`.
 
@@ -51,7 +56,7 @@ The [archived seven-pass packet](https://github.com/nousentllc/VP-VNP-Review/blo
 
 The [archived six-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/84906e9ef713358863f195747b4e12c9a4371f06/handoff/VP_VNP_Review_2026-11-24_pass06.zip) preserves the earlier handoff from research commit `1bc85ed`.
 
-## Evidence in this edition
+## Earlier mathematical and formal records
 
 - [Paper](primary/vp-vnp/paper.pdf) and [formal source](primary/vp-vnp/) from Claude (Anthropic). The `primary/` directory preserves the publisher’s files for offline reading. Its [license](primary/vp-vnp/LICENSE) and [attribution](primary/vp-vnp/NOTICE) accompany the source.
 - [Source manifest](source-lock.json) identifying the exact publisher commit and the PDF’s SHA-256 digest. A checkout includes the same paper and proof files that the review cites.
@@ -68,10 +73,10 @@ The [archived six-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/
 
 - Pass 12 adds [contracting laws and stage load](passes/12a-contracting-laws.md), [the Hamiltonian-cycle projection](passes/12b-hamiltonian-projection.md), [the growing-dimension flat estimate](passes/12c-flat-estimate.md), and [crossing counts and signs](passes/12d-counting-and-minors.md). Each note links its original-source locations, reproducible checks and the specific evidence from Lean.
 
-## How to continue the review
+## Continuing the review
 
-Run at least three distinct proof questions in parallel in each research round. Give each question a manuscript claim, a downstream consumer, and an explicit obligation the track can settle. Bring all tracks back into one cumulative report, update the coverage map and Chat handoff, and record which earlier conclusions gained support, changed, or remain conditional. For every new mathematical result, include the objects and assumptions, the step-by-step derivation, the effect of at least one changed hypothesis where informative, its direct proof consumer, exact source references and a runnable check where appropriate. The [handoff](VP_VNP_Chat_Handoff.md) lists the next four questions.
+The [Edition 11 handoff](VP_VNP_Chat_Handoff.md) identifies the remaining questions for human reconstruction, particularly the internals of K.4–K.6 and correspondence between the printed resource model and its encoding. The formal release’s approximation and closure results have their own hypotheses. The accompanying exact-circuit audit follows the two branches into M.3 and M.4. RCMG Campaign 6 and internal QFTN / Uriel-GEMA research are independent of these findings.
 
 ## TeX covers
 
-Place the [Nous PNG](report/nous-black.png) on the front page directly beneath the title and subtitle of each new or revised research TeX document. The cumulative report illustrates the placement.
+Use the [original Nous PNG](report/nous-black.png) on the front page directly beneath the title and subtitle of each new or revised research TeX document.
