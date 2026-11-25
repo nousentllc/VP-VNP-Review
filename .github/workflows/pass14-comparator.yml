@@ -1,0 +1,70 @@
+name: Pass 14 pinned proof and Comparator
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/pass14-comparator.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - name: Verify the exact source and checker, then copy them to a disposable directory
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD:primary/vp-vnp)" = b076b4b081298c4e909bac3f87f0e4462d1fb2cb
+          test "$(git rev-parse HEAD:primary/.github/scripts/comparator-check.sh)" = 0143ba15873eac3d3056ceee0f19471b82987a98
+          mkdir "$RUNNER_TEMP/pass14"
+          git archive HEAD primary | tar -x -C "$RUNNER_TEMP/pass14"
+          echo "REPLAY_PROJECT=$RUNNER_TEMP/pass14/primary/vp-vnp" >> "$GITHUB_ENV"
+          echo "Publisher 11b6c7e3c927df2658f513b6b68ea7f8929c62c5"
+      - name: Prepare space on the ephemeral hosted runner
+        run: |
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache/CodeQL
+          df -h /
+      - name: Install the publisher-pinned elan
+        run: |
+          set -euo pipefail
+          curl -fLsS --proto '=https' --tlsv1.2 -o "$RUNNER_TEMP/elan.tar.gz" https://github.com/leanprover/elan/releases/download/v4.2.3/elan-x86_64-unknown-linux-gnu.tar.gz
+          echo "df0b2b3a439961ffcbb3985214365ffe40f49bc871df04dff268c7d8e21ca8b2  $RUNNER_TEMP/elan.tar.gz" | sha256sum -c
+          mkdir "$RUNNER_TEMP/elan"
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP/elan"
+          "$RUNNER_TEMP/elan/elan-init" -y --no-modify-path --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned dependencies and build the four default targets
+        run: |
+          set -euo pipefail
+          cd "$REPLAY_PROJECT"
+          lean --version
+          lake exe cache get
+          lake build 2>&1 | tee "$RUNNER_TEMP/pass14-build.log"
+          if grep -F "declaration uses 'sorry'" "$RUNNER_TEMP/pass14-build.log" | grep -v -E '(^|[ /])Challenge(/[^ :]*)?\.lean:'; then
+            exit 1
+          fi
+          lake env lean scripts/PrintAxioms.lean
+      - name: Verify all five declarations with the unmodified publisher Comparator driver
+        run: |
+          set -euo pipefail
+          cd "$REPLAY_PROJECT"
+          LOG_DIR="$RUNNER_TEMP/pass14-comparator" bash ../.github/scripts/comparator-check.sh
+      - name: Retain build and Comparator output
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: pass14-lean-comparator
+          path: |
+            ${{ runner.temp }}/pass14-build.log
+            ${{ runner.temp }}/pass14-comparator/
+          if-no-files-found: ignore
+          retention-days: 30
