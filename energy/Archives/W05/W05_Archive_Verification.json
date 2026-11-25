@@ -1,0 +1,214 @@
+{
+  "reviewed_utc": "2026-11-25T01:20:57.358188+00:00",
+  "zip": "W05_Energy_Experiments.zip",
+  "sha256": "3cb69e43c49820a767884bee6dd1d5ff0adb279af2398a4e820f3bd9abdf3fce",
+  "bytes": 34650562,
+  "CRC_passed_before_extraction": true,
+  "member_paths_unique": true,
+  "manifested_source_files": {
+    "W04": 743,
+    "W05": 585
+  },
+  "all_original_W04_members_byte_matched": true,
+  "claim_evidence_ledger_rows": 45,
+  "clean_extracted_location_was_used": true,
+  "clean_audit": {
+    "mode": "audit",
+    "tracks": [
+      "B",
+      "E",
+      "A",
+      "C"
+    ],
+    "steps": [
+      {
+        "step": "manuscript-source",
+        "script": "manuscript/check_source.py",
+        "log": "source_audit.json",
+        "exit": 0,
+        "elapsed_s": 0.031198249896988273
+      },
+      {
+        "step": "B-exact",
+        "script": "B/exact_controls.py",
+        "log": "B/exact_controls.json",
+        "exit": 0,
+        "elapsed_s": 0.2501795419957489
+      },
+      {
+        "step": "B-lean",
+        "script": "B/verify.py",
+        "log": "logs/B-lean.log",
+        "exit": 0,
+        "elapsed_s": 26.326325209112838
+      },
+      {
+        "step": "B-certificates",
+        "script": "B/engineering/check.py",
+        "log": "logs/B-certificates.log",
+        "exit": 0,
+        "elapsed_s": 5.281893166946247
+      },
+      {
+        "step": "B-independent-bound-check",
+        "script": "B/audit_engineering.py",
+        "log": "logs/B-independent-bound-check.log",
+        "exit": 0,
+        "elapsed_s": 2.1671165840234607
+      },
+      {
+        "step": "B-support-check",
+        "script": "B/engineering/tighten.py",
+        "log": "logs/B-support-check.log",
+        "exit": 0,
+        "elapsed_s": 6.225015291012824
+      },
+      {
+        "step": "E-audit",
+        "script": "E/audit.py",
+        "log": "logs/E-audit.log",
+        "exit": 0,
+        "elapsed_s": 4.403351790970191
+      },
+      {
+        "step": "E-diagnostics",
+        "script": "E/diagnostics.py",
+        "log": "logs/E-diagnostics.log",
+        "exit": 0,
+        "elapsed_s": 0.09069366590119898
+      },
+      {
+        "step": "E-opportunity-check",
+        "script": "E/verify_bounds.py",
+        "log": "logs/E-opportunity-check.log",
+        "exit": 0,
+        "elapsed_s": 0.25666570803150535
+      },
+      {
+        "step": "E-baseline-check",
+        "script": "E/baseline_alignment.py",
+        "log": "logs/E-baseline-check.log",
+        "exit": 0,
+        "elapsed_s": 0.705258458154276
+      },
+      {
+        "step": "A-analyze",
+        "script": "A/analyze.py",
+        "log": "logs/A-analyze.log",
+        "exit": 0,
+        "elapsed_s": 3.6269708331674337
+      },
+      {
+        "step": "A-mechanism",
+        "script": "A/mechanism.py",
+        "log": "logs/A-mechanism.log",
+        "exit": 0,
+        "elapsed_s": 0.38479808322153986
+      },
+      {
+        "step": "A-rational_primal",
+        "script": "A/rational_primal.py",
+        "log": "logs/A-rational_primal.log",
+        "exit": 0,
+        "elapsed_s": 0.6000155420042574
+      },
+      {
+        "step": "C-analyze",
+        "script": "C/analyze.py",
+        "log": "logs/C-analyze.log",
+        "exit": 0,
+        "elapsed_s": 0.6420957909431309
+      },
+      {
+        "step": "C-initials",
+        "script": "C/check_initials.py",
+        "log": "logs/C-initials.log",
+        "exit": 0,
+        "elapsed_s": 0.8639299999922514
+      },
+      {
+        "step": "C-angle-bounds",
+        "script": "C/angle_bounds.py",
+        "log": "logs/C-angle-bounds.log",
+        "exit": 0,
+        "elapsed_s": 0.08747095800936222
+      }
+    ],
+    "archived_outputs_checked": [
+      "manuscript/reference_audit.json",
+      "B/results/exact_controls.json",
+      "B/engineering/analysis/certificates.csv",
+      "B/engineering/analysis/slots.csv",
+      "B/engineering/analysis/primary_failures.csv",
+      "B/engineering/analysis/summary.json",
+      "B/engineering/support_analysis.csv",
+      "B/results/engineering_crosscheck.json",
+      "E/results/analysis/validation.json",
+      "E/results/analysis/arm_summary.csv",
+      "E/results/analysis/effects.csv",
+      "E/results/analysis/economics.csv",
+      "E/results/analysis/forecast_errors.csv",
+      "E/results/analysis/paired_days.csv",
+      "E/results/analysis/scenario_metrics.csv",
+      "E/results/analysis/pareto.csv",
+      "E/results/analysis/nested_checks.csv",
+      "E/results/analysis/opportunity_verification.json",
+      "E/results/analysis/baseline_alignment.json",
+      "A/results/verification.json",
+      "A/results/mechanisms.json",
+      "A/results/small_exact_summary.json",
+      "A/results/small_exact_primal.json.gz",
+      "A/results/summary.csv",
+      "A/results/stages.csv",
+      "A/results/case_medians.csv",
+      "A/results/contrasts.csv",
+      "A/results/paired_cases.csv",
+      "A/results/trials.csv",
+      "A/results/mutation_controls.csv",
+      "C/initial_review.json",
+      "C/angle_bounds.json",
+      "C/analysis/trials.csv",
+      "C/analysis/cases.csv",
+      "C/analysis/matched.csv",
+      "C/analysis/verification.json",
+      "C/analysis/native_profile.csv"
+    ],
+    "thread_env": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "BLIS_NUM_THREADS": "1"
+    },
+    "started_utc": "2026-11-25T01:19:51.770567+00:00",
+    "frozen_hash_checks": {
+      "B/proof_lock.json / sha256": 13,
+      "B/engineering/freeze.json / sha256": 4,
+      "E/protocol/freeze.json / sha256": 7,
+      "E/protocol/freeze.json / w04_sha256": 7,
+      "A/protocol/freeze.json / sha256": 11,
+      "A/protocol/freeze.json / assets_sha256": 2,
+      "C/freeze.json / hashes": 12
+    },
+    "lean_recompiled": true,
+    "status": "passed",
+    "finished_utc": "2026-11-25T01:20:43.749934+00:00"
+  },
+  "fresh_typesetting": [
+    {
+      "file": "manuscript/CRGC_Whitepaper_v0.4.pdf",
+      "pages": 66,
+      "all_page_text_equal": true,
+      "all_page_content_streams_equal": true,
+      "page_boxes_equal": true
+    },
+    {
+      "file": "W05_Results.pdf",
+      "pages": 9,
+      "all_page_text_equal": true,
+      "all_page_content_streams_equal": true,
+      "page_boxes_equal": true
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "python": "Python 3.12.9",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "arch": "arm64",
+  "logical_cpus": 8,
+  "numerics": [
+    "numpy==2.2.4",
+    "scipy==1.18.0",
+    "highspy==1.12.0",
+    "pyomo==6.9.3",
+    "ply==3.11",
+    "casadi==3.7.2"
+  ],
+  "threads_per_solver": 1,
+  "host_scope": "Shared machine. Process-level and timing diagnostics are descriptive. No exclusive CPU allocation. No second W04 host.",
+  "public_data": {
+    "C": "https://github.com/power-grid-lib/pglib-opf/tree/dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3",
+    "D": "https://github.com/power-grid-lib/pglib-uc/tree/39a7f38cf4703de92f0291f0c873c2e98c789301"
+  }
+}

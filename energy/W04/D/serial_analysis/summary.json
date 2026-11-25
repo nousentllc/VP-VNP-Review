@@ -1,0 +1,70 @@
+[
+  {
+    "arm": "full",
+    "unit_cases": 6,
+    "valid_at": {
+      "5": 2,
+      "15": 4,
+      "30": 4,
+      "45": 5
+    },
+    "target": 4,
+    "solver_confirmed_start": 0,
+    "guards": 1,
+    "outcomes": {
+      "validated_schedule": 5,
+      "no_validated_schedule": 1
+    }
+  },
+  {
+    "arm": "lp_start",
+    "unit_cases": 6,
+    "valid_at": {
+      "5": 4,
+      "15": 4,
+      "30": 4,
+      "45": 5
+    },
+    "target": 4,
+    "solver_confirmed_start": 4,
+    "guards": 1,
+    "outcomes": {
+      "validated_schedule": 5,
+      "during_build_or_before_checkpoint": 1
+    }
+  },
+  {
+    "arm": "group_start",
+    "unit_cases": 6,
+    "valid_at": {
+      "5": 2,
+      "15": 4,
+      "30": 4,
+      "45": 5
+    },
+    "target": 4,
+    "solver_confirmed_start": 4,
+    "guards": 1,
+    "outcomes": {
+      "validated_schedule": 5,
+      "during_build_or_before_checkpoint": 1
+    }
+  },
+  {
+    "arm": "permanent",
+    "unit_cases": 6,
+    "valid_at": {
+      "5": 2,
+      "15": 4,
+      "30": 4,
+      "45": 5
+    },
+    "target": 0,
+    "solver_confirmed_start": 0,
+    "guards": 2,
+    "outcomes": {
+      "validated_schedule": 5,
+      "during_build_or_before_checkpoint": 1
+    }
+  }
+]

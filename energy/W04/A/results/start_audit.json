@@ -1,0 +1,366 @@
+{
+  "start_evidence": {
+    "full_milp / ordinary": {
+      "unrestricted_calls": 54,
+      "source_fallback": 54,
+      "solver_confirmed_start_cost_matches_prior_feasible_witness": 54
+    },
+    "full_milp / negative_outage": {
+      "unrestricted_calls": 54,
+      "source_fallback": 54,
+      "solver_confirmed_start_cost_matches_prior_feasible_witness": 54
+    },
+    "lp_repair_start / forced_opposition": {
+      "unrestricted_calls": 53,
+      "source_partial_sign_repair": 37,
+      "solver_confirmed_start_cost_matches_prior_feasible_witness": 53,
+      "confirmed_nonfallback": 37,
+      "source_fallback": 16
+    },
+    "group_start / forced_opposition": {
+      "unrestricted_calls": 54,
+      "source_shared_2": 13,
+      "solver_confirmed_start_cost_matches_prior_feasible_witness": 54,
+      "confirmed_nonfallback": 31,
+      "source_fallback": 23,
+      "source_shared_4": 18
+    },
+    "group_no_transfer / forced_opposition": {
+      "unrestricted_calls": 54,
+      "source_fallback": 54,
+      "solver_confirmed_start_cost_matches_prior_feasible_witness": 54
+    },
+    "full_milp / forced_opposition": {
+      "unrestricted_calls": 54,
+      "source_fallback": 54,
+      "solver_confirmed_start_cost_matches_prior_feasible_witness": 54
+    },
+    "full_milp / interchangeable": {
+      "unrestricted_calls": 54,
+      "source_fallback": 54,
+      "solver_confirmed_start_cost_matches_prior_feasible_witness": 54
+    }
+  },
+  "root_status_forced_stratum": {
+    "Infeasible": 102,
+    "build_exhausted_budget": 2
+  },
+  "stage_results": [
+    {
+      "arm": "full_milp",
+      "cohort": "ordinary",
+      "stage": "unrestricted",
+      "statuses": {
+        "Optimal": 46,
+        "Interrupted by user": 8
+      }
+    },
+    {
+      "arm": "full_lp",
+      "cohort": "ordinary",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "lp_repair_start",
+      "cohort": "ordinary",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "group_start",
+      "cohort": "ordinary",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "group_no_transfer",
+      "cohort": "ordinary",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "full_lp",
+      "cohort": "negative_outage",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "lp_repair_start",
+      "cohort": "negative_outage",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "group_start",
+      "cohort": "negative_outage",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "group_no_transfer",
+      "cohort": "negative_outage",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "full_milp",
+      "cohort": "negative_outage",
+      "stage": "unrestricted",
+      "statuses": {
+        "Optimal": 53,
+        "Interrupted by user": 1
+      }
+    },
+    {
+      "arm": "lp_repair_start",
+      "cohort": "forced_opposition",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 53,
+        "build_exhausted_budget": 1
+      }
+    },
+    {
+      "arm": "lp_repair_start",
+      "cohort": "forced_opposition",
+      "stage": "sign_fix",
+      "statuses": {
+        "Infeasible": 53
+      }
+    },
+    {
+      "arm": "lp_repair_start",
+      "cohort": "forced_opposition",
+      "stage": "partial_sign_repair",
+      "statuses": {
+        "Optimal": 6,
+        "Interrupted by user": 45,
+        "build_exhausted_budget": 1
+      }
+    },
+    {
+      "arm": "lp_repair_start",
+      "cohort": "forced_opposition",
+      "stage": "unrestricted",
+      "statuses": {
+        "Interrupted by user": 53
+      }
+    },
+    {
+      "arm": "group_start",
+      "cohort": "forced_opposition",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "group_start",
+      "cohort": "forced_opposition",
+      "stage": "shared_1",
+      "statuses": {
+        "Infeasible": 52,
+        "build_exhausted_budget": 1
+      }
+    },
+    {
+      "arm": "group_start",
+      "cohort": "forced_opposition",
+      "stage": "shared_2",
+      "statuses": {
+        "Optimal": 1,
+        "Interrupted by user": 48,
+        "build_exhausted_budget": 3
+      }
+    },
+    {
+      "arm": "group_start",
+      "cohort": "forced_opposition",
+      "stage": "unrestricted",
+      "statuses": {
+        "Interrupted by user": 54
+      }
+    },
+    {
+      "arm": "group_no_transfer",
+      "cohort": "forced_opposition",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "group_no_transfer",
+      "cohort": "forced_opposition",
+      "stage": "shared_1",
+      "statuses": {
+        "Infeasible": 50,
+        "build_exhausted_budget": 1
+      }
+    },
+    {
+      "arm": "group_no_transfer",
+      "cohort": "forced_opposition",
+      "stage": "shared_2",
+      "statuses": {
+        "Interrupted by user": 48,
+        "Optimal": 1,
+        "Time limit reached": 1
+      }
+    },
+    {
+      "arm": "group_no_transfer",
+      "cohort": "forced_opposition",
+      "stage": "unrestricted",
+      "statuses": {
+        "Interrupted by user": 54
+      }
+    },
+    {
+      "arm": "full_milp",
+      "cohort": "forced_opposition",
+      "stage": "unrestricted",
+      "statuses": {
+        "Interrupted by user": 54
+      }
+    },
+    {
+      "arm": "full_lp",
+      "cohort": "forced_opposition",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "group_start",
+      "cohort": "interchangeable",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "group_no_transfer",
+      "cohort": "interchangeable",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "full_milp",
+      "cohort": "interchangeable",
+      "stage": "unrestricted",
+      "statuses": {
+        "Optimal": 45,
+        "Interrupted by user": 9
+      }
+    },
+    {
+      "arm": "full_lp",
+      "cohort": "interchangeable",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "lp_repair_start",
+      "cohort": "interchangeable",
+      "stage": "full_lp",
+      "statuses": {
+        "Optimal": 54
+      }
+    },
+    {
+      "arm": "group_start",
+      "cohort": "forced_opposition",
+      "stage": "shared_4",
+      "statuses": {
+        "Interrupted by user": 28,
+        "build_exhausted_budget": 1
+      }
+    },
+    {
+      "arm": "group_no_transfer",
+      "cohort": "forced_opposition",
+      "stage": "shared_4",
+      "statuses": {
+        "Interrupted by user": 29,
+        "build_exhausted_budget": 1
+      }
+    }
+  ],
+  "max_confirmed_cost_discrepancy": 4.341200110502541e-08,
+  "median_start_transfer_ms": {
+    "full_milp / ordinary": 0.884625012986362,
+    "full_milp / negative_outage": 0.8043743437156081,
+    "lp_repair_start / forced_opposition": 0.9832498617470264,
+    "group_start / forced_opposition": 0.8922709384933114,
+    "group_no_transfer / forced_opposition": 0.896063051186502,
+    "full_milp / forced_opposition": 0.9476878913119435,
+    "full_milp / interchangeable": 0.8595000253990293
+  },
+  "median_fallback_validation_ms": {
+    "full_milp / ordinary": 0.33104210160672665,
+    "full_lp / ordinary": 0.3684165421873331,
+    "lp_repair_start / ordinary": 0.37897948641330004,
+    "group_start / ordinary": 0.35445799585431814,
+    "group_no_transfer / ordinary": 0.3051045350730419,
+    "full_lp / negative_outage": 0.3176040481775999,
+    "lp_repair_start / negative_outage": 0.341478968039155,
+    "group_start / negative_outage": 0.3474585246294737,
+    "group_no_transfer / negative_outage": 0.30902097932994366,
+    "full_milp / negative_outage": 0.31543755903840065,
+    "lp_repair_start / forced_opposition": 0.37754152435809374,
+    "group_start / forced_opposition": 0.42879197280853987,
+    "group_no_transfer / forced_opposition": 0.38308347575366497,
+    "full_milp / forced_opposition": 0.4220415139570832,
+    "full_lp / forced_opposition": 0.4186459118500352,
+    "group_start / interchangeable": 0.32787490636110306,
+    "group_no_transfer / interchangeable": 0.30675006564706564,
+    "full_milp / interchangeable": 0.2761455252766609,
+    "full_lp / interchangeable": 0.3553335554897785,
+    "lp_repair_start / interchangeable": 0.31570857390761375
+  },
+  "max_overrun_seconds": {
+    "full_milp / ordinary": 0.3892400418408215,
+    "full_lp / ordinary": 0,
+    "lp_repair_start / ordinary": 0,
+    "group_start / ordinary": 0,
+    "group_no_transfer / ordinary": 0,
+    "full_lp / negative_outage": 0,
+    "lp_repair_start / negative_outage": 0,
+    "group_start / negative_outage": 0,
+    "group_no_transfer / negative_outage": 0,
+    "full_milp / negative_outage": 0.048624417046085,
+    "lp_repair_start / forced_opposition": 1.260616417042911,
+    "group_start / forced_opposition": 1.409023999935016,
+    "group_no_transfer / forced_opposition": 2.7734362080227584,
+    "full_milp / forced_opposition": 1.0445043330546468,
+    "full_lp / forced_opposition": 0,
+    "group_start / interchangeable": 0,
+    "group_no_transfer / interchangeable": 0,
+    "full_milp / interchangeable": 0.4342561250086874,
+    "full_lp / interchangeable": 0,
+    "lp_repair_start / interchangeable": 0
+  }
+}

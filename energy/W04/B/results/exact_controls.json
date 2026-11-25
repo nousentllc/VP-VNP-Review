@@ -1,0 +1,61 @@
+{
+  "controls": {
+    "history_ramp": [
+      true,
+      false
+    ],
+    "integer_and_lp_minima": [
+      "1",
+      "1/2"
+    ],
+    "invalid_global_lower_bound": [
+      1,
+      0
+    ],
+    "labeled_costs": [
+      2,
+      0
+    ],
+    "missing_lift": [
+      0,
+      1
+    ],
+    "nonzero_cycle_terminal_residuals": [
+      "0",
+      "1/180"
+    ],
+    "orphan_optimizer": true,
+    "retained_and_overwritten_costs": [
+      0,
+      1
+    ],
+    "tolerance_soc_paths": [
+      [
+        "1",
+        "7/5",
+        "1"
+      ],
+      [
+        "1",
+        "29/20",
+        "181/180"
+      ]
+    ],
+    "unbalanced_discharge": [
+      false,
+      true
+    ]
+  },
+  "finite_contracts": {
+    "candidates": 2592,
+    "exact_map_pairs": 160,
+    "map_pairs": 1296,
+    "tight": 592
+  },
+  "labeled_lift": {
+    "label_relation": "W03 Python coordinate i equals Lean coordinate N-1-i",
+    "rate_conditioned_transitions": 27776,
+    "states": 630
+  },
+  "sharpness_triples": 27
+}

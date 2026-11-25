@@ -1,0 +1,6 @@
+16 expanded terms: value -4 over the integers and 0 modulo 2
+at target: 0 regular + 1 terminal cut, 3 input sizes
+below switch: 0 regular + 1 terminal cut, 3 input sizes
+at switch: 1 regular + 1 terminal cut, 3 input sizes
+above switch: 1 regular + 1 terminal cut, 3 input sizes
+multiple regular cuts: 2 regular + 1 terminal cut, 3 input sizes

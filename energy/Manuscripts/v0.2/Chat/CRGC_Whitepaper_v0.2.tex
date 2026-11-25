@@ -1,0 +1,605 @@
+% CRGC Whitepaper -- standalone archival source, v0.2
+% Compile twice with pdflatex. No external bibliography or graphics required.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,tabularx,array}
+\usepackage{microtype,xcolor,fancyhdr}
+\usepackage{hyperref}
+\definecolor{navy}{HTML}{19354B}
+\hypersetup{colorlinks=true,linkcolor=navy,citecolor=navy,urlcolor=navy,
+  pdftitle={Computationally Recoverable Grid Capability},pdfauthor={Uriel Research}}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small URIEL RESEARCH}
+\rhead{\small Technical whitepaper \textbar{} v0.2}
+\cfoot{\thepage}
+\setlength{\headheight}{15pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{1em}
+\newcommand{\CRGC}{\mathrm{CRGC}}
+\newcommand{\MW}{\mathrm{MW}}
+\newcommand{\MWh}{\mathrm{MWh}}
+\newcommand{\E}{\mathbb{E}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\title{\textcolor{navy}{\bfseries Computationally Recoverable\\Grid Capability (CRGC)}\\[0.5em]
+\large The Billion-Dollar Napkin\\[0.2em]
+\normalsize An Open Research Challenge for Power Systems Engineering,\\ Power Electronics, and Formal Mathematics}
+\author{Uriel Research}
+\date{24 November 2026 \\ \small Version 0.2 --- Internal master research checkpoint}
+\begin{document}
+\maketitle
+\begin{abstract}
+Power-system operators and power-electronic controllers must make physically consequential decisions under finite computational budgets, imperfect information, and stringent reliability requirements. This whitepaper proposes an interdisciplinary research program to measure the incremental value of better mathematical formulations, optimization algorithms, and machine-checkable certificates under those constraints. We introduce Computationally Recoverable Grid Capability (CRGC) as a proposed, study-specific measure of additional deliverable electrical service under matched physical, informational, computational, and reliability constraints. We distinguish production cost, electrical energy, network deliverability, and dependable capacity, which cannot be inferred from one another by simple scaling. A motivating conceptual calculation suggests that modest improvements across large energy systems could have substantial economic consequences; its aggregate dollar and energy figures remain unvalidated scenarios, not estimates of attainable savings. The reported VP/VNP separations motivate an investigation of structure rather than a claim of a universal optimization speedup. We develop sufficient conditions for exact aggregation and for bounded-loss reconstruction, replay 24 discrete storage experiments, and report 24 new nonideal storage cases and a counterexample. Fixed proportional control can collapse under unequal round-trip efficiencies and exact terminal energy requirements; retaining asset-level powers while sharing selected binary mode decisions preserves the modeled optimum on the new development sample, but fails under a constructed stressed condition. A conditional audit of selected spectral-geometric proof interfaces is also included. No production solver superiority or grid savings are established. The objective is a reproducible method for deciding when mathematical progress produces measurable engineering and economic value.
+\end{abstract}
+
+\textbf{Keywords:} algebraic complexity; interface-preserving compression; AC-OPF; SCUC; model predictive control; Lean 4; battery energy storage.
+\clearpage
+\setcounter{tocdepth}{1}
+\hypersetup{bookmarksdepth=2}
+\tableofcontents
+\clearpage
+
+\section{Research checkpoint and reading guide}
+\label{sec:checkpoint}
+This version is an internal, versioned research master, not the public Version 1.0. The original monetary hypothesis motivates the program, but the quantitative contribution is presently limited to a series of explicitly synthetic storage experiments and conditional mathematical proof audits. The principal methodological theme has evolved into \emph{interface-preserving compression}: identify which constraints and state information a reduced representation must retain, construct a feasible reconstruction, and evaluate the computational and physical consequences against an appropriate baseline.
+
+\begin{table}[htbp]
+\small\centering
+\caption{Evidence status at the v0.2 checkpoint.}
+\begin{tabularx}{\linewidth}{p{0.26\linewidth}YY}
+\toprule
+Item & What is supported & What is not supported\\
+\midrule
+VP/VNP releases & Published claimed separation; pinned Anthropic source and conditional audit through Pass 8 & Independent validation of the full theorem; a direct engineering speedup\\
+E002 discrete storage & Replayed exact objective agreement on 24 cases and verified balanced lifts & Superiority to contemporary production optimization\\
+E003 nonideal storage & 24 additional synthetic instances; exact conditional class reduction and a heterogeneous failure mode & General exactness for heterogeneous fleets; field savings\\
+CRGC framework & Matched-policy definition, inner/outer objective bounds and proposed tests & Commercial adoption, regional savings, capacity accreditation\\
+\bottomrule
+\end{tabularx}
+\end{table}
+\noindent Evidence levels used here: \textbf{D} = derived under explicitly stated assumptions; \textbf{R} = reproducible computation on the specified finite sample; \textbf{P} = proposition or research protocol not yet empirically tested; \textbf{C} = conditional reconstruction of published mathematical claims. These labels are not peer-review or safety certification. In this revision we inspected the provided proof archive and experiment artifacts, verified selected public references, and incorporated earlier routed Library findings as research context only. A comprehensive Library, Drive and independent prior-art audit remains open.
+
+\section{Why algebraic complexity matters now---and where the analogy stops}
+\label{sec:complexity}
+\subsection{The formal question, not a universal speedup}
+Fix a field $K$. A family of polynomials $f_n$ is polynomially bounded if both the number of variables and degree are bounded by polynomials in $n$. In Valiant's nonuniform arithmetic-circuit model, $\mathrm{VP}_K$ consists of polynomially bounded families computed by circuits of polynomial size; $\mathrm{VNP}_K$ consists of such families expressible as
+\[
+ f_n(x)=\sum_{b\in\{0,1\}^{p(n)}}g_n(x,b),\qquad g\in\mathrm{VP}_K,
+\]
+for polynomially bounded $p$. Arithmetic circuits use variables, field constants, addition and multiplication; outputs are formal polynomials, not merely values on Boolean inputs. Valiant's completeness results \cite{valiant} identify the permanent outside characteristic two and directed Hamiltonian-cycle polynomial in every characteristic as central complete families. In characteristic two the permanent coincides with the determinant.
+\begin{align*}
+\operatorname{perm}_m(X)&=\sum_{\sigma\in S_m}\prod_{i=1}^m x_{i,\sigma(i)},\\
+\operatorname{HC}_m(X)&=\sum_{\substack{\sigma\in S_m\\\sigma\text{ a single cycle}}}\prod_{i=1}^m x_{i,\sigma(i)}.
+\end{align*}
+On 23 November 2026, Anthropic released a claimed proof of separation over every field \cite{anthropic}. Theorem 1.1 claims an absolute $c>0$ such that for each characteristic $p$ there exists $m_0(p)$ such that, for every field of characteristic $p$ and $m\ge m_0(p)$, every exact circuit for $\operatorname{HC}_m$ has size exceeding
+\[
+ m^{c(\log_2 m)^{1/3}}=2^{c(\log_2 m)^{4/3}}.
+\]
+The corresponding permanent statement excludes characteristic two. OpenAI also released a claimed separation \cite{openai}, with a stronger stated border-circuit bound of $\exp(\Omega((\log n)^{5/4}))$; its formalization scope describes superpolynomial lower bounds for exact circuits, not the explicit border bound. The two claims should not be counted as independent verification of each other. Neither establishes Boolean $\mathrm P\ne\mathrm{NP}$ or an algorithm for AC-OPF. The Anthropic primary source has been pinned and locally audited in part; the OpenAI manuscript's proof has not been reconstructed in this program. The current evidence supports referring to the results as claims accompanied by formal artifacts, not attributing their complete independent validation to this research.
+
+\subsection{The distinction engineers should make}
+A sparse $N$-bus network with $E$ branches admits power-injection evaluation of the form $S_i=V_i\overline{\sum_jY_{ij}V_j}$ in $O(N+E)$ arithmetic operations when the admittance matrix has $O(N+E)$ nonzeros. This evaluation complexity is not the complexity of finding a globally optimal feasible dispatch. Computational burdens may instead arise from nonconvexity, combinatorial decisions, coupled scenarios, information restrictions, solver conditioning, or the need to produce and validate an actionable solution within a deadline. The existence of a superpolynomial lower bound for one family of formal polynomials establishes no such lower bound for the electrical optimization problem. A direct transfer would require an explicit, mathematically valid reduction or a new construction and benchmark.
+
+\begin{table}[htbp]
+\small\centering
+\caption{Transfer hypotheses from the proof's architecture; none is a theorem about grids.}
+\begin{tabularx}{\linewidth}{p{0.23\linewidth}YY}
+\toprule
+Source mechanism & Candidate engineering translation & Falsifiable criterion\\
+\midrule
+Balanced tensor cuts & Separate network regions or time blocks along small interfaces & Retain feasible AC solutions; improve end-to-end cost at matched deadline\\
+Multiple cuts and recombination & Choose adaptive separators with accounting for interface costs & Savings survive separator selection, messages, validation and reconstruction\\
+Weighted program decomposition & Preserve coupled scenario contributions under compression & Retain correct probabilities and joint contingency constraints\\
+Explicit resource accounting & Bound computation and verification within operational deadlines & Measured deadline success, not just reduced symbolic expression count\\
+\bottomrule
+\end{tabularx}
+\end{table}
+The immediate hypothesis is therefore conditional tractability: engineered instances may contain exploitable structure even if unrestricted families are hard. The alternatives are that the structure is broadly exploitable, or that contemporary solvers already exploit its relevant economic value. The experiments below are starting points, not proofs of any population-level hypothesis.
+
+\subsection{Pinned source and audit ledger (Passes 1--8)}
+The supplied six-pass archive \cite{handoff} identifies the Anthropic release commit:
+\begin{center}\small\texttt{11b6c7e3c927df2658f513b6b68ea7f8929c62c5}\end{center} The local 70-page PDF was hashed again and matched the supplied manifest. SHA-256:
+\begin{center}\small\texttt{882f5eefb1e067cc8c99ddfe660c10d1d}\newline\texttt{67f9fcee7b69364bd0bab06c0c1f97c}\end{center}
+The review record distinguishes the formal claims from the mathematical interpretation of the encoding. The archived publisher CI reports a successful build and Comparator; the full independent Lean rebuild and independent validation of all definitions are still open. The reviewed components are not additive evidence for the final theorem.
+\begin{table}[htbp]
+\small\centering
+\caption{Cumulative proof-review register. Passes 1--6 are inherited from the supplied handoff.}
+\begin{tabularx}{\linewidth}{p{0.09\linewidth}p{0.28\linewidth}Y}
+\toprule
+Pass & Component & Review status and unresolved obligation\\
+\midrule
+1 & Exact circuit statement & Quantifiers, characteristic exception, two conditional branches; full scope audit remains open.\\
+2 & Flat branch, E.4--E.10 & Different balanced cuts require separate accounting; spectral and geometric dependencies conditional.\\
+3 & Contracting branch, K.2--K.6 & Weighted program evaluation and halting/budget interfaces; not a Boolean algorithm. Tower laws remain open.\\
+4 & J.2 to J.3 & Bounded weighted outcome sum is the consumed identity; full encoding correspondence open.\\
+5 & Universal evaluator, I.1 & Zero-weight accepting traces can be dropped; selected examples checked in earlier local Lean run. Full replay open.\\
+6 & One cut, J.3--J.4 & Zero absent-wire factor and iteration budgets checked under stated hypotheses.\\
+7 & D.2 & Rank marginal and exchange checks replayed; curvature and spectral dependencies remain conditional.\\
+8 & C.1--C.3; A.7 interface & Reconstructed selected algebraic, limit and completion steps; see Appendix~\ref{sec:pass08}. No new Lean build.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+D.2 is a coverage theorem, not a selection algorithm. For each field, the paper's Definition D.1 posits either a flat hypothesis (every finite Euclidean configuration is a price in its spectral sense) or a contracting hypothesis (some $\mu\ge2$ and $1\le s<\sqrt\mu$ bound $D(\mu)\le sD(1)$ for every price on $\mathrm{Mat}_\mu(\mathbb F_2)$). Assuming no uniform contraction, the normalized extremal construction uses
+\[
+D(i+j)^2\le D(i)^2+D(j)^2,\quad D(1)=1,\quad D(\mu)^2=\mu.
+\]
+It follows that $D(r)^2=r$. The finite average of nonnegative quadrilateral defects vanishes, forcing every defect to vanish. Rank-one exchanges and translation identities then yield the pointwise rank-distance relation, and the Euclidean cube is filled using CAT(0) geometry. The prior Pass 7 is conditional on those geometric ingredients, and its finite combinatorial checks were rerun here: 512 binary $3\times3$ matrices, 2,401 rank-one pairs with a common transversal third matrix, 1,764 exchange identities; the archived output matched exactly. The exchange argument has a genuine dimension boundary: it need not hold when the quotient space has only one dimension. This motivates paying attention to structural assumptions rather than merely quoting the bound.
+
+\section{Motivation and scope}
+The electrical grid is simultaneously a physical system, a market, and a computational system. Its operational decisions must satisfy network physics, equipment limits, contingency requirements, and uncertainty within practical deadlines. Investment in generation, transmission, distribution, and storage expands the physical asset base; investment in computation may improve the utilization of that asset base. These pathways are complementary.
+
+The central research question is whether identifiable improvements in mathematics and computation can recover additional useful electrical service or reduce real operating costs without weakening the reliability requirements applied to the baseline. The question is increasingly relevant to large computational loads, industrial electrification, inverter-based resources, and constrained interconnection capacity.
+
+This is not an unexplored field. The ARPA-E Grid Optimization Competition and its supporting national laboratory work provide an established foundation for benchmarking security-constrained grid optimization \cite{go}. IEEE Power and Energy Society benchmark libraries likewise support reproducible optimal power flow and unit commitment experiments \cite{pglibopf,pglibuc}. The contribution proposed here is a unified empirical framework connecting algorithmic changes to independently validated physical outcomes, economic value, and machine-checkable guarantees. Novelty relative to the full literature remains to be established.
+
+The motivating note \emph{The Billion-Dollar Napkin} \cite{napkin} identified four candidate domains: renewable curtailment, electrical losses, commitment and reserves, and power-electronic conversion. This paper retains these domains while rejecting the assumption that their total measured losses are entirely computationally addressable. It does not advocate relaxing an applicable reliability standard, substituting proof for engineering validation, or representing annual energy recovery as accredited generation capacity.
+
+\section{A falsifiable definition of recoverable capability}
+\subsection{Operating envelopes and the counterfactual}
+A distinction must be made between physical feasibility, feasibility under applicable reliability constraints, and the subset of decisions that can actually be implemented given available information, computational resources, and operational deadlines. Their differences need not be recoverable by software: uncertainty, inadequate telemetry, institutional requirements, and equipment limits can remain binding even with an ideal optimizer.
+
+Let $x_t$ denote a network and resource state, $\xi_t$ uncertain conditions, $a_t$ an operating decision, and $\mathcal{F}(x_t,\xi_t)$ the modeled feasible set under common physical and reliability requirements. A baseline policy $A_0$ and candidate policy $A_1$ receive the same permitted information $\mathcal{I}_t$, computational budget $B$, and decision deadline $\tau$:
+\begin{equation}
+a_{j,t}=A_j(\mathcal{I}_t;B,\tau),\qquad j\in\{0,1\}.
+\label{eq:policy}
+\end{equation}
+Their decisions are replayed against identical realizations of $\xi_t$, using an independent validation model and a common fallback policy. This comparison isolates the intervention more effectively than comparing a new idealized solver with historical dispatch under different conditions.
+
+For a location $n$, duration $h$, and prespecified risk criterion $\epsilon$, define a deliverable additional service envelope for a specified load or service profile:
+\begin{equation}
+Q_j(n,h,\epsilon)=\sup\{q\geq0:\text{ policy }A_j\text{ can serve }q
+\text{ under the common criteria}\}.
+\end{equation}
+The feasibility test includes chronological dispatch, applicable contingencies, resource limits, and existing obligations. If risk is probabilistic, the criterion and uncertainty distribution must be disclosed; deterministic contingency requirements remain hard constraints. Compare only cases with a feasible reference service, and report baseline failures separately rather than assigning arbitrary capacity values. Define the signed difference
+\begin{equation}
+\boxed{\CRGC(n,h,\epsilon)=Q_1(n,h,\epsilon)-Q_0(n,h,\epsilon).}
+\label{eq:crgc}
+\end{equation}
+CRGC is a proposed study-specific quantity, not an existing market product or a capacity accreditation rule. A negative value is a valid result. Additional capability is demonstrated only when the candidate improves deliverable service at the specified location and duration without violating the common reliability criteria. Values at different nodes generally cannot be added unless the corresponding services are jointly feasible.
+
+\subsection{Independent outcome measures}
+For a study horizon $T$, define paired realized net production-cost benefit:
+\begin{equation}
+\Delta C_T=\sum_{t\in T}(c_{0,t}-c_{1,t})-K_{\mathrm{inc},T},
+\end{equation}
+where $c_{j,t}$ includes consistently defined real resource costs over interval $t$, and $K_{\mathrm{inc},T}$ includes incremental computing, implementation, and verification costs allocated to that horizon. Transfers such as congestion rents are reported separately. Reliability is an acceptance constraint, not a monetary offset for mandatory safety violations.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Outcome dimensions that must remain distinct.}
+\begin{tabularx}{\linewidth}{p{0.25\linewidth}Y}
+\toprule
+Measure & Interpretation\\
+\midrule
+Energy (MWh) & Avoided physical loss, avoided purchases, or increased useful output, with explicit boundaries.\\
+Economic value (\$) & Incremental real resource cost reduction, or another explicitly defined economic measure.\\
+Deliverability (MW) & Additional feasible service at a specified node, duration, and risk criterion.\\
+Resource adequacy & Incremental dependable capability under an applicable chronological adequacy methodology.\\
+Computational cost & End-to-end runtime, memory, deadline compliance, and verification overhead.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+A single scalar ``efficiency'' cannot represent all of these dimensions. The benchmark must publish the vector of effects and the tradeoffs among them.
+
+\section{Interface-preserving compression: a mathematical framework}
+\label{sec:compression}
+\subsection{Exactness, bounds, and reconstruction}
+Let $X\ne\varnothing$ be the feasible set of a finite-horizon electrical optimization and $J:X\to\mathbb R$ its objective, assumed bounded below. The infimum is $J^\star$. Define a reduced candidate set $Y$, projection $\phi:X\to Y$ when it exists, and reconstruction $\psi:Y\to X$ when it is certified feasible. The two maps need not be inverse on all original states. A sufficient condition for exactness is:
+\begin{enumerate}
+\item Every $x\in X$ projects to $\phi(x)\in Y$, with $\widetilde J(\phi(x))\le J(x)$.
+\item Every $y\in Y$ reconstructs to a feasible $\psi(y)$ with $J(\psi(y))\le\widetilde J(y)$.
+\end{enumerate}
+Taking infima in the two inequalities gives $\inf_Y\widetilde J=J^\star$. If both minima are attained, a reduced optimizer reconstructs an original optimizer. This elementary sandwich argument [D] provides a clear proof obligation; it does not claim originality as optimization theory. In cases where the entire full set does not project to the reduced model, exactness may still hold if at least one optimum is representable. Such a weaker result must be established separately, not inferred from test cases.
+
+More generally let $Y_{\rm out}$ be an outer relaxation to which every original feasible solution projects at no greater objective, and let $Y_{\rm in}$ be a reconstructable inner restriction. For any independently valid lower bound $L$ on $\inf_{Y_{\rm out}}\widetilde J_{\rm out}$, and any feasible lifted candidate $x^+$ of cost $U=J(x^+)$,
+\begin{equation}
+L\le J^\star\le U,\qquad 0\le U-J^\star\le U-L.\label{eq:sandwich}
+\end{equation}
+A small $U-L$ is sufficient to certify near-optimality within the model, regardless of whether the inner restriction is a good approximation in other instances. A large gap is inconclusive without a better bound or candidate. Floating-point solver bounds in this revision are numerical evidence subject to tolerances; they are not independently checked exact certificates. An engineering implementation also needs independent physical validation.
+
+\subsection{State sufficiency and interface accounting}
+For a deterministic finite-horizon controlled process, a state summary is sufficient if histories with that summary have equivalent feasible future controls, transitions of the summary, future costs and terminal admissibility, or if the weaker exactness condition above is shown by a constructive lift. For a system with uncertainty, the information pattern and conditional distributions must also be preserved. For example, in ramp-constrained storage control, the pair $(s_t,g_{t-1})$ may be sufficient under simple dynamics, whereas SOC alone is not sufficient: histories with identical energy and different previous imports may have different feasible next imports. The earlier E001 conversation described an illustrative enumeration example, but no source or inputs were supplied for independent replay; we retain its qualitative lesson, not its numerical claim.
+
+Define the interface as the information required by the reduced representation and reconstruction. Its cost is a vector (dimension, precision, messages, synchronization, memory, and verification work), not a single universal complexity measure. An implementation must account for the cost of model preparation, solving subproblems, coupling/reconciliation, reconstruction and independent validation. If work is parallel, elapsed wall time is the critical path with synchronization, not the sum of all worker times; total CPU work and peak memory are recorded separately. A smaller state space need not yield a faster solver. Define deadline-conditioned value $\Delta V(B,\tau)$ by comparing validated outcomes of two algorithms under common information, budget and deadline. Publish the vector of physical and economic effects rather than conflating them into one efficiency percentage.
+
+\subsection{Related work and novelty boundary}
+Storage flexibility aggregation is already a mature research topic. A common approach represents each device's feasible power profiles by a set $\mathcal P_i$ and computes or approximates the Minkowski sum $\sum_i\mathcal P_i$. Inner approximations with explicit disaggregation are a known way to obtain feasible instructions. For example, the 2024 study by \"Ozt\"urk et al. \cite{minkowski} presents vertex-based inner approximations and disaggregation, comparing ten alternatives. Our elementary exact aggregation and sandwich bounds do not supersede that literature. The proposed contribution to assess is the combination of interface diagnostics, independently reconstructable certificates, solver-deadline comparisons and grid-value accounting, including explicit failure examples. A systematic comparison with polytope aggregation, unit clustering, approximate dynamic programming, Benders and Dantzig--Wolfe decomposition, and current commercial solver practice remains a publication requirement.
+
+\section{Storage experiments: exact aggregation and failure under heterogeneity}
+\label{sec:storage}
+\subsection{Experiment E002: discrete homogeneous storage}
+Consider $N$ interchangeable ideal storage units with integer energy capacity $C$, per-period charge and discharge limit $R$, balanced initial and terminal states, and identical linear cycling penalties $k\ge0$. With common aggregate network and service constraints and no unit-specific obligations in this class, use the total energy $S=\sum_i s_i$. Define the balanced lift for $0\le S\le NC$ by
+\[
+s_i(S)=\left\lfloor\frac{S+i}{N}\right\rfloor,\qquad i=0,\ldots,N-1.
+\]
+Writing $S=Nq+r$ with $0\le r<N$ shows that $N-r$ entries equal $q$ and $r$ entries equal $q+1$. Thus $\sum_i s_i(S)=S$ and each entry lies in $[0,C]$. For $S'\ge S$ the entries are monotone; if $S'-S\le NR$, then $s_i(S')\le s_i(S+NR)=s_i(S)+R$. The reversed transition follows by symmetry. Consequently $\sum_i|s_i(S')-s_i(S)|=|S'-S|$ and every aggregate transition with the stated bound lifts. Projection of a full schedule preserves total energy and grid import, and the triangle inequality shows $k|S'-S|\le k\sum_i|s'_i-s_i|$. Together with the lift this proves equality of the modeled optimum [D]. A protected reserve battery is tracked separately; previous grid import remains in the state. The full labeled energy state count is $(C+1)^N$ and the total-energy state count is $NC+1$. These are nominal state counts, not a lower bound on any alternative solver's complexity.
+
+The archived E002 benchmark was independently rerun in this session. It uses $C=4$, $R=1$, protected capacity 3, protected rate 1, maximum import 9 and ramp limit 2. Twelve cases each use two and three interchangeable flexible units, ten periods, variable prices, loads and reserve floors, and identical endpoints. The code implements labeled DP, permutation-quotient DP, aggregate DP, and a separately formulated HiGHS mixed-integer optimization. Inputs and paths are supplied in the evidence package \cite{evidence}.
+\begin{table}[htbp]
+\centering\small
+\caption{E002: replayed transition counts, matching the archived 24-case run.}
+\begin{tabular}{lrrr}
+\toprule
+Method & Two flexible & Three flexible & Total\\
+\midrule
+Labeled DP & 306,839 & 5,092,306 & 5,399,145\\
+Permutation quotient & 157,714 & 929,952 & 1,087,666\\
+Aggregate DP & 71,605 & 183,835 & 255,440\\
+\midrule
+Reduction vs. labeled & 76.66\% & 96.39\% & 95.27\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+All 24 aggregate objectives matched the archived outcomes and independent MILP within the implementation's numerical checks; 207,792 balanced transitions were also checked by the original code. The count reduction is relative to this labeled DP, not to an optimized industrial solver. The code caches some local transitions, so the earlier runtime observations are not fair end-to-end production comparisons. No physical MWh or dollar savings from improved computation were established. The principal counterexamples remain: unbalanced initial SOC (same total, different next-step headroom); pooling protected reserves with unconstrained flexible assets; omitting the previous grid import under a ramp constraint.
+
+\subsection{E003: exact proportional reduction with nonideal efficiency}
+\label{sec:e003}
+Consider a class of $n$ colocated batteries, with positive weights $w_i$ summing to one. Per-period charge $c_{it}$ and discharge $d_{it}$ are nonnegative, measured at the AC-side interface, with $\Delta t=1$ hour. Their SOC dynamics are
+\[
+s_{i,t+1}=s_{it}+\eta_{ci}c_{it}-d_{it}/\eta_{di},\quad
+0\le c_{it}\le \overline c_i z_{it},\quad
+0\le d_{it}\le \overline d_i(1-z_{it}),\quad z_{it}\in\{0,1\}.
+\]
+Each asset has an individual energy range, time-dependent floor and terminal requirement. Grid imports obey balance and a common ramp restriction. Linear cycling costs approximate wear; they do not model electrochemical degradation, temperature or lifetime.
+
+\textbf{Proposition (homothetic class, common mode).} Suppose class members have identical charge/discharge efficiencies, linear throughput cost per MWh, and all energy limits, initial/terminal states, time-varying floors and charge/discharge bounds scale by $w_i$. Assume a common charge/discharge mode across the class is a constraint in both the baseline and reduced problems. Suppose all external couplings depend only on class aggregate power and energy. Set $C_t=\sum_i c_{it}$, $D_t=\sum_i d_{it}$ and $S_t=\sum_i s_{it}$. Summing the dynamics and scaled bounds gives the aggregate model. Conversely set $c_{it}=w_i C_t$, $d_{it}=w_i D_t$, $s_{it}=w_iS_t$. Identical efficiencies preserve each dynamic equation; scaled constraints and the common mode preserve feasibility; the identical marginal wear coefficient preserves cost. Projection and lifting therefore give exact optimal values [D]. The proof also works for convex control sets with no mutually exclusive mode, if averaging preserves every original constraint. It does not imply exactness for individually unrestricted binary modes.
+
+\subsection{A sharp obstruction: unequal efficiencies and exact terminal SOC}
+\label{sec:obstruction}
+Suppose two batteries use fixed proportional dispatch $c_{it}=w_i C_t$ and $d_{it}=w_i D_t$ with $w_i>0$, time-invariant efficiencies, no self-discharge and exact terminal equal to initial SOC. Summing each battery's dynamics implies
+\[
+\eta_{ci}w_i\sum_t C_t -\frac{w_i}{\eta_{di}}\sum_t D_t=0,
+\qquad
+\sum_tD_t=\rho_i\sum_tC_t,\quad \rho_i=\eta_{ci}\eta_{di}.
+\]
+If $\rho_i\ne\rho_j$, subtract the two equalities to get $(\rho_i-\rho_j)\sum_tC_t=0$. Since all charge/discharge powers are nonnegative, the only feasible common proportional trajectory is $C_t=D_t=0$ for all $t$. This conclusion holds for arbitrarily small nonzero differences in round-trip efficiency [D]. It explains a large loss in E003 without attributing it to optimization error. It does not hold unchanged under a terminal interval, compensating individual control, different terminal targets or self-discharge. Even equal round-trip efficiencies are not sufficient for full exactness when other individual constraints differ.
+
+A relaxation of terminal equality to tolerance $\delta_i$ yields the necessary condition
+\[
+|\rho_i\textstyle\sum_t C_t-\sum_t D_t|\le \eta_{di}\delta_i/w_i,
+\]
+so for two members
+\[
+|\rho_i-\rho_j|\sum_tC_t\le\eta_{di}\delta_i/w_i+\eta_{dj}\delta_j/w_j.
+\]
+This is a diagnostic upper bound on common charging throughput, not a sufficient feasibility condition. It suggests a practical screening rule: evaluate parameter compatibility and terminal obligations before compressing controls.
+
+\subsection{A less aggressive interface: shared modes, individual allocation}
+Let each class share only $z_{it}=z_{kt}$ and retain each asset's continuous charge/discharge and SOC dynamics. This is an inner restriction of the unrestricted full model. It removes redundant binary decisions without assuming equal efficiencies or fixed proportions. Let $L_{\rm LP}$ be the full model's LP relaxation bound, $J_F^\star$ the unrestricted optimum (or common-mode baseline in the homothetic cohort), $J_M^\star$ the shared-mode optimum, and $J_P^\star$ the proportional-control optimum. For the nested models studied here,
+\[
+L_{\rm LP}\le J_F^\star\le J_M^\star\le J_P^\star.
+\]
+When a group is split, the feasible set of shared-mode decisions expands. A finite refinement sequence can terminate at singleton modes; however, an LP gap may persist even at singletons. An implementable deadline policy should start with a verified feasible incumbent, use an independently valid lower bound where available, accept when a prespecified gap is met, and otherwise refine or run the full model; if a safe action cannot be validated by the deadline it must fall back. We propose evaluating this adaptive procedure on held-out stressed cases before claiming a computational advantage [P].
+
+\subsection{Experimental protocol and results}
+E003 uses 24 synthetic eight-hour cases, four batteries with capacities 2, 4, 3 and 5 model MWh, two nominal classes, load between 3 and 7 model MW, maximum grid import 9, ramp limit 2 per hour, terminal SOC equal to initial, time-varying floors and linear wear. Twelve cases have proportional within-class parameters and impose common modes in both baseline and candidate. Twelve have independent seeded within-class perturbations of efficiency, capacity-normalized power, initial SOC, floors and wear, with unrestricted asset modes in the baseline. Four cases in each cohort include a negative price interval. The zero-action schedule is feasible by construction in all 24 cases, reducing the prevalence of forced opposing modes; a separate deliberately stressed counterexample tests that limitation. This is a development sample, not a randomized operational population or preregistered holdout.
+
+Five formulations are solved with SciPy 1.17.0/HiGHS, relative MIP gap target $10^{-9}$ and 20-second per-instance limit: full individual MILP; shared-mode MILP with individual powers; two-class fixed proportional controls; one-class fixed proportional controls; and the full LP relaxation. The four MILPs each terminated with reported optimal status for all cases. An independently coded trajectory validator recomputes SOC, balance, ramp, energy floors, terminal constraints, mutual exclusivity and cost; it also checks mode sharing. Validation tolerance is $2\times10^{-6}$ in model units. No certificate is claimed to have been replayed in exact arithmetic. The prefix-SOC formulation retains original asset constraints even when sharing control variables. Formulation construction and timings are logged; one small single-machine run is not a timing benchmark.
+
+\begin{table}[htbp]
+\small\centering
+\caption{E003: size of formulations per 8-period, 4-asset case. Numbers count modeled variables before solver presolve. The homothetic full baseline also ties modes within class.}
+\begin{tabular}{lrrrr}
+\toprule
+Formulation & Variables & Binary & Rows (homothetic) & Rows (hetero.)\\
+\midrule
+Full individual MILP &104&32&128&112\\
+Shared-mode, individual power &88&16&112&112\\
+Two-class proportional &56&16&80&80\\
+One-class proportional &32&8&64&64\\
+Full LP relaxation &104&0&128&112\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[htbp]
+\small\centering
+\caption{E003: objective regret vs. numerical full optimum, synthetic cost units. Equal means absolute regret $<2\times10^{-6}$. Values near numerical zero are shown as 0.}
+\begin{tabularx}{\linewidth}{Yrrrr}
+\toprule
+Cohort / intervention & Equal cases & Mean regret & Max regret & Max $U-L_{\rm LP}$\\
+\midrule
+Homothetic / shared mode &12/12&0&0&0\\
+Homothetic / two classes &12/12&0&0&0\\
+Homothetic / one class &0/12&276.88&539.64&---\\
+Heterogeneous / shared mode &12/12&0&0&0\\
+Heterogeneous / two classes &0/12&308.95&536.11&536.11\\
+Heterogeneous / one class &0/12&308.95&536.11&---\\
+\bottomrule
+\end{tabularx}
+\end{table}
+Across all candidate lifted trajectories the maximum observed residual was below $5\times10^{-13}$ in the implemented checks. All full LP objectives matched the corresponding numerical full MILP objectives within tolerance. This is an important negative result for claims of combinatorial difficulty: in these small instances the relaxation is already numerically tight. Shared modes halve the declared binary count; they do not establish superiority over an LP or HiGHS presolve. Homothetic full modes are already tied, so the reduction in declared binaries there is not a reduction in independent mode degrees of freedom. The main positive result is the preservation of objective in these chosen cases despite retaining half as many declared binaries in the heterogeneous cohort; the principal negative result is the exact obstruction to proportional grouping under unequal efficiency. The numerical objective magnitudes are not dollar forecasts.
+
+\subsection{A counterexample to shared-mode exactness}
+Two identical batteries each have capacity 3, charge/discharge bound 1, charge/discharge efficiency 0.8, and initial and terminal SOC 1.5. Over two periods, require zero local load and grid import exactly 0.36 in each. In period 1, one battery charges by 1 and the other discharges by 0.64; reverse them in period 2. Individual SOC changes are $+0.8$ and $-0.8$; both return to the initial state, and grid import is $1-0.64=0.36$ each period. A common mode with positive required net import forces charging in both periods and cannot restore terminal SOC. The full MILP was feasible and both the one-group proportional model and the shared-mode-only model infeasible. The argument applies to shared modes even with individual power allocation. Thus E003's 12/12 heterogeneous objective match is not a theorem. In real applications deliberate dissipative cycling could be disallowed for independent efficiency or equipment reasons; the counterexample is a mathematical stress test of a specified feasible set.
+
+\subsection{Parameter-error bounds and research extensions}
+With fixed planned individual powers and nominal efficiency $\widehat\eta_{ci},\widehat\eta_{di}$, and the same initial SOC, a deterministic bound for cumulative SOC mismatch is
+\[
+|s_{it}-\widehat s_{it}|
+\le\sum_{k<t}\Delta t_k\left(
+|\eta_{ci}-\widehat\eta_{ci}|c_{ik}+
+|\eta_{di}^{-1}-\widehat\eta_{di}^{-1}|d_{ik}\right).
+\]
+Reserve margins at least this bound protect energy inequalities for fixed powers under the stated model. They do not guarantee exact terminal equality, AC feasibility, or robustness to unmodeled control response. Add uncertainty-dependent initial errors, self-discharge, temperature and parameter variation only with appropriate additional bounds or independent validation. An inner restriction can be evaluated via Equation~\ref{eq:sandwich}; objective regret need not be Lipschitz in efficiency mismatch when equality constraints change the representable set.
+
+Next tests: predeclare a held-out family with forced opposing modes, high congestion, asymmetric interconnection constraints and outages; compare adaptive group splitting against independently optimized strong LP/MILP methods; add validated piecewise degradation, self-discharge, unequal endpoints and reserve deliverability; evaluate realistic data center workload traces under multiscale ramp and recovery obligations. Only after these tests should one estimate economic scale or firm capacity value.
+
+\section{Track I: AC optimal power flow and security constraints}
+In rectangular voltage coordinates $V_i=e_i+\mathrm{j}f_i$ with admittance $Y_{ij}=G_{ij}+\mathrm{j}B_{ij}$, real and reactive injections are quadratic:
+\begin{align}
+P_i&=\sum_j[G_{ij}(e_ie_j+f_if_j)+B_{ij}(f_ie_j-e_if_j)],\\
+Q_i&=\sum_j[G_{ij}(f_ie_j-e_if_j)-B_{ij}(e_ie_j+f_if_j)].
+\end{align}
+Voltage magnitude limits likewise take the form
+\begin{equation}
+(V_i^{\min})^2\leq e_i^2+f_i^2\leq(V_i^{\max})^2.
+\end{equation}
+These equations, current and thermal limits, generator constraints, and contingency states define a nonconvex optimization problem. AC power-flow feasibility is strongly NP-hard on general graphs \cite{bienstock}. This does not establish VNP-hardness of an associated polynomial family: VP/VNP concerns arithmetic circuit complexity, and any such claim would require an explicit reduction. Circuit complexity and improved polynomial representations are exploratory research directions rather than established explanations of grid losses.
+
+Compare established DC dispatch with AC validation and redispatch, contemporary nonlinear AC solvers, and candidate sparse convex relaxations, decomposition, warm starts, learned initialization, or hybrid formulations. Use common physical constraints and include the time required for feasibility recovery and validation. A relaxation bound is not a feasible operating point; the candidate must recover and validate an actionable solution or revert to the common fallback. PGLib-OPF supports static base, stressed, and angle-constrained benchmarks \cite{pglibopf}; operational claims require chronological cases and explicitly modeled contingencies.
+
+For a common network boundary, compare modeled resistive energy losses:
+\begin{equation}
+E_{\mathrm{loss},j}=\sum_t\Delta t_t\sum_{\ell}R_{\ell}|I_{\ell,j,t}|^2,
+\end{equation}
+using consistent phase and unit conventions, with other modeled losses included separately. Measure the paired difference $E_{\mathrm{loss},0}-E_{\mathrm{loss},1}$ alongside curtailment, congestion, voltage and thermal margins, and realized production costs. A lower-loss dispatch can increase production cost, and a cheaper dispatch can increase losses. Neither physical congestion nor all network losses should be assumed removable by better solvers.
+
+\section{Track II: Security-constrained unit commitment}
+SCUC determines commitment states, dispatch, reserves, and intertemporal constraints. A generic objective is
+\begin{equation}
+\min_{u,p,r}\sum_{g,t}\big[F_g(p_{g,t})\Delta t_t+S_{g,t}+D_{g,t}+C^{\mathrm{other}}_{g,t}\big],
+\end{equation}
+where $u$ is commitment status, $p$ generator output, $r$ reserve, and the remaining terms are consistently defined operating, startup, shutdown, and other real resource costs. The formulation must include ramping, minimum up/down times, reserve deliverability, storage, and relevant network constraints.
+
+For minimization, a valid lower bound $L$ and feasible incumbent objective $U$ satisfy
+\begin{equation}
+L\leq C^\star\leq U,\qquad 0\leq U-C^\star\leq U-L.
+\end{equation}
+If the incumbent is feasible for the identical model, $U-L$ bounds its potential objective improvement. Tightening the bound alone need not lower $U$; the MIP gap is not an observed economic loss. Wholesale settlement volume is not the SCUC production-cost objective, and MW of held reserve cannot be directly interpreted as wasted MWh.
+
+Test valid inequalities, stronger formulations, decomposition, and certificate-producing methods against a strong conventional solver. Measure incumbent improvement, bound quality, feasible deadline success, actual replayed operating cost, fuel use, and emissions separately. PGLib-UC supplies an initial reproducible benchmark \cite{pglibuc}; security-constrained and chronological extensions must be documented. If improved commitment is traded against reserve requirements or information unavailable to the baseline, the resulting benefit cannot be attributed solely to computation.
+
+\section{Track III: Power electronics and embedded control}
+For a converter model $z_{k+1}=f(z_k,v_k,w_k)$, a candidate model predictive controller may solve
+\begin{equation}
+\min_{v_{0:H-1}}\sum_{k=0}^{H-1}
+(\ell_{\rm track}+\lambda_s\ell_{\rm switch}+\lambda_e\ell_{\rm loss})+\ell_f
+\end{equation}
+subject to hardware, electrical, thermal, timing, and applicable stability constraints. Predictive control of power converters is an established field \cite{mpc}. Baselines must include appropriate conventional and contemporary predictive controllers; not all devices employ MPC. Arithmetic complexity, lookup strategies, horizon length, state representation, and hardware implementation are candidate intervention variables.
+
+A reduction in switching loss can change ripple, electromagnetic interference, thermal cycling, harmonics, and stability. Compare controllers on identical hardware and workloads, first in simulation, then controller- or hardware-in-the-loop, and finally in appropriately authorized laboratory tests. Include worst-case computation and I/O latency, deadline misses, transient response, temperature, protection, and relevant ride-through requirements. Do not deploy unqualified controllers on an energized production system.
+
+For equal delivered electrical energy $E_{\rm out}$ with input-to-output efficiencies $\eta_0,\eta_1$, the input-energy reduction is
+\begin{equation}
+\Delta E_{\rm in}=E_{\rm out}\left(\frac{1}{\eta_0}-\frac{1}{\eta_1}\right).
+\end{equation}
+For equal input energy, the increase in useful output is instead $E_{\rm in}(\eta_1-\eta_0)$. A change from 97.0\% to 97.3\% efficiency corresponds to a 10\% reduction in conversion losses on a fixed input-energy basis, not a 10\% reduction in facility electricity consumption. The accounting boundary and experimental workload must be identical. Inverter, battery, and PSU flows can overlap; a national estimate requires nonduplicated energy-flow data and load-dependent efficiency curves.
+
+\section{Track IV: Formal methods as a verification layer}
+A proof assistant can certify a mathematical claim relative to a formal specification. Candidate applications include validity of cutting planes, objective-bound certificates, safe fallback invariants, and selected market-rule properties. The VIPR certificate format and LeanVIPR provide concrete research starting points for mixed-integer linear programs \cite{vipr,leanvipr}. An independently checked certificate can establish a bound or infeasibility for the encoded MILP. It does not establish correct telemetry, faithful tariff translation, AC feasibility, controller stability, or solver acceleration.
+
+The proposed architecture is a sequence of distinct assurance layers:
+\begin{center}
+\fbox{\begin{minipage}{0.84\linewidth}\centering\small
+Physical requirements and explicit specification\\[2pt]$\downarrow$\\[2pt]
+Mathematical formulation and optimization\\[2pt]$\downarrow$\\[2pt]
+Candidate decision and machine-checkable certificate\\[2pt]$\downarrow$\\[2pt]
+Independent mathematical verification\\[2pt]$\downarrow$\\[2pt]
+Independent physical validation\\[2pt]$\downarrow$\\[2pt]
+Action within deadline, or common safe fallback
+\end{minipage}}
+\end{center}
+Proof assumptions, model translation, numerical tolerances, executable interfaces, and the trusted computing base must be identified. The verifier's latency and memory costs count toward the end-to-end budget. Compare the same solver with and without certification, and distinguish improved decision quality from improved assurance. A certificate is particularly valuable when a claim can be independently checked without rerunning the original search.
+
+\section{Economic accounting: repairing the original napkin}
+Table~\ref{tab:napkin} preserves the earlier note's arithmetic solely to identify assumptions that must be tested. The figures are not estimates of an empirically identified controllable pool. In particular, the SCUC proxy is not a measured physical electrical loss; its inclusion makes the historical sum unsuitable as an energy-recovery estimate.
+\begin{table}[htbp]
+\centering\small
+\caption{Original illustrative 10\% scenarios (nominal TWh/year). The SCUC row is an unvalidated dimensional proxy.}
+\label{tab:napkin}
+\begin{tabularx}{\linewidth}{Yrrrr}
+\toprule
+Candidate domain & \multicolumn{2}{c}{Assumed pool} & \multicolumn{2}{c}{10\% scenario}\\
+& MISO & U.S. & MISO & U.S.\\
+\midrule
+Renewable curtailment &13.5&25.0&1.35&2.50\\
+Total T\&D losses &34.5&221.5&3.45&22.15\\
+SCUC/reserve proxy &27.6&177.2&2.76&17.72\\
+Conversion-loss proxy &7.0&45.0&0.70&4.50\\
+\midrule
+Original arithmetic total &82.6&468.7&8.26&46.87\\
+\bottomrule
+\end{tabularx}
+\end{table}
+Several corrections are mandatory:
+\begin{enumerate}
+\item Curtailment includes economic and physical causes. Attribute avoided curtailment only to a feasible counterfactual at the same reliability level.
+\item EIA reports average U.S. transmission and distribution losses of approximately 5\% of transmitted and distributed energy for 2018--2022 \cite{eia}. This is not a solver-addressable fraction. Separate transmission from distribution and identify the operator controlling each intervention.
+\item Replace the SCUC energy proxy with observed differences in fuel, generation, startup, cycling, and commitment costs. No TWh can be inferred merely from reserve holdings or a MIP gap.
+\item Value converter efficiency at the correct input/output boundary. Avoid counting a saved MWh at multiple nested conversion stages.
+\item Real-time congestion value, uplift, congestion rents, and production-cost savings are not interchangeable. Use the Independent Market Monitor's published definitions \cite{miso} and avoid summing overlapping welfare effects.
+\end{enumerate}
+The earlier note's approximately \$621 million MISO and \$3.82 billion national figures are not adopted as quantitative estimates. They motivate inquiry rather than establish an achievable market size. At a hypothetical scale of 1 TWh of independently demonstrated avoided electricity purchases valued at \$50/MWh, gross illustrative value is \$50 million per year, before implementation costs and subject to the relevant marginal value. This is a unit conversion, not a forecast.
+
+Similarly, dividing the original nominal 46.87 TWh by 8,760 hours gives approximately 5.35 GW of annual-average energy equivalent if that energy quantity were valid. It does not imply 5.35 GW of new dependable generation, deliverable interconnection capacity, or capacity accreditation. A chronological and locational analysis is required even for empirically supported MWh savings.
+
+For interventions indexed by a set $S$, compare the joint counterfactual against the same baseline. If $C(S)$ is realized production cost with interventions $S$, total gross benefit is $C(\varnothing)-C(S)$. Report marginal contributions conditional on the other interventions, or employ an explicit allocation rule if justified. Do not simply add isolated counterfactuals that reuse the same physical or economic savings.
+
+\section{Open benchmark challenge}
+We invite power systems engineering (PSE), power electronics (PE), operations research, formal methods, and utility/ISO researchers to test three competing hypotheses:
+\begin{description}
+\item[H1:] Better computation produces material, broadly distributed gains under fixed physical and reliability constraints.
+\item[H2:] Most apparent gains disappear when realistic network, uncertainty, implementation, and reliability constraints are imposed.
+\item[H3:] Gains are material but concentrated in specific topology, workload, congestion, contingency, and operating regimes.
+\end{description}
+No hypothesis is assumed true. Report cases in which the baseline is superior, the intervention is neutral, or the method fails. Define practical significance before evaluation, including a minimum economic effect or additional service threshold appropriate to the specific benchmark and deployment cost.
+\begin{table}[htbp]
+\small\centering
+\caption{Proposed research tracks and acceptance criteria.}
+\begin{tabularx}{\linewidth}{p{0.17\linewidth}YY}
+\toprule
+Track & Matched baseline and intervention & Primary acceptance condition\\
+\midrule
+AC/SCOPF & DC with AC validation and nonlinear AC; improved relaxation, decomposition, or initialization & Feasible AC and required contingencies; net cost and loss effects under deadline.\\
+SCUC & Strong conventional MILP; enhanced formulations, cuts, or decomposition & Improved feasible incumbent or certified bound; operational replay for economic claims.\\
+PE control & Conventional and strong predictive control on identical hardware; candidate controller & Equal required service and safety; measured efficiency and deadline compliance.\\
+Verification & Existing independent checker; proof-assistant checker or invariant & Correct acceptance/rejection, declared proof scope, and measured overhead.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Experimental design}
+\begin{enumerate}
+\item Freeze benchmark versions, formulations, hardware, software versions, data splits, forecast information, and deadlines. Publish tolerances and the fallback policy. Tune methods on development data only.
+\item Use identical scenario realizations and information sets. Separate development, calibration, and held-out evaluation cases, including normal and stressed conditions. Avoid future-information leakage.
+\item Run baseline, candidate without verification, and candidate with verification where meaningful. Include a stronger conventional algorithm to isolate whether gains arise from formulation, tuning, hardware, or certification.
+\item Run repeated trials with fixed or recorded seeds and comparable computational resources. Include model construction, solver warmup as appropriate, solution recovery, verification, and action delivery. Log timeouts, invalid candidates, fallback actions, and failed cases rather than excluding them.
+\item Independently validate physical and numerical constraints. Any mandatory violation rejects that candidate outcome under the declared protocol; evaluate the resulting fallback performance. Statistical improvements do not excuse individual hard-constraint violations.
+\item Report paired effects with uncertainty intervals, stratified by regime and network. Account for temporal correlation when resampling chronological data. Publish denominators, coverage, compute overhead, and negative results. Predeclare primary outcomes and distinguish exploratory comparisons.
+\end{enumerate}
+A useful first benchmark would use selected PGLib-OPF base and stressed cases, followed by PGLib-UC chronological cases and a simple simulated converter test. These are research starting points, not representations of the MISO production environment. Subsequent studies must pin exact repository versions and cite original case-data references.
+
+\subsection{Minimum evidence package}
+Each experiment should provide case identifiers and versions, machine-readable constraints, code or reproducible pseudocode, solver settings, certificate artifacts where applicable, outcome logs, and the analysis script. Include a record of model assumptions, independent validation, feasible-deadline success, total compute time, baseline and candidate objectives, physical metrics, and fallback results. Restricted operator data may require an authorized data-sharing agreement, sanitized cases, or a synthetic equivalent; results on synthetic cases must be labeled as such.
+
+\section{Extension: large loads, BESS, and interconnection}
+An especially relevant cross-disciplinary experiment couples a data center to a battery energy storage system (BESS). With positive grid import $P_{\rm grid}$, facility demand $P_{\rm load}$, battery charging $P_{\rm ch}$ and discharging $P_{\rm dis}$,
+\begin{align}
+P_{{\rm grid},t}&=P_{{\rm load},t}+P_{{\rm ch},t}-P_{{\rm dis},t},\\
+s_{t+1}&=s_t+(\eta_cP_{{\rm ch},t}-P_{{\rm dis},t}/\eta_d)\Delta t_t.
+\end{align}
+The envelope includes state of charge, battery power, degradation, applicable charge/discharge exclusivity, critical workload obligations, recharge feasibility, protection, contingencies, and point-of-interconnection limits. A grid-facing ramp condition for uniform intervals might be expressed as
+\begin{equation}
+|P_{{\rm grid},t+1}-P_{{\rm grid},t}|\leq r_{\max}\Delta t,
+\end{equation}
+where $r_{\max}$ is specified for the particular study, not asserted as a universal ISO requirement. Distinguish short-duration ride-through from sustained dispatch support and resource adequacy. Test whether improved forecasting, optimization, or certified control expands feasible service under the same constraints; forecasting improvements must be attributed separately if they change the information set in Equation~\ref{eq:policy}. Do not credit the same stored energy simultaneously to incompatible commitments.
+
+A particularly valuable study would determine when an improved controller can support a higher grid-facing load at a constrained node or honor a tighter ramp envelope without reducing dependable computational service. Evaluate both normal schedules and stressed trajectories, including post-event recharge. A formal guarantee about this simplified model still requires independent engineering validation of actual network, protection, dynamics, and equipment. Chronological reliability and interconnection studies, not a mathematical proof alone, establish the admissibility of an operating envelope.
+
+\section{Adversarial review and publication gates}
+\begin{table}[htbp]
+\centering\small
+\caption{Objections and evidence required before making external claims.}
+\begin{tabularx}{\linewidth}{p{0.33\linewidth}Y}
+\toprule
+Objection & Test or limitation\\
+\midrule
+VP/VNP is unrelated to the practical solver & Demonstrate a specific transfer, or retain only methodological motivation; no complexity-theoretic result is required for the storage propositions.\\
+Aggregation is already known & Compare against published inner/outer flexibility approximations, symmetry reduction and state-of-the-art solvers; distinguish mathematical identity, implementation and claimed novelty.\\
+The model excludes physical constraints & Independently validate AC feasibility, inverter dynamics, thermal limits and applicable contingencies; no surrogate result establishes field safety.\\
+Reported speedups are not fair & Include model building, presolve, tuning, hardware, memory, communication, reconstruction and checking; report deadline distributions and failures.\\
+Mode sharing is an artificial restriction & Keep the full unrestricted baseline, construct forced opposing-mode cases and use bounds plus adaptive refinement.\\
+Proof is not runtime assurance & Check the specification and trusted computing base; test end-to-end budget, not just Lean acceptance.\\
+Dollar extrapolation is speculative & Use paired chronological operating costs and explicit nonoverlap, report uncertainty and adoption costs. Distinguish transfer payments from resource cost.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+\textbf{Release gates.} Version 0.3 should establish exact and approximate compression on a held-out storage testbed, with a machine-checked representative lemma and an independent literature review. Version 0.4 should require AC-OPF/SCUC benchmarks with matched time budgets and strong baselines, including null and negative results. Version 0.5 should add converter tests with timing, efficiency and reliability constraints. Version 0.9 should include independent adversarial review, operating-cost accounting, source coverage and reproducibility. Version 1.0 is conditional on the resulting evidence; neither a dollar threshold nor a predetermined page count is a success criterion.
+
+\section{Research roadmap and success criteria}
+\textbf{Phase 1 --- Reproduction.} Reproduce public AC-OPF and UC baselines; define paired metrics and certificate checking. Implement a small converter or BESS control benchmark in simulation. Publish the protocol before held-out tests.
+
+\textbf{Phase 2 --- Stress testing.} Introduce realistic contingency, forecast, and intertemporal stress cases; independently verify feasible decisions and benchmark execution overhead. Publish failures and ablations.
+
+\textbf{Phase 3 --- Engineering collaboration.} Seek collaboration for chronological operator cases and authorized hardware testing. Estimate deployment costs, boundary-specific losses, and joint economic benefits. Include domain experts in specifying acceptance criteria.
+
+\textbf{Phase 4 --- Scaling and replication.} Only after reproducible results, consider population-weighted regional estimates, out-of-sample validation, and independent replication. Any accredited capacity or deliverability claims require the applicable planning and reliability methodology. Extrapolation requires measured coverage, representative weights, and sensitivity to adoption costs and overlapping interventions.
+
+The program succeeds if it establishes a credible measurement of algorithmic benefit, even if the original billion-dollar scenario is rejected. The key deliverable is an auditable evidence chain from mathematical modification to validated operating decision to incremental physical or economic outcome.
+
+\section{Conclusion and invitation}
+Better mathematical models and algorithms may yield substantial benefits without proportional expansion of physical grid assets. The magnitude is an empirical question. Formal verification offers a means of strengthening selected mathematical guarantees, while power systems and power electronics provide the physical tests those guarantees must survive. We invite the engineering and mathematical communities to collaborate on a reproducible benchmark challenge rather than accept an aggregate savings claim on the strength of a napkin calculation.
+
+\textbf{Status and disclosures.} This is an internal research checkpoint, not a completed research program, peer-reviewed paper, or operator-endorsed recommendation. The synthetic numerical experiments and partial proof audit are explicitly bounded in scope. No field result, demonstrated operational CRGC, validated nationwide savings estimate or independently validated full complexity proof is reported. Authorship uses the working label of the original manuscript; individual authors and affiliations should be confirmed before external publication.
+
+\appendix
+\section{Pass 8: audit of curvature and extension interfaces}
+\label{sec:pass08}
+\textbf{Scope.} This pass reconstructs selected interfaces in Anthropic Appendices A and C (printed pp. 20--29) and compares them with \texttt{Paper/Extension.lean}, \texttt{Means.lean}, \texttt{Fan.lean}, and \texttt{Curvature.lean}. It does not independently establish the spectral theory, crossing tensor identity or full Lean build. References to section numbers refer to the pinned primary source \cite{anthropic}, not to this whitepaper. The separate evidence file \texttt{pass08\_audit.md} preserves the proof-obligation register.
+
+\subsection{A.7: a preserved witness under extension}
+Given finite retractions $\pi_l\iota=\mathrm{id}$, weights $\theta_l\ge0$ with sum one, and a spectral point $\varphi$, define $f(t)=\prod_l\varphi(\pi_l t)^{\theta_l}$. Let $p(t)$ be the infimum of sums of $f$ over covers of $t$. If a cover of $\iota A$ lifts to summands $a_j$ of $A$ with $\varphi(a_j)\le\varphi(\pi_l b_j)$ for every $l$, then $\varphi(A)\le\sum_jf(b_j)$. The trivial cover gives $p(\iota A)\le f(\iota A)=\varphi(A)$; thus equality holds on the embedded original tensors. Cover multiplicativity yields submultiplicativity, not necessarily multiplicativity of $p$. Proposition A.5 supplies the spectral point. For $c=\varphi(C)>0$, the localized upper functional $q(t)=\inf_{m\ge0}p(t(\iota C)^m)/c^m$ has $q(1)=1$ and $q(t(\iota C))=c\inf_{m\ge1}p(t(\iota C)^m)/c^m\ge c q(t)$; hence it respects the needed triple. A.5 supplies $\varphi'\le q$, from which $\varphi'(\iota C)\ge c$ and the upper bound $\varphi'(\iota C)\le f(\iota C)=c$ force equality. For $c=0$ the nonnegative upper bound already gives equality. The Lean source explicitly handles $\varphi(C)=0$ and zero weights; the proof relies on its tensor cover and localization semantics and on A.5. Neither A.5 nor the full tensor-cover implementation is independently replayed here. A.8 is the ensuing price extension by random positions with coupled random maps and a compactness argument.
+
+\subsection{C.2: averaged seminorm and parallelogram identity}
+For the two-sheet lattice prices $W_n$, let the normalized mean be the free-ultrafilter limit over boxes of side lengths $n^2$ and $n$. For fixed translation $g$, the relative symmetric difference of a box and its translate is $O(|g_1|/n^2+|g_2|/n)$, so uniformly bounded increments have translation-invariant limiting mean. Define $\nu(g)=\sqrt{\mathbb E W(P,P+g)^2}$. Minkowski's inequality, triangle inequality and invariance give evenness and subadditivity. Fekete's lemma gives the homogeneous seminorm $N(g)=\inf_{S\ge1}\nu(Sg)/S$. To carry crossing inequality (B.2) to $\nu$, choose weights pointwise equal to the corresponding diagonal distances; the left-hand mean is then a sum of squared distances, and each mixed product on the right is bounded by Cauchy--Schwarz. Applying the resulting inequality to vectors scaled by $S$ and dividing by $S^2$ before taking the limit passes it to $N$.
+
+For $c=a+b$, $e=a-b$, $M=R^2$, $A_i=Mc+ie$, and $\delta_i=N(A_i-a)-N(A_i-2a)$, direct substitution shows
+\begin{align*}
+\partial(A_i)+\partial(A_i-a)&=2[N(A_i)-N(A_i-c)]+\delta_i-\delta_{i+1},\\
+\partial(p)&=2N(p)-N(p-a)-N(p-b).
+\end{align*}
+The cancellation uses $e=a-b$. The remainder telescopes and $|\delta_i|\le N(a)$. Convexity along integer multiples of $c$ follows from subadditivity and homogeneity; hence $N(Mc+ie)-N((M-1)c+ie)\ge [N(Mc+ie)-N(ie)]/M\ge N(c)-2iN(e)/M$. Since $i<R$, the error is $O(1/R)$. Apply the symmetric argument interchanging $c$ and $e$, substitute $t_0=1/(2M)$ in (C.2), and average. The resulting inequality is
+\[
+N(a+b)^2+N(a-b)^2\le 2N(a)^2+2N(b)^2+O(1/R).
+\]
+Take $R\to\infty$. Applying it to $a+b,a-b$ and using $N(2a)=2N(a)$ gives the reverse inequality. The formal \texttt{lem\_means\_parallelogram\_le} uses an explicit $36(N(a)+N(b))^2/R$ remainder. The audit verifies the telescope and the direction of both limits; the price-specific crossing bound (B.2), which is not a property of arbitrary metrics, is still an upstream obligation.
+
+\subsection{C.1: a uniform fourth-direction remainder}
+Fix $\theta=1/T$ with integer $T\ge2$. A.8 gives the two fan sheets from shared random placements. Write $D$ for half the endpoint separation, $M_0=D+d(z,m)$, $L_i=d(z,\gamma_i)$, $\rho=1-j\theta/n^2$, and $\Lambda^2=\mathbb E L^2$. Triangle inequality and the fan construction give $L_i\le M_0$ and $|L_{i+S}-L_i|\le SD/n^2$. When $n\ge AS$, the relevant backward $j$ step is valid within the averaging box. Let $L'=L_{i+S}$; the distance from $z$ gives a lower bound for the rescaled step:
+\[
+ W_n\ge|n^2\rho(L'-L)+AS\theta L'|.
+\]
+Squaring and dropping the nonnegative first square, then using $2L'(L'-L)\ge L'^2-L^2$, yields
+\[
+W_n^2\ge A^2S^2\theta^2L'^2+AS\theta n^2\rho(L'^2-L^2).
+\]
+Because $0\le1-\rho\le2\theta$ and $n^2|L'^2-L^2|\le2SDM_0$, replacing $\rho$ by one costs at most $4AS^2\theta^2DM_0$. The pointwise estimate therefore gives the fourth-direction bound after averaging, telescoping, and dividing by $S^2$:
+\[
+N(1,-1-A)^2\ge A^2\theta^2\Lambda^2+A\theta\Gamma-4A\theta^2DM_0,
+\]
+where $\Gamma=d(z,m)^2-\tfrac12 d(z,x)^2-\tfrac12d(z,v)^2$. The explicit coefficient is uniform in $A$, $S$ and $\theta$ after the fixed-parameter $n$ limit, matching the formal \texttt{thm\_cn\_end} interface. The three other estimates are $N(1,0)\ge D$, $N(1,-1)^2\le D^2(1-\theta+\theta^2)$ and $N(0,1)^2\le\theta^2\Lambda^2$. The first uses a telescoping potential on each sheet and the common endpoint; the second follows from averaging $(1-\theta i/n^2)^2$; the third is the vertical fan bound. The order matters: first average over $n$ with fixed $A,S,T$, then use the infimum over $S$, then $A\to\infty$ at fixed $T$, finally $T\to\infty$. No exchange of nonuniform limits is needed in this argument.
+
+The parallelogram law implies that $\psi(l)=N(1,-1-l)^2-l^2\theta^2\Lambda^2$ is concave on integers $l\ge-1$. Thus $\psi(A)\le\psi(0)+A(\psi(0)-\psi(-1))$. Combining the four bounds, dividing by $A$, taking $A\to\infty$, and dividing by $\theta>0$ yields
+\[
+\Gamma+D^2\le\theta(D^2+\Lambda^2+4DM_0)\le\theta(D^2+M_0^2+4DM_0).
+\]
+The $T\to\infty$ limit gives C.1, the CN midpoint inequality. For $D=0$ both endpoints and midpoint have zero pairwise distance, so the inequality is equality directly. The reconstruction is conditional on A.8 and (B.2). It is not a proof that arbitrary distance-like grid or tensor compression costs obey CN.
+
+\subsection{C.3: midpoint closure and completion}
+Under A.8, extending a price by randomly placing each added midpoint at its two endpoints with equal probabilities gives distances to the two endpoints at most half their separation. Triangle inequality makes both equalities. Repeat by depth, retaining all old distances, then quotient points at zero distance and complete. Finite pullbacks of the completed metric are limits of finite pullbacks of the original price, so the price property passes to completion. For approximating endpoints $x_n\to x$, $v_n\to v$ and their midpoints $m_n$, C.1 at $z=m_k$ implies
+\[
+ d(m_k,m_n)^2\le\frac{d(m_k,x_n)^2+d(m_k,v_n)^2}{2}-\frac{d(x_n,v_n)^2}{4}.
+\]
+The right side tends to zero as $k,n\to\infty$, using $d(m_k,x_n)\le d(x_k,v_k)/2+d(x_k,x_n)$ and the analogous bound for $v_n$. Thus the midpoints form a Cauchy sequence; the limit is a midpoint, and CN passes to the limit. The formal \texttt{prop\_space\_cauchy}, \texttt{prop\_space\_completion} and \texttt{prop\_space} align with this structure. The first unresolved decisive upstream obligations are the crossing construction in B.2--B.3 and the spectral gauge machinery A.5; full Lean execution remains open. We make no new claim about the separation theorem.
+
+\subsection{Finite checks and falsification boundaries}
+\begin{table}[htbp]
+\small\centering
+\caption{Pass 8 local checks (exact integer or rational arithmetic).}
+\begin{tabularx}{\linewidth}{Yr}
+\toprule
+Test & Cases passed\\
+\midrule
+C.2 telescope for three seminorms on small lattice configurations & 5,625\\
+C.1(iv) pointwise remainder with rational fan-length parameters & 6,210\\
+Euclidean midpoint CN equality including coincident endpoints & 15,625\\
+\bottomrule
+\end{tabularx}
+\end{table}
+A counterexample illustrates why midpoint existence alone is insufficient: in $\ell_\infty^2$, use endpoints $(-1,0),(1,0)$, midpoint $(0,0)$ and point $(0,1)$. CN has left side 1 and right side 0. This is an arbitrary metric, not asserted to be a spectral price. The finite checks establish consistency of specific algebraic interfaces in the chosen domains; they do not validate (B.2), general spectral realizability, or any complexity separation. The useful engineering analogy is conditional exactness and preservation of all required interfaces, not the transport of CAT(0) geometry into a grid model.
+
+\begin{thebibliography}{99}
+\bibitem{napkin} Uriel Research, \emph{The Billion-Dollar Napkin: Translating algebraic complexity and formal methods into TWh savings for MISO and the U.S. Grid}, conceptual manuscript, 24 Nov. 2026.
+\bibitem{go} Pacific Northwest National Laboratory, \emph{Supporting ARPA-E Power Grid Optimization}, Final Scientific/Technical Report, PNNL-36158, 30 June 2024. \url{https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-36158.pdf}
+\bibitem{pglibopf} IEEE PES Task Force on Benchmarks for Validation of Emerging Power System Algorithms, \emph{Power Grid Library---Optimal Power Flow}. \url{https://github.com/power-grid-lib/pglib-opf}
+\bibitem{pglibuc} IEEE PES Task Force on Benchmarks for Validation of Emerging Power System Algorithms, \emph{Power Grid Library---Unit Commitment}. \url{https://github.com/power-grid-lib/pglib-uc}
+\bibitem{bienstock} D. Bienstock and A. Verma, ``Strong NP-hardness of AC power flows feasibility,'' \emph{Operations Research Letters}, vol. 47, no. 6, pp. 494--501, 2019. \url{https://doi.org/10.1016/j.orl.2019.08.009}
+\bibitem{mpc} J. Rodr\'iguez and P. Cort\'es, \emph{Predictive Control of Power Converters and Electrical Drives}, Wiley, 2012. \url{https://doi.org/10.1002/9781119941446}
+\bibitem{vipr} K. K. H. Cheung, A. Gleixner, and D. E. Steffy, ``Verifying Integer Programming Results,'' preprint, 2016, revised 2019. \url{https://arxiv.org/abs/1611.08832}
+\bibitem{leanvipr} C. Song, H. Duong, T. Nguyen, and V. Ganesh, ``LeanVIPR: A Formally Verified Certificate Checker for Exact Mixed-Integer Programming,'' NeurIPS 2026 Workshop on AI for Verifiable Coding, workshop manuscript. \url{https://hocdot.github.io/assets/papers/song2026leanvipr.pdf}
+\bibitem{eia} U.S. Energy Information Administration, ``How much electricity is lost in electricity transmission and distribution in the United States?'' Updated 7 Nov. 2023. \url{https://www.eia.gov/tools/faqs/faq.php?id=105&t=7}
+\bibitem{miso} Potomac Economics, \emph{2025 State of the Market Report for the MISO Markets}, June 2026. Available from \url{https://www.potomaceconomics.com/markets-monitored/miso/}
+
+\bibitem{valiant} L. G. Valiant, ``Completeness classes in algebra,'' Proceedings of the 11th ACM Symposium on Theory of Computing, pp. 249--261, 1979. \url{https://doi.org/10.1145/800135.804419}
+\bibitem{anthropic} Claude (Anthropic), \emph{VP $\ne$ VNP over every field}, claimed result with Lean artifacts, 23 Nov. 2026. Pinned release \href{https://github.com/anthropics/formal-math/tree/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp}{repository}; \href{https://github.com/anthropics/formal-math/actions/runs/45272623486/job/138036167794}{publisher CI record}. Reviewed from the supplied byte-matched archive.
+\bibitem{openai} OpenAI, \emph{VP and VNP are different}, research release 23 Nov. 2026, \href{https://github.com/openai/math/tree/main/preprints/VP-and-VNP-are-different-November-23-2026}{preprint repository}; \href{https://github.com/openai/math/blob/main/lean/docs/379.md}{formalization scope note}. Exact and border statements have different checked scopes. Accessed 24 Nov. 2026.
+\bibitem{minkowski} E. \"Ozt\"urk, T. Faulwasser, K. Worthmann, M. Prei\ss inger, and K. Rheinberger, ``Alleviating the Curse of Dimensionality in Minkowski Sum Approximations of Storage Flexibility,'' \emph{IEEE Transactions on Smart Grid}, vol. 15, no. 6, pp. 5733--5743, 2024. \url{https://doi.org/10.1109/TSG.2024.3420156}
+\bibitem{handoff} Uriel Research, \emph{VP--VNP paper review: Cumulative findings for Chat}, Edition 3, 24 Nov. 2026, supplied handoff and archive. Internal audit, not independent corroboration of the published theorem.
+\bibitem{evidence} Uriel Research, \emph{CRGC v0.2 research evidence package}, 24 Nov. 2026. Source, seeded inputs, JSON outputs, proof audit notes, and SHA-256 manifest. Companion archive, internal reproducibility artifact.
+
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,12 @@
+{
+  "integer_transitions": 27776,
+  "nonzero_terminal_tolerance_case": {
+    "C": "1",
+    "D": "4/5",
+    "SOC_tolerances": [
+      "0",
+      "1/180"
+    ],
+    "both_sides": "1/100"
+  }
+}

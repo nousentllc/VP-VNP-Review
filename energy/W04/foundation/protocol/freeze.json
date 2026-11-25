@@ -1,0 +1,45 @@
+{
+  "cpu_architecture": "arm64",
+  "design_commit": "327b1109fbca2e53958818a3ac884e11e6aee724",
+  "logical_cpus_visible": 8,
+  "numerical_runtime": "CPython 3.12.9, HiGHS 1.12.0, NumPy 2.2.4, SciPy 1.18.0, one HiGHS/BLAS thread",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "public_input_sha256": {
+    "inputs/ac/LICENSE": "95b1cd9fee1676221d74f7c0cbba622d98ac098e9b317b3848113ef4356ab4fd",
+    "inputs/ac/pglib_opf_case14_ieee.m": "bd5c568621de65e4b0922317010868bc7fa94173807faa10ea8fdbbe77c28106",
+    "inputs/ac/pglib_opf_case14_ieee__api.m": "6e007be95df3f7171d0c9494c8cc3db1aca1a3a0f2073c3ffbfa43e7b0cd49a2",
+    "inputs/ac/pglib_opf_case30_ieee.m": "cae3290639d989731d32428aacf30c0b918bc91db73bc54791f3aa62d3f76c70",
+    "inputs/ac/pglib_opf_case30_ieee__api.m": "41f5a39b44607572e6207e4c66be6d63d12e09ba9146da5c5a29eab3899ace2d",
+    "inputs/ac/pglib_opf_case3_lmbd.m": "168f73f389aa8abd7707fae04d26ee2046ef3622e8ea2f6661a89d815e9c637d",
+    "inputs/ac/pglib_opf_case5_pjm.m": "cadf7501a15c2d508820493cef6acc85757274197e74c40bcec4fc4ecf619e6f",
+    "inputs/ac/pglib_opf_case5_pjm__api.m": "f672aa36ff5645bb569fb0866967c66690ce0dd37c830ee55a3fe5b2dd0cb7d6",
+    "inputs/legacy/bess_inputs.json": "0274b947612dd0141eb3facaa5582044e01ae32177d3c008f0657d97a4a19dd7",
+    "inputs/legacy/run_benchmarks.py": "169bee0fcf279896647194ed614ac85dfe3e3adf904d61376f70e1d12f871206",
+    "inputs/uc/LICENSE": "b5ececfa64eb67fd5b0e5c135624f0f9004b938d399150e644f9641b659e628c",
+    "inputs/uc/MODEL.tex": "e612d71922cf5b19a2f8e7903c8ac6b25a0953e5065c368c94571752f360b6aa",
+    "inputs/uc/ca_2014-09-01_r1.json": "ae2c0bbf7be38a34e3167a2bb839c33b0f1b8bcced51a5b4c0f9ef46fd759831",
+    "inputs/uc/rts_2020-03-05.json": "0f89bf93327b5f90bb7381c1e7ae08614b60def2390e2e8940f40b9cf825045f",
+    "inputs/uc/uc_model.py": "ca340c71fe78627c3fab2a2f356b4b2ec3a650c8e9883d6ef645aa2ea1b534ea"
+  },
+  "selected_presolve": "on",
+  "sha256": {
+    "inputs/battery_development.json": "b3c139fb170b6f9cf0f438daf9b8bfe46cc62b092a3cf9ce672b2a94fb576d14",
+    "inputs/battery_holdout.json": "929349b8162360114b9378305c8e6719362b21c4f81cd330ede79f76834c2ce8",
+    "protocol/design.json": "f265037486138baff00ed02d6669c5dbe527cdaf60bbe30e373ebe075f3de931",
+    "results/A/development.json": "b5b745dfa0d2a9c72c7f96c957f25dda0be59f2fcb86c315652496e2a58debce",
+    "src/battery.py": "affa400b4fa3c09205841a4e458ae7866a06eb12a45d956a2033cc59a21078fb",
+    "src/battery_inputs.py": "1b82db25eae171593ed2f0c2cef33d4515900da4c491cb293c4b9da510b039d7",
+    "src/battery_model.py": "c1d19a6a910b2101f8ad5f9e39134002cf569892db98f72d431c2bd70dbb018d",
+    "src/common.py": "2b9209ca636d805e3b5c1e002b50d7f964c5611adb1bb6db867d051bafecf0f6"
+  },
+  "tuning_scores_hits_and_negative_median_seconds": {
+    "off": [
+      8,
+      -0.020243541453965008
+    ],
+    "on": [
+      8,
+      -0.016747499466873705
+    ]
+  }
+}

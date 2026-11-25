@@ -1,0 +1,239 @@
+@W05.need_le_iff : ∀ {I : Type u_1} (rs : List I) (u s : I → ℝ) (t : ℝ),
+  W05.need rs u s ≤ t ↔ 0 ≤ t ∧ ∀ i ∈ rs, W05.rowNeed (u i) (s i) ≤ t
+'W05.need_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.rowNeed_iff : ∀ {u s t : ℝ}, 0 ≤ s → 0 ≤ t → t ≤ 1 → (W05.rowNeed u s ≤ t ↔ (1 - t) * u - t * s ≤ 0)
+'W05.rowNeed_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.need_unit : ∀ {I : Type u_1} (rs : List I) (u s : I → ℝ),
+  (∀ i ∈ rs, 0 ≤ s i) → 0 ≤ W05.need rs u s ∧ W05.need rs u s ≤ 1
+'W05.need_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.minimal_fraction : ∀ {I : Type u_1} (rs : List I) (u s : I → ℝ),
+  (∀ i ∈ rs, 0 ≤ s i) → ∀ {t : ℝ}, 0 ≤ t → t ≤ 1 → (W05.need rs u s ≤ t ↔ ∀ i ∈ rs, (1 - t) * u i - t * s i ≤ 0)
+'W05.minimal_fraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.empty_rows : ∀ {I : Type u_1} (u s : I → ℝ), W05.need [] u s = 0
+'W05.empty_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.boundary_fallback : ∀ {I : Type u_1} (rs : List I) (u s : I → ℝ),
+  (∀ i ∈ rs, 0 ≤ s i) → ∀ {i : I}, i ∈ rs → 0 < u i → s i = 0 → W05.need rs u s = 1
+'W05.boundary_fallback' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.envelope : ∀ {I : Type u_1} (rs : List I) (u h s : I → ℝ),
+  (∀ i ∈ rs, 0 ≤ s i) → (∀ i ∈ rs, u i ≤ h i) → W05.need rs u s ≤ W05.need rs h s
+'W05.envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.uniform_fraction : ∀ {I : Type u_1} (rs : List I) (u s : I → ℝ) {bar sigma : ℝ},
+  0 ≤ bar → 0 < sigma → (∀ i ∈ rs, 0 < u i → u i ≤ bar ∧ sigma ≤ s i) → W05.need rs u s ≤ bar / (bar + sigma)
+'W05.uniform_fraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.affine_mix : ∀ {V : Type u_1} [inst : NormedAddCommGroup V] [inst_1 : NormedSpace ℝ V] (g : V →ᵃ[ℝ] ℝ) (x a : V)
+  (t : ℝ), g (W05.mix t x a) = (1 - t) * g x + t * g a
+'W05.affine_mix' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.objective_identity : ∀ {V : Type u_1} [inst : NormedAddCommGroup V] [inst_1 : NormedSpace ℝ V] (J : V →ᵃ[ℝ] ℝ)
+  (x a : V) (t : ℝ), J (W05.mix t x a) - J x = t * (J a - J x)
+'W05.objective_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.feasible_anchor : ∀ {V : Type u_1} {I : Type u_2} {G : Type u_3} [inst : NormedAddCommGroup V]
+  [inst_1 : NormedSpace ℝ V] (S : Set V),
+  Convex ℝ S →
+    ∀ (x a : V),
+      x ∈ S →
+        a ∈ S →
+          ∀ (rows : List I) (g : I → V →ᵃ[ℝ] ℝ) (e : G → V →ᵃ[ℝ] ℝ),
+            (∀ (j : G), (e j) x = 0) →
+              (∀ (j : G), (e j) a = 0) →
+                (∀ i ∈ rows, (g i) a ≤ 0) →
+                  have t := W05.need rows (fun i => (g i) x) fun i => -(g i) a;
+                  W05.mix t x a ∈ S ∧ (∀ (j : G), (e j) (W05.mix t x a) = 0) ∧ ∀ i ∈ rows, (g i) (W05.mix t x a) ≤ 0
+'W05.feasible_anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.equality_obstruction : ∀ {V : Type u_1} [inst : NormedAddCommGroup V] [inst_1 : NormedSpace ℝ V] (e : V →ᵃ[ℝ] ℝ)
+  (x a : V), e a = 0 → ∀ (t : ℝ), e (W05.mix t x a) = 0 ↔ t = 1 ∨ e x = 0
+'W05.equality_obstruction' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.lipschitz_loss : ∀ {V : Type u_1} [inst : NormedAddCommGroup V] [inst_1 : NormedSpace ℝ V] (J : V → ℝ) (x a : V)
+  {L D t : ℝ},
+  0 ≤ L →
+    0 ≤ t →
+      |J (W05.mix t x a) - J x| ≤ L * ‖W05.mix t x a - x‖ → ‖a - x‖ ≤ D → max 0 (J (W05.mix t x a) - J x) ≤ L * t * D
+'W05.lipschitz_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.uniform_loss : ∀ {V : Type u_1} {I : Type u_2} [inst : NormedAddCommGroup V] [inst_1 : NormedSpace ℝ V] (J : V → ℝ)
+  (S : Set V),
+  Convex ℝ S →
+    ∀ (x a : V),
+      x ∈ S →
+        a ∈ S →
+          ∀ (rows : List I) (u s : I → ℝ),
+            (∀ i ∈ rows, 0 ≤ s i) →
+              ∀ {L D bar sigma : ℝ},
+                0 ≤ L →
+                  (∀ z ∈ S, ∀ v ∈ S, |J z - J v| ≤ L * ‖z - v‖) →
+                    ‖a - x‖ ≤ D →
+                      0 ≤ bar →
+                        0 < sigma →
+                          (∀ i ∈ rows, 0 < u i → u i ≤ bar ∧ sigma ≤ s i) →
+                            max 0 (J (W05.mix (W05.need rows u s) x a) - J x) ≤ L * D * (bar / (bar + sigma))
+'W05.uniform_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.equality_repair : ∀ {V : Type u_1} {W : Type u_2} [inst : AddCommGroup V] [inst_1 : Module ℝ V]
+  [inst_2 : AddCommGroup W] [inst_3 : Module ℝ W] (E : V →ₗ[ℝ] W) (R : W →ₗ[ℝ] V) (x : V) (d : W),
+  E (R (d - E x)) = d - E x → E (x + R (d - E x)) = d
+'W05.equality_repair' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.right_inverse_repair : ∀ {V : Type u_1} {W : Type u_2} [inst : AddCommGroup V] [inst_1 : Module ℝ V]
+  [inst_2 : AddCommGroup W] [inst_3 : Module ℝ W] (E : V →ₗ[ℝ] W) (R : W →ₗ[ℝ] V),
+  Function.RightInverse ⇑R ⇑E → ∀ (x : V) (d : W), E (x + R (d - E x)) = d
+'W05.right_inverse_repair' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.corner_bound : ∀ {q l h x : ℝ}, l ≤ x → x ≤ h → q * x ≤ max (q * l) (q * h)
+'W05.corner_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.affine_box_support : ∀ {I : Type u_1} [inst : Fintype I] (q l h x : I → ℝ),
+  (∀ (i : I), l i ≤ x i) →
+    (∀ (i : I), x i ≤ h i) → ∀ (offset : ℝ), offset + ∑ i, q i * x i ≤ offset + ∑ i, max (q i * l i) (q i * h i)
+'W05.affine_box_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.projection_support : ∀ {X : Type u_1} {Y : Type u_2} {I : Type u_3} [inst : Fintype I] (J : X → ℝ) (K : Y → ℝ)
+  (p : X → Y) (coord : X → I → ℝ) (q l h : I → ℝ) (offset : ℝ),
+  (∀ (x : X) (i : I), l i ≤ coord x i) →
+    (∀ (x : X) (i : I), coord x i ≤ h i) →
+      (∀ (x : X), K (p x) - J x = offset + ∑ i, q i * coord x i) →
+        ∀ (x : X), K (p x) ≤ J x + max 0 (offset + ∑ i, max (q i * l i) (q i * h i))
+'W05.projection_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.outer_embedding : ∀ {X : Type u_1} {Y : Type u_2} (J : X → ℝ) (K : Y → ℝ) (p : X → Y),
+  (∀ (x : X), K (p x) = J x) → ∀ (x : X), K (p x) ≤ J x + 0
+'W05.outer_embedding' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.cost_mismatch : ∀ {jx ku ja jfixed t tau : ℝ},
+  jfixed - jx = t * (ja - jx) → jx - ku ≤ tau → jfixed ≤ ku + max 0 (tau + t * (ja - jx))
+'W05.cost_mismatch' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.aipc_from_repair : ∀ {X : Type u_1} {Y : Type u_2} {J : X → ℝ} {K : Y → ℝ} {a beta eps : ℝ},
+  BddBelow (Set.range J) →
+    BddBelow (Set.range K) →
+      ∀ (p : X → Y),
+        (∀ (u : X), K (p u) ≤ J u + a) →
+          ∀ (y : Y) (x : X),
+            K y ≤ W04.value K + eps → J x - K y ≤ beta → 0 ≤ J x - W04.value J ∧ J x - W04.value J ≤ a + beta + eps
+'W05.aipc_from_repair' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.uniform_affine_beta : ∀ {jfinal jraw ja betaRaw D cap t : ℝ},
+  jfinal - jraw = t * (ja - jraw) →
+    jraw ≤ betaRaw → 0 ≤ t → t ≤ cap → 0 ≤ D → ja - jraw ≤ D → jfinal ≤ betaRaw + cap * D
+'W05.uniform_affine_beta' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.Terminal.row_headroom : ∀ {u s q : ℝ}, 0 ≤ s → 0 ≤ q → (u * q ≤ s ↔ 0 < u → q ≤ s / u)
+'W05.Terminal.row_headroom' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.Terminal.single_slot_iff : ∀ {I : Type u_1} (s u : I → ℝ),
+  (∀ (i : I), 0 ≤ s i) →
+    ∀ (e target p : ℝ),
+      0 < p →
+        e ≤ target →
+          ((∃ q, 0 ≤ q ∧ e + p * q = target ∧ ∀ (i : I), u i * q ≤ s i) ↔
+            ∀ (i : I), 0 < u i → (target - e) / p ≤ s i / u i)
+'W05.Terminal.single_slot_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W05.Terminal.signed_slot_iff : ∀ {I : Type u_1} (s u : I → ℝ),
+  (∀ (i : I), 0 ≤ s i) →
+    ∀ (e target p : ℝ),
+      p ≠ 0 →
+        0 ≤ (target - e) / p →
+          ((∃ q, 0 ≤ q ∧ e + p * q = target ∧ ∀ (i : I), u i * q ≤ s i) ↔
+            ∀ (i : I), 0 < u i → (target - e) / p ≤ s i / u i)
+'W05.Terminal.signed_slot_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Terminal.suffix_shift : ∀ (initial delta : ℝ) (increment : ℕ → ℝ) (slot t : ℕ),
+  initial + ∑ k ∈ Finset.range t, (increment k + if k = slot then delta else 0) =
+    initial + ∑ k ∈ Finset.range t, increment k + if slot < t then delta else 0
+'W05.Terminal.suffix_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Terminal.adjacent_ramps : ∀ (before current after pulse : ℝ),
+  current + pulse - before = current - before + pulse ∧ after - (current + pulse) = after - current - pulse
+'W05.Terminal.adjacent_ramps' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Terminal.soc_increment : ∀ (e eta rho c d dc dd hours : ℝ),
+  e + hours * (eta * (c + dc) - (d + dd) / rho) - (e + hours * (eta * c - d / rho)) = hours * (eta * dc - dd / rho)
+'W05.Terminal.soc_increment' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Terminal.charge_cost : ∀ (price wear q len : ℝ), price * (q * len) + wear * (q * len) = (price + wear) * len * q
+'W05.Terminal.charge_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Terminal.no_single_slot_can_be_insufficient : (¬∃ q, 0 ≤ q ∧ q ≤ 1 ∧ q = 2) ∧
+  ∃ q r, 0 ≤ q ∧ q ≤ 1 ∧ 0 ≤ r ∧ r ≤ 1 ∧ q + r = 2
+'W05.Terminal.no_single_slot_can_be_insufficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Obstructions.unverified_anchor : 1 > 0 ∧ ∀ t ∈ Set.Icc 0 1, 0 < (1 - t) * 1 + t * 2
+'W05.Obstructions.unverified_anchor' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Obstructions.integral_midpoint : 1 / 2 ≠ 0 ∧ 1 / 2 ≠ 1
+'W05.Obstructions.integral_midpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Obstructions.nonconvex_voltage : (-1) ^ 2 = 1 ∧ 1 ^ 2 = 1 ∧ ((-1 + 1) / 2) ^ 2 ≠ 1
+'W05.Obstructions.nonconvex_voltage' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Obstructions.equality_after_mixing : (1 - 1 / 2) * 2 + 1 / 2 * 0 ≠ 0
+'W05.Obstructions.equality_after_mixing' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Obstructions.inverse_can_break_bounds : have x := 0;
+have y := 0;
+have r := 1 - x;
+x = 0 ∧ y = 0 ∧ x + r = 1 ∧ ¬y + 2 * r ≤ 1
+'W05.Obstructions.inverse_can_break_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Obstructions.box_gap_over_true_gap : (∀ x ∈ Set.Icc 0 1, x - x = 0) ∧ 1 - 0 = 1
+'W05.Obstructions.box_gap_over_true_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Obstructions.bound_scope : (∀ x ∈ {1}, 1 ≤ x) ∧ ∃ x ∈ Set.Icc 0 1, ¬1 ≤ x
+'W05.Obstructions.bound_scope' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Obstructions.arbitrarily_small_violation : ∀ (e : ℝ), 0 < e → W05.rowNeed e 0 = 1 ∧ (1 - 1) * 0 + 1 * 1 - 0 = 1
+'W05.Obstructions.arbitrarily_small_violation' depends on axioms: [propext, Classical.choice, Quot.sound]
+W05.Obstructions.mixture_of_anchors : max (W05.rowNeed 1 1) (W05.rowNeed 1 0) = 1 ∧
+  max (W05.rowNeed 1 0) (W05.rowNeed 1 1) = 1 ∧
+    max (W05.rowNeed 1 (1 / 2)) (W05.rowNeed 1 (1 / 2)) = 2 / 3 ∧ (1 - 2 / 3) * 1 + 2 / 3 * (-1 / 2) = 0
+'W05.Obstructions.mixture_of_anchors' depends on axioms: [propext, Classical.choice, Quot.sound]
+LOCAL-EDGES W05.Terminal.charge_cost []
+LOCAL-EDGES W04.transport_threshold [W04.AtMost]
+LOCAL-EDGES W04.retain.match_1 []
+LOCAL-EDGES W05.aipc_from_repair [W04.candidate_regret, W04.value]
+LOCAL-EDGES W04.threshold_iff [W04.AtMost]
+LOCAL-EDGES W04.projected_value [W04.value_le_cost, W04.value]
+LOCAL-EDGES W04.empty_threshold [W04.AtMost]
+LOCAL-EDGES W04.global_regret [W04.candidate_regret, W04.value]
+LOCAL-EDGES W05.projection_support [W05.affine_box_support]
+LOCAL-EDGES W04.retain.eq_1 [W04.retain]
+LOCAL-EDGES W05.Terminal.signed_slot_iff [W05.Terminal.row_headroom]
+LOCAL-EDGES W05.rowNeed []
+LOCAL-EDGES W05.need_unit [W05.rowNeed, W05.need_le_iff, W05.need, W05.rowNeed_iff]
+LOCAL-EDGES W05.need_le_iff [W05.rowNeed, W05.need_le_iff._simp_1_2, W05.need_le_iff._simp_1_3, W05.need]
+LOCAL-EDGES W04.retain [W04.retain.match_1]
+LOCAL-EDGES W05.Terminal.adjacent_ramps []
+LOCAL-EDGES W04.infimum_sandwich [W04.projected_value, W04.value]
+LOCAL-EDGES W04.gap_contract [W04.value_le_cost, W04.value]
+LOCAL-EDGES W05.uniform_fraction [W05.rowNeed, W05.need_le_iff, W05.rowNeed.eq_1, W05.need]
+LOCAL-EDGES W04.Optimal []
+LOCAL-EDGES W05.Obstructions.bound_scope []
+LOCAL-EDGES W04.value_le_cost [W04.value]
+LOCAL-EDGES W05.Terminal.suffix_shift []
+LOCAL-EDGES W05.empty_rows [W05.need]
+LOCAL-EDGES W05.uniform_affine_beta []
+LOCAL-EDGES W04.retain.eq_2 [W04.retain]
+LOCAL-EDGES W04.equal_values_bad_optimizer [W04.Optimal, W04.attained_value, W04.value]
+LOCAL-EDGES W04.AtMost []
+LOCAL-EDGES W05.equality_obstruction [W05.mix, W05.affine_mix]
+LOCAL-EDGES W04.Stage []
+LOCAL-EDGES W04.stop_with_tolerance [W04.gap_contract, W04.value]
+LOCAL-EDGES W05.lipschitz_loss [W05.mix]
+LOCAL-EDGES W05.rowNeed.eq_1 [W05.rowNeed]
+LOCAL-EDGES W05.objective_identity [W05.mix, W05.affine_mix]
+LOCAL-EDGES W05.Terminal.single_slot_iff [W05.Terminal.row_headroom]
+LOCAL-EDGES W05.mix []
+LOCAL-EDGES W05.Obstructions.box_gap_over_true_gap []
+LOCAL-EDGES W04.open_closed_infima []
+LOCAL-EDGES W05.Terminal.no_single_slot_can_be_insufficient []
+LOCAL-EDGES W05.mix.eq_1 [W05.mix]
+LOCAL-EDGES W05.uniform_loss [W05.need_unit, W05.uniform_fraction, W05.lipschitz_loss, W05.mix, W05.need]
+LOCAL-EDGES W04.attained_value [W04.Optimal, W04.value_le_cost, W04.value]
+LOCAL-EDGES W04.combined_lower []
+LOCAL-EDGES W05.Obstructions.mixture_of_anchors [W05.rowNeed]
+LOCAL-EDGES W05.corner_bound []
+LOCAL-EDGES W05.affine_mix [W05.mix]
+LOCAL-EDGES W04.Stage.eq_1 [W04.Stage]
+LOCAL-EDGES W05.minimal_fraction [W05.rowNeed, W05.need_le_iff, W05.need, W05.rowNeed_iff]
+LOCAL-EDGES W04.final_stage [W04.AtMost, W04.Stage]
+LOCAL-EDGES W04.exact_infimum [W04.infimum_sandwich, W04.value]
+LOCAL-EDGES W05.right_inverse_repair [W05.equality_repair]
+LOCAL-EDGES W04.retained_cost [W04.retain]
+LOCAL-EDGES W05.Obstructions.arbitrarily_small_violation [W05.rowNeed]
+LOCAL-EDGES W05.need_le_iff._simp_1_2 []
+LOCAL-EDGES W04.candidate_regret [W04.projected_value, W04.value_le_cost, W04.value]
+LOCAL-EDGES W04.value []
+LOCAL-EDGES W05.Obstructions.nonconvex_voltage []
+LOCAL-EDGES W05.feasible_anchor [W05.need_unit, W05.mix, W05.affine_mix, W05.minimal_fraction, W05.need]
+LOCAL-EDGES W04.nested_stage [W04.Stage]
+LOCAL-EDGES W05.equality_repair []
+LOCAL-EDGES W05.Obstructions.equality_after_mixing []
+LOCAL-EDGES W04.AtMost.eq_1 [W04.AtMost]
+LOCAL-EDGES W05.affine_box_support [W05.corner_bound]
+LOCAL-EDGES W05.Terminal.row_headroom []
+LOCAL-EDGES W05.envelope [W05.need_unit, W05.minimal_fraction, W05.need]
+LOCAL-EDGES W05.Obstructions.unverified_anchor []
+LOCAL-EDGES W05.Obstructions.integral_midpoint []
+LOCAL-EDGES W05.need.eq_1 [W05.rowNeed, W05.need]
+LOCAL-EDGES W05.Obstructions.inverse_can_break_bounds []
+LOCAL-EDGES W05.cost_mismatch []
+LOCAL-EDGES W05.need_le_iff._simp_1_3 []
+LOCAL-EDGES W04.single_optimal_lift [W04.Optimal]
+LOCAL-EDGES W05.boundary_fallback [W05.rowNeed, W05.need_unit, W05.need_le_iff, W05.need]
+LOCAL-EDGES W05.outer_embedding []
+LOCAL-EDGES W05.need [W05.rowNeed]
+LOCAL-EDGES W05.Terminal.soc_increment []
+LOCAL-EDGES W05.rowNeed_iff [W05.rowNeed]

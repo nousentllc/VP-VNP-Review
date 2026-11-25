@@ -1,0 +1,10 @@
+artifact,origin,role,locator
+CRGC v0.3 master,user supplied internal manuscript,checkpoint only; SHA-256 in source_lock.json,source_lock.json
+W04 Research Protocol,user supplied,requested design and falsifiers,W04_Research_Protocol.md
+Original W03 archive and results,internal experimental foundation,all archived member bytes checked; SHA-256 in source lock,../foundation/README.md
+v0.3 review archive,supplied independent review of W03,independent archival reanalysis and Linux W03 load replay only,review/README.md
+PGLib-OPF v23.07 dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3,Power Grid Library,public case descriptions and local numerical objective references,../foundation/inputs/ac/BASELINE.md
+PGLib-UC 39a7f38cf4703de92f0291f0c873c2e98c789301,Power Grid Library,public chronological UC data and canonical formulation,../foundation/inputs/uc/MODEL.tex
+W04 synthetic battery fleets,internal W03 generator and six fresh seeds,constructed conditional study,../A/protocol/instances.json
+W04 synthetic forecasting panel,internal generator and 24 fresh latent seeds,matched forecasts across regimes and arms,../E/inputs/holdout.json.gz
+Lean 4.30.0-rc2 and mathlib 896cc56a395e1615786fac56564a3fe6bfeebcc4,Lean and mathlib projects,pinned formal dependencies; prebuilt library cache,../foundation/formal/lake-manifest.json

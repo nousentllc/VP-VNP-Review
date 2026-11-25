@@ -1,0 +1,647 @@
+{
+  "case_strata": {
+    "LP failed admissibility or return": 18,
+    "LP admissible": 54,
+    "all": 72
+  },
+  "strata_by_size_cohort": [
+    [
+      12,
+      "forced_opposition",
+      false,
+      6
+    ],
+    [
+      4,
+      "forced_opposition",
+      false,
+      6
+    ],
+    [
+      8,
+      "forced_opposition",
+      false,
+      6
+    ],
+    [
+      12,
+      "interchangeable",
+      true,
+      6
+    ],
+    [
+      4,
+      "interchangeable",
+      true,
+      6
+    ],
+    [
+      8,
+      "interchangeable",
+      true,
+      6
+    ],
+    [
+      12,
+      "negative_outage",
+      true,
+      6
+    ],
+    [
+      4,
+      "negative_outage",
+      true,
+      6
+    ],
+    [
+      8,
+      "negative_outage",
+      true,
+      6
+    ],
+    [
+      12,
+      "ordinary",
+      true,
+      6
+    ],
+    [
+      4,
+      "ordinary",
+      true,
+      6
+    ],
+    [
+      8,
+      "ordinary",
+      true,
+      6
+    ]
+  ],
+  "case_hits": {
+    "LP failed admissibility or return": {
+      "full_lp": 0,
+      "full_milp": 0,
+      "lp_repair_start": 0,
+      "group_start": 0,
+      "group_no_transfer": 1
+    },
+    "LP admissible": {
+      "full_lp": 54,
+      "full_milp": 45,
+      "lp_repair_start": 54,
+      "group_start": 54,
+      "group_no_transfer": 54
+    },
+    "all": {
+      "full_lp": 54,
+      "full_milp": 45,
+      "lp_repair_start": 54,
+      "group_start": 54,
+      "group_no_transfer": 55
+    }
+  },
+  "group_differences": {
+    "LP failed admissibility or return / full_milp": {
+      "0.05": {
+        "n": 16,
+        "missing": 2,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 16,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "0.1": {
+        "n": 17,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 16,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "0.25": {
+        "n": 17,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 3,
+        "ties": 12,
+        "losses": 2,
+        "median_normalized_delta": 0.0
+      },
+      "0.5": {
+        "n": 17,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 6,
+        "ties": 10,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "1.0": {
+        "n": 17,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 8,
+        "ties": 8,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "2.0": {
+        "n": 18,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 5,
+        "ties": 11,
+        "losses": 2,
+        "median_normalized_delta": 0.0
+      }
+    },
+    "LP failed admissibility or return / lp_repair_start": {
+      "0.05": {
+        "n": 17,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 16,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "0.1": {
+        "n": 17,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 14,
+        "losses": 3,
+        "median_normalized_delta": 0.0
+      },
+      "0.25": {
+        "n": 17,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 1,
+        "ties": 8,
+        "losses": 8,
+        "median_normalized_delta": 0.0
+      },
+      "0.5": {
+        "n": 17,
+        "missing": 1,
+        "median_cost_delta": 2.2371663781387383,
+        "wins": 0,
+        "ties": 6,
+        "losses": 11,
+        "median_normalized_delta": 0.009532333114059304
+      },
+      "1.0": {
+        "n": 17,
+        "missing": 1,
+        "median_cost_delta": 2.2371663781387383,
+        "wins": 0,
+        "ties": 7,
+        "losses": 10,
+        "median_normalized_delta": 0.006137441646018632
+      },
+      "2.0": {
+        "n": 18,
+        "missing": 0,
+        "median_cost_delta": 0.00037568928514986055,
+        "wins": 0,
+        "ties": 11,
+        "losses": 7,
+        "median_normalized_delta": 8.920370750793724e-07
+      }
+    },
+    "LP failed admissibility or return / group_no_transfer": {
+      "0.05": {
+        "n": 16,
+        "missing": 2,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 16,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "0.1": {
+        "n": 16,
+        "missing": 2,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 16,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "0.25": {
+        "n": 16,
+        "missing": 2,
+        "median_cost_delta": 0.0,
+        "wins": 1,
+        "ties": 15,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "0.5": {
+        "n": 16,
+        "missing": 2,
+        "median_cost_delta": 0.0,
+        "wins": 1,
+        "ties": 14,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "1.0": {
+        "n": 16,
+        "missing": 2,
+        "median_cost_delta": 0.0,
+        "wins": 2,
+        "ties": 14,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "2.0": {
+        "n": 18,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 2,
+        "ties": 16,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      }
+    },
+    "LP admissible / full_milp": {
+      "0.05": {
+        "n": 49,
+        "missing": 5,
+        "median_cost_delta": -80.30396079948832,
+        "wins": 33,
+        "ties": 16,
+        "losses": 0,
+        "median_normalized_delta": -0.01519337339897339
+      },
+      "0.1": {
+        "n": 50,
+        "missing": 4,
+        "median_cost_delta": -72.57792238337214,
+        "wins": 33,
+        "ties": 17,
+        "losses": 0,
+        "median_normalized_delta": -0.00699040093177359
+      },
+      "0.25": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": -13.106326524374708,
+        "wins": 31,
+        "ties": 22,
+        "losses": 1,
+        "median_normalized_delta": -0.003683641655826817
+      },
+      "0.5": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": -1.7053025658242404e-13,
+        "wins": 21,
+        "ties": 33,
+        "losses": 0,
+        "median_normalized_delta": -1.8447959326232968e-16
+      },
+      "1.0": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 11,
+        "ties": 43,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "2.0": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 5,
+        "ties": 49,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      }
+    },
+    "LP admissible / lp_repair_start": {
+      "0.05": {
+        "n": 47,
+        "missing": 7,
+        "median_cost_delta": 0.0,
+        "wins": 4,
+        "ties": 42,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "0.1": {
+        "n": 50,
+        "missing": 4,
+        "median_cost_delta": 0.0,
+        "wins": 3,
+        "ties": 46,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "0.25": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 2,
+        "ties": 51,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "0.5": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 54,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "1.0": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 54,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "2.0": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 54,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      }
+    },
+    "LP admissible / group_no_transfer": {
+      "0.05": {
+        "n": 50,
+        "missing": 4,
+        "median_cost_delta": 0.0,
+        "wins": 1,
+        "ties": 47,
+        "losses": 2,
+        "median_normalized_delta": 0.0
+      },
+      "0.1": {
+        "n": 51,
+        "missing": 3,
+        "median_cost_delta": 0.0,
+        "wins": 1,
+        "ties": 46,
+        "losses": 4,
+        "median_normalized_delta": 0.0
+      },
+      "0.25": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 1,
+        "ties": 52,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "0.5": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 54,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "1.0": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 54,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "2.0": {
+        "n": 54,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 54,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      }
+    },
+    "all / full_milp": {
+      "0.05": {
+        "n": 65,
+        "missing": 7,
+        "median_cost_delta": -22.07611818349551,
+        "wins": 33,
+        "ties": 32,
+        "losses": 0,
+        "median_normalized_delta": -0.004692386853634862
+      },
+      "0.1": {
+        "n": 67,
+        "missing": 5,
+        "median_cost_delta": -7.42504113203654,
+        "wins": 33,
+        "ties": 33,
+        "losses": 1,
+        "median_normalized_delta": -0.0009844573123987106
+      },
+      "0.25": {
+        "n": 71,
+        "missing": 1,
+        "median_cost_delta": -5.375966117737335,
+        "wins": 34,
+        "ties": 34,
+        "losses": 3,
+        "median_normalized_delta": -0.00046876855805147135
+      },
+      "0.5": {
+        "n": 71,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 27,
+        "ties": 43,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "1.0": {
+        "n": 71,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 19,
+        "ties": 51,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "2.0": {
+        "n": 72,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 10,
+        "ties": 60,
+        "losses": 2,
+        "median_normalized_delta": 0.0
+      }
+    },
+    "all / lp_repair_start": {
+      "0.05": {
+        "n": 64,
+        "missing": 8,
+        "median_cost_delta": 0.0,
+        "wins": 4,
+        "ties": 58,
+        "losses": 2,
+        "median_normalized_delta": 0.0
+      },
+      "0.1": {
+        "n": 67,
+        "missing": 5,
+        "median_cost_delta": 0.0,
+        "wins": 3,
+        "ties": 60,
+        "losses": 4,
+        "median_normalized_delta": 0.0
+      },
+      "0.25": {
+        "n": 71,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 3,
+        "ties": 59,
+        "losses": 9,
+        "median_normalized_delta": 0.0
+      },
+      "0.5": {
+        "n": 71,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 60,
+        "losses": 11,
+        "median_normalized_delta": 0.0
+      },
+      "1.0": {
+        "n": 71,
+        "missing": 1,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 61,
+        "losses": 10,
+        "median_normalized_delta": 0.0
+      },
+      "2.0": {
+        "n": 72,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 0,
+        "ties": 65,
+        "losses": 7,
+        "median_normalized_delta": 0.0
+      }
+    },
+    "all / group_no_transfer": {
+      "0.05": {
+        "n": 66,
+        "missing": 6,
+        "median_cost_delta": 0.0,
+        "wins": 1,
+        "ties": 63,
+        "losses": 2,
+        "median_normalized_delta": 0.0
+      },
+      "0.1": {
+        "n": 67,
+        "missing": 5,
+        "median_cost_delta": 0.0,
+        "wins": 1,
+        "ties": 62,
+        "losses": 4,
+        "median_normalized_delta": 0.0
+      },
+      "0.25": {
+        "n": 70,
+        "missing": 2,
+        "median_cost_delta": 0.0,
+        "wins": 2,
+        "ties": 67,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "0.5": {
+        "n": 70,
+        "missing": 2,
+        "median_cost_delta": 0.0,
+        "wins": 1,
+        "ties": 68,
+        "losses": 1,
+        "median_normalized_delta": 0.0
+      },
+      "1.0": {
+        "n": 70,
+        "missing": 2,
+        "median_cost_delta": 0.0,
+        "wins": 2,
+        "ties": 68,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      },
+      "2.0": {
+        "n": 72,
+        "missing": 0,
+        "median_cost_delta": 0.0,
+        "wins": 2,
+        "ties": 70,
+        "losses": 0,
+        "median_normalized_delta": 0.0
+      }
+    }
+  },
+  "time_and_fallback": {
+    "full_milp": {
+      "p50_wall": 0.6672306666150689,
+      "p95_wall": 2.253132385201752,
+      "max_wall": 3.044504333054647,
+      "fallback_only": 32,
+      "late_final_stage_returns": 72
+    },
+    "full_lp": {
+      "p50_wall": 0.025483228964731097,
+      "p95_wall": 0.3547743235831149,
+      "max_wall": 1.2392782499082386,
+      "fallback_only": 54,
+      "late_final_stage_returns": 0
+    },
+    "lp_repair_start": {
+      "p50_wall": 0.03323060448747128,
+      "p95_wall": 2.1694333027116954,
+      "max_wall": 3.260616417042911,
+      "fallback_only": 16,
+      "late_final_stage_returns": 53
+    },
+    "group_start": {
+      "p50_wall": 0.029825291479937732,
+      "p95_wall": 2.251274489739444,
+      "max_wall": 3.409023999935016,
+      "fallback_only": 20,
+      "late_final_stage_returns": 54
+    },
+    "group_no_transfer": {
+      "p50_wall": 0.030934229027479887,
+      "p95_wall": 2.25251496816054,
+      "max_wall": 4.773436208022758,
+      "fallback_only": 22,
+      "late_final_stage_returns": 54
+    }
+  }
+}

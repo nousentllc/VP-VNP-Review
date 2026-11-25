@@ -1,0 +1,180 @@
+{
+  "time_utc": "2026-11-25T00:57:56.037411+00:00",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "cpus": 8,
+  "python": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 12:55:12) [Clang 14.0.6 ]",
+  "highs": "1.12.0",
+  "threads": 1,
+  "governing_protocol": "W05/protocol/W05_Research_Protocol.md",
+  "fresh_cluster_seeds": [
+    11903,
+    11927,
+    11939,
+    11953
+  ],
+  "sizes": [
+    [
+      4,
+      8
+    ],
+    [
+      12,
+      16
+    ],
+    [
+      20,
+      24
+    ]
+  ],
+  "families": [
+    "ordinary",
+    "negative_outage",
+    "forced_opposition",
+    "tight_reserve",
+    "unknown_exchange"
+  ],
+  "replicates": 3,
+  "arms": [
+    "native_cert",
+    "lp_only",
+    "lp_repair",
+    "screen",
+    "native_unmetered_certificate"
+  ],
+  "snapshots_s": [
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    1.0,
+    2.0
+  ],
+  "dev_configurations": [
+    {
+      "effort": 0.05,
+      "reserve": 0.15,
+      "repair_share": 0.15
+    },
+    {
+      "effort": 0.15,
+      "reserve": 0.3,
+      "repair_share": 0.3
+    }
+  ],
+  "dev_scores": {
+    "native_cert": [
+      [
+        1,
+        2,
+        -1.8811860929902733,
+        -1.752222626
+      ],
+      [
+        1,
+        2,
+        -1.8811860929902733,
+        -1.444133083
+      ]
+    ],
+    "lp_only": [
+      [
+        1,
+        2,
+        -1.8938555203773215,
+        -0.018202167
+      ],
+      [
+        1,
+        2,
+        -1.8938555203773215,
+        -0.018606917
+      ]
+    ],
+    "lp_repair": [
+      [
+        1,
+        2,
+        -1.880732721526564,
+        -2.0050193750000003
+      ],
+      [
+        1,
+        2,
+        -1.880766505090558,
+        -2.0066934180000002
+      ]
+    ],
+    "screen": [
+      [
+        1,
+        2,
+        -1.8811860929902733,
+        -2.010612208
+      ],
+      [
+        1,
+        2,
+        -1.8811860929902733,
+        -2.010611458
+      ]
+    ],
+    "native_unmetered_certificate": [
+      [
+        1,
+        2,
+        -1.8811860929902733,
+        -2.0233544169999997
+      ],
+      [
+        1,
+        2,
+        -1.8811860929902733,
+        -2.0264562080000004
+      ]
+    ]
+  },
+  "selected": {
+    "native_cert": {
+      "effort": 0.15,
+      "reserve": 0.3,
+      "repair_share": 0.3
+    },
+    "lp_only": {
+      "effort": 0.05,
+      "reserve": 0.15,
+      "repair_share": 0.15
+    },
+    "lp_repair": {
+      "effort": 0.05,
+      "reserve": 0.15,
+      "repair_share": 0.15
+    },
+    "screen": {
+      "effort": 0.15,
+      "reserve": 0.3,
+      "repair_share": 0.3
+    },
+    "native_unmetered_certificate": {
+      "effort": 0.05,
+      "reserve": 0.15,
+      "repair_share": 0.15
+    }
+  },
+  "sha256": {
+    "engine.py": "21357436e4362bf8b0ac551b5001a2b0c4d1da57f2e627a5209276bf22eae092",
+    "campaign.py": "8820d1a8ada1b922bbad4b4ee36e2dbcd8cac67d074e345b186a98aa0dc8144c",
+    "audit.py": "75e51f92167393adce3989d630039f61dda0dd172188a870138605f31a28b8f3",
+    "protocol/plan.md": "cfdc297376c6a21620ef02305dac4ea7aca40e5e0bfd3be0dc8321bf8f7256f0",
+    "../../W04/A/protocol/instances.json": "93bd6a0d3343a272d2d70961ba2b19115ad198e405ef5748ce6dc995309ac08f",
+    "../../W04/foundation/src/battery_inputs.py": "1b82db25eae171593ed2f0c2cef33d4515900da4c491cb293c4b9da510b039d7",
+    "../../W04/foundation/src/battery_model.py": "c1d19a6a910b2101f8ad5f9e39134002cf569892db98f72d431c2bd70dbb018d",
+    "../../W04/foundation/src/battery_audit.py": "5705b4b3e0a7ad23d732563b089975affd2f62abab971a0b3aa5aa5f72745d29",
+    "../../W04/foundation/src/common.py": "2b9209ca636d805e3b5c1e002b50d7f964c5611adb1bb6db867d051bafecf0f6",
+    "../../W04/foundation/protocol/design.json": "f265037486138baff00ed02d6669c5dbe527cdaf60bbe30e373ebe075f3de931",
+    "../../W04/foundation/requirements.txt": "a8c7658fa0548716b493e4bbc870b16b397217eb8f11d9059ed272cab508f977"
+  },
+  "assets_sha256": {
+    "instances.json.gz": "f94071eaed9c9db38677f36817b6897bdb8c2539550570898d0e5356c1e3bf29",
+    "development.json.gz": "de11e6470b5d5ddd1c2ab9b73ba211fc044586dc1b86565ecb5cadf7e1609111"
+  }
+}

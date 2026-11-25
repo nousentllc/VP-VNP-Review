@@ -1,0 +1,14 @@
+{
+  "scope": "Retrospective source identity for the W03 reanalysis and preserved W03 design file used by common.py; the separate W04 prospective freeze is in freeze.json.",
+  "in_archive": {
+    "foundation/protocol/design.json": "f265037486138baff00ed02d6669c5dbe527cdaf60bbe30e373ebe075f3de931",
+    "foundation/protocol/freeze.json": "e701c3b84002adb62879cca611b4be6af487ea322ac69db8b0c2b93c1f51ce6e",
+    "foundation/results/A/holdout.jsonl.gz": "70b2853d78607c83ad4ec0f89bafe34a1cff335353160e247bd7f4d80a8cd2db",
+    "A/results/w03_replay.jsonl.gz": "1c234f2cef565631397b3dbe8ab0b69a5f4cc0649eb96bfdf8d3889bf1d77165",
+    "foundation/src/battery.py": "affa400b4fa3c09205841a4e458ae7866a06eb12a45d956a2033cc59a21078fb"
+  },
+  "reviewer_package_filename": "CRGC_v0.3_Review_Evidence.zip",
+  "reviewer_package_sha256": "dafbf5e6ddebcb4ffbe2224461dcf5eff5b3e14a12d38e7453915c84035c6d5b",
+  "reviewer_member": "audit_w03.json",
+  "reviewer_member_sha256": "c488db251e606af9bb3237f59bee5e2fe7d331c125b6978aee7b702d7deac17d"
+}

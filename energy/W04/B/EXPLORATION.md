@@ -1,0 +1,5 @@
+# Is the additive regret constant improvable from these assumptions?
+
+The protocol asks for a uniform upper bound. A tight lower example determines whether a sharper bound needs additional hypotheses. Set X=Y={0,1}. For arbitrary nonnegative α, β, ε define J=(0, α+β+ε) and K=(α, α+ε). Project every x to reduced state 0. Reconstruct by the identity. Each projection has cost at most J(x)+α. Each reconstruction costs at most K(y)+β. Reduced state 1 lies exactly ε above the reduced optimum and its reconstructed full regret equals α+β+ε. All three constants may be strictly positive.
+
+Sharpness.lean contains the parameterized proposition. The Python replay separately instantiates all 27 triples from {0,1/3,5/2}³. All meet the projected inequality, lifting inequality and equality in the bound. Particular models can benefit from verified smaller per-candidate lifting errors. Global improvement from these hypotheses alone fails already on two points. This example is a mathematical sharpness witness with no empirical strength, complexity or novelty implication.

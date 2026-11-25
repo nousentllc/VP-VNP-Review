@@ -1,0 +1,11 @@
+claim_id,claim,required_assumptions,evidence,interpretive_boundary
+B01,All feasible cost thresholds are equivalent,Cost-nonincreasing maps in both directions on feasible types,formal/AIPC.lean threshold_iff,May have empty domains and requires no attainment or bijection
+B02,A single reconstructed reduced minimizer certifies a full minimizer,Global projection plus one attained minimizer with a cost-checked feasible lift,formal/AIPC.lean single_optimal_lift,No guarantee for another reduced optimizer
+B03,Real infima satisfy the asymmetric additive sandwich,Both domains nonempty and bounded below plus global cost maps,formal/AIPC.lean infimum_sandwich,Does not imply boundary attainment
+B04,A returned feasible candidate has regret at most alpha+beta+epsilon,Uniform projection plus reduced-suboptimality certificate and checked returned lift,formal/AIPC.lean candidate_regret,No global lift follows from empirical coverage
+B05,Nested feasible sublevels expand and retained cost does not rise,True set inclusion and validated fallback with common full objective,formal/AIPC.lean nested_stage final_stage retained_cost,An individual solver return can worsen
+B06,An unrestricted lower bound and feasible incumbent certify an absolute gap,Bound valid for every full feasible point,formal/AIPC.lean gap_contract stop_with_tolerance,Restricted bound cannot generally certify gap
+B07,The W03 homogeneous ideal-storage class instantiates the two cost maps,Positive N and balanced labels and common integer rate/capacity and aggregate-only external terms,formal/StorageContract.lean threshold_from_contract,No generalization to unequal parameters
+B08,Removing specific premises admits constructive failures,Concrete finite labelled or rational controls,formal/Controls.lean and exact_controls.py,Controls concern explicit model variants
+B09,Three-term regret can be sharp,Abstract cost inequalities and two points in each domain,formal/Sharpness.lean and EXPLORATION.md,Elementary example with no novelty or solver-speed claim
+B10,Finite rational audit found 2592 passing candidate bounds,Only the exact finite grids specified in code,results/exact_controls.json,Shared cases with no field sampling

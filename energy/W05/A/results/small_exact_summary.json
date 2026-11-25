@@ -1,0 +1,12 @@
+{
+  "scope": "Off-clock exploratory basis reconstruction. All 20 small cases, repeat zero of LP-only. Timed primary unchanged.",
+  "cases": 20,
+  "statuses": {
+    "exact_witness": 12,
+    "raw_LP_rejected": 8
+  },
+  "certified_gap": 12,
+  "max_abs_cost_difference": 4.4342837180218537e-13,
+  "max_exact_gap": 1.5089611375104002e-13,
+  "corruptions_rejected": 12
+}

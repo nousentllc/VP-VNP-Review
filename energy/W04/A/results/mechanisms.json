@@ -1,0 +1,906 @@
+[
+  {
+    "arm": "full_lp",
+    "cohort": "forced_opposition",
+    "trajectories": 54,
+    "final_sources": {
+      "fallback": 54
+    },
+    "count_timed": {
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "fallback_validation": 0.0004186459118500352,
+      "build_seconds": 0.007923270459286869,
+      "validation_seconds": 0.0003978125751018524,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.020708666532300413,
+      "capped_target": 2.0
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "full_lp",
+    "cohort": "interchangeable",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.021945249987766147,
+      "fallback_validation": 0.0003553335554897785,
+      "build_seconds": 0.005241687525995076,
+      "validation_seconds": 0.0003393329679965973,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.014344166498631239,
+      "observed_target": 0.023632395546883345,
+      "capped_target": 0.023632395546883345
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "full_lp",
+    "cohort": "negative_outage",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.01638579193968326,
+      "fallback_validation": 0.0003176040481775999,
+      "build_seconds": 0.0044933955650776625,
+      "validation_seconds": 0.00029458291828632355,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.010168354026973248,
+      "observed_target": 0.0182552085025236,
+      "capped_target": 0.0182552085025236
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "full_lp",
+    "cohort": "ordinary",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.022290770430117846,
+      "fallback_validation": 0.0003684165421873331,
+      "build_seconds": 0.0060465625720098615,
+      "validation_seconds": 0.000353229115717113,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.01451727095991373,
+      "observed_target": 0.02408585394732654,
+      "capped_target": 0.02408585394732654
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "full_milp",
+    "cohort": "forced_opposition",
+    "trajectories": 54,
+    "final_sources": {
+      "unrestricted": 23,
+      "fallback": 31
+    },
+    "count_timed": {
+      "first_strict_improvement": 23,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 3,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 1.0626340829767287,
+      "fallback_validation": 0.0004220415139570832,
+      "build_seconds": 0.00572075042873621,
+      "validation_seconds": 0.0023049376904964447,
+      "start_check_transfer_seconds": 0.0009476878913119435,
+      "solve_with_callbacks_seconds": 2.0143088328186423,
+      "observed_target": 1.0524114589206874,
+      "capped_target": 2.0
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 54,
+    "full_presolve_reduction_lines": 54,
+    "distinct_full_presolved_rows_columns_nnz": [
+      [
+        96,
+        116,
+        296
+      ],
+      [
+        284,
+        360,
+        912
+      ],
+      [
+        568,
+        732,
+        1848
+      ]
+    ]
+  },
+  {
+    "arm": "full_milp",
+    "cohort": "interchangeable",
+    "trajectories": 54,
+    "final_sources": {
+      "unrestricted": 53,
+      "fallback": 1
+    },
+    "count_timed": {
+      "first_strict_improvement": 53,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 45,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.0628456249833107,
+      "fallback_validation": 0.0002761455252766609,
+      "build_seconds": 0.0041730625089257956,
+      "validation_seconds": 0.0022835410200059414,
+      "start_check_transfer_seconds": 0.0008595000253990293,
+      "solve_with_callbacks_seconds": 0.6188977289712057,
+      "observed_target": 0.3044343329966068,
+      "capped_target": 0.42096012516412884
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 54,
+    "full_presolve_reduction_lines": 54,
+    "distinct_full_presolved_rows_columns_nnz": [
+      [
+        103,
+        124,
+        318
+      ],
+      [
+        295,
+        372,
+        946
+      ],
+      [
+        583,
+        748,
+        1894
+      ]
+    ]
+  },
+  {
+    "arm": "full_milp",
+    "cohort": "negative_outage",
+    "trajectories": 54,
+    "final_sources": {
+      "unrestricted": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 53,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.04562456253916025,
+      "fallback_validation": 0.00031543755903840065,
+      "build_seconds": 0.004744041478261352,
+      "validation_seconds": 0.0018000215059146285,
+      "start_check_transfer_seconds": 0.0008043743437156081,
+      "solve_with_callbacks_seconds": 0.23293343686964363,
+      "observed_target": 0.2212912910617888,
+      "capped_target": 0.23888493701815605
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 54,
+    "full_presolve_reduction_lines": 54,
+    "distinct_full_presolved_rows_columns_nnz": [
+      [
+        94,
+        111,
+        284
+      ],
+      [
+        94,
+        115,
+        288
+      ],
+      [
+        96,
+        113,
+        288
+      ],
+      [
+        96,
+        117,
+        292
+      ],
+      [
+        98,
+        119,
+        296
+      ],
+      [
+        276,
+        345,
+        876
+      ],
+      [
+        277,
+        354,
+        886
+      ],
+      [
+        279,
+        348,
+        882
+      ],
+      [
+        281,
+        358,
+        894
+      ],
+      [
+        282,
+        351,
+        888
+      ],
+      [
+        283,
+        360,
+        898
+      ],
+      [
+        552,
+        705,
+        1784
+      ],
+      [
+        553,
+        718,
+        1798
+      ],
+      [
+        554,
+        719,
+        1800
+      ],
+      [
+        556,
+        721,
+        1804
+      ],
+      [
+        558,
+        711,
+        1796
+      ],
+      [
+        560,
+        713,
+        1800
+      ]
+    ]
+  },
+  {
+    "arm": "full_milp",
+    "cohort": "ordinary",
+    "trajectories": 54,
+    "final_sources": {
+      "unrestricted": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 46,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.05924668745137751,
+      "fallback_validation": 0.00033104210160672665,
+      "build_seconds": 0.004653229494579136,
+      "validation_seconds": 0.0020056453067809343,
+      "start_check_transfer_seconds": 0.000884625012986362,
+      "solve_with_callbacks_seconds": 0.5015995420981199,
+      "observed_target": 0.3159355210373178,
+      "capped_target": 0.4368808961007744
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 54,
+    "full_presolve_reduction_lines": 54,
+    "distinct_full_presolved_rows_columns_nnz": [
+      [
+        103,
+        128,
+        322
+      ],
+      [
+        105,
+        126,
+        322
+      ],
+      [
+        105,
+        130,
+        326
+      ],
+      [
+        106,
+        127,
+        324
+      ],
+      [
+        300,
+        377,
+        956
+      ],
+      [
+        300,
+        385,
+        964
+      ],
+      [
+        301,
+        378,
+        958
+      ],
+      [
+        302,
+        379,
+        960
+      ],
+      [
+        304,
+        389,
+        972
+      ],
+      [
+        305,
+        390,
+        974
+      ],
+      [
+        589,
+        754,
+        1906
+      ],
+      [
+        591,
+        756,
+        1910
+      ],
+      [
+        592,
+        769,
+        1924
+      ],
+      [
+        593,
+        770,
+        1926
+      ],
+      [
+        595,
+        772,
+        1930
+      ]
+    ]
+  },
+  {
+    "arm": "group_no_transfer",
+    "cohort": "forced_opposition",
+    "trajectories": 54,
+    "final_sources": {
+      "unrestricted": 17,
+      "fallback": 22,
+      "shared_4": 7,
+      "shared_2": 8
+    },
+    "count_timed": {
+      "first_strict_improvement": 32,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "restricted_pipeline": 51,
+      "observed_target": 3,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.3269481669412926,
+      "fallback_validation": 0.00038308347575366497,
+      "build_seconds": 0.032204083632677794,
+      "validation_seconds": 0.004312791512347758,
+      "start_check_transfer_seconds": 0.0035949585726484656,
+      "solve_with_callbacks_seconds": 1.9803942296421155,
+      "restricted_pipeline": 0.5747228339314461,
+      "observed_target": 1.3801407909486443,
+      "capped_target": 2.0
+    },
+    "restricted_candidate_start_incompatible": {
+      "shared_1": 51,
+      "shared_2": 50,
+      "shared_4": 15
+    },
+    "start_vectors_tested": 185,
+    "full_presolve_reduction_lines": 54,
+    "distinct_full_presolved_rows_columns_nnz": [
+      [
+        96,
+        116,
+        296
+      ],
+      [
+        284,
+        360,
+        912
+      ],
+      [
+        568,
+        732,
+        1848
+      ]
+    ]
+  },
+  {
+    "arm": "group_no_transfer",
+    "cohort": "interchangeable",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.020672104437835515,
+      "fallback_validation": 0.00030675006564706564,
+      "build_seconds": 0.004488874925300479,
+      "validation_seconds": 0.0003539585741236806,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.013044291408732533,
+      "observed_target": 0.022994125029072165,
+      "capped_target": 0.022994125029072165
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "group_no_transfer",
+    "cohort": "negative_outage",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.01659337489400059,
+      "fallback_validation": 0.00030902097932994366,
+      "build_seconds": 0.004388020490296185,
+      "validation_seconds": 0.0003418959677219391,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.010656625498086214,
+      "observed_target": 0.018460770370438695,
+      "capped_target": 0.018460770370438695
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "group_no_transfer",
+    "cohort": "ordinary",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.020156583399511874,
+      "fallback_validation": 0.0003051045350730419,
+      "build_seconds": 0.004986853338778019,
+      "validation_seconds": 0.00033562444150447845,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.011472666985355318,
+      "observed_target": 0.022480270941741765,
+      "capped_target": 0.022480270941741765
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "group_start",
+    "cohort": "forced_opposition",
+    "trajectories": 54,
+    "final_sources": {
+      "unrestricted": 17,
+      "fallback": 20,
+      "shared_4": 11,
+      "shared_2": 6
+    },
+    "count_timed": {
+      "first_strict_improvement": 34,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "restricted_pipeline": 53,
+      "observed_target": 2,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.31289760454092175,
+      "fallback_validation": 0.00042879197280853987,
+      "build_seconds": 0.027189915999770164,
+      "validation_seconds": 0.004215416149236262,
+      "start_check_transfer_seconds": 0.003317353897728026,
+      "solve_with_callbacks_seconds": 1.9728842705953866,
+      "restricted_pipeline": 0.5755914999172091,
+      "observed_target": 1.7345583541318774,
+      "capped_target": 2.0
+    },
+    "restricted_candidate_start_incompatible": {
+      "shared_1": 53,
+      "shared_2": 52,
+      "shared_4": 15
+    },
+    "start_vectors_tested": 188,
+    "full_presolve_reduction_lines": 54,
+    "distinct_full_presolved_rows_columns_nnz": [
+      [
+        96,
+        116,
+        296
+      ],
+      [
+        284,
+        360,
+        912
+      ],
+      [
+        568,
+        732,
+        1848
+      ]
+    ]
+  },
+  {
+    "arm": "group_start",
+    "cohort": "interchangeable",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.021973999915644526,
+      "fallback_validation": 0.00032787490636110306,
+      "build_seconds": 0.00517556257545948,
+      "validation_seconds": 0.000302416505292058,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.014372270903550088,
+      "observed_target": 0.02399591659195721,
+      "capped_target": 0.02399591659195721
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "group_start",
+    "cohort": "negative_outage",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.01530731248203665,
+      "fallback_validation": 0.0003474585246294737,
+      "build_seconds": 0.0042777914786711335,
+      "validation_seconds": 0.0002966041211038828,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.009135250002145767,
+      "observed_target": 0.016940895467996597,
+      "capped_target": 0.016940895467996597
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "group_start",
+    "cohort": "ordinary",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.021043166518211365,
+      "fallback_validation": 0.00035445799585431814,
+      "build_seconds": 0.005205562454648316,
+      "validation_seconds": 0.00036333349999040365,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.013798916595987976,
+      "observed_target": 0.02348204143345356,
+      "capped_target": 0.02348204143345356
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "lp_repair_start",
+    "cohort": "forced_opposition",
+    "trajectories": 54,
+    "final_sources": {
+      "partial_sign_repair": 33,
+      "fallback": 16,
+      "unrestricted": 5
+    },
+    "count_timed": {
+      "first_strict_improvement": 38,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "restricted_pipeline": 53,
+      "capped_target": 54,
+      "observed_target": 1
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.18549414654262364,
+      "fallback_validation": 0.00037754152435809374,
+      "build_seconds": 0.02171891659963876,
+      "validation_seconds": 0.002873375895433128,
+      "start_check_transfer_seconds": 0.0017981044948101044,
+      "solve_with_callbacks_seconds": 1.9843369380105287,
+      "restricted_pipeline": 0.590892625041306,
+      "capped_target": 2.0,
+      "observed_target": 1.7787331661675125
+    },
+    "restricted_candidate_start_incompatible": {
+      "partial_sign_repair": 52
+    },
+    "start_vectors_tested": 105,
+    "full_presolve_reduction_lines": 53,
+    "distinct_full_presolved_rows_columns_nnz": [
+      [
+        96,
+        116,
+        296
+      ],
+      [
+        284,
+        360,
+        912
+      ],
+      [
+        568,
+        732,
+        1848
+      ]
+    ]
+  },
+  {
+    "arm": "lp_repair_start",
+    "cohort": "interchangeable",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.021708874963223934,
+      "fallback_validation": 0.00031570857390761375,
+      "build_seconds": 0.005226770881563425,
+      "validation_seconds": 0.0003459375584498048,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.01433989591896534,
+      "observed_target": 0.023969082976691425,
+      "capped_target": 0.023969082976691425
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "lp_repair_start",
+    "cohort": "negative_outage",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.01688768749590963,
+      "fallback_validation": 0.000341478968039155,
+      "build_seconds": 0.004222312360070646,
+      "validation_seconds": 0.0002914790529757738,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.010006895987316966,
+      "observed_target": 0.01879018743056804,
+      "capped_target": 0.01879018743056804
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  },
+  {
+    "arm": "lp_repair_start",
+    "cohort": "ordinary",
+    "trajectories": 54,
+    "final_sources": {
+      "full_lp": 54
+    },
+    "count_timed": {
+      "first_strict_improvement": 54,
+      "fallback_validation": 54,
+      "build_seconds": 54,
+      "validation_seconds": 54,
+      "start_check_transfer_seconds": 54,
+      "solve_with_callbacks_seconds": 54,
+      "observed_target": 54,
+      "capped_target": 54
+    },
+    "median_seconds": {
+      "first_strict_improvement": 0.01984306308440864,
+      "fallback_validation": 0.00037897948641330004,
+      "build_seconds": 0.004509813035838306,
+      "validation_seconds": 0.0003577284514904022,
+      "start_check_transfer_seconds": 0.0,
+      "solve_with_callbacks_seconds": 0.01370879146270454,
+      "observed_target": 0.023539145942777395,
+      "capped_target": 0.023539145942777395
+    },
+    "restricted_candidate_start_incompatible": {},
+    "start_vectors_tested": 0,
+    "full_presolve_reduction_lines": 0,
+    "distinct_full_presolved_rows_columns_nnz": []
+  }
+]

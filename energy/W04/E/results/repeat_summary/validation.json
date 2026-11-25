@@ -1,0 +1,26 @@
+{
+  "policies": 12,
+  "cases": 72,
+  "trajectories": 864,
+  "hourly_actions": 20736,
+  "max_residual": 7.105427357601002e-14,
+  "mutation_rejections": [
+    {
+      "name": "bad_soc",
+      "residual": 1.0
+    },
+    {
+      "name": "unbalanced",
+      "residual": 1.0
+    },
+    {
+      "name": "terminal",
+      "residual": 1.0
+    },
+    {
+      "name": "reserve",
+      "residual": 107.5268817204301
+    }
+  ],
+  "fallbacks": 0
+}

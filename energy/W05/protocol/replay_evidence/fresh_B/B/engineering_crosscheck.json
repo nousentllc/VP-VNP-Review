@@ -1,0 +1,10 @@
+{
+  "arithmetic": "fractions.Fraction",
+  "primary_rows": 32,
+  "primary_passed": 25,
+  "primary_failures_retained": 7,
+  "secondary_passed": 7,
+  "positive_cases": "all raw/repaired points, supports, uniform/candidate weights, cost bounds and regret intervals passed",
+  "negative_control": "inflated stored uniform beta rejected",
+  "scope": "fixed-mode engineering records only; full LP primal/dual auditing is provided by engineering/check.py"
+}

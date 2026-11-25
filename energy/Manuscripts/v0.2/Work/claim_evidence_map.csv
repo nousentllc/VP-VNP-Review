@@ -1,0 +1,26 @@
+id,claim,kind,sources,anchor,limitation,disposition,artifact
+C01,CRGC is a baseline-relative contract-specific outcome,definition,Author proposal,sec:definition,Not an established named resource or new complexity class,definition_only,
+C02,Anthropic states all-field HC and non-characteristic-two permanent lower bounds,reported_theorem,anthropic;anthropicstatement;internalvp,Theorems 1.1/1.4; Statement MainTheorem,Full proof not replayed; independent review incomplete,qualified,
+C03,VP/VNP separation yields an AC-OPF or SCUC solver,unsupported,anthropic;openai,No transfer reduction in reviewed artifacts,Different computational models; no measured transfer,excluded,E01/E02 proposals
+C04,Ten percent of Napkin pools is recoverable,scenario,napkin,Pool calculations,No validated causal fraction or nonoverlap,excluded_from_findings,
+C05,Napkin arithmetic yields MISO 8.26 and US 46.87 TWh,derived,napkin;arithmetic_checks.json,0.1 times 82.6/468.7,Inputs remain unvalidated scenario pools,arithmetic_only,arithmetic_checks.json
+C06,46.87 TWh implies firm capacity,unsupported,arithmetic_checks.json;elcc,46.87/8.76 = annual average GW,Requires risk equivalence and deliverability,firm_claim_excluded,E06 unrun
+C07,MISO ratings opportunity equals realized solver savings,unsupported_attribution,miso,Printed p.68 / PDF p.94 Table11 footnote24,Estimated ratings benefit; not solver intervention; shadow-price approximation,excluded,
+C08,Solver gap equals realized savings,unsupported,Author weak-duality derivation,Eq. gap,Bound on same-model improvement; tightening lower bound may change no action,excluded,E01
+C09,Multistart materially improves case3_lmbd,measured_null,pglib;E01,Ten starts results.json,One tiny nonsecurity case; unequal total compute,not_observed,reproducibility/results.json
+C10,LP beats forecast-aware threshold on synthetic BESS service,measured_null,E05,All four profiles,Constructed deterministic profiles; post-hoc ablation,not_observed,reproducibility/results.json
+C11,More service necessarily reduces losses,measured_counterexample,E05,Four-hour and alternating profiles,Model result; higher throughput increases losses,universal_claim_refuted_by_model,reproducibility/bess_schedules.csv
+C12,Exact toy LP witness accepted and four mutations rejected,measured,E04,Fraction checker,Checker not formally verified; four controls not exhaustive,limited_demonstration,reproducibility/results.json
+C13,Entire Library and Atlas were reviewed,coverage_claim,source_inventory_local.csv;search_audit.json,1451-file bounded inventory;293-PDF screen,Native Library and authoritative Atlas not verified,not_established,
+C14,Selected internal VP-review diagnostics reproduce,measured,internalvp;VP-checks,Three copied Python scripts,Not full Lean replay or proof; internal source lineage,finite_checks_only,reproducibility/vp_review/
+C15,Commercial savings or accredited MW are established,projection,No field or portfolio study,E06 protocol,"No operational population, costs or accreditation study",not_established,E06 unrun
+C16,External VP audit reports 18/23 rows and CERTIFIED,reported_audit,toledo,Snapshot 2026-11-24 03:15 UTC,Own verdict rule; AI-assisted; no human proof review; not rerun,attributed,
+C17,OpenAI separate release claims border separation,reported_theorem,openai,Theorem1.1;Corollary1.2;README,Exact Lean link not proof all border claims replayed,qualified,
+C18,GO one-percent/billion-dollar figure is realized savings,unsupported_attribution,go,PNNL report pp.4-5,"Program motivational estimate, not measured outcome",excluded,
+C19,LBNL 649 TWh is 2030 realized demand,projection,lbnl,Official 2025 Update published2026 abstract,"Forecast, uncertain; not recoverable energy",projection_only,
+C20,4/8-hour synthetic peaks require at least8/168MWh unserved,derived_and_measured,E05,Deficit minus0.95*(200-40),"Fixed energy/import model, no peak charging opportunity",model_specific_bound_attained,reproducibility/results.json
+C21,Exact AC solution globally optimal,unsupported,E01,SLSQP agreement and case comment,Neither multistart nor comment is a proof; valid bound retained,not_claimed,
+C22,Internal hallucination-entropy link supports grid recovery,internal_hypothesis,internalcompute,Abstract thermodynamic coupling,Independent causal evidence not established,excluded,
+C23,Formal checking guarantees physical safety,unsupported_generalization,leanpep;internalvp;Author analysis,Trust chain and model scope,"Input semantics, environment and omitted physics remain",excluded,
+C24,PGLib UC is full network SCUC,scope_error,pglibuc,README formulation,Global demand/reserve model is not full contingency network model,excluded,
+C25,Published VP lower-bound constant establishes a practical threshold,derived_conditional,toledo;arithmetic_checks.json,c=1/1600^2 exponent>2 calculation,No explicit m0; algebraic comparison not onset theorem,conditional,arithmetic_checks.json

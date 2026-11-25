@@ -1,0 +1,183 @@
+{
+  "cross_arm_consistency": [
+    {
+      "available_upper": 8645.449496923417,
+      "case": "ca_2014-12-01_reserves_1",
+      "compared_against_known_upper": 14,
+      "highest_reported_lower": 8645.25547689345,
+      "hours": 12,
+      "lower_events": 14
+    },
+    {
+      "available_upper": null,
+      "case": "ca_2014-12-01_reserves_1",
+      "compared_against_known_upper": 0,
+      "highest_reported_lower": 1218.3759806492756,
+      "hours": 48,
+      "lower_events": 1
+    },
+    {
+      "available_upper": 148851.67162731377,
+      "case": "rts_gmlc_2020-01-27",
+      "compared_against_known_upper": 187,
+      "highest_reported_lower": 148473.0501229127,
+      "hours": 12,
+      "lower_events": 187
+    },
+    {
+      "available_upper": 1237305.121045663,
+      "case": "rts_gmlc_2020-01-27",
+      "compared_against_known_upper": 116,
+      "highest_reported_lower": 1226381.2522784236,
+      "hours": 48,
+      "lower_events": 116
+    },
+    {
+      "available_upper": 753753.7108068317,
+      "case": "rts_gmlc_2020-08-12",
+      "compared_against_known_upper": 14,
+      "highest_reported_lower": 753753.7108068317,
+      "hours": 12,
+      "lower_events": 14
+    },
+    {
+      "available_upper": 5070095.266089497,
+      "case": "rts_gmlc_2020-08-12",
+      "compared_against_known_upper": 26,
+      "highest_reported_lower": 5060155.559129387,
+      "hours": 48,
+      "lower_events": 26
+    }
+  ],
+  "issues": [],
+  "panels": {
+    "primary": {
+      "arms": {
+        "full": {
+          "cells": 6,
+          "final_incumbent_source": {
+            "direct_full_search": 1,
+            "no_validated_schedule": 5
+          },
+          "log_confirmed": 0,
+          "set_solution_recorded": 0,
+          "transfer_evidence": {
+            "no_recovery_stage_started": 6
+          },
+          "validated": 1
+        },
+        "group_start": {
+          "cells": 6,
+          "final_incumbent_source": {
+            "no_validated_schedule": 5,
+            "unrestricted_discovery_without_start": 1
+          },
+          "log_confirmed": 0,
+          "set_solution_recorded": 0,
+          "transfer_evidence": {
+            "no_preparation_candidate": 1,
+            "no_recovery_stage_started": 5
+          },
+          "validated": 1
+        },
+        "lp_start": {
+          "cells": 6,
+          "final_incumbent_source": {
+            "no_validated_schedule": 4,
+            "retained_preparation_incumbent": 1,
+            "unrestricted_discovery_without_start": 1
+          },
+          "log_confirmed": 1,
+          "set_solution_recorded": 1,
+          "transfer_evidence": {
+            "confirmed_in_solver_log": 1,
+            "no_preparation_candidate": 1,
+            "no_recovery_stage_started": 4
+          },
+          "validated": 2
+        },
+        "permanent": {
+          "cells": 6,
+          "final_incumbent_source": {
+            "no_validated_schedule": 6
+          },
+          "log_confirmed": 0,
+          "set_solution_recorded": 0,
+          "transfer_evidence": {
+            "no_recovery_stage_started": 6
+          },
+          "validated": 0
+        }
+      },
+      "guard_kills": 20,
+      "no_first_checkpoint": 18
+    },
+    "serial": {
+      "arms": {
+        "full": {
+          "cells": 6,
+          "final_incumbent_source": {
+            "direct_full_search": 5,
+            "no_validated_schedule": 1
+          },
+          "log_confirmed": 0,
+          "set_solution_recorded": 0,
+          "transfer_evidence": {
+            "no_recovery_stage_started": 6
+          },
+          "validated": 5
+        },
+        "group_start": {
+          "cells": 6,
+          "final_incumbent_source": {
+            "improved_after_confirmed_start": 3,
+            "no_validated_schedule": 1,
+            "retained_preparation_incumbent": 1,
+            "unrestricted_discovery_without_start": 1
+          },
+          "log_confirmed": 4,
+          "set_solution_recorded": 4,
+          "transfer_evidence": {
+            "confirmed_in_solver_log": 4,
+            "no_preparation_candidate": 1,
+            "no_recovery_stage_started": 1
+          },
+          "validated": 5
+        },
+        "lp_start": {
+          "cells": 6,
+          "final_incumbent_source": {
+            "improved_after_confirmed_start": 2,
+            "no_validated_schedule": 1,
+            "retained_preparation_incumbent": 2,
+            "unrestricted_discovery_without_start": 1
+          },
+          "log_confirmed": 4,
+          "set_solution_recorded": 4,
+          "transfer_evidence": {
+            "confirmed_in_solver_log": 4,
+            "no_preparation_candidate": 1,
+            "no_recovery_stage_started": 1
+          },
+          "validated": 5
+        },
+        "permanent": {
+          "cells": 6,
+          "final_incumbent_source": {
+            "no_validated_schedule": 1,
+            "permanent_restriction_only": 5
+          },
+          "log_confirmed": 0,
+          "set_solution_recorded": 0,
+          "transfer_evidence": {
+            "no_recovery_stage_started": 6
+          },
+          "validated": 5
+        }
+      },
+      "guard_kills": 5,
+      "no_first_checkpoint": 0
+    }
+  },
+  "scope": "Numerical consistency only. LP objective discounts and MIP duals lack independent exact dual validation."
+}

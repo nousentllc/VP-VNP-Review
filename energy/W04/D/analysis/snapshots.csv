@@ -1,0 +1,25 @@
+case,hours,arm,incumbents,first_U_time,external_guard,worker_exit,build_s,solver_status,U5,L5,U15,L15,U30,L30,U45,L45,target,MIP_start_cost,solver_confirmed_start
+ca_2014-12-01_reserves_1,12,full,0,,True,-9,,,,,,,,,,,False,,False
+ca_2014-12-01_reserves_1,12,lp_start,0,,True,-9,,,,,,,,,,,False,,False
+ca_2014-12-01_reserves_1,12,group_start,0,,True,-9,,,,,,,,,,,False,,False
+ca_2014-12-01_reserves_1,12,permanent,0,,True,-9,,,,,,,,,,,False,,False
+ca_2014-12-01_reserves_1,48,full,0,,True,-9,,,,,,,,,,,False,,False
+ca_2014-12-01_reserves_1,48,lp_start,0,,True,-9,,,,,,,,,,,False,,False
+ca_2014-12-01_reserves_1,48,group_start,0,,True,-9,,,,,,,,,,,False,,False
+ca_2014-12-01_reserves_1,48,permanent,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-01-27,12,full,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-01-27,12,lp_start,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-01-27,12,group_start,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-01-27,12,permanent,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-01-27,48,full,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-01-27,48,lp_start,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-01-27,48,group_start,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-01-27,48,permanent,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-08-12,12,full,2,4.357387874973938,False,0,2.8651872500777245,Optimal,775592.6680294794,752640.7054424337,753753.7108068317,753753.7108068317,753753.7108068317,753753.7108068317,753753.7108068317,753753.7108068317,True,,False
+rts_gmlc_2020-08-12,12,lp_start,1,4.016579957911745,False,0,3.445587874855846,Optimal / Optimal / Optimal,753753.7108068317,752590.0396843184,753753.7108068317,752590.1149433302,753753.7108068317,752590.1149433302,753753.7108068317,752590.1149433302,True,753753.7108068317,True
+rts_gmlc_2020-08-12,12,group_start,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-08-12,12,permanent,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-08-12,48,full,0,,True,-9,,,,,,,,,,,False,,False
+rts_gmlc_2020-08-12,48,lp_start,1,29.026962416013703,False,0,12.651399750029668,Time limit reached / Optimal,,,,,5070095.266089497,5059974.6483454015,5070095.266089497,5059974.6483454015,True,,False
+rts_gmlc_2020-08-12,48,group_start,1,30.971232916926965,False,0,9.195881374878809,Interrupted by user / Optimal,,,,,,5060098.255395165,5077259.693019878,5060098.255395165,True,,False
+rts_gmlc_2020-08-12,48,permanent,0,,True,-9,,,,,,,,,,,False,,False

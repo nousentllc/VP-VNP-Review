@@ -1,0 +1,34 @@
+{
+  "source_date_local": "2026-11-24",
+  "pages": {
+    "protocol": {
+      "id": "page_bf81339983a48191928bd72248e6a67a",
+      "title": "W05 \u2014 Certified screening, constructive AIPC & continuation value",
+      "native_blocks": 27
+    },
+    "manuscript": {
+      "id": "page_d40c02d384508191b57da467a9fa2d01",
+      "title": "CRGC v0.4 \u2014 complete LaTeX source draft (export pending)",
+      "native_blocks": 38
+    }
+  },
+  "source_pages_gzip_sha256": "fbbf349773f375d7bca6065fec5f834109779fbedd8900aafa85b7c06f22dd2d",
+  "exported_master": {
+    "sha256": "f95477583a39fa3b9a1cc9c9b61eea0894b5c42eb303081d6142325e3ede2438",
+    "bytes": 212600
+  },
+  "protocol_sha256": "55899d073b41aa486b1f2c64e30c8f9b557adaa58c530bd8d416c32d9ab75f14",
+  "preserved_downloads_v03": {
+    "sha256": "43798d1f1220fc31faf378270a9afe7c9625ee6fdabe032c0fa2e68089be1b1f",
+    "bytes": 182508
+  },
+  "inherited_W04_zip_sha256": "80f885fa1181806ada2483cec088d021d381a48c80482905370eb4b7716a1fd5",
+  "inherited_W04_file_count": 744,
+  "track_locks": {
+    "B/proof_lock.json": "ce39782a391354a2f33ca9105bf45a6576ef43eba8bfe6bdf0ff0b1ad5acd99e",
+    "B/engineering/freeze.json": "2743124d1d1c4d731399400298b627fd706b0f461e2ec408059a2aa4493a4ceb",
+    "E/protocol/freeze.json": "45c703c59643a9e7e8ca4e2db37d7ab683abe6727f04947163943bec9f96d5f6",
+    "A/protocol/freeze.json": "051a323f86849b021cb2a801976cc7aef0dbca2f1f07c56c4710fc24c84fe4f2",
+    "C/freeze.json": "400d437ae3cd8770d96b3d1dc7c9e431f60e42d8628c50ad4f9c3644be062093"
+  }
+}

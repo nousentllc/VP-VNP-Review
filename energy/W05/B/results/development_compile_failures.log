@@ -1,0 +1,36 @@
+Draft first
+AIPC 0 
+Anchor 1 Anchor.lean:75:5: warning: unused variable `hs`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Anchor.lean:117:43: error: unsolved goals
+V : Type u_1
+inst✝¹ : NormedAddCommGroup V
+inst✝ : NormedSpace ℝ V
+e : V →ᵃ[ℝ] ℝ
+x a : V
+h : e a = 0
+t : ℝ
+⊢ 0 = 1 - t ∨ 0 = e x ↔ t = 1 ∨ 0 = e x
+Anchor.lean:118:27: warning: This simp argument is unused:
+  sub_eq_zero
+
+Hint: Omit it from the simp argument list.
+  simp [̵s̵u̵b̵_̵e̵q̵_̵z̵e̵r̵o̵,̵e̵q̵_̵c̵o̵m̵m̵]̵[̲e̲q̲_̲c̲o̲m̲m̲]̲
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+
+Draft second
+Anchor 1 Anchor.lean:84:44: error(lean.unknownIdentifier): Unknown identifier `hs`
+
+
+Draft third
+Anchor 0 
+Transfer 1 Transfer.lean:18:2: error: Type mismatch
+  add_le_add_left (Finset.sum_le_sum fun i x_1 => corner_bound (hl i) (hh i)) ?m.73
+has type
+  ∑ i ∈ ?m.57, ?m.67 i * x i + ?m.73 ≤ ∑ i ∈ ?m.57, max (?m.67 i * l i) (?m.67 i * h i) + ?m.73
+but is expected to have type
+  offset + ∑ i, q i * x i ≤ offset + ∑ i, max (q i * l i) (q i * h i)
+

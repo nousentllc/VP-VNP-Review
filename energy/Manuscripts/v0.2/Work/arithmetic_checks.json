@@ -1,0 +1,21 @@
+{
+  "napkin_MISO_pools_TWh": [
+    13.5,
+    34.5,
+    27.6,
+    7.0
+  ],
+  "napkin_US_pools_TWh": [
+    25,
+    221.5,
+    177.2,
+    45
+  ],
+  "MISO_10pct_TWh": 8.26,
+  "US_10pct_TWh": 46.870000000000005,
+  "MISO_PSE_value_dollars": 620680000.0,
+  "US_PSE_value_dollars": 3818500000.0,
+  "annual_average_GW_365days": 5.350456621004566,
+  "VP_log2m_exponent_gt2_threshold": 134217728000000000000,
+  "zero_failure_trials_for_95pct_upper_below_0_001": 2995
+}

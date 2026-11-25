@@ -1,0 +1,422 @@
+{
+  "environment": {
+    "python": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 12:55:12) [Clang 14.0.6 ]",
+    "scipy": "1.18.0",
+    "numpy": "2.2.4",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "processor": "arm"
+  },
+  "ac_opf": {
+    "case": "PGLib v23.07 case3_lmbd",
+    "commit": "dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3",
+    "seed": 20261124,
+    "method": "SLSQP, ten starts; no new algorithm",
+    "settings": {
+      "ftol": 1e-10,
+      "maxiter": 1000
+    },
+    "lower_bound_dollars_per_hour": 5638.967948717948,
+    "lower_bound_type": "analytic lossless economic dispatch",
+    "runs": [
+      {
+        "run": 0,
+        "solver_success": true,
+        "validated": true,
+        "cost_dollars_per_hour": 5812.642974235489,
+        "loss_MW": 3.0731998743276776,
+        "balance_residual_MVA": 1.4921397450962104e-13,
+        "thermal_violation_MVA": 7.815970093361102e-14,
+        "angle_violation_deg": 0.0,
+        "bound_violation": 0.0,
+        "seconds": 0.03502420894801617,
+        "iterations": 42,
+        "x": [
+          1.1,
+          0.92617054451234,
+          0.9,
+          0.12669045898018805,
+          -0.3013677034988641,
+          148.06691181853827,
+          170.00628805578935,
+          54.697264504871605,
+          -8.791136135555007,
+          -4.8426366243695
+        ]
+      },
+      {
+        "run": 1,
+        "solver_success": true,
+        "validated": true,
+        "cost_dollars_per_hour": 5812.642974235398,
+        "loss_MW": 3.0731998743275604,
+        "balance_residual_MVA": 6.920686246303376e-12,
+        "thermal_violation_MVA": 4.476419235288631e-13,
+        "angle_violation_deg": 0.0,
+        "bound_violation": 0.0,
+        "seconds": 0.03342083399184048,
+        "iterations": 42,
+        "x": [
+          1.0999999999999999,
+          0.9261705445123375,
+          0.9,
+          0.12669045898020978,
+          -0.3013677034988483,
+          148.06691181853364,
+          170.00628805579214,
+          54.697264504864926,
+          -8.79113613555795,
+          -4.842636624373651
+        ]
+      },
+      {
+        "run": 2,
+        "solver_success": true,
+        "validated": true,
+        "cost_dollars_per_hour": 5812.642974235487,
+        "loss_MW": 3.0731998743276847,
+        "balance_residual_MVA": 1.9895196601282805e-13,
+        "thermal_violation_MVA": 4.263256414560601e-14,
+        "angle_violation_deg": 0.0,
+        "bound_violation": 0.0,
+        "seconds": 0.03174845781177282,
+        "iterations": 40,
+        "x": [
+          1.1,
+          0.9261705445123393,
+          0.9,
+          0.12669045898018808,
+          -0.30136770349886427,
+          148.0669118185383,
+          170.0062880557893,
+          54.6972645048717,
+          -8.791136135555,
+          -4.842636624369464
+        ]
+      },
+      {
+        "run": 3,
+        "solver_success": true,
+        "validated": true,
+        "cost_dollars_per_hour": 5812.642974235456,
+        "loss_MW": 3.0731998743276474,
+        "balance_residual_MVA": 2.9771740628348198e-12,
+        "thermal_violation_MVA": 6.536993168992922e-13,
+        "angle_violation_deg": 0.0,
+        "bound_violation": 0.0,
+        "seconds": 0.03205137490294874,
+        "iterations": 40,
+        "x": [
+          1.1,
+          0.9261705445123386,
+          0.9,
+          0.12669045898020306,
+          -0.3013677034988572,
+          148.0669118185354,
+          170.00628805579188,
+          54.69726450486893,
+          -8.791136135556394,
+          -4.842636624371363
+        ]
+      },
+      {
+        "run": 4,
+        "solver_success": true,
+        "validated": true,
+        "cost_dollars_per_hour": 5812.642974235487,
+        "loss_MW": 3.0731998743276616,
+        "balance_residual_MVA": 4.689582056016661e-13,
+        "thermal_violation_MVA": 2.0605739337042905e-13,
+        "angle_violation_deg": 0.0,
+        "bound_violation": 0.0,
+        "seconds": 0.03309508319944143,
+        "iterations": 41,
+        "x": [
+          1.1,
+          0.9261705445123413,
+          0.9,
+          0.12669045898018869,
+          -0.3013677034988637,
+          148.06691181853813,
+          170.00628805578953,
+          54.697264504871114,
+          -8.791136135555176,
+          -4.842636624369879
+        ]
+      },
+      {
+        "run": 5,
+        "solver_success": true,
+        "validated": true,
+        "cost_dollars_per_hour": 5812.642974235489,
+        "loss_MW": 3.073199874327667,
+        "balance_residual_MVA": 3.481659405224491e-13,
+        "thermal_violation_MVA": 9.237055564881302e-14,
+        "angle_violation_deg": 0.0,
+        "bound_violation": 0.0,
+        "seconds": 0.034537000115960836,
+        "iterations": 43,
+        "x": [
+          1.1,
+          0.9261705445123386,
+          0.9,
+          0.1266904589801902,
+          -0.30136770349886316,
+          148.06691181853802,
+          170.0062880557897,
+          54.69726450487151,
+          -8.791136135555156,
+          -4.842636624369408
+        ]
+      },
+      {
+        "run": 6,
+        "solver_success": true,
+        "validated": true,
+        "cost_dollars_per_hour": 5812.642974235489,
+        "loss_MW": 3.073199874327674,
+        "balance_residual_MVA": 3.019806626980426e-13,
+        "thermal_violation_MVA": 9.947598300641403e-14,
+        "angle_violation_deg": 0.0,
+        "bound_violation": 0.0,
+        "seconds": 0.03329595783725381,
+        "iterations": 42,
+        "x": [
+          1.1,
+          0.9261705445123386,
+          0.9000000000000001,
+          0.12669045898018969,
+          -0.3013677034988635,
+          148.06691181853807,
+          170.0062880557896,
+          54.69726450487152,
+          -8.791136135555154,
+          -4.842636624369439
+        ]
+      },
+      {
+        "run": 7,
+        "solver_success": true,
+        "validated": true,
+        "cost_dollars_per_hour": 5812.64297423547,
+        "loss_MW": 3.073199874327633,
+        "balance_residual_MVA": 2.517097641430155e-12,
+        "thermal_violation_MVA": 3.694822225952521e-13,
+        "angle_violation_deg": 0.0,
+        "bound_violation": 0.0,
+        "seconds": 0.031816208036616445,
+        "iterations": 41,
+        "x": [
+          1.1,
+          0.9261705445123418,
+          0.9,
+          0.12669045898019496,
+          -0.3013677034988591,
+          148.06691181853682,
+          170.00628805579058,
+          54.69726450486892,
+          -8.79113613555591,
+          -4.842636624371526
+        ]
+      },
+      {
+        "run": 8,
+        "solver_success": true,
+        "validated": true,
+        "cost_dollars_per_hour": 5812.642974235488,
+        "loss_MW": 3.0731998743276616,
+        "balance_residual_MVA": 3.055333763768431e-13,
+        "thermal_violation_MVA": 8.526512829121202e-14,
+        "angle_violation_deg": 0.0,
+        "bound_violation": 0.0,
+        "seconds": 0.030599999940022826,
+        "iterations": 40,
+        "x": [
+          1.1,
+          0.9261705445123402,
+          0.9,
+          0.12669045898018852,
+          -0.3013677034988637,
+          148.06691181853822,
+          170.0062880557894,
+          54.69726450487133,
+          -8.791136135555158,
+          -4.842636624369639
+        ]
+      },
+      {
+        "run": 9,
+        "solver_success": true,
+        "validated": true,
+        "cost_dollars_per_hour": 5812.642974235469,
+        "loss_MW": 3.0731998743276403,
+        "balance_residual_MVA": 1.5365486660812167e-12,
+        "thermal_violation_MVA": 4.121147867408581e-13,
+        "angle_violation_deg": 0.0,
+        "bound_violation": 0.0,
+        "seconds": 0.032943000085651875,
+        "iterations": 42,
+        "x": [
+          1.1,
+          0.9261705445123376,
+          0.9,
+          0.12669045898019968,
+          -0.3013677034988577,
+          148.0669118185363,
+          170.00628805579117,
+          54.697264504870446,
+          -8.791136135555835,
+          -4.842636624370426
+        ]
+      }
+    ]
+  },
+  "bess": [
+    {
+      "profile": "flat",
+      "method": "threshold",
+      "unserved_MWh": 0.0,
+      "grid_MWh": 1920.0,
+      "throughput_MWh": 0.0,
+      "conversion_loss_MWh": 0.0,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": null
+    },
+    {
+      "profile": "flat",
+      "method": "forecast_threshold",
+      "unserved_MWh": 0.0,
+      "grid_MWh": 1920.0,
+      "throughput_MWh": 0.0,
+      "conversion_loss_MWh": 0.0,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": null
+    },
+    {
+      "profile": "flat",
+      "method": "lookahead_LP",
+      "unserved_MWh": 0.0,
+      "grid_MWh": 1920.0,
+      "throughput_MWh": 0.0,
+      "conversion_loss_MWh": 0.0,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": 0.010880458168685436
+    },
+    {
+      "profile": "four_hour_peak",
+      "method": "threshold",
+      "unserved_MWh": 103.0,
+      "grid_MWh": 2063.157894736842,
+      "throughput_MWh": 120.15789473684211,
+      "conversion_loss_MWh": 6.157894736842104,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": null
+    },
+    {
+      "profile": "four_hour_peak",
+      "method": "forecast_threshold",
+      "unserved_MWh": 8.00000000000001,
+      "grid_MWh": 2168.4210526315787,
+      "throughput_MWh": 320.4210526315789,
+      "conversion_loss_MWh": 16.421052631578945,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": null
+    },
+    {
+      "profile": "four_hour_peak",
+      "method": "lookahead_LP",
+      "unserved_MWh": 8.000000000000007,
+      "grid_MWh": 2168.421052631579,
+      "throughput_MWh": 320.4210526315789,
+      "conversion_loss_MWh": 16.421052631578945,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": 0.003058750182390213
+    },
+    {
+      "profile": "eight_hour_peak",
+      "method": "threshold",
+      "unserved_MWh": 263.0,
+      "grid_MWh": 2143.157894736842,
+      "throughput_MWh": 120.15789473684211,
+      "conversion_loss_MWh": 6.157894736842104,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": null
+    },
+    {
+      "profile": "eight_hour_peak",
+      "method": "forecast_threshold",
+      "unserved_MWh": 168.0,
+      "grid_MWh": 2248.4210526315787,
+      "throughput_MWh": 320.4210526315789,
+      "conversion_loss_MWh": 16.421052631578945,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": null
+    },
+    {
+      "profile": "eight_hour_peak",
+      "method": "lookahead_LP",
+      "unserved_MWh": 168.0,
+      "grid_MWh": 2248.421052631579,
+      "throughput_MWh": 320.42105263157896,
+      "conversion_loss_MWh": 16.421052631578945,
+      "terminal_MWh": 100.0,
+      "max_violation": 7.105427357601002e-15,
+      "solve_seconds": 0.002917167032137513
+    },
+    {
+      "profile": "alternating",
+      "method": "threshold",
+      "unserved_MWh": 48.85,
+      "grid_MWh": 2123.157894736842,
+      "throughput_MWh": 234.30789473684212,
+      "conversion_loss_MWh": 12.007894736842104,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": null
+    },
+    {
+      "profile": "alternating",
+      "method": "forecast_threshold",
+      "unserved_MWh": 0.0,
+      "grid_MWh": 2177.285318559557,
+      "throughput_MWh": 337.28531855955686,
+      "conversion_loss_MWh": 17.285318559556785,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": null
+    },
+    {
+      "profile": "alternating",
+      "method": "lookahead_LP",
+      "unserved_MWh": 0.0,
+      "grid_MWh": 2177.285318559557,
+      "throughput_MWh": 337.2853185595568,
+      "conversion_loss_MWh": 17.285318559556785,
+      "terminal_MWh": 100.0,
+      "max_violation": 0.0,
+      "solve_seconds": 0.00277945795096457
+    }
+  ],
+  "certificate": {
+    "primal": [
+      60,
+      40
+    ],
+    "dual": [
+      50,
+      30
+    ],
+    "primal_objective": 3200,
+    "dual_objective": 3200,
+    "accepted": true,
+    "mutations_rejected": 4,
+    "scope": "exact rational arithmetic check, not Lean or a verified checker"
+  }
+}

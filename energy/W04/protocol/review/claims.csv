@@ -1,0 +1,9 @@
+claim_id,statement,status,evidence,limitation
+C20,W03 original and same-machine replay executed,reported with archive verified,W03 report and results/reproduction.json,not an independent full solver replay
+C21,Adaptive grouping establishes matched-quality solver superiority,not established,W03 A cohorts and reviewer event analysis,20 of 24 targets in full MILP adaptive and LP recovery; zero grouped target hits
+C22,Full LP box bounds valid for stored coefficients,exact arithmetic replayed,audit_w03.json and W03 exact_lp_certificates.json,not numerical MILP dual bounds or real physical model validation
+C23,Balanced storage and efficiency obstruction machine-checked under specified hypotheses,recorded Lean build inspected,W03 formal/Storage.lean and results/B/lean-build.log,dependency closure not independently rebuilt
+C24,Exact AC elimination improves runtime,conditional equivalence; runtime inconclusive,W03 C and reviewer AC checks,small static cases; no global optimality
+C25,Permanent generator pairing costless,contradicted on tested prefixes,W03 D comparison and recorded numerical bounds,core UC not SCUC; independent UC replay pending
+C26,Tested rolling optimizer beats strong forecast rule on service,contradicted on synthetic panel,W03 E and fresh Linux run,original 0 wins 4 ties 20 losses; fresh 0 wins 5 ties 19 losses; one scenario differs
+C27,W04 establishes AIPC superiority,prospective only,W04 protocol,no new execution or Lean build

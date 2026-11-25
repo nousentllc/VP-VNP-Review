@@ -1,0 +1,92 @@
+{
+  "scope": "Second-pass projected tails and real actions are distinct. Soft target misses are permitted.",
+  "summary": {
+    "rule3": {
+      "plans": 0,
+      "steps": 0,
+      "worst": 0.0,
+      "unmet_soft_target": 0,
+      "requested_above_floor": 0
+    },
+    "none3": {
+      "plans": 1728,
+      "steps": 4968,
+      "worst": 2.842170943040401e-14,
+      "unmet_soft_target": 0,
+      "requested_above_floor": 0
+    },
+    "value3": {
+      "plans": 1728,
+      "steps": 4968,
+      "worst": 4.263256414560601e-14,
+      "unmet_soft_target": 347,
+      "requested_above_floor": 864
+    },
+    "rule6": {
+      "plans": 0,
+      "steps": 0,
+      "worst": 0.0,
+      "unmet_soft_target": 0,
+      "requested_above_floor": 0
+    },
+    "none6": {
+      "plans": 1728,
+      "steps": 9288,
+      "worst": 5.684341886080802e-14,
+      "unmet_soft_target": 0,
+      "requested_above_floor": 0
+    },
+    "value6": {
+      "plans": 1728,
+      "steps": 9288,
+      "worst": 7.815970093361102e-14,
+      "unmet_soft_target": 194,
+      "requested_above_floor": 792
+    },
+    "rule12": {
+      "plans": 0,
+      "steps": 0,
+      "worst": 0.0,
+      "unmet_soft_target": 0,
+      "requested_above_floor": 0
+    },
+    "none12": {
+      "plans": 1728,
+      "steps": 15984,
+      "worst": 9.947598300641403e-14,
+      "unmet_soft_target": 0,
+      "requested_above_floor": 0
+    },
+    "value12": {
+      "plans": 1728,
+      "steps": 15984,
+      "worst": 9.947598300641403e-14,
+      "unmet_soft_target": 89,
+      "requested_above_floor": 360
+    },
+    "legacy6": {
+      "plans": 1728,
+      "steps": 9288,
+      "worst": 2.842170943040401e-14,
+      "unmet_soft_target": 0,
+      "requested_above_floor": 0
+    },
+    "value12_tail6": {
+      "plans": 1728,
+      "steps": 15984,
+      "worst": 1.0302869668521453e-13,
+      "unmet_soft_target": 23,
+      "requested_above_floor": 360
+    },
+    "offline": {
+      "plans": 72,
+      "steps": 1728,
+      "worst": 5.684341886080802e-14,
+      "unmet_soft_target": 0,
+      "requested_above_floor": 0
+    }
+  },
+  "invalid_or_missing": [],
+  "checked_plans": 13896,
+  "max_two_objective_residual": 1.2789769243681803e-13
+}

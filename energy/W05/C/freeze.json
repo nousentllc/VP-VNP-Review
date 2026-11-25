@@ -1,0 +1,26 @@
+{
+  "utc": "2026-11-25T00:59:39.215559+00:00",
+  "arms": [
+    "full_dc",
+    "full_matched",
+    "all",
+    "degree",
+    "guided"
+  ],
+  "repeats": 5,
+  "gate_s": 12,
+  "hashes": {
+    "W05/C/opf.py": "75cefe23e05a525da8533a4916cc927947a2fc35c06deab337a1e098196b4bee",
+    "W05/C/selection.py": "cae0a59b188297ec8696fe02dfbaa6316896bbd390963ce36657238141eb8c0b",
+    "W05/C/plan.md": "6a1acd6b501c1468c2b0c103e399365ec3aedcbe75a04c38a50b5b84322c603b",
+    "W04/C/structure.py": "61e384c8a5152b70a679c56ee209069b8f034655e69e86549fb33252c86ad1ff",
+    "W04/C/review_check.py": "947adc593fa82ce1b5d11261eeee7a8cc4ef74a12a0f4e797e01ce3823a8a076",
+    "W04/foundation/src/ac.py": "e073a80adc1c04540b12295375a76d51861ae745a17e70fd1e0787b582bf795c",
+    "W04/foundation/results/C/development.json": "7969622cd3a1f38e16bb9d53f6d60671da24215469d151884fba7d5c6418973a",
+    "W05/C/inputs/pglib_opf_case1888_rte.m": "f4bc237298ed7c2e9291070f3c3a0983319565c12b801114a1e29641d0b5bff0",
+    "W05/C/inputs/pglib_opf_case200_activ.m": "676e6f54a3b6726b199b531e7758ad8bf75ba2b076ea3fee86dc3f5cf5846f6b",
+    "W05/C/inputs/pglib_opf_case24_ieee_rts.m": "5d4fc2d4a1a282f700c51747e592f5a5ac15fa6d5eadb7df7ae937bbe3063374",
+    "W05/C/inputs/pglib_opf_case500_goc.m": "36c298d571605019ef16c17dd74680adca1386d91ed47d69a0d909aebc90a1b6",
+    "W05/C/inputs/pglib_opf_case73_ieee_rts.m": "fe8f15a2391e2c92138b712d146b04c038f0727e8e9220e1c6065507ea12a22c"
+  }
+}

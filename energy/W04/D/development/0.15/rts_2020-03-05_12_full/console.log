@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W04/D/uc_warm.py", line 164, in <module>
+    _,_,f,t,a,o,s,e=sys.argv;worker(Path(f),int(t),a,Path(o),float(s),float(e))
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W04/D/uc_warm.py", line 39, in worker
+    if M.format_!=hs.MatrixFormat.kColwise:raise ValueError('Expected canonical CSC')
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Expected canonical CSC

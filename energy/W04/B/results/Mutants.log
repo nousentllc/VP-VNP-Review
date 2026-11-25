@@ -1,0 +1,16 @@
+Mutants.lean:5:23: error: unsolved goals
+⊢ False
+Mutants.lean:6:51: error: unsolved goals
+⊢ False
+Mutants.lean:7:23: error: unsolved goals
+⊢ False
+Mutants.lean:8:31: error: unsolved goals
+⊢ False
+Mutants.lean:9:67: error: unsolved goals
+⊢ False
+Mutants.lean:10:32: error: unsolved goals
+⊢ False
+Mutants.lean:11:25: error: unsolved goals
+⊢ False
+Mutants.lean:12:23: error: unsolved goals
+⊢ False

@@ -1,0 +1,131 @@
+{
+  "toolchain": "Lean (version 4.30.0-rc2, arm64-apple-darwin24.6.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc, Release)",
+  "source_sha256": "d719dae3bd49c0aedef8d0290c663e73e77862512bee4252afc4bc57f69c5413",
+  "proofs": [
+    "W03.lift_total",
+    "W03.lift_rate",
+    "W03.lift_capacity",
+    "W03.lift_movement",
+    "W03.projection",
+    "W03.reconstruction",
+    "W03.same_threshold",
+    "W03.cyclic_zero",
+    "W03.terminal_bound",
+    "W03.storage_residual",
+    "W03.cyclic_totals",
+    "W03.terminal_residual",
+    "W03.each_zero",
+    "W03.no_common_cycles",
+    "W03.two_device_bound",
+    "W03.same_threshold_real"
+  ],
+  "negative_compile_controls": [
+    {
+      "control": "mismatched_labels",
+      "proposition": "((0 : \u2124) = |(1:\u2124)-0| + |(0:\u2124)-1|)",
+      "exit": 1,
+      "diagnostic": "error: unsolved goals\n\u22a2 False"
+    },
+    {
+      "control": "remove_efficiency_difference",
+      "proposition": "((4/5 : \u211a)*1=4/5 \u2227 (4/5 : \u211a)*1=4/5) \u2192 (1 : \u211a)=0",
+      "exit": 1,
+      "diagnostic": "error: unsolved goals\n\u22a2 False"
+    },
+    {
+      "control": "permit_fractional_individual_modes",
+      "proposition": "((4/5 : \u211a)*(1/2)-(8/25)/(4/5)=0 \u2227 2*((1/2:\u211a)-8/25)=9/25) \u2192 min (1/2:\u211a) (8/25)=0",
+      "exit": 1,
+      "diagnostic": "error: unsolved goals\n\u22a2 False"
+    },
+    {
+      "control": "terminal_interval_implies_zero_throughput",
+      "proposition": "(|(4/5:\u211a)*1-4/5|\u22640 \u2227 |(81/100:\u211a)*1-4/5|\u22641/100) \u2192 (1:\u211a)\u22640",
+      "exit": 1,
+      "diagnostic": "error: unsolved goals\n\u22a2 False"
+    }
+  ],
+  "exact_checks": {
+    "integer_transitions": 27776,
+    "nonzero_terminal_tolerance_case": {
+      "C": "1",
+      "D": "4/5",
+      "SOC_tolerances": [
+        "0",
+        "1/180"
+      ],
+      "both_sides": "1/100"
+    }
+  },
+  "labeled": {
+    "aggregate_zero_movement_cost": 0,
+    "minimum_cost_with_fixed_swapped_labels": 2,
+    "minimum_cost_with_fixed_identical_endpoints": 0,
+    "minimum_cost_with_endpoint_permutations_allowed": 0
+  },
+  "averaged": {
+    "original": {
+      "grid_import_by_hour": [
+        "9/25",
+        "9/25"
+      ],
+      "terminal_soc_by_device": [
+        "3/2",
+        "3/2"
+      ],
+      "linear_throughput_cost_at_unit_price": "82/25",
+      "satisfies_relaxation": true,
+      "simultaneous_device_hours_as_hour_device": [],
+      "physically_admissible_powers": true
+    },
+    "relabeling": {
+      "grid_import_by_hour": [
+        "9/25",
+        "9/25"
+      ],
+      "terminal_soc_by_device": [
+        "3/2",
+        "3/2"
+      ],
+      "linear_throughput_cost_at_unit_price": "82/25",
+      "satisfies_relaxation": true,
+      "simultaneous_device_hours_as_hour_device": [],
+      "physically_admissible_powers": true
+    },
+    "average": {
+      "grid_import_by_hour": [
+        "9/25",
+        "9/25"
+      ],
+      "terminal_soc_by_device": [
+        "3/2",
+        "3/2"
+      ],
+      "linear_throughput_cost_at_unit_price": "82/25",
+      "satisfies_relaxation": true,
+      "simultaneous_device_hours_as_hour_device": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "physically_admissible_powers": false
+    }
+  },
+  "certificate": {
+    "positive": 1,
+    "corruptions_rejected": 4
+  }
+}

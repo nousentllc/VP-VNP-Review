@@ -1,0 +1,100 @@
+{
+  "scope": "Archive integrity, recorded-schedule validation, exact rational box bounds, delivered AC checker, retrospective event-log reanalysis; not solver/Lean/UC rebuild.",
+  "manifest_files": 86,
+  "A_trials": 450,
+  "A_schedules": 367,
+  "A_max_accepted_residual": 3.1090685581602884e-12,
+  "exact_bounds": 24,
+  "case_all_three_hit": {
+    "full_milp": 20,
+    "full_lp": 18,
+    "lp_recovery": 20,
+    "fixed_shared": 18,
+    "fixed_proportional": 18,
+    "adaptive": 20,
+    "symmetry": 6
+  },
+  "C_checks": 36,
+  "C_corruptions_rejected": 36,
+  "E_hours": 1728,
+  "E_archived": {
+    "additional_unserved_MWh": 177.96780618669428,
+    "wins": 0,
+    "ties": 4,
+    "losses": 20,
+    "differences": {
+      "base_1137": 9.822561491747654,
+      "base_1499": 5.541404835033944,
+      "base_2153": 10.928809124080686,
+      "base_3581": 1.7763568394002505e-14,
+      "base_4621": 0.6386686568748132,
+      "base_551": 6.147206485326066,
+      "base_6577": 13.051169541974273,
+      "base_864": 2.1836412300523023,
+      "biased_forecast_1137": 9.926081399197159,
+      "biased_forecast_1499": 14.866463911610225,
+      "biased_forecast_2153": 19.09952363145777,
+      "biased_forecast_3581": 0.3224587094361624,
+      "biased_forecast_4621": 0.6386686568748061,
+      "biased_forecast_551": 6.904971165867536,
+      "biased_forecast_6577": 13.05116954197427,
+      "biased_forecast_864": 0.5870808999767547,
+      "outage_reserve_1137": -1.4210854715202004e-14,
+      "outage_reserve_1499": 27.345132156259567,
+      "outage_reserve_2153": 22.982700699508143,
+      "outage_reserve_3581": 0.0,
+      "outage_reserve_4621": 0.0,
+      "outage_reserve_551": 1.818849691990323,
+      "outage_reserve_6577": 10.21261160974958,
+      "outage_reserve_864": 1.8986327477022371
+    }
+  },
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "scipy": "1.17.0",
+    "numpy": "2.3.5"
+  },
+  "E_fresh": {
+    "additional_unserved_MWh": 176.06917343899212,
+    "wins": 0,
+    "ties": 5,
+    "losses": 19,
+    "differences": {
+      "base_1137": 9.82256149174765,
+      "base_1499": 5.541404835033944,
+      "base_2153": 10.928809124080715,
+      "base_3581": 3.552713678800501e-15,
+      "base_4621": 0.6386686568748132,
+      "base_551": 6.147206485326066,
+      "base_6577": 13.051169541974266,
+      "base_864": 2.1836412300523023,
+      "biased_forecast_1137": 9.926081399197159,
+      "biased_forecast_1499": 14.866463911610225,
+      "biased_forecast_2153": 19.0995236314578,
+      "biased_forecast_3581": 0.3224587094361624,
+      "biased_forecast_4621": 0.6386686568748061,
+      "biased_forecast_551": 6.904971165867565,
+      "biased_forecast_6577": 13.051169541974263,
+      "biased_forecast_864": 0.5870808999767547,
+      "outage_reserve_1137": -1.4210854715202004e-14,
+      "outage_reserve_1499": 27.345132156259567,
+      "outage_reserve_2153": 22.98270069950817,
+      "outage_reserve_3581": 0.0,
+      "outage_reserve_4621": 0.0,
+      "outage_reserve_551": 1.818849691990323,
+      "outage_reserve_6577": 10.212611609749587,
+      "outage_reserve_864": -7.105427357601002e-15
+    },
+    "material_differences": [
+      {
+        "case": "outage_reserve_864",
+        "method": "rolling_mpc",
+        "old_unserved": 59.27481001583228,
+        "new_unserved": 57.376177268130036
+      }
+    ],
+    "runs": 72,
+    "fallback_hours": 0
+  }
+}

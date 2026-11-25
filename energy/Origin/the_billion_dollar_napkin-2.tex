@@ -1,0 +1,159 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{fontspec}
+\usepackage[english, bidi=basic, provide=*]{babel}
+\babelprovide[import, onchar=ids fonts]{english}
+\babelfont{rm}{Noto Sans}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,tabularx,array,xcolor,fancyhdr,hyperref,enumitem}
+
+\definecolor{ink}{HTML}{182F41}
+\definecolor{accent}{HTML}{176060}
+\definecolor{muted}{HTML}{41596A}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent,pdftitle={The Billion-Dollar Napkin},pdfauthor={Uriel Research}}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\para}[1]{\par\medskip\noindent\textbf{#1}\quad}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{muted}Uriel Research}
+\fancyhead[R]{\small\color{muted}Algorithmic Grid Optimization}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\linespread{1.05}
+
+\begin{document}
+\thispagestyle{plain}
+{\small\bfseries\color{accent}URIEL RESEARCH\hfill 24 NOVEMBER 2026}\par\vspace{14pt}
+{\Huge\bfseries\color{ink}The Billion-Dollar Napkin\par}\vspace{6pt}
+{\Large\color{muted}Translating algebraic complexity and formal methods into TWh savings for MISO and the U.S. Grid\par}\vspace{14pt}
+
+\textbf{Abstract.} A 10\% gain in algorithmic and modeling precision across Power Systems Engineering (PSE) and Power Electronics (PE) yields an estimated savings of 8.3 TWh/year in the Midcontinent Independent System Operator (MISO) footprint (7.6 TWh grid-level, 0.7 TWh device-level) and 46.9 TWh/year across the broader U.S. grid (42.4 TWh grid-level, 4.5 TWh device-level). These efficiencies translate to recurring annual savings of approximately \$620 million in MISO and \$3.8 billion nationwide, unlocking roughly 5.4 GW of continuous, 24/7 baseload-equivalent capacity for AI data centers and industrial electrification without pouring concrete for new generation. This manuscript provides a detailed walkthrough of this ``napkin math,'' separating naive total-load scaling from the genuine, addressable physical friction pool. We trace these energy pools directly back to computational bottlenecks: the $VP$ versus $VNP$ algebraic complexity of Alternating Current Optimal Power Flow (AC-OPF) polynomial relaxations, the Mixed-Integer Programming (MIP) duality gaps in Day-Ahead Security-Constrained Unit Commitment (SCUC), and kilohertz-scale Model Predictive Control (MPC) limits in power electronics.
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\section{The False Promise of Naive Scaling}
+
+When proposing mathematical or algorithmic improvements to grid operations, a common fallacy is to apply an efficiency gain directly to the total electricity throughput. In 2025, MISO managed roughly 690 TWh of load, while the entire U.S. grid managed approximately 4,430 TWh. 
+
+A naive 10\% optimization assumption yields 69 TWh and 443 TWh, respectively. Grid operators and power engineers correctly dismiss these figures out of hand. An optimization algorithm running on a market server cannot alter the thermodynamic work required to melt a ton of steel in an electric arc furnace or cool a residential building in July. The end-use load is a boundary condition, not a variable to be minimized by market software.
+
+To ground this exercise in reality, we must isolate the \textbf{controllable friction pool}. This represents the energy lost not to fundamental physics, but to the conservative operational margins and algebraic approximations required to run a complex grid using heuristics and timed-out polynomial solvers. The true controllable friction pool represents roughly 9.5\% to 11\% of total grid energy.
+
+\section{Isolating the Controllable Friction Pool}
+
+The controllable friction pool is composed of three distinct grid-level buckets and one device-level bucket. Improving algorithmic precision directly reclaims energy from these specific domains.
+
+\para{1. Renewable Curtailment.} When transmission lines hit their conservative thermal limits, or when grid software cannot resolve local congestion quickly enough, wind and solar generation is curtailed (spilled). Curtailment is a direct artifact of computational and transmission bottlenecks.
+
+\para{2. Technical Transmission \& Distribution (T\&D) Losses.} Physical heating ($I^2R$ losses) on transmission and distribution lines consumes roughly 5\% of all generated electricity. While some loss is inevitable, the exact routing of power and the management of reactive power (Volt-VAR optimization) drastically impact current magnitudes. Because exact AC routing is computationally intractable, operators use DC approximations, leading to suboptimal dispatches that needlessly increase physical heating.
+
+\para{3. SCUC and Reserve Margin Padding.} To protect against forecast errors and generator trips, grid operators hold significant capacity in reserve. Because the Day-Ahead Unit Commitment problem is a massive Mixed-Integer Program (MIP) that must solve overnight, it rarely solves to true optimality. The remaining ``duality gap'' forces operators to commit out-of-merit peaker plants or hold generators at inefficient minimum-generation setpoints, wasting thermal energy.
+
+\para{4. Power Electronics (PE) Conversion Loss.} At the device level, power electronics (inverters, battery management systems, solid-state transformers) incur a ~3\% switching and conduction loss. Faster, more precise control algorithms at the switching level allow hardware to operate closer to its absolute thermal and harmonic limits, recovering lost fractions of a percent on massive energy flows.
+
+\subsection{The Napkin Math Breakdown}
+
+Table 1 summarizes the size of each friction bucket for both MISO and the U.S. grid, applying a highly targeted 10\% algorithmic gain to these specific pools rather than the total load.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabularx}{\linewidth}{@{}X r r r@{}}
+\toprule
+\textbf{Modeling / Control Friction Bucket} & \textbf{MISO Pool} & \textbf{U.S. Grid Pool} & \textbf{10\% Algorithmic Gain (MISO / U.S.)} \\ \midrule
+\textbf{Renewable Curtailment}\newline (Transmission bottlenecks, dynamic line ratings) & $\sim$13.5 TWh & $\sim$25.0 TWh & \textbf{1.35 TWh} / \textbf{2.50 TWh} \\ \addlinespace
+\textbf{Technical T\&D Losses}\newline ($\sim$5\% of total generation; AC-OPF slack) & $\sim$34.5 TWh & $\sim$221.5 TWh & \textbf{3.45 TWh} / \textbf{22.15 TWh} \\ \addlinespace
+\textbf{SCUC / Reserve Padding}\newline ($\sim$4\% of load in suboptimal standby) & $\sim$27.6 TWh & $\sim$177.2 TWh & \textbf{2.76 TWh} / \textbf{17.72 TWh} \\ \addlinespace
+\textbf{Subtotal: PSE Grid Friction Pool} & \textbf{75.6 TWh} & \textbf{423.7 TWh} & \textbf{7.56 TWh} / \textbf{42.37 TWh} \\ \midrule
+\textbf{Power Electronics (PE) Slice}\newline ($\sim$3\% loss on $\sim$1,500 TWh inverter throughput) & $\sim$7.0 TWh & $\sim$45.0 TWh & \textbf{0.70 TWh} / \textbf{4.50 TWh} \\ \midrule
+\textbf{Combined Addressable Friction Pool} & \textbf{82.6 TWh} & \textbf{468.7 TWh} & \textbf{8.26 TWh} / \textbf{46.87 TWh} \\ \addlinespace
+\textbf{Annual PSE Dollar Value}\newline (At $\sim$\$53/MWh MISO / $\sim$\$50/MWh U.S. + uplift) & --- & --- & \textbf{$\sim$\$621M/yr} / \textbf{$\sim$\$3.82B/yr} \\
+\bottomrule
+\end{tabularx}
+\caption{The Controllable Friction Pool (U.S. curtailment reflects a conservative ISO/RTO floor). Financial estimates value PSE MWh savings at average wholesale clearing prices plus an estimated 10\% reduction in annual out-of-merit transmission congestion uplift (\$2.2B for MISO, \$17B for U.S.).}
+\end{table}
+
+This mathematically defensible 7.6 TWh/yr in MISO operates as a true ``Non-Wires Alternative.'' By refining the mathematics of the dispatch, the grid effectively gains the equivalent of a 1 GW, 100\% capacity-factor baseload generator, entirely through software.
+
+\section{AC-OPF and the $VP$ vs. $VNP$ Bottleneck}
+
+Power Systems Engineering is not simply an accounting problem; it is governed by algebraic geometry. The fundamental equations of the grid are the Alternating Current (AC) power flow equations. For a grid with $N$ buses, the active ($P_i$) and reactive ($Q_i$) power injected at bus $i$ are governed by:
+\begin{align}
+ P_i &= \sum_{j=1}^{N} |V_i| |V_j| \left( G_{ij} \cos(\theta_i - \theta_j) + B_{ij} \sin(\theta_i - \theta_j) \right) \\
+ Q_i &= \sum_{j=1}^{N} |V_i| |V_j| \left( G_{ij} \sin(\theta_i - \theta_j) - B_{ij} \cos(\theta_i - \theta_j) \right)
+\end{align}
+where $V_i$ is the complex voltage, $G_{ij}$ is conductance, and $B_{ij}$ is susceptance. 
+
+In rectangular coordinates ($V_i = e_i + \mathrm{j} f_i$), these trigonometric relations resolve into systems of \textbf{degree-2 multivariate polynomials}. Finding the globally optimal generation dispatch subject to these physical constraints---the AC Optimal Power Flow (AC-OPF) problem---is non-convex and NP-hard. 
+
+In Valiant's algebraic complexity theory, $VP$ and $VNP$ classify families of multivariate polynomials by the size of the arithmetic circuits required to represent them. When solving the exact Karush--Kuhn--Tucker (KKT) optimality conditions of AC-OPF via algebraic elimination, the degree and symbolic circuit complexity of the resulting solution varieties explode exponentially ($VNP$-hard symbolic evaluation). Because grid operators must clear the Security-Constrained Economic Dispatch (SCED) market strictly every 5 minutes, they cannot wait for exact algebraic solvers to converge.
+
+Instead, operators linearize the physics. They construct ``DC-OPF'' by assuming all voltage magnitudes $|V_i|$ equal $1.0$ per-unit, assuming angle differences $(\theta_i - \theta_j)$ are small so $\sin(\theta) \approx \theta$ and $\cos(\theta) \approx 1$, and ignoring reactive power $Q_i$ entirely. 
+
+While DC-OPF solves in polynomial time ($VP$), the physical grid still obeys AC physics. When the DC-OPF dispatch is sent to physical generators, the discrepancy between the linear math and the polynomial reality manifests physically as elevated $I^2R$ heating (T\&D losses) and reactive power voltage sags. 
+
+The algorithmic opportunity lies in constructing compact arithmetic circuits ($VP$-tractable algebraic relaxations, such as sparse Sum-of-Squares or Semidefinite Programming hierarchies) that certify tight bounds on the true AC-OPF solution without timing out. Recapturing just 10\% of the slack lost to DC-OPF linearization directly yields the 3.45 TWh T\&D efficiency gain in MISO.
+
+\section{SCUC, Mixed-Integer Programming, and Formal Verification}
+
+The Day-Ahead market determines which power plants will turn on and off over the next 24 to 48 hours. This Security-Constrained Unit Commitment (SCUC) problem is a massive Mixed-Integer Program (MIP). The integer variables represent the binary on/off states of hundreds of generators, subject to minimum up-times, ramp rates, and thousands of transmission constraints.
+
+Like AC-OPF, SCUC is NP-hard. MISO's overnight market clearing engines (using commercial solvers like Gurobi or CPLEX) are given a strict time limit (e.g., 2 to 4 hours). When the clock runs out, the solver halts. The difference between the best known feasible dispatch and the theoretical absolute minimum cost is the ``MIP duality gap,'' often resting between 0.1\% and 0.5\%.
+
+A 0.5\% gap on a \$35 billion annual wholesale market is roughly \$175 million left on the table every year, simply because the solver ran out of time. Physically, this gap represents unnecessary thermal plant startups, excessive spinning reserves held out of merit order, and inefficient part-load operations.
+
+\para{The Role of Formal Methods.} 
+Enhancing MIP solvers relies on discovering ``valid inequalities'' or cutting planes—mathematical constraints that shrink the search space without removing optimal solutions. Historically, these are found via heuristics. However, applying formal proof assistants (such as Lean 4) allows mathematicians to synthesize and formally verify custom cutting planes tailored to specific, recurring topologies in the MISO grid. 
+
+Furthermore, electricity market tariffs encode thousands of complex, interlocking logic rules regarding scarcity pricing and Locational Marginal Pricing (LMP) settlements. A bug in market-clearing logic can trigger multimillion-dollar settlement disputes. Applying formal verification to the market-clearing code ensures that zero hidden edge-case contradictions exist in the pricing logic, hardening the financial integrity of the dispatch.
+
+\section{Kilohertz Control in Power Electronics (PE)}
+
+Grid efficiency is not exclusively a macro-scale market problem; it extends to the microsecond control loops inside Power Electronics (PE). As the grid transitions, up to 1,500 TWh of energy currently passes through Inverter-Based Resources (IBRs), Battery Energy Storage Systems (BESS), and data-center Power Supply Units (PSUs).
+
+These devices rely on Model Predictive Control (MPC) running on FPGAs or DSPs to convert DC to AC (or vice versa) while maintaining grid-following or grid-forming stability. To handle switching frequencies between 10 kHz and 100 kHz, the embedded MPC algorithms must solve constrained optimization trajectories in under 100 microseconds. 
+
+Because of this brutal latency budget, firmware engineers historically simplify the objective functions and enforce wide thermal/harmonic safety guardbands. If algebraic complexity optimization ($VP$ circuit depth minimization) can reduce the number of floating-point operations required to solve the MPC horizon, the inverter can execute more sophisticated, nonlinear thermal models inside the same 100-microsecond tick. 
+
+By calculating optimal switching vectors closer to the physical limits of silicon carbide (SiC) or gallium nitride (GaN) components without risking relay trips, algorithmic precision claws back a fraction of a percent of conversion loss. Across 1,500 TWh of inverter throughput, a 0.30\% absolute efficiency gain (from 97.0\% to 97.3\%, representing a 10\% reduction in the 3.0\% conversion loss) yields 4.5 TWh of recovered energy nationwide.
+
+\section{Conclusion: Software as a Non-Wires Alternative}
+
+The physical infrastructure required to build 5.35 GW of new baseload-equivalent generation and deliver 46.9 TWh across the U.S. grid entails tens of billions of dollars in capital expenditure, multi-year interconnection queue delays, and thousands of miles of physical steel and aluminum. 
+
+By contrast, the controllable friction pool is entirely a mathematical and algorithmic challenge. Optimizing algebraic relaxations for AC-OPF, closing MIP duality gaps in SCUC through verified cutting planes, and reducing MPC circuit depth in power electronics requires zero new right-of-ways or physical permits. Even if an organization achieves only a 1\% to 2\% gain in these specific models—rather than the 10\% outlined in this exercise—the resulting \$100M+ in recurring annual savings represents one of the highest-leverage investments available in the modern energy transition.
+
+\vspace{2em}
+\hrule
+\vspace{1em}
+
+\appendix
+\section{Appendix: The Degree-2 Polynomial Structure of AC-OPF}
+
+To demonstrate why the Alternating Current Optimal Power Flow (AC-OPF) problem sits firmly within the domain of algebraic geometry (and classes like $VP$/$VNP$), we translate the standard trigonometric power flow equations into rectangular coordinates.
+
+Let the complex voltage at bus $i$ be defined as $V_i = e_i + \mathrm{j}f_i$, where $e_i$ and $f_i$ are continuous real variables, and $\mathrm{j}$ is the imaginary unit. Let the complex admittance between bus $i$ and bus $j$ be denoted by the matrix element $Y_{ij} = G_{ij} + \mathrm{j}B_{ij}$.
+
+The complex power injected at bus $i$ is $S_i = P_i + \mathrm{j}Q_i = V_i I_i^*$, where $I_i$ is the injected current. Expanding this purely in terms of real and imaginary components yields the active power $P_i$ and reactive power $Q_i$:
+\begin{align}
+    P_i &= \sum_{j=1}^{N} \Big[ G_{ij}(e_i e_j + f_i f_j) + B_{ij}(f_i e_j - e_i f_j) \Big] \\
+    Q_i &= \sum_{j=1}^{N} \Big[ G_{ij}(f_i e_j - e_i f_j) - B_{ij}(e_i e_j + f_i f_j) \Big]
+\end{align}
+
+These formulas reveal that active and reactive power flows are \textbf{exact multivariate polynomials of degree 2} in the continuous voltage variables $e$ and $f$. 
+
+Furthermore, operational limits on the grid map natively to polynomial constraints. For instance, upper and lower voltage magnitude limits ($|V_i|^2 \le (V_i^{\max})^2$) become straightforward quadratic constraints:
+\begin{equation}
+    (V_i^{\min})^2 \le e_i^2 + f_i^2 \le (V_i^{\max})^2
+\end{equation}
+
+Because the entire feasible region of the power grid is a semi-algebraic set defined by intersections of non-convex, degree-2 polynomials, exact global optimization algorithms must manipulate these systems symbolically. This inherently triggers the exponential combinatorial blowup characteristic of $VNP$-hard polynomial evaluation, forcing grid operators to rely on linear approximations (DC-OPF) or $VP$-tractable convex algebraic relaxations (such as Sum-of-Squares and Semidefinite Programming).
+
+\end{document}

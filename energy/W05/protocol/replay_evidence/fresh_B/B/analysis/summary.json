@@ -1,0 +1,68 @@
+{
+  "scheduled": 32,
+  "primary_anchor_failures": 7,
+  "secondary_attempts": 7,
+  "secondary_lp_codes": {
+    "0": 7
+  },
+  "mutations": {
+    "primary_one_sided_corruptions_rejected": 25,
+    "secondary_one_sided_corruptions_rejected": 7
+  },
+  "primary": {
+    "accepted": 25,
+    "full_optimum_exact": 10,
+    "reduced_optimum_exact": 25,
+    "fallback_anchor": 13,
+    "no_repair_needed": 0,
+    "within_candidate_bound": 0,
+    "within_uniform_bound": 0,
+    "within_direct_gap": 0,
+    "movement_lp_strict": 25,
+    "medians": {
+      "alpha": 2560.0,
+      "beta": 743.8339285714286,
+      "uniform_beta": 3739.25,
+      "bound": 3215.5881509436217,
+      "regret_upper": 592.8948805122014,
+      "lipschitz_beta": 5255.247772076695,
+      "anchor_build_ms": 3.409250173717737,
+      "distortion_build_ms": 53.77295799553394,
+      "analytic_repair_ms": 6.471000146120787,
+      "movement_LP_ms": 28.324041049927473,
+      "full_lp_ms": 10.924916947260499
+    },
+    "slots_total": 100,
+    "slots_certified": 34,
+    "slots_lp_only": 59,
+    "slots_neither": 7
+  },
+  "secondary": {
+    "accepted": 7,
+    "full_optimum_exact": 1,
+    "reduced_optimum_exact": 7,
+    "fallback_anchor": 6,
+    "no_repair_needed": 0,
+    "within_candidate_bound": 0,
+    "within_uniform_bound": 0,
+    "within_direct_gap": 0,
+    "movement_lp_strict": 7,
+    "medians": {
+      "alpha": 2805.0,
+      "beta": 811.2034084332392,
+      "uniform_beta": 3833.8526039178214,
+      "bound": 3470.3552087619514,
+      "regret_upper": 855.7050080295146,
+      "lipschitz_beta": 5068.02004575887,
+      "anchor_build_ms": 0.0016659032553434372,
+      "distortion_build_ms": 53.42866689898074,
+      "analytic_repair_ms": 6.624708184972405,
+      "movement_LP_ms": 28.211334021762013,
+      "full_lp_ms": 10.886749951168895
+    },
+    "slots_total": 28,
+    "slots_certified": 13,
+    "slots_lp_only": 14,
+    "slots_neither": 1
+  }
+}

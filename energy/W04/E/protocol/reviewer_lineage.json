@@ -1,0 +1,14 @@
+{
+  "supplied_archive_sha256": "dafbf5e6ddebcb4ffbe2224461dcf5eff5b3e14a12d38e7453915c84035c6d5b",
+  "review_member": "audit_w03.json",
+  "member_sha256": "c488db251e606af9bb3237f59bee5e2fe7d331c125b6978aee7b702d7deac17d",
+  "linux_environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "scipy": "1.17.0",
+    "numpy": "2.3.5"
+  },
+  "extracted_trajectory": "outage_reserve_864 / rolling_mpc",
+  "supplied_manuscript_sha256": "43798d1f1220fc31faf378270a9afe7c9625ee6fdabe032c0fa2e68089be1b1f",
+  "protocol_sha256": "ce2b62d2e5aad077c12a107e79617b369cb867050ea42ac147d9739f3750a42f"
+}

@@ -1,0 +1,276 @@
+% CRGC Whitepaper -- standalone archival source, v0.1
+% Compile twice with pdflatex. No external bibliography or graphics required.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.88in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,tabularx,array}
+\usepackage{microtype,xcolor,fancyhdr}
+\usepackage{hyperref}
+\definecolor{navy}{HTML}{19354B}
+\hypersetup{colorlinks=true,linkcolor=navy,citecolor=navy,urlcolor=navy,
+  pdftitle={Computationally Recoverable Grid Capability},pdfauthor={Uriel Research}}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small URIEL RESEARCH}
+\rhead{\small Technical whitepaper \textbar{} v0.1}
+\cfoot{\thepage}
+\setlength{\headheight}{15pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{1em}
+\newcommand{\CRGC}{\mathrm{CRGC}}
+\newcommand{\MW}{\mathrm{MW}}
+\newcommand{\MWh}{\mathrm{MWh}}
+\newcommand{\E}{\mathbb{E}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\title{\textcolor{navy}{\bfseries Computationally Recoverable\\Grid Capability (CRGC)}\\[0.5em]
+\large The Billion-Dollar Napkin\\[0.2em]
+\normalsize An Open Research Challenge for Power Systems Engineering,\\ Power Electronics, and Formal Mathematics}
+\author{Uriel Research}
+\date{24 November 2026 \\ \small Version 0.1 --- Research discussion whitepaper}
+\begin{document}
+\maketitle
+\begin{abstract}
+Power-system operators and power-electronic controllers must make physically consequential decisions under finite computational budgets, imperfect information, and stringent reliability requirements. This whitepaper proposes an interdisciplinary research program to measure the incremental value of better mathematical formulations, optimization algorithms, and machine-checkable certificates under those constraints. We introduce Computationally Recoverable Grid Capability (CRGC) as a proposed, study-specific measure of additional deliverable electrical service under matched physical, informational, computational, and reliability constraints. We distinguish production cost, electrical energy, network deliverability, and dependable capacity, which cannot be inferred from one another by simple scaling. A motivating conceptual calculation suggests that modest improvements across large energy systems could have substantial economic consequences; its aggregate dollar and energy figures remain unvalidated scenarios, not estimates of attainable savings. We propose matched-baseline experiments for AC security-constrained optimal power flow, unit commitment, converter control, and certificate verification, with independent physical validation and joint accounting. The objective is a reproducible method for deciding when mathematical progress produces measurable engineering and economic value.
+\end{abstract}
+
+\textbf{Keywords:} AC-OPF; SCUC; model predictive control; formal methods; Lean 4; grid economics; resource adequacy; battery energy storage.
+
+\section{Motivation and scope}
+The electrical grid is simultaneously a physical system, a market, and a computational system. Its operational decisions must satisfy network physics, equipment limits, contingency requirements, and uncertainty within practical deadlines. Investment in generation, transmission, distribution, and storage expands the physical asset base; investment in computation may improve the utilization of that asset base. These pathways are complementary.
+
+The central research question is whether identifiable improvements in mathematics and computation can recover additional useful electrical service or reduce real operating costs without weakening the reliability requirements applied to the baseline. The question is increasingly relevant to large computational loads, industrial electrification, inverter-based resources, and constrained interconnection capacity.
+
+This is not an unexplored field. The ARPA-E Grid Optimization Competition and its supporting national laboratory work provide an established foundation for benchmarking security-constrained grid optimization \cite{go}. IEEE Power and Energy Society benchmark libraries likewise support reproducible optimal power flow and unit commitment experiments \cite{pglibopf,pglibuc}. The contribution proposed here is a unified empirical framework connecting algorithmic changes to independently validated physical outcomes, economic value, and machine-checkable guarantees. Novelty relative to the full literature remains to be established.
+
+The motivating note \emph{The Billion-Dollar Napkin} \cite{napkin} identified four candidate domains: renewable curtailment, electrical losses, commitment and reserves, and power-electronic conversion. This paper retains these domains while rejecting the assumption that their total measured losses are entirely computationally addressable. It does not advocate relaxing an applicable reliability standard, substituting proof for engineering validation, or representing annual energy recovery as accredited generation capacity.
+
+\section{A falsifiable definition of recoverable capability}
+\subsection{Operating envelopes and the counterfactual}
+A distinction must be made between physical feasibility, feasibility under applicable reliability constraints, and the subset of decisions that can actually be implemented given available information, computational resources, and operational deadlines. Their differences need not be recoverable by software: uncertainty, inadequate telemetry, institutional requirements, and equipment limits can remain binding even with an ideal optimizer.
+
+Let $x_t$ denote a network and resource state, $\xi_t$ uncertain conditions, $a_t$ an operating decision, and $\mathcal{F}(x_t,\xi_t)$ the modeled feasible set under common physical and reliability requirements. A baseline policy $A_0$ and candidate policy $A_1$ receive the same permitted information $\mathcal{I}_t$, computational budget $B$, and decision deadline $\tau$:
+\begin{equation}
+a_{j,t}=A_j(\mathcal{I}_t;B,\tau),\qquad j\in\{0,1\}.
+\label{eq:policy}
+\end{equation}
+Their decisions are replayed against identical realizations of $\xi_t$, using an independent validation model and a common fallback policy. This comparison isolates the intervention more effectively than comparing a new idealized solver with historical dispatch under different conditions.
+
+For a location $n$, duration $h$, and prespecified risk criterion $\epsilon$, define a deliverable additional service envelope for a specified load or service profile:
+\begin{equation}
+Q_j(n,h,\epsilon)=\sup\{q\geq0:\text{ policy }A_j\text{ can serve }q
+\text{ under the common criteria}\}.
+\end{equation}
+The feasibility test includes chronological dispatch, applicable contingencies, resource limits, and existing obligations. If risk is probabilistic, the criterion and uncertainty distribution must be disclosed; deterministic contingency requirements remain hard constraints. Compare only cases with a feasible reference service, and report baseline failures separately rather than assigning arbitrary capacity values. Define the signed difference
+\begin{equation}
+\boxed{\CRGC(n,h,\epsilon)=Q_1(n,h,\epsilon)-Q_0(n,h,\epsilon).}
+\label{eq:crgc}
+\end{equation}
+CRGC is a proposed study-specific quantity, not an existing market product or a capacity accreditation rule. A negative value is a valid result. Additional capability is demonstrated only when the candidate improves deliverable service at the specified location and duration without violating the common reliability criteria. Values at different nodes generally cannot be added unless the corresponding services are jointly feasible.
+
+\subsection{Independent outcome measures}
+For a study horizon $T$, define paired realized net production-cost benefit:
+\begin{equation}
+\Delta C_T=\sum_{t\in T}(c_{0,t}-c_{1,t})-K_{\mathrm{inc},T},
+\end{equation}
+where $c_{j,t}$ includes consistently defined real resource costs over interval $t$, and $K_{\mathrm{inc},T}$ includes incremental computing, implementation, and verification costs allocated to that horizon. Transfers such as congestion rents are reported separately. Reliability is an acceptance constraint, not a monetary offset for mandatory safety violations.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Outcome dimensions that must remain distinct.}
+\begin{tabularx}{\linewidth}{p{0.25\linewidth}Y}
+\toprule
+Measure & Interpretation\\
+\midrule
+Energy (MWh) & Avoided physical loss, avoided purchases, or increased useful output, with explicit boundaries.\\
+Economic value (\$) & Incremental real resource cost reduction, or another explicitly defined economic measure.\\
+Deliverability (MW) & Additional feasible service at a specified node, duration, and risk criterion.\\
+Resource adequacy & Incremental dependable capability under an applicable chronological adequacy methodology.\\
+Computational cost & End-to-end runtime, memory, deadline compliance, and verification overhead.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+A single scalar ``efficiency'' cannot represent all of these dimensions. The benchmark must publish the vector of effects and the tradeoffs among them.
+
+\section{Track I: AC optimal power flow and security constraints}
+In rectangular voltage coordinates $V_i=e_i+\mathrm{j}f_i$ with admittance $Y_{ij}=G_{ij}+\mathrm{j}B_{ij}$, real and reactive injections are quadratic:
+\begin{align}
+P_i&=\sum_j[G_{ij}(e_ie_j+f_if_j)+B_{ij}(f_ie_j-e_if_j)],\\
+Q_i&=\sum_j[G_{ij}(f_ie_j-e_if_j)-B_{ij}(e_ie_j+f_if_j)].
+\end{align}
+Voltage magnitude limits likewise take the form
+\begin{equation}
+(V_i^{\min})^2\leq e_i^2+f_i^2\leq(V_i^{\max})^2.
+\end{equation}
+These equations, current and thermal limits, generator constraints, and contingency states define a nonconvex optimization problem. AC power-flow feasibility is strongly NP-hard on general graphs \cite{bienstock}. This does not establish VNP-hardness of an associated polynomial family: VP/VNP concerns arithmetic circuit complexity, and any such claim would require an explicit reduction. Circuit complexity and improved polynomial representations are exploratory research directions rather than established explanations of grid losses.
+
+Compare established DC dispatch with AC validation and redispatch, contemporary nonlinear AC solvers, and candidate sparse convex relaxations, decomposition, warm starts, learned initialization, or hybrid formulations. Use common physical constraints and include the time required for feasibility recovery and validation. A relaxation bound is not a feasible operating point; the candidate must recover and validate an actionable solution or revert to the common fallback. PGLib-OPF supports static base, stressed, and angle-constrained benchmarks \cite{pglibopf}; operational claims require chronological cases and explicitly modeled contingencies.
+
+For a common network boundary, compare modeled resistive energy losses:
+\begin{equation}
+E_{\mathrm{loss},j}=\sum_t\Delta t_t\sum_{\ell}R_{\ell}|I_{\ell,j,t}|^2,
+\end{equation}
+using consistent phase and unit conventions, with other modeled losses included separately. Measure the paired difference $E_{\mathrm{loss},0}-E_{\mathrm{loss},1}$ alongside curtailment, congestion, voltage and thermal margins, and realized production costs. A lower-loss dispatch can increase production cost, and a cheaper dispatch can increase losses. Neither physical congestion nor all network losses should be assumed removable by better solvers.
+
+\section{Track II: Security-constrained unit commitment}
+SCUC determines commitment states, dispatch, reserves, and intertemporal constraints. A generic objective is
+\begin{equation}
+\min_{u,p,r}\sum_{g,t}\big[F_g(p_{g,t})\Delta t_t+S_{g,t}+D_{g,t}+C^{\mathrm{other}}_{g,t}\big],
+\end{equation}
+where $u$ is commitment status, $p$ generator output, $r$ reserve, and the remaining terms are consistently defined operating, startup, shutdown, and other real resource costs. The formulation must include ramping, minimum up/down times, reserve deliverability, storage, and relevant network constraints.
+
+For minimization, a valid lower bound $L$ and feasible incumbent objective $U$ satisfy
+\begin{equation}
+L\leq C^\star\leq U,\qquad 0\leq U-C^\star\leq U-L.
+\end{equation}
+If the incumbent is feasible for the identical model, $U-L$ bounds its potential objective improvement. Tightening the bound alone need not lower $U$; the MIP gap is not an observed economic loss. Wholesale settlement volume is not the SCUC production-cost objective, and MW of held reserve cannot be directly interpreted as wasted MWh.
+
+Test valid inequalities, stronger formulations, decomposition, and certificate-producing methods against a strong conventional solver. Measure incumbent improvement, bound quality, feasible deadline success, actual replayed operating cost, fuel use, and emissions separately. PGLib-UC supplies an initial reproducible benchmark \cite{pglibuc}; security-constrained and chronological extensions must be documented. If improved commitment is traded against reserve requirements or information unavailable to the baseline, the resulting benefit cannot be attributed solely to computation.
+
+\section{Track III: Power electronics and embedded control}
+For a converter model $z_{k+1}=f(z_k,v_k,w_k)$, a candidate model predictive controller may solve
+\begin{equation}
+\min_{v_{0:H-1}}\sum_{k=0}^{H-1}
+(\ell_{\rm track}+\lambda_s\ell_{\rm switch}+\lambda_e\ell_{\rm loss})+\ell_f
+\end{equation}
+subject to hardware, electrical, thermal, timing, and applicable stability constraints. Predictive control of power converters is an established field \cite{mpc}. Baselines must include appropriate conventional and contemporary predictive controllers; not all devices employ MPC. Arithmetic complexity, lookup strategies, horizon length, state representation, and hardware implementation are candidate intervention variables.
+
+A reduction in switching loss can change ripple, electromagnetic interference, thermal cycling, harmonics, and stability. Compare controllers on identical hardware and workloads, first in simulation, then controller- or hardware-in-the-loop, and finally in appropriately authorized laboratory tests. Include worst-case computation and I/O latency, deadline misses, transient response, temperature, protection, and relevant ride-through requirements. Do not deploy unqualified controllers on an energized production system.
+
+For equal delivered electrical energy $E_{\rm out}$ with input-to-output efficiencies $\eta_0,\eta_1$, the input-energy reduction is
+\begin{equation}
+\Delta E_{\rm in}=E_{\rm out}\left(\frac{1}{\eta_0}-\frac{1}{\eta_1}\right).
+\end{equation}
+For equal input energy, the increase in useful output is instead $E_{\rm in}(\eta_1-\eta_0)$. A change from 97.0\% to 97.3\% efficiency corresponds to a 10\% reduction in conversion losses on a fixed input-energy basis, not a 10\% reduction in facility electricity consumption. The accounting boundary and experimental workload must be identical. Inverter, battery, and PSU flows can overlap; a national estimate requires nonduplicated energy-flow data and load-dependent efficiency curves.
+
+\section{Track IV: Formal methods as a verification layer}
+A proof assistant can certify a mathematical claim relative to a formal specification. Candidate applications include validity of cutting planes, objective-bound certificates, safe fallback invariants, and selected market-rule properties. The VIPR certificate format and LeanVIPR provide concrete research starting points for mixed-integer linear programs \cite{vipr,leanvipr}. An independently checked certificate can establish a bound or infeasibility for the encoded MILP. It does not establish correct telemetry, faithful tariff translation, AC feasibility, controller stability, or solver acceleration.
+
+The proposed architecture is a sequence of distinct assurance layers:
+\begin{center}
+\fbox{\begin{minipage}{0.84\linewidth}\centering\small
+Physical requirements and explicit specification\\[2pt]$\downarrow$\\[2pt]
+Mathematical formulation and optimization\\[2pt]$\downarrow$\\[2pt]
+Candidate decision and machine-checkable certificate\\[2pt]$\downarrow$\\[2pt]
+Independent mathematical verification\\[2pt]$\downarrow$\\[2pt]
+Independent physical validation\\[2pt]$\downarrow$\\[2pt]
+Action within deadline, or common safe fallback
+\end{minipage}}
+\end{center}
+Proof assumptions, model translation, numerical tolerances, executable interfaces, and the trusted computing base must be identified. The verifier's latency and memory costs count toward the end-to-end budget. Compare the same solver with and without certification, and distinguish improved decision quality from improved assurance. A certificate is particularly valuable when a claim can be independently checked without rerunning the original search.
+
+\section{Economic accounting: repairing the original napkin}
+Table~\ref{tab:napkin} preserves the earlier note's arithmetic solely to identify assumptions that must be tested. The figures are not estimates of an empirically identified controllable pool. In particular, the SCUC proxy is not a measured physical electrical loss; its inclusion makes the historical sum unsuitable as an energy-recovery estimate.
+\begin{table}[htbp]
+\centering\small
+\caption{Original illustrative 10\% scenarios (nominal TWh/year). The SCUC row is an unvalidated dimensional proxy.}
+\label{tab:napkin}
+\begin{tabularx}{\linewidth}{Yrrrr}
+\toprule
+Candidate domain & \multicolumn{2}{c}{Assumed pool} & \multicolumn{2}{c}{10\% scenario}\\
+& MISO & U.S. & MISO & U.S.\\
+\midrule
+Renewable curtailment &13.5&25.0&1.35&2.50\\
+Total T\&D losses &34.5&221.5&3.45&22.15\\
+SCUC/reserve proxy &27.6&177.2&2.76&17.72\\
+Conversion-loss proxy &7.0&45.0&0.70&4.50\\
+\midrule
+Original arithmetic total &82.6&468.7&8.26&46.87\\
+\bottomrule
+\end{tabularx}
+\end{table}
+Several corrections are mandatory:
+\begin{enumerate}
+\item Curtailment includes economic and physical causes. Attribute avoided curtailment only to a feasible counterfactual at the same reliability level.
+\item EIA reports average U.S. transmission and distribution losses of approximately 5\% of transmitted and distributed energy for 2018--2022 \cite{eia}. This is not a solver-addressable fraction. Separate transmission from distribution and identify the operator controlling each intervention.
+\item Replace the SCUC energy proxy with observed differences in fuel, generation, startup, cycling, and commitment costs. No TWh can be inferred merely from reserve holdings or a MIP gap.
+\item Value converter efficiency at the correct input/output boundary. Avoid counting a saved MWh at multiple nested conversion stages.
+\item Real-time congestion value, uplift, congestion rents, and production-cost savings are not interchangeable. Use the Independent Market Monitor's published definitions \cite{miso} and avoid summing overlapping welfare effects.
+\end{enumerate}
+The earlier note's approximately \$621 million MISO and \$3.82 billion national figures are not adopted as quantitative estimates. They motivate inquiry rather than establish an achievable market size. At a hypothetical scale of 1 TWh of independently demonstrated avoided electricity purchases valued at \$50/MWh, gross illustrative value is \$50 million per year, before implementation costs and subject to the relevant marginal value. This is a unit conversion, not a forecast.
+
+Similarly, dividing the original nominal 46.87 TWh by 8,760 hours gives approximately 5.35 GW of annual-average energy equivalent if that energy quantity were valid. It does not imply 5.35 GW of new dependable generation, deliverable interconnection capacity, or capacity accreditation. A chronological and locational analysis is required even for empirically supported MWh savings.
+
+For interventions indexed by a set $S$, compare the joint counterfactual against the same baseline. If $C(S)$ is realized production cost with interventions $S$, total gross benefit is $C(\varnothing)-C(S)$. Report marginal contributions conditional on the other interventions, or employ an explicit allocation rule if justified. Do not simply add isolated counterfactuals that reuse the same physical or economic savings.
+
+\section{Open benchmark challenge}
+We invite power systems engineering (PSE), power electronics (PE), operations research, formal methods, and utility/ISO researchers to test three competing hypotheses:
+\begin{description}
+\item[H1:] Better computation produces material, broadly distributed gains under fixed physical and reliability constraints.
+\item[H2:] Most apparent gains disappear when realistic network, uncertainty, implementation, and reliability constraints are imposed.
+\item[H3:] Gains are material but concentrated in specific topology, workload, congestion, contingency, and operating regimes.
+\end{description}
+No hypothesis is assumed true. Report cases in which the baseline is superior, the intervention is neutral, or the method fails. Define practical significance before evaluation, including a minimum economic effect or additional service threshold appropriate to the specific benchmark and deployment cost.
+\begin{table}[htbp]
+\small\centering
+\caption{Proposed research tracks and acceptance criteria.}
+\begin{tabularx}{\linewidth}{p{0.17\linewidth}YY}
+\toprule
+Track & Matched baseline and intervention & Primary acceptance condition\\
+\midrule
+AC/SCOPF & DC with AC validation and nonlinear AC; improved relaxation, decomposition, or initialization & Feasible AC and required contingencies; net cost and loss effects under deadline.\\
+SCUC & Strong conventional MILP; enhanced formulations, cuts, or decomposition & Improved feasible incumbent or certified bound; operational replay for economic claims.\\
+PE control & Conventional and strong predictive control on identical hardware; candidate controller & Equal required service and safety; measured efficiency and deadline compliance.\\
+Verification & Existing independent checker; proof-assistant checker or invariant & Correct acceptance/rejection, declared proof scope, and measured overhead.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Experimental design}
+\begin{enumerate}
+\item Freeze benchmark versions, formulations, hardware, software versions, data splits, forecast information, and deadlines. Publish tolerances and the fallback policy. Tune methods on development data only.
+\item Use identical scenario realizations and information sets. Separate development, calibration, and held-out evaluation cases, including normal and stressed conditions. Avoid future-information leakage.
+\item Run baseline, candidate without verification, and candidate with verification where meaningful. Include a stronger conventional algorithm to isolate whether gains arise from formulation, tuning, hardware, or certification.
+\item Run repeated trials with fixed or recorded seeds and comparable computational resources. Include model construction, solver warmup as appropriate, solution recovery, verification, and action delivery. Log timeouts, invalid candidates, fallback actions, and failed cases rather than excluding them.
+\item Independently validate physical and numerical constraints. Any mandatory violation rejects that candidate outcome under the declared protocol; evaluate the resulting fallback performance. Statistical improvements do not excuse individual hard-constraint violations.
+\item Report paired effects with uncertainty intervals, stratified by regime and network. Account for temporal correlation when resampling chronological data. Publish denominators, coverage, compute overhead, and negative results. Predeclare primary outcomes and distinguish exploratory comparisons.
+\end{enumerate}
+A useful first benchmark would use selected PGLib-OPF base and stressed cases, followed by PGLib-UC chronological cases and a simple simulated converter test. These are research starting points, not representations of the MISO production environment. Subsequent studies must pin exact repository versions and cite original case-data references.
+
+\subsection{Minimum evidence package}
+Each experiment should provide case identifiers and versions, machine-readable constraints, code or reproducible pseudocode, solver settings, certificate artifacts where applicable, outcome logs, and the analysis script. Include a record of model assumptions, independent validation, feasible-deadline success, total compute time, baseline and candidate objectives, physical metrics, and fallback results. Restricted operator data may require an authorized data-sharing agreement, sanitized cases, or a synthetic equivalent; results on synthetic cases must be labeled as such.
+
+\section{Extension: large loads, BESS, and interconnection}
+An especially relevant cross-disciplinary experiment couples a data center to a battery energy storage system (BESS). With positive grid import $P_{\rm grid}$, facility demand $P_{\rm load}$, battery charging $P_{\rm ch}$ and discharging $P_{\rm dis}$,
+\begin{align}
+P_{{\rm grid},t}&=P_{{\rm load},t}+P_{{\rm ch},t}-P_{{\rm dis},t},\\
+s_{t+1}&=s_t+(\eta_cP_{{\rm ch},t}-P_{{\rm dis},t}/\eta_d)\Delta t_t.
+\end{align}
+The envelope includes state of charge, battery power, degradation, applicable charge/discharge exclusivity, critical workload obligations, recharge feasibility, protection, contingencies, and point-of-interconnection limits. A grid-facing ramp condition for uniform intervals might be expressed as
+\begin{equation}
+|P_{{\rm grid},t+1}-P_{{\rm grid},t}|\leq r_{\max}\Delta t,
+\end{equation}
+where $r_{\max}$ is specified for the particular study, not asserted as a universal ISO requirement. Distinguish short-duration ride-through from sustained dispatch support and resource adequacy. Test whether improved forecasting, optimization, or certified control expands feasible service under the same constraints; forecasting improvements must be attributed separately if they change the information set in Equation~\ref{eq:policy}. Do not credit the same stored energy simultaneously to incompatible commitments.
+
+A particularly valuable study would determine when an improved controller can support a higher grid-facing load at a constrained node or honor a tighter ramp envelope without reducing dependable computational service. Evaluate both normal schedules and stressed trajectories, including post-event recharge. A formal guarantee about this simplified model still requires independent engineering validation of actual network, protection, dynamics, and equipment. Chronological reliability and interconnection studies, not a mathematical proof alone, establish the admissibility of an operating envelope.
+
+\section{Research roadmap and success criteria}
+\textbf{Phase 1 --- Reproduction.} Reproduce public AC-OPF and UC baselines; define paired metrics and certificate checking. Implement a small converter or BESS control benchmark in simulation. Publish the protocol before held-out tests.
+
+\textbf{Phase 2 --- Stress testing.} Introduce realistic contingency, forecast, and intertemporal stress cases; independently verify feasible decisions and benchmark execution overhead. Publish failures and ablations.
+
+\textbf{Phase 3 --- Engineering collaboration.} Seek collaboration for chronological operator cases and authorized hardware testing. Estimate deployment costs, boundary-specific losses, and joint economic benefits. Include domain experts in specifying acceptance criteria.
+
+\textbf{Phase 4 --- Scaling and replication.} Only after reproducible results, consider population-weighted regional estimates, out-of-sample validation, and independent replication. Any accredited capacity or deliverability claims require the applicable planning and reliability methodology. Extrapolation requires measured coverage, representative weights, and sensitivity to adoption costs and overlapping interventions.
+
+The program succeeds if it establishes a credible measurement of algorithmic benefit, even if the original billion-dollar scenario is rejected. The key deliverable is an auditable evidence chain from mathematical modification to validated operating decision to incremental physical or economic outcome.
+
+\section{Conclusion and invitation}
+Better mathematical models and algorithms may yield substantial benefits without proportional expansion of physical grid assets. The magnitude is an empirical question. Formal verification offers a means of strengthening selected mathematical guarantees, while power systems and power electronics provide the physical tests those guarantees must survive. We invite the engineering and mathematical communities to collaborate on a reproducible benchmark challenge rather than accept an aggregate savings claim on the strength of a napkin calculation.
+
+\textbf{Status and disclosures.} This is a research proposal, not a completed experiment, peer-reviewed paper, or operator-endorsed recommendation. No new simulation, field result, or validated nationwide savings estimate is reported. Authorship uses the working label of the original manuscript; individual authors and affiliations should be confirmed before external publication.
+
+\begin{thebibliography}{99}
+\bibitem{napkin} Uriel Research, \emph{The Billion-Dollar Napkin: Translating algebraic complexity and formal methods into TWh savings for MISO and the U.S. Grid}, conceptual manuscript, 24 Nov. 2026.
+\bibitem{go} Pacific Northwest National Laboratory, \emph{Supporting ARPA-E Power Grid Optimization}, Final Scientific/Technical Report, PNNL-36158, 30 June 2024. \url{https://www.pnnl.gov/main/publications/external/technical_reports/PNNL-36158.pdf}
+\bibitem{pglibopf} IEEE PES Task Force on Benchmarks for Validation of Emerging Power System Algorithms, \emph{Power Grid Library---Optimal Power Flow}. \url{https://github.com/power-grid-lib/pglib-opf}
+\bibitem{pglibuc} IEEE PES Task Force on Benchmarks for Validation of Emerging Power System Algorithms, \emph{Power Grid Library---Unit Commitment}. \url{https://github.com/power-grid-lib/pglib-uc}
+\bibitem{bienstock} D. Bienstock and A. Verma, ``Strong NP-hardness of AC power flows feasibility,'' \emph{Operations Research Letters}, vol. 47, no. 6, pp. 494--501, 2019. \url{https://doi.org/10.1016/j.orl.2019.08.009}
+\bibitem{mpc} J. Rodr\'iguez and P. Cort\'es, \emph{Predictive Control of Power Converters and Electrical Drives}, Wiley, 2012. \url{https://doi.org/10.1002/9781119941446}
+\bibitem{vipr} K. K. H. Cheung, A. Gleixner, and D. E. Steffy, ``Verifying Integer Programming Results,'' preprint, 2016, revised 2019. \url{https://arxiv.org/abs/1611.08832}
+\bibitem{leanvipr} C. Song, H. Duong, T. Nguyen, and V. Ganesh, ``LeanVIPR: A Formally Verified Certificate Checker for Exact Mixed-Integer Programming,'' NeurIPS 2026 Workshop on AI for Verifiable Coding, workshop manuscript. \url{https://hocdot.github.io/assets/papers/song2026leanvipr.pdf}
+\bibitem{eia} U.S. Energy Information Administration, ``How much electricity is lost in electricity transmission and distribution in the United States?'' Updated 7 Nov. 2023. \url{https://www.eia.gov/tools/faqs/faq.php?id=105&t=7}
+\bibitem{miso} Potomac Economics, \emph{2025 State of the Market Report for the MISO Markets}, June 2026. Available from \url{https://www.potomaceconomics.com/markets-monitored/miso/}
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-25T00:58:23.437084+00:00",
+  "sha256": {
+    "model.py": "170081307a1f498c32d0ea63010e7db7e6b6930462bba69460cad1abc55dee48",
+    "campaign.py": "b82d00cc8d76dd37ae783552c2e2e691dee6a0bcc32640fd287f9b7493304389",
+    "exact_lp.py": "53d8e964263638e4141bebc7dfb3c13b48d8efc1c17c8ece539bf7ea8f0fd621",
+    "plan.md": "40210c73f18bc2e8a76030d71de0af36e0dd8299627e641aa4d8f26586906f6f"
+  },
+  "seeds": [
+    17031,
+    17032,
+    17033,
+    17034,
+    17035,
+    17036,
+    17037,
+    17038
+  ],
+  "regimes": [
+    "slack",
+    "tight",
+    "boundary",
+    "outage"
+  ],
+  "n": 3,
+  "h": 8
+}

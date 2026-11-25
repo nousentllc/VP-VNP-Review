@@ -1,0 +1,14 @@
+FalseVariants.lean:3:39: error: unsolved goals
+⊢ False
+FalseVariants.lean:4:34: error: unsolved goals
+⊢ False
+FalseVariants.lean:5:41: error: unsolved goals
+⊢ False
+FalseVariants.lean:6:33: error: unsolved goals
+⊢ False
+FalseVariants.lean:7:77: error: unsolved goals
+⊢ ∀ (x : ℝ), 0 ≤ x → x ≤ 1 → 1 ≤ x
+FalseVariants.lean:8:44: error: unsolved goals
+⊢ False
+FalseVariants.lean:9:31: error: unsolved goals
+⊢ False

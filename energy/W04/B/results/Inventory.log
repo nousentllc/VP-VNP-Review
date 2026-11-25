@@ -1,0 +1,314 @@
+@W04.transport_threshold : ∀ {X : Type u_1} {Y : Type u_2} {J : X → ℝ} {K : Y → ℝ} {a b : ℝ} (p : X → Y),
+  (∀ (x : X), K (p x) ≤ J x + a) → W04.AtMost J b → W04.AtMost K (b + a)
+'W04.transport_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.threshold_iff : ∀ {X : Type u_1} {Y : Type u_2} {J : X → ℝ} {K : Y → ℝ} (p : X → Y) (f : Y → X),
+  (∀ (x : X), K (p x) ≤ J x) → (∀ (y : Y), J (f y) ≤ K y) → ∀ (b : ℝ), W04.AtMost J b ↔ W04.AtMost K b
+'W04.threshold_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.empty_threshold : ∀ (b : ℝ) (J : Empty → ℝ), ¬W04.AtMost J b
+'W04.empty_threshold' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.single_optimal_lift : ∀ {X : Type u_1} {Y : Type u_2} {J : X → ℝ} {K : Y → ℝ} (p : X → Y),
+  (∀ (x : X), K (p x) ≤ J x) → ∀ (y : Y), W04.Optimal K y → ∀ (x : X), J x ≤ K y → J x = K y ∧ W04.Optimal J x
+'W04.single_optimal_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.value_le_cost : ∀ {X : Type u_1} {J : X → ℝ}, BddBelow (Set.range J) → ∀ (x : X), W04.value J ≤ J x
+'W04.value_le_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.attained_value : ∀ {X : Type u_1} {J : X → ℝ} (x : X), W04.Optimal J x → W04.value J = J x
+'W04.attained_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.projected_value : ∀ {X : Type u_1} {Y : Type u_2} {J : X → ℝ} {K : Y → ℝ} {a : ℝ},
+  Nonempty X → BddBelow (Set.range K) → ∀ (p : X → Y), (∀ (x : X), K (p x) ≤ J x + a) → W04.value K ≤ W04.value J + a
+'W04.projected_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.infimum_sandwich : ∀ {X : Type u_1} {Y : Type u_2} {J : X → ℝ} {K : Y → ℝ} {a b : ℝ},
+  Nonempty X →
+    Nonempty Y →
+      BddBelow (Set.range J) →
+        BddBelow (Set.range K) →
+          ∀ (p : X → Y) (f : Y → X),
+            (∀ (x : X), K (p x) ≤ J x + a) →
+              (∀ (y : Y), J (f y) ≤ K y + b) → W04.value K - a ≤ W04.value J ∧ W04.value J ≤ W04.value K + b
+'W04.infimum_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.exact_infimum : ∀ {X : Type u_1} {Y : Type u_2} {J : X → ℝ} {K : Y → ℝ},
+  Nonempty X →
+    Nonempty Y →
+      BddBelow (Set.range J) →
+        BddBelow (Set.range K) →
+          ∀ (p : X → Y) (f : Y → X), (∀ (x : X), K (p x) ≤ J x) → (∀ (y : Y), J (f y) ≤ K y) → W04.value J = W04.value K
+'W04.exact_infimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.candidate_regret : ∀ {X : Type u_1} {Y : Type u_2} {J : X → ℝ} {K : Y → ℝ} {a b ε : ℝ},
+  BddBelow (Set.range J) →
+    BddBelow (Set.range K) →
+      ∀ (p : X → Y),
+        (∀ (x : X), K (p x) ≤ J x + a) →
+          ∀ (y : Y) (x : X),
+            K y ≤ W04.value K + ε → J x ≤ K y + b → 0 ≤ J x - W04.value J ∧ J x - W04.value J ≤ a + b + ε
+'W04.candidate_regret' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.global_regret : ∀ {X : Type u_1} {Y : Type u_2} {J : X → ℝ} {K : Y → ℝ} {a b ε : ℝ},
+  BddBelow (Set.range J) →
+    BddBelow (Set.range K) →
+      ∀ (p : X → Y) (f : Y → X),
+        (∀ (x : X), K (p x) ≤ J x + a) →
+          (∀ (y : Y), J (f y) ≤ K y + b) →
+            ∀ (y : Y), K y ≤ W04.value K + ε → 0 ≤ J (f y) - W04.value J ∧ J (f y) - W04.value J ≤ a + b + ε
+'W04.global_regret' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.nested_stage : ∀ {X : Type u_1} {J : X → ℝ} {S : ℕ → Set X},
+  Monotone S → ∀ {k l : ℕ}, k ≤ l → ∀ {b : ℝ}, W04.Stage J (S k) b → W04.Stage J (S l) b
+'W04.nested_stage' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.final_stage : ∀ {X : Type u_1} (J : X → ℝ) (S : ℕ → Set X) (last : ℕ),
+  S last = Set.univ → ∀ (b : ℝ), W04.Stage J (S last) b ↔ W04.AtMost J b
+'W04.final_stage' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.retained_cost : ∀ {X : Type u_1} (J : X → ℝ) (old : X) (trial : Option X), J (W04.retain J old trial) ≤ J old
+'W04.retained_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.combined_lower : ∀ {X : Type u_1} {J : X → ℝ} {L M : ℝ},
+  (∀ (x : X), L ≤ J x) → (∀ (x : X), M ≤ J x) → ∀ (x : X), max L M ≤ J x
+'W04.combined_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.gap_contract : ∀ {X : Type u_1} {J : X → ℝ} (x : X) {L : ℝ},
+  (∀ (u : X), L ≤ J u) → 0 ≤ J x - W04.value J ∧ J x - W04.value J ≤ J x - L
+'W04.gap_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.stop_with_tolerance : ∀ {X : Type u_1} {J : X → ℝ} (x : X) {L ε : ℝ},
+  (∀ (u : X), L ≤ J u) → J x - L ≤ ε → J x - W04.value J ≤ ε
+'W04.stop_with_tolerance' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.equal_values_bad_optimizer : ((W04.value fun x => 0) = W04.value fun x => 0) ∧
+  W04.Optimal (fun x => 0) true ∧ ¬∃ x, (fun x => false) x = true
+'W04.equal_values_bad_optimizer' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.open_closed_infima : sInf (Set.Ioi 0) = sInf (Set.Ici 0) ∧ (¬∃ x ∈ Set.Ioi 0, x ≤ 0) ∧ ∃ y ∈ Set.Ici 0, y ≤ 0
+'W04.open_closed_infima' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.StorageContract.projection_bound : ∀ {N T C R A B : ℕ} {ext : (ℕ → ℕ) → Prop} (hn : 0 < N) (fee : (ℕ → ℕ) → ℝ)
+  (k : ℝ),
+  0 ≤ k →
+    ∀ (x : W04.StorageContract.Full N T C R A B ext),
+      W04.StorageContract.reducedCost fee k (W04.StorageContract.project hn x) ≤ W04.StorageContract.fullCost fee k x
+'W04.StorageContract.projection_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.StorageContract.recovery_cost : ∀ {N T C R A B : ℕ} {ext : (ℕ → ℕ) → Prop} (hn : 0 < N) (fee : (ℕ → ℕ) → ℝ) (k : ℝ)
+  (s : W04.StorageContract.Reduced N T C R A B ext),
+  W04.StorageContract.fullCost fee k (W04.StorageContract.recover hn s) = W04.StorageContract.reducedCost fee k s
+'W04.StorageContract.recovery_cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+@W04.StorageContract.threshold_from_contract : ∀ {N T C R A B : ℕ} {ext : (ℕ → ℕ) → Prop},
+  0 < N →
+    ∀ (fee : (ℕ → ℕ) → ℝ) (k : ℝ),
+      0 ≤ k →
+        ∀ (b : ℝ),
+          W04.AtMost (W04.StorageContract.fullCost fee k) b ↔ W04.AtMost (W04.StorageContract.reducedCost fee k) b
+'W04.StorageContract.threshold_from_contract' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.Controls.missing_lift : (∃ y, W04.Controls.reducedAllowed y ∧ W04.Controls.cost y ≤ 0) ∧
+  ¬∃ x, W04.Controls.fullAllowed x ∧ W04.Controls.cost x ≤ 0
+'W04.Controls.missing_lift' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.Controls.incompatible_labels : 0 + 1 = 1 + 0 ∧ |1 - 0| + |0 - 1| > |1 + 0 - (0 + 1)|
+'W04.Controls.incompatible_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.Controls.unbalanced_start : 2 + 0 = 1 + 1 ∧ ¬(2 ≤ 1 ∧ 0 ≤ 1) ∧ 1 ≤ 1 ∧ 1 ≤ 1
+'W04.Controls.unbalanced_start' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.Controls.restricted_bound : (∀ (x : Bool), x = false → 1 ≤ W04.Controls.cost x) ∧
+  ¬∀ (x : Bool), 1 ≤ W04.Controls.cost x
+'W04.Controls.restricted_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.Controls.positive_terminal_tolerance : have Δ₁ := 1 / 2 * (4 / 5 * 1 - 4 / 5) / 1;
+have Δ₂ := 1 / 2 * (81 / 100 * 1 - 4 / 5) / (9 / 10);
+|Δ₁| ≤ 0 ∧ |Δ₂| ≤ 1 / 180 ∧ 4 / 5 ≠ 81 / 100 ∧ 0 < 1 ∧ 0 < 4 / 5
+'W04.Controls.positive_terminal_tolerance' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.Controls.history_omission : W04.Controls.rampAdmissible 2 3 ∧ ¬W04.Controls.rampAdmissible 0 3
+'W04.Controls.history_omission' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.Controls.integrality_gap : (∀ (z : Bool),
+    have x := if z = true then 1 else 0;
+    1 / 2 ≤ x → x = 1) ∧
+  0 ≤ 1 / 2 ∧ 1 / 2 ≤ 1 ∧ 1 / 2 < 1
+'W04.Controls.integrality_gap' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.Controls.returned_cost_can_worsen : {0} ⊆ {0, 1} ∧ 0 ∈ {0} ∧ 1 ∈ {0, 1} ∧ 0 < 1
+'W04.Controls.returned_cost_can_worsen' depends on axioms: [propext]
+W04.Sharpness.sharp : ∀ (a b ε : ℝ),
+  0 ≤ a →
+    0 ≤ b →
+      0 ≤ ε →
+        (∀ (x : Bool), W04.Sharpness.K a ε false ≤ W04.Sharpness.J a b ε x + a) ∧
+          (∀ (y : Bool), W04.Sharpness.J a b ε y ≤ W04.Sharpness.K a ε y + b) ∧
+            W04.Sharpness.K a ε true = W04.value (W04.Sharpness.K a ε) + ε ∧
+              W04.Sharpness.J a b ε true - W04.value (W04.Sharpness.J a b ε) = a + b + ε
+'W04.Sharpness.sharp' depends on axioms: [propext, Classical.choice, Quot.sound]
+W04.Controls.partial_lift_no_sandwich : have J := fun x => 1;
+have K := fun y => if y = true then 1 else 0;
+(∀ (x : Unit), K true ≤ J x) ∧ J () ≤ K true ∧ W04.value K < W04.value J
+'W04.Controls.partial_lift_no_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+LOCAL-EDGES W04.transport_threshold [W04.AtMost]
+LOCAL-EDGES W04.retain.match_1 []
+LOCAL-EDGES W04.Controls.cost []
+LOCAL-EDGES W04.threshold_iff [W04.AtMost]
+LOCAL-EDGES W03.projected_movement [W03.total, W03.movement]
+LOCAL-EDGES W03.terminal_residual [W03.storage_residual]
+LOCAL-EDGES W04.projected_value [W04.value_le_cost, W04.value]
+LOCAL-EDGES W04.empty_threshold [W04.AtMost]
+LOCAL-EDGES W03.no_common_cycles [W03.each_zero, W03.cyclic_zero, W03.cyclic_totals]
+LOCAL-EDGES W04.global_regret [W04.candidate_regret, W04.value]
+LOCAL-EDGES W03.same_threshold_real [W03.projected_movement,
+ W03.total_lift,
+ W03.lift_movement,
+ W03.total,
+ W03.reconstruction,
+ W03.aggOK,
+ W03.lift,
+ W03.fullOK,
+ W03.projection,
+ W03.movement]
+LOCAL-EDGES W03.total_lift [W03.total, W03.lift, W03.lift_total]
+LOCAL-EDGES W04.StorageContract.Reduced [W03.aggOK]
+LOCAL-EDGES W04.retain.eq_1 [W04.retain]
+LOCAL-EDGES W04.StorageContract.recover.eq_1 [W04.StorageContract.Reduced,
+ W04.StorageContract.recover._proof_1,
+ W03.aggOK,
+ W03.lift,
+ W03.fullOK,
+ W04.StorageContract.Full,
+ W04.StorageContract.recover]
+LOCAL-EDGES W03.lift_mono._proof_1_5 []
+LOCAL-EDGES W04.Controls.restricted_bound [W04.Controls.cost]
+LOCAL-EDGES W03.lift_movement [W03.lift_mono, W03.lift, W03.lift_total, W03.movement]
+LOCAL-EDGES W04.StorageContract.project._proof_1 [W03.total,
+ W03.aggOK,
+ W03.fullOK,
+ W03.projection,
+ W04.StorageContract.Full]
+LOCAL-EDGES W04.retain [W04.retain.match_1]
+LOCAL-EDGES W03.storage_residual []
+LOCAL-EDGES W04.Sharpness.sharp [W04.attained_value, W04.Sharpness.J, W04.value, W04.Sharpness.K]
+LOCAL-EDGES W03.lift_total._simp_1_1 []
+LOCAL-EDGES W04.StorageContract.recover._proof_1 [W04.StorageContract.Reduced,
+ W03.reconstruction,
+ W03.aggOK,
+ W03.lift,
+ W03.fullOK]
+LOCAL-EDGES W04.StorageContract.project [W04.StorageContract.Reduced,
+ W04.StorageContract.project._proof_1,
+ W03.total,
+ W03.aggOK,
+ W03.fullOK,
+ W04.StorageContract.Full]
+LOCAL-EDGES W04.infimum_sandwich [W04.projected_value, W04.value]
+LOCAL-EDGES W04.gap_contract [W04.value_le_cost, W04.value]
+LOCAL-EDGES W04.Controls.rampAdmissible []
+LOCAL-EDGES W04.Optimal []
+LOCAL-EDGES W03.lift.eq_1 [W03.lift]
+LOCAL-EDGES W04.Controls.unbalanced_start []
+LOCAL-EDGES W03.lift_mono._proof_1_6 []
+LOCAL-EDGES W04.StorageContract.projection_bound [W03.projected_movement,
+ W04.StorageContract.project,
+ W03.total,
+ W04.StorageContract.fullCost,
+ W03.aggOK,
+ W03.fullOK,
+ W04.StorageContract.reducedCost,
+ W03.movement,
+ W04.StorageContract.Full]
+LOCAL-EDGES W03.total []
+LOCAL-EDGES W03.lift_mono._proof_1_8 []
+LOCAL-EDGES W04.value_le_cost [W04.value]
+LOCAL-EDGES W03.lift_translate [W03.lift]
+LOCAL-EDGES W04.retain.eq_2 [W04.retain]
+LOCAL-EDGES W03.same_threshold [W03.projected_movement,
+ W03.total_lift,
+ W03.lift_movement,
+ W03.total,
+ W03.reconstruction,
+ W03.aggOK,
+ W03.lift,
+ W03.fullOK,
+ W03.projection,
+ W03.movement]
+LOCAL-EDGES W04.equal_values_bad_optimizer [W04.Optimal, W04.attained_value, W04.value]
+LOCAL-EDGES W04.StorageContract.project.congr_simp [W04.StorageContract.Reduced,
+ W04.StorageContract.project,
+ W04.StorageContract.Full]
+LOCAL-EDGES W04.Controls.returned_cost_can_worsen []
+LOCAL-EDGES W04.StorageContract.recovery_cost [W03.total_lift,
+ W04.StorageContract.Reduced,
+ W03.lift_movement,
+ W03.total,
+ W04.StorageContract.fullCost,
+ W03.aggOK,
+ W03.fullOK,
+ W04.StorageContract.reducedCost,
+ W03.movement,
+ W04.StorageContract.recover]
+LOCAL-EDGES W03.lift_mono._proof_1_3 []
+LOCAL-EDGES W04.StorageContract.fullCost [W03.total, W03.fullOK, W03.movement, W04.StorageContract.Full]
+LOCAL-EDGES W04.AtMost []
+LOCAL-EDGES W03.lift_rate [W03.lift_translate, W03.lift_mono, W03.lift]
+LOCAL-EDGES W03.lift_mono._proof_1_4 []
+LOCAL-EDGES W04.Stage []
+LOCAL-EDGES W04.stop_with_tolerance [W04.gap_contract, W04.value]
+LOCAL-EDGES W03.reconstruction [W03.total_lift,
+ W03.total,
+ W03.lift_rate,
+ W03.aggOK,
+ W03.lift,
+ W03.lift_capacity,
+ W03.fullOK]
+LOCAL-EDGES W04.Controls.fullAllowed []
+LOCAL-EDGES W04.Sharpness.J.eq_1 [W04.Sharpness.J]
+LOCAL-EDGES W03.aggOK []
+LOCAL-EDGES W03.lift_mono [W03.lift_mono._proof_1_5,
+ W03.lift_mono._proof_1_6,
+ W03.lift_mono._proof_1_8,
+ W03.lift_mono._proof_1_3,
+ W03.lift_mono._proof_1_4,
+ W03.lift,
+ W03.lift_mono._proof_1_7,
+ W03.lift_mono._proof_1_2]
+LOCAL-EDGES W03.each_zero []
+LOCAL-EDGES W04.open_closed_infima []
+LOCAL-EDGES W04.attained_value [W04.Optimal, W04.value_le_cost, W04.value]
+LOCAL-EDGES W04.combined_lower []
+LOCAL-EDGES W03.lift []
+LOCAL-EDGES W03.lift_capacity [W03.lift_rate, W03.lift]
+LOCAL-EDGES W03.cyclic_zero []
+LOCAL-EDGES W03.terminal_bound []
+LOCAL-EDGES W03.fullOK [W03.total, W03.lift]
+LOCAL-EDGES W04.Sharpness.K.eq_1 [W04.Sharpness.K]
+LOCAL-EDGES W03.lift_total [W03.lift_total._simp_1_1, W03.lift, W03.lift_total._simp_1_2]
+LOCAL-EDGES W04.Controls.positive_terminal_tolerance []
+LOCAL-EDGES W04.Stage.eq_1 [W04.Stage]
+LOCAL-EDGES W04.final_stage [W04.AtMost, W04.Stage]
+LOCAL-EDGES W03.projection [W03.total, W03.aggOK, W03.lift, W03.fullOK, W03.lift_total]
+LOCAL-EDGES W04.exact_infimum [W04.infimum_sandwich, W04.value]
+LOCAL-EDGES W04.StorageContract.threshold_from_contract [W04.threshold_iff,
+ W04.StorageContract.Reduced,
+ W04.StorageContract.project,
+ W04.StorageContract.projection_bound,
+ W04.StorageContract.recovery_cost,
+ W04.StorageContract.fullCost,
+ W04.AtMost,
+ W04.StorageContract.reducedCost,
+ W04.StorageContract.Full,
+ W04.StorageContract.recover]
+LOCAL-EDGES W03.lift_mono._proof_1_7 []
+LOCAL-EDGES W04.retained_cost [W04.retain]
+LOCAL-EDGES W03.two_device_bound [W03.terminal_residual, W03.terminal_bound]
+LOCAL-EDGES W04.Sharpness.J []
+LOCAL-EDGES W04.Controls.reducedAllowed []
+LOCAL-EDGES W04.candidate_regret [W04.projected_value, W04.value_le_cost, W04.value]
+LOCAL-EDGES W04.Controls.partial_lift_no_sandwich [W04.attained_value, W04.value]
+LOCAL-EDGES W04.value []
+LOCAL-EDGES W04.StorageContract.reducedCost [W04.StorageContract.Reduced, W03.aggOK]
+LOCAL-EDGES W03.lift_total._simp_1_2 []
+LOCAL-EDGES W03.movement []
+LOCAL-EDGES W04.Controls.rampAdmissible.eq_1 [W04.Controls.rampAdmissible]
+LOCAL-EDGES W04.nested_stage [W04.Stage]
+LOCAL-EDGES W04.Sharpness.K []
+LOCAL-EDGES W04.StorageContract.fullCost.eq_1 [W03.total,
+ W04.StorageContract.fullCost,
+ W03.fullOK,
+ W03.movement,
+ W04.StorageContract.Full]
+LOCAL-EDGES W04.AtMost.eq_1 [W04.AtMost]
+LOCAL-EDGES W03.certificate []
+LOCAL-EDGES W04.StorageContract.Full [W03.fullOK]
+LOCAL-EDGES W04.StorageContract.reducedCost.eq_1 [W04.StorageContract.Reduced,
+ W03.aggOK,
+ W04.StorageContract.reducedCost]
+LOCAL-EDGES W04.Controls.incompatible_labels []
+LOCAL-EDGES W03.cyclic_totals [W03.storage_residual]
+LOCAL-EDGES W03.lift_mono._proof_1_2 []
+LOCAL-EDGES W04.Controls.missing_lift [W04.Controls.cost, W04.Controls.fullAllowed, W04.Controls.reducedAllowed]
+LOCAL-EDGES W04.single_optimal_lift [W04.Optimal]
+LOCAL-EDGES W04.Controls.cost.eq_1 [W04.Controls.cost]
+LOCAL-EDGES W04.Controls.history_omission [W04.Controls.rampAdmissible]
+LOCAL-EDGES W04.StorageContract.recover [W04.StorageContract.Reduced,
+ W04.StorageContract.recover._proof_1,
+ W03.aggOK,
+ W03.lift,
+ W03.fullOK,
+ W04.StorageContract.Full]
+LOCAL-EDGES W04.Controls.integrality_gap []

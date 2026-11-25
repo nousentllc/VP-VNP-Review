@@ -1,0 +1,134 @@
+[
+  {
+    "profile": "flat",
+    "method": "threshold",
+    "unserved_MWh": 0.0,
+    "grid_MWh": 1920.0,
+    "throughput_MWh": 0.0,
+    "conversion_loss_MWh": 0.0,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": null
+  },
+  {
+    "profile": "flat",
+    "method": "forecast_threshold",
+    "unserved_MWh": 0.0,
+    "grid_MWh": 1920.0,
+    "throughput_MWh": 0.0,
+    "conversion_loss_MWh": 0.0,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": null
+  },
+  {
+    "profile": "flat",
+    "method": "lookahead_LP",
+    "unserved_MWh": 0.0,
+    "grid_MWh": 1920.0,
+    "throughput_MWh": 0.0,
+    "conversion_loss_MWh": 0.0,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": 0.010880458168685436
+  },
+  {
+    "profile": "four_hour_peak",
+    "method": "threshold",
+    "unserved_MWh": 103.0,
+    "grid_MWh": 2063.157894736842,
+    "throughput_MWh": 120.15789473684211,
+    "conversion_loss_MWh": 6.157894736842104,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": null
+  },
+  {
+    "profile": "four_hour_peak",
+    "method": "forecast_threshold",
+    "unserved_MWh": 8.00000000000001,
+    "grid_MWh": 2168.4210526315787,
+    "throughput_MWh": 320.4210526315789,
+    "conversion_loss_MWh": 16.421052631578945,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": null
+  },
+  {
+    "profile": "four_hour_peak",
+    "method": "lookahead_LP",
+    "unserved_MWh": 8.000000000000007,
+    "grid_MWh": 2168.421052631579,
+    "throughput_MWh": 320.4210526315789,
+    "conversion_loss_MWh": 16.421052631578945,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": 0.003058750182390213
+  },
+  {
+    "profile": "eight_hour_peak",
+    "method": "threshold",
+    "unserved_MWh": 263.0,
+    "grid_MWh": 2143.157894736842,
+    "throughput_MWh": 120.15789473684211,
+    "conversion_loss_MWh": 6.157894736842104,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": null
+  },
+  {
+    "profile": "eight_hour_peak",
+    "method": "forecast_threshold",
+    "unserved_MWh": 168.0,
+    "grid_MWh": 2248.4210526315787,
+    "throughput_MWh": 320.4210526315789,
+    "conversion_loss_MWh": 16.421052631578945,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": null
+  },
+  {
+    "profile": "eight_hour_peak",
+    "method": "lookahead_LP",
+    "unserved_MWh": 168.0,
+    "grid_MWh": 2248.421052631579,
+    "throughput_MWh": 320.42105263157896,
+    "conversion_loss_MWh": 16.421052631578945,
+    "terminal_MWh": 100.0,
+    "max_violation": 7.105427357601002e-15,
+    "solve_seconds": 0.002917167032137513
+  },
+  {
+    "profile": "alternating",
+    "method": "threshold",
+    "unserved_MWh": 48.85,
+    "grid_MWh": 2123.157894736842,
+    "throughput_MWh": 234.30789473684212,
+    "conversion_loss_MWh": 12.007894736842104,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": null
+  },
+  {
+    "profile": "alternating",
+    "method": "forecast_threshold",
+    "unserved_MWh": 0.0,
+    "grid_MWh": 2177.285318559557,
+    "throughput_MWh": 337.28531855955686,
+    "conversion_loss_MWh": 17.285318559556785,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": null
+  },
+  {
+    "profile": "alternating",
+    "method": "lookahead_LP",
+    "unserved_MWh": 0.0,
+    "grid_MWh": 2177.285318559557,
+    "throughput_MWh": 337.2853185595568,
+    "conversion_loss_MWh": 17.285318559556785,
+    "terminal_MWh": 100.0,
+    "max_violation": 0.0,
+    "solve_seconds": 0.00277945795096457
+  }
+]

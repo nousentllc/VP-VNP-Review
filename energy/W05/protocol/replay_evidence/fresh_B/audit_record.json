@@ -1,0 +1,81 @@
+{
+  "mode": "rerun",
+  "tracks": [
+    "B"
+  ],
+  "steps": [
+    {
+      "step": "manuscript-source",
+      "script": "manuscript/check_source.py",
+      "log": "source_audit.json",
+      "exit": 0,
+      "elapsed_s": 0.03199466713704169
+    },
+    {
+      "step": "B-exact",
+      "script": "B/exact_controls.py",
+      "log": "B/exact_controls.json",
+      "exit": 0,
+      "elapsed_s": 0.2766206250526011
+    },
+    {
+      "step": "B-primary",
+      "script": "B/engineering/campaign.py",
+      "log": "logs/B-primary.log",
+      "exit": 0,
+      "elapsed_s": 7.749992083059624
+    },
+    {
+      "step": "B-retry",
+      "script": "B/engineering/diagnose.py",
+      "log": "logs/B-retry.log",
+      "exit": 0,
+      "elapsed_s": 2.8686918749008328
+    },
+    {
+      "step": "B-support",
+      "script": "B/engineering/tighten.py",
+      "log": "logs/B-support.log",
+      "exit": 0,
+      "elapsed_s": 20.301341416081414
+    },
+    {
+      "step": "B-certificates",
+      "script": "B/engineering/check.py",
+      "log": "logs/B-certificates.log",
+      "exit": 0,
+      "elapsed_s": 5.529967791866511
+    },
+    {
+      "step": "B-independent-bound-check",
+      "script": "B/audit_engineering.py",
+      "log": "logs/B-independent-bound-check.log",
+      "exit": 0,
+      "elapsed_s": 2.224143583094701
+    },
+    {
+      "step": "B-support-check",
+      "script": "B/engineering/tighten.py",
+      "log": "logs/B-support-check.log",
+      "exit": 0,
+      "elapsed_s": 6.228095083031803
+    }
+  ],
+  "archived_outputs_checked": [],
+  "thread_env": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1"
+  },
+  "started_utc": "2026-11-25T01:16:07.383840+00:00",
+  "frozen_hash_checks": {
+    "B/proof_lock.json / sha256": 13,
+    "B/engineering/freeze.json / sha256": 4
+  },
+  "lean_recompiled": false,
+  "status": "passed",
+  "finished_utc": "2026-11-25T01:16:52.601521+00:00"
+}

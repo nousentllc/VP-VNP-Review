@@ -1,0 +1,24 @@
+{
+  "expected": 5040,
+  "present": 5040,
+  "physical_trajectories": 5040,
+  "errors": [],
+  "hourly_actions": 120960,
+  "max_residual": 1.9750602849013677e-13,
+  "negative_controls": {
+    "balance": 1.0,
+    "soc": 1.0,
+    "terminal": 99.99999999999999,
+    "reserve/power": 107.52688172043014,
+    "coincident": 100.0
+  },
+  "total_fallback": 0,
+  "total_late": 0,
+  "solver_error_count": 0,
+  "fallback_ready_misses": 0,
+  "max_fallback_ready_seconds": 0.001170624978840351,
+  "max_candidate_clock_seconds": 0.02717949985526502,
+  "schedule_replays": 5040,
+  "nonidentical_schedules": [],
+  "max_replay_action_difference": 0.0
+}

@@ -1,0 +1,217 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=.82in,top=.80in,bottom=.80in]{geometry}
+\usepackage{amsmath,booktabs,array,tabularx,xcolor,fancyhdr,hyperref}
+\definecolor{ink}{HTML}{193344}\definecolor{accent}{HTML}{006967}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent,pdftitle={CRGC W04 Experimental Results}}
+\pagestyle{fancy}\fancyhf{}\lhead{\small CRGC \textbar{} Experimental results}\rhead{\small Research review \textbar{} W04}\cfoot{\small\thepage}
+\setlength{\headheight}{14pt}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{2em}
+\newcommand{\sect}[1]{\section*{\color{ink}#1}}
+\newcommand{\sub}[1]{\subsection*{\color{accent}#1}}
+\newcommand{\src}[1]{{\footnotesize\textcolor{ink}{Evidence files}\quad{\ttfamily\detokenize{#1}}}\par}
+\newcommand{\key}[1]{\textbf{\color{ink}#1}}
+\newcommand{\na}{\textemdash}
+\raggedbottom
+\begin{document}
+{\color{accent}\small ENERGY EXPLORATIONS \hfill 24 NOVEMBER 2026}\par
+{\LARGE\bfseries\color{ink} When compression pays for itself}\par
+{\large CRGC W04 experimental results and proof review}\par
+Technical handoff for independent review of the v0.3 research checkpoint.\par
+\sect{Results for integration review}
+The strongest operational result came from changing what a six-hour battery controller values at the end of its forecast. A precautionary energy target reduced flexible-load shedding against both the matched six-hour controller without continuation and a strong forecast rule. Temporary grouping did produce feasible starts for the battery and unit commitment solvers, but the simpler LP-informed alternatives matched or improved their deadline results. The formal work identifies precisely when a reconstructed optimum or approximate solution can be certified.
+
+\begin{tabularx}{\linewidth}{@{}p{.95in}X@{}}
+\toprule
+Hypothesis & Result on the specified model and budget\\\midrule
+Battery warm starts & Grouping, LP repair and full LP alone each reached target on the same 54/72 cases. On 18 forced-opposition cases, grouping had zero practical wins and seven losses versus LP repair at two seconds.\\[3pt]
+AIPC contract & Lean checked 32 new theorems. The $\alpha+\beta+\epsilon$ regret bound needs a global projection bound, a reduced candidate quality guarantee and a validated lift. A two-point family attains the bound.\\[3pt]
+Stochastic control & Six-hour continuation reduced shedding by 5.03 MWh/day versus the matched rule (95\% day-cluster interval 1.97--8.21 MWh/day of reduction). At twelve hours the rule served 13.08 MWh/day more.\\[3pt]
+Static AC-OPF & All 160 terminal points passed physics checks, 147 within 12 s. Neither elimination policy cleared the 10\% median speed criterion on any network/variant against either full start.\\[3pt]
+Unit commitment & Severe startup failures limited the primary panel. In a separate complete serial replay all arms returned a schedule on five of six cases. Grouping cost more than LP repair in all five. Three differences were practically material.\\\bottomrule
+\end{tabularx}
+
+\sub{Which claims survive?}
+Carry forward a six-hour, simulation-specific service result with its throughput cost, a qualified mathematical reconstruction contract, and the usefulness of checking raw LP dispatches on this battery panel. Retire the tested superiority claims for temporary grouping and for general AC speedup. On UC, the observed primary failure is partly a supervisor failure, so the serial results and their post hoc status travel with that conclusion.
+
+The packet keeps original and replay clocks, failed returns, accepted and rejected proof controls, complete dated inputs, and original physical trajectories. Public benchmark inputs and the earlier independent W03 Linux review have separate provenance. No W04 track has an independent second-machine operational replication.
+\clearpage
+\sect{Study design and evidence boundaries}
+The question across these tests is whether a simpler representation produces a usable decision under the full constraints. A candidate, a lower bound, a returned solution and a formally justified reconstruction answer different questions. Each row below identifies the unit of comparison and the decision the experiment actually scores.
+
+\begin{tabularx}{\linewidth}{@{}p{.48in}p{1.85in}X@{}}
+\toprule
+Track & Experimental unit & Scored comparison\\\midrule
+A & 72 seed, cohort and size combinations & Five battery policies, three rotated repeats, two-second deadline. Each case counts once for attainment only if it passes all repeats.\\
+B & Mathematical statements & Type-checked proofs, rejected false declarations, and rational finite counterexamples. No runtime estimator enters a theorem.\\
+E & 24 latent days, each in three regimes & Twelve controller/reference paths per scenario-day. The 24 latent seeds are the units for paired intervals. Individual decisions face a one-second gate.\\
+C & Four AC networks, each normal and stressed & Four IPOPT formulations/starts, five rotated repeats. A point must pass an independent AC check by 12 seconds.\\
+D & Three UC dates, each at two horizons & Four policies per case. A schedule must pass the original constraints by 45 seconds. Late or missing schedules receive no credit.\\
+\bottomrule
+\end{tabularx}
+
+\sub{Evidence custody and comparators}
+The byte-verified W03 foundation supplies the original generators, solvers, models, histories, and regression outputs. The v0.3 review supplies a separate archival analysis and a Linux W03 control replay. W04 timings, simulations, and proof work were produced in this campaign. The public AC and UC cases, licenses and publisher's AC baseline provide external benchmark inputs. The delivered records contain no site dispatch observations.
+
+Numerical runs used CPython 3.12.9, HiGHS 1.12.0, SciPy 1.18.0, NumPy 2.2.4, CasADi 3.7.2 and Pyomo 6.9.3 as applicable. Each solver used one thread on a shared eight-logical-CPU arm64 Mac. Unrelated system work and other campaign processes contended for the machine. Scheduling order, worker startup, post-clock diagnostics and individual validation clocks appear in the per-track records. Ratios from this host describe the run that occurred. Isolated-server latency requires a fresh run of all matched arms.
+
+\sub{Gate definitions}
+For minimization, $U$ is the lowest validated full-model cost available by the chosen clock. A restricted feasible schedule may improve $U$ if its original device or generator constraints pass. Only an unrestricted relaxation or an unrestricted valid solver bound may supply $L$. Finite-precision bounds carry their stated numerical qualifications. Track A separately evaluates a full LP dual certificate with rational arithmetic on the stored floating-point coefficients interpreted exactly as rationals. Track C reports local feasible AC objectives and a conservative numerical dispatch floor where the sign and convexity checks allow it. Track E scores realized simulation service while the offline perfect-foresight trajectory uses information unavailable online.
+
+\src{protocol/source_lock.json, protocol/environment.json, foundation/sources.md}
+\clearpage
+\sect{W04-A \quad Battery grouping against unrestricted recovery}
+The group policy first solves the full LP, then tries inner models with shared direction choices. Individual powers, dynamics, SOC, terminal tolerances, reserve, availability, ramp and grid exchange remain explicit. Its best admissible schedule is transferred into an unrestricted MILP. The LP-repair comparator uses LP signs, with a partial fixing fallback. A transfer ablation runs the grouped search, retains any best validated dispatch, then supplies only the common fallback as the search start. All integer modes are restored. Three candidate budgets were tested on former W03 holdout cases reused for W04 development; the frozen choice was 30\% of the two seconds.
+
+\begin{center}\small
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+All-repeat target hits & Full MILP & Full LP & LP repair & Group start & Ablation\\\midrule
+Ordinary (18) &14&18&18&18&18\\
+Negative price/outage (18)&17&18&18&18&18\\
+Forced opposition (18)&0&0&0&0&1\\
+Interchangeable (18)&14&18&18&18&18\\\midrule
+Total (72)&45&54&54&54&55\\\bottomrule
+\end{tabular}
+\end{center}
+
+The target was $U-L\le 0.00002+0.001\max(1,|U|)$. Exactly 54 raw LPs passed original-model physical validation in all repeats. Both candidate pipelines stopped at that stage on those cases. Thus the nine extra case hits versus direct MILP have an LP explanation. The forced family intentionally imposes a grid profile that can require opposite battery modes; its frequency was fixed by design.
+
+\begin{center}\small
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+Forced cases, group minus comparator & Deadline & Practical wins & Ties & Losses\\\midrule
+Direct full MILP & 250 ms & 3 & 12 & 2\\
+LP repair & 250 ms & 1 & 8 & 8\\
+Direct full MILP & 2 s & 5 & 11 & 2\\
+LP repair & 2 s & 0 & 11 & 7\\
+Grouped search with fallback start & 2 s & 2 & 16 & 0\\\bottomrule
+\end{tabular}
+\end{center}
+Each observation compares case medians over three repeats. The practical threshold was 0.1\% of $\max(1,|U_{\rm fallback}|)$. One missing early comparison leaves 17 paired cases at 250 ms. All five two-second wins against the direct MILP came from the six $12\times16$ forced cases. Grouping lost to LP repair on all six. Its two-second time integral of incumbent cost, normalized to the fallback-to-valid-bound interval, was worse than repair on the forced cohort by a paired median of 0.258 (six-seed block bootstrap interval 0.164 to 0.289).
+
+HiGHS acknowledged 31 nonfallback starts among 54 grouped recoveries and 37 among 53 LP-informed recoveries. An accepted start therefore establishes transfer, while the matched ablation tests downstream contribution. All 18 forced root restrictions were infeasible in a separate presolve diagnostic. Across 1,080 trials, 234 returned after two seconds (maximum 4.773 s). Late improvements were excluded. Independent replay checked 3,019 candidate witnesses, 72 exact LP box bounds and 144 corruptions. The largest accepted physical residual was $8.51\times10^{-12}$. The 54 LP-admissible and 18 forced cases bound the empirical interpretation of the result.
+
+\src{A/results/target_counts.csv, A/results/contrasts.csv, A/results/start_audit.json}
+\src{A/results/trials.jsonl.gz, A/results/lp_strata.json, A/FINDINGS.md}
+\clearpage
+\sect{W04-B \quad Exact thresholds and bounded regret}
+Let $X,Y$ consist of feasible points with real costs $J,K$. Write $A_J(t)$ for $\exists x\in X:J(x)\le t$. Suppose $p:X\to Y$ and $f:Y\to X$ satisfy $K(p(x))\le J(x)$ and $J(f(y))\le K(y)$. Applying the appropriate map to each witness gives $A_J(t)\iff A_K(t)$ for every real $t$, including the empty-domain case. A many-to-one projection can satisfy these hypotheses. Suppose a full feasible lift $x$ has been verified for one attained reduced minimizer $\hat y$, with $J(x)\le K(\hat y)$. Retaining the projection inequality gives, for every full $u$,
+\[
+ J(x)\le K(\hat y)\le K(p(u))\le J(u).
+\]
+This proves attainment and equality for that candidate. Equal infima by themselves do not give attainment. For example, $(0,\infty)$ and $[0,\infty)$ with identity cost both have infimum zero, but only the latter attains zero. A reduced optimizer may also encode an interface value outside the projection's range even when all costs are equal.
+
+\sub{Approximation and the price of a partial lift}
+Assume nonempty domains with cost ranges bounded below. Let $j=\inf J(X)$, $k=\inf K(Y)$, $K(p(x))\le J(x)+\alpha$, and $J(f(y))\le K(y)+\beta$. Taking infima gives
+\[
+ k-\alpha\le j\le k+\beta.
+\]
+For any returned $\hat y$ with $K(\hat y)\le k+\epsilon$, a validated $\hat x$ satisfying $J(\hat x)\le K(\hat y)+\beta$ has $0\le J(\hat x)-j\le\alpha+\beta+\epsilon$. This guarantee needs a lift only at $\hat y$, together with its reduced $\epsilon$-suboptimality certificate and the uniform projection bound. Claiming the full sandwich still requires control in both directions. An empirical panel cannot establish a uniform projection bound. With independent evidence that $L\le j$, a validated $U$ supplies $U-j\le U-L$. Nested inner sets preserve feasibility of old threshold witnesses. A bounded solver can return a worse candidate, so incumbents must be explicitly retained.
+
+\sub{Constructive scope and counterexamples}
+The W03 storage instance needs identically constrained integer states, positive device count, label-compatible balanced endpoints, aggregate-only external constraints and fees, and a nonnegative throughput price. Its balanced lift preserves the aggregate and realizes the aggregate movement cost. With positive common fixed shares and distinct positive round-trip efficiencies, exact cyclic endpoints force zero throughput. Positive terminal tolerance permits some cycling. Losses, asymmetric endpoints, or a dispatch history absent from the reduced state require fresh arguments.
+
+Lean 4.30.0-rc2 checked 32 new declarations and the historical 16 inspected results. Eight new false statements failed with separate constructive refutations. Nine prebuilt dependency checkouts matched the pinned revisions. Transitive axiom inspection reported only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} or a subset. Compiler and dependency binaries remain in the trusted base.
+An exact finite audit evaluated 1,296 map/objective combinations and 2,592 candidates. The separately identified two-point construction attains the bound $\alpha+\beta+\epsilon$ for every nonnegative triple. Thus an improvement in the universal constant requires additional structural assumptions. Neither algebraic-complexity assumptions nor a solver-efficiency guarantee enter these results.
+
+\src{B/formal/AIPC.lean, B/formal/StorageContract.lean, B/formal/Sharpness.lean}
+\src{B/results/exact_controls.json, B/FINDINGS.md, B/EXPLORATION.md}
+\clearpage
+\sect{W04-E \quad Inventory value and the prediction horizon}
+A 35 MW / 180 MWh store supports a fixed facility and flexible computing load. The 100 MW import cap, import ramp, losses, reserve headroom, state floor, and terminal recharge apply to all policies. For each issue time we froze a single forecast of up to 12 hours ending at the day boundary and took prefixes for the three- and six-hour decisions. Current conditions and the next hour's outage are explicitly disclosed. The shared reserve calendar can also signal stress earlier. Each scenario day is simulated chronologically. The 24 seeds supply 72 counterfactual days.
+
+Continuation first minimizes modeled unserved energy over the window, then minimizes end-of-window shortfall relative to a precautionary target, and then minimizes throughput. A deterministic tie-break fixes the first action. The target adds the W03 training 75th percentile of the maximum positive prefix of net energy draw in the following six hours, with charging credited and bins set by the window end, to the physical floor at the forecast-window end, caps the result at 180 MWh, and adds no extra inventory at the day boundary. Its calibration omits some ramp and uncertainty interactions. The no-continuation arm shares the remaining priorities. The forecast rule receives the same horizon prefix. Perfect foresight provides an offline service reference.
+
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Continuation minus comparator & Mean $\Delta$ shed & 95\% day interval & Lower/equal/higher\\\midrule
+3 h minus same-horizon none & $-23.64$ & $[-28.25,-19.09]$ & 23/1/0\\
+6 h minus same-horizon none & $-11.43$ & $[-15.90,-7.17]$ & 23/1/0\\
+12 h minus same-horizon none & $-0.12$ & $[-0.35,0.00]$ & 2/22/0\\
+3 h minus matched forecast rule & $-21.87$ & $[-26.60,-17.16]$ & 23/1/0\\
+6 h minus matched forecast rule & $-5.03$ & $[-8.21,-1.97]$ & 13/2/9\\
+12 h minus matched forecast rule & $+13.08$ & $[10.06,16.63]$ & 0/1/23\\\bottomrule
+\end{tabular}
+\end{center}
+Effects are MWh of flexible load unserved per scenario-day. Each latent day is weighted equally after averaging its three regimes. Intervals resample the 24 seeds 10,000 times. Both preregistered H6 service contrasts meet the 0.1 MWh/day practical criterion. H6 continuation's advantage over the rule cost 12.19 MWh/day of additional throughput and 0.82 MWh/day of conversion losses. It reduced shedding by 7.87 MWh/day on ordinary days and 7.71 on biased days. On outage/reserve days the difference was $+0.48$ ($-0.31$ to $+1.37$). The results support carrying energy at six hours for this generator, with a cost in cycling and an unresolved outage-regime effect.
+
+At 12 hours, changing only the forecast tail from a flat extrapolation to the issued load forecast \emph{increased} shedding by 8.34 MWh/day (6.15 to 10.49). This tests one specified forecast substitution with the optimizer and horizon held fixed. The second-pass and clock diagnostics appear below; they bound what can be inferred about action determinism. W03's Mac/Linux discrepancy was localized to two first actions at hour 12 admitting plans of equal optimal forecast shedding and throughput. Substituting the Linux action reproduced the remaining path and 1.899 MWh less realized daily shedding.
+
+Of 864 live-replay trajectories, 859 action arrays matched exactly. The first pass triggered 21 fallbacks. The second triggered zero. Replaying the original timeout decisions recovered all five differing trajectories. The repeat H6 effect versus the rule was $-5.06$ MWh/day ($-8.26$ to $-1.98$). Restricting the primary comparison to 23 complete days with no fallback in either arm gave $-4.57$ ($-7.78$ to $-1.49$). The slowest rejected candidate took 3.84 s. The fallback was precomputed, but its time of actual delivery was unmeasured. The largest primary physical residual was $7.11\times10^{-14}$.
+\src{E/results/paired_effects.csv, E/results/deadline_attribution.json, E/FINDINGS.md}
+\clearpage
+\sect{W04-C \quad Exact elimination in static AC power flow optimization}
+On a generator bus choose the online unit with the largest sum of real and reactive power ranges. From the bus balances substitute its outputs by the complex injection required by voltage, load and shunts minus the outputs of the other units. The original cost and limits are evaluated at the reconstructed $P,Q$. Feasible points project and lift exactly on the common implemented model. Its extra individual angle boxes $|\theta_i|\le 2\pi$ are provably redundant by path lengths at 57 and 118 buses. Redundancy at 300 and 1,354 buses is open. Every saved angle was within 0.865 radians. This static, single-reference formulation retains both branch-end ratings, charging, transformer taps and phase shifts, voltage and angle bounds. Other dynamics or security contingencies would require their own constraints and proof.
+
+All arms use automatic sparse derivatives with the W03-selected IPOPT configuration and a matched DC voltage guess. Full DC uses dispatch-based generation initialization. Full matched receives the generator values reconstructed at the same initial voltages (the solver can push an infeasible starting point into the box). All eliminates one pivot at every generator bus. Selective eliminates only at incident degree $\le3$. Numerical scoring includes model building and independent reconstruction. Differences in the active inequalities, derivative sparsity and barrier search can therefore survive an algebraically exact substitution.
+\begin{center}\small
+\begin{tabular}{@{}lr@{\quad}rrrrr@{}}
+\toprule
+Buses / variant & Full DC cost & DC hits & Matched & All & Selective & $t_{\rm all}/t_{\rm matched}$\\\midrule
+57 typical & 37,589 &5&5&5&5&0.979\\
+57 API & 36,242 &5&5&5&5&0.999\\
+118 typical & 97,214 &4&4&3&4&1.201\\
+118 API & 249,615 &5&5&5&5&1.110\\
+300 typical & 565,220 &5&5&5&5&0.941\\
+300 API & 686,041 &5&5&5&5&0.996\\
+1,354 typical & 1,258,844 &2&3&4&3&1.096\\
+1,354 API & 1,608,227 &5&5&5&5&1.013\\\midrule
+Total, denominator 40 per arm &&36&37&37&37&\\\bottomrule
+\end{tabular}
+\end{center}
+API is PGLib's active-power-increase variant. Costs are rounded benchmark dollars/hour, medians among on-time full DC solves. The last column compares matched repeat pairs with both costs within $10^{-5}$ relative. On the two typical 118- and 1,354-bus comparisons it has only two and three matched repeats, respectively. All 160 final vectors passed the independent AC replay; 13 were late. All 147 on-time objectives agreed with the external PGLib AC result to its printed precision. Neither elimination policy achieved the preregistered 10\% median time reduction on any of eight cases against either full start. The W03 regression reproduced all 36 objectives exactly.
+
+\sub{Fewer variables did not consistently reduce fill}
+On 1,354 typical, full DC to all-pivot changed variables $3228\to2708$, Jacobian entries $39{,}526\to39{,}006$ and reverse Cuthill--McKee added lower-factor entries $99{,}221\to107{,}615$. There were 8,681 constraint rows and 19,096 Hessian entries in each. The estimated one-norm condition of the $10^{-6}$-regularized KKT proxy moved from $6.43\times10^{12}$ to $4.55\times10^{12}$. The proxy uses SuperLU with COLAMD and is separate from IPOPT's factorization. All eight cases have linear active-power costs and one online unit per generator bus. Curvature from a nonzero quadratic generator cost remains untested.
+
+\key{Diagnostic correction.} The frozen reduced-arm start-box field reads the original DC generator values. Independent lift reconstruction found up to about 947 MW or MVAr of initial component violation on the 1,354-bus typical all-pivot case. The full-matched start controls all-pivot initialization only. This affects interpretation of initialization and the selective comparison. The witness check independently recomputed all final costs and feasibility classifications.
+
+\src{C/analysis/case_metrics.csv, C/analysis/matched_pairs.csv, C/review_notes.md}
+\clearpage
+\sect{W04-D \quad Temporary grouping for unit commitment}
+PGLib-UC supplies two RTS-GMLC dates with 73 thermal units each and a California date with 610. Each is solved over its initial 12 hours and over all 48. Prefixes retain initial commitment, elapsed on/off time and initial output; they lack obligations beyond their truncated horizon. The model retains individual startup categories, operating costs, output limits, minimum times, ramps, reserves and renewable availability. It has systemwide balance without a transmission or contingency model.
+
+The full reference uses HiGHS with a development-selected heuristic effort of 0.15. LP repair fixes high-confidence commitment indicators at 0.1/0.9 thresholds, then attempts an integral repair. The grouped arm temporarily ties pairs matched on initial status, minimum up/down times and must-run flag, ordered by nameplate characteristics. Both have a 30\% candidate budget. Recovery reloads the complete original matrix and binary declarations. The permanent restriction stays in force only for its own diagnostic arm. Every early candidate faces the full-model validator. The runs have no common previously certified schedule.
+
+Each dated objective stands alone. A target hit needs a feasible incumbent and an available numerical full-model bound within 0.5\%. The practical cost threshold is 0.1\%. Native full-MILP duals and an optimal full-LP objective discounted by $10^{-7}$ relative are numerical estimates. No independent exact dual certificate was constructed for UC. A restricted solver's lower bound is excluded. A stored feasible paired candidate may survive even if unrestricted recovery contributes no improvement.
+\begin{center}\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Case count, six per arm & Full & LP repair & Group start & Permanent\\\midrule
+Primary validated at 5 / 15 s &1/1&1/1&0/0&0/0\\
+Primary validated at 30 / 45 s &1/1&2/2&0/1&0/0\\
+Primary target at 45 s &1&2&1&0\\
+Serial validated at 5 / 15 s &2/4&4/4&2/4&2/4\\
+Serial validated at 30 / 45 s &4/5&4/5&4/5&4/5\\
+Serial target at 45 s &4&4&4&0\\\bottomrule
+\end{tabular}
+\end{center}
+In the primary run, 20 of 24 workers were killed by the supervisor, 18 before their first checkpoint. Exactly one grouped-arm schedule was found, in unrestricted search without a grouped start. On the single jointly evaluable group/LP case, August RTS 48 h, the grouped workflow cost 0.141\% more. The primary panel cannot isolate the effect of transferring a grouped candidate.
+
+\sub{Whole-panel sensitivity after the startup failures}
+We reran all 24 policies with the same worker and 45-second gate, a longer import allowance, and one UC lane. The full, LP and grouped policies each met the numerical target on four of six cases. Every arm produced a schedule on the same five. None did so on California 48 h. The solver confirmed four transferred candidates in each warm-start arm. Of four grouped transfers, unrestricted search improved three and retained one. LP search improved two and retained two. One further schedule in each arm was found without a start. All five grouped costs exceeded the matched LP repair cost. Three differences surpassed the 0.1\% practical threshold. January RTS 48 h illustrates the comparator effect: group 1,239,549, direct 1,245,865 and LP repair 1,237,305. The grouped workflow saves 0.507\% against direct search there and costs 0.181\% more than repair. These are modeled unit-commitment objectives for this single date and horizon.
+
+The longer import allowance and changed concurrency are a post hoc operational sensitivity. It would be misleading to replace the primary failures or pool the two batches. Feasibility relies on re-evaluating original row, box, integrality and chronology constraints; the transfer review separately checks solver log acknowledgement and attribution against pre-transfer and recovered incumbents.
+
+\src{D/analysis/snapshots.csv, D/serial_analysis/paired_45s.csv, D/review_notes.md}
+\clearpage
+\sect{What an independent review can establish}
+\sub{Two findings outside the main comparisons}
+\key{Sharpness of the abstract regret bound.} Take two feasible points in each space. Set full costs to $0,\alpha+\beta+\epsilon$ and reduced costs to $\alpha,\alpha+\epsilon$, with all errors nonnegative. Project both full points onto the first reduced point and lift by matching labels. Both transfer inequalities hold. Returning the second reduced point gives regret exactly $\alpha+\beta+\epsilon$. The construction, Lean declaration and rational tests are separated from the storage theorem in \texttt{B/EXPLORATION.md}.
+
+\key{Forecast accuracy and decisions.} In the 12-hour intervention, issued load leads 6--11 had 5.80 MW mean absolute error against 18.32 MW for a flat extrapolation over 6,696 overlapping issue--target entries. The frozen policy nevertheless delivered less service with the more accurate tail. This finding concerns the specified policy, terminal model and error process. The entries are overlapping predictions, not 6,696 independent days. An optimally informed policy could always ignore additional information. See \texttt{E/EXPLORATORY.md} and \texttt{E/results/tail\_accuracy.csv}.
+
+\sub{Limits on transfer to operations}
+\begin{itemize}
+\item \textbf{Certified battery abstraction.} The generic inequalities and ideal homogeneous lift have precise scopes. Applying them to lossy, heterogeneous devices needs a device-level lift or a uniform distortion proof that includes individual endpoints, history, and all external obligations.
+\item \textbf{Operational dispatch and reserves.} The computing load is flexible energy in a simulation. During the specified battery outage the unavailable reserved headroom is tallied as an unmet physical resource. Utility telemetry, sustained reserve delivery, service-level agreement compliance and battery degradation costs were outside the model.
+\item \textbf{Network and commitment.} C provides local continuous static solutions. D models chronological commitment without a grid. Neither evaluated security-constrained UC, contingencies, frequency response or capacity credit. Weak numerical lower bounds and conditional timing ratios are insufficient for an optimality or deployment guarantee.
+\item \textbf{Timing and external validity.} Every gate is scored on its own clock. Even verified small numeric residuals imply neither an actuation deadline nor performance throughout a real forecast distribution. A blinded external machine replay with a controlled CPU allocation and an out-of-generator forecast panel would test these remaining dependencies.
+\end{itemize}
+\sub{Independent reference points and review order}
+PGLib's published static AC values provide an external local-objective cross-check. The UC baseline and formulation are independently authored. Proof precedents include value-preserving state aggregation, abstract interpretation, approximate simulation, storage flexibility sets and clustered UC. Dates, links and the precise connections are in \texttt{B/FINDINGS.md} and \texttt{foundation/sources.md}. \href{https://github.com/power-grid-lib/pglib-opf/tree/dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3}{PGLib-OPF release}\quad
+\href{https://github.com/power-grid-lib/pglib-uc/tree/39a7f38cf4703de92f0291f0c873c2e98c789301}{PGLib-UC release}.
+
+Start with \texttt{claims.csv}, check the published file hashes, then recompute the underlying witnesses. Independent reviewers can reproduce numerical outcomes with the shipped model code and rerun the Lean source against the pinned dependency checkouts. Report differences at the same case, horizon, policy and clock, retaining missing actions in the denominator.
+\end{document}

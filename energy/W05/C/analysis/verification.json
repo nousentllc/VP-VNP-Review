@@ -1,0 +1,22 @@
+{
+  "scheduled": 125,
+  "valid": 100,
+  "ontime": 100,
+  "corruptions": 100,
+  "max_initial_lift_mismatch": 2.2729196302861965e-10,
+  "by_arm": {
+    "full_dc": 20,
+    "full_matched": 20,
+    "all": 20,
+    "degree": 20,
+    "guided": 20
+  },
+  "qualified_practical_by_comparator": {
+    "full_matched": 0,
+    "full_dc": 0,
+    "all": 0,
+    "degree": 0
+  },
+  "profiles": 25,
+  "profile_hits": 23
+}

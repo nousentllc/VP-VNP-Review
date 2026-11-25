@@ -1,0 +1,51 @@
+MIP has 10175 rows; 11136 cols; 38722 nonzeros; 4032 integer variables (3212 binary)
+Coefficient ranges:
+  Matrix  [1e+00, 5e+03]
+  Cost    [1e+00, 6e+04]
+  Bound   [9e-01, 8e+02]
+  RHS     [1e+00, 4e+03]
+Presolving model
+705 rows, 927 cols, 2691 nonzeros  0s
+535 rows, 768 cols, 3174 nonzeros  0s
+446 rows, 554 cols, 2729 nonzeros  0s
+388 rows, 502 cols, 2398 nonzeros  0s
+Presolve reductions: rows 388(-9787); columns 502(-10634); nonzeros 2398(-36324) 
+
+Solving MIP model with:
+   388 rows
+   502 cols (62 binary, 0 integer, 0 implied int., 440 continuous, 0 domain fixed)
+   2398 nonzeros
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic;
+     I => Shifting; J => Feasibility jump; L => Sub-MIP; P => Empty MIP; R => Randomized rounding;
+     S => Solve LP; T => Evaluate node; U => Unbounded; X => User solution; Y => HiGHS solution;
+     Z => ZI Round; l => Trivial lower; p => Trivial point; u => Trivial upper; z => Trivial zero
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   88310.45        inf                  inf        0      0      0         0     0.0s
+ R       0       0         0   0.00%   147308.509598   166868.828929     11.72%        0      0      0       235     0.0s
+ C       0       0         0   0.00%   149093.145452   163979.742594      9.08%      266     28      2       298     0.1s
+ L       0       0         0   0.00%   149284.223635   149473.999362      0.13%      970     52      2       382     0.2s
+         1       0         1 100.00%   149356.100881   149473.999362      0.08%      970     52      2       548     0.2s
+
+Solving report
+  Status            Optimal
+  Primal bound      149473.999362
+  Dual bound        149356.100881
+  Gap               0.0789% (tolerance: 0.5%)
+  P-D integral      0.01204449101
+  Solution status   feasible
+                    149473.999362 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            0.17
+  Max sub-MIP depth 2
+  Nodes             1
+  Repair LPs        0
+  LP iterations     548
+                    0 (strong br.)
+                    147 (separation)
+                    150 (heuristics)

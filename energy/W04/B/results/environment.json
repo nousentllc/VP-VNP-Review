@@ -1,0 +1,60 @@
+{
+  "checked_package_sources": [
+    {
+      "commit": "896cc56a395e1615786fac56564a3fe6bfeebcc4",
+      "name": "mathlib",
+      "tracked_source_differences": false
+    },
+    {
+      "commit": "86210d4ad1b08b086d0bd638637a75246523dbb8",
+      "name": "plausible",
+      "tracked_source_differences": false
+    },
+    {
+      "commit": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843",
+      "name": "LeanSearchClient",
+      "tracked_source_differences": false
+    },
+    {
+      "commit": "cdab3938ccabbdb044be6896e251b5814bec932e",
+      "name": "importGraph",
+      "tracked_source_differences": false
+    },
+    {
+      "commit": "2db6054a44326f8c0230ee0570e2ddb894816511",
+      "name": "proofwidgets",
+      "tracked_source_differences": false
+    },
+    {
+      "commit": "f0c6e183ea26531e82773feb4b73ab6595ca17a5",
+      "name": "aesop",
+      "tracked_source_differences": false
+    },
+    {
+      "commit": "1cc7e819b9b9bc1e87c9edcccb62e0269e00a809",
+      "name": "Qq",
+      "tracked_source_differences": false
+    },
+    {
+      "commit": "5c57f3857ba81924a88b2cdf4f062e34ec04ff11",
+      "name": "batteries",
+      "tracked_source_differences": false
+    },
+    {
+      "commit": "13567aed1ac4f12aea9484178e07e51f8c9f7658",
+      "name": "Cli",
+      "tracked_source_differences": false
+    }
+  ],
+  "executable_sha256": "b48bc5ab229bd8b320a224b87e20fc428dba6fa8a1c054bd4fa6def846e19997",
+  "lean_version": "Lean (version 4.30.0-rc2, arm64-apple-darwin24.6.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc, Release)",
+  "lockfile_sha256": "1dc07eb8e535918953da117ff0c6f79145a3ac958889f483f73fc184743a3a99",
+  "sampled_import_objects_sha256": {
+    "Mathlib": "b2abfc4030c66339028aba11e3f086a5418603da0a6d9bd20f858a7e84897cac",
+    "Mathlib/Data/Real/Archimedean": "5d39a2babdc83ba3d6a922cbd89591adffb58be83be7652839cf3804ba5fe922",
+    "Mathlib/Order/ConditionallyCompleteLattice/Basic": "25851f470081b1c735635a7c73cbb5e9c293e91034253ff2f04f34eadf4f33d4",
+    "Mathlib/Tactic/Linarith": "78d6c5e3b20a2fee64dddba472a8133508357c1aea214ab2908fe40cdd021380",
+    "Mathlib/Tactic/NormNum": "f6539273203c0e1c65d5e6fca9507d1644b3450230c61b6ce53c416d2cda11fe"
+  },
+  "scope": "Prebuilt dependency cache; neither all dependency objects nor compiler rebuilt from source."
+}

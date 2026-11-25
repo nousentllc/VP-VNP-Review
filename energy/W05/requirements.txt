@@ -1,0 +1,10 @@
+# Recorded macOS arm64 environment, Python 3.12.9.
+# Lean + mathlib require the separate toolchain and package lock in B/formal/.
+numpy==2.2.4
+scipy==1.18.0
+highspy==1.12.0
+casadi==3.7.2
+sympy==1.14.0
+mpmath==1.3.0
+pyomo==6.9.3
+ply==3.11

@@ -1,0 +1,7 @@
+# W04-B scope and replay specification
+
+The internal specification is the W04-B section of W04_Research_Protocol.md (SHA-256 ce2b62d2e5aad077c12a107e79617b369cb867050ea42ac147d9739f3750a42f). Its W04 theory context is CRGC_Whitepaper_v0.3.tex (SHA-256 43798d1f1220fc31faf378270a9afe7c9625ee6fdabe032c0fa2e68089be1b1f). The historical source Storage.lean has SHA-256 d719dae3bd49c0aedef8d0290c663e73e77862512bee4252afc4bc57f69c5413. The work here is a new formalization with preserved W03 inputs. No operator or customer data enters the proof environment.
+
+The requested tests are universal statements and exact constructive counterexamples. Hypotheses and directions come from the protocol. W04-B uses no sampled held-out population. The finite rational sweep is deterministic coverage of its explicitly defined finite domain. Its parameters were selected for this campaign and its results are development evidence. Treating 2,592 related checks as independent field observations would be unsound.
+
+The checks read the pinned W03 lock, compile Storage.lean, compile new proof modules, inspect quantifiers and transitive axioms, inspect deliberate rejected propositions, and separately enumerate finite rational examples. Acceptance requires all named positive declarations, all intended negative diagnostic lines, checked package revisions, and zero source-declared extra axioms. Reproduction instructions and scope of trusted binary dependencies appear in README.md.

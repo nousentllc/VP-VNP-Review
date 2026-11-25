@@ -1,0 +1,53 @@
+{
+  "policies": 12,
+  "cases": 72,
+  "trajectories": 864,
+  "hourly_actions": 20736,
+  "max_residual": 7.105427357601002e-14,
+  "mutation_rejections": [
+    {
+      "name": "bad_soc",
+      "residual": 1.0
+    },
+    {
+      "name": "unbalanced",
+      "residual": 1.0
+    },
+    {
+      "name": "terminal",
+      "residual": 1.0
+    },
+    {
+      "name": "reserve",
+      "residual": 107.5268817204301
+    }
+  ],
+  "fallbacks": 21,
+  "same_machine_repeat": {
+    "exact_action_trajectories": 859,
+    "total": 864,
+    "max_difference": 16.674790700847367,
+    "material_changes": [
+      [
+        "outage_reserve_11004",
+        "value3"
+      ],
+      [
+        "biased_forecast_11004",
+        "none3"
+      ],
+      [
+        "biased_forecast_11004",
+        "value3"
+      ],
+      [
+        "outage_reserve_11005",
+        "value6"
+      ],
+      [
+        "outage_reserve_11005",
+        "value12_tail6"
+      ]
+    ]
+  }
+}

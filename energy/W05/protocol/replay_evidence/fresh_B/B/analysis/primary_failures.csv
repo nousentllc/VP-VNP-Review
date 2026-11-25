@@ -1,0 +1,8 @@
+seed,regime,reason
+17032,slack,AssertionError()
+17032,tight,AssertionError()
+17032,boundary,AssertionError()
+17032,outage,AssertionError()
+17033,outage,AssertionError()
+17037,outage,AssertionError()
+17038,outage,AssertionError()

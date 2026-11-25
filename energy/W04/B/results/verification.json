@@ -1,0 +1,241 @@
+{
+  "axioms": {
+    "W04.Controls.history_omission": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.Controls.incompatible_labels": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.Controls.integrality_gap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.Controls.missing_lift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.Controls.partial_lift_no_sandwich": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.Controls.positive_terminal_tolerance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.Controls.restricted_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.Controls.returned_cost_can_worsen": [
+      "propext"
+    ],
+    "W04.Controls.unbalanced_start": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.Sharpness.sharp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.StorageContract.projection_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.StorageContract.recovery_cost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.StorageContract.threshold_from_contract": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.attained_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.candidate_regret": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.combined_lower": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.empty_threshold": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.equal_values_bad_optimizer": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.exact_infimum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.final_stage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.gap_contract": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.global_regret": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.infimum_sandwich": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.nested_stage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.open_closed_infima": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.projected_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.retained_cost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.single_optimal_lift": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.stop_with_tolerance": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.threshold_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.transport_threshold": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "W04.value_le_cost": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "modules": {
+    "AIPC": {
+      "exit": 0,
+      "source_sha256": "3672d955312dbb9be8ebdd5c5e6f25f1cb4918c232818449c4316a16f86994cc"
+    },
+    "Controls": {
+      "exit": 0,
+      "source_sha256": "2d6e08a7b02c32f92c9d64669b117bd39e026c98a9a662e47180746047cab995"
+    },
+    "Inventory": {
+      "exit": 0,
+      "source_sha256": "95812b76eee0165fe233dfac9d881d2696afca1911bd3b0f5d6356f13aafe9ea"
+    },
+    "Sharpness": {
+      "exit": 0,
+      "source_sha256": "bc8dfd7b388bdbebbac01f3a1a4f197d6c52c183de3665549316b72f56591087"
+    },
+    "Storage": {
+      "exit": 0,
+      "source_sha256": "d719dae3bd49c0aedef8d0290c663e73e77862512bee4252afc4bc57f69c5413"
+    },
+    "StorageContract": {
+      "exit": 0,
+      "source_sha256": "e1ca4b10c97631b1c3e8047c3672904d56d5c057211c8073cc596d1997a681cd"
+    }
+  },
+  "mutants": {
+    "exit": 1,
+    "rejected_lines": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "source_sha256": "4e1f2a4e00d6755bd90375c814fb7dfab4b43e864c5a0c7c7f53ff045873311c"
+  },
+  "packages": [
+    {
+      "name": "mathlib",
+      "revision": "896cc56a395e1615786fac56564a3fe6bfeebcc4"
+    },
+    {
+      "name": "plausible",
+      "revision": "86210d4ad1b08b086d0bd638637a75246523dbb8"
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "c5d5b8fe6e5158def25cd28eb94e4141ad97c843"
+    },
+    {
+      "name": "importGraph",
+      "revision": "cdab3938ccabbdb044be6896e251b5814bec932e"
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "2db6054a44326f8c0230ee0570e2ddb894816511"
+    },
+    {
+      "name": "aesop",
+      "revision": "f0c6e183ea26531e82773feb4b73ab6595ca17a5"
+    },
+    {
+      "name": "Qq",
+      "revision": "1cc7e819b9b9bc1e87c9edcccb62e0269e00a809"
+    },
+    {
+      "name": "batteries",
+      "revision": "5c57f3857ba81924a88b2cdf4f062e34ec04ff11"
+    },
+    {
+      "name": "Cli",
+      "revision": "13567aed1ac4f12aea9484178e07e51f8c9f7658"
+    }
+  ],
+  "toolchain": "Lean (version 4.30.0-rc2, arm64-apple-darwin24.6.0, commit 3dc1a088b6d2d8eafe25a7cd7ec7b58d731bd7cc, Release)"
+}

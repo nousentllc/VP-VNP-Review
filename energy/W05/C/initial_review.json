@@ -1,0 +1,309 @@
+{
+  "cases": [
+    {
+      "case": "pglib_opf_case1888_rte",
+      "sha256": "f4bc237298ed7c2e9291070f3c3a0983319565c12b801114a1e29641d0b5bff0",
+      "buses": 1888,
+      "online_generators": 290,
+      "nonzero_quadratic_costs": 0,
+      "colocated_buses": 8,
+      "max_saved_matched_start_difference": 2.2729196302861965e-10,
+      "max_independent_initial_difference": {
+        "voltage_pu": 0.0,
+        "theta_rad": 3.785860513971784e-14,
+        "P_MW": 8.822098607197404e-11,
+        "Q_MVAr": 2.148858868622483e-10
+      },
+      "max_initial_box_disagreement": 2.546585164964199e-11,
+      "max_cost_difference": 4.656612873077393e-10,
+      "policy": [
+        {
+          "arm": "full_dc",
+          "expected_pivots": 0,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 0,
+          "initial_generator_box_violation": 1.1368683772161603e-13
+        },
+        {
+          "arm": "full_matched",
+          "expected_pivots": 0,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 0,
+          "initial_generator_box_violation": 8773.178908763965
+        },
+        {
+          "arm": "all",
+          "expected_pivots": 280,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 0,
+          "initial_generator_box_violation": 8773.17890876399
+        },
+        {
+          "arm": "degree",
+          "expected_pivots": 278,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 0,
+          "initial_generator_box_violation": 8773.17890876399
+        },
+        {
+          "arm": "guided",
+          "expected_pivots": 280,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 280,
+          "by_12s": 0,
+          "initial_generator_box_violation": 8773.17890876399
+        }
+      ]
+    },
+    {
+      "case": "pglib_opf_case200_activ",
+      "sha256": "676e6f54a3b6726b199b531e7758ad8bf75ba2b076ea3fee86dc3f5cf5846f6b",
+      "buses": 200,
+      "online_generators": 38,
+      "nonzero_quadratic_costs": 31,
+      "colocated_buses": 0,
+      "max_saved_matched_start_difference": 4.354294702579864e-13,
+      "max_independent_initial_difference": {
+        "voltage_pu": 0.0,
+        "theta_rad": 4.218847493575595e-15,
+        "P_MW": 2.8421709430404007e-12,
+        "Q_MVAr": 4.654054919228656e-13
+      },
+      "max_initial_box_disagreement": 0.0,
+      "max_cost_difference": 3.637978807091713e-12,
+      "policy": [
+        {
+          "arm": "full_dc",
+          "expected_pivots": 0,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 0.0
+        },
+        {
+          "arm": "full_matched",
+          "expected_pivots": 0,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 0.14326362607769738
+        },
+        {
+          "arm": "all",
+          "expected_pivots": 38,
+          "selected_quadratic": 31,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 0.14326362607769738
+        },
+        {
+          "arm": "degree",
+          "expected_pivots": 38,
+          "selected_quadratic": 31,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 0.14326362607769738
+        },
+        {
+          "arm": "guided",
+          "expected_pivots": 38,
+          "selected_quadratic": 31,
+          "total_guided_candidates": 38,
+          "by_12s": 5,
+          "initial_generator_box_violation": 0.14326362607769738
+        }
+      ]
+    },
+    {
+      "case": "pglib_opf_case24_ieee_rts",
+      "sha256": "5d4fc2d4a1a282f700c51747e592f5a5ac15fa6d5eadb7df7ae937bbe3063374",
+      "buses": 24,
+      "online_generators": 33,
+      "nonzero_quadratic_costs": 22,
+      "colocated_buses": 7,
+      "max_saved_matched_start_difference": 2.4584778657299466e-12,
+      "max_independent_initial_difference": {
+        "voltage_pu": 0.0,
+        "theta_rad": 4.440892098500626e-16,
+        "P_MW": 5.684341886080801e-13,
+        "Q_MVAr": 1.8616219676914625e-12
+      },
+      "max_initial_box_disagreement": 1.1013412404281553e-13,
+      "max_cost_difference": 1.4551915228366852e-11,
+      "policy": [
+        {
+          "arm": "full_dc",
+          "expected_pivots": 0,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 0.0
+        },
+        {
+          "arm": "full_matched",
+          "expected_pivots": 0,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 8.261214596586242
+        },
+        {
+          "arm": "all",
+          "expected_pivots": 11,
+          "selected_quadratic": 9,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 8.261214596586353
+        },
+        {
+          "arm": "degree",
+          "expected_pivots": 7,
+          "selected_quadratic": 5,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 8.261214596586353
+        },
+        {
+          "arm": "guided",
+          "expected_pivots": 4,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 11,
+          "by_12s": 5,
+          "initial_generator_box_violation": 8.261214596586353
+        }
+      ]
+    },
+    {
+      "case": "pglib_opf_case500_goc",
+      "sha256": "36c298d571605019ef16c17dd74680adca1386d91ed47d69a0d909aebc90a1b6",
+      "buses": 500,
+      "online_generators": 171,
+      "nonzero_quadratic_costs": 60,
+      "colocated_buses": 27,
+      "max_saved_matched_start_difference": 1.5136336628529534e-11,
+      "max_independent_initial_difference": {
+        "voltage_pu": 0.0,
+        "theta_rad": 7.926992395823618e-14,
+        "P_MW": 6.835421118012164e-12,
+        "Q_MVAr": 1.1009859690602752e-11
+      },
+      "max_initial_box_disagreement": 2.6147972675971687e-12,
+      "max_cost_difference": 5.820766091346741e-11,
+      "policy": [
+        {
+          "arm": "full_dc",
+          "expected_pivots": 0,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 2.842170943040401e-14
+        },
+        {
+          "arm": "full_matched",
+          "expected_pivots": 0,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 584.8371513110056
+        },
+        {
+          "arm": "all",
+          "expected_pivots": 113,
+          "selected_quadratic": 60,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 584.837151311003
+        },
+        {
+          "arm": "degree",
+          "expected_pivots": 104,
+          "selected_quadratic": 60,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 584.837151311003
+        },
+        {
+          "arm": "guided",
+          "expected_pivots": 109,
+          "selected_quadratic": 60,
+          "total_guided_candidates": 113,
+          "by_12s": 5,
+          "initial_generator_box_violation": 584.837151311003
+        }
+      ]
+    },
+    {
+      "case": "pglib_opf_case73_ieee_rts",
+      "sha256": "fe8f15a2391e2c92138b712d146b04c038f0727e8e9220e1c6065507ea12a22c",
+      "buses": 73,
+      "online_generators": 99,
+      "nonzero_quadratic_costs": 66,
+      "colocated_buses": 21,
+      "max_saved_matched_start_difference": 2.6787461138155777e-12,
+      "max_independent_initial_difference": {
+        "voltage_pu": 0.0,
+        "theta_rad": 6.661338147750939e-16,
+        "P_MW": 1.0231815394945443e-12,
+        "Q_MVAr": 2.8492763703980017e-12
+      },
+      "max_initial_box_disagreement": 6.661338147750939e-14,
+      "max_cost_difference": 5.820766091346741e-11,
+      "policy": [
+        {
+          "arm": "full_dc",
+          "expected_pivots": 0,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 0.0
+        },
+        {
+          "arm": "full_matched",
+          "expected_pivots": 0,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 5.557238926210695
+        },
+        {
+          "arm": "all",
+          "expected_pivots": 33,
+          "selected_quadratic": 27,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 5.557238926210761
+        },
+        {
+          "arm": "degree",
+          "expected_pivots": 19,
+          "selected_quadratic": 13,
+          "total_guided_candidates": 0,
+          "by_12s": 5,
+          "initial_generator_box_violation": 5.557238926210761
+        },
+        {
+          "arm": "guided",
+          "expected_pivots": 12,
+          "selected_quadratic": 0,
+          "total_guided_candidates": 33,
+          "by_12s": 5,
+          "initial_generator_box_violation": 5.557238926210761
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "records": 125,
+    "terminal_vectors": 125,
+    "valid": 100,
+    "valid_by_12s": 100,
+    "late_valid": 0,
+    "corruptions_rejected_from_valid": 100,
+    "rep0": 25
+  },
+  "scope": "Common physical tuple before IPOPT initialization. Voltage, angles and P,Q comparisons retain their native units. A complete primary panel has 125 records and 25 initial vectors."
+}

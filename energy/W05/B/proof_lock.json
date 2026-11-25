@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-11-25T01:01:15.252721+00:00",
+  "role": "Proof-source lock after development and before complete clean rebuild. It is not a holdout freeze.",
+  "sha256": {
+    "formal/AIPC.lean": "3672d955312dbb9be8ebdd5c5e6f25f1cb4918c232818449c4316a16f86994cc",
+    "formal/Anchor.lean": "4885bffb507110964ec2265e765b15dcef87048049f5830fa8a42d87ceb7d76a",
+    "formal/FalseVariants.lean": "abb509a72a8cfd6a8d3694e97680c1d1f853e5e8d6f02f35681e07bd12d5d1a2",
+    "formal/Inventory.lean": "1a3c33884c90c5fb184a3afe987d6a97df5fb665031669f59ded4997d9ff111a",
+    "formal/Obstructions.lean": "30562e3f535adca13b2c2351f709e80bc99773956355a16d2843206197f564a7",
+    "formal/Terminal.lean": "08af5795bbca9c7cfd9816f0d9e29817862f8a02d6bf535e02737fb0a64f4f27",
+    "formal/Transfer.lean": "36e65086bb73651bfda1e79a18a1f4f53e22ed752e3c773282bb04111b8d2843",
+    "formal/lake-manifest.json": "1dc07eb8e535918953da117ff0c6f79145a3ac958889f483f73fc184743a3a99",
+    "formal/lakefile.toml": "5d4b9a625743d1f1d0f5a3ad8836379cf341df93dc1299fefe36e70a2226049f",
+    "formal/lean-toolchain": "ce4c4e3d87434b9663f46de25ce34b48a0cf0d392e0a320a0787b4674a2d7b61",
+    "exact_controls.py": "e37af6ba782ca0d057589a21c704a7580b912d3b339bdcda2adf1332bd1fac7d",
+    "verify.py": "861c432ec4487376140b472233b7fd87fe1424c9a2de36eaf9b4dbca5bdf464e",
+    "proof_plan.md": "0e8f29b463e3a6fe5f460ffc948fa86374135cf99fa95e5d1c5412ab1af05b44"
+  }
+}

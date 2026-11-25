@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W05/A/audit.py", line 166, in <module>
+    args=cli.parse_args();analyze(args.raw,args.out)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jc/Documents/Codex/2026-11-24/referenced-chatgpt-conversation-this-is-an/outputs/Energy_Explorations/W05/A/audit.py", line 133, in analyze
+    fb=group[i,'screen'][0]['fallback_cost']
+       ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'fallback_cost'

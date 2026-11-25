@@ -1,0 +1,54 @@
+{
+  "scope": "Exact algebra and small examples only. No Lean or runtime verification.",
+  "E10_lower_margin": "5327/162000",
+  "E10_upper_scaled_hub_distance": "223/500",
+  "E10_lower_ratio": "5327/72252",
+  "mixed_cut_example_q": 3,
+  "mixed_cut_identity_minor": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "shared_gate_square": [
+    {
+      "characteristic": 2,
+      "coefficients": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "characteristic": 3,
+      "coefficients": [
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "characteristic": 5,
+      "coefficients": [
+        1,
+        2,
+        1
+      ]
+    }
+  ],
+  "K5_exponent_offsets_relative_to_f": {
+    "piece_evaluation": -6,
+    "listing": -16
+  }
+}

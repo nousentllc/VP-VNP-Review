@@ -1,0 +1,91 @@
+{
+  "status": "passed_for_stated_small_models",
+  "fresh_reproduction_exit_code": 0,
+  "AC_max_objective_difference_dollars_per_hour": 0.0,
+  "BESS_independent_balance_checks": [
+    {
+      "profile": "flat",
+      "method": "threshold",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 0.0
+    },
+    {
+      "profile": "flat",
+      "method": "forecast_threshold",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 0.0
+    },
+    {
+      "profile": "flat",
+      "method": "lookahead_LP",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 0.0
+    },
+    {
+      "profile": "four_hour_peak",
+      "method": "threshold",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 2.3092638912203256e-14
+    },
+    {
+      "profile": "four_hour_peak",
+      "method": "forecast_threshold",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 2.1316282072803006e-13
+    },
+    {
+      "profile": "four_hour_peak",
+      "method": "lookahead_LP",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 2.4158453015843406e-13
+    },
+    {
+      "profile": "eight_hour_peak",
+      "method": "threshold",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 2.3092638912203256e-14
+    },
+    {
+      "profile": "eight_hour_peak",
+      "method": "forecast_threshold",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 2.1316282072803006e-13
+    },
+    {
+      "profile": "eight_hour_peak",
+      "method": "lookahead_LP",
+      "max_residual": 7.105427357601002e-15,
+      "aggregate_conservation_error_MWh": 2.4158453015843406e-13
+    },
+    {
+      "profile": "alternating",
+      "method": "threshold",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 3.410605131648481e-13
+    },
+    {
+      "profile": "alternating",
+      "method": "forecast_threshold",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 1.4210854715202004e-14
+    },
+    {
+      "profile": "alternating",
+      "method": "lookahead_LP",
+      "max_residual": 0.0,
+      "aggregate_conservation_error_MWh": 1.4210854715202004e-14
+    }
+  ],
+  "toy_certificate_repeat_matches": true,
+  "source_preservation_checks": "passed",
+  "citation_keys_resolved": 34,
+  "bibliography_entries": 35,
+  "pdf_pages": 33,
+  "no_overfull_boxes": true,
+  "no_undefined_references": true,
+  "limitations": [
+    "No general formal proof of benchmark/checker code",
+    "No independent grid model implementation",
+    "No full Lean proof replay"
+  ]
+}

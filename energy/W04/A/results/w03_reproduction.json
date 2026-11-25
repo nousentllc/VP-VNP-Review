@@ -1,0 +1,395 @@
+{
+  "historical": {
+    "trials": 450,
+    "case_all_three_hit": {
+      "full_milp": 20,
+      "full_lp": 18,
+      "lp_recovery": 20,
+      "fixed_shared": 18,
+      "fixed_proportional": 18,
+      "adaptive": 20,
+      "symmetry": 6
+    },
+    "A_fixed_deadlines": [
+      {
+        "seconds": 0.05,
+        "full_milp": {
+          "better": 3,
+          "tie": 2,
+          "worse": 1,
+          "case_differences": [
+            0.0,
+            -8.494583003311163,
+            4.290797296408812,
+            -0.8873031656059993,
+            0.0,
+            -3.3372984803293093
+          ]
+        },
+        "lp_recovery": {
+          "better": 3,
+          "tie": 3,
+          "worse": 0,
+          "case_differences": [
+            0.0,
+            -8.494583003311163,
+            0.0,
+            -0.8873031656059993,
+            0.0,
+            -3.3372984803293093
+          ]
+        }
+      },
+      {
+        "seconds": 0.1,
+        "full_milp": {
+          "better": 3,
+          "tie": 2,
+          "worse": 1,
+          "case_differences": [
+            0.0,
+            -8.494583003311163,
+            4.290797296408812,
+            -0.8873031656059993,
+            0.0,
+            -3.3372984803293093
+          ]
+        },
+        "lp_recovery": {
+          "better": 3,
+          "tie": 2,
+          "worse": 1,
+          "case_differences": [
+            0.0,
+            -8.494583003311163,
+            4.290797296408812,
+            -0.8873031656059993,
+            0.0,
+            -3.3372984803293093
+          ]
+        }
+      },
+      {
+        "seconds": 0.25,
+        "full_milp": {
+          "better": 3,
+          "tie": 2,
+          "worse": 1,
+          "case_differences": [
+            0.0,
+            -8.494583003311163,
+            3.6724956357797964,
+            0.0,
+            -4.2960389684041616,
+            -7.629107997824406
+          ]
+        },
+        "lp_recovery": {
+          "better": 3,
+          "tie": 2,
+          "worse": 1,
+          "case_differences": [
+            0.0,
+            -8.494583003311163,
+            3.6724956357797964,
+            0.0,
+            -4.2960389684041616,
+            -7.629107997824406
+          ]
+        }
+      },
+      {
+        "seconds": 0.5,
+        "full_milp": {
+          "better": 2,
+          "tie": 2,
+          "worse": 2,
+          "case_differences": [
+            -25.911718445930433,
+            -16.38070910056831,
+            0.0,
+            0.0,
+            0.2803935807452831,
+            0.14792821971997228
+          ]
+        },
+        "lp_recovery": {
+          "better": 2,
+          "tie": 2,
+          "worse": 2,
+          "case_differences": [
+            -25.911718445930433,
+            -16.38070910056831,
+            0.0,
+            0.0,
+            0.2803935807452831,
+            0.14764925736579926
+          ]
+        }
+      },
+      {
+        "seconds": 1.0,
+        "full_milp": {
+          "better": 1,
+          "tie": 2,
+          "worse": 3,
+          "case_differences": [
+            9.161845941724323,
+            -21.650073582995446,
+            0.0,
+            0.0,
+            0.17690471404478103,
+            0.00027896235417301796
+          ]
+        },
+        "lp_recovery": {
+          "better": 1,
+          "tie": 2,
+          "worse": 3,
+          "case_differences": [
+            9.161845941724323,
+            -21.650073582995446,
+            0.0,
+            0.0,
+            0.17690471404478103,
+            0.00027896235417301796
+          ]
+        }
+      },
+      {
+        "seconds": 2.0,
+        "full_milp": {
+          "better": 0,
+          "tie": 6,
+          "worse": 0,
+          "case_differences": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "lp_recovery": {
+          "better": 0,
+          "tie": 6,
+          "worse": 0,
+          "case_differences": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "case_order": [
+      "forced_opposition_12x16_7301",
+      "forced_opposition_12x16_8297",
+      "forced_opposition_4x8_7301",
+      "forced_opposition_4x8_8297",
+      "forced_opposition_8x12_7301",
+      "forced_opposition_8x12_8297"
+    ]
+  },
+  "fresh": {
+    "trials": 450,
+    "case_all_three_hit": {
+      "full_milp": 20,
+      "full_lp": 18,
+      "lp_recovery": 20,
+      "fixed_shared": 18,
+      "fixed_proportional": 18,
+      "adaptive": 20,
+      "symmetry": 6
+    },
+    "A_fixed_deadlines": [
+      {
+        "seconds": 0.05,
+        "full_milp": {
+          "better": 2,
+          "tie": 3,
+          "worse": 1,
+          "case_differences": [
+            0.0,
+            0.0,
+            4.290797296408812,
+            -0.8873031656059993,
+            0.0,
+            -3.3372984803293093
+          ]
+        },
+        "lp_recovery": {
+          "better": 2,
+          "tie": 4,
+          "worse": 0,
+          "case_differences": [
+            0.0,
+            0.0,
+            0.0,
+            -0.8873031656059993,
+            0.0,
+            -3.3372984803293093
+          ]
+        }
+      },
+      {
+        "seconds": 0.1,
+        "full_milp": {
+          "better": 2,
+          "tie": 3,
+          "worse": 1,
+          "case_differences": [
+            0.0,
+            0.0,
+            3.6724956357797964,
+            -0.8873031656059993,
+            0.0,
+            -3.3372984803293093
+          ]
+        },
+        "lp_recovery": {
+          "better": 2,
+          "tie": 3,
+          "worse": 1,
+          "case_differences": [
+            0.0,
+            0.0,
+            3.6724956357797964,
+            -0.8873031656059993,
+            0.0,
+            -3.3372984803293093
+          ]
+        }
+      },
+      {
+        "seconds": 0.25,
+        "full_milp": {
+          "better": 3,
+          "tie": 2,
+          "worse": 1,
+          "case_differences": [
+            0.0,
+            -8.494583003311163,
+            3.6724956357797964,
+            0.0,
+            -4.2960389684041616,
+            -7.629107997824406
+          ]
+        },
+        "lp_recovery": {
+          "better": 3,
+          "tie": 2,
+          "worse": 1,
+          "case_differences": [
+            0.0,
+            -8.494583003311163,
+            3.6724956357797964,
+            0.0,
+            -4.2960389684041616,
+            -7.629107997824406
+          ]
+        }
+      },
+      {
+        "seconds": 0.5,
+        "full_milp": {
+          "better": 2,
+          "tie": 2,
+          "worse": 2,
+          "case_differences": [
+            -18.32579367125504,
+            -13.265053649976949,
+            0.0,
+            0.0,
+            0.2803935807452831,
+            0.14764925736631085
+          ]
+        },
+        "lp_recovery": {
+          "better": 2,
+          "tie": 2,
+          "worse": 2,
+          "case_differences": [
+            -18.32579367125504,
+            -13.265053649976949,
+            0.0,
+            0.0,
+            0.2803935807452831,
+            0.14764925736631085
+          ]
+        }
+      },
+      {
+        "seconds": 1.0,
+        "full_milp": {
+          "better": 2,
+          "tie": 2,
+          "worse": 2,
+          "case_differences": [
+            -18.32579367125504,
+            -19.300878807379945,
+            0.0,
+            0.0,
+            0.17690471404478103,
+            0.00027896235417301796
+          ]
+        },
+        "lp_recovery": {
+          "better": 2,
+          "tie": 2,
+          "worse": 2,
+          "case_differences": [
+            -18.32579367125504,
+            -19.300878807379945,
+            0.0,
+            0.0,
+            0.17690471404478103,
+            0.00027896235417301796
+          ]
+        }
+      },
+      {
+        "seconds": 2.0,
+        "full_milp": {
+          "better": 2,
+          "tie": 4,
+          "worse": 0,
+          "case_differences": [
+            -18.32579367125504,
+            -19.300878807379945,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "lp_recovery": {
+          "better": 2,
+          "tie": 4,
+          "worse": 0,
+          "case_differences": [
+            -18.32579367125504,
+            -19.300878807379945,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ],
+    "case_order": [
+      "forced_opposition_12x16_7301",
+      "forced_opposition_12x16_8297",
+      "forced_opposition_4x8_7301",
+      "forced_opposition_4x8_8297",
+      "forced_opposition_8x12_7301",
+      "forced_opposition_8x12_8297"
+    ]
+  },
+  "matches_reviewer_fixed_deadlines_and_hit_counts": true
+}

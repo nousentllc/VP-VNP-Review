@@ -1,0 +1,9 @@
+panel,arm,comparator,common_days,unequal_realized_shedding,max_abs_delta
+primary,nested6,learned6,180,0,0.0
+primary,nestedrule6,rule6,180,0,0.0
+primary,fixed12,learned12,180,0,0.0
+primary,rule12,rule3,180,0,0.0
+alternative,nested6,learned6,72,0,0.0
+alternative,nestedrule6,rule6,72,0,0.0
+alternative,fixed12,learned12,72,0,0.0
+alternative,rule12,rule3,72,0,0.0

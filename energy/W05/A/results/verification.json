@@ -1,0 +1,13 @@
+{
+  "expected_cases": 60,
+  "expected_trials": 900,
+  "actual_trials": 900,
+  "reviewed_primal": 2319,
+  "rejected_primal": 144,
+  "exact_evaluations_rechecked": 720,
+  "unique_dual_vectors": 60,
+  "cases_with_common_reference": 60,
+  "max_valid_primal_residual": 7.688687663088353e-11,
+  "negative_power_controls": 60,
+  "clipped_illegal_multiplier_controls": 60
+}

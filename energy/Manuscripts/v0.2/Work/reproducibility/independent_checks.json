@@ -1,0 +1,131 @@
+{
+  "status": "passed",
+  "AC_scalar_trigonometric_checks": [
+    {
+      "run": 0,
+      "scalar_balance_residual": 1.7763568394002505e-13,
+      "thermal_violation_MVA": 5.684341886080802e-14
+    },
+    {
+      "run": 1,
+      "scalar_balance_residual": 6.906475391588174e-12,
+      "thermal_violation_MVA": 4.547473508864641e-13
+    },
+    {
+      "run": 2,
+      "scalar_balance_residual": 2.2737367544323206e-13,
+      "thermal_violation_MVA": 4.263256414560601e-14
+    },
+    {
+      "run": 3,
+      "scalar_balance_residual": 2.943423282886215e-12,
+      "thermal_violation_MVA": 6.536993168992922e-13
+    },
+    {
+      "run": 4,
+      "scalar_balance_residual": 4.689582056016661e-13,
+      "thermal_violation_MVA": 1.7763568394002505e-13
+    },
+    {
+      "run": 5,
+      "scalar_balance_residual": 3.197442310920451e-13,
+      "thermal_violation_MVA": 1.1368683772161603e-13
+    },
+    {
+      "run": 6,
+      "scalar_balance_residual": 2.984279490192421e-13,
+      "thermal_violation_MVA": 8.526512829121202e-14
+    },
+    {
+      "run": 7,
+      "scalar_balance_residual": 2.469136006766348e-12,
+      "thermal_violation_MVA": 3.552713678800501e-13
+    },
+    {
+      "run": 8,
+      "scalar_balance_residual": 3.339550858072471e-13,
+      "thermal_violation_MVA": 6.394884621840902e-14
+    },
+    {
+      "run": 9,
+      "scalar_balance_residual": 1.4974688156144111e-12,
+      "thermal_violation_MVA": 3.979039320256561e-13
+    }
+  ],
+  "BESS_checks": [
+    {
+      "profile": "flat",
+      "method": "threshold",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 0.0
+    },
+    {
+      "profile": "flat",
+      "method": "forecast_threshold",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 0.0
+    },
+    {
+      "profile": "flat",
+      "method": "lookahead_LP",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 0.0
+    },
+    {
+      "profile": "four_hour_peak",
+      "method": "threshold",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 2.042810365310288e-14
+    },
+    {
+      "profile": "four_hour_peak",
+      "method": "forecast_threshold",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 2.0961010704922955e-13
+    },
+    {
+      "profile": "four_hour_peak",
+      "method": "lookahead_LP",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 2.4868995751603507e-13
+    },
+    {
+      "profile": "eight_hour_peak",
+      "method": "threshold",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 2.042810365310288e-14
+    },
+    {
+      "profile": "eight_hour_peak",
+      "method": "forecast_threshold",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 2.0961010704922955e-13
+    },
+    {
+      "profile": "eight_hour_peak",
+      "method": "lookahead_LP",
+      "balance_residual": 7.105427357601002e-15,
+      "conservation_error_MWh": 2.4868995751603507e-13
+    },
+    {
+      "profile": "alternating",
+      "method": "threshold",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 3.4638958368304884e-13
+    },
+    {
+      "profile": "alternating",
+      "method": "forecast_threshold",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 2.1316282072803006e-14
+    },
+    {
+      "profile": "alternating",
+      "method": "lookahead_LP",
+      "balance_residual": 0.0,
+      "conservation_error_MWh": 2.1316282072803006e-14
+    }
+  ],
+  "toy_exact_witness": "accepted",
+  "scope": "Independent numerical reconstruction within same model; not a formally verified checker or field validation"
+}

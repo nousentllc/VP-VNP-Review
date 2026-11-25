@@ -1,0 +1,14 @@
+{
+  "frozen_hashes": 29,
+  "A_trials": 450,
+  "A_schedules": 367,
+  "exact_lp_bounds": 24,
+  "Lean_axiom_records": 16,
+  "C_checks": 36,
+  "C_corruptions_rejected": 36,
+  "D_schedules": 6,
+  "D_missing": 2,
+  "D_corruptions_rejected": 1,
+  "E_device_hours": 1728,
+  "legacy_profiles_and_policies_verified": 12
+}

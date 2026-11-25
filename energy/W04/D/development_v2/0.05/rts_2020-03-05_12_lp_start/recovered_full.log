@@ -1,0 +1,93 @@
+MIP has 10175 rows; 11136 cols; 38722 nonzeros; 4032 integer variables (4032 binary)
+Coefficient ranges:
+  Matrix  [1e+00, 5e+03]
+  Cost    [1e+00, 6e+04]
+  Bound   [1e-01, 8e+02]
+  RHS     [1e+00, 4e+03]
+Assessing feasibility of MIP using primal feasibility and integrality tolerance of       1e-07
+Solution has               num          max          sum
+Col     infeasibilities      0            0            0
+Integer infeasibilities      0            0            0
+Row     infeasibilities      0            0            0
+Row     residuals            0            0            0
+Presolving model
+6565 rows, 8682 cols, 29080 nonzeros  0s
+5426 rows, 7456 cols, 29627 nonzeros  0s
+4696 rows, 6157 cols, 31238 nonzeros  0s
+4662 rows, 6130 cols, 31215 nonzeros  0s
+Presolve reductions: rows 4662(-5513); columns 6130(-5006); nonzeros 31215(-7507) 
+
+MIP start solution is feasible, objective value is 229569.250038
+
+Solving MIP model with:
+   4662 rows
+   6130 cols (2172 binary, 0 integer, 0 implied int., 3958 continuous, 0 domain fixed)
+   31215 nonzeros
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic;
+     I => Shifting; J => Feasibility jump; L => Sub-MIP; P => Empty MIP; R => Randomized rounding;
+     S => Solve LP; T => Evaluate node; U => Unbounded; X => User solution; Y => HiGHS solution;
+     Z => ZI Round; l => Trivial lower; p => Trivial point; u => Trivial upper; z => Trivial zero
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+ J       0       0         0   0.00%   -inf            229569.250038      Large        0      0      0         0     0.5s
+
+30.7% inactive integer columns, restarting
+Model after restart has 3388 rows, 4510 cols (1263 bin., 0 int., 0 impl., 3247 cont., 0 dom.fix.), and 22281 nonzeros
+
+         0       0         0   0.00%   223850.055963   229569.250038      2.49%        0      0      0      1693     0.8s
+         0       0         0   0.00%   223850.055963   229569.250038      2.49%        0      0     59      2266     0.9s
+ L       0       0         0   0.00%   224122.953171   228050.555107      1.72%      154     22    265      2361     3.5s
+
+30.9% inactive integer columns, restarting
+Model after restart has 2429 rows, 3109 cols (868 bin., 0 int., 0 impl., 2241 cont., 0 dom.fix.), and 15784 nonzeros
+
+         0       0         0   0.00%   224454.12041    228050.555107      1.58%       22      0      0     13255     7.0s
+         0       0         0   0.00%   224454.12041    228050.555107      1.58%       22     21      0     13506     7.1s
+
+10.1% inactive integer columns, restarting
+Model after restart has 2116 rows, 2693 cols (727 bin., 0 int., 0 impl., 1966 cont., 0 dom.fix.), and 13478 nonzeros
+
+         0       0         0   0.00%   226253.409437   228050.555107      0.79%       82      0      0     14457    10.3s
+         0       0         0   0.00%   226253.409437   228050.555107      0.79%       82     66     32     14851    10.4s
+
+13.6% inactive integer columns, restarting
+Model after restart has 1860 rows, 2398 cols (603 bin., 0 int., 0 impl., 1795 cont., 0 dom.fix.), and 11669 nonzeros
+
+         0       0         0   0.00%   226683.503301   228050.555107      0.60%       76      0      0     15234    12.4s
+         0       0         0   0.00%   226683.503301   228050.555107      0.60%       76     70     32     15704    12.5s
+
+12.3% inactive integer columns, restarting
+Model after restart has 1608 rows, 2076 cols (469 bin., 0 int., 0 impl., 1607 cont., 0 dom.fix.), and 10304 nonzeros
+
+         0       0         0   0.00%   226806.960768   228050.555107      0.55%       91      0      0     15930    13.5s
+         0       0         0   0.00%   226806.960768   228050.555107      0.55%       91     75      3     16349    13.6s
+
+9.2% inactive integer columns, restarting
+Model after restart has 1507 rows, 1936 cols (413 bin., 0 int., 0 impl., 1523 cont., 0 dom.fix.), and 9769 nonzeros
+
+         0       0         0   0.00%   226861.120969   228050.555107      0.52%       93      0      0     16496    14.8s
+         0       0         0   0.00%   226861.120969   228050.555107      0.52%       93     86     20     16880    14.9s
+         1       0         1 100.00%   226916.058456   228050.555107      0.50%      709     98     20     16942    15.1s
+
+Solving report
+  Status            Optimal
+  Primal bound      228050.555107
+  Dual bound        226916.058456
+  Gap               0.497% (tolerance: 0.5%)
+  P-D integral      0.319389815706
+  Solution status   feasible
+                    228050.555107 (objective)
+                    0 (bound viol.)
+                    4.4408920985e-16 (int. viol.)
+                    0 (row viol.)
+  Timing            15.13
+  Max sub-MIP depth 9
+  Nodes             1
+  Repair LPs        0
+  LP iterations     16942
+                    0 (strong br.)
+                    1924 (separation)
+                    10834 (heuristics)

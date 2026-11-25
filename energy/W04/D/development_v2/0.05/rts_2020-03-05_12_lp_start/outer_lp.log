@@ -1,0 +1,27 @@
+LP has 10175 rows; 11136 cols; 38722 nonzeros
+Coefficient ranges:
+  Matrix  [1e+00, 5e+03]
+  Cost    [1e+00, 6e+04]
+  Bound   [1e-01, 8e+02]
+  RHS     [1e+00, 4e+03]
+Presolving model
+6563 rows, 8364 cols, 28762 nonzeros  0s
+5127 rows, 6846 cols, 30429 nonzeros  0s
+Dependent equations search running on 1249 equations with time limit of 1.00s
+Dependent equations search removed 0 rows and 0 nonzeros in 0.00s (limit = 1.00s)
+4722 rows, 6103 cols, 31449 nonzeros  0s
+Presolve reductions: rows 4722(-5453); columns 6103(-5033); nonzeros 31449(-7273) 
+Solving the presolved LP
+Using EKK dual simplex solver - serial
+  Iteration        Objective     Infeasibilities num(sum)
+          0     0.0000000000e+00 Ph1: 0(0) 0s
+       1899     2.2385005596e+05 Pr: 0(0); Du: 0(4.9738e-14) 0s
+
+Performed postsolve
+Solving the original LP from the solution after postsolve
+
+Model status        : Optimal
+Simplex   iterations: 1899
+Objective value     :  2.2385005596e+05
+P-D objective error :  7.8008733098e-16
+HiGHS run time      :          0.18

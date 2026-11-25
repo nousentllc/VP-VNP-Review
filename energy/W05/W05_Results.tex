@@ -1,0 +1,238 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=.85in,top=.78in,bottom=.78in]{geometry}
+\usepackage{amsmath,amssymb,array,tabularx,booktabs,xcolor,hyperref,fancyhdr,microtype}
+\definecolor{ink}{HTML}{1B3546}\definecolor{green}{HTML}{006864}
+\hypersetup{colorlinks=true,urlcolor=green,linkcolor=green,pdftitle={CRGC W05 experimental results},pdfauthor={CRGC energy research}}
+\pagestyle{fancy}\fancyhf{}\lhead{\small CRGC \textbar{} Energy experiments}\rhead{\small W05 \textbar{} Independent review copy}\cfoot{\small\thepage}
+\setlength{\headheight}{14pt}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}\setlength{\emergencystretch}{2em}\raggedbottom
+\newcommand{\sect}[1]{\section*{\color{ink}#1}}
+\newcommand{\sub}[1]{\subsection*{\color{green}#1}}
+\newcommand{\src}[1]{{\footnotesize\textcolor{green}{Evidence}\quad\texttt{\detokenize{#1}}}\par}
+\microtypesetup{expansion=false}
+\begin{document}
+{\small\bfseries\color{green} EXPERIMENTAL RESULTS \hfill 24 NOVEMBER 2026}\par
+{\LARGE\bfseries\color{ink} CRGC W05 experimental campaign}\par
+{\large Feasible reconstruction, the value of stored energy, and optimization under deadlines}\par
+\sect{Findings for the v0.5 review}
+The feasible-anchor construction survived mathematical falsification under explicit convexity, equality and feasibility hypotheses. Its strongest limitation was visible on small, fully auditable storage problems. The construction gave feasible dispatches on every qualified case, yet none met the registered near-optimality threshold. A better comparator also changed the predictive-control conclusion: with spare import capacity used to charge the battery, the remaining opportunity for better service was tiny on the primary synthetic panel.
+
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{1.12in}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Question & Evidence for review\\\midrule
+Can an anchor certify a lift? &
+Yes, in a common convex operating slice. Lean checked 40 new theorems. The minimum repair fraction on the chosen segment is exact. Obtaining a feasible anchor and a useful regret bound are separate obligations.\\[3pt]
+Does the certificate pay for itself? &
+Seven of 32 reference schedules violated a reserve-energy floor. On the 25 eligible cases, 13 repairs reverted completely to the anchor. All 25 provably missed the 0.1\% cost target. The movement-matched repair LP found a cheaper feasible dispatch in all 25.\\[3pt]
+Can continuation deliver more service? &
+The learned six-hour policy shed 8.05 MWh/day more than the best eligible rule on 60 new primary days. At twelve hours the deficit was 21.22 MWh/day. A clairvoyant bound places the entire mean primary improvement opportunity below 0.045 MWh/day.\\[3pt]
+Does explicit LP screening improve deadline attainment? &
+Screening, strong LP repair and native MILP with an independent proof pass reached the same 48/60 cases in every repeat. The raw LP sufficed on 44. No shared-mode grouping was used.\\[3pt]
+Does a graph score help AC elimination? &
+Guided elimination reached the 10\% speedup threshold on zero of four matched networks. All five formulations failed on the 1,888-bus network at 12 seconds.\\\bottomrule
+\end{tabularx}
+
+\sub{What the results justify}
+Admit the conditional theorem and the bounded primary service opportunity with their input models. Retire the tested screening and continuation superiority claims. The feasible construction remains a candidate generator with a separately measurable repair cost. The grid study concerns static local feasibility and matched-cost timings. None of the four experiments measures operator revenue, accredited capacity, commercial computing output or a field actuation deadline.
+
+Here BESS denotes a battery energy storage system, LP a linear program, MILP a mixed-integer linear program and AC-OPF alternating-current optimal power flow. The v0.4 source was exported from all 17 ordered blocks and compiled as a separate 66-page manuscript. This report contains the subsequent W05 evidence. The archive retains prior W04 inputs, signed-direction model controls, exact witnesses, failed trials, settings and replay instructions. The earlier master and W04 outcomes retain their own evidence status.
+\clearpage
+\sect{B \quad When a feasible anchor repairs a candidate}
+The manuscript uses AIPC for a refinement strategy that bounds cost changes when projecting to a reduced model and lifting back to the full model. In a convex base set $B$, fix affine equalities $Ex=d$, inequalities $Ax\le b$, a feasible anchor $a$ and a raw candidate $w\in B$ satisfying the equalities. For row $i$ let $\delta_i=(A_iw-b_i)_+$ and $\sigma_i=b_i-A_ia\ge0$. Define
+\[
+ r_i=\begin{cases}0&\delta_i=0,\\ \delta_i/(\delta_i+\sigma_i)&\delta_i>0,\end{cases}
+ \qquad \lambda=\max_i r_i,\qquad x^+=(1-\lambda)w+\lambda a ,
+\]
+with maximum zero for an empty family. A previously satisfied convex row remains satisfied. In a violated affine row the residual is $(1-\lambda)\delta_i-\lambda\sigma_i$, which is nonpositive exactly when $\lambda\ge r_i$. Thus $\lambda$ is the \emph{smallest} feasible movement fraction on this segment. It need not minimize movement over the whole feasible set. A binding anchor row that the candidate violates forces $\lambda=1$.
+
+For affine $J$, $J(x^+)-J(w)=\lambda[J(a)-J(w)]$. For $L_J$-Lipschitz $J$ the positive part is bounded by $L_J\|w-a\|\lambda$. If all violated rows have slack at least $s>0$ and violation at most $\bar\delta$, the fraction is at most $\bar\delta/(\bar\delta+s)$. When the reduced objective is $K(y)$, charge any discrepancy $J(w)-K(y)$ as well. Pointwise $\beta$ is enough for a returned point given a uniform projection bound and a reduced candidate quality certificate. Uniform $\beta$ needs a bound across all eligible reduced points.
+
+\sub{Equality, integrality and prior results}
+If $Ew\ne d$, the mixed residual is $(1-\lambda)(Ew-d)$. Moving a fraction strictly below one cannot repair it. An explicit correction $w'=w+R(d-Ew)$ works on this residual if $ER(d-Ew)=d-Ew$. A full-row-rank $E$ admits a right inverse; for a rank-deficient $E$ the residual already lies in its range because $a$ is feasible. Verify that the chosen correction works on that residual, particularly if corrections have restricted support. The corrected candidate must be rechecked against the base, rows and objective before applying the ray. A common fixed integral mode defines a valid convex slice when the rest of its constraints are convex. Combining different binary modes, or averaging feasible points of nonlinear AC equations, has counterexamples.
+
+Ray--polyhedron clipping follows classical line clipping. For linear inequalities and a strictly interior anchor, \textit{RAYEN} gives the same radial boundary by taking the tightest row along the outward direction. Hoffman bounds distance to \emph{some} feasible point by a residual for a fixed consistent matrix. That result does not bound the cost or distance of this chosen anchor segment. The W05 contributions are statement-level formal checks, boundary-anchor cases, computable distortion accounting and falsification on the specified storage slices. \href{https://arxiv.org/abs/2307.08336v1}{Tordesillas et al., RAYEN (2023)} \quad\href{https://doi.org/10.6028/jres.049.027}{Hoffman (1952)}.
+
+\sub{Proof boundary}
+Lean 4.30.0-rc2 checked 40 new statements against pinned mathlib and the byte-matched W04 AIPC theorem. Seven false variants failed at their intended declarations and have explicit refutations. The statement inventory inspects transitive axioms, confined to \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}. The numerical solver, instrument clocks and field plant sit outside this proof. Exact controls include 3,616 affine-row systems, 21,497 fraction tests, 729 box points and 960 signed single-slot queries. Prebuilt dependency objects and compiler binaries remain trusted.
+
+\src{B/formal/Anchor.lean, B/formal/Transfer.lean, B/formal/Terminal.lean}
+\src{B/results/lean/Inventory.log, B/results/lean/FalseVariants.log, B/LITERATURE.md}
+\clearpage
+\sect{B \quad Computing and testing $\alpha$ and $\beta$ on a fleet}
+Each case has three heterogeneous devices and eight one-hour intervals. The full fixed-mode model uses nonnegative power magnitudes $z$ in a known sign schedule, with nameplate box $0\le z\le u$. Efficiencies, chronological state of charge, losses, availability, reserve headroom, import limits, ramp and terminal conditions remain individual or coupled as appropriate. Pairs of successive intervals of the \emph{same device} have identical signs and energy coefficients. Write $G$ for within-pair averaging, $S$ for replication and $P=SG$. This reduces 24 continuous decisions to 12. It introduces no equality between the modes of two different batteries.
+
+For a row vector $v$, the box support is $H(v)=\sum_j u_j(v_j)_+$. Set $h_i=H(A_i(P-I))$, $\alpha=H(c^\top(P-I))$. The reduced model evaluates cost $K(y)=c^\top Sy$, replaces the rows by $ASy\le b+h$ and retains the terminal equalities. Since $E(P-I)=0$, every full feasible $z$ projects to $Gz$ at cost at most $c^\top z+\alpha$. For a reduced point, apply the anchor map to $w=Sy$. With $\epsilon=K(y)-L_Y$ for a valid reduced lower bound, and $\beta=[J(x^+)-K(y)]_+$, the full \emph{fixed-mode} regret is bounded by $\alpha+\beta+\epsilon$. A uniform version uses $\max_i r(h_i,\sigma_i)$ and a uniform upper bound on the anchor-to-raw cost difference. Unrestricted mixed-integer regret needs coverage across the modes or an independent unrestricted lower bound.
+
+\begin{center}\small
+\begin{tabular}{@{}lr@{}}
+\toprule
+Prospective primary outcome & Result\\\midrule
+Scheduled / originally feasible anchors & 32 / 25\\
+Physical lifts / full reversions to anchor & 25 / 13\\
+Candidate or uniform regret certificates inside 0.1\% & 0 / 25\\
+Full-LP lower-bound gap inside 0.1\% & 0 / 25\\
+Movement-matched repair LP strictly cheaper & 25 / 25\\
+Median $\alpha$ / positive affine $\beta$ / uniform $\beta$ & 2,560 / 744 / 3,739\\
+Median candidate bound / full-LP regret upper bound & 3,216 / 593\\
+Median box-distortion construction / analytic repair & 50.72 / 6.16 ms\\
+Median full reference LP / movement-matched LP & 10.17 / 26.14 ms\\\bottomrule
+\end{tabular}
+\end{center}
+The threshold was $0.001\max(1,|U_{\rm full}|)$ on the synthetic affine dispatch objective after removing constant purchases. The cheaper feasible full-reference points prove all 25 repairs actually missed the threshold. Even the smallest certified excess over the threshold exceeds 202 synthetic cost units. Physical feasibility and dual support calculations used rationals. Full-reference primal and dual values agreed exactly in 10/25 cases, and all 25 reduced primal-dual pairs agreed. Reported regret upper bounds remain valid when there is a residual certificate interval. The movement-matched repair minimizes the original cost within the anchor lift's $\ell_1$ movement budget.
+
+\sub{Failures and two follow-up diagnostics}
+All seven rejected anchors violated a reserve-energy floor. The original trials remain failures. On identical matrices a minimum-movement LP supplied an exactly validated replacement for all seven, at median cost 22.87 ms for acquisition alone. Six subsequent lifts reverted to that replacement anchor. In a separate post hoc study, tightening projection row and cost distortions over the original polytope used 1,775 independently checked LP dual certificates. On the same 25 admitted cases the median $\alpha$ fell from 2,560 to 302.5 and median bound from 3,216 to 694. No case reached 0.1\%. Support preprocessing alone took a median 837 ms. A tighter certificate was measurably more expensive than solving these small full LPs.
+
+\src{B/engineering/analysis/certificates.csv, B/engineering/support_analysis.csv}
+\clearpage
+\sect{B \quad What terminal-energy correction can certify}
+A terminal mismatch can be corrected with one action only when the entire resulting trajectory remains feasible. In a fixed charge/discharge mode, an increment in power magnitude $\Delta p$ for an interval $\Delta t$ changes terminal energy by $\eta_c\Delta p\,\Delta t$ in charge mode and $-\Delta p\,\Delta t/\eta_d$ in discharge mode. With unit retention between periods, the change shifts every subsequent state of charge (SOC) by the same amount, changes that interval's grid import and may use margin at \emph{both} adjacent grid ramps. Correcting only the last SOC value can therefore create a different physical violation.
+
+Let $x$ satisfy the rows before the terminal target changes and $v$ be a chosen unit correction direction. For a positive step $s$, the admissible step along $v$ satisfies
+\[
+ s \le \min_{i:A_iv>0}\frac{b_i-A_ix}{A_iv}.
+\]
+If no slope is positive, these rows supply no finite cap. Include power, sign, reserve and availability boxes; all future SOC floors and capacities; import and ramp rows; and every other coupled inequality. Check unaffected equalities and impose the revised terminal equality exactly. This is both necessary and sufficient along that direction in the given affine slice. A successful one-slot certificate therefore has an explicit engineering interpretation. Failure across a finite list of directions does not prove full infeasibility.
+
+\begin{center}\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Terminal target interventions & Original anchors & Replacement anchors\\\midrule
+Changes tested ($+1,-1,+7,-7$ MWh) &100&28\\
+Admissible one-slot correction &34&13\\
+Only the multi-slot LP found a feasible schedule &59&14\\
+Neither procedure returned a feasible schedule &7&1\\\bottomrule
+\end{tabular}
+\end{center}
+These interventions impose a new exact terminal target for one device and retain the anchors' exact terminal energies for the others. The original 25 eligible cases and the seven repaired-anchor cases are separate panels. Rejection of a single slot is exact for that direction. The last row records solver outcomes for the full fixed-mode LP. No exact infeasibility ray was issued for those instances. In the independent formal controls, 574 of 960 one-slot trials were admitted and 386 were blocked, each matching explicit reconstruction.
+
+\sub{Counterexamples that delimit the mathematics}
+Two feasible slots with 1 MWh of headroom apiece can repair a 2 MWh deficit even though every one-slot attempt fails. A boundary anchor on the violated face can also force a full-unit cost change for an arbitrarily small violation. With two rows and two boundary anchors, each anchor can require fraction one while their feasible midpoint permits fraction $2/3$. That last example suggests a way to improve an anchor with certified convex combinations. It supplies no operational method for finding cheap interior points. Costly anchor selection and the per-device slice restriction remain open engineering questions.
+
+\src{B/formal/Terminal.lean, B/formal/Obstructions.lean, B/EXPLORATORY.md}
+\src{B/engineering/analysis/slots.csv, B/engineering/analysis/primary_failures.csv}
+\clearpage
+\sect{E \quad Does learned continuation improve service?}
+On the new primary panel, both the six-hour and twelve-hour continuation controllers shed more flexible load than a simple rule that charges the battery whenever there is spare import capacity. Choosing the comparator on development data changed the conclusion. The W04 six-hour target still served 4.39 MWh/day more than its original forecast rule, and the new learned target served 11.50 MWh/day more than the W04 target. The best eligible six-hour rule served a further 8.05 MWh/day more than the learner.
+
+\sub{What each controller could know and do}
+The site has a 35 MW / 180 MWh battery, a 100 MW import cap, a 23 MW/h ramp, a protected 24 MW facility load, and battery charge/discharge efficiencies of 0.94/0.93. It opens with 95 MWh and must close with at least 95 MWh. Each 24-hour trajectory uses current observations and an issued load forecast of up to twelve hours. The shorter horizons receive prefixes of that same forecast. The availability feed discloses outages one hour ahead. The shared reserve calendar can give earlier clues to stress.
+
+W04's 24 development days ranked the original projected-deficit rule, a doubled deficit allowance, and filling to nameplate with spare import capacity at each horizon. All three serve current demand subject to the same device, ramp and reserve limits. Filling won at three, six and twelve hours. It also tied the best H12-information policy that discarded the longer tail. Although eligible for the full forecast, this winning rule only needs the current observation and state.
+
+The rolling LPs shared a solver and first-action tie-break. Each first minimized forecast shedding. The W04 optimizer then protected its calibrated terminal target. The W05 learner estimated the 90th percentile of up to eight hours of subsequent inventory need from 48 W04 training neighbors matched on time and forecast load at the window end. Both targets were soft priorities ahead of throughput. Controls included rolling LPs without a target, policies discarding the H12 tail, and a perfect-foresight offline reference.
+
+\begin{center}\small
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Generator & Learner & Extra shed & 95\% day interval & Extra CVaR$_{90}$ & $\Delta$ throughput\\\midrule
+Primary & H6  & $+8.05$ & $[6.04,10.26]$   & $+12.06$ & $-85.36$\\
+Primary & H12 & $+21.22$ & $[18.25,24.26]$ & $+19.54$ & $-117.01$\\
+Alternative & H6 & $+10.88$ & $[7.82,13.99]$  & $+15.46$ & $-76.07$\\
+Alternative & H12 & $+15.45$ & $[11.33,19.83]$ & $+15.17$ & $-86.17$\\\bottomrule
+\end{tabular}
+\end{center}
+All differences are learner minus fill, in MWh/day. Each latent seed contributes three equally weighted ordinary, forecast-bias and outage/reserve variants. Intervals resample whole days 10,000 times. Both confirmatory tests required the upper one-sided 97.5\% bound below $-0.1$ MWh/day (Bonferroni for two tests). H6 lost on 49 and tied on 11 of the 60 primary latent days. H12 lost on all 60. The separate 24-seed generator used seven- to ten-hour plateaus, a second pulse, persistent load errors and correlated lead errors. It changes the simulated load process while retaining the site hardware.
+
+Reliability also required at most 5 MWh/day extra tail shedding, measured by the mean of the worst 10\% of latent-day outcomes, acceptable fallback frequency and physical compliance. The primary upper bounds on extra tail shedding were 17.42 and 28.69 MWh/day. Both policies failed that risk gate. All 5,040 trajectories passed the physical check. Outage-driven unavailability cost 16 MW$\cdot$h of reserved headroom per primary outage day. All 120,960 hourly actions replayed exactly on the same host with recorded deadline signals. There were no fallbacks, and the longest measured candidate clock was 27.18 ms. Communication and physical delivery latency remain unmeasured.
+
+\src{E/results/analysis/effects.csv, E/results/analysis/validation.json}
+\clearpage
+\sect{E \quad How much improvement was available?}
+After comparator selection we asked whether \emph{any} feasible policy could have cleared the 0.1 MWh/day practical threshold against fill on these days. For each realized day, construct a feasible fill schedule in rational arithmetic with shedding $U$. Then grant the competing dispatch the complete future load and outage trajectory. Allow simultaneous charging and discharging in its relaxation, while retaining grid, storage, reserve and terminal limits. Any feasible causal controller has shedding at least as large as this relaxed perfect-foresight optimum.
+
+Write the clairvoyant LP as $\min c^\top x$ subject to $Ex=d$, $Ax\le b$ and $\ell\le x\le u$. For any equality multipliers $y$ and inequality multipliers $z\le0$, set $r=c-E^\top y-A^\top z$. A valid lower bound is
+\[
+ L=d^\top y+b^\top z+\sum_j\min(r_j\ell_j,r_ju_j).
+\]
+Thus $U-L$ bounds the improvement on that day, even for a competitor with perfect information. HiGHS supplied candidate multipliers. A separate solver-free checker reconstructed the constraints, checked signs and primal feasibility, and evaluated the bound exactly on the stored coefficients.
+
+\begin{center}\small
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Panel & Scenario-days & Exact $U=L$ & Mean $U-L$ & Largest $U-L$\\\midrule
+Primary & 180 & 148 & 0.04425 & 2.26476\\
+Alternative & 72 & 19 & 0.23786 & 2.89509\\\bottomrule
+\end{tabular}
+\end{center}
+The primary mean ceiling is below 0.1 MWh/day. Summing the logged fill actions as rationals changed the nominal daily shedding by at most $2.66\times10^{-14}$ MWh. Even allowing $10^{-5}$ componentwise violation on every LP row and box leaves a primary ceiling below 0.04456 MWh/day. The alternative ceiling exceeds the practical threshold. These are retrospective, sample-specific bounds on electrical service. Changing the terminal requirement, plant parameters or contractual reserve obligations requires new certificates.
+
+\sub{Information, inventory and economics}
+Paying for both H6 and H12 solves in each arm isolated the adaptive horizon decision. The online switch chose the shorter available prefix on 1,405 of 4,320 primary hours, serving 7.00 MWh/day more than always executing the H12 plan. It still fell short of fill. The issued H12 tail had lower primary load MAE than a flat extrapolation (5.90 versus 18.10 MW), yet using it increased learned H12 shedding by 11.00 MWh/day. The alternative generator's corresponding interval included zero. These comparisons concern how the frozen policy uses its information.
+
+The winning service rule consumes more electricity and retains more stock. It ended primary days with 166.64 MWh on average, versus 99.44 MWh for learned H6. For the site owner let $v$ be USD per flexible MWh served. In an illustrative case, imports cost \$50/MWh, battery movement costs \$10 per MWh of throughput, terminal stock is worth \$50/MWh, measured computation costs \$0.20 per worker-hour, and incremental fixed integration cost is zero. Applying those values to the one-hour dispatches gives the following daily net changes in USD for learner minus fill.
+\[
+ \Delta\mathrm{NB}_{6}=1{,}517.31-8.054v,\qquad
+ \Delta\mathrm{NB}_{12}=2{,}597.03-21.225v.
+\]
+The lower-service learner wins economically in this scenario only below \$188.39 and \$122.36 per served MWh, respectively, conditional on accepting its tail risk. Imports already account for conversion losses. The ledger also varies hourly energy prices, wear and integration charges. Workload value and site revenue remain unobserved.
+
+\src{E/EXPLORATORY.md, E/results/analysis/baseline_alignment.json}
+\src{E/results/analysis/economics.csv, E/results/analysis/pareto.csv}
+\clearpage
+\sect{A \quad What the unrestricted relaxation can screen}
+The tested intervention solves the full continuous relaxation, checks the dispatch against every original device constraint and verifies a lower bound for the unrestricted MILP. When both checks meet the target it returns early. Otherwise it escalates to the original MILP. Its closest comparator shares the identical early exit but tries LP-informed sign repair before unrestricted search. A third arm starts with native MILP presolve and heuristics and reserves time for a separate bound check. An LP-only arm and a full-budget native arm diagnose what those steps contribute.
+
+Four unused seed blocks each cross three fleet sizes ($4\times8$, $12\times16$, $20\times24$ devices by hours) with five families. Twenty-four cases supply a checked fallback, 24 withhold the constructed fallback and 12 have exogenous exchange constraints with no preconstructed witness. On every case, all policies have identical data and a two-second clock. The primary hit requires all three rotated repeats to have an on-time, tolerance-admissible dispatch of cost $U$ and unrestricted lower bound satisfying $U-L\le0.00002+0.001\max(1,|U|)$. With four seed clusters, the paired bootstrap intervals describe this panel with limited resolution.
+
+\begin{center}\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Policy & All-repeat targets & Cases with action & Whole call by 2 s and target\\\midrule
+Screen then unrestricted search &48/60&58/60&48/60\\
+LP-informed repair and search &48/60&59/60&48/60\\
+Native MILP with proof budget &48/60&57/60&48/60\\
+LP only &44/60&52/60&44/60\\
+Full-budget native diagnosis & --- &58/60&---\\\bottomrule
+\end{tabular}
+\end{center}
+The native diagnostic met its own numerical gap in 51 cases. A retrospective common unrestricted bound supports 48. In the four arms with independent on-clock proofs, every forced-opposition case missed the target. LP alone also missed four tight-reserve cases. The common relaxation sufficed for 132/180 screen trials and 132/180 LP-repair trials. Against LP repair, screen had zero practical cost wins, 54 ties and four losses among the 58 cases comparable at two seconds; two had missing actions. Against native plus proof the split was 1/56/0 among 57 cases. Median capped time to target improved 93 ms over native plus proof and zero over LP repair. Across all arms 78/900 synchronous calls returned after the nominal gate. Deadline-event eligibility and whole-worker return are recorded separately.
+
+\sub{What the certificate checks}
+Write the minimization relaxation with finite variable boxes and interval rows. A multiplier contributes its selected lower row endpoint if positive and its upper endpoint if negative. If the selected endpoint is unbounded, set that multiplier to zero before computing both the row contribution and the reduced costs. Minimize the remaining reduced-cost linear term over each variable's box. Their sum is a valid lower bound at any such multiplier. The replay uses exact rationals for the stored binary64 coefficients. It rechecked 720 multiplier evaluations and 2,319 primal witnesses, with maximum accepted physical violation $7.69\times10^{-11}$ against $2\times10^{-6}$ tolerance. All 60 corrupted dispatches failed. In a separate offline audit of all 20 small cases, 12 admissible LP outputs yielded reconstructed exact rational feasible schedules; the largest gap was $1.51\times10^{-13}$ cost units. Eight failed the original physical screen. Exact reconstruction time was outside the primary budget.
+
+The on-clock primal tolerance gives an operational gap metric. Exact mathematical upper bounds require exact feasibility, established in the 12 small-case reconstructions. The superiority gate required two additional case hits and positive lower confidence limits against both comparators. Neither contrast improved target coverage. The archive retains the initial failed analysis run and a corrected analysis reader. The raw trials and prospectively fixed endpoint remain available for direct replay.
+\src{A/results/trials.jsonl.gz, A/results/contrasts.csv, A/results/small_exact_primal.json.gz}
+\clearpage
+\sect{C \quad Selective elimination on sparse AC networks}
+At a generator bus, real and reactive balance uniquely determine the injections of one pivot generator from all other injections, voltages and branch flows. Substitution removes two variables and retains the pivot's limits as inequalities. Substituting a quadratic generator cost can introduce nonlinear couplings between neighbors. The predeclared score counts missing edges between neighbors and adds $\binom{k}{2}$ for a nonlinear pivot cost, where $k=2+2d+$ number of other generators at the bus and $d$ is the number of distinct neighbors. The guided arm prefers an affine-cost pivot and accepts a score at most six. Alternatives eliminate at every eligible bus, use a cutoff of three incident active branch ends, counting parallel branches separately, or perform a conventional full nonlinear solve.
+
+Four formulations share a complete physical starting tuple. The fifth uses the full equations and conventional DC initialization. All arms use CasADi, IPOPT and the same angle boxes. The independent reviewer reconstructed 25 initial tuples, reevaluated both ends of each active branch, original balances, generator/voltage/angle limits and costs on all 125 final tuples, and rejected 100 deliberate 1 MW corruptions. Independent starts agreed within $2.28\times10^{-10}$ in the maximum coordinate. The registered timer includes input load, selection, model/derivative construction, solve, reconstruction and physical validation. Process startup and post-clock sparsity diagnostics are outside it. Eligibility requires physical checks by 12 s. Matched quality requires a relative objective difference at most $10^{-5}$.
+
+\begin{center}\small
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+Buses & Generators & Guided pivots & Full / guided symbolic fill & Matched pairs & Guided/full time\\\midrule
+24 &33&4&963 / 1,233&5/5&0.978\\
+73 &99&12&5,357 / 4,300&5/5&0.995\\
+200&38&38&12,646 / 11,748&5/5&0.988\\
+500&171&109&53,634 / 54,305&5/5&1.004\\
+1,888&290&280&155,450 / 170,212&0/5&---\\\bottomrule
+\end{tabular}
+\end{center}
+Time is the median of within-repeat ratios against full matched. Five rotated repetitions on each of five public networks gave 20/25 eligible results for each arm, and 100/125 overall. Every returned point on the largest network failed the physical check. Its matched initial generator-box residual reached roughly 8,773 MW or MVAr, and its online generator costs have no quadratic term. All-pivot and guided select the same 280 pivots there. No comparator produced the 10\% guided time advantage on a qualified network. Sparse ordering counts and condition estimates describe the chosen proxy matrix. For example, on 200 buses guided elimination reduced symbolic fill while the regularized initial KKT condition estimate roughly doubled. Neither observation establishes a benefit in the solver's own linear system.
+
+\sub{Instrumentation and range of the result}
+In a separate 60-second run per cell, 23/25 qualified. On 1,888 buses the full matched and degree arms qualified in 23.04 and 24.45 s; guided and all-pivot returned invalid points at approximately 62 s. MUMPS logged peak factor entries of 20.48 million for guided, 5.66 million for matched full and 1.43 million for degree. Corresponding cumulative reported factor times were 43.49, 9.96 and 9.78 s. This is one instrumented observation per arm with a different time allowance.
+A separate exact directed-path calculation from the reference angle proves the common $\pm360^\circ$ boxes redundant on the 24-, 73- and 200-bus cases. It leaves 88 buses unresolved on the 500-bus case and 409 on the largest. All comparisons use the implemented common boxes. The study checks static AC-feasible local points with matched costs. Global optimality, contingency security and a general complexity improvement remain open. Public cases and license provenance are pinned to the \href{https://github.com/power-grid-lib/pglib-opf/tree/dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3}{PGLib-OPF source revision}.
+\src{C/analysis/matched.csv, C/analysis/native_profile.csv, C/initial_review.json, C/angle_bounds.json}
+\clearpage
+\sect{Admission decisions, provenance and replay}
+\textbf{Admit as mathematics.} The minimum segment fraction and its objective identity hold under the full hypotheses in B. They extend the existing AIPC transfer bound once a projection, a feasible lift and a reduced quality certificate exist. They do not establish that constructing these objects is cheaper than optimizing the original plant. Dual-certified support tightening and the two-anchor counterexample are exploratory results with separate artifacts.
+
+\textbf{Admit as finite-panel observations.} The opportunity ceilings were evaluated exactly for the stored, idealized daily models. The larger alternative ceiling leaves a 0.1 MWh/day gain unresolved by this certificate. Neither generator is an independent operating facility. Unrestricted LP screening can terminate successfully on particular admissible relaxations. The AC graph score changes the selected local systems and backend factorization work. Each primary superiority hypothesis failed its own registered decision rule.
+
+\textbf{Open obligations.} To transfer B to an unrestricted mixed-integer model, establish coverage across modes or obtain a valid unrestricted bound. Account for finding and maintaining feasible anchors when equipment or forecasts change. For control, establish a materially different service or inventory opportunity and test on chronologically issued operational vintages under the same reserve and terminal contract. The offline dual bound offers a way to detect an unachievable target before investing in a policy comparison. For AC, specify a stronger feasible-start procedure and perform independently replicated, matched-quality timing on larger networks. Effects of field measurements, state estimation, integration cost, physical failover and robust feasibility have not been measured here.
+
+\sub{Which evidence is independent}
+The master and protocol are private project sources. The five PGLib cases are public benchmark data. The mathematical comparisons in B cite external primary literature. W04 supplies development code, generators and formal infrastructure. New W05 runs, cross-checks, negative controls, alternate synthetic generator and repeat builds are internal evidence. Independent implementations and exact arithmetic reduce particular error risks; this campaign has one host and no external replication team. Wall-clock and solver behavior can vary across builds and hardware.
+
+\sub{Review files and manuscript checks}
+The archive includes the SHA-256 manifest, root claim ledger, freeze records for each track, complete logs and a byte-matched W04 dependency snapshot. Its README gives separate commands for evidence verification, clean Lean compilation and new numerical runs. The original clocks and subsequent diagnostics have separate files. Case identifiers, denominators, negative outcomes and model assumptions are available alongside the positive results. The full register and coverage decisions are in \texttt{protocol/}.
+
+All 17 ordered v0.4 source blocks were joined with their documented separator; the exported file has 212,600 bytes and 1,570 physical lines. pdf\LaTeX{} produced 66 pages. The reference and contents files stabilized, and all 46 bibliography keys and all used label references resolved. All pages were rendered. The short second contents page and sparse final bibliography page are present in the source layout.
+
+The external identity audit traced all 36 public references. The Grid-Agent URL now defaults to v3 although the source cites v2. Some ETH PDF endpoints were rate-limited or blocked; institutional records identify the works. Nine of ten internal references matched artifact content or archive inspection; one legacy evidence ZIP was identified from metadata. These qualifications are preserved in the bibliography ledger, without editing the integrated source. External paper identity does not validate every result attributed to a paper.
+
+\src{manuscript/source_order.json, manuscript/reference_audit.json, manuscript/bibliography_audit.csv}
+\src{claims.csv, protocol/coverage.md, protocol/page_source_lock.json, README.md}
+\end{document}

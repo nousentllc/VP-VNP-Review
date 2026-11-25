@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-24",
+  "files": {
+    "CRGC_Whitepaper_v0.3.tex": "43798d1f1220fc31faf378270a9afe7c9625ee6fdabe032c0fa2e68089be1b1f",
+    "W04_Research_Protocol.md": "ce2b62d2e5aad077c12a107e79617b369cb867050ea42ac147d9739f3750a42f",
+    "CRGC_v0.3_Review_Evidence.zip": "dafbf5e6ddebcb4ffbe2224461dcf5eff5b3e14a12d38e7453915c84035c6d5b",
+    "W03_Energy_Experiments.zip": "39c6f5059905c05c7be6265622f7423ebf075f5f0b60e745023f90dbad1151e5",
+    "W03_Results.pdf": "2415ea56f41446b9e1320d1be2eed34002efa92c252d2d4a323b6c02aaea2012"
+  },
+  "foundation": "All original W03 archive member bytes checked against embedded foundation.",
+  "review": "All reviewer manifest hashes verified. Reviewer findings attributed; reported Linux runs were not performed by W04.",
+  "host": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "w03_github_commit": "5be2b3f002a5e9f3df44aee27bdf507ca9090c90",
+  "clock_scope": "Per-track prospective freezes. Concurrent single-threaded jobs on one shared host. Cost and feasibility are primary; no claims about dedicated-server latency."
+}

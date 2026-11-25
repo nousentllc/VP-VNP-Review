@@ -1,0 +1,23 @@
+{
+  "study": "W03, first investigator-run panel",
+  "date": "2026-11-24",
+  "A": {
+    "development_seeds": [1101, 1102],
+    "holdout_seeds": [7301, 8297],
+    "development_sizes": [[4, 8]],
+    "holdout_sizes": [[4, 8], [8, 12], [12, 16]],
+    "cohorts": ["ordinary", "negative_outage", "forced_opposition", "interchangeable"],
+    "repeats": 3, "seconds_per_policy": 2.0, "threads": 1,
+    "policies": ["full_milp","full_lp","lp_recovery","fixed_shared","fixed_proportional","adaptive","symmetry"],
+    "solver_mip_rel_gap": 0.000001, "target_absolute": 0.00002, "target_relative": 0.001,
+    "physical_tolerance": 0.000002,
+    "tuning": "Pick full MILP presolve on/off on the eight development cases by hits then median capped time to target. Share the selected setting with integer arms. LP uses presolve on. Rotated method order, serial single-threaded trials, same validated constructive fallback per case.",
+    "endpoints": "Primary: time to a validated U and full-model L satisfying U-L <= abs_tol + rel_tol*max(1,abs(U)), within the wall deadline. Report deadline successes with complete denominators; pair capped time by case, median across 3 repeats. Secondary: time to first validated schedule, raw LP admissibility, refinement, fallback, restricted infeasibility, size and overhead.",
+    "interpretation": "A cohort benefit requires more target hits or, at equal hits, faster median paired capped time against both full solvers on this panel; three repeats and two seeds per scale do not establish population superiority. Report LP recovery too."
+  },
+  "B": {"toolchain":"leanprover/lean4:v4.30.0-rc2","mathlib":"896cc56a395e1615786fac56564a3fe6bfeebcc4","checks":["balanced lift, sum, cap, rate, directional movement","exact projection/lift and value threshold","cyclic efficiency obstruction and terminal tolerance","negative theorem mutations","exact rational corrupted certificates and battery controls"]},
+  "C": {"development":"case3_lmbd","holdout":["case5_pjm","case14_ieee","case30_ieee"],"variants":["normal","api"],"policies":["full_flat","full_dc","eliminate_dc"],"seconds_per_policy":12,"repeats":2,"physics_tol_MVA":0.0001,"angle_tol_deg":0.00001,"comparison":"Same IPOPT, analytic sparse derivatives, flat and DC starts, eliminate one generator P/Q at each generator bus and reconstruct. Include construction, independent reconstruction, both branch ends. Use analytic cost floor if valid, no global optimum from local solve."},
+  "D": {"instances":["rts_2020-03-05","ca_2014-09-01_r1"],"horizons":[12,48],"seconds_per_policy":45,"policies":["reference","paired_commitment"],"threads":1,"solver_mip_rel_gap":0.005,"tolerance":0.0001,"comparison":"Canonical PGLib-UC model at two fleet sizes and native 48 hours plus explicitly truncated 12-hour variants. Pair similar initial-status units by min/max output within identical minimum up/down and initial on/off categories; tie only status, keep all remaining individual constraints. Restriction can fail. Same deadline including construction; report validated incumbents, bounds, timeouts, wall overrun."},
+  "E": {"seeds":[551,864,1137,1499,2153,3581,4621,6577],"regimes":["base","outage_reserve","biased_forecast"],"horizon":24,"lookahead":6,"methods":["forecast_rule","rolling_mpc","perfect_foresight"],"comparison":"Replay W-E05 first. Single issued forecast shared by both online policies, current hour observed, rolling future errors. Fixed grid cap/ramp, energy losses, charging power, terminal and ride-through floors, service headroom and disclosed outage lead time. Report unserved MWh, useful service, losses, throughput, reserve, terminal, fallback and deadline failures. Perfect foresight as an offline bound for its stated objective."},
+  "scope": "Synthetic batteries and public benchmarks only. Single-machine research. No operational, security-constrained, or monetary extrapolation."
+}

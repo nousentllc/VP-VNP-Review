@@ -1,0 +1,37 @@
+{
+  "frozen_utc": "2026-11-24T23:32:55.938335+00:00",
+  "effort": 0.15,
+  "development_effort_rank": [
+    [
+      228209.36436959496,
+      0.15
+    ],
+    [
+      228847.53402903315,
+      0.05
+    ]
+  ],
+  "candidate_share": 0.3,
+  "seed": 17,
+  "threads": 1,
+  "source": "PGLib-UC 39a7f38cf4703de92f0291f0c873c2e98c789301. RTS GMLC January 27 and August 12 2020 plus CA December 1 2014 reserves_1.",
+  "design": "Three unseen dates x two 12/48h horizons x four arms. One trial per arm, two process lanes (12 h and 48 h), rotated order. All on same shared host; descriptive timings only. 45s from input parsing through validation, last 0.8s reserved for check; supervisor stops after 45.25s. No safe common incumbent. Solver/prep/full-stage clocks cumulative. No cross-arm reference solution access. Outer bound from full solver, optimal full relaxation bound discounted by 1e-7 relative for numerical scope. Inner bounds only scoped to restriction. Practical threshold: 0.1% lower feasible cost versus both full and LP-start at identical deadline; target 0.5% full-model gap.",
+  "selected": "Minimum validated incumbent at 45s on W03 12h RTS for two full-solver efforts. 30% candidate time chosen a priori for both heuristics and exercised on development. Ten-percent high-confidence LP commitment thresholds. Temporary restrictions removed by reloading exact original HighsModel and checking row and integral counts.",
+  "snapshots": [
+    5,
+    15,
+    30,
+    45
+  ],
+  "no_replacement": true,
+  "falsifier": "No advantage over LP-start and full at matched quality/availability. Report each individual date, row and bound failures.",
+  "sha256": {
+    "D/uc_warm.py": "e43b6a747404bcdfabf26ae1b59f404ae39fa38629fbec05910f008d88b76266",
+    "D/panel.py": "eabae2fdcec614c62e5293f85d82bf581987bb826ad84116aa0720cdd1c3c555",
+    "D/inputs/ca_2014-12-01_reserves_1.json": "627ad18a75e1cf7ad95e238d268a4d5d5ebf40d6b668a8c18a35e94925031eac",
+    "D/inputs/rts_gmlc_2020-01-27.json": "c6d81435e84898b71d0253aed0fb87449b957129f441d45b776d041e3eba9058",
+    "D/inputs/rts_gmlc_2020-08-12.json": "b283dd341922068fc7b2ca3bf03f1458755441d3b5d19213f7b7554e7342f177",
+    "foundation/src/uc.py": "a193c32e39f56db57347a07b32601c4a8a897faa08f22ede039a657b55bb00d4",
+    "foundation/inputs/uc/uc_model.py": "ca340c71fe78627c3fab2a2f356b4b2ec3a650c8e9883d6ef645aa2ea1b534ea"
+  }
+}

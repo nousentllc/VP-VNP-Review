@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-24T23:31:08.032800+00:00",
+  "environment": "W03 CPython 3.12.9, SciPy 1.18.0 / HiGHS native, NumPy 2.2.4, darwin arm64, one solver thread per arm",
+  "sha256": {
+    "campaign.py": "96737f26cf74e597dd7712b9c999c8a6295387ea9b5c0a0a39a19af7ee103e66",
+    "analyze.py": "9eb0463b1969731d59faa9797a15ed2c445e1b637ae60ec20154612ba1ddbe5a",
+    "protocol/development.json": "29d490bf7936a9a81c17e02e2fe278cd1127919dcd5e7d4725246f0b0117c7ec",
+    "protocol/design.md": "6a6175e0a823cbb6be89633ee7b423658b2ba8a8b26e028b5496b7fac883df94",
+    "inputs/reviewer_864.json": "21cc7724739681e9d6343af9d6da3938cdab2e37c7e240c64c35a3c90f4f51e7",
+    "inputs/holdout.json.gz": "e6035117a104d5557326ff1ee98112bf9d1bfc2b5f16fc11880f7e07421481ca",
+    "../foundation/src/common.py": "2b9209ca636d805e3b5c1e002b50d7f964c5611adb1bb6db867d051bafecf0f6",
+    "../foundation/src/load_control.py": "4ee0c1224361c0f8f42e3468018999c6e719c862c1f79eb530e403dae6baae23",
+    "../foundation/requirements.txt": "a8c7658fa0548716b493e4bbc870b16b397217eb8f11d9059ed272cab508f977",
+    "../foundation/protocol/design.json": "f265037486138baff00ed02d6669c5dbe527cdaf60bbe30e373ebe075f3de931",
+    "../foundation/inputs/load_forecasts.json": "0c35cbb3f0e9b5d55af8a2e648b8dcda457c12746de2db22aef49fbd8ce33a94"
+  },
+  "development_failure": "The first development attempt mixed a default-thread SciPy HiGHS call with an explicitly single-threaded call. HiGHS returned Not Set. Pinning both to one thread resolved the issue before holdout access."
+}

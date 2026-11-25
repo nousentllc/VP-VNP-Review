@@ -1,0 +1,19 @@
+{
+  "role": "subsequent same-host runs; measurements are not pooled with prospective observations",
+  "numerical_audit": {
+    "steps": 16,
+    "archived_tables_matched": 37,
+    "locked_hash_entries": 56
+  },
+  "formal_recompile": {
+    "matching_files": 9,
+    "all_byte_identical": true
+  },
+  "fresh_numerical_B": {
+    "steps": 8,
+    "primary_attempts": 32,
+    "primary_anchor_failures": 7,
+    "failure_table_same": true,
+    "exact_crosscheck_same": true
+  }
+}

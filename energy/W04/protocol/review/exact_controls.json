@@ -1,0 +1,70 @@
+{
+  "endpoint_labels": {
+    "aggregate_zero_movement_cost": 0,
+    "minimum_cost_with_endpoint_permutations_allowed": 0,
+    "minimum_cost_with_fixed_identical_endpoints": 0,
+    "minimum_cost_with_fixed_swapped_labels": 2
+  },
+  "schedule_averaging": {
+    "average": {
+      "grid_import_by_hour": [
+        "9/25",
+        "9/25"
+      ],
+      "linear_throughput_cost_at_unit_price": "82/25",
+      "physically_admissible_powers": false,
+      "satisfies_relaxation": true,
+      "simultaneous_device_hours_as_hour_device": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "terminal_soc_by_device": [
+        "3/2",
+        "3/2"
+      ]
+    },
+    "original": {
+      "grid_import_by_hour": [
+        "9/25",
+        "9/25"
+      ],
+      "linear_throughput_cost_at_unit_price": "82/25",
+      "physically_admissible_powers": true,
+      "satisfies_relaxation": true,
+      "simultaneous_device_hours_as_hour_device": [],
+      "terminal_soc_by_device": [
+        "3/2",
+        "3/2"
+      ]
+    },
+    "relabeling": {
+      "grid_import_by_hour": [
+        "9/25",
+        "9/25"
+      ],
+      "linear_throughput_cost_at_unit_price": "82/25",
+      "physically_admissible_powers": true,
+      "satisfies_relaxation": true,
+      "simultaneous_device_hours_as_hour_device": [],
+      "terminal_soc_by_device": [
+        "3/2",
+        "3/2"
+      ]
+    }
+  },
+  "scope": "Exact synthetic handoff controls, separate from the W03 campaign"
+}

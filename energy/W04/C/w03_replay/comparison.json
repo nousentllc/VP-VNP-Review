@@ -1,0 +1,7 @@
+{
+  "trials": 36,
+  "fresh_valid": 36,
+  "fresh_valid_by_deadline": 36,
+  "paired_valid": 36,
+  "max_abs_cost_delta": 0.0
+}

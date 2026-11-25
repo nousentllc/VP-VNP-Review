@@ -1,0 +1,30 @@
+{
+  "frozen_utc": "2026-11-24T23:31:41.157608+00:00",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "threads": 1,
+  "model": "Exact AD IPOPT with W03-selected barrier strategy, fixed individual boxes and complete two-ended branch physics.",
+  "inputs": "PGLib-OPF dc6be4b2f85ca0e776952ec22cbd4c22396ea5a3; typical and api 57,118,300,1354. CC BY 4.0.",
+  "arms": [
+    "full_dc",
+    "full_matched raw reconstructed generator warm start",
+    "all generator-bus pivots",
+    "original graph degree <=3 pivots"
+  ],
+  "design": "5 repeats per cell, 12 s from parsing to physical validation. Rotate arm order; fresh processes; no claimed gain for misses. Report median within case, paired relative cost difference threshold 1e-5, practical speed criterion 10% median reduction at matched cost. Runs share a host with other single-threaded campaign jobs; no exclusive core allocation.",
+  "diagnostic": "Post-clock once per case/arm: unweighted symmetric KKT structural graph including artificial diagonals, RCM order, exact symbolic Cholesky fill via ancestor reach. Also factor H_L+1e-6I,J;J.T,-1e-6I system (variable and constraint order as in code), estimate one-norm condition via SuperLU/COLAMD inverse operator. Diagnostic factorization is a proxy. Process RSS stamped before probes. Include cost across all timed construction/derivatives.",
+  "hypothesis": "Does all-bus elimination raise validated feasible attainment or consistently reduce time at matched cost versus both full starts? Report every counterexample; no general speed claim on mixed cases.",
+  "sha256": {
+    "C/opf.py": "0aad6b631938c686595ed8d6468c0db9feb8eac640d5c37e1b47091e9308cb89",
+    "C/structure.py": "61e384c8a5152b70a679c56ee209069b8f034655e69e86549fb33252c86ad1ff",
+    "C/inputs/pglib_opf_case118_ieee.m": "b1af0833849040c04babc3700631cff0d9afa66b79c5d3e13ae79bdf516cec78",
+    "C/inputs/pglib_opf_case118_ieee__api.m": "8a2c3bc2f086181a67d786b93397477189563d3c5615fc47c7df063f5a64a7ef",
+    "C/inputs/pglib_opf_case1354_pegase.m": "cd6d27dff4a56684f1e4f82cfa346b36d84c4e90733228aa88331cd550e17652",
+    "C/inputs/pglib_opf_case1354_pegase__api.m": "3c137f9fc094209c6ba6783fbce30cce88bb8c2c7bbd186fef1cc3d3b24447e8",
+    "C/inputs/pglib_opf_case300_ieee.m": "7ecf056d5942135765200ad7ae8791c28f0d35fb1dc888ba2c32dfc950f3c2f5",
+    "C/inputs/pglib_opf_case300_ieee__api.m": "8e080feef51ab37dd6bc7416cad5fbcdd13f37a97e7bf7a2a0c4e2d732a443af",
+    "C/inputs/pglib_opf_case57_ieee.m": "aa3b48f7cbaade2afd69cb3790ef72be981db8494dcef9277bee460f754bdb22",
+    "C/inputs/pglib_opf_case57_ieee__api.m": "cebfab0abc5daff48b1d58cb9026d11d018e389941c9853c1398d464990e0b76",
+    "foundation/src/ac.py": "e073a80adc1c04540b12295375a76d51861ae745a17e70fd1e0787b582bf795c",
+    "foundation/results/C/development.json": "7969622cd3a1f38e16bb9d53f6d60671da24215469d151884fba7d5c6418973a"
+  }
+}

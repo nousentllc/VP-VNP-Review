@@ -1,0 +1,37 @@
+{
+  "original_inputs_verified": 5,
+  "foundation_manifest": 86,
+  "reviewer_manifest": 7,
+  "frozen_inputs": {
+    "C": 12,
+    "D": 7,
+    "E/protocol": 11,
+    "A": 10
+  },
+  "verified_claim_locators": 37,
+  "python_sources_parsed": 54,
+  "prior_license_paths": [
+    "foundation/inputs/ac/LICENSE",
+    "foundation/inputs/uc/LICENSE"
+  ],
+  "ac_schedule_recheck": {
+    "trials": 160,
+    "valid_by_deadline": 147,
+    "raw_vectors": 160,
+    "direct_symbolic_controls": 25
+  },
+  "uc_primary_recheck": {
+    "counts": {
+      "schedules": 5,
+      "final_schedules": 4
+    },
+    "issues": []
+  },
+  "uc_serial_recheck": {
+    "counts": {
+      "schedules": 36,
+      "final_schedules": 20
+    },
+    "issues": []
+  }
+}
