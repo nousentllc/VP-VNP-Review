@@ -6,6 +6,8 @@ The first Git checkpoint, `review-2026-11-24`, captures passes 1–4 together. T
 
 [Read the cumulative research report (PDF)](report/VP_VNP_Research_Review.pdf) or [open its editable TeX source](report/VP_VNP_Research_Review.tex). Edition 9 adds four parallel mathematical audits covering the contracting law move, the Hamiltonian-cycle projection, the quantitative flat estimate and the signed crossing identity. A separate [54-module verification](passes/12e-field-alternative-replay.md) covers the field alternative. The [proof coverage map](report/proof-coverage.csv) links 46 claims, interfaces and verification steps to their roles, evidence and unresolved dependencies.
 
+[Download the complete twelve-pass packet](handoff/VP_VNP_Review_2026-11-25_pass12.zip). It contains all 415 research files from commit `3973fb8`, including the four mathematical audits, field-alternative replay, coverage map, TeX/PDF, logo, pinned manuscript and verification records. ZIP SHA-256 `5e37d17f2ad6113a5e18d0f007f50d8e7357364e4bdfeade8e651cd3dedbfdad`.
+
 The [archived eleven-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/33edc6eb465bb2c565e82d3461fd418c1890d65e/handoff/VP_VNP_Review_2026-11-25_pass11.zip) preserves Edition 8 from research commit `e15d655`.
 
 The [archived ten-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/3bf9cd5e052da8313c56e73b1346ad792dfeb95d/handoff/VP_VNP_Review_2026-11-25_pass10.zip) preserves the handoff from research commit `5ee75d1`.
