@@ -1,0 +1,109 @@
+{
+  "release": "CRGC v0.5 and separate W05 opportunity review",
+  "status": "replayed",
+  "input_sha256": {
+    "review_zip": "bda0a8aebc7ffae15468cdc3a76850067cef36e2690ca8dd8a2cb90516d9448b",
+    "W05_Energy_Experiments.zip": "3cb69e43c49820a767884bee6dd1d5ff0adb279af2398a4e820f3bd9abdf3fce",
+    "v0.5_tex": "9dab4e9ec8f1da53acc344cd5272446af18c9e49baef7b27990348c05ec73baa",
+    "v0.5_supplied_pdf": "47c4616249fbf912133709d2ecf8880c1a770c379dfc7794d171017992c42d9b"
+  },
+  "review_files_sha256": {
+    "opportunity_review.py": "dd2466dca75fac78ee5b762372610d047176e2a15cca5930340ee8f842c2ead3",
+    "README.md": "5469150988fe71fcc49cc4e930d7d801634097dcbfcd5004e7db09d2e10f799e",
+    "opportunity_review_results.json": "b7f2ff43a5ffd8c115fd49ced35fe1c19fefe114b9c7b1c850f9c7e31a3ad6a5"
+  },
+  "review_zip_crc_passed": true,
+  "verification": {
+    "verified_archived_manifest_entries": {
+      "W04": 743,
+      "W05": 585
+    },
+    "exact_service_witnesses_and_bounds_checked": 252,
+    "economic_LPs": 504,
+    "archived_and_replayed_exact_economic_gap_fraction_pairs_identical": 504,
+    "numerically_feasible_candidates_at_1e-6_tolerance": 504,
+    "verified_manuscript_table_values": true
+  },
+  "per_case_floating_diagnostics": {
+    "differing_entries_by_field": {
+      "candidate_saving": 346,
+      "max_residual": 198
+    },
+    "maximum_absolute_differences": {
+      "candidate_saving": 5.820766091346741e-11,
+      "max_residual": 2.842170943040401e-14
+    }
+  },
+  "replayed_json_sha256": "3c1142d450943a73b4bff394b7467b8094c8887178b2407238112fd97bc4d1b8",
+  "supplied_summary": {
+    "primary": {
+      "n": 180,
+      "service_exact_zero": 148,
+      "service_mean_ceiling_MWh": 0.04425027978285767,
+      "service_max_ceiling_MWh": 2.2647571707741974,
+      "baseline_mean_shed_MWh": 28.64365396030299,
+      "same_stock": {
+        "successful_LP": 180,
+        "mean_certified_cost_ceiling_USD": 3.7803096640003103e-13,
+        "max_certified_cost_ceiling_USD": 5.372815478562444e-13,
+        "numeric_feasible": 180,
+        "max_numeric_residual": 5.684341886080802e-14,
+        "mean_numeric_candidate_saving_USD": -1.6168794698185392e-13
+      },
+      "min_stock": {
+        "successful_LP": 180,
+        "mean_certified_cost_ceiling_USD": 990.7865366742411,
+        "max_certified_cost_ceiling_USD": 1175.5319148936178,
+        "numeric_feasible": 180,
+        "max_numeric_residual": 2.842170943040401e-14,
+        "mean_numeric_candidate_saving_USD": 990.7865366742409
+      }
+    },
+    "alternative": {
+      "n": 72,
+      "service_exact_zero": 19,
+      "service_mean_ceiling_MWh": 0.23785949092508296,
+      "service_max_ceiling_MWh": 2.895088691748344,
+      "baseline_mean_shed_MWh": 71.16329991125455,
+      "same_stock": {
+        "successful_LP": 72,
+        "mean_certified_cost_ceiling_USD": 3.974757094845204e-13,
+        "max_certified_cost_ceiling_USD": 5.24753823212253e-13,
+        "numeric_feasible": 72,
+        "max_numeric_residual": 2.842170943040401e-14,
+        "mean_numeric_candidate_saving_USD": -6.063298011819521e-13
+      },
+      "min_stock": {
+        "successful_LP": 72,
+        "mean_certified_cost_ceiling_USD": 760.5772322813277,
+        "max_certified_cost_ceiling_USD": 1175.5319148936178,
+        "numeric_feasible": 72,
+        "max_numeric_residual": 2.842170943040401e-14,
+        "mean_numeric_candidate_saving_USD": 760.5772322813259
+      }
+    }
+  },
+  "interpretation": "Both economic comparisons fix hourly served load. The positive cost ceilings arise when the closing requirement is a 95 MWh floor plus inventory credit, instead of the exact fill closing inventory. These are retrospective bounds on synthetic case-models under illustrative costs, without an online policy or field revenue result.",
+  "certificate_scope": "The review script checks the W05 service certificate witnesses and multipliers in exact rational arithmetic. It rediscovers economic LP multipliers via HiGHS, evaluates economic bounds rationally, and serializes the exact economic gap fractions. The supplied JSON does not include the economic multipliers, so reproducing those economic calculations requires the script and solver.",
+  "replay_environment": {
+    "python": "3.12.9",
+    "numpy": "2.2.4",
+    "scipy": "1.18.0",
+    "pdf_reader": "6.7.0",
+    "solver": "scipy.optimize.linprog(method='highs')",
+    "command": "python opportunity_review.py W05_Energy_Experiments.zip replay.json",
+    "shared_case_data": true
+  },
+  "typesetting": {
+    "engine": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026)",
+    "supplied_producer": "pdfTeX-1.40.26",
+    "passes": 3,
+    "shell_escape": false,
+    "pages": 77,
+    "pages_matching_extracted_text_after_removing_whitespace_and_Unicode_variation_selectors": 77,
+    "undefined_references": false,
+    "duplicate_labels": false,
+    "overfull_boxes": false,
+    "comparison_scope": "Visible-text correspondence by page, not a claim of binary-identical rendering."
+  }
+}
