@@ -1,0 +1,94 @@
+\clearpage
+\heading{K.2: compiling a circuit with shared gates}\label{sec:14compiler}
+\smallref{Pass 14C. Manuscript pp.\ 55--57. \pub{Paper/LowDegChains.lean}{22}{Coefficient recurrence}, \pub{Nc/Acc/LowDeg.lean}{32}{address tables}, \pub{Paper/LowDeg.lean}{42}{compiler theorem}.}
+
+Let $g$ be any gate of a size-$S$ arithmetic circuit over a commutative ring $R$. Number the gates in a topological order. Both sockets of a product can point to the same gate. Different parents may point to it as often as the circuit specifies. For input indicators $u$, let $c_g=p_g(0)$ and $q_g^j=[T^j]p_g(Tu)$. This coefficient is the degree-$j$ homogeneous component evaluated at $u$. The identity follows monomial by monomial, since a monomial of total degree $j$ acquires exactly $T^j$. It works over finite fields and rings with zero divisors.
+
+\subhead{How to remove arbitrarily long constant chains}
+We seek two static tables, $\lambda_g(x)$ and $\kappa_g(l,r)$, with $l,r$ ordered gates. Write $a_g=\sum_x\lambda_g(x)u_x$. For $j\ge1$ the required identity is
+\[
+q_g^j={\bf1}_{j=1}a_g
+ +\sum_{l,r}\kappa_g(l,r)\sum_{i=1}^{j-1}q_l^i q_r^{j-i}.
+\]
+A scalar has both tables zero. A variable $x$ has $\lambda_g(x)=1$, with every other entry zero. Addition adds both tables. At a product $g=hv$ the two endpoints of the convolution are $c_v q_h^j+c_hq_v^j$. Apply the induction hypothesis to each endpoint and retain the interior convolution. The resulting advice rows are
+\[
+\lambda_g=c_v\lambda_h+c_h\lambda_v,\qquad
+\kappa_g=c_v\kappa_h+c_h\kappa_v+{\bf1}_{(h,v)} .
+\]
+The formal induction first indexes the interior term by a product gate with a chosen valid pair of sockets. Grouping equal ordered pairs gives the displayed address table. A valid multiplicative presentation of a gate polynomial suffices. The table construction is existential and may depend on the circuit constants.
+
+If $h=v$, both endpoints remain in the formula. At $g=(1+x)^2$, $u_x=1$, the line coefficients are $1,2,1$. In characteristic two the middle coefficient vanishes. Dividing by two or coalescing the repeated edge would change the computation. Constant propagation uses addition and multiplication in $R$, including signed scalars. A cancelled intermediate expression can also have arbitrarily high syntactic degree.
+
+\clearpage
+\heading{Why a nondeterministic parse computes the sum}
+\smallref{\pub{Nc/Acc/Loop.lean}{182}{Loop invariant}, \pub{Nc/Acc/Prog.lean}{85}{program and input tree}, \pub{Nc/Acc/Prog.lean}{164}{lookup outside the word}, \pub{NS1/Guess.lean}{40}{named powers}, \pub{NS1/Postpone.lean}{303}{weighted acceptance}.}
+For a proof of the stack rule define $E_g(T)=\sum_{j\ge1}q_g^jT^{j-1}$. The previous page gives $E_g=a_g+T\sum_{l,r}\kappa_g(l,r)E_lE_r$. For an ordered list $L$ of pending gates set
+\[
+ W(b,L)=\sum_{j=0}^b[T^j]\prod_{g\in L}E_g(T).
+\]
+The empty product gives $W(b,[])=1$. Expanding the first gate of $gL$ gives
+\[
+ W(b,gL)=a_gW(b,L)+{\bf1}_{b>0}
+   \sum_{l,r}\kappa_g(l,r)W(b-1,lrL).
+\]
+For $d\ge1$ the answer is $c_{\rm out}+W(d-1,[{\rm out}])$. A leaf removes one pending gate. A split uses one unit of $b$ and replaces one gate by two. Both operations reduce $2b+|L|$ by exactly one. Initially this quantity is $2d-1$. The continuation may contain repeated gate names. The product invariant includes each occurrence. For $d=0$ the release compiles the constant coefficient with an internal positive cutoff of one.
+
+\subhead{Which quantity is bounded?}
+The program builds a balanced access tree for the two tree-encoding bits and the end marker. A guess selects a leaf position or a pair of gate addresses. A named constant of weight zero can account for an out-of-word leaf. What survives is the sum over the finite list of accepting runs,
+\[
+ \sum_r\iota(r.\mathrm{th})\prod_{q\in r.\mathrm{bill}}K.\mathrm{lk}(q).
+\]
+Repeated runs and bill entries count with multiplicity. Writing a name does not test its field value. A trie leaf path followed by $1^i0$ names a $2^i$th power. Here $B=1$ forces $i=0$.
+
+For $S\le2^M$, $N\le2^m$, the same trie $K$ and program $D$ work on every tree $z$ of size $|z|<N$. All runs halt. Each accepting run has cost at most
+\[
+(d+1)(800(M+m)+4000)+(|z|+2)(40m+60)+10m+100 .
+\]
+The trie has at most $2^{3M+1}+2^{M+m+3}+3$ nodes and height at most $3M+m+4$. Program size is at most $c(M+m+1)+2(d+1)$ for a uniform $c$. Parse-stack length is at most $d$ for $d\ge1$. An independent machine-workspace bound or a bound on deterministic enumeration time would require a separate theorem.
+
+\clearpage
+\heading{K.3: the polynomial the compiler receives}
+\smallref{Manuscript pp.\ 56--57. \pub{Paper/CircuitPhi.lean}{28}{Assignments to paths}, \pub{Nc/RunGood.lean}{76}{run constraints}, \pub{Nc/RunMn.lean}{27}{input constraints}, \pub{Paper/CircuitPhi.lean}{175}{degree and canonical evaluation}.}
+
+For one input channel let $A_t(w)$ be the sum of the weights of all length-$t$ automaton paths from the designated start to the designated end that match input $w$ and the tape constraints. With $|w|<N$, the set $C(w)$ contains the input letters in order and an end mark $\#$ at position $|w|$. Write $X_C=\prod_{c\in C}X_c$. The manuscript displays $\Phi_{\rm word}=\sum_{|w|<N}A_t(w)X_{C(w)}$. Canonical codes form an antichain under inclusion. At the first position where a word and its proper extension differ, one has an end mark and the other a letter. Thus $\Phi_{\rm word}({\bf1}_{C(w)})=A_t(w)$.
+
+\subhead{A distinction that matters when reading the formal construction}
+The publisher constructs a monomial extension of a function of an entire Boolean input pattern. At most one symbol can be true per row. Every row must be occupied unless an earlier row has an end. A matching hidden run fixes the prefix and its end. After the end, unused rows may be empty or carry one arbitrary symbol. The input conditions for the hidden run inspect only the consumed letters and the final end. The states, tape contents and counters retain the same witnesses under those later choices. Summing the possible trailing rows gives the following independent expansion for one input channel:
+\[
+ \Phi_{\rm src}
+ =\sum_{|w|<N}A_t(w)X_{C(w)}
+    \prod_{j=|w|+1}^{N-1}\left(1+\sum_{\alpha\in\Gamma\cup\{\#\}}
+     X_{j,\alpha}\right).
+\]
+For every canonical evaluation, a contributing monomial must contain $C(w)$, so only its own word contributes. Then all variables in the trailer vanish. Every monomial selects at most one symbol per row, hence has degree at most $N$. These are exactly the two properties used by the compiler. The expansion above is a source-derived explanation. The formal theorem states the degree and the canonical evaluations. The $t$-step clause sum also has at most $1600(t+N+|Q|+|S_{\rm tape}|+|\Gamma|+2)^9$ literal occurrences, clauses with nonempty supports, and weights that are variables or scalars. These inputs license the grid projection.
+
+To recover the printed polynomial globally, an independent variant adds one zero-weight guard for each $p<q$ and each symbol $\alpha$, firing when $(p,\#)$ and $(q,\alpha)$ are both true. Its product deletes every nonempty trailer. The guards add $(|\Gamma|+1)N(N-1)$ literals, with no new variables. Increasing the numerical coefficient from 1600 to 1601 covers this addition. The pinned proof uses the original construction.
+
+\clearpage
+\heading{One computation from a weighted path to a circuit run}
+\smallref{\pub{Paper/CircuitPhi.lean}{219}{Monomial extension identity}, \pub{Paper/CircuitPhi.lean}{272}{evaluation on word codes}, \pub{Paper/Circuit.lean}{39}{distinct bit symbols}. Exact finite controls accompany this edition.}
+
+Take $N=3$, $t=1$, one state that is both initial and final, a binary input alphabet and no auxiliary tapes. Only the letter that consumes a zero has nonzero transition weight, equal to one. Its end counter is one. Set
+\[
+ A=X_{0,0}X_{1,\#},\qquad B=1+X_{2,0}+X_{2,1}+X_{2,\#}.
+\]
+There is one word with nonzero weight. The printed sum is $A$. The concrete clause polynomial is $Q=AB$. Use a circuit computing $Q$ at gate 10, add $g_{11}=g_{10}+g_{10}$, $g_{12}=-1$, $g_{13}=g_{12}g_{10}$ and $g_{14}=g_{11}+g_{13}$. This is a circuit for the clause polynomial even in characteristic two. On the code for $[0]$ (the encoding of the empty tree), $A(Tu)=T^2$, $B(Tu)=1$. Gates 11 and 13 yield $2T^2$ and $-T^2$. Their contributions leave one $T^2$. Cutoffs $d=0,1,2,3,4$ therefore give $0,0,1,1,1$.
+
+In terms of the compiler, gate 10 inherits the ordered pair of leaves defining $A$ with coefficient one, since $c_B=1$. The new split $(A,B)$ also occurs. At this code the positive part of $B$ vanishes. Gate 11 doubles gate 10's table. Gate 13 contributes its negative and a split with a constant leaf whose positive part is zero. For cutoff two, the surviving split has one unit of fuel, followed by two leaf steps with both matching indicators and no further splits. Over $\mathbb F_2$ the doubled table vanishes and the signed contribution becomes positive. The weighted total still equals one.
+
+Turn on a second end mark at row two. This malformed input has $Q(Tu)=T^2+T^3$, whereas $A(Tu)=T^2$. At $T=1$ their integer values are two and one. This refutes the global identification of these two constructions and leaves the K.3 contract intact. Omitting the end-mark variable would separately let a proper prefix contribute at a longer word.
+
+The included check enumerates 512 Boolean patterns, 36 satisfying the input constraints, and all seven canonical binary words. A two-state signed example compares 2,048 monomial coefficients for $t=0,1,2,3$. Four gate lists give 3,640 gate/code/cutoff/ring comparisons over $\mathbb Z$, $\mathbb F_2$, $\mathbb F_3$ and $\mathbb Z/6$. This example exercises the finite assignment and compiler mechanisms. The universal automaton and the unbounded scale theorem enter through the next page's quantified argument.
+
+\clearpage
+\heading{From an arbitrary small circuit to the contradiction}
+\smallref{\pub{Paper/Circuit.lean}{68}{Universal projection}, \pub{Paper/Circuit.lean}{136}{program budget}, \pub{Paper/Circuit.lean}{294}{K.3}, \pub{NS1/Accel.lean}{50}{accelerator}, \pub{Paper/Scales.lean}{141}{contradiction at matched scales}.}
+
+Fix the coefficient ring $A$, a finitely supported $\theta$, $H\ge32$ and the grid-completeness factor $\kappa$. K.3 chooses $B_0=9(H+2)+1$, $C=H+35$, and a threshold $v_0$ before any field $F$ with an $A$-algebra structure, eligible family $G$, scale, or circuit. For $v\ge v_0$, $(\lg v)^{Ca}\le v$ and $m\ge v^{B_0}$, suppose a circuit of at most $v^a$ gates computes $G_m$. Here $\lg v=\lfloor\log_2v\rfloor+1$.
+
+\begin{enumerate}
+\item Use the I.1 automaton for $\theta$, with $N=v^{H-32}+1$ and $t=v^{H+1}$. For each short plain input the simulator's required time is at most $2C_u(H+1)^2v^H(\lg v)^2\le t$ eventually. Its value is the original sum. The two encoding symbols must be distinct: equal symbols would identify equal-size encodings of two programs with different plain values. Map other alphabet variables to zero and carry the end mark through.
+\item The quantity inside the ninth power in the literal bound is at most $v^{H+2}$ eventually, and $1600\kappa\le v$. Hence the allowed matrix order covers the clause sum. Grid completeness supplies an affine substitution into $G_m$. Inlining one constant-size affine computation per variable occurrence in the gate list costs at most $5v^a\le v^{a+5}$. Reuses still reference earlier gates. The permanent uses $\kappa=3$ and $2\ne0$. The Hamiltonian-cycle grid uses $\kappa=40$ over every field.
+\item Set $a'=a+5$ and $d=N$. All homogeneous parts are retained. Choose $M=\lg(v^{a'+1})$, $m_{\rm bit}=\lg(v^H)$. The circuit-scale hypothesis and the threshold for $a=0$ pay $c(a'+H+2)\lg v\le v$. Since $d\le v^{H-24}$, the three terms in the cost bound together cost at most $7v^{H-24}v\le v^{H-16}$. Trie and program sizes are at most $v^{3a'+H+20}\le s=v^{C(a+1)}$. The trie height is at most $(3a'+H+20)\lg v\le\beta^2$, with $\beta=\lg\max(v^H,s)$, and $B=1\le\beta^3$.
+\item The accelerator halts on all short inputs and meets the accepting-run bounds there. Its value matches the original value on plain inputs: every original run halts and every original accepting run has empty bill and cost at most $v^H$. The accelerator itself uses named constants. In the contracting branch the scale lemma chooses one $v$ with both the K.3 and K.6 logarithmic hypotheses at the required exponents. Applying K.6 to the very accelerator just constructed yields the contradiction. K.6 uses the cut theorem and its diagonal argument. The compiler alone supplies one implication in this chain.
+\end{enumerate}

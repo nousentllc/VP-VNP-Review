@@ -1,0 +1,107 @@
+\clearpage
+\heading{14A. From arbitrary gates to a mixed-cut inequality}\label{sec:14flat}
+\smallref{Flat branch, E.7--E.10, printed pp.~35--37. Logs in this section have base two.}
+
+Fix a flat field $K$, $k\ge2$, an integer $\ell\ge100\sqrt{k}$, and a straight-line circuit with $L$ gates for $f_{k,\ell}$. For each edge $a<b$ of the complete graph on $k$ nodes choose one $\ell$-bit string. At a node $a$, the incident strings select one variable from block $a$. Sum the product of those $k$ variables over all edge choices. This defines $f_{k,\ell}$. Its coefficient tensor $t$ has two logical ends per edge and entry one precisely when the two strings agree on every edge. It is a product of $N=k(k-1)/2$ equality wires, each of dimension $2^\ell$.
+
+E.4 and A.3 turn the original circuit into $t=\sum_A f_A(T_A)$, where $A$ ranges over the $J$ subsets with $k\le3|A|\le2k$. Here $1\le J\le2^k$. The tensor $T_A$ connects each end to one of two hubs by a $2^\ell$-wire and joins the hubs by an $L$-wire. The index on that middle wire is the original gate index. The maps $f_A$ act locally. The output has only trivial index sets at hubs. This last fact matters when several cuts contribute.
+
+For any spectral point $\varphi$, write $d_\varphi(x,y)$ for the log value of a two-dimensional wire and $g_\varphi(P)$ for the log value of a two-dimensional common equality index on the set of ends $P$. A wire of dimension $d\ge1$ has value $d^{d_\varphi(x,y)}$. The common index of dimension $d$ on $P$ has value $d^{g_\varphi(P)}$. Products multiply spectral values. A local restriction can only decrease them.
+
+\subhead{The price of adding different cuts}
+In $t^{\otimes n}$ each term has a word $w\in[J]^n$. Fix a letter-count vector $\tau$, and number its $r_\tau$ words. A representative word gives the product $\bigotimes_jT_j^{\otimes\tau_j}$. Give each retained end a copy of one shared diagonal index with $r_\tau$ choices. Each end can read the word number and permute its $n$ positions accordingly. Outside $P$ the output index has at most one value and the contraction can be done in representative order. Summing over the common index therefore produces this type's contribution, with every sign and multiplicity. For $M=\max_j\varphi(T_j)$, there are at most $(n+1)^J$ types and $r_\tau\le J^n$. The spectral sum bound gives
+\[
+ \varphi(t)^n\le(n+1)^J\big(J^{g_\varphi(P)} M\big)^n.
+\]
+Take $n$th roots at fixed circuit, $J$ and $\varphi$. The polynomial prefactor disappears. This is E.7. The exact case has coefficient degree zero, so the formal coefficient-extraction prefactor equals one.
+\smallref{\pub{Paper/Flat.lean}{345}{E.4 hub sum} · \pub{Nc/Price/BorderFew.lean}{43}{type restriction} · \pub{Nc/Price/BorderFew.lean}{134}{power bound} · \pub{Paper/Convex.lean}{22}{E.7}.}
+
+\clearpage
+\heading{One price controls every cut}
+The selected cut will maximize $\varphi(T_A)$, so it can depend on $\varphi$. Begin by reserving two hub locations for every balanced $A$. Write $V$ for the finite set of all proposed positions in $\mathbb R^k$, and $P_0$ for the nonempty set of occupied end positions, each a facet centre $\pm e_i/2$. We need one pair $(\varphi,c)$, $c\ge0$, approximating all distances on $V$ to tolerance $\Delta$ and satisfying $c g_\varphi(P_0)\le\sqrt{k}+\Delta$.
+
+\subhead{E.8 compares a unit index at three placements}
+Let $a,b,m$ map $q$ labels to positions, with $m_i=(a_i+b_i)/2$. A.7 extends a spectral point by placing all new labels according to $a$ or according to $b$ with equal probability. In selecting the extension, retain the product of all old wires and the unit tensor at $m$. Positivity of the factors and the individual upper bounds then force equality for every old wire and for the old unit value. Each new label is a true midpoint in the scaled price, since its two legs are at most half the endpoint separation $D_i$ and the triangle inequality forces equality.
+
+If the old distances approximate the Euclidean distances within $d$, the old $m_i$ is within $D_i/2+3d/2$ of both endpoints. C.1 bounds its squared distance from the new true midpoint by $D_i(3d/2)+(3d/2)^2$. Moving one leg of the unit tensor at a time bounds the change in its scaled exponent by the sum of those distances. Write $R=\sum_{x,y\in V'}\|x-y\|$ on the enlarged configuration $V'$. For $d\le1$ the sum is at most $q\sqrt{d(2R+4)}$. Hence choosing
+\[
+ d=\min\{1,\eta^2/[(q^2+1)(2R+4)]\}
+\]
+gives $c g(m)\le[cg(a)+cg(b)]/2+\eta$. This holds for \emph{every} triple in the configuration with that one threshold.
+
+\subhead{E.9 spends the tolerance over $k$ levels}
+Add $\{-1/2,0,1/2\}^k$ to $V$ to obtain $V'$. Choose the E.8 threshold for $\eta=\Delta/(2k)$, then use flatness once to find $(\varphi,c)$ accurate to $\min(d,\Delta/2)$ on every pair. For an end at $s e_i/2$ start with $s\chi_i\chi/2$, where $\chi$ is a vector of signs. For fixed $\chi$ all these positions occupy one diagonal of length $\sqrt{k}$. Average over the first $j$ signs, conditioning on the rest. Each next map is the pointwise midpoint of two preceding maps. Its maximum scaled exponent therefore increases by at most $\eta$. At level $k$ the average position is $s e_i/2$, since $\mathbb E[\chi_i\chi_j]$ is one for $i=j$ and zero otherwise. The final exponent is at most $\sqrt{k}+\Delta/2+k\eta$. Pull this same witness back to the distinct logical end and hub labels. Repeated physical positions preserve the exponent of the common index because its spectral value depends only on its image.
+\smallref{\pub{Paper/Convex.lean}{42}{preserving the old tensors} · \pub{Paper/Convex.lean}{148}{leg displacement} · \pub{Paper/Convex.lean}{318}{cube witness} · \pub{Paper/Rate.lean}{195}{logical pullback}.}
+
+\clearpage
+\heading{How each balanced cut saves wire length}
+Place the ends of edge $a<b$ at $+e_a/2$ and $-e_a/2$, respectively. Each wire has Euclidean length one. For a balanced set $A$ put $s_a=1$ on $A$, $s_a=-1$ elsewhere, and
+\[
+ u_A=\sum_{a<b,\ s_a\ne s_b}s_a e_a .
+\]
+The scalar product with $s=(s_1,\ldots,s_k)$ counts crossing edges: $\langle s,u_A\rangle=|A|(k-|A|)\ge2k^2/9$. Since $\|s\|=\sqrt{k}$, $\|u_A\|\ge2k\sqrt{k}/9$. Choose $x_A=\gamma u_A/\|u_A\|$, $\gamma=2/(9\sqrt{k})$, and place the hubs at $\pm x_A$. This construction is deterministic for each cut and precedes the selection of the price on the whole configuration.
+
+For a unit vector $e$, the inequality $\sqrt{1+y}\le1+y/2$ for $y\ge-1$ gives $\|e/2-x\|\le1/2+\|x\|^2-\langle e,x\rangle$. Apply it at the two ends with hub positions $s_a x_A$ and $s_b x_A$. Linear terms cancel on an uncut edge. A crossing edge contributes $-2s_a(x_A)_a$. The sum of the outer lengths is at most
+\[
+ N+2N\gamma^2-2\gamma\|u_A\|\le N-4k/81 .
+\]
+Indeed $2N\gamma^2=4(k-1)/81$ and $2\gamma\|u_A\|\ge8k/81$. The middle wire has length $2\gamma=4/(9\sqrt k)$. The gate count enters only on this middle wire through $\log_2 L$.
+
+\subhead{Select the paying cut with the fixed witness}
+For an arbitrary spectral point, E.7 gives a maximizing cut with
+\[
+ \ell S_1\le kG+\ell S_2+S_3\log_2 L .
+\]
+Here $S_1$ sums the $N$ original wire exponents, $S_2$ sums the $2N$ end-to-hub exponents for that cut, $S_3$ is its hub-to-hub exponent, and $G=g_\varphi(P)$ is the exponent of the common index at the logical ends. The selector charge follows from $\log_2J\le k$. Take for $\varphi$ the pulled-back E.9 witness on every candidate hub and end, then select its maximizing cut. With $\Delta=1/(1000k)$,
+\begin{align*}
+ cS_1&\ge N(1-\Delta),&
+ cS_2&\le N-4k/81+2N\Delta,\\
+ cS_3&\le4/(9\sqrt k)+\Delta,&
+ cG&\le\sqrt k+\Delta .
+\end{align*}
+There are $3N$ distance errors in the wire comparison and one in the middle coefficient. Each cut was eligible for the same four estimates. This supplies the quantitative comparison without a common rank cut for the output.
+\smallref{\pub{Nc/CaseI/Hub.lean}{41}{signed direction} · \pub{Paper/Rate.lean}{55}{hub saving} · \pub{Paper/Rate.lean}{218}{selection} · \pub{Paper/Rate.lean}{272}{E.7 to a paying cut}.}
+
+\clearpage
+\heading{The numerical bound and a strict improvement}
+Put $z=\log_2L\ge0$. Multiplying the cut inequality by $c\ge0$ and eliminating its four measured terms gives
+\[
+ \ell\big(4k/81-3N\Delta\big)-k(\sqrt{k}+\Delta)
+             \le (4/(9\sqrt{k})+\Delta)z .
+\]
+The original $N$ wires each lose at most $\Delta$ on the left. Their $2N$ outer replacements each gain at most $\Delta$ on the right. All three contributions have the same sign in this worst-case estimate. For $\ell\ge100\sqrt k$,
+\[
+ 3N\Delta\le 3k/2000,\quad
+ k(\sqrt k+\Delta)\le\ell k(1/100+1/10000),\quad
+ 4/(9\sqrt{k})+\Delta\le(4/9+1/1000)/\sqrt{k}.
+\]
+For example, $k\Delta=1/1000$ and $\ell k\ge100$ suffice for the small additive term in the second bound. Write $a=4/9+1/1000=4009/9000$ and $b=4/81-3/2000-1/100-1/10000=7651/202500$. The resulting inequality is $az\ge b\ell k\sqrt{k}$. The manuscript states $L\ge2^{\ell k^{3/2}/16}$ and its formal intermediate lemma yields denominator 14. Independently,
+\[
+ 12b-a=1073/135000>0,\qquad
+ \log_2 L>\ell k^{3/2}/12 .
+\]
+This strengthening uses the same outer tolerance and circuit hypotheses. The proof needs only a positive constant in the exponent. The global field alternative and the other branch still have their own obligations.
+
+\subhead{Two tests of the hypotheses}
+Take two rank-one $2\times2$ matrices $E_{00},E_{11}$. Their sum has rank two over every field. If only the row party were charged, its common index would have flattening rank one, hence exponent zero. E.7 would give $2\le2^0\cdot1$. The assumption that every output leg outside $P$ is trivial rules out this example.
+
+A scalar budget control shows where further improvement needs more information. Take $k=4$, $\ell=200$, $z=138$, $c=1$, and set $S_1,S_2,S_3,G$ equal to their allowed bounding values on the preceding page. The right side of the cut inequality exceeds the left by $15551/162000$. Yet $z<\ell k\sqrt{k}/11$. Thus a uniform denominator 11 cannot follow from these scalar inequalities alone. No claim about existence of a circuit with these data is involved.
+\smallref{\pub{Paper/Rate.lean}{123}{Publisher's arithmetic} · \pub{Paper/Rate.lean}{299}{E.10} · \newreview{checks/pass14a_margin.lean}{review's strict inequality} · \newreview{checks/pass14a_flat.py}{exact failure controls}.}
+
+\clearpage
+\heading{What the flat branch excludes}
+To translate the auxiliary bound to a target polynomial, take an arbitrary size-$s$ circuit for the target at matrix size $m$. Let $\kappa$ be its grid-completeness parameter: $40$ for HC via M.2 or $3$ for the permanent via E.1 when $2\ne0$. The affine substitution supplies an $f_{k,\ell}$ circuit of size at most $5s$ whenever $\kappa k^3\ell 2^{k\ell}\le m$. Gate cancellation, field constants and reuse have remained permissible throughout this substitution and E.4.
+
+For $m\ge 2^{200(\kappa+3)^3}$ take $B=\lfloor\log_2m\rfloor$ and choose the largest integer $r$ with $200r^3\le B$. Then $r\ge\kappa+2$ and $B+1\le200(r+1)^3\le1600r^3$. Put $k=r^2$ and $\ell=100r$. The power of two in the required matrix size is $2^{100r^3}$. Its remaining multiplier $\kappa r^6(100r)$ is at most $2^{107r}\le2^{100r^3}$ for $r\ge2$. Thus the grid fits at this particular $m$.
+
+Using just the printed E.10 denominator 16 gives $\log_2(5s)\ge(25/4)r^4$, so $\log_2s>r^4$. Since $(\log_2m)^{4/3}\le1600^{4/3}r^4\le1600^2r^4$, the target circuit satisfies
+\[
+             s>2^{(\log_2m)^{4/3}/1600^2}.
+\]
+An assumed smaller circuit therefore gives a contradiction on any flat comparison field. M.1 allows a candidate to be transported to the chosen field of the same characteristic at unchanged size. D.2 may instead supply the contracting hypothesis on that field. In that case the H--K argument must exclude the candidate.
+
+\subhead{What the checks distinguish}
+The executable finite checks compare selector contractions on 84 signed entries, count the signed hub directions on all 1,428 balanced subsets in dimensions 2 through 10, and test the exact rational margins. For a second quantifier control, use three parties $a,b,c$ and two tensors: one equality wire along $ab$ with $c$ fixed, and one along $ac$ with $b$ fixed. Flattening at $b$ and at $c$ gives the two rows $(2,1)$ and $(1,2)$. Among these two witnesses, the smaller of the two row maxima is two whereas the largest column minimum is one. Choosing a favorable witness independently for each summand would destroy the common-price inference.
+
+The review's scalar Lean proof takes the four price bounds and the mixed-cut inequality as inputs. A separate bridge supplies them from the published gate and spectral arguments for the printed polynomial. The corresponding receipts specify what was run. E.10 and the flat-case target lower bound are conditional on flatness. HC membership and the claim for all fields require further arguments.
+\smallref{\pub{Paper/Rate.lean}{337}{all sufficiently large target sizes} · \pub{Paper/Rate.lean}{417}{generic grid-complete caller} · \pub{Paper/Fields.lean}{52}{HC} · \newreview{passes/14a-flat.md}{full source trail and replay instructions}.}

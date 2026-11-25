@@ -1,0 +1,120 @@
+\newpage
+\heading{14B. Building the tower used by H.2}\label{sec:14tower}
+H.2 starts with a fixed finite collection of G.2 laws over a coefficient ring $A$. It gives one constant $C$ before the commutative $A$-algebra $R$, network size $M\ge2$, packet width $\ell\ge1$ and per-node packet bound $N\ge1$ are specified. The input has at most $M$ nodes. The printed version excludes packets from a node to itself. The implementation also permits a self-packet, which stays at its own node. Fix $h\ge3$, $e=h(h-1)/2$, $b=2^e$ and $1+8C_1\le h/4$ from G.2. The group supplying the routing is constructed over binary matrices regardless of the characteristic of $R$.
+
+\subhead{Why the fibres have the required size}
+Set $R_n=\mathbb F_2[s]/(s^{n+1})$, $G_n=\mathrm{SL}_h(R_n)$ and $K_n=\ker(G_n\to\mathrm{SL}_h(\mathbb F_2))$. Reduction from $n+1$ to $n$ is onto. Lift a determinant-one matrix entrywise. Its determinant $d$ reduces to one and $d^2=1$ because the last ideal is square-zero in characteristic two. Scaling one row by $d$ corrects the determinant. The kernel consists of $I+s^{n+1}B$ with $\operatorname{tr}B=0$, since its determinant is $1+s^{n+1}\operatorname{tr}B$. Thus each lift multiplies the order by $2^{h^2-1}$ and $|K_n|=2^{(h^2-1)n}$.
+
+Group a chain of index-two subgroup extensions in $K_n$ into blocks of $e$. This gives
+\[
+ 1=\Gamma_0\subset\cdots\subset\Gamma_J\subseteq K_n,\qquad
+ J=\lfloor(h^2-1)n/e\rfloor,\qquad V_j=G_n/\Gamma_j .
+\]
+The left $G_n$-sets project equivariantly with fibres of size $b$. The top has fewer than $b|\mathrm{SL}_h(\mathbb F_2)|$ chambers. No normality of the individual $\Gamma_j$ is needed. Take the first available $n$ with $X=|G_n|\ge M$. The bounded order ratio gives $M\le X\le c_hM$, allowing the original nodes to be padded with unit tables.
+
+\subhead{Why each local law fits each orbit}
+Put $X_k=I+E_{k-1,k}$ for $k\ne0$ and $X_0=I+(1+s)E_{h-1,0}$ using cyclic indices. Omitting $X_0$ leaves the binary upper unitriangular group $U_h$. Conjugating by a cyclic basis shift with a factor $(1+s)^{-1}$ on the wrap gives the copy obtained by omitting $X_i$. Reduction at $s=0$ is injective on that copy. Every chamber stabilizer is conjugate to $\Gamma_j$ and lies in the normal kernel $K_n$, so the action of the copy is free. The omitted generator lies outside the reduced copy. Its two ends belong to different type-$i$ orbits. Every orbit has $b$ elements. Projection maps each lower orbit bijectively onto an upper orbit, and exactly $b$ lower orbits lie over each upper one.
+
+\smallref{H.1, p.~44. \pub{Nc/Tower/Layer.lean}{126}{Reduction and kernel} · \pub{Nc/Tower/Chain.lean}{34}{index chain} · \pub{Paper/Tower.lean}{25}{H.1} · \pub{Nc/Tower/Inst.lean}{429}{host bijections}.}
+
+\newpage
+\heading{Routing an arbitrary packet to the next stage}
+Write $m$ for a uniform word-length bound in the generators of $G_n$. In the formal argument the elementary identity $[I+aE_{ij},I+dE_{jk}]=I+adE_{ik}$ for distinct indices constructs powers of an entry. A trace-zero layer is a sum of off-diagonal units and paired diagonal units. The cost to correct one layer is bounded by $O_h((n+1)^6)$. Summing while lifting a word from each preceding level yields $m=O_h((n+1)^7)$. The printed elimination argument gives a cubic bound. H.2 uses the seventh power, which is sufficient since $n=O_h(\log M)$.
+
+Distribute the packets of each given pair $(a,d)$ as evenly as possible among all $X$ intermediate chambers $g$. Route the $g$-batch from $a$ to $g$ using a word for $ga^{-1}$, then to $d$ using one for $dg^{-1}$. Stop at the first visit to $d$. For fixed $a,g$ the outgoing batches have total size at most $N/X+X$ by rounding once per target node. For a fixed word of length $m$, all its translates together hit a given unoriented edge at most $2m$ times: at each letter there are at most two choices of starting point for that edge. Sum over the $X$ word indices and then both halves to obtain an initial edge cap
+\[
+                         n_0=4m(N+X^2).
+\]
+
+\subhead{The five segments in Figure 11}
+At stage $j$ let $i$ be the first type minimizing the sum of squared edge loads. For each type-$i$ orbit $\omega$ in $V_{j+1}$, biject the $b$ lower orbits $\chi$ over it with its $b$ chambers. Denote the chamber assigned to $\chi$ by $H(\chi)$. This is the parent of every $c\in\chi$. An edge within $\chi$ becomes two terminal child--parent segments by relaying through $H(\chi)$. An edge $cc'$ of the selected type joins distinct lower orbits $\chi,\chi'$. Route it through
+\[
+ c,\quad H(\chi),\quad \pi c,\quad \pi c',\quad H(\chi'),\quad c'.
+\]
+Omit adjacent equal upper chambers. The central segment is an upper edge of type $i$. The two segments between a host and a projected chamber lie inside upper orbits and are the inputs to their laws. The two lower-to-parent segments stay. At stage $J$ all remaining live horizontal packets are relayed through the new root. The fixed set of possible moves includes inactive choices. Their counts can be zero.
+
+\textbf{A necessary distinction.} Choosing eight arbitrary parent names in an upper orbit does not impose the bijection. In the explicit $b=8$ example, assigning all eight lower orbits to one host gives it 64 children. The bijection gives exactly eight. It also bounds the number of contributors to each outer segment. We reconstructed $\mathrm{SL}_3(\mathbb F_2[s]/s^2)$ independently and checked every selected edge in two quotient stages for all three type choices. Across 72,576 routes the middle fibre had size eight and each outer pair had at most two contributors. This finite group checks H.1 routing. The large-$h$ contraction inequality of H.2 requires separate hypotheses.
+
+\smallref{H.1(d), pp.~44--45, H.2 and Figure~11, pp.~46--47. \pub{Nc/Tower/Diam.lean}{216}{Lifting a word} · \pub{Nc/Tower/Base.lean}{113}{diameter} · \pub{Nc/Tower/Tower.lean}{197}{routes} · \pub{Paper/Tree.lean}{1234}{initial congestion} · \pub{Nc/Tow/Flow.lean}{58}{selected type and law}.}
+
+\newpage
+\heading{Why the total weighted value survives}
+A packet is a variable ranging over $\{0,1\}^{\ell}$. One shared assignment feeds both ends. The scalar is the sum over assignments of the product of all local tables. Contracting with any other local tables is allowed. A relay on one wire is the identity
+\[
+   \sum_x f(x)g(x)=\sum_{u,v} f(u)[u=v]g(v).
+\]
+Keeping all the other packet values fixed proves the identity inside any surrounding network. In a binary test with $f=(1,-1)$ and $g=(2,3)$ the scalar is $-1$. Dropping a single required equality anywhere on its relayed path gives $0$.
+
+\subhead{The outcome has to contain enough information}
+In an upper orbit collect the outer-segment counts into $n_\omega$. Choose the least $t$ such that some law has at least $n_{\omega,p}$ places on each unordered pair $p$ when every slot is repeated $t$ times. Break ties by the fixed order of laws. G.2 gives $t\le\lceil\|n_\omega\|/a_1\rceil$. Fill spare places with zero packets. Each of the $t\ell$ bit layers replaces a product of equalities by the sum in identity (G.2) of Definition G.1 over one common law index and the channel bits. The finite product of those identities equals their iterated finite sum, over any commutative $A$-algebra. The maps from $A$ carry the coefficients into the working ring.
+
+For a channel $\nu$ concatenate the encoded index of each layer and its payload. The index specifies the payload length. For a total of $L_\nu$ bits, append a single $1$ and enough zeros to finish a packet. There are $o_\nu+1$ packets, $o_\nu=\lfloor L_\nu/\ell\rfloor$. Removing the terminal zeros and marker recovers the original string. Agreement on channel codewords forces adjacent roles to choose the same list of indices, and connectedness propagates that list across the orbit. Every term in the layer expansion therefore has one outcome. Different terms with that outcome still contribute with their ring weights. At $t=0$, $o_\nu=0$ and the end packet remains.
+
+For each layer the vector of coded lengths has norm at most $\sqrt{C_1}a_1$ and every channel carries at least one label bit. Coordinatewise flooring and the triangle inequality give $\|o\|_*\le\sqrt{C_1}a_1t$ and $o_\nu\ge t$. Unrealizable good outcomes contribute zero when the table constraints are applied. Since the move plan uses only earlier outcomes to select consumed packets, iterate the scalar identity, leaving the common cut assignments in the sum. The formal integer test uses $b\sum_\nu o_\nu^2\le\lfloor2C_1 a_1^2\rfloor t^2$. For the integral G.2 constant it agrees with the real norm test. H.2 returns equality after summing the good outcomes. Its formal exceptional IDs include the last named ID of each channel, including relay channels. They are still present in the contraction whenever the plan retains them.
+
+Our two-layer integer control expands each equality into the two diagonal indicators plus the cancelling constants $+1,-1$. Their index-dependent payload lengths are $0,0,1,2$. For $\ell=2$ the good-outcome sums in the test are $3,-60,50$, totalling the original $-7$. Testing all 16 boundary pairs recovers the whole equality matrix. This illustrates regrouping separately from the G.2 gain.
+
+\smallref{H.2, pp.~45--46. \pub{Nc/G/Contract.lean}{146}{Powered law} · \pub{Nc/Tow/CapOk.lean}{45}{causal valid plan} · \pub{Paper/Tree.lean}{646}{possible outcomes are good} · \pub{Paper/Tree.lean}{1102}{full weighted equality}.}
+
+\newpage
+\heading{Where the power saving comes from}
+Let $v_j=|V_j|$, and let $n_f$ be the live count on edge $f$, excluding the channel end IDs. Put
+\[
+ N_i^2=\frac{v_j}{2}\sum_{f\text{ of type }i} n_f^2,\qquad
+ Q_j^2=\sum_i N_i^2,\qquad N_i^2\le Q_j^2/h
+\]
+for the selected type. Every upper middle edge has $b$ lower preimages. Cauchy--Schwarz bounds its squared load by $b$ times the sum of their squared loads. The prefactor $v_{j+1}=v_j/b$ cancels exactly this $b$. Thus the new middle component has squared norm at most $N_i^2$.
+
+For an outer unordered pair inside $\omega$, specifying which endpoint is the host determines $\chi$. The other endpoint determines $c$ because $\pi$ is bijective on $\chi$. There are at most two contributing lower chambers per unordered pair. Each selected edge has two endpoints, so the sum of squared outer loads over all pairs is at most $4\sum_{f\text{ of type }i}n_f^2$. The squared input norm inside an orbit multiplies its off-diagonal sum by $b(b-1)/2$. Hence $(v_{j+1}/b)\sum_\omega\|n_\omega\|^2\le4N_i^2$. The output norm multiplies the channel square sum by $b/2$. After G.2 and integer rounding, each orbit contributes at most $\sqrt{C_1}(\|n_\omega\|+a_1)$ in that norm. There are $v_{j+1}/b$ orbits. Minkowski contributes the additive term $dv_{j+1}$, $d=\sqrt{C_1}a_1/b$. The formal estimate uses a looser factor eight on outer energy:
+\[
+ Q_{j+1}\le\sqrt{1+8C_1}\,N_i+dv_{j+1}
+          \le Q_j/2+dv_{j+1}.
+\]
+As $b\ge4$, adding $dv_{j+1}$ to both sides gives $Q_{j+1}+dv_{j+1}\le(Q_j+dv_j)/2$. Write $\bar Q=Q_0+dv_0=O_{h,\mathrm{laws}}(Xn_0)$.
+
+\subhead{From quadratic energy to a single cut}
+The $h$ incident edges of a chamber at stage $j$ give upward load at most $\sqrt{2h/v_j}\,2^{-j}\bar Q$. Since $v_j=X/b^j$ and $\sqrt b/2\ge1$, its largest upper bound occurs at $J$. There $1\le v_J=O_h(1)$ and $2^{-J}=(X/v_J)^{-1/\log_2 b}$. Including the bounded number of children therefore gives $\Lambda M^{1-\gamma}(N+M^2)$, with $\gamma=1/\log_2 b$ and $\Lambda=(\lg M)^C$. Across a whole level, the sum of the upward loads is at most $2\sqrt h\,Q_j$ by Cauchy--Schwarz. Summing the resulting geometric series gives $\Lambda M(N+M^2)$ globally. Replacing the minimum by an arbitrary type would remove the divisor $h$ in the first display.
+
+\smallref{H.2(b), pp.~46--47. \pub{Nc/Tow/Load.lean}{60}{middle fibres} · \pub{Nc/Tow/Load.lean}{364}{formal one-stage bound} · \pub{Nc/Tow/Load3.lean}{279}{instantiation} · \pub{Paper/Tree.lean}{1397}{gain converted to a power of target size}.}
+
+\newpage
+\heading{What J.2 can compute and charge}
+H.2 chooses a tree for each sequence of good outcomes. The depth is $J+1=O_h(\log M)$, the root has $O_h(1)$ children, and every other parent has at most $b$. The formal proof bounds all possible channel names by $M^C$ independently of $N$ and $\ell$. A name may denote an absent packet for this outcome. The exponential set of outcome sequences is indexed by a bounded alphabet coordinate by coordinate. H.2(d) promises a polynomial-size program giving the structural data for \emph{one} proposed sequence.
+
+\subhead{The charge for packets consumed along the way}
+Let $u_p$ bound the live packets between $p$ and its parent, with $u_{\rm root}=0$, $U_p=u_p+\sum_{q\text{ child of }p}u_q$, and $D_p$ the number of exceptional IDs holding $p$ as an end. Include in $B_p$ every packet ever seen at $p$ and, at every move role there, $(1+\#\text{incident slots})t$ for the multiplicity and padding. In the formal counting proof, with $s_*$ a bound on slots per law, $r_*$ the number of near channels, $d_*$ the number of law types and $g_1=\lfloor2C_1a_1^2\rfloor$,
+\[
+ B_p\le 8[4+(2r_*g_1+1+s_*)d_*]U_p+
+      \mathbf1_{p\,\mathrm{given}}(1+8m)N+2D_p .
+\]
+Start-path copies add the term supported on original nodes. Relays charge their two ends, inactive channel ends charge named IDs, and law slots charge boundedly many copies per layer count. The lower good-outcome bound $t\le o_\nu$ pays for the layers using a channel incident to that role. Multiplying packet counts by $\ell$ gives the bound on the number of bit layers. The program can report each $u_p$ before anyone evaluates the ring-valued node tables.
+
+\subhead{Cost model and downstream use}
+The fixed straight-line program takes the initial counts and channel outcomes as inputs. It compares integer type energies, picks a lowest-width feasible law, ranks packet IDs within slots, and produces parents, current/consumed IDs, move counts, loads and goodness indicators. A binary table lookup is one step. With a fixed data constant $c$, put $V=((c+3)MN)^{30}$ and $Y=20V^9$. The proof bounds the value alphabet by $Y^4$, the number of steps by $3Y^{16}$, and the node, move and packet universes by $Y$. One enlarged $C$ absorbs these into $(MN)^C$. This is a nonuniform description of the structure. Evaluating the node tables belongs to the subsequent program argument.
+
+J.2 uses the depth and load bounds to locate pieces with small boundaries. It also budgets $M^{C_0}\ell$ bits for the exceptional IDs: $M\le v^{e'+1}$, $a'\ge(e'+1)C_0+300$, and $\ell=\lfloor T/v^{a'}\rfloor$ give $v^{300}M^{C_0}\ell\le T$. The tree identity survives gluing the common boundary variables. This brings a contracting branch network to the cut interface. The subsequent accelerator construction and diagonal contradiction remain distinct proof obligations.
+
+\smallref{H.2(c)--(e), pp.~46--48 and J.2, pp.~52--53. \pub{Nc/Tow/Ever7.lean}{82}{all copies} · \pub{Paper/Tree.lean}{1056}{local count} · \pub{Paper/Tree.lean}{1139}{program} · \pub{Paper/Pieces.lean}{662}{J.2 consumer}.}
+
+\newpage
+\heading{A cubic diameter bound for the same tower}
+H.1(d) states a seventh-power word bound. Its printed proof sketches a stronger exponent. Here is a direct reconstruction, with $h\ge3$ fixed, $R=\mathbb F_2[s]/(s^{n+1})$, $\zeta=1+s$, and $e_{ij}(r)=I+rE_{ij}$. Length counts letters in the specified generators $X_k$. Every $X_k$ is an involution, so reversing a word represents its inverse at the same cost.
+
+\subhead{One bounded word for each initial coefficient}
+For distinct $i,m,j$, direct matrix multiplication gives $[e_{im}(u),e_{mj}(v)]=e_{ij}(uv)$, with $[x,y]=xyx^{-1}y^{-1}$. Iterate along a simple directed path in the cyclic order $0,1,\ldots,h-1,0$. If $i<j$ the path from $i$ to $j$ gives $e_{ij}(1)$. If $i>j$ it crosses the wrap exactly once and gives $e_{ij}(\zeta)$. For an upper pair $i<j$ we still need a coefficient $\zeta$. The commutator inputs, in order, are
+\[
+\begin{array}{ll}
+ e_{i,i-1}(\zeta),\ e_{i-1,j}(1) & (i>0),\\
+ e_{0,j+1}(1),\ e_{j+1,j}(\zeta) & (i=0,\ j<h-1),\\
+ e_{0,1}(\zeta),\ e_{1,h-1}(1) & (i=0,\ j=h-1).
+\end{array}
+\]
+The second line already gives the first factor in the last line since $h\ge3$. All paths have length at most $h-1$. Hence a single $C_h$ bounds every seed word for $e_{ij}(\zeta)$ independently of $n$.
+
+\subhead{From powers to every ring entry}
+For $a\ge2$ choose $m\ne i,j$ and split $a=p+q$ with $p=\lfloor a/2\rfloor$, $q=\lceil a/2\rceil$. The commutator of $e_{im}(\zeta^p)$ and $e_{mj}(\zeta^q)$ gives $e_{ij}(\zeta^a)$. One balanced recursion level multiplies the maximum word budget by four. The total is at most $4^{\lceil\log_2 a\rceil} C_h\le4C_h a^2$. The powers $1,\zeta,\ldots,\zeta^n$ are triangular with leading coefficient one in the basis $1,s,\ldots,s^n$. Multiplying by the unit $\zeta$ gives a basis $\zeta,\ldots,\zeta^{n+1}$. Expand $r$ in it over $\mathbb F_2$. The identity $e_{ij}(x+y)=e_{ij}(x)e_{ij}(y)$ gives every $e_{ij}(r)$ length at most $4C_h\sum_{a=1}^{n+1}a^2=O_h((n+1)^3)$.
+
+\subhead{Why elimination costs only a constant in the word estimate}
+An invertible matrix over $R$ has a unit in its first column: otherwise its determinant lies in the maximal ideal $(s)$. Swap a unit pivot into place and clear below it. The remaining square block has unit determinant up to a unit factor, so the argument repeats. Clear above the pivots as well. In characteristic two a row swap costs three transvections. The at most $h(h-1)$ clearing operations leave a diagonal of determinant one. This diagonal is a product of $h-1$ unit pairs on rows $i,h-1$. Each pair costs six transvections by $\operatorname{diag}(u,u^{-1})=w(u)w(-1)$, where $w(u)=e_{12}(u)e_{21}(-u^{-1})e_{12}(u)$ in the chosen two coordinates. Thus at most $(h-1)(h+9)$ arbitrary-entry transvections suffice. Multiplying this constant by the bound above proves the cubic word estimate for every $n$. H.2 needs only the seventh-power estimate checked in the publisher's formal development.
+
+\smallref{H.1(d), printed p.~44. \paper{Printed elimination argument} · \pub{Paper/Tower.lean}{25}{Formal statement at exponent seven} · \pub{Nc/Tower/Diam.lean}{216}{Formal layer-lifting route}.}

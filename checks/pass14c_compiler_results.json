@@ -1,0 +1,22 @@
+{
+  "boolean_patterns_examined": 512,
+  "admitted_by_VOk": 36,
+  "canonical_codes": 7,
+  "printed_word_sum_monomials": 1,
+  "formal_construction_monomials": 4,
+  "signed_path_coefficient_checks": 2048,
+  "guarded_word_sum_coefficient_checks": 2048,
+  "gate_code_degree_ring_checks": 3640,
+  "characteristic_controls": [
+    0,
+    2,
+    3,
+    6
+  ],
+  "canonical_evaluation_mod_2": 1,
+  "extra_end_evaluations_over_integers": [
+    1,
+    2
+  ],
+  "scope": "Finite symbolic and semantic controls. No runtime estimate here is a measurement of the publisher interpreter."
+}

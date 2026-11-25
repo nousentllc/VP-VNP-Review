@@ -1,0 +1,16 @@
+{
+  "flattening_rows_B_C_columns_AB_AC": [
+    [
+      2,
+      1
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "signed_tensor_power_entries": 84,
+  "balanced_hub_directions": 1428,
+  "strict_margin": "1073/135000",
+  "relaxed_budget_slack_at_log2L_138": "15551/162000"
+}

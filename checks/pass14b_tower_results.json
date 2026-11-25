@@ -1,0 +1,115 @@
+{
+  "h": 3,
+  "n": 1,
+  "b": 8,
+  "chambers": [
+    43008,
+    5376,
+    672
+  ],
+  "full_group_diameter": 23,
+  "checks": [
+    {
+      "selected_type": 0,
+      "lower": 43008,
+      "upper": 5376,
+      "selected_edges": 21504,
+      "middle_fibre": 8,
+      "max_outer_contributors": 2,
+      "bad_host_children": 64,
+      "edge_path_lengths": {
+        "3": 800,
+        "4": 3776,
+        "5": 16928
+      }
+    },
+    {
+      "selected_type": 1,
+      "lower": 43008,
+      "upper": 5376,
+      "selected_edges": 21504,
+      "middle_fibre": 8,
+      "max_outer_contributors": 2,
+      "bad_host_children": 64,
+      "edge_path_lengths": {
+        "3": 960,
+        "4": 3456,
+        "5": 17088
+      }
+    },
+    {
+      "selected_type": 2,
+      "lower": 43008,
+      "upper": 5376,
+      "selected_edges": 21504,
+      "middle_fibre": 8,
+      "max_outer_contributors": 2,
+      "bad_host_children": 64,
+      "edge_path_lengths": {
+        "3": 896,
+        "4": 3584,
+        "5": 17024
+      }
+    },
+    {
+      "selected_type": 0,
+      "lower": 5376,
+      "upper": 672,
+      "selected_edges": 2688,
+      "middle_fibre": 8,
+      "max_outer_contributors": 2,
+      "bad_host_children": 64,
+      "edge_path_lengths": {
+        "3": 48,
+        "4": 576,
+        "5": 2064
+      }
+    },
+    {
+      "selected_type": 1,
+      "lower": 5376,
+      "upper": 672,
+      "selected_edges": 2688,
+      "middle_fibre": 8,
+      "max_outer_contributors": 2,
+      "bad_host_children": 64,
+      "edge_path_lengths": {
+        "3": 96,
+        "4": 480,
+        "5": 2112
+      }
+    },
+    {
+      "selected_type": 2,
+      "lower": 5376,
+      "upper": 672,
+      "selected_edges": 2688,
+      "middle_fibre": 8,
+      "max_outer_contributors": 2,
+      "bad_host_children": 64,
+      "edge_path_lengths": {
+        "3": 92,
+        "4": 488,
+        "5": 2108
+      }
+    }
+  ],
+  "selected_edge_routes": 72576,
+  "signed_relay": {
+    "preserved": -1,
+    "omitted_equality": 0
+  },
+  "signed_layered_law": {
+    "packet_width": 2,
+    "layers": 2,
+    "boundary_pairs": 16,
+    "accepted_codewords": 16,
+    "scalar": -7,
+    "by_outcome": {
+      "2": 3,
+      "3": -60,
+      "4": 50
+    },
+    "empty_layer_packets": 1
+  }
+}

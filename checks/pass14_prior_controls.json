@@ -1,0 +1,113 @@
+{
+  "scope": "Fresh finite-script reruns of the 18 controls from Editions 1–10. Output hashes identify these executions. Additional Pass 14 examples and formal proofs have their own receipts.",
+  "results": [
+    {
+      "script": "checks/check_bounds.py",
+      "script_sha256": "6383434989db812e4e81fb808793aecfa42196d280054fffd2b6b9207e9b305c",
+      "exit_code": 0,
+      "stdout_sha256": "ba3cc31d7375fb5a189e785844b00340bb1a4b767b670c8039985d1f579b8be6"
+    },
+    {
+      "script": "checks/pass05_traces.py",
+      "script_sha256": "fab02c9d0e7052501dc1677074ca78facff0bb9974325d871ff7891cdd4b0594",
+      "exit_code": 0,
+      "stdout_sha256": "d7c2acb52f403733cb09605b237d950b43ef06da9c70ad655b48fd2bd2a17eb6"
+    },
+    {
+      "script": "checks/pass06_cuts.py",
+      "script_sha256": "4a40bfd010e102c3dfc085de9ae1f45f34a8129ecebdd0d4be5a81efbd1c2cb0",
+      "exit_code": 0,
+      "stdout_sha256": "1fcd9c620c316f481b4f71a33c617e50cbf05b4640e6454293e31ece5b10d401"
+    },
+    {
+      "script": "checks/pass07_geometry.py",
+      "script_sha256": "ce60163b128948573d4a286b9842f8620a47991c92f57185d9e77c7935533358",
+      "exit_code": 0,
+      "stdout_sha256": "8e9982e2b7a9ef7f86d7007a9a559d9f7de4d6a44f370cc45f1200c2c1e4a3a6"
+    },
+    {
+      "script": "checks/pass08_midpoints.py",
+      "script_sha256": "bcee28f07b2dfae482c436cd27c78f58c055f468fe840607586668ca0873583b",
+      "exit_code": 0,
+      "stdout_sha256": "befb4ae4209647d805adae332e39b75b91775716702d36712c954d2abf8ce881"
+    },
+    {
+      "script": "checks/pass09_fan_boundary.py",
+      "script_sha256": "4fd00e64fd9b0c5371d7b555473d7116b719be07bc2ac85be547277700914ecd",
+      "exit_code": 0,
+      "stdout_sha256": "f6c27eac594ff18897e4b0e2a7a58c2b31d502aef8e905d89e02298fd077295f"
+    },
+    {
+      "script": "checks/pass10_examples.py",
+      "script_sha256": "279b4c364bc8218a77d3e547662512eac24cc10b81e534184d078e51d995c616",
+      "exit_code": 0,
+      "stdout_sha256": "4499741e4335fa8cdfc95ae7d5e8376d2e1d18b985bf99eb4a1b64df9beaf3b2"
+    },
+    {
+      "script": "checks/pass11a_crossing.py",
+      "script_sha256": "9660303aed87f39eff1744ccc48bcd368dc127b220472eda38d9bfbf62abd690",
+      "exit_code": 0,
+      "stdout_sha256": "137648979fc5bae7e0301029ed3d83dcb195ed4c7bed1d4bbf9b93ff563a505d"
+    },
+    {
+      "script": "checks/pass11c_packets.py",
+      "script_sha256": "94d4d035c308a7178433180310fa359a8fbc7217dd692349b14fc5b998129997",
+      "exit_code": 0,
+      "stdout_sha256": "41f35fb5591cd13a110b90675c1ec530b988aaa8b83cce9b3f589c8a6d7d728e"
+    },
+    {
+      "script": "checks/pass12a_moves.py",
+      "script_sha256": "971e3661d37369b501988ecd65c0595416f9d510baee8632f9a81383587ef0d9",
+      "exit_code": 0,
+      "stdout_sha256": "38f9a8160c7b266bb7e394198873be9694dbe0001911d8ca333538093e6067b0"
+    },
+    {
+      "script": "checks/pass12b_cycles.py",
+      "script_sha256": "69f8cc43e5cf4c55b783effa2567e9f1fe89d244205445b7d85aeda2812a2da6",
+      "exit_code": 0,
+      "stdout_sha256": "c517b18308f79281b9a1ef7a4aae82bbbe6af017f493eadbe3dca2074b36efde"
+    },
+    {
+      "script": "checks/pass12c_flat.py",
+      "script_sha256": "cf31b52ed722c2962b488ee5a1170c27200d5b8a1179dcc3239610ef67674c2d",
+      "exit_code": 0,
+      "stdout_sha256": "a3d257648302f4f1340b72249e218b360154281efe9580cdc19a879afa2fb608"
+    },
+    {
+      "script": "checks/pass12d_counts_minors.py",
+      "script_sha256": "b9984ed19f010d2b0ce2470f3c88d5d3615ab0c6042832291cf8ffb716c6f7c7",
+      "exit_code": 0,
+      "stdout_sha256": "b2e779da92ef320ce8dba72e07ec17a4b74e366226e5899bf753984b6ea1b7ba"
+    },
+    {
+      "script": "checks/pass12d_hubs.py",
+      "script_sha256": "5d0dc98531986a04e5bccfd0cb1841c3f14c8d41db31b3c74094939c9c05edc6",
+      "exit_code": 0,
+      "stdout_sha256": "9e9f3da41dbf33900f8811d130f6245bbb55c5eb999547f978c2b234777ee1f5"
+    },
+    {
+      "script": "checks/pass13a_gate_reuse.py",
+      "script_sha256": "4dc2f68c76a939288bffa87ab7e93d4b96c706ed1860283928b3d901c5300925",
+      "exit_code": 0,
+      "stdout_sha256": "9e36953f8ae9ac4998be2baf50cda2756c42cadf55c9569121ad12751c9b718c"
+    },
+    {
+      "script": "checks/pass13b_gain.py",
+      "script_sha256": "4b2e945520ef27ad497f3c5caf7434ec3e39f2793e43e179f64d5f6cda4ca10e",
+      "exit_code": 0,
+      "stdout_sha256": "952528d6a5b31712648784bb9cbe62b068472e77e4fd2694831a96dad0c6fe72"
+    },
+    {
+      "script": "checks/pass13c_permanent.py",
+      "script_sha256": "4df5c01766bcae450611e917862dab9bae117ec96200f0ce6b658d2da117b962",
+      "exit_code": 0,
+      "stdout_sha256": "85af17f66b4fe7efaa711ba86a197d0d674faec23a98152dc512aa79fb02cceb"
+    },
+    {
+      "script": "checks/pass13d_witness.py",
+      "script_sha256": "b9e28238c2f0f0e84f1423b95c8384d2d656d8ff92eb46283a7ab171601581ca",
+      "exit_code": 0,
+      "stdout_sha256": "2463f7307f4196ff69bd02477395fb750287116122f6a1da9a3db11639bd19bc"
+    }
+  ]
+}
