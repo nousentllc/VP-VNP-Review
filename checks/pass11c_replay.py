@@ -1,4 +1,7 @@
-"""Rebuild the regrouping and heavy-piece modules with the pinned dependencies."""
+"""Rebuild the regrouping and heavy-piece modules with the pinned dependencies.
+
+Use --offline to verify the archived evidence with Python alone.
+"""
 
 import argparse
 import json
@@ -28,4 +31,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from offline_replays import run_entrypoint
+
+    run_entrypoint(__file__, main)

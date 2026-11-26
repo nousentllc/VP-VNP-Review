@@ -3,7 +3,7 @@
   "baseline": "a6868a523e92ddf262de29af8bcba07580f6c0bb",
   "pdf": "report/VP_VNP_Research_Review.pdf",
   "pages": 66,
-  "pdf_sha256": "9f1c097b42d9eb406979e82182257cb9a241eec5a0276eee1a404a7f6d8f87ad",
+  "pdf_sha256": "413a668bbc8af667499107a5bd04a93120f8cf092ca4e5e733b60be118af9149",
   "engine": "This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)",
   "source_date_epoch": 1795636800,
   "inputs_sha256": {
@@ -16,11 +16,11 @@
     "report/pass13d.tex": "256f423f1e2e5933448f2b27e96da3a07880a283b6614af6a03cb5b5a1c48746",
     "report/pass14-mechanisms.tex": "64361bba6f0dcbabdf5d2f7541658ccd64891e897bd52cef99c821e73521329d",
     "report/pass14-synthesis.tex": "1b900ecf49cd35ce948613b16f0fe6e32ad29a7f1445669abf74a41f61fa3e28",
-    "report/pass14a.tex": "5bea3abd4d69c79cc4d8447d45d06ba178059aa4d2152d3c832adf0fb1333c3a",
+    "report/pass14a.tex": "ce9db9c7228e9bf775cc1b1610d467d3b9a6ea14ae0d375b153c4c77e97f1c66",
     "report/pass14b.tex": "c89b29a38e81179b0c98e0168f351fa5de2dd120b824ab5a5bff5a6cee6f9f1f",
     "report/pass14c.tex": "cd3c04a222b7d09e200102bebba51f931352e1795e118f8e513a409c21ac9fcb",
     "report/pass14d.tex": "5d6e6688051fc5d17418de42eed286f4acb90913375a26af8f0900a9cc6ca373",
-    "report/pass15-evidence.tex": "3e592f2e529b98ffbf4a7a96bd6576954418b86f62ed0dcf032c368ed7a13946",
+    "report/pass15-evidence.tex": "d845164034e30d085b4652dbd895a3bd9a25e3abbd4e9d4ef37fb9e4579ec6c0",
     "report/pass15-k4.tex": "a36b86cde49ab429b0d8ce5d221f6a3e3f8e1f6130abd2e675ddaa1e4b0590cc",
     "report/pass15-k5.tex": "0d4986b00c6908af8613b4b239512899a09e4e6ab25466ea7f348b2ffbb124d5",
     "report/pass15-k6.tex": "9fe9714664586acdefd6bbc6cd28ff5792b005d452695cb88b2b7b55519fc178",
@@ -60,5 +60,14 @@
       66
     ]
   },
-  "reproduction": "Use checks/pass14_report_rebuild.py against the current source with the specified engine and matching packages and fonts."
+  "reproduction": "Use checks/pass14_report_rebuild.py against the current source with the specified engine and matching packages and fonts.",
+  "verdict": {
+    "pages": 2,
+    "tex": "report/verdict/VP_VNP_Verdict.tex",
+    "tex_sha256": "0f02b226e791d4ef64a8534d144f964498fb37fdd8f5e83180ceb1a73cc8742b",
+    "pdf": "report/verdict/VP_VNP_Verdict.pdf",
+    "pdf_sha256": "57aaa19dc624cafa0b9426aa5fc139e12357daaeee36785b41c065ee3952d7d6",
+    "first_page_embedded_logo_pixels_match_original": true,
+    "rebuild_option": "--verdict"
+  }
 }

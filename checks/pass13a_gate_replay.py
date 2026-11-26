@@ -1,4 +1,7 @@
-"""Freshly build the coefficient induction, then check the publisher's E.4 excerpt."""
+"""Freshly build the coefficient induction, then check the publisher's E.4 excerpt.
+
+Use --offline to verify the archived evidence with Python alone.
+"""
 
 import argparse
 import hashlib
@@ -68,4 +71,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from offline_replays import run_entrypoint
+
+    run_entrypoint(__file__, main)

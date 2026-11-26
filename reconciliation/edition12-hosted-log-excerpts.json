@@ -1,0 +1,73 @@
+{
+  "description": "Timestamped excerpts from the decoded GitHub Actions job log. Line numbers are one-based. Artifact members provide independent byte-level evidence for both project and inner builds.",
+  "repo": "nousentllc/VP-VNP-Review",
+  "run_id": 45691617731,
+  "job_id": 139478246305,
+  "job_url": "https://github.com/nousentllc/VP-VNP-Review/actions/runs/45691617731/job/139478246305",
+  "lines": [
+    {
+      "line": 1165,
+      "text": "2026-11-25T20:58:27.0713384Z Build completed successfully (9032 jobs)."
+    },
+    {
+      "line": 1180,
+      "text": "2026-11-25T20:58:38.8609935Z == comparator @ 575674928e239f5bc452aab72d1dd7b0f1326494"
+    },
+    {
+      "line": 1200,
+      "text": "2026-11-25T20:59:50.3209557Z == lean4export @ 15f6055e299ad5b89345e533cc2192f4cc00f659"
+    },
+    {
+      "line": 1207,
+      "text": "2026-11-25T21:00:06.7331136Z == nanoda_lib @ 68d5ca9db226849b41a6fff59d796ff19d0a8840"
+    },
+    {
+      "line": 1208,
+      "text": "2026-11-25T21:00:34.8221419Z == landrun @ 811cfff51ceaf3d9843708aa6d22e9b84ccac8b4"
+    },
+    {
+      "line": 1222,
+      "text": "2026-11-25T21:01:09.1057743Z Build completed successfully (8708 jobs)."
+    },
+    {
+      "line": 1223,
+      "text": "2026-11-25T21:01:59.9924741Z Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, Solution.mainTheorem, Solution.mainTheoremApprox, Solution.separation, Solution.separationClosure, Solution.permanent_over_real, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge"
+    },
+    {
+      "line": 1730,
+      "text": "2026-11-25T21:02:21.2554573Z Build completed successfully (9027 jobs)."
+    },
+    {
+      "line": 1731,
+      "text": "2026-11-25T21:03:46.0981490Z Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, Solution.mainTheorem, Solution.mainTheoremApprox, Solution.separation, Solution.separationClosure, Solution.permanent_over_real, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution"
+    },
+    {
+      "line": 1732,
+      "text": "2026-11-25T21:03:46.0989909Z Running nanoda kernel on solution"
+    },
+    {
+      "line": 1733,
+      "text": "2026-11-25T21:07:43.0380053Z nanoda kernel accepts the solution"
+    },
+    {
+      "line": 1734,
+      "text": "2026-11-25T21:07:43.0380379Z Running Lean default kernel on solution."
+    },
+    {
+      "line": 1735,
+      "text": "2026-11-25T21:07:43.0380660Z Lean default kernel accepts the solution"
+    },
+    {
+      "line": 1736,
+      "text": "2026-11-25T21:07:43.0380891Z Your solution is okay!"
+    },
+    {
+      "line": 1737,
+      "text": "2026-11-25T21:07:43.3698686Z PASS comparator.json"
+    },
+    {
+      "line": 1738,
+      "text": "2026-11-25T21:07:43.3701059Z All 1 comparator configuration(s) accepted."
+    }
+  ]
+}

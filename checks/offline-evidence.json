@@ -1,0 +1,145 @@
+{
+  "edition11_research_commit": "bf956990d0f1f0002fa08989433ed51c32168b2a",
+  "edition11_packet_sha256": "637c97d243108169d22faec01a4d494c55a939fa56af810ca14ca43692031af6",
+  "entrypoints": {
+    "pass08_completion": [
+      "passes/08-price-space-completion.md"
+    ],
+    "pass09_endpoint_replay": [
+      "checks/pass09_endpoint_replay_results.json"
+    ],
+    "pass10_formal_replay": [
+      "checks/pass10_formal_results.json",
+      "checks/pass10_formal.lean"
+    ],
+    "pass11c_replay": [
+      "checks/pass11c_groups_replay.json",
+      "checks/pass11c_groups.lean",
+      "checks/pass11c_heavy_replay.json",
+      "checks/pass11c_heavy.lean"
+    ],
+    "pass12a_law_replay": [
+      "checks/pass12a_law_results.json"
+    ],
+    "pass12c_replay": [
+      "checks/pass12c_replay_results.json",
+      "checks/pass12c_budget.lean"
+    ],
+    "pass13_joint_replay": [
+      "checks/pass13_joint_replay.json",
+      "checks/pass13_joint.lean"
+    ],
+    "pass13a_gate_replay": [
+      "checks/pass13a_gate_replay.json",
+      "checks/pass13a_gate.lean"
+    ],
+    "pass14_release": [
+      "checks/pass14_release.json",
+      "checks/pass14_release.lean"
+    ],
+    "pass14a_margin_replay": [
+      "checks/pass14a_margin_results.json",
+      "checks/pass14a_margin.lean",
+      "checks/pass14a_circuit_results.json",
+      "checks/pass14a_circuit.lean"
+    ]
+  },
+  "generic_targets": {
+    "Paper.Fan": [
+      "checks/pass09_endpoint_replay_results.json"
+    ],
+    "Paper.Prices": [
+      "checks/pass10_formal_results.json",
+      "checks/pass10_formal.lean"
+    ],
+    "Nc.Cut.Groups": [
+      "checks/pass11c_groups_replay.json",
+      "checks/pass11c_groups.lean"
+    ],
+    "Paper.Heavy": [
+      "checks/pass11c_heavy_replay.json",
+      "checks/pass11c_heavy.lean"
+    ],
+    "Paper.Transfer": [
+      "checks/pass11d_transfer_results.json",
+      "checks/pass11d_transfer.lean"
+    ],
+    "Nc.Tow.Load": [
+      "checks/pass12a_stage_results.json",
+      "checks/pass12a_stage.lean"
+    ],
+    "Paper.HcGrid": [
+      "checks/pass12b_projection_replay.json",
+      "checks/pass12b_projection.lean"
+    ],
+    "Paper.Identity": [
+      "checks/pass12d_formal_results.json",
+      "checks/pass12d_crossing.lean"
+    ],
+    "Paper.Alternative": [
+      "checks/pass12e_alternative_replay.json",
+      "checks/pass12e_alternative.lean"
+    ],
+    "Nc.CaseI.Multi": [
+      "checks/pass13a_gate_replay.json",
+      "checks/pass13a_gate.lean"
+    ],
+    "Paper.Grids": [
+      "checks/pass13c_permanent_replay.json",
+      "checks/pass13c_permanent.lean"
+    ],
+    "Nc.Hc.Vnp": [
+      "checks/pass13d_membership_replay.json",
+      "checks/pass13d_membership.lean"
+    ]
+  },
+  "sha256": {
+    "checks/pass05_examples.lean": "12f14d70817bd9fdb467d018c5b07cd03205ca73676275f7f47a46c41fec1e39",
+    "checks/pass05_lean_results.json": "d3647f19e2467c41465c84ad5e5d1e99115ad19857d7c222894656a6f805c715",
+    "checks/pass05_time.lean": "4255f2055ac6a0188515dca2bc91dbff6f94d56d74ba2dc71f1904285a7d3e7b",
+    "checks/pass07_reflection.lean": "4ce949790c1de8e9611afa504bd8db7fdcede8a968bbf7ad0a922540bad6c1a8",
+    "checks/pass09_endpoint.lean": "c7263bb776f60873611bb1cf09c18cb96818ec574e68f59da41c1b7487657e4b",
+    "checks/pass09_endpoint_replay_results.json": "fabd23339a36331afd2954f90728d02a46c249ac1b9ba299186ed2933af3ea61",
+    "checks/pass09_endpoint_results.json": "efd391e202e712a59659b841070addde6cfe32564ea64572a013d59a39246993",
+    "checks/pass10_formal.lean": "765a9ca18a182cd0f07bb10dd3dbc57cbdb731ef8a9c83491294fd3989e47089",
+    "checks/pass10_formal_results.json": "d39d17f1d53d6036c39d8bc4ed4266c20c48a241668f783381e4232cef4d71ec",
+    "checks/pass11b_selection.json": "7b2ebd7d91244f167712fb7551f61c5412197a12073e7710ce66afa3da925fde",
+    "checks/pass11b_selection.lean": "0d95ad22c37a759a295707b817458ce34583c1d749f58139544087f96e23bd37",
+    "checks/pass11c_groups.lean": "eed22e39a17f7f27d871b111b00fe27db90da802793493f96b938dde24694488",
+    "checks/pass11c_groups_replay.json": "43db38527944b56b98d509e722220678c7cdcaf192bc6653838024efe08838ed",
+    "checks/pass11c_heavy.lean": "1778a3415228e8823bc07676c05bff249215b2835e07799388e5e29f32fe5867",
+    "checks/pass11c_heavy_replay.json": "af3856f0c9be2808cccecd1b78bfb55cf442553b014a4047fb90ed05ca05aed9",
+    "checks/pass11d_transfer.lean": "db3e9b2232edad176427dd94d5d03244b15fe745c60e5054e5e2e87b3aaadf41",
+    "checks/pass11d_transfer_results.json": "46d771bc38d3e11cd78f736998fb10170df39e68ec0bd52f33b53e3aacec42f4",
+    "checks/pass12a_law_results.json": "a716dddd8c809b38d498ac90324969e10ce004e1b449202b27ca6689f24bea9a",
+    "checks/pass12a_stage.lean": "2576e9b5cb2fd7f587f844e3cd9821860ed59d24861506f0ced92dd8f05372c5",
+    "checks/pass12a_stage_results.json": "16151ae2e88d436a0f0c3fdaab78e45be2cad9ee9790ae06fa52463abf24f753",
+    "checks/pass12b_projection.lean": "d0c41b3cd34ad6b35331374cfbb44fdf3030169bc35c6e8b65743d3a9a10d382",
+    "checks/pass12b_projection_replay.json": "93d958ed0e3bd750b71eb2b857c9b11f8948bb517220a6d7b770536866481027",
+    "checks/pass12c_budget.lean": "00b0e3611fcb362e039f2de2741971011d5e849c470a298b2e75dbe396031bfc",
+    "checks/pass12c_replay_results.json": "31552b6196194ed71b6344dfea0a44d9fba08390a258f11b4615cb25a41f2ab0",
+    "checks/pass12d_crossing.lean": "2dfad0de41569e0b4b5a3c67c7f58f420b5b7db8503e8a2898802a92549e9606",
+    "checks/pass12d_formal_results.json": "f62300495e2a937ea03524af1138c74730ca98322b79bd8d5b26992230a04941",
+    "checks/pass12e_alternative.lean": "27e9f1573c1e55f114473927ceb3df1a9bf62cffc44cdc4a89e23bc2f06f6d64",
+    "checks/pass12e_alternative_replay.json": "f296679db0d9930f35944bb24a592ecf356ee02570cf716f57f2df8b1debded9",
+    "checks/pass13_joint.lean": "f3db8b52ae01e3253bd6a576419e05bc2dc466c93b93b456071de5811e79fd84",
+    "checks/pass13_joint_replay.json": "25d5a4189d94640b6fd5ab906c42c533d7862000a9282b6802b10040e7862199",
+    "checks/pass13a_gate.lean": "78a6ebbbc4c9ddb8dc6e6c59c787d1538abcb98e7bc5eb7f701d0922aebc218c",
+    "checks/pass13a_gate_replay.json": "c0db0e1dcb578471443f0cd7c5455e87460568d5693ca260b7315419d7b1cc63",
+    "checks/pass13b_budget.lean": "296931f530e77efd46d90636624edbf728b107469680b972cc4e59939de5b1bc",
+    "checks/pass13b_budget_results.json": "44b4e3e88d8578feb859959554a0dc1ac9218c9ceb7b25ae6cd433692a809049",
+    "checks/pass13c_permanent.lean": "921629465b4c1bf0eedf2b972433ec2a25738c216fb541fff262b35c8b101bd6",
+    "checks/pass13c_permanent_replay.json": "ac007dc0a6c96a84f34a4b423ded57bd6f867bfb57d16743475b9887564fcb73",
+    "checks/pass13d_membership.lean": "5b56cec85f48bdf0c68de41cafd6cbe15f460e2efdfac1157b17a3f0bac17b09",
+    "checks/pass13d_membership_replay.json": "7fcf5becbaa3d126386353a68adec0e5ea4c60d8c8b74ff17fa8a86b63630f74",
+    "checks/pass14_comparator.json": "3c95335703dda757e5d3c41ee22d057e9bc082fe40155204f7b0748df61e6ae5",
+    "checks/pass14_prior_controls.json": "30b70ad7c38832ef4997c6d1bec84cce36dff3781abdce77449dba6e8cdf1c1c",
+    "checks/pass14_release.json": "bc9a45e4f3b62b02a4a97abfd1575b6cbb5750c719b3e2ce72fd38d39e71059b",
+    "checks/pass14_release.lean": "2134aceebbc523a9d162c7d38d4157832ba13ffd42827e8974041f033012467b",
+    "checks/pass14a_circuit.lean": "f3dad954539742945672739477b0f1a4592a88590e1cdc273e8b523ccc6393bb",
+    "checks/pass14a_circuit_results.json": "ab17c86a8357fe290355425d89bdfaa374c16a7a533d28242b7e3f988b13e597",
+    "checks/pass14a_margin.lean": "78e49ae86e72d18f0806536f9eef9eab6670c41bd5df83ff736a11137291bf0b",
+    "checks/pass14a_margin_results.json": "a3bb5149917b69a38cb80b900215944136270dc81baabfdf520294cf079a9ca4",
+    "passes/08-price-space-completion.md": "87e8f7923200de31ffa572311d0c70d0f7040ce2a3ed1f4470cffe6a5ac27268"
+  }
+}

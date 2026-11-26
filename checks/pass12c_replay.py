@@ -1,4 +1,7 @@
-"""Run in the pinned mathlib environment with Lean on PATH. Print the replay receipt as JSON."""
+"""Run in the pinned mathlib environment with Lean on PATH. Print the replay receipt as JSON.
+
+Use --offline to verify the archived evidence with Python alone.
+"""
 
 import hashlib
 import json
@@ -62,4 +65,6 @@ def replay():
 
 
 if __name__ == "__main__":
-    print(json.dumps(replay(), ensure_ascii=False, indent=2))
+    from offline_replays import run_entrypoint
+
+    run_entrypoint(__file__, lambda: print(json.dumps(replay(), ensure_ascii=False, indent=2)))

@@ -5,6 +5,8 @@ From a built, pinned vp-vnp project:
 
 The test reads the reviewed sources, compiles in a temporary directory, and
 prints the axioms used. It does not build the publisher's whole module.
+
+Use --offline to verify the archived evidence with Python alone.
 """
 
 import hashlib
@@ -47,4 +49,6 @@ def replay():
 
 
 if __name__ == "__main__":
-    replay()
+    from offline_replays import run_entrypoint
+
+    run_entrypoint(__file__, replay)

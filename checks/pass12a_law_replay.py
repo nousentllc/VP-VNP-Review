@@ -2,6 +2,8 @@
 
 Run in a Lean 4.33.1 environment with the publisher's built mathlib available on
 LEAN_PATH. Pass --lean to choose the executable and --output to save the receipt.
+
+Use --offline to verify the archived evidence with Python alone.
 """
 import argparse
 import hashlib
@@ -58,4 +60,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from offline_replays import run_entrypoint
+
+    run_entrypoint(__file__, main)

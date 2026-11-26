@@ -1,0 +1,165 @@
+{
+  "review_repository": "nousentllc/VP-VNP-Review",
+  "review_baseline": "3754047be3854ef313df17ae5117c6ca5a66b4b8",
+  "review_commit": "3524ec471d5e2dee4cd70bd3c60f1dcc94dc43cc",
+  "workflow_file": ".github/workflows/pass14-comparator.yml",
+  "workflow_as_run": "https://github.com/nousentllc/VP-VNP-Review/blob/3524ec471d5e2dee4cd70bd3c60f1dcc94dc43cc/.github/workflows/pass14-comparator.yml",
+  "run_id": 45691617731,
+  "job_id": 139478246305,
+  "run_url": "https://github.com/nousentllc/VP-VNP-Review/actions/runs/45691617731",
+  "job_url": "https://github.com/nousentllc/VP-VNP-Review/actions/runs/45691617731/job/139478246305",
+  "started_at": "2026-11-25T20:05:53Z",
+  "completed_at": "2026-11-25T21:08:06Z",
+  "conclusion": "success",
+  "run_conclusion": "success",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "source_tree": "b076b4b081298c4e909bac3f87f0e4462d1fb2cb",
+  "checker_blob": "0143ba15873eac3d3056ceee0f19471b82987a98",
+  "tool_revisions": {
+    "comparator": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "lean4export": "15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "nanoda_lib": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "landrun": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4"
+  },
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 1,
+      "started_at": "2026-11-25T20:05:54Z",
+      "completed_at": "2026-11-25T20:05:55Z"
+    },
+    {
+      "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 2,
+      "started_at": "2026-11-25T20:05:55Z",
+      "completed_at": "2026-11-25T20:05:59Z"
+    },
+    {
+      "name": "Verify the exact source and checker, then copy them to a disposable directory",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 3,
+      "started_at": "2026-11-25T20:05:59Z",
+      "completed_at": "2026-11-25T20:05:59Z"
+    },
+    {
+      "name": "Prepare space on the ephemeral hosted runner",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 4,
+      "started_at": "2026-11-25T20:05:59Z",
+      "completed_at": "2026-11-25T20:08:43Z"
+    },
+    {
+      "name": "Install the publisher-pinned elan",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 5,
+      "started_at": "2026-11-25T20:08:43Z",
+      "completed_at": "2026-11-25T20:08:45Z"
+    },
+    {
+      "name": "Fetch pinned dependencies and build the four default targets",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 6,
+      "started_at": "2026-11-25T20:08:45Z",
+      "completed_at": "2026-11-25T20:58:37Z"
+    },
+    {
+      "name": "Verify all five declarations with the unmodified publisher Comparator driver",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 7,
+      "started_at": "2026-11-25T20:58:37Z",
+      "completed_at": "2026-11-25T21:07:43Z"
+    },
+    {
+      "name": "Retain build and Comparator output",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 8,
+      "started_at": "2026-11-25T21:07:43Z",
+      "completed_at": "2026-11-25T21:07:45Z"
+    },
+    {
+      "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 16,
+      "started_at": "2026-11-25T21:07:45Z",
+      "completed_at": "2026-11-25T21:07:46Z"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success",
+      "number": 17,
+      "started_at": "2026-11-25T21:07:46Z",
+      "completed_at": "2026-11-25T21:07:46Z"
+    }
+  ],
+  "evidence_lines": [
+    "Build completed successfully (9032 jobs).",
+    "== comparator @ 575674928e239f5bc452aab72d1dd7b0f1326494",
+    "== lean4export @ 15f6055e299ad5b89345e533cc2192f4cc00f659",
+    "== nanoda_lib @ 68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "== landrun @ 811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, Solution.mainTheorem, Solution.mainTheoremApprox, Solution.separation, Solution.separationClosure, Solution.permanent_over_real, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Challenge",
+    "Exporting #[Nat, String, String.mk, Char, Quot, Quot.mk, Quot.lift, Quot.ind, Solution.mainTheorem, Solution.mainTheoremApprox, Solution.separation, Solution.separationClosure, Solution.permanent_over_real, propext, Quot.sound, Classical.choice, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce] from Solution",
+    "Running nanoda kernel on solution",
+    "nanoda kernel accepts the solution",
+    "Running Lean default kernel on solution.",
+    "Lean default kernel accepts the solution",
+    "Your solution is okay!",
+    "PASS comparator.json",
+    "All 1 comparator configuration(s) accepted."
+  ],
+  "artifact": {
+    "id": 15063516125,
+    "name": "pass14-lean-comparator",
+    "size_in_bytes": 9514,
+    "digest": "sha256:51c556d89448e6574e57dc4cceca799fd187d786fb7807516d65bc5629772307",
+    "created_at": "2026-11-25T21:07:45Z",
+    "expires_at": "2026-12-25T21:07:44Z",
+    "path": "checks/pass14_linux_artifact.zip",
+    "members": {
+      "pass14-build.log": "484e0e0411afc88bdcd72dff064f2fbc5f108ec45517f6f9afa14f33d14e3002",
+      "pass14-comparator/comparator.json": "e52c3c8a04ee33f7583ab9dd583a322bea5668841e2226c30f963078b6b3eceb",
+      "pass14-comparator/comparator.log": "afb8c386d39bd7b3c2e40e3d60df3bfaa6c6aa479580a8ca7ecb6c0ba87c1e38"
+    }
+  },
+  "scope": "Independent Linux build and unmodified publisher comparison in the review repository. Source and checker verified before execution. Both kernels accepted all five configured statements. The exact hosted artifact is preserved in the research packet.",
+  "build_warning_audit": {
+    "challenge_lines": [
+      "warning: Challenge.lean:17:8: declaration uses `sorry`",
+      "warning: Challenge.lean:20:8: declaration uses `sorry`",
+      "warning: Challenge.lean:23:8: declaration uses `sorry`",
+      "warning: Challenge.lean:26:8: declaration uses `sorry`",
+      "warning: Challenge.lean:29:8: declaration uses `sorry`"
+    ],
+    "outside_challenge_lines": []
+  },
+  "theorem_names": [
+    "Solution.mainTheorem",
+    "Solution.mainTheoremApprox",
+    "Solution.separation",
+    "Solution.separationClosure",
+    "Solution.permanent_over_real"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true,
+  "comparator_log": {
+    "path": "checks/pass14_comparator.log",
+    "sha256": "afb8c386d39bd7b3c2e40e3d60df3bfaa6c6aa479580a8ca7ecb6c0ba87c1e38",
+    "archive_member": "pass14-comparator/comparator.log"
+  }
+}

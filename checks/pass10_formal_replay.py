@@ -3,6 +3,8 @@
 From the review directory, with the pinned mathlib and dependencies built:
 python3 checks/pass10_formal_replay.py --mathlib /path/to/mathlib \
     --lean /path/to/lean --output /path/to/result.json
+
+Use --offline to verify the archived evidence with Python alone.
 """
 
 import argparse
@@ -33,4 +35,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from offline_replays import run_entrypoint
+
+    run_entrypoint(__file__, main)

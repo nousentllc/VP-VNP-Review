@@ -1,11 +1,17 @@
 # VP–VNP research review
 
-Edition 12 (66 pages) reconstructs how the proposed lower bound in *VP ≠ VNP Over Every Field* applies to an arbitrary exact arithmetic circuit. Begin with the [cumulative report](report/VP_VNP_Research_Review.pdf), its [editable LuaLaTeX source](report/VP_VNP_Research_Review.tex), or the [handoff for Chat](VP_VNP_Chat_Handoff.md). The [claim register](report/proof-coverage.csv) connects individual conclusions to the printed manuscript, the pinned source and specific verification records.
+The published statements faithfully express the exact nonuniform arithmetic-circuit separation, and the five released declarations passed the independent Lean and nanoda checks. Edition 12 closes this review at fifteen passes. The three short entry points are:
+
+1. [Two-page verdict](report/verdict/VP_VNP_Verdict.pdf) — source custody, statement correspondence, kernel acceptance and the consequence of each discrepancy. [Editable verdict TeX](report/verdict/VP_VNP_Verdict.tex)
+2. [Errata note for the publisher](passes/publisher-errata.md) — two proposed wording changes and two bounds already distinguished in the paper.
+3. [Whole-chain companion](passes/14e-circuit-to-contradiction.md) — follow an arbitrary hypothetical small circuit through either field branch to the contradiction.
+
+The [claim register](report/proof-coverage.csv), [66-page technical report](report/VP_VNP_Research_Review.pdf), [editable master](report/VP_VNP_Research_Review.tex) and [handoff for Chat](VP_VNP_Chat_Handoff.md) contain the derivations and verification boundaries. The [statement audit](passes/statement-correspondence.md) explains the exact and border models. The [response to external review](reconciliation/edition12-external-review.md) records the points on which the archived evidence qualified the reviewer’s reading.
 
 ## A reader's route through the argument
 
 1. Fix a field, a matrix size and a hypothetical circuit. Earlier gates may be reused, constants may depend on the field and size, and cancellations are allowed. M.1 specializes all coefficients together to a comparison field. Read the HC and permanent projections to see why their characteristic restrictions differ. [Model](primary/vp-vnp/Statement.lean#L23) · [Theorem 1.1](primary/vp-vnp/paper.pdf#page=2) · [HC](passes/12b-hamiltonian-projection.md) · [Permanent](passes/pass13C-permanent.md)
-2. In the flat branch, E.4 charges each reused gate once per balanced subset. E.7 permits differently cut summands. E.8–E.9 supply one spectral witness for all possible paying cuts. E.10 gives log₂L≥ℓk√k/16 under the printed hypotheses, and the independent calculation sharpens the local constant to a strict denominator 12. E.11 converts the auxiliary scale into a bound for every sufficiently large target size. [Shared gates](passes/pass13A-gate-reuse.md) · [Price and circuit estimates](passes/14a-flat.md)
+2. In the flat branch, E.4 charges each reused gate once per balanced subset. E.7 permits differently cut summands. E.8–E.9 supply one spectral witness for all possible paying cuts. E.10 states log₂L≥ℓk√k/16. Its printed proof and Lean arithmetic already give denominator 14. The review’s strict denominator 12 is a minor local tightening. E.11 converts the auxiliary scale into a bound for every sufficiently large target size. [Shared gates](passes/pass13A-gate-reuse.md) · [Price and circuit estimates](passes/14a-flat.md)
 3. In the contracting branch, H.1 constructs the tower and H.2 applies the G.2 identities, routes packets, preserves weighted values and accounts for resources. K.2 and K.3 take any small circuit and produce a bounded weighted evaluator for short plain instances. The concrete formal word polynomial can differ from the printed one away from its legal inputs. K.2 compiles an exact circuit for the clause polynomial. K.3 uses its degree bound and then invokes their common evaluations on canonical inputs. [Tower and laws](passes/14b-tower.md) · [Circuit compiler](passes/14c-compiler.md)
 4. Follow the exact matching of field, size, scale and program in K.3 and K.6. The diagonal yields V=1+V in a nonzero ring. The separate membership witness places HC in VNP, and the exact lower bound excludes it from VP. [Arbitrary circuit to contradiction](passes/14e-circuit-to-contradiction.md) · [Rooted HC witness](passes/pass13D-membership.md)
 5. Compare that mathematical reconstruction with the [complete-release verification record](passes/14d-formal.md) and the [coverage register](report/proof-coverage.csv). The native Lean rebuild compiled all 324 publisher sources, including the complete exact and approximate endpoints. The separate Linux run accepted all five public declarations with nanoda enabled. The proof-term checks and the remaining manuscript/implementation correspondence have distinct scopes. Reusable ideas are recorded in the [transferable-mechanism register](report/transferable-mechanisms.md).
@@ -14,12 +20,13 @@ Edition 12 (66 pages) reconstructs how the proposed lower bound in *VP ≠ VNP O
 
 Pass 15 follows the contracting branch from the [K.4 tally interpreter](report/pass15-k4.tex) through the [K.5 scale transfer](report/pass15-k5.tex) into the [K.6 diagonal](report/pass15-k6.tex). The [short reading guide](passes/15-diagonal.md) gives the exact line at which the proof first invokes the accelerator's conditional value clause. A separate Lean result sharpens the K.4 clock to the inclusive endpoint and identifies a family that overflows the counter at the next step.
 
-Run the offline reader check from the repository root with Python 3.9 or later. It validates the publisher tree, earlier full-build and Comparator evidence, the new targeted receipt and report hashes. It re-executes the three Pass 15 finite controls. The separate Lean command rebuilds the 16-module closure from source and checks the five review lemmas. It requires Lean 4.33.1 on the search path and the built mathlib checkout at the pinned dependency revisions.
+Run the complete offline check from the repository root with Python 3.9 or later. It validates the publisher tree, earlier full-build and Comparator evidence, the new targeted receipt and report hashes. It runs the finite controls and validates the formal receipts without installing Lean. See the [check catalogue](checks/README.md) for per-script modes. The separate Lean command rebuilds the 16-module closure from source and checks the five review lemmas. It requires Lean 4.33.1 on the search path and the built mathlib checkout at the pinned dependency revisions.
 
 ~~~sh
-python3 checks/pass15_reader_check.py
+python3 checks/check_all.py
 python3 checks/pass09_endpoint_replay.py --mathlib "$MATHLIB_DIR" --target-module Paper.NoAcc --query-file checks/pass15_plain.lean --output /tmp/pass15-lean.json
 python3 checks/pass14_report_rebuild.py --lualatex lualatex --output /tmp/vp-vnp-ed12.pdf
+python3 checks/pass14_report_rebuild.py --verdict --lualatex lualatex --output /tmp/vp-vnp-verdict.pdf
 ~~~
 
 Compare the rebuilt report with the release using the [Edition 12 PDF receipt](report/edition12-build.json). The shared builder fixes the build clock. Matching engine, fonts and packages are needed for byte identity. The [machine receipt](checks/pass15_lean.json) identifies all project sources compiled and the query used. Edition 11 supplies the separate complete-release Comparator run.
@@ -82,9 +89,9 @@ The [archived six-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/
 
 - Pass 12 adds [contracting laws and stage load](passes/12a-contracting-laws.md), [the Hamiltonian-cycle projection](passes/12b-hamiltonian-projection.md), [the growing-dimension flat estimate](passes/12c-flat-estimate.md), and [crossing counts and signs](passes/12d-counting-and-minors.md). Each note links its original-source locations, reproducible checks and the specific evidence from Lean.
 
-## Continuing the review
+## Reading the technical appendix
 
-The [Edition 12 handoff](VP_VNP_Chat_Handoff.md) identifies J.3–J.4 as the next manual audit along this branch. K.5 uses the same cut to control encoding, list lengths and accepting times, then uses piece plainness to replace weighted values. The exact and approximation claims retain distinct hypotheses. RCMG and QFTN / Uriel-GEMA remain independent projects.
+The [Edition 12 handoff](VP_VNP_Chat_Handoff.md) records J.3–J.4 as an optional topic for readers studying how the cutter is implemented. K.5 uses the same cut to control encoding, list lengths and accepting times, then uses piece plainness to replace weighted values. The exact and approximation claims retain distinct hypotheses. RCMG and QFTN / Uriel-GEMA remain independent projects.
 
 ## TeX covers
 

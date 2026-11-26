@@ -1,4 +1,4 @@
-"""Rebuild the Edition 11 LuaLaTeX report in isolation, without replacing the release PDF."""
+"""Rebuild the cumulative LuaLaTeX report or the two-page verdict without replacing the release PDF."""
 import argparse
 import hashlib
 import os
@@ -20,9 +20,9 @@ DIAGNOSTICS = re.compile(
 )
 
 
-def copy_sources(directory):
+def copy_sources(directory, source_dir=REPORT):
     # Bind the exact copied bytes without embedding the absolute checkout path.
-    inputs = sorted([*REPORT.glob("*.tex"), REPORT / "nous-black.png"])
+    inputs = sorted([*source_dir.glob("*.tex"), REPORT / "nous-black.png"])
     digest = hashlib.sha256()
     for source in inputs:
         data = source.read_bytes()
@@ -31,13 +31,13 @@ def copy_sources(directory):
     return digest.hexdigest()
 
 
-def aux_state(directory):
+def aux_state(directory, master=MASTER):
     return {suffix: path.read_bytes() for suffix in (".aux", ".out", ".toc")
-            if (path := directory / (MASTER + suffix)).is_file()}
+            if (path := directory / (master + suffix)).is_file()}
 
 
-def build(directory, engine):
-    source_digest = copy_sources(directory)
+def build(directory, engine, source_dir=REPORT, master=MASTER):
+    source_digest = copy_sources(directory, source_dir)
     env = os.environ.copy()
     for variable in ("TEXMFHOME", "TEXMFCONFIG", "TEXMFVAR", "TEXMFCACHE"):
         # Relative paths also work with LuaTeX's restricted filesystem mode.
@@ -47,25 +47,25 @@ def build(directory, engine):
     env.update(SOURCE_DATE_EPOCH=EPOCH, FORCE_SOURCE_DATE="1", TZ="UTC")
     env["PATH"] = str(engine.parent) + os.pathsep + env.get("PATH", "")
     command = [str(engine), "-no-shell-escape", "-interaction=nonstopmode",
-               "-halt-on-error", "-file-line-error", MASTER + ".tex"]
+               "-halt-on-error", "-file-line-error", master + ".tex"]
     previous = None
     for number in range(1, 6):
         result = subprocess.run(command, cwd=directory, env=env, stdout=subprocess.PIPE,
                                 stderr=subprocess.STDOUT, text=True, errors="replace")
         if result.returncode:
             raise RuntimeError(f"LuaLaTeX failed on pass {number}:\n{result.stdout[-4000:]}")
-        state = aux_state(directory)
+        state = aux_state(directory, master)
         if not state:
             raise RuntimeError("LuaLaTeX did not produce the report's auxiliary files.")
         if previous == state:
-            log = (directory / (MASTER + ".log")).read_text(errors="replace")
+            log = (directory / (master + ".log")).read_text(errors="replace")
             # The original project uses only a PNG; the optional EPS converter
             # advertises that it is disabled when shell execution is disabled.
             diagnostics = [line for line in log.splitlines() if DIAGNOSTICS.search(line)
                            and line != "Package epstopdf Warning: Shell escape feature is not enabled."]
             if diagnostics:
                 raise RuntimeError("Final typesetting diagnostics:\n" + "\n".join(diagnostics))
-            pdf = directory / (MASTER + ".pdf")
+            pdf = directory / (master + ".pdf")
             pages = re.search(r"Output written on .*?\((\d+) pages?,", log, re.DOTALL)
             if not pdf.is_file() or not pages:
                 raise RuntimeError("Missing PDF or page-count confirmation in the final log.")
@@ -78,21 +78,24 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--lualatex", default="lualatex", help="LuaLaTeX executable or command name")
     parser.add_argument("--output", type=Path, required=True, help="Destination for the rebuilt PDF")
+    parser.add_argument("--verdict", action="store_true", help="Build the two-page verdict")
     args = parser.parse_args()
+    source_dir = REPORT / "verdict" if args.verdict else REPORT
+    master = "VP_VNP_Verdict" if args.verdict else MASTER
     executable = shutil.which(args.lualatex)
     if not executable:
         parser.error(f"LuaLaTeX executable unavailable: {args.lualatex}")
     # Preserve the format-selecting executable name even when lualatex is a symlink.
     engine = Path(executable).absolute()
     destination = args.output.expanduser().resolve()
-    release = REPORT / (MASTER + ".pdf")
+    release = source_dir / (master + ".pdf")
     if destination == release or (destination.exists() and release.exists()
                                   and destination.samefile(release)):
         parser.error("Select an output distinct from the checked-in release PDF.")
     if destination.suffix.lower() != ".pdf":
         parser.error("Select a destination ending in .pdf.")
     with tempfile.TemporaryDirectory(prefix="vpvnp-report-") as scratch:
-        pdf, pages, passes, source_digest = build(Path(scratch), engine)
+        pdf, pages, passes, source_digest = build(Path(scratch), engine, source_dir, master)
         destination.parent.mkdir(parents=True, exist_ok=True)
         # Cross-filesystem safe; the previous destination survives any build or copy failure.
         with tempfile.TemporaryDirectory(dir=destination.parent) as stage:

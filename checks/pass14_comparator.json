@@ -161,5 +161,16 @@
     "path": "checks/pass14_comparator.log",
     "sha256": "afb8c386d39bd7b3c2e40e3d60df3bfaa6c6aa479580a8ca7ecb6c0ba87c1e38",
     "archive_member": "pass14-comparator/comparator.log"
+  },
+  "evidence_lines_provenance": {
+    "scope": "The 14 evidence_lines are selected messages from the whole hosted job, spanning the four-target build, driver setup, inner comparator transcript and final shell-driver acceptance. Line numbers below are one-based.",
+    "timestamped_job_excerpts": "reconciliation/edition12-hosted-log-excerpts.json",
+    "explanation": "reconciliation/edition12-comparator-and-margin.md",
+    "evidence_lines_in_job_order": [1165, 1180, 1200, 1207, 1208, 1223, 1731, 1732, 1733, 1734, 1735, 1736, 1737, 1738],
+    "build_completions": [
+      {"jobs": 9032, "archive_member": "pass14-build.log", "member_line": 808, "job_line": 1165},
+      {"jobs": 8708, "archive_member": "pass14-comparator/comparator.log", "member_line": 8, "job_line": 1222},
+      {"jobs": 9027, "archive_member": "pass14-comparator/comparator.log", "member_line": 516, "job_line": 1730}
+    ]
   }
 }

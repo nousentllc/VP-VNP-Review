@@ -53,6 +53,9 @@ def check_controls(lock):
     for name in ("K.4", "K.5", "K.6", "K.4 filter", "K.5 cut costs", "K.6 scale choice",
                  "K.6 plainness before value", "K.4 review endpoint"):
         need(rows[name]["review_anchor"].startswith("passes/15-diagonal.md#L"), "missing Pass 15 row: " + name)
+    need("human_reading_or_scope_limit" in rows["Statement correspondence"] and
+         rows["Statement correspondence"]["source_anchor"].startswith("primary/vp-vnp/Statement.lean#L"),
+         "missing statement correspondence or human reading scope")
 
 
 def check_report():
@@ -64,7 +67,10 @@ def check_report():
     need(hashed(REVIEW / receipt["pdf"]) == receipt["pdf_sha256"], "release PDF differs from build receipt")
     need(inputs["report/nous-black.png"] == "bdfff8716596a351b480896d4bc21a7786470d6283c050b4ee801e3a88d061b6",
          "original Nous logo differs")
-    print(f"Verified the {receipt['pages']}-page PDF and its complete TeX/PNG source set.")
+    verdict = receipt["verdict"]
+    need(verdict["pages"] == 2 and hashed(REVIEW / verdict["pdf"]) == verdict["pdf_sha256"]
+         and hashed(REVIEW / verdict["tex"]) == verdict["tex_sha256"], "two-page verdict differs")
+    print(f"Verified the {receipt['pages']}-page report, two-page verdict and their TeX/PNG sources.")
 
 
 def main():

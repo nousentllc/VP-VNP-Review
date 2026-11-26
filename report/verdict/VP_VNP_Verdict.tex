@@ -1,0 +1,57 @@
+% !TeX program = lualatex
+\documentclass[11pt,letterpaper]{article}
+\pdfvariable suppressoptionalinfo 512\relax
+\usepackage[letterpaper,left=1.04in,right=1.04in,top=.72in,bottom=.76in]{geometry}
+\usepackage{fontspec,amsmath,amssymb,graphicx,xcolor,hyperref}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\graphicspath{{./}{../}}
+\definecolor{ink}{HTML}{152C35}
+\definecolor{accent}{HTML}{145754}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent,pdftitle={VP versus VNP over every field — Review verdict},pdfauthor={Uriel Research}}
+\newcommand{\sect}[1]{\par\addvspace{7pt}{\large\bfseries\color{ink}#1}\par\nobreak}
+\newcommand{\src}[3]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/#1\#L#2}{#3}}
+\newcommand{\audit}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/main/#1}{#2}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+\begin{document}
+\begin{center}
+{\fontsize{25}{29}\selectfont\bfseries\color{ink}VP versus VNP over every field\par}
+\vspace{2pt}
+{\large\color{accent}Review verdict on the published statement and proof\par}
+\vspace{3pt}
+\includegraphics[height=.62in]{nous-black.png}\par
+{\small\sffamily Nous · Uriel Research \quad Edition 12 \quad November 25, 2026}
+\end{center}
+
+\sect{Verdict}
+The public statement expresses the claimed separation for exact, nonuniform arithmetic circuits. Two proof checkers accepted the supplied proofs against the five published declarations. We found two places where an intermediate description in the paper needs qualification. Both concern stronger readings than the next step of the proof requires. The second page gives the qualifications and the source locations.
+
+\sect{What the statement says}
+For some absolute $c>0$, every characteristic $p$ has a threshold $m_0(p)$. For every field of that characteristic and every $m\ge m_0(p)$, computing the generic Hamiltonian cycle polynomial requires more than $m^{c(\log_2m)^{1/3}}$ gates. The permanent has the same bound outside characteristic two. Size includes variables, arbitrary field constants and binary sums and products. Gates may be reused and the output is a formal polynomial. Hamiltonian cycle membership in VNP then yields strict inclusion $\mathrm{VP}(F)\subsetneq\mathrm{VNP}(F)$ for every field $F$. \src{Statement.lean}{23}{Public circuit and lower-bound definitions.}
+
+The VNP witness has $r(n)$ Boolean variables. Its VP family has the original variables \emph{plus} those $r(n)$ variables, so the polynomial bound on their combined count already bounds $r(n)$. In the approximate statement, a circuit over $F((\varepsilon))$ has an output regular at zero with the requested constant term coefficient by coefficient. Finite circuits admit same-size truncation of their constants to Laurent polynomials. Since
+$F[\varepsilon,\varepsilon^{-1}]\subseteq F(\varepsilon)\subseteq F((\varepsilon))$, the one-parameter rational- and series-witness formulations agree at this gate count. \src{Statement.lean}{51}{Class and approximation statements} · \src{Nc/Rate/Truncate.lean}{241}{same-size truncation}.
+
+\sect{Custody and acceptance}
+The review reproduced the publisher's 333-file tree at commit \texttt{11b6c7e} and matched the 70-page manuscript by SHA-256. A native Lean 4.33.1 run rebuilt all 324 Lean sources using prebuilt external dependencies at the recorded revisions. On Linux, Comparator matched the five challenge declarations and the proofs passed both Lean and nanoda with the permitted axioms of propositional extensionality, quotient soundness and classical choice. Statement correspondence rests on a separate reading of the definitions. \audit{source-lock.json}{Source lock} · \audit{checks/pass14_release.json}{native receipt} · \audit{checks/pass14_comparator.json}{Comparator receipt}.
+
+\newpage
+{\Large\bfseries\color{ink}Where the printed account needs precision\par}
+\sect{K.3. State the domain of the polynomial identity}
+The word polynomial in the paper and the polynomial obtained from the formal clause construction agree on valid word encodings. They can differ after the delimiter at other assignments. In a three-row, one-state example the printed term is $A$ and the constructed term is $A(1+X_{2,0}+X_{2,1}+X_{2,\#})$. On a canonical padded word those row variables vanish. K.2 compiles the concrete polynomial. The degree bound permits summing its homogeneous components, and K.3 then uses its evaluation on a canonical short plain input. State these two steps separately. \audit{passes/14c-compiler.md}{Example and downstream use}.
+
+\sect{I.1. Preserve the weighted sum}
+An unsupported name can occur on an accepting source run whose named weight is zero. Its interpreter branch can reject. The universal simulation preserves the sum of the accepting weights, and the matched encodings of surviving contributing traces have their own multiplicity argument. A claim of bijection across \emph{all} original accepting runs requires an additional support assumption. \audit{passes/05-universal-automaton.md}{Source, interpreter and trace check}.
+
+\sect{H.1(d) and E.10. Distinguish the strength of the bounds}
+The printed proof of H.1(d) gives a cubic diameter estimate. The stated and formal seventh-power estimate suffices for H.2. The exponent belongs to the tower diameter in H.1(d). At E.10 the printed proof and the formal arithmetic already give denominator 14, and the proposition states 16. Using 12 is a minor tightening of the same scalar calculation. The final displayed universal coefficient remains $1/1600^2$. These distinctions guide comparison of the paper and Lean. \audit{passes/14b-tower.md}{Tower estimates} · \src{Paper/Rate.lean}{123}{publisher's scalar bound}.
+
+\sect{Where the contradiction occurs}
+For a hypothetical small circuit, the contracting branch produces an accelerator at one scale. Its run guarantee covers every short description. Its value guarantee additionally requires that the encoded computation be plain. In the self-application the proof first bounds every query's size, then uses the run guarantee to obtain halting, cost and valid names. K.4 gives empty accepting bills for the postponed queries and their time fits $u^{H-14}\le u^H$. Only now does the proof substitute the accelerator's value and obtain $V=1+V$ in a nonzero field. The flat branch instead uses a common spectral witness for all candidate cuts. \src{Paper/NoAcc.lean}{188}{Plainness} · \src{Paper/NoAcc.lean}{216}{value substitution}.
+
+\smallskip
+{\small\sffamily \audit{passes/publisher-errata.md}{Publisher errata note} · \audit{passes/14e-circuit-to-contradiction.md}{Whole-chain companion} · \audit{passes/statement-correspondence.md}{Statement audit} · \audit{report/VP_VNP_Research_Review.pdf}{Technical report}. The project owner directed the review. Uriel, an AI research agent, prepared the analysis and checks.}
+\end{document}

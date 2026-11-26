@@ -1,4 +1,7 @@
-"""Recheck the review's sharpened numerical E.10 bound with the publisher's pinned libraries."""
+"""Recheck the review's sharpened numerical E.10 bound with the publisher's pinned libraries.
+
+Use --offline to verify the archived evidence with Python alone.
+"""
 import argparse
 import hashlib
 import json
@@ -79,4 +82,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from offline_replays import run_entrypoint
+
+    run_entrypoint(__file__, main)

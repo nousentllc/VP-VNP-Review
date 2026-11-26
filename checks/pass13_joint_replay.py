@@ -1,4 +1,7 @@
-"""Freshly build the union of the Paper.Flat and Paper.Laws imports and read their statements."""
+"""Freshly build the union of the Paper.Flat and Paper.Laws imports and read their statements.
+
+Use --offline to verify the archived evidence with Python alone.
+"""
 import argparse
 from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from graphlib import TopologicalSorter
@@ -125,4 +128,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    from offline_replays import run_entrypoint
+
+    run_entrypoint(__file__, main)

@@ -1,0 +1,23 @@
+# Notes on four passages in *VP ≠ VNP over Every Field*
+
+These notes concern the manuscript and Lean sources at publisher commit `11b6c7e3c927df2658f513b6b68ea7f8929c62c5`. Two passages would benefit from a change in wording. The remaining two already disclose the difference in bounds. Page numbers refer to the publisher PDF. [Pinned release](https://github.com/anthropics/formal-math/tree/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp)
+
+### 1. Lemma K.3, pp. 56–57 · Specify the polynomial evaluated on word codes
+
+The displayed word polynomial sums one monomial per word, including its end mark. The formal clause construction allows an empty row or one extra symbol at each unused position following that end. With three rows, one state, one step and only the transition consuming the symbol 0 having weight one, the printed polynomial is $A=X_{0,0}X_{1,\#}$. The clause polynomial is $A(1+X_{2,0}+X_{2,1}+X_{2,\#})$. On the canonical code for 0 both take value one. Turning on a second end mark in the last row gives values one and two over the integers. In general the clause polynomial has degree at most the number of rows and takes the required values on **every canonical word code**. The compiler takes an exact circuit for that particular clause polynomial. [Manuscript](../primary/vp-vnp/paper.pdf#page=56) · [Degree and evaluation contract](../primary/vp-vnp/Paper/CircuitPhi.lean#L175) · [Canonical evaluations](../primary/vp-vnp/Paper/CircuitPhi.lean#L272) · [Coefficient comparison](14c-compiler.md#finite-counterexample-to-a-global-polynomial-identification)
+
+**Suggested wording.** The formal construction realizes a polynomial of degree at most $n$ whose value on the canonical code of each word is its weighted automaton value. Use this polynomial for the projection and for compilation. Its extension to other Boolean patterns can differ from the displayed word sum.
+
+### 2. Proposition I.1, proof on p. 50 · Qualify the accepting-run count
+
+A canonical two-step program over the integers can accept once with weight zero and empty tally. For example, let the empty name have weight $-1$, all other names weight zero, and apply the weight instruction to a quoted one-bit false name. The pointer interpreter follows prefixes of supported names and has no transition for the first unsupported bit of this name. It supplies no accepting trace for that branch. Both weighted sums are zero. This concerns the weight instruction, which multiplies a run coefficient. The separate name-emitting instruction would append to the tally. [Proof passage](../primary/vp-vnp/paper.pdf#page=50) · [Source semantics](../primary/vp-vnp/NS1/Machine.lean#L245) · [Interpreter case](../primary/vp-vnp/Nc/Uni/EvalU.lean#L251) · [Concrete trace](../checks/pass05_results.json)
+
+**Suggested wording.** At an unsupported generator lookup a source branch of weight zero may contribute no accepting machine trace. The simulation preserves the sum of accepting weights under the time and plainness assumptions of Proposition I.1. The numbered proposition and its uses in J.3 and K.3 require this scalar identity. [Proposition](../primary/vp-vnp/Paper/Universal.lean#L29) · [Pointer simulation](../primary/vp-vnp/Paper/UniversalSteps.lean#L84)
+
+### 3. Proposition H.1(d), pp. 44–45 · The tower word diameter used by H.2
+
+For fixed $h$, the proposition states a word length at most $C_h(n+1)^7$. On p. 44 the authors explicitly identify exponent three as a strengthening from the printed proof. The Lean declaration quantifies one $C_h$ before all $n$ and all group elements and gives exponent seven. The H.2 routing construction uses this polynomial upper bound. A reference to “the H.2 cubic exponent” should point instead to H.1(d). This is a cross-reference clarification. [Printed qualification](../primary/vp-vnp/paper.pdf#page=44) · [Formal word-length conclusion](../primary/vp-vnp/Paper/Tower.lean#L42) · [Independent cubic derivation](14b-tower.md#cubic-word-diameter-in-the-printed-proof)
+
+### 4. Proposition E.10, pp. 36–37 · The numerical margin is already explicit
+
+With $k\ge2$ and $\ell\ge100\sqrt{k}$ in the flat case, the printed conclusion is $L\ge 2^{\ell k^{3/2}/16}$. The last line of its printed proof establishes $\log_2 L\ge\ell k^{3/2}/14$. Lean derives the same stronger intermediate bound, then uses it to prove the advertised inequality with denominator 16. Both constants occur in both accounts; the larger denominator weakens the lower bound. No numerical correction is needed. [Printed derivation](../primary/vp-vnp/paper.pdf#page=37) · [Scalar bound](../primary/vp-vnp/Paper/Rate.lean#L123) · [Log-to-gate conversion](../primary/vp-vnp/Paper/Rate.lean#L259) · [Circuit proposition](../primary/vp-vnp/Paper/Rate.lean#L298)

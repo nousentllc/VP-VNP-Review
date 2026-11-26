@@ -1,4 +1,7 @@
-"""Rebuild the complete publisher Lean project. External packages must be built at the locked revisions."""
+"""Rebuild the complete publisher Lean project. External packages must be built at the locked revisions.
+
+Use --offline to verify the archived evidence with Python alone.
+"""
 import argparse
 from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from graphlib import TopologicalSorter
@@ -110,4 +113,6 @@ def main():
 
 
 if __name__=="__main__":
-    main()
+    from offline_replays import run_entrypoint
+
+    run_entrypoint(__file__, main)
