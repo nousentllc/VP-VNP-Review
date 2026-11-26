@@ -1,0 +1,47 @@
+{
+  "checked_utc": "2026-11-26T04:47:00.620996+00:00",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "publisher_source_sha256": {
+    "Paper/Cuts.lean": "80fed8d478bc9b6c9e9265942a1d5e910f531ed34a9c2bf63bdbe4f77aa608b6",
+    "Paper/Next.lean": "bfe9a9a6ca66911ba9fc8beae195e8101e5e0283fd3c732fee61c8f6c9768a5c",
+    "NS1/OneCut.lean": "161c6a46c1851e8ad58356cfc5c2fdf7fd9606aaa333d851c65ca6dc42a03f17"
+  },
+  "imported_cuts_olean_sha256": "29a79c34e66872dc54502a2adb96e04416442f71c53f7ec2f5ef8647b8d61dd6",
+  "mathlib_and_dependencies": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "proof_sha256": "345992301cf70ba924bab01b664ed1981183d1c0e50a311bf31d3732f90d5b3d",
+  "scope": "New review declarations checked using retained publisher objects. The check does not rebuild publisher or external libraries.",
+  "axioms": {
+    "Review.J4.j4_iterate_bounds": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "Review.J4.k5_listing_and_traversal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "runtime_seconds": 86.643,
+  "exit_code": 0,
+  "stdout": [
+    "'Review.J4.j4_iterate_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'Review.J4.k5_listing_and_traversal' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "stderr": []
+}

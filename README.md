@@ -10,6 +10,10 @@ This verification and reproducibility report studies Anthropic’s published *VP
 
 **Independent human statement-level sign-off is pending.** The [statement audit](passes/statement-correspondence.md) records the AI-assisted reading of the exact and border models. An algebraic complexity theorist is invited to compare the printed claims with the pinned Lean statements. [Human-review invitation #1](https://github.com/nousentllc/VP-VNP-Review/issues/1). The [editable TeX master](report/VP_VNP_Research_Review.tex) and [Chat handoff](VP_VNP_Chat_Handoff.md) preserve the full derivations. The [external-review response](reconciliation/edition12-external-review.md) identifies the AI critique and its scope.
 
+## Follow-up
+
+Lean 4.33.1 verified tighter J.4 bounds for the cutter’s accepting time, piece count and piece size under the published hypotheses. The follow-up also checks the effect on two terms in K.5’s existing cost calculation. [Technical note, Lean source and receipt](followups/j4/README.md).
+
 ## Reproduction and licensing
 
 [Reproduce Edition 12](REPRODUCE.md) from the full tagged repository. It has one command per tier and expected evidence hashes. The [preserved Actions artifact and complete job log](history/actions/README.md) accompany the release. Review code and checks use the [MIT License](LICENSE). The original report and passes use [CC BY 4.0](LICENSES/CC-BY-4.0.txt). The publisher’s `primary/vp-vnp/` subtree stays under its own [Apache-2.0 license](primary/vp-vnp/LICENSE) and [notice](primary/vp-vnp/NOTICE). [Full license scope](LICENSES/README.md).
