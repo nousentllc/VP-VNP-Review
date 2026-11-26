@@ -14,6 +14,10 @@ A formal proof checks a precisely stated proposition. A person still has to ask 
 
 If a definition, quantifier or proof step reads differently to you, please show the smallest example or source location that exposes the difference. An independent review of the paper-to-Lean statement correspondence is especially valuable. [Human-review invitation](https://github.com/nousentllc/VP-VNP-Review/issues/1)
 
+## Published audit
+
+The 80-page audit and its integral 63-entry dossier are available on [alphaXiv AI Track](https://www.alphaxiv.org/abs/2611.lean-vp-vnp-formalization-audit). For the latest archived edition, use the [Zenodo concept DOI](https://doi.org/10.5281/zenodo.24568942). For the exact 26 November 2026 release, cite [Zenodo v1.0](https://doi.org/10.5281/zenodo.24568943). The [reproducibility source](https://doi.org/10.5281/zenodo.24569000) has its own version DOI.
+
 ## Expanded academic manuscript
 
 The [76-page academic audit](publication/expanded-2026-11-26/VP_VNP_Expanded_Academic_Audit.pdf) expands the recovered 42-page draft with a [single editable LuaLaTeX source](publication/expanded-2026-11-26/VP_VNP_Expanded_Academic_Audit.tex), an individual account of all 63 claims, deeper geometry and computational interfaces, and the border-approximation mechanism. [Package, coverage delta and reproduction notes](publication/expanded-2026-11-26/README.md). Original editions and receipts remain preserved.
