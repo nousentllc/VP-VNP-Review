@@ -1,0 +1,1551 @@
+{
+  "scope": "Pinned Git path and line targets in the manuscript, resolved against available Git objects; HTTP accessibility tested separately for representative public endpoints.",
+  "checks": [
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Statement.lean",
+      "line": 23,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Fields.lean",
+      "line": 80,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Statement.lean",
+      "line": 41,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Statement.lean",
+      "line": 75,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Rate.lean",
+      "line": 491,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Nc/Hc/Vnp.lean",
+      "line": 189,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Nc/Rate/Truncate.lean",
+      "line": 241,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Statement.lean",
+      "line": 53,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Alternative.lean",
+      "line": 43,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Transfer.lean",
+      "line": 21,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/HcGrid.lean",
+      "line": 18,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Prices.lean",
+      "line": 23,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Gauges.lean",
+      "line": 392,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Extension.lean",
+      "line": 166,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Prices.lean",
+      "line": 160,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Identity.lean",
+      "line": 699,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Fan.lean",
+      "line": 987,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Means.lean",
+      "line": 465,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Alternative.lean",
+      "line": 43,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Flat.lean",
+      "line": 229,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Convex.lean",
+      "line": 22,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Nc/Price/BorderFew.lean",
+      "line": 134,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Convex.lean",
+      "line": 318,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Rate.lean",
+      "line": 123,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Rate.lean",
+      "line": 337,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Groups.lean",
+      "line": 1085,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Gauges.lean",
+      "line": 560,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Laws.lean",
+      "line": 425,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Nc/Tow/Load.lean",
+      "line": 364,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Tree.lean",
+      "line": 1102,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Pieces.lean",
+      "line": 640,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/NS1/Accel.lean",
+      "line": 23,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Universal.lean",
+      "line": 29,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Nc/Uni/EvalU.lean",
+      "line": 251,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Cuts.lean",
+      "line": 101,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Nc/Dl/Cut.lean",
+      "line": 239,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/NS1/Compose.lean",
+      "line": 89,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Cuts.lean",
+      "line": 460,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/LowDeg.lean",
+      "line": 42,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Nc/Acc/Loop.lean",
+      "line": 182,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/CircuitPhi.lean",
+      "line": 175,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Circuit.lean",
+      "line": 294,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Postpone.lean",
+      "line": 19,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Next.lean",
+      "line": 63,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Next.lean",
+      "line": 270,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/NoAcc.lean",
+      "line": 188,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/NoAcc.lean",
+      "line": 216,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Scales.lean",
+      "line": 141,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Approximate.lean",
+      "line": 266,
+      "ok": true
+    },
+    {
+      "revision": "HEAD",
+      "path": "primary/vp-vnp/Paper/Tower.lean",
+      "line": 25,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/VP_VNP_Research_Review.pdf",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/proof-coverage.csv",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/statement-correspondence.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/pass13D-membership.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass13d_membership_replay.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/statement-correspondence.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14e-circuit-to-contradiction.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/11d-field-transfer.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/12b-hamiltonian-projection.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/pass13C-permanent.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/11b-spectral-selection.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/VP_VNP_Research_Review.pdf",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/11a-crossing.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/VP_VNP_Research_Review.pdf",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass09_endpoint_replay_results.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/07-field-alternative.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/08-price-space-completion.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/pass13A-gate-reuse.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14a-flat.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14a-flat.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass14a_margin_results.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass14a_circuit_results.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14a-flat.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/pass13B-gain.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/pass13B-gain.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14b-tower.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/11c-piece-decomposition.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14b-tower.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass15_plain.lean",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/publisher-errata.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/06-one-cut-and-iteration.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14c-compiler.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14c-compiler.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/pass15-k4.tex",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/pass15-k5.tex",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/15-diagonal.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass15_lean.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14e-circuit-to-contradiction.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/statement-correspondence.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/12d-hub-routing.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/12d-counting-and-minors.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/07-field-alternative.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass15_plain.lean",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/pass15-k4.tex",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass15_lean.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14b-tower.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/publisher-errata.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14d-formal.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/statement-correspondence.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass14_release.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass14_release.py",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass14_comparator.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass14a_circuit_results.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass15_lean.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "reconciliation/edition12-comparator-and-margin.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "reconciliation/edition12-external-review.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass14_warnings.py",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "handoff/VP_VNP_Review_2026-11-25_pass15.zip",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/VP_VNP_Research_Review.pdf",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/proof-coverage.csv",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass09_endpoint_replay_results.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/pass13D-membership.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass14a_flat.py",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14b-tower.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "passes/14c-compiler.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass15_k4.py",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass15_k5.py",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "checks/pass15_k6.py",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/VP_VNP_Research_Review.pdf",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "567303d0bcf4f9d54390437b137752446e58ccd6",
+      "path": "report/proof-coverage.csv",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "followups/j4/README.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "followups/j4/J4_Followup.lean",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "followups/j4/verification.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "REPRODUCE.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "reconciliation/release-candidate.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "reconciliation/release-candidate.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "followups/j4/verification.json",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "REPRODUCE.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "followups/j4/README.md",
+      "line": null,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Statement.lean",
+      "line": 44,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14e-circuit-to-contradiction.md",
+      "line": 32,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Statement.lean",
+      "line": 23,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14c-compiler.md",
+      "line": 19,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Prices.lean",
+      "line": 436,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/12d-hub-routing.md",
+      "line": 3,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Gauges.lean",
+      "line": 392,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/11b-spectral-selection.md",
+      "line": 3,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Gauges.lean",
+      "line": 560,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13B-gain.md",
+      "line": 41,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Extension.lean",
+      "line": 166,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/10-simultaneous-extension.md",
+      "line": 12,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Prices.lean",
+      "line": 366,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/10-simultaneous-extension.md",
+      "line": 18,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/States.lean",
+      "line": 136,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/12d-counting-and-minors.md",
+      "line": 5,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Identity.lean",
+      "line": 699,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/12d-counting-and-minors.md",
+      "line": 22,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Crossing.lean",
+      "line": 440,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/11a-crossing.md",
+      "line": 18,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Crossing.lean",
+      "line": 465,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/11a-crossing.md",
+      "line": 39,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Means.lean",
+      "line": 442,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/11a-crossing.md",
+      "line": 39,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Fan.lean",
+      "line": 987,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/09-curvature-bound.md",
+      "line": 1,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Curvature.lean",
+      "line": 211,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/12e-field-alternative-replay.md",
+      "line": 7,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Toolkit.lean",
+      "line": 462,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/07-field-alternative.md",
+      "line": 5,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Alternative.lean",
+      "line": 921,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/12e-field-alternative-replay.md",
+      "line": 11,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Grids.lean",
+      "line": 23,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13C-permanent.md",
+      "line": 5,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Flat.lean",
+      "line": 173,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13C-permanent.md",
+      "line": 47,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Flat.lean",
+      "line": 233,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13A-gate-reuse.md",
+      "line": 19,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Convex.lean",
+      "line": 22,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14a-flat.md",
+      "line": 21,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Convex.lean",
+      "line": 243,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14a-flat.md",
+      "line": 29,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Convex.lean",
+      "line": 318,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14a-flat.md",
+      "line": 31,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Rate.lean",
+      "line": 317,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14a-flat.md",
+      "line": 39,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Rate.lean",
+      "line": 411,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14a-flat.md",
+      "line": 43,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Groups.lean",
+      "line": 1085,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13B-gain.md",
+      "line": 5,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Laws.lean",
+      "line": 425,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13B-gain.md",
+      "line": 50,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Tower.lean",
+      "line": 25,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14b-tower.md",
+      "line": 11,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Tree.lean",
+      "line": 1102,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14b-tower.md",
+      "line": 13,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Tree.lean",
+      "line": 1397,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14b-tower.md",
+      "line": 12,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Universal.lean",
+      "line": 29,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/05-universal-automaton.md",
+      "line": 5,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Runnet.lean",
+      "line": 31,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/11c-piece-decomposition.md",
+      "line": 36,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Pieces.lean",
+      "line": 653,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/11c-piece-decomposition.md",
+      "line": 5,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Cuts.lean",
+      "line": 101,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/06-one-cut-and-iteration.md",
+      "line": 5,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Cuts.lean",
+      "line": 460,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/06-one-cut-and-iteration.md",
+      "line": 23,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/LowDeg.lean",
+      "line": 42,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14c-compiler.md",
+      "line": 27,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Circuit.lean",
+      "line": 294,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14c-compiler.md",
+      "line": 73,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Postpone.lean",
+      "line": 30,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/15-diagonal.md",
+      "line": 7,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Next.lean",
+      "line": 178,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/15-diagonal.md",
+      "line": 13,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/NoAcc.lean",
+      "line": 353,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/15-diagonal.md",
+      "line": 19,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Scales.lean",
+      "line": 158,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14e-circuit-to-contradiction.md",
+      "line": 26,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Transfer.lean",
+      "line": 21,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/11d-field-transfer.md",
+      "line": 5,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/HcGrid.lean",
+      "line": 18,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/12b-hamiltonian-projection.md",
+      "line": 17,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Fields.lean",
+      "line": 83,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14e-circuit-to-contradiction.md",
+      "line": 32,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Fields.lean",
+      "line": 142,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13D-membership.md",
+      "line": 5,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/.github/workflows/lean-projects.yml",
+      "line": 234,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "checks/pass14_release.json",
+      "line": 1,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/comparator.json",
+      "line": 4,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "checks/pass14_comparator.json",
+      "line": 1,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Grids.lean",
+      "line": 59,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13C-permanent.md",
+      "line": 47,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Flat.lean",
+      "line": 345,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13A-gate-reuse.md",
+      "line": 43,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Laws.lean",
+      "line": 425,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13B-gain.md",
+      "line": 50,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Nc/Hc/Vnp.lean",
+      "line": 189,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13D-membership.md",
+      "line": 11,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Laws.lean",
+      "line": 425,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/pass13E-branch-replay.md",
+      "line": 5,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "checks/pass14a_margin.lean",
+      "line": 7,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14a-flat.md",
+      "line": 39,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Tree.lean",
+      "line": 1139,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14b-tower.md",
+      "line": 14,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/LowDeg.lean",
+      "line": 42,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14c-compiler.md",
+      "line": 33,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/CircuitPhi.lean",
+      "line": 175,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14c-compiler.md",
+      "line": 53,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Scales.lean",
+      "line": 141,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14e-circuit-to-contradiction.md",
+      "line": 26,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Solution.lean",
+      "line": 34,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/14e-circuit-to-contradiction.md",
+      "line": 32,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Postpone.lean",
+      "line": 30,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/15-diagonal.md",
+      "line": 7,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Next.lean",
+      "line": 65,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/15-diagonal.md",
+      "line": 13,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/NoAcc.lean",
+      "line": 362,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/15-diagonal.md",
+      "line": 20,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/NoAcc.lean",
+      "line": 216,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/15-diagonal.md",
+      "line": 23,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Paper/Postpone.lean",
+      "line": 30,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/15-diagonal.md",
+      "line": 30,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "primary/vp-vnp/Statement.lean",
+      "line": 23,
+      "ok": true
+    },
+    {
+      "revision": "8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8",
+      "path": "passes/statement-correspondence.md",
+      "line": 1,
+      "ok": true
+    }
+  ],
+  "passed": true,
+  "count": 255,
+  "external_checks": [
+    {
+      "url": "https://github.com/anthropics/formal-math/issues/57",
+      "result": "Public web page and GitHub API retrieved; open, zero comments at review time."
+    },
+    {
+      "url": "https://doi.org/10.1145/800135.804419",
+      "result": "DOI resolves to the ACM record for Valiant, Completeness classes in algebra, 1979, pp. 249-261; search retrieved official publisher record. Direct fetch returned HTTP 403."
+    },
+    {
+      "url": "https://github.com/nousentllc/VP-VNP-Review",
+      "result": "GitHub connector metadata and Git transport retrieved; public repository. Web fetch returned cache miss; raw release file downloads checked separately after publication."
+    }
+  ]
+}

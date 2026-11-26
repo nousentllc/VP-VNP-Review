@@ -14,6 +14,12 @@ A formal proof checks a precisely stated proposition. A person still has to ask 
 
 If a definition, quantifier or proof step reads differently to you, please show the smallest example or source location that exposes the difference. An independent review of the paper-to-Lean statement correspondence is especially valuable. [Human-review invitation](https://github.com/nousentllc/VP-VNP-Review/issues/1)
 
+## Expanded academic manuscript
+
+The [76-page academic audit](publication/expanded-2026-11-26/VP_VNP_Expanded_Academic_Audit.pdf) expands the recovered 42-page draft with a [single editable LuaLaTeX source](publication/expanded-2026-11-26/VP_VNP_Expanded_Academic_Audit.tex), an individual account of all 63 claims, deeper geometry and computational interfaces, and the border-approximation mechanism. [Package, coverage delta and reproduction notes](publication/expanded-2026-11-26/README.md). Original editions and receipts remain preserved.
+
+The [repository privacy review](publication/expanded-2026-11-26/PRIVACY.md) covers reachable history, the energy branch and nested archives. It found no credential under the tested rules, but identifies a personal author email in Git metadata and one partly unreadable compressed member. No history rewrite was performed.
+
 ## Edition 12 findings and evidence
 
 The review team’s Linux verification run accepted the five public declarations in Lean and nanoda. The statement audit traces the printed circuit and witness models into the formalization. The errata identify two passages in the printed account that warrant narrower wording. Reproduction by an outside operator is pending for the release candidate. [Evidence and attribution](reconciliation/release-candidate.md)

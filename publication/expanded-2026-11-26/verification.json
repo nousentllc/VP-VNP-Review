@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-26",
+  "baseline_git_commit": "3a612bdfb160a45c26d016364c2e9195b5e1f7b1",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "publisher_tree": "b076b4b081298c4e909bac3f87f0e4462d1fb2cb",
+  "engine": "LuaHBTeX 1.24.0 / TeX Live 2026",
+  "host": {
+    "os": "Darwin",
+    "release": "27.0.0",
+    "machine": "arm64"
+  },
+  "source_sha256": "a7063c05da9607bf3f2edc9fbc531407d9503151de66d49c73eca572f9c351b8",
+  "delivered_pdf": {
+    "sha256": "436d59990479b116a6a60c1324a2042ae42bfec38aa10724abeb29f063c80c80",
+    "pages": 76,
+    "content_streams_sha256": "20da44cd4bba1a20044137d731dd809680a7f1fa11ba7c492f00e9187a8bf8b9",
+    "extracted_text_sha256": "44e7f64c07433be3cf80fee61818faa6b1a95d670347c16f79ee356d38634fc6",
+    "attachments": 0,
+    "javascript": false
+  },
+  "clean_directory_pdf": {
+    "sha256": "a3464b9e914c5835bcc44d862a11aef415951a65c3927fe2d7cc430817517c50",
+    "pages": 76,
+    "content_streams_sha256": "20da44cd4bba1a20044137d731dd809680a7f1fa11ba7c492f00e9187a8bf8b9",
+    "extracted_text_sha256": "44e7f64c07433be3cf80fee61818faa6b1a95d670347c16f79ee356d38634fc6",
+    "attachments": 0,
+    "javascript": false
+  },
+  "clean_build_comparison": "Page content streams and extracted text match; PDF trailer document ID differs by build directory. Whole-file reproducibility is not claimed.",
+  "final_tex_checks": {
+    "missing_glyphs": 0,
+    "overfull_boxes": 0,
+    "undefined_references": 0,
+    "individual_claim_entries": 63,
+    "pinned_git_targets_verified": 255,
+    "source_corpus_hashes_verified": 62
+  },
+  "remaining_tex_diagnostics": [
+    "epstopdf shell-escape warning; no EPS conversion is used",
+    "underfull table cells; reviewed in rendered pages"
+  ],
+  "visual_review": "All-page contact sheets inspected; full-size title, determinant matrix, J.4 table and claim dossier checked. Final title scaling removed abstract spill; mathematical glyph and cross-reference fixes recompiled.",
+  "fresh_finite_validation": {
+    "historical_controls": 24,
+    "historical_stdout_hashes_match": true,
+    "tier0_receipt": "tier0-verification.txt",
+    "new_examples": "finite-examples.json"
+  },
+  "proof_replay_boundary": "No new Lean or Comparator execution in this publication session. Archived full-build, Comparator and J.4 receipts retain their stated scopes.",
+  "preserved_recovered": {
+    "VP_VNP_Academic_Audit_42pp_Recovered.pdf": "14142b83e8bee21f61fdb7dab07615f508fedc6f63771d6f864857ea9c7b1e22",
+    "VP_VNP_Academic_Audit_42pp_Recovered.tex": "6d6680dbc9cbe6df4ba6f033c710b1949843dfad6fca56bb40ed514b8e563749"
+  },
+  "source_corpus_sha256": "7bd40c69a2bb322f7d75e95c22a97224abd93f253384e35b0ab136800db7b8ef",
+  "privacy_baseline_summary_sha256": "f8f8b162b6c46fb373b52c7caa6d191ae0eb20bf6294f50987dbeaabe7a1d046"
+}

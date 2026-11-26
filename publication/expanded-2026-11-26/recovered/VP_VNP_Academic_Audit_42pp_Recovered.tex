@@ -1,0 +1,910 @@
+% !TeX program = lualatex
+% Academic companion to the immutable Edition 12 audit; compile twice.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in,headheight=15pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}[Scale=MatchLowercase]
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array,enumitem,microtype,xcolor,fancyhdr,hyperref}
+\usepackage{xurl}
+\definecolor{navy}{HTML}{16384A}
+\definecolor{linkblue}{HTML}{215D71}
+\hypersetup{colorlinks=true,linkcolor=navy,citecolor=navy,urlcolor=linkblue,pdftitle={A Computational and Mathematical Audit of VP versus VNP over Every Field},pdfauthor={Justin Candler},pdfsubject={Statement correspondence, reproducibility, and mathematical reconstruction}}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small\sffamily Candler | Arithmetic complexity audit}\fancyhead[R]{\small\sffamily Publication manuscript}\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+\setlength{\parindent}{1.1em}\setlength{\parskip}{3pt}\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[2]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\HC}{\operatorname{HC}}
+\newcommand{\Perm}{\operatorname{PERM}}
+\newcommand{\VP}{\mathrm{VP}}
+\newcommand{\VNP}{\mathrm{VNP}}
+\newcommand{\bVP}{\overline{\mathrm{VP}}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\ind}[1]{\mathbf{1}_{#1}}
+\newcommand{\pub}[3]{\href{https://github.com/anthropics/formal-math/blob/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp/#1\#L#2}{#3}}
+\newcommand{\aud}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/567303d0bcf4f9d54390437b137752446e58ccd6/#1}{#2}}
+\newcommand{\follow}[2]{\href{https://github.com/nousentllc/VP-VNP-Review/blob/8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8/#1}{#2}}
+\newcommand{\scope}[1]{\par\smallskip\noindent\textit{Evidence boundary.} #1\par\smallskip}
+\newcommand{\interpret}[1]{\par\smallskip\noindent\textit{Interpretation.} #1\par\smallskip}
+\title{A Computational and Mathematical Audit of\texorpdfstring{\ $\VP\ne\VNP$}{ VP versus VNP} over Every Field\\[4pt]\large Statement Correspondence, Reproducibility, and the Geometry of Weighted Computation}
+\author{Justin Candler\\\small Independent research; Nous / Uriel Research}
+\date{26 November 2026\\\small Publication manuscript prepared from Edition 12 (Passes 1--15) and the unnumbered J.4 follow-up}
+\begin{document}
+\maketitle
+\begin{abstract}
+We report an AI-assisted mathematical and computational audit of Anthropic's published formalization of the separation of the algebraic complexity classes $\VP$ and $\VNP$ over every field. We examine the exact correspondence of the formal circuit, witness, and approximation predicates to their mathematical counterparts, reconstruct the two alternative proof branches, and investigate the interfaces through which their hypotheses and resource guarantees compose. At the pinned publisher revision, the archived review-team native build compiled all 324 publisher Lean sources and the separate Linux Comparator execution accepted the five configured public declarations using Lean and nanoda with the specified foundational axioms. This is evidence of the encoded theorem, not an independent discovery of the separation or a claim about Boolean $\mathrm{P}$ versus $\mathrm{NP}$. The audit identifies two qualifications to the printed exposition: the K.3 clause polynomial agrees with the printed word polynomial on canonical codes but can differ away from them, and the I.1 weighted simulation can omit an accepting branch of zero weight. Neither stronger textual reading is required downstream. Review-authored results include a strict denominator-12 refinement of the flat-case numerical estimate, a sharp inclusive clock endpoint for K.4, and tighter local bounds for the J.4 cutter under its published hypotheses. We explain these contributions with complete local arguments, worked counterexamples, and a dependency-indexed account of the verification evidence. The broader interpretation is that exact value, compatible boundary information, operational resource bounds, and admissibility conditions are separate invariants. The detailed 66-page Edition 12 audit, original sources, claim register, and execution receipts remain immutable supplementary records. Outside-operator kernel reproduction and independent human statement-level assessment of the review remain pending.
+\end{abstract}
+\noindent\textbf{Keywords:} algebraic complexity; arithmetic circuits; asymptotic spectrum; tensor networks; weighted computation; formal verification; reproducibility; border complexity.\\
+\noindent\textbf{Primary classification:} computational complexity and logic (proposed cs.CC / cs.LO).\\
+\noindent\textbf{Repository:} \url{https://github.com/nousentllc/VP-VNP-Review}. The source pins and reproduction paths are given in Section~\ref{sec:repro}.
+\clearpage
+\tableofcontents
+\clearpage
+
+\section{Introduction and contribution boundaries}\label{sec:intro}
+The principal difficulty of a lower bound for general arithmetic circuits is not finding a representation of the target polynomial that has a large cost under a particular evaluation procedure. It is proving that \emph{every} allowed circuit must incur a large cost, even when its intermediate polynomials are unrelated to the natural combinatorial representation of the target. A circuit may reuse a gate, have unrestricted depth, introduce constants from the coefficient field, and use cancellation. A lower bound for an evaluation tree, a restricted tensor network, a formula, or a monotone representation is not automatically a lower bound for these circuits.
+
+The publisher's result, \emph{VP $\ne$ VNP over every field} \cite{claude}, takes a distinctive route. It defines a class of tensor-induced pseudometrics called prices. A field either admits Euclidean prices on every finite configuration, or it satisfies a uniform contraction inequality on a binary-matrix configuration (possibly both). In the first case, a general circuit gives a family of tensor routings whose common spectral witness forces high cost. In the second, the contraction inequality gives a family of exact local tensor identities. These permit iterative cutting of bounded weighted computations. A hypothetical small circuit would thereby imply an accelerator that contradicts a weighted self-application construction. Both branches are transferred to the same target polynomial family, and their asymptotic lower bounds are reconciled.
+
+This article is an independent \emph{review of the publisher's work in the sense of a separate verification execution and mathematical analysis}, not a second discovery of the theorem. The original cumulative review and reproduction candidate are preserved in \cite{review,repro}; the unnumbered cutter follow-up is documented separately in \cite{j4}. The distinction matters especially for AI-assisted mathematics. Checking a supplied formal proof, comparing its formal statement to a conventional mathematical statement, reproducing a finite computation, and deriving a new mathematical proposition are different activities with different burdens of evidence. We preserve those distinctions throughout.
+
+\subsection{Questions, contributions, and what is not claimed}
+The review addresses three principal questions. First, do the public Lean statements express the relevant nonuniform arithmetic-circuit lower bounds, VNP witness quantifiers, and approximation model? Second, does the mathematical reconstruction expose the interface conditions by which the two branches exclude an arbitrary small circuit? Third, where do stronger informal readings fail, and can some of the local inequalities be sharpened without changing the theorem?
+
+Our contributions are as follows.
+\begin{enumerate}[leftmargin=1.7em,itemsep=2pt]
+\item \textbf{Statement correspondence.} We inspect the gate list, polynomial identity, field quantifiers, witness length, characteristic-two exception, and border predicate. In particular, the declared variables in the VP witness already impose a polynomial bound on the number of Boolean auxiliaries. The one-parameter Laurent-polynomial, rational-function and Laurent-series witness models agree at fixed gate count under the stated cost convention.
+\item \textbf{Reproduction and provenance.} The review's archived build and Comparator records identify exact source and dependency revisions, complete native project coverage, and acceptance of the five configured public endpoints by Lean and nanoda. The proof-bearing environment is separate from the challenge environment. We report the review-authored verification results separately.
+\item \textbf{Mathematical reconstruction.} We trace how balanced coefficient extraction works on a reused-gate DAG, how a shared selector pays for differently cut terms, how one common spectral point pays for every candidate cut, and how the contracting branch passes from weighted laws through a cutter to a diagonal contradiction. The presentation follows dependency order rather than the chronology of fifteen audit passes.
+\item \textbf{Precision and local extensions.} We isolate the K.3 off-domain counterexample and the I.1 zero-weight trace counterexample. We give the scalar derivation of the strict /12 bound, the sharp K.4 clock endpoint, and the tighter J.4 simultaneous estimates. The archived review Lean checks are distinct from the publisher's comparison target.
+\item \textbf{Interpretive guidance.} We provide small examples of shared labels, lost observables, and hidden computation costs. These illustrate why assumptions are necessary; they do not supply new premises to the publisher's proof.
+\end{enumerate}
+This review does not establish the optimal lower-bound exponent, identify which branch holds in any particular field, provide a deterministic efficient construction of the spectral points, or solve the Boolean P versus NP problem. Nor does it claim full instruction-level human reconstruction of every internal lemma. In particular the detailed geometric prerequisites of F, the J.3 dealer/listing implementation, and the approximate accelerator construction in N.4 retain their separately recorded reading obligations. The full proof is formally checked in the archived runs; this is not the same assertion as complete human comprehension of all subproofs.
+
+\subsection{Evidence model and reading route}
+We use the following vocabulary. \emph{Publisher theorem} denotes a stated result in the pinned manuscript/formalization. \emph{Review derivation} denotes an explanatory or original argument in the Edition 12 materials. \emph{Review formal check} means a review-authored declaration accepted by the recorded Lean environment. \emph{Finite control} means an executed calculation at a specified finite instance; it cannot prove an unbounded family claim by itself. \emph{Interpretation} is a proposed mathematical reading of why a technique is useful, not a theorem. A recorded execution is not described as newly rerun in this manuscript preparation.
+
+The paper proceeds from the target predicates to the common geometric interface, then follows each branch and its return to the target. Section~\ref{sec:formal} records the formal checks and Section~\ref{sec:extensions} collects the principal review extensions. Readers seeking only the essential contradiction may read Sections~\ref{sec:model}, \ref{sec:map}, \ref{sec:flat}, \ref{sec:contract}, and \ref{sec:diagonal}. The detailed derivations in the original \aud{report/VP_VNP_Research_Review.pdf}{66-page report} and the \aud{report/proof-coverage.csv}{63-entry claim register} are cited at the relevant interfaces.
+
+\section{Mathematical model and statement correspondence}\label{sec:model}
+\subsection{Arithmetic circuits and target families}
+\begin{definition}[Circuit cost, publisher model]
+Let $F$ be a field and $X$ a finite variable set. A circuit of size $s$ is a topologically ordered list $p_0,\ldots,p_{s-1}$ of polynomials over $F[X]$ whose entries are variables, field constants, or sums or products of two earlier entries. The predecessors may coincide. An output index $\gamma<s$ is designated. The circuit computes the formal polynomial $p_\gamma$. Input and constant gates contribute to $s$; arbitrary reuse is permitted and scalar representation length is not charged.
+\end{definition}
+The public Lean definition permits an infinite indexed list with conditions on its first $s$ entries, which is equivalent to the finite gate-list formulation for $s>0$. A smaller circuit can be padded by zero gates. Subtraction is represented by addition and multiplication by $-1$. There is no bound on intermediate degree. In particular over $\F_p$, $x^p-x$ is a nonzero polynomial even though it vanishes at all base-field points. Formal equality is therefore stronger than agreement on the finite base field. This also explains why Boolean circuit consequences cannot be inferred from the gate lower bound. See \pub{Statement.lean}{23}{Statement.lean, circuit definition} and \aud{passes/statement-correspondence.md}{the correspondence audit}.
+
+For $m\ge1$, let $X=(X_{ij})$ be a generic $m\times m$ matrix. Define
+\begin{align}
+\Perm_m(X)&=\sum_{\sigma\in S_m}\prod_{i=1}^m X_{i,\sigma(i)},\\
+\HC_m(X)&=\sum_{\substack{\sigma\in S_m\\\sigma\text{ is a single cycle}}}\prod_{i=1}^m X_{i,\sigma(i)}.
+\end{align}
+The formal permanent uses the transposed indexing convention. Substitution of $\sigma^{-1}$ gives the same polynomial. HC counts one successor permutation per directed Hamiltonian cycle, not $m$ rotations of a cyclic sequence. In characteristic two the permanent equals the determinant, so the permanent cannot support the all-characteristic lower bound; HC provides the witness there.
+
+\begin{theorem}[Publisher, Theorem 1.1 / M.3]\label{thm:main}
+There exists an absolute $c>0$ such that for every characteristic $p$ (zero or prime) there is $m_0(p)$ so that for every field $F$ of characteristic $p$ and every $m\ge m_0(p)$, every circuit computing $\HC_m$ over $F$ has size strictly greater than
+\[
+ m^{c(\log_2 m)^{1/3}}=2^{c(\log_2m)^{4/3}}.
+\]
+The same holds for $\Perm_m$ when $p\ne2$.
+\end{theorem}
+The order $\exists c\,\forall p\,\exists m_0\,\forall F\,\forall m\,\forall C$ is important. Neither one uniform cutoff across all characteristics nor effective classification of the field branch is needed. The reference proof exhibits $c=1/1600^2$; the strengthened intermediate inequalities in this audit do not change that global constant. See \pub{Paper/Fields.lean}{80}{M.3} and \pub{Statement.lean}{41}{the public predicate}.
+
+\subsection{The VP and VNP quantifiers}
+\begin{definition}[Nonuniform polynomial families]
+A family $(f_n)$ is in $\VP_F$ when the number of variables, degree, and circuit size are each bounded by a polynomial in $n$. In the formal definition one exponent $a\in\N$ bounds all three by $n^a+a$. A family is in $\VNP_F$ when there is a family $(g_n)$ in $\VP_F$ and a number of auxiliary Boolean variables $r(n)$ such that
+\[
+ f_n(x)=\sum_{e\in\{0,1\}^{r(n)}} g_n(x,e)
+\]
+as a formal polynomial.
+\end{definition}
+\begin{proposition}[Witness-size correspondence]\label{prop:witness}
+The formal VP and VNP definitions have the stated nonuniform polynomial bounds. In particular the number of Boolean witness variables is polynomially bounded even if it is not separately constrained by a second inequality.
+\end{proposition}
+\begin{proof}
+If a finite collection of polynomial bounds is given, a sufficiently large common exponent dominates them for $n\ge2$; increasing it further absorbs $n=0,1$ using the additive term. Conversely a bound of form $n^a+a$ is polynomial. The VP family witnessing membership in VNP has variables indexed by the disjoint union of the original variables and $\mathrm{Fin}(r(n))$. Therefore
+\[
+ r(n)\le |X_n|+r(n)\le n^a+a.
+\]
+This includes unused declared witness variables. Substituting Boolean constants and summing does not increase polynomial degree. The number of summands may be exponential, as intended. Finally $r(n)=0$ gives exactly one empty witness and establishes $\VP_F\subseteq\VNP_F$.
+\end{proof}
+The relevant declarations are \pub{Statement.lean}{75}{VP/VNP} and \pub{Paper/Rate.lean}{491}{empty-witness inclusion}. This is correspondence with the standard algebraic model initiated by Valiant \cite{valiant}; it does not require the witness family to be uniform.
+
+\subsection{A constructive Hamiltonian-cycle witness}\label{sec:hcwitness}
+The witness is worth making explicit, because merely saying that HC is complete for VNP would leave the final separation dependent on an implicit convention. For $n>0$ let $Y_{i,u}$ be a Boolean order table, selecting vertex $u$ for position $i$. Define $\mathcal C$ to consist of ordered pairs of distinct cells in the same row or the same column. Set
+\begin{align}
+ B(Y)&=Y_{0,0}\prod_{(a,b)\in\mathcal C}(1-Y_aY_b)
+              \prod_{i=0}^{n-1}\left(\sum_{u=0}^{n-1}Y_{i,u}\right),\\
+ W(X,Y)&=B(Y)\prod_{i=0}^{n-1}\left(\sum_{u,v=0}^{n-1}
+                 Y_{i,u}Y_{i+1,v}X_{u,v}\right),\label{eq:hcwitness}
+\end{align}
+where $i+1$ is cyclic. For $n=0$ use the constant witness 1, consistent with the publisher's empty convention.
+\begin{proposition}[Rooted order-table identity; publisher M.4, reconstructed]\label{prop:hc}
+Over every field, $\sum_Y W(X,Y)=\HC_n(X)$, with polynomially bounded witness variables, gate size and degree.
+\end{proposition}
+\begin{proof}
+Every Boolean table with a row or column clash has a literal factor zero. In a table without clashes, a row sum is either zero or one. Consequently the surviving tables select one vertex per row and no repeated vertex, i.e. a permutation. The root factor requires $0$ to occupy position zero. On a surviving table the product in \eqref{eq:hcwitness} is exactly the cycle monomial for that rooted order. Each successor permutation with one cycle determines the unique order $\pi(i)=\sigma^i(0)$ and conversely. Thus the sum is a formal polynomial identity and is valid even in characteristic two. There are $2n^2$ total variables, $q=2n^2(n-1)$ ordered clashes, and $O(n^3)$ edge summands across the product. Counting binary gates, the audit gives the explicit size bound $8q+6n^3+2n^2+4n+7$ and degree bound $2q+4n+1$ for $n>0$, both dominated by $40(n+1)^4$. A common exponent in the formal VP definition absorbs the small cases as well.
+\end{proof}
+\begin{example}[Why one-hot and rooting must be exact]
+Removing the root multiplies every nonempty cycle's weight by $n$. At $n=2$ this makes the result zero in characteristic two, even though $X_{01}X_{10}$ is nonzero. Replacing the clash factors by equations asserting that all row and column sums equal one over the field is also insufficient: the all-ones $3\times3$ table has all sums equal one in $\F_2$. The literal clash factors avoid modular aliasing.
+\end{example}
+The archived finite check enumerated 66,067 Boolean tables through order four (including the empty table), and compared the resulting symbolic multiset with independent cycle enumeration. The proof, not the enumeration, gives the all-size identity. See \aud{passes/pass13D-membership.md}{Pass 13D}, \pub{Nc/Hc/Vnp.lean}{189}{the polynomial identity}, and \aud{checks/pass13d_membership_replay.json}{the targeted Lean receipt}.
+
+\subsection{Border complexity: fixed-size equivalence of coefficient fields}\label{sec:border}
+The publisher's approximation predicate permits a circuit over $F((\varepsilon))$ whose output has no negative Laurent coefficient and whose constant coefficient equals $f$, monomial by monomial. Equivalently it computes $f+\varepsilon g$ for some $g\in F[[\varepsilon]][X]$. Intermediate gates may have poles. The degree bound in the family predicate is on the target family, not on each positive-power coefficient of a circuit degeneration.
+\begin{proposition}[Same-size coefficient-field comparison]\label{prop:border}
+Under the division-free gate-count convention (one arbitrary constant per scalar gate), the existence of a size-$s$ approximation is equivalent for scalar domains $F[\varepsilon,\varepsilon^{-1}]$, $F(\varepsilon)$ and $F((\varepsilon))$.
+\end{proposition}
+\begin{proof}
+The forward inclusions follow from the embeddings of Laurent polynomials into rational functions and their Laurent expansions. Conversely, take a finite circuit over the series field. Define the valuation of a nonzero polynomial in $X$ with Laurent-series coefficients as the least valuation of a coefficient, and the valuation of zero as $+\infty$. Choose $B\ge0$ so every original gate has valuation at least $-B$. To guarantee an error of valuation at least $t\ge0$ at a product $ab$, suffice to approximate its operands to valuation $t+B$: for errors $\delta a,\delta b$,
+\[
+ (a+\delta a)(b+\delta b)-ab=a\delta b+b\delta a+\delta a\delta b.
+\]
+Each term has valuation at least $t$. A sum requires its operand errors to have valuation at least $t$. Starting from output precision one, work backwards through the finite DAG and take the maximum required precision across every use of a gate. Truncate each Laurent-series scalar to a finite Laurent polynomial at its required precision. Induction on the gate order now gives output error of valuation at least one; the negative and constant coefficients are preserved. The gate positions are unchanged.
+\end{proof}
+\begin{example} Truncating every input scalar only at order zero destroys the constant product $\varepsilon^{-1}\varepsilon=1$. The pole at one operand forces greater precision at the other.\end{example}
+The publisher's same-size truncation theorem is in \pub{Nc/Rate/Truncate.lean}{241}{Truncate.lean}; the argument above explains why no bit-size bound follows. Neither a claim about arbitrary topological closures of rational points nor a polynomial bound on the order of approximation is entailed. Definition 1.3 of \cite{claude}, the public \pub{Statement.lean}{53}{approximation predicate}, and the \aud{passes/statement-correspondence.md}{statement audit} specify the exact interpretation. This distinction prevents conflating a leaf-count result with an encoding-cost result.
+
+\section{Proof architecture: the two-branch interface}\label{sec:map}
+The proof uses two possible properties of the same comparison field. A lower bound for an arbitrary circuit follows in either case. This structure is best understood as a proof by alternatives, not as an algorithm for identifying the correct branch of a given field.
+\begin{center}
+\begin{tabular}{@{}p{.28\linewidth}p{.62\linewidth}@{}}
+\toprule
+Interface & Mathematical responsibility \\\midrule
+M.1, M.2 & Transfer the entire candidate circuit to a comparison field; project a grid sum from a complete target. \\
+D.2 & Supply at least one of flatness or contraction for this field. \\
+E.4, E.7--E.11 & Decompose arbitrary gate lists, account for the selector, choose one spectral price, and force a size bound. \\
+F.6, G.2, H.1--H.2 & Produce and compose exact weighted local laws under a uniform contraction budget. \\
+I.1, J.2--J.4 & Convert weighted computations to a bounded cutting interface; preserve value on plain input. \\
+K.2--K.3 & From any small candidate circuit, build an accelerator valid on all short inputs, with a conditional value guarantee. \\
+K.4--K.7 & Postpone constants, amplify scales, prove plainness before using the value guarantee, and exclude that same accelerator. \\
+M.3--M.4, N.5 & Match the rates across branches and characteristics, use the HC witness, and separately handle approximation. \\\bottomrule
+\end{tabular}
+\end{center}
+\interpret{The geometric half of the proof is a way to constrain arbitrary representations, not a claim that all arithmetic circuits have a natural low-dimensional geometry. The weighted-program half is a contradiction under a hypothetical circuit-size assumption, not an implementable fast universal evaluator. The two routes are logically sufficient alternatives.}
+The formal anchor for the branch selection is \pub{Paper/Alternative.lean}{43}{D.1/D.2}; the complete dependency route is reconstructed in \aud{passes/14e-circuit-to-contradiction.md}{the whole-chain companion}. We describe the two alternatives precisely in Section~\ref{sec:geometry}.
+
+\subsection{Field transfer without losing correlations}\label{sec:field}
+\begin{proposition}[Publisher M.1, same-size exact specialization]\label{prop:field}
+Let $F$ and $K$ have the same characteristic, with $K$ algebraically closed. If an integer polynomial (interpreted in $F[X]$) is computed by a circuit of size $s$ over $F$, its image over $K$ admits a circuit of size $s$.
+\end{proposition}
+\begin{proof}
+Let $k$ be the common prime field and work in the nonzero $K$-algebra $T=F\otimes_k K$. The finitely many constants of the candidate generate together with $K$ a finitely generated $K$-subalgebra $A\subseteq T$. A polynomial-ring presentation of $A$ has proper kernel. By the weak Nullstellensatz there is a $K$-algebra map $A\to K$. Lift the gate list to $A[X]$; its output identity follows from the injective map to $T[X]$. Apply the homomorphism to every gate. All references and polynomial operations survive; the target integer coefficients map to the appropriate characteristic. The gate count is unchanged.
+\end{proof}
+It is crucial that all constants specialize through one homomorphism. For example a root of $z^2+z+1$ in $\F_4$ cannot simply be assigned a value in $\F_2$ preserving that relation. Arbitrarily changing each occurrence would lose algebraic constraints. The algebraic closure of the prime field suffices as the fixed comparison field for each characteristic, so the cutoff need not depend on the original field. See \aud{passes/11d-field-transfer.md}{the field-transfer audit} and \pub{Paper/Transfer.lean}{21}{M.1}.
+
+\subsection{Grid completeness: from an arbitrary target circuit to a controlled polynomial}\label{sec:grid}
+Let $v:I\to V$ and $w:I\to W$ be onto incidence maps. For each incidence $i$ fix a local two-bit weight $D_i(a,b)$ in a commutative ring. The grid sum is
+\[
+ G(D)=\sum_{x:V\to\{0,1\}}\sum_{y:W\to\{0,1\}}
+         \prod_{i\in I}D_i(x_{v(i)},y_{w(i)}).
+\]
+It is crucial that the same assignment to one vertex is used at all incidences. The publisher constructs HC matrices of every order $m\ge40|I|$ with value $G(D)$. The construction uses a cycle of heads, shared XOR gadgets, and incidence options: each head chooses a traversal, the two tips of each XOR gadget enforce compatible use, and each incidence contributes its selected local weight. There are at most $39|I|$ unpadded vertices; unit-weight single-option heads extend the order without multiplying the number of cycles. The permanent analogue uses factor three and requires characteristic other than two. These are projection theorems, not restrictions on candidate circuits.
+
+The review traced the bijection between a shared assignment and a successor permutation. A fixed cycle cannot choose both inconsistent uses of a gadget; doing so would close a short cycle and omit vertices. Conversely a consistent assignment determines the local flags and the unique traversal. A finite two-incidence check with the same two shared bits gave four structural cycles, whereas sharing only one bit gave eight. A signed example gives $2+2z$ for shared choices, rather than $(3+z)^2$ under a mistaken independent-copy construction. This distinction persists under specialization to characteristic two.
+
+For the weights used in the proof, each target variable is replaced by a one-variable affine expression or constant. An $s$-gate candidate therefore yields a grid-sum circuit with at most $5s$ gates, accounting for scalar and binary gates while retaining the original shared references. Thus if the grid sum has a large complexity, every candidate target circuit must pay it. The dimension factor $40$ (or $3$) and circuit substitution factor $5$ charge different resources. See \aud{passes/12b-hamiltonian-projection.md}{HC projection}, \aud{passes/pass13C-permanent.md}{permanent projection}, and \pub{Paper/HcGrid.lean}{18}{M.2}.
+
+\section{Spectral prices and the geometric alternative}\label{sec:geometry}
+\subsection{Tensor semantics and the class of prices}
+For a finite party set, a tensor is a finite array indexed by one local coordinate at each party. A restriction applies a separate linear map at each party. Tensor products concatenate local coordinates; tensor sums are interpreted with compatible index sets. The binary equality wire $\langle 2\rangle_{ab}$ has entries equal to one precisely when the two endpoint coordinates agree. More generally a dimension-$r$ wire $\langle r\rangle_{ab}$ implements an $r$-valued shared index. A rank-$L$ decomposition across a bipartition can be realized by two hubs linked by one $L$-valued index, with all the outer legs carrying their respective local coordinates.
+
+The publisher's spectral points obey nonnegativity, normalization at the scalar unit, multiplicativity for tensor product, restriction monotonicity and a cover inequality. The class is larger than the conventional Strassen spectrum because additivity for direct sums is not imposed in the same way; the paper works with the appropriate upper cover condition. For each such point $\varphi$ the value of an equality wire of dimension $r$ is $r^{d_\varphi(a,b)}$, defining a nonnegative pseudometric on parties. A price is a pseudometric whose restriction to any finite configuration is a limit of simultaneously scaled spectral distances $c d_\varphi$. Precise definitions and wire identities appear in Appendix A of \cite{claude} and \pub{Paper/Prices.lean}{23}{Prices.lean}. Classical spectral methods originate in Strassen \cite{strassen}.
+
+\interpret{A single spectral distance is a way to assign a consistent price to each communication wire. Unlike a single flattening, the construction may compare many positions and cuts at once. The same price must be used on all terms being compared; selecting the most convenient price separately for each summand would not give a valid inequality for their sum.}
+
+\subsection{Why the upper-functional selection is multiplicative}\label{sec:gauges}
+Proposition A.5 selects one spectral point below an upper functional $p_0$, preserving every comparison $p_0(tx)\le c\,p_0(ty)$ for \emph{all} tensor multipliers $t$. The review reconstructs why this is possible. Consider upper functionals below $p_0$ retaining the designated comparisons. A descending chain has an admissible pointwise infimum: each finite inequality can be tested at a common chain member approaching the finitely many relevant infima. By Zorn's lemma there is a minimal element $p$.
+
+The first operation is power regularization,
+\[
+ r(t)=\inf_{n\ge1} p(t^n)^{1/n}.
+\]
+When a tensor has a finite cover, taking powers expands it by words in the cover elements. Group by multiplicities; commutativity permits the multiplicative constants in the exponential upper bounds of the finitely many cover generators to be paid once per generator. Taking roots recovers the cover inequality for $r$. Applying the multiplier comparison repeatedly preserves it after regularization. Minimality implies $r=p$ and hence $p(t^n)=p(t)^n$.
+
+For $p(f)>0$, localize
+\[
+ q_f(t)=\inf_{n\ge0}\frac{p(tf^n)}{p(f)^n}.
+\]
+The unit is preserved by power equality. The same cover and multiplier constraints are inherited, and $q_f\le p$; hence $q_f=p$. Shifting the index of the infimum by one yields $p(t)p(f)\le p(tf)$, the reverse of submultiplicativity. A zero factor follows directly from the nonnegative upper bound. This gives multiplicativity of the selected functional. Notice that the existence of the minimal functional and the power-cover proof are substantive hypotheses of this selection argument.
+\begin{example}[Why the comparison must be contextual]
+On the additive monoid $\N^2$ let $p(a,b)=\max(2^a,2^b)$ and take a cover to contain the element being covered. Then $p(1,0)=p(0,1)=2$, but translating by $(1,0)$ gives $p(2,0)=4$ and $p(1,1)=2$. Equality at the unit is not equality under all multipliers.
+\end{example}
+See \aud{passes/11b-spectral-selection.md}{A.5 reconstruction}, \pub{Paper/Gauges.lean}{392}{A.5}, and the publisher's duality A.6. The selection is classical and existential; no efficient procedure for producing the point is asserted.
+
+\subsection{One witness preserving all old wires}\label{sec:extension}
+Given old parties $I$, an inclusion $\iota:I\to I'$, retractions $\pi_j:I'\to I$ and nonnegative weights $\theta_j$ summing to one, Proposition A.7 gives an enlarged spectral point dominated by
+\[
+ f(t)=\prod_j\varphi(\pi_j t)^{\theta_j}
+\]
+while preserving the value of a designated old tensor $C$. The proof constructs a gauge from the infimum of sums of $f$ over covers. Because every retraction is the identity on old parties, the gauge agrees with $\varphi$ on old tensors. Localizing at $\iota C$ and applying A.5 produces a spectral point that preserves $C$ exactly (the zero-valued case follows from domination). The designated tensor must be chosen before the point.
+
+A.8 chooses $C$ as the product of dimension-two wires for \emph{all} ordered old pairs. The domination bounds each old distance from above. Multiplicativity and exact equality on $C$ give
+\[
+ \sum_{u,v\in I}\bigl(d_\varphi(u,v)-d_{\varphi'}(\iota u,\iota v)\bigr)=0.
+\]
+All summands are nonnegative, so each old wire distance is preserved. This is a powerful use of a single aggregate equality to prove many equalities: the one-sided comparison is indispensable.
+\begin{example}[Preserving the wrong tensor]
+On two parties matrix rank and the indicator of being nonzero are both spectral points in the stated class. The second is dominated by the first and both agree on the scalar unit. Yet they assign values two and one to the $2\times2$ identity wire. Agreement on the unit does not fix that wire.
+\end{example}
+For finite old and new sets, A.8's randomized retractions preserve the joint placement distribution. An approximation error $\epsilon$ on all old pairs increases the new bound by at most $\sum_j\theta_j\epsilon=\epsilon$. Compactness on finite tables followed by a common cofinal limit on finite restrictions yields a price with every required bound simultaneously. It is not necessary that each finite witness be compatible before taking the common limit. Importantly the new distances need only be \emph{at most} their expected placement distances. Treating them as equal would assert more than A.8 gives.
+
+\scope{The A.5/A.7/A.8 arguments are reconstructed from the pinned publisher sources and archived targeted builds. They require their tensor-cover axioms and classical existence steps, not just abstract distance inequalities. See \pub{Paper/Extension.lean}{166}{A.7}, \pub{Paper/Prices.lean}{160}{all-wire equality}, and \aud{report/VP_VNP_Research_Review.pdf}{Edition 12, discussion of price extension}.}
+
+\subsection{Crossing tensors and curvature}\label{sec:curvature}
+The other geometric input is a crossing identity: a product of two equality wires can be expanded as a sum of integral coefficient tensors, each admitting two different cut decompositions. Let the wire alphabets have energies $e_1,e_2$, and write $\Theta=2(e_1+e_2)$. The review records the B.2 bounds $(N+1)P(N)$ and $(\Theta-N+1)P(\Theta-N)$ for the two product counts of the same coefficient $\Psi_N$. Here $P(M)$ counts Frobenius symbols with energy at most $M$. The underlying determinant expansion is integral; reflecting the formal variable exchanges the complementary degrees and the two cuts. The same coefficient may vanish after specialization into a small-characteristic field.
+
+For clarity, the normalization in B.1 can be understood via partitions. Interleaving $k$ equal-size pairs of subsets into complementary residue classes gives $P(k^2E)\ge P(E)^k$. A product bound gives $\log P(E)=O(\sqrt E)$. By interleaving a nearly maximizing finite energy into increasingly large energies, the ratio $\log P(E)/\sqrt E$ converges to its finite positive supremum $\kappa$. The review's separate partition-series derivation identifies $\kappa=\pi/\sqrt3$ for natural logarithms: the series $Z(t)=\prod_{j\ge1}(1-e^{-2tj})^{-1}$ satisfies $t\log Z(t)\to\pi^2/12$, whereas optimizing the growth envelope gives $\kappa^2/4$. The numerical value is not needed by B.3. The necessary point is uniform control at the coefficient index selected by the spectral evaluation.
+
+Select one maximizing coefficient $\Psi_N$ for a fixed spectral point. Use its two decompositions, not two separately maximizing coefficients. With energy budgets approximately $p^2 n,q^2 n$, the two associated normalized hub weights satisfy
+\[
+ r^2=\frac{\Theta-N}{n},\qquad (r')^2=\frac{N}{n},\qquad
+ r^2+(r')^2\le2(p^2+q^2).
+\]
+Both inequalities survive the limit for this common choice. This is the joint comparison B.3 that C.2 consumes. A Manhattan-square test in the audit shows why using separate choices would be invalid: the two hub bounds require $r,r'\ge2$ while the joint squared budget is only four. Separately choosing $(2,0)$ and $(0,2)$ hides the contradiction. The complete determinant and minor-sign checks are in \aud{passes/11a-crossing.md}{Pass 11A} and \aud{report/VP_VNP_Research_Review.pdf}{the B.1/B.2 derivation}; the formal identity is \pub{Paper/Identity.lean}{699}{B.2}.
+
+The endpoint curvature inequality C.1 is central. Suppose $w(x,v)=2D$ and $w(x,m),w(v,m)\le D$; the triangle inequality forces equality for the two legs. For $b=w(z,m)$ define
+\[
+ \Gamma=b^2-\frac12\bigl(w(z,x)^2+w(z,v)^2\bigr).
+\]
+The desired bound is $\Gamma\le-D^2$. We state the key reduction to make the order of limits explicit. At fixed $T\ge2$, set $\theta=1/T$, form the extended fan through A.8 and the averaged stable seminorm $N(\cdot)$ obtained from a translation-invariant limiting mean of squared distances. Write $\Lambda_2\le(D+b)^2$ for the average squared spoke length. The publisher's four fan estimates, audited in Pass 9, are
+\begin{align*}
+ N(1,0)&\ge D, &N(1,-1)^2&\le D^2(1-\theta+\theta^2),\\
+ N(0,1)^2&\le\theta^2\Lambda_2,\\
+ N(1,-1-A)^2&\ge A^2\theta^2\Lambda_2+A\theta\Gamma-4A\theta^2D(D+b)
+ \qquad (A\ge1).
+\end{align*}
+Here the same fan mean and $\Lambda_2$ must apply to all $A$ at fixed $T$. C.2 gives a second-difference identity for $f(j)=N(1,-1-j)^2$. Subtracting $j^2\theta^2\Lambda_2$ leaves a discretely concave function $\psi$, so
+\[
+ \psi(A)\le\psi(0)+A(\psi(0)-\psi(-1)).
+\]
+Substitute the four estimates, divide by $A\theta$, and let $A\to\infty$ while $T$ remains fixed. The intercept divided by $A\theta$ tends to zero. Dividing the resulting inequality by $\theta$ gives
+\[
+ \Gamma+D^2\le \frac{6D^2+6Db+b^2}{T}.
+\]
+Finally send $T\to\infty$. The right-hand numerator depends only on the original points. This yields
+\begin{equation}\label{eq:cat}
+ w(z,m)^2\le \tfrac12 w(z,x)^2+\tfrac12 w(z,v)^2-\tfrac14 w(x,v)^2.
+\end{equation}
+A diagonal limit $A=T$ would not send $1/(A\theta)$ to zero, so the successive limits are genuinely required by this proof. For a metric square with distances along its edges, two opposite corners $x,v$ are distance two; taking the other corners $m,z$ gives $w(z,m)^2=4$ but the right side of \eqref{eq:cat} is zero. The price hypothesis is therefore substantive; not every pseudometric is a price.
+
+\scope{The derivation uses the four established fan estimates and C.2, not an independent proof of the entire price geometry. The archived 44-module targeted build for C.1 and subsequent C.3/D.2 replay concern the exact publisher statements. See \pub{Paper/Fan.lean}{987}{C.1 endpoint}, \pub{Paper/Means.lean}{465}{C.2}, and \aud{checks/pass09_endpoint_replay_results.json}{the focused receipt}.}
+
+\subsection{D.2: why lack of contraction produces Euclidean prices}\label{sec:d2}
+Fix a field $K$. For a price on $\operatorname{Mat}_\mu(\F_2)$ define $D(r)$ as the root-mean-square distance between $a$ and $a+W$ under uniform $a$ and a uniform rank-$r$ matrix $W$. The binary field here indexes configurations, and need not be the field over which the circuit is computed. The publisher's Definition D.1 states:
+\begin{itemize}[leftmargin=1.5em,itemsep=1pt]
+\item Flatness: all finite subsets of all Euclidean spaces with their metrics are $K$-prices.
+\item Contraction: some $\mu\ge2$ and $1\le s<\sqrt\mu$ satisfy $D(\mu)\le sD(1)$ for every such $K$-price.
+\end{itemize}
+D.2 asserts that at least one holds. We explain the structure of its proof. C.3 realizes each price as the pullback of a complete CAT(0) price space. For uniform transversal rank-$i$ and rank-$j$ increments, the CAT(0) quadrilateral inequality averaged over $a$ implies
+\[
+ D(i+j)^2\le D(i)^2+D(j)^2 \quad (i+j\le\mu).
+\]
+If contraction fails, take prices with $D(1)=1$ and $D(\mu)$ tending to $\sqrt\mu$. The finite normalized configurations are bounded and admit a limit price. Subadditivity gives $D(r)^2\le r$. Equality at $\mu$ and the inequality at $(r,\mu-r)$ force $D(r)^2=r$ for all ranks. At this limit every quadrilateral defect in the finite average is nonnegative and their average is zero; hence each defect is zero.
+
+The remaining rigidity argument in D.2 upgrades equality of averages to equality of every squared distance. With $n_a(W)=w(a,a+W)^2$ and for transversal increments define
+\[
+ B_a(W,W')=\tfrac12[n_a(W+W')-n_a(W)-n_a(W')].
+\]
+The quadrilateral equalities yield base-point invariance along transversal shifts and additivity of $B_a$ on transversal triples. Elementary rank-one exchanges over $\F_2$ imply that $B_a$ takes one value $\lambda(a)$ on transversal rank-one pairs. The translation identity gives a sign reversal of $\lambda$ along a rank-one step. A rank-two step both reverses it (by the rank-two identity) and preserves it (as two rank-one steps), forcing $\lambda=0$. Additivity on transversal sums and rank-one normalization yield $w(a,a')^2=\operatorname{rank}(a-a')$. The binary diagonal matrices therefore form the vertices of an isometric Euclidean cube. C.4(f) fills the cube by geodesic interpolation, one coordinate at a time. Arbitrarily large cubes yield every finite Euclidean configuration after translation and scaling.
+
+\interpret{The alternative is a rigidity-versus-saving dichotomy. If a strict uniform saving cannot be extracted, normalized price inequalities become tight; equality rigidifies a finite geometry enough to supply Euclidean configurations. If the saving exists, the contracting branch uses it to reduce network loads. This need not be a mutually exclusive dichotomy and the proof does not compute the case.}
+\scope{D.2 is a publisher theorem. Our exposition traces its hypotheses and the equality mechanism; the full geometric construction remains in the source and its formal dependencies. See \pub{Paper/Alternative.lean}{43}{definition}, \aud{passes/07-field-alternative.md}{field alternative audit}, and \aud{passes/08-price-space-completion.md}{price-space completion}.}
+
+\section{The flat branch: from an arbitrary circuit to a common price}\label{sec:flat}
+\subsection{The auxiliary polynomial and its coefficient tensor}
+Fix $k\ge2$ and $\ell\ge100\sqrt{k}$. Put $N=\binom{k}{2}$ and assign an $\ell$-bit string to each edge of the complete graph on $k$ vertices. At vertex $a$, let $X_{a,x_a}$ be the variable indexed by the tuple of strings on its incident edges. The polynomial $f_{k,\ell}$ sums the product of the $k$ chosen variables over all shared edge assignments. Its multidegree is one in each of the $k$ blocks. The coefficient tensor $t$ has one equality constraint for each pair of edge endpoints; it is the tensor product of $N$ dimension-$2^\ell$ wires. A circuit computing this polynomial need not use those edges in any recognizable way.
+
+The key reduction is to recover a useful tensor representation from the output coefficients of any circuit. Fix a finite index set $T$ for each block (padding where necessary), and an arbitrary gate list $(p_i)_{i<L}$. For $S\subseteq[k]$ and a block assignment $x$, let
+\[
+ m_S(x)=\prod_{a\in S}X_{a,x_a},\qquad c_{i,S}(x)=[m_S(x)]p_i.
+\]
+The bracket is the exact monomial coefficient, with no contributions from unselected blocks. At a product $p_i=p_u p_v$ the identity
+\begin{equation}\label{eq:split}
+ c_{i,S}=\sum_{B\subseteq S}c_{u,B}c_{v,S\setminus B}
+\end{equation}
+holds because each variable with exponent one is assigned to exactly one of the ordered input sockets. The identity permits repeated predecessor indices $u=v$, high intermediate degree and cancellation. A sum gate adds its two coefficient tables.
+
+\begin{proposition}[Balanced-cofactor decomposition, publisher E.4; review reconstruction]\label{prop:balanced}
+Let $k\le3|A|\le2k$ define a balanced subset. For any $L$-gate list and every large $S$ (meaning $3|S|>2k$), there exist complementary coefficient tables $H^{i,S}_{\delta,A}$ depending only on the coordinates in $S\setminus A$ such that
+\begin{equation}\label{eq:cofactor}
+ c_{i,S}(x)=\sum_{\substack{A\subseteq S\\k\le3|A|\le2k}}\sum_{\delta<L}
+ c_{\delta,A}(x)H^{i,S}_{\delta,A}(x|_{S\setminus A}).
+\end{equation}
+In particular the full block component is a sum over balanced cuts, with at most $L$ separated products for each fixed cut.
+\end{proposition}
+\begin{proof}
+Induct strongly on the original gate index, retaining the same $k$ throughout. For a scalar or variable, a large set $S$ has at least two blocks and its coefficient is zero. At addition combine the two earlier collections entrywise. For each ordered allocation $B\sqcup C=S$ in \eqref{eq:split}, choose the left component if $3|B|\ge k$, and the right component otherwise. In the latter case $3|C|>k$. Denote the chosen set by $D$, its earlier gate by $r$, and the sibling gate by $s$. If $3|D|\le2k$, the chosen component is balanced; enter $c_{s,S\setminus D}$ as the complementary factor at $(r,D)$. If it is larger, apply the induction hypothesis to $(r,D)$ and multiply each resulting cofactor by the sibling coefficient. It depends only on $(D\setminus A)\sqcup(S\setminus D)=S\setminus A$. Summation of all ordered splits adds entries belonging to the same original gate and balanced subset. The induction descends in gate index even when $D=S$ and the sibling is a constant. This avoids a non-decreasing recursion in subset size. Setting $S=[k]$ at the output gives the claimed separated coefficient tables. Packaging each table as a polynomial on its own block set preserves the coefficient identity because the sets are disjoint.
+\end{proof}
+\begin{example}[One gate, two contexts]
+For four blocks write $g=A_0B_0$ once and form $gC_0D_0+gC_1D_1$. Across the cut $\{A,B\}\mid\{C,D\}$ the cofactor at $g$ is $C_0D_0+C_1D_1$. It carries both contexts without introducing a second label for $g$. Keeping only the first use loses the coefficient of $A_0B_0C_1D_1$. If a repeated input is added twice it can cancel in characteristic two; the coefficient recurrence still holds.
+\end{example}
+This proof bounds the number of products for a fixed cut, not the circuit complexity of computing each cofactor. That distinction is exactly what allows it to treat arbitrary circuits without a formula-size expansion. The original source is \pub{Paper/Flat.lean}{229}{E.4}; the review's detailed proof is \aud{passes/pass13A-gate-reuse.md}{Pass 13A}. The formal lemma also admits commutative semirings at this stage.
+
+\subsection{Routing a cut through hubs and paying for a common selector}\label{sec:selector}
+For each balanced set $A$, route the separated coefficient sum through two hubs, one for each side, with an internal wire of dimension $L$ carrying the original gate index. Each outer end connects to its own hub by a dimension-$2^\ell$ wire. Let $T_A$ denote this hub tensor. By the coefficient decomposition and A.3, $t$ is a sum of restrictions of $T_A$. There are $J\le2^k$ candidate sets; different summands can correspond to different cuts.
+
+Let $P$ be the set of parties with nontrivial output coordinates. Write $g_\varphi(P)$ for the exponent of the shared size-two diagonal selector on $P$, so a diagonal selector of size $r$ has spectral value $r^{g_\varphi(P)}$. We reproduce the key E.7 estimate under its exact restriction hypotheses:
+\begin{proposition}[Mixed-cut spectral bound, publisher E.7]\label{prop:mixed}
+If $t$ is the sum of restrictions of $T_1,\ldots,T_J$ and the output is trivial outside $P$, then for any spectral point $\varphi$,
+\begin{equation}\label{eq:mixed}
+ \varphi(t)\le J^{g_\varphi(P)}\max_{1\le j\le J}\varphi(T_j).
+\end{equation}
+\end{proposition}
+\begin{proof}[Reconstruction of the exact case]
+Take the $n$-fold tensor power, expand by words in $[J]^n$, and group by the vector of multiplicities of each letter. There are at most $(n+1)^J$ types. For a type $\tau$, choose a representative word and a permutation of positions for each word of that type. One common index among the $r_\tau$ words allows every party in $P$ to permute its output positions according to the same permutation. The other parties have no nontrivial output index to move. The sum of terms of type $\tau$ is thus a restriction of the representative product together with a shared selector of size $r_\tau$. Since $r_\tau\le J^n$, multiplicativity and the cover bound give
+\[
+ \varphi(t)^n\le(n+1)^J\bigl[J^{g_\varphi(P)}\max_j\varphi(T_j)\bigr]^n.
+\]
+If the exponential base is zero the desired claim follows at once. Otherwise take $n$th roots and send $n\to\infty$ with $J$ and all tensors fixed. The polynomial overhead has root tending to one. This proves \eqref{eq:mixed}.
+\end{proof}
+The approximate variant N.3 additionally extracts a Laurent coefficient; a polynomial-in-$n$ factor is charged at fixed degree envelope and fixed number of parties. It disappears in the same order of limits. One cannot let $J$ grow with $n$ without a new estimate: if $J=n$, the number of possible multiplicity types is at least $2^{n-1}$. Nor can one charge a selector on a party outside the actual output support. For example $E_{00}+E_{11}$ has matrix rank two whereas each term has rank one; a selector visible to only one of the output parties cannot coordinate both indices.
+
+The common price is also necessary before maximizing over cuts. Consider two candidate wire tensors, with two flattening-rank tests assigning $(2,1)$ and $(1,2)$. The minimum of the row maxima is two; the maximum of the column minima is one. Choosing a favorable functional separately for each term would silently exchange the quantifiers. The review records the 84 signed tensor-power entries and 1,428 balanced directions checked in the Pass 14A finite controls; the general mixed-cut bound rests on the proof above. See \aud{passes/14a-flat.md}{Pass 14A}, \pub{Paper/Convex.lean}{22}{E.7}, and \pub{Nc/Price/BorderFew.lean}{134}{the type-count estimate}.
+
+\subsection{One common Euclidean witness and the price of the end selector}\label{sec:euclid}
+In the flat case any finite Euclidean configuration is a price. This does not permit freely replacing every distance by Euclidean length in a tensor inequality: a common spectral point and one scale have to approximate \emph{all} distances simultaneously. E.8 and E.9 establish the additional selector estimate needed to pay for the mixed-cut sum.
+
+Here is the quantitative mechanism. If $m_i$ is the midpoint of $a_i,b_i$ in a finite Euclidean configuration, choose a shared fair placement between the two maps. The extension argument of Section~\ref{sec:extension} preserves the product of all old wires and one designated old diagonal tensor. Positivity and one-sided domination force each factor, and then every old wire, to retain its value. The new labels become exact midpoints in the extended price. Suppose the original scaled spectral distances approximate the Euclidean distances to $d\le1$. With $R$ the sum of pair distances and $q$ the number of labels, the midpoint inequality bounds the displacement from the old Euclidean midpoint to the new label. Moving the $q$ selector legs one at a time gives error at most
+\[
+ q\sqrt{d(2R+4)}.
+\]
+Thus for per-level allowance $\eta$ one may choose
+\[
+ d=\min\left(1,\frac{\eta^2}{(q^2+1)(2R+4)}\right).
+\]
+Crucially this tolerance is selected before the spectral witness and applies to every needed triple of maps. The internal extensions may differ, but the inequality obtained is for the same original witness.
+
+At each end position $\pm e_i/2$ of a $k$-cube, start with the random sign map $s e_i/2\mapsto s\chi_i\chi/2$ where $\chi\in\{-1,1\}^k$. Each such map has image in two positions on a diagonal of length $\sqrt k$. Averaging the first $j$ independent signs gives maps into the ternary half-cube. Each next level is a pointwise midpoint of two preceding maps. Include all those points and every possible hub position in the configuration before choosing the spectral point. The average satisfies $\mathbb E[\chi_i\chi_j]=\delta_{ij}$, so after $k$ levels it recovers the end positions. Taking $\eta=\Delta/(2k)$ and initial pair error at most $\Delta/2$ gives a selector exponent $G$ with scaled bound
+\begin{equation}\label{eq:selector}
+ cG\le \sqrt k+\Delta.
+\end{equation}
+The accumulated loss is per depth, not per leaf of the binary averaging tree. Coincident logical end positions do not create extra geometric cost; the pullback preserves the image exponent. See \pub{Paper/Convex.lean}{318}{cube induction} and \aud{passes/14a-flat.md}{E.8--E.9 reconstruction}.
+
+\subsection{Paying-cut geometry and the scalar inequality}\label{sec:paying}
+Place the two ends of an edge $a<b$ at $+e_a/2$ and $-e_a/2$, with signs assigned according to the cut in the routed tensor. The original wire length is one. For a balanced cut $A$, define $s_a=+1$ for $a\in A$ and $-1$ otherwise, and
+\[
+ u_A=\sum_{a<b\text{ crossing }A}s_a e_a,\qquad
+ \gamma=\frac{2}{9\sqrt k},\qquad x_A=\gamma\frac{u_A}{\|u_A\|}.
+\]
+Since $\langle u_A,s\rangle=|A|(k-|A|)\ge2k^2/9$, Cauchy--Schwarz gives $\|u_A\|\ge2k\sqrt k/9$. Place the two hubs at $\pm x_A$. For unit $e$ use
+\[
+ \|e/2-x\|\le\tfrac12+\|x\|^2-\langle e,x\rangle,
+\]
+which follows from the tangent inequality for the square root at $1/4$. Summing the end lengths yields at most
+\[
+ N+2N\gamma^2-2\gamma\|u_A\|\le N-4k/81,
+\]
+where $N=k(k-1)/2$. The middle length is $2\gamma$. Both hubs for \emph{every} balanced set are included before choosing the common witness. Now apply Proposition~\ref{prop:mixed} and choose the paying cut for that witness.
+
+Let $S_1,S_2,S_3$ be the sums of original, outer and middle-wire exponents (the last a single wire), respectively, and let $G$ be the logical end selector exponent. Taking base-two logarithms of \eqref{eq:mixed}, and using $J\le2^k$, gives
+\begin{equation}\label{eq:budget}
+ \ell S_1\le kG+\ell S_2+S_3\log_2L.
+\end{equation}
+At $\Delta=1/(1000k)$ the common witness and its scale $c$ obey
+\begin{align}
+ cS_1&\ge N(1-\Delta), &cS_2&\le N-4k/81+2N\Delta,\label{eq:pricebounds}\\
+ cS_3&\le4/(9\sqrt k)+\Delta, &cG&\le\sqrt k+\Delta.
+\end{align}
+Here $c$ is a metric scale, not the universal lower-bound constant. The proof uses the original $S_1$ and the paying cut's $S_2,S_3$ in the \emph{same} spectral point. The total pair approximation loss in the wire difference is $3\ell N\Delta$, independent of the number of candidate cuts.
+
+\begin{theorem}[Review strengthening of the E.10 scalar margin]\label{thm:twelve}
+Under \eqref{eq:budget}--\eqref{eq:pricebounds}, $k\ge2$, $\ell\ge100\sqrt k$ and $L\ge1$,
+\[
+ \log_2 L>\frac{\ell k\sqrt k}{12}.
+\]
+\end{theorem}
+\begin{proof}
+Write $z=\log_2 L\ge0$. Multiply \eqref{eq:budget} by the common scale, use the four one-sided bounds, and rearrange:
+\[
+ (4/(9\sqrt k)+\Delta)z
+ \ge \ell(4k/81-3N\Delta)-k(\sqrt k+\Delta).
+\]
+Since $3N\Delta\le3k/2000$, $k(\sqrt k+\Delta)\le\ell k(1/100+1/10000)$, and $(4/(9\sqrt k)+\Delta)\sqrt k\le4/9+1/1000$, multiplication by $\sqrt k$ yields
+\[
+ az\ge b\ell k\sqrt k,\qquad
+ a=\frac{4009}{9000},\quad b=\frac{7651}{202500}.
+\]
+Both constants are positive and $12b-a=1073/135000>0$. Hence $b/a>1/12$ and the strict conclusion follows.
+\end{proof}
+The source states denominator 16, and its printed proof and Lean arithmetic already establish denominator 14. The review's denominator 12 is a modest sharpening, not a correction to the final theorem. The independently checked scalar comparison at $k=4,\ell=200,z=138$ gives positive slack $15551/162000$ when each one-sided bound is saturated, even though $z<\ell k\sqrt k/11$. Thus the scalar relaxation alone does not justify denominator 11. No synthetic price in this example is asserted to arise from a circuit. The proof of Theorem~\ref{thm:twelve} and its circuit-level bridge checked in Lean with the archived freshly built Paper.Rate object; they were not among the publisher's five public Comparator targets. See \aud{checks/pass14a_margin_results.json}{scalar receipt}, \aud{checks/pass14a_circuit_results.json}{circuit-level receipt}, and \pub{Paper/Rate.lean}{123}{publisher arithmetic}.
+
+\subsection{Conversion to the target size}\label{sec:flatconvert}
+Let a candidate circuit of size $s$ compute a grid-complete target of matrix order $m$ with projection factor $\kappa$ (40 for HC, 3 for the permanent in allowed characteristics). The grid construction gives a circuit of size at most $5s$ for $f_{k,\ell}$ whenever
+\[
+ \kappa k^3\ell 2^{k\ell}\le m.
+\]
+For all sufficiently large $m$, set $B=\lfloor\log_2m\rfloor$ and choose the largest integer $r$ satisfying $200r^3\le B$. Then $r\ge\kappa+2$ at the specified threshold in E.11, and
+\[
+ \log_2m< B+1\le200(r+1)^3\le1600r^3.
+\]
+Set $k=r^2$, $\ell=100r$. The polynomial factor $\kappa r^6(100r)$ is at most $2^{107r}$ and hence at most $2^{100r^3}$ in the range used. The grid fits. The publisher's weaker /16 bound already gives $\log_2(5s)\ge25r^4/4$ and therefore $\log_2s>r^4$. Combining the inequalities proves
+\[
+ \log_2s>\frac{(\log_2m)^{4/3}}{1600^2}.
+\]
+This calculation applies to every sufficiently large $m$, not just selected cube sizes. It finishes the flat-case exclusion under the same comparison field. See \pub{Paper/Rate.lean}{337}{E.11}, \aud{passes/14a-flat.md}{rate conversion}.
+
+\section{The contracting branch: from a geometric saving to exact weighted cuts}\label{sec:contract}
+The second branch does not start with a low-rank decomposition of the target. Instead, the contraction condition supplies reusable tensor identities with a bound on the amount of data crossing a boundary. These identities are then composed into a tree-shaped computational interface. The point is not that the original arbitrary circuit was a tree; it is that the weighted computation derived from it can be cut under explicit resource bounds.
+
+\subsection{Uniform quadratic inequality before choosing the group}\label{sec:groups}
+Let $U_h$ be the upper unitriangular group over $\F_2$, with $b=2^{h(h-1)/2}$ elements and generators $x_j=1+E_{j,j+1}$. Conditional on the contracting data, the publisher's F.6 gives a uniform price inequality on the Cayley graph for $h=lu$, $l\ge2$, where $u$ and $C_{\rm P}$ depend only on the contracting parameters:
+\[
+ b^{-2}\sum_{g,k\in U_h}w(k,gk)^2
+ \le C_{\rm P}\sum_{j<h-1}b^{-1}\sum_{k\in U_h}w(k,x_jk)^2.
+\]
+The review reconstructed the final averaging estimate from the preceding window inequality and near-orthogonality assumptions in F.2--F.5. To clarify why the constant is uniform, realize the price in a complete CAT(0) space, and project a map $z$ to the fixed-point sets $P_i$ for the window generators. With $k_0$ windows, let $\Phi(z)=\sum_i d(z,P_i z)^2$. Under the stated contraction/angle hypotheses, the averaging step satisfies
+\[
+ \Phi(z')\le(1-\delta/k_0)\Phi(z),\qquad
+ k_0 d(z,z')^2\le\Phi(z)-\Phi(z'),\qquad \delta=1/2.
+\]
+If $\Delta_\Phi=\Phi(z)-\Phi(z')>0$, then
+\[
+ d(z,z')\le\sqrt{\Delta_\Phi/k_0}
+ \le\frac{\Delta_\Phi}{\sqrt{\delta\Phi(z)}}
+ \le\frac{2}{\sqrt\delta}(\sqrt{\Phi(z)}-\sqrt{\Phi(z')}).
+\]
+The same is trivial at zero. Iterating telescopes the path length, even though the rate factor approaches one as the window count increases. Completeness gives a common fixed point. Each generator occurs in at most two windows; the finite-window estimate supplies a constant $C_{\rm P}$ independent of $h$. This is the important order of choices, not a proof that every metric has this inequality. The earlier window and angle results are publisher premises here. See \pub{Paper/Groups.lean}{1085}{F.6} and \aud{passes/pass13B-gain.md}{the uniformity audit}.
+
+For unordered vertex pairs $\mathcal P$ and graph edges $\mathcal E$ put $\alpha=2/[b(b-1)]$ and $\beta=2/b$. The finite-population conversion gives
+\begin{equation}\label{eq:poinc}
+ \sum_{e\in\mathcal P}\alpha w_e^2\le C'_0\sum_{\nu\in\mathcal E}\beta w_\nu^2,
+\end{equation}
+where one may take integer $C'_0\ge2C_{\rm P}+1$. Fix $C_1=4C'_0$, then choose a multiple $h$ of $u$ satisfying $h\ge\max(3,2u,4(1+8C_1))$. The later stage inequality needs $1+8C_1\le h/4$. If $C_1$ depended on $h$ in an uncontrolled way this choice might be circular.
+
+\subsection{From the dual inequality to a menu of exact local laws}\label{sec:laws}
+Define the weighted dual norms $\|n\|_{\mathcal P}^2=\sum n_e^2/\alpha$ and $\|y\|_*^2=\sum y_\nu^2/\beta$. Let $Z_1,Z_2$ be the norms of the all-ones vectors in these spaces and $c_0=\sqrt{C'_0}$. Choose an integer $a\ge4(Z_1+Z_2)+1$. Rounding a nonnegative unit-ball load up gives $\sigma=\lceil ax\rceil$ with $\|\sigma\|_{\mathcal P}\le R=a+Z_1$. For any price put $W^2=\sum_{\nu}\beta w_\nu^2$. Cauchy--Schwarz and \eqref{eq:poinc} yield
+\[
+ \langle\sigma,w\rangle\le c_0RW.
+\]
+For $W>0$, the vector $y_\nu=c_0R\beta w_\nu/W$ has norm $c_0R$ and attains the right side; its ceiling $B$ still dominates the old charge and has norm at most $c_0R+Z_2$. If $W=0$, zero load suffices. The resulting integral ball is finite. The entire menu is fixed independently of the price, although a maximizing member depends on it.
+
+\begin{example}[A menu is not one universal choice]
+For nonnegative $w=(w_1,w_2)$, $w_1+w_2\le2\max(w_1,w_2)$. The menu $\{(2,0),(0,2)\}$ dominates the old load $(1,1)$ in this support-function sense. Neither fixed member dominates it for both coordinate vectors. An existential choice depending on a price cannot be moved outside that price's universal quantifier.
+\end{example}
+For integral loads $D$, let $W^D$ denote the product of $D_e$ dimension-two equality wires. Multiplicativity gives $\log_2\varphi(W^D)=\langle D,d_\varphi\rangle$. Thus the price inequality has the form $\forall\varphi\,\exists B\in\mathcal B:\varphi(W^\sigma)\le\varphi(W^B)$. By A.6 it yields exact tensor covers of sufficiently large powers with a subexponential number of summands; in each summand the local tensor restrictions act on wires from the finite menu. The duality step uses nonvanishing at the all-zero assignment and a normalized upper functional. The certificate argument fixes the set of cover generators before raising powers; repeated substitutions exchange copies of the original tensor, and the sum of the certificate weights bounds the number of final branches. The resulting cover is a literal weighted tensor identity rather than an approximate probabilistic routing rule.
+
+This is the bridge from spectral inequalities to a finite set of exact local laws over a finitely generated coefficient subring $A$. The bounds on channel loads include upward rounding, a common code index, and the coefficient weights. G.2 chooses the law family once the geometry is fixed; it is not chosen separately for each input circuit. The full G.2 construction and F.6 hypothesis are essential. See \pub{Paper/Gauges.lean}{560}{A.6}, \pub{Paper/Laws.lean}{425}{G.2} and \aud{passes/pass13B-gain.md}{dual norm and rounding reconstruction}.
+
+\subsection{Tower routing, host multiplicity, and the load invariant}\label{sec:tower}
+The tower in H.1 is built using reductions of $\operatorname{SL}_h$ over the truncated binary polynomial ring. At one layer the reduction kernel is described by trace-zero leading coefficients; chains of index-two subgroups give successive chamber projections of fibre $b$. The deleted-generator subgroups act freely in their relevant orbits, and projection restricts to a bijection on those orbits. Host bijections assign exactly $b$ children to a host. The same map must be used in the routing and in the multiplicity bound. Arbitrarily choosing hosts can overload a chamber.
+
+For initial routing, the diameter estimate in the formal H.1(d) statement is $O_h((n+1)^7)$. Two translated word routes through an intermediate chamber give a congestion bound of $4m(N+X^2)$ for word-length bound $m$ and initial chamber count $X$. The printed argument explicitly gives the stronger cubic diameter; it is reconstructed in Section~\ref{sec:cubic}. Both exponents produce the polylogarithmic overhead needed here.
+
+Write $v_j$ for the number of chambers at a stage, $Q_j$ for the quadratic load, and $d=\sqrt{C_1}a_1/b$ for the padding allowance. At the next stage $v_{j+1}=v_j/b$. Under the G.2 gain and routing multiplicity bounds H.2 gives
+\begin{align}
+ Q_{j+1}&\le \frac{\sqrt{1+8C_1}}{\sqrt h}Q_j+d v_{j+1}\le\tfrac12Q_j+d v_{j+1},\\
+ Q_{j+1}+dv_{j+1}&\le\tfrac12(Q_j+dv_j)\quad(b\ge4).\label{eq:load}
+\end{align}
+The second line follows since $2/b\le1/2$. The additive rounding cost is absorbed by augmenting the potential before iterating. Cauchy--Schwarz converts the quadratic norm to a bound on the incident load at a node. With logarithmic depth, the publisher's bounds are of form $\Lambda M^{1-\gamma}(N+M^2)$ locally and $\Lambda M(N+M^2)$ globally, where $\gamma=1/\log_2b>0$ and $\Lambda$ is a polylogarithmic factor depending on the fixed parameters. The exceptional terminal packet IDs are charged separately. The H.2(d,e) structure and all-copy bounds also count consumed and padded variables, not just live edges.
+
+The independent routing control explicitly enumerated $\operatorname{SL}_3(\F_2[s]/(s^2))$ (43,008 elements), successive chamber counts 5,376 and 672, and 72,576 selected routes. The observed middle multiplicity was eight and outer multiplicity at most two; the adversarial host collapse produced 64 children instead of eight. This small instance does not satisfy the large-$h$ gain hypothesis. It checks the routing mechanism, not the existence of the G.2 law family. See \aud{passes/14b-tower.md}{H.1--H.2 audit} and \pub{Nc/Tow/Load.lean}{364}{quadratic estimate}.
+
+\subsection{Preservation of the weighted global value}\label{sec:glue}
+Let each node $p$ contribute a local function $\phi_p$ of incident packet values in a commutative ring. A wire has one variable shared by its holders. The total value is the finite sum of products of the local functions. A local law is used in each layer of a move; distributivity expands the old agreement condition into a weighted sum of admissible replacements. Channel words contain a law index and its payload. A self-delimiting encoding, plus connectedness of the channel graph, ensures that the same sequence of indices is used by all incident roles. The outcome records lengths; those lengths alone do not identify the index sequence. A final marker and padding produce the final packet even at zero layers. Some bounded good outcomes are unrealizable and contribute zero. The source uses the whole sum, not the value of each outcome separately.
+
+\begin{proposition}[Shared-boundary identity; local regrouping]\label{prop:glue}
+Fix a feasible collection of shared variables and a partition of the network nodes into pieces. Let $B$ be the set of distinct current packet IDs crossing between pieces. For a boundary assignment $b$ define $V_j(b)$ as the sum of the product of local factors of piece $j$ over internal assignments consistent with $b$. Then the total value of the fixed network is
+\begin{equation}\label{eq:glue}
+ Z=\sum_{b\text{ on }B}\prod_j V_j(b).
+\end{equation}
+\end{proposition}
+\begin{proof}
+Restriction of a global assignment gives a unique common boundary word and one internal assignment for each piece. Conversely assignments of the pieces consistent with that word determine a unique global assignment; every packet is assigned at its holders by the same ID. The maps are inverse, and each node factor occurs exactly once. Regroup the finite sum by the word and apply distributivity. No positivity, division, or probabilistic independence is required.
+\end{proof}
+\begin{example}[A shared label is part of the value]
+With two boundary values, $f=(1,-1)$ and $g=(1,0)$, the shared contraction $\sum_b f(b)g(b)=1$. Multiplying their independent sums gives zero. With two distinct parallel packet coordinates, the audit's example on assignments $01,10$ has left weights $(2,-1)$ and right weights $(3,5)$, giving $2\cdot3-1\cdot5=1$; independent choices give eight. Collapsing the parallel coordinates can remove both contributions. The global answer depends on the correspondence of the boundary indices, not just the local sums.
+\end{example}
+The actual J.2 partition consists of heavy singleton pieces and full subtrees rooted at light children. Each nonempty piece has all its crossing tree edges incident to a single node. This strong shape constraint lets the incident-load estimate bound the boundary for one piece. Arbitrary connected pieces do not have it; two adjacent interior vertices of a four-node path have disjoint crossing edges. J.2 additionally pays exceptional terminal bits. Consumed packets can still be present in a local table; the all-copy budget pays their historical use. At the parameter tuple used later, the review records a per-piece cut bound $KT\Lambda/v^{300}$ bits and a total-bit bound $KT\Lambda/k$ that includes additional charged copies and original work. This is a specific bounded-good-outcome construction, not a theorem that any graph partition decreases storage.
+
+The archived signed two-layer control tested all 16 boundary assignments, with outcome contributions $3,-60,50$ summing to $-7$. Deleting the label or terminal marker produced wrong values in negative controls. See \pub{Paper/Tree.lean}{1102}{weighted identity}, \pub{Paper/Pieces.lean}{640}{J.2 quantifiers}, \aud{passes/11c-piece-decomposition.md}{boundary-word reconstruction}, and \aud{passes/14b-tower.md}{the finite controls}.
+\interpret{For a human reader, the construction can be viewed as a compiler from one exact weighted network to a sum of controlled network descriptions. Equation~\eqref{eq:glue} explains why the compiler must retain shared IDs; equation~\eqref{eq:load} explains why a value-preserving compiler is not enough without a resource invariant. Neither equation alone implies the full J.4 cutting theorem.}
+
+\section{From weighted programs to a cutter and an accelerator}\label{sec:machine}
+\subsection{Weighted computations, accepting bills, and plainness}\label{sec:plain}
+The contracting branch uses a nondeterministic tree-program model with ordinary weights from a base ring $A$ and named scalars in a commutative $A$-algebra $R$. Write $\iota:A\to R$ for the coefficient map. An accepting run $r$ has an ordinary weight $w_r$ and an ordered list $b_r$ of requested scalar names, its bill. If $\lambda(q)$ is the scalar named by $q$, its contribution is
+\begin{equation}\label{eq:value}
+ \operatorname{val}(p,z)=\sum_{r\in\mathrm{Acc}(p,z)}\iota(w_r)\prod_{q\in b_r}\lambda(q).
+\end{equation}
+The sum is over occurrences of accepting runs, including repeated contributions and zero weights. The empty product is one; an empty accepting-run list has sum zero. The encoded program can request a name and continue independently of the name's scalar value. This is different from using the weight instruction, which multiplies an ordinary coefficient.
+
+A short instance is a description of bounded size. A $T$-plain instance is stronger: the encoded program on the encoded argument halts on every run, all its accepting runs have empty bills, and each accepting run costs at most $T$. The time of executing a caller on that description and the time of the described computation need not be the same. The definition is deliberately not a bound on rejecting-run time. Universal halting is a separate guarantee. The relevant definitions appear in \pub{NS1/Accel.lean}{23}{Accel.lean} and Appendix J/K of \cite{claude}.
+
+\begin{example}[A short halting program need not be plain]
+Consider a two-step computation that emits one supported name and then accepts. It halts on all runs and its accepting cost is at most two. Its accepting bill is nonempty, so it is nonplain at every time budget. An operational guarantee cannot alone discharge a value guarantee conditioned on plainness.
+\end{example}
+The review Lean file \aud{checks/pass15_plain.lean}{pass15\_plain.lean} isolates this counterexample. It is a genuine distinction in the model and will be used in Section~\ref{sec:diagonal}.
+
+\subsection{I.1: weighted simulation is weaker than trace-count bijection}\label{sec:i1}
+Proposition I.1 simulates the plain program with a weighted universal automaton under a stated time threshold. The pointer interpreter navigates supported generator prefixes. An unsupported lookup of weight zero may leave an accepting source run with total weight zero, while the corresponding machine branch has no accepting trace. Thus the weighted sum is preserved, but the literal count of accepting occurrences need not be.
+
+A minimal example takes the empty name to have weight $-1$ over the integers, every other name zero, and applies the weight instruction to a quoted one-bit false name. The source can accept with weight zero and empty bill. The pointer machine follows supported prefixes and cannot follow the unsupported bit; that branch contributes no accepting trace. The two sums are both zero. In symbols a run list $[0]$ and an empty run list $[]$ have equal sum but different cardinality. This counterexample addresses the stronger wording of the manuscript's simulation, not the scalar identity in the numbered proposition. With a support assumption ensuring that all requested names have valid pointer transitions, the stronger count correspondence may have its intended scope. See \pub{Paper/Universal.lean}{29}{I.1}, \pub{Nc/Uni/EvalU.lean}{251}{pointer branch}, and \aud{passes/publisher-errata.md}{errata item 2}.
+
+\subsection{J.3: one cut, with separate run and value contracts}\label{sec:onecut}
+For a fixed parameter tuple the cutter is one program on \emph{every} short description. On any input of size at most $s$, it halts on every run and its accepting outputs are lists of boundedly many bounded-size pieces, with empty bills and a bounded accepting-run clock. Only when the input is plain within the declared budget does the value equation assert that its value equals the weighted sum of products of the pieces' values and that the pieces have the needed plainness. The underlying J.2 network identity is used at the fixed program size, time, and cut parameters. The dealer can omit a tuple with an absent packet at an active wire, because the factor of its incident piece is zero; a present all-zero payload is a different value. Thus the enumeration need not be a bijection between all nominal tuples and accepting runs.
+
+More explicitly, J.3 in the audited formal statement fixes $v$ large, time $\tau\ge v^{a_0}$, $4\lg\tau\le(\lg v)^2$, $s\le\tau$, $2\le k\le v^{64}$, and $\Lambda=(\lg v)^C$, where $\lg$ denotes binary digit length. One program of size at most $v^{a_0}$ serves all such inputs. Accepting runs cost at most $(s+\lfloor\tau k/v^{256}\rfloor)\Lambda$, return at most $k\Lambda$ pieces, each of size at most $(\lfloor s/k\rfloor+\lfloor\tau/v^{256}\rfloor)\Lambda$. For a plain parent, each returned piece is plain at time $\lfloor\tau\Lambda/k\rfloor$. The exact value is the weighted sum of their products. The additive size term permits padding and decoding even when $\lfloor s/k\rfloor=0$.
+
+The reader should not interpret the accepting clock as a deadline for every rejecting execution. Nor should the existence of short pieces alone be taken as evidence of a correct cut. The source constructs a dealer and uses the universal simulation to identify the value of a plain parent. See \pub{Paper/Cuts.lean}{101}{J.3}, \pub{Nc/Dl/Cut.lean}{239}{zero-factor omission}, and \aud{passes/06-one-cut-and-iteration.md}{Pass 6}.
+
+\subsection{J.4: composition, rounding, and the complete cost of a list}\label{sec:cut}
+For each accepting parent run of weight $w$ and output list $y_1,\ldots,y_m$, substitute each child's cut expansion into $w\prod_i\operatorname{val}(y_i)$. Distributivity yields one term for every selection of one accepting child run \emph{per occurrence} in the list. The combined weight is the parent weight multiplied by all child weights; the new list is their concatenation. An empty list contributes the parent's weight. If a required child has no accepting run, the product contributes zero. Two repeated child descriptions may select different accepting runs. This identity works over a commutative ring without positivity.
+
+In the audited J.4 scale, write $U=v^H$ with $H=16(a_0+217)\ge272$, and maintain a time bound $T$ and input-size bound $S$. The regular cut takes $k=v^{63}$ whenever $T\Lambda\ge Uv^{64}$; then $T'=\lfloor T\Lambda/k\rfloor$ satisfies $Uv\le T'\le T/v^{62}$. At the terminal cut take $k=\lfloor T\Lambda/U\rfloor+1$, so $2\le k\le v^{64}$ in the declared range, and $\lfloor T\Lambda/k\rfloor<U$. This is a legal final cut even at $T=U$. The size recurrence
+\[
+ S'=\bigl(\lfloor S/k\rfloor+\lfloor T/v^{256}\rfloor\bigr)\Lambda
+\]
+ensures $S'v^{48}k\le2cT\Lambda$ if $Sv^{48}\le cT$ and $c\ge1$. Here the padding term is bounded using $k\le v^{64}$; no extra scale factor is needed in this inequality. At a regular step $T\Lambda\le2kT'$ and so $S'v^{48}\le4cT'$. The piece count pays $(k\Lambda)T'\le T\Lambda^2$, and a terminal step uses $kU\le T\Lambda+U$.
+
+The accepting cost of composing cutters with respective bounds $t_1,t_2$ and piece counts $P_1,P_2$ is at most
+\begin{equation}\label{eq:listcost}
+ t_1+P_1(t_2+62P_2+110)+100,
+\end{equation}
+with at most $P_1P_2$ pieces. This pays for concatenation and traversal as well as executing the child cutter. Code size is separately bounded by the first program plus three copies of the second plus 3000. Under the J.4 hypotheses, the induction uses $H\alpha$ as a depth bound and absorbs count, time, and size losses $(4\Lambda^2)^{H\alpha+1}$, $(100\Lambda^3)^{H\alpha+1}$, $(8\Lambda)^{H\alpha+1}$ respectively. The logarithmic scale hypothesis makes the largest at most $v$. The resulting common cutter has code size at most $v^H$, its pieces are plain within $v^H$ when the parent is plain, and the advertised bounds are
+\[
+ t\le\lfloor\tau/v^{24}\rfloor,\qquad
+ P\le\lfloor\tau v^2/v^H\rfloor,\qquad
+ S'\le v^{H-32}.
+\]
+Section~\ref{sec:j4tight} records the stronger simultaneous inequalities retained by the review's subsequent formal follow-up. The derivation uses the actual induction witnesses, not an arbitrary abstract cutter satisfying only the weakened interface. See \pub{NS1/Compose.lean}{89}{composition charge}, \pub{Paper/Cuts.lean}{460}{J.4}.
+
+\scope{J.3 and J.4 are encoded publisher results. This audit reconstructed the recurrence, finite controls, and the consumer-facing contract. A complete independent human reconstruction of the instruction-level dealer/listing construction remains distinct from checking the published proof term.}
+
+\subsection{K.2: compile a general circuit into weighted accepting runs}\label{sec:compiler}
+The K.2 interface computes the degree-truncated value of a circuit at an encoded word. It does not require the intermediate degrees of the circuit to be bounded. For each gate define $c_g=p_g(0)$ and $q_g(j)=[T^j]p_g(Tu)$. At a product with ordered predecessors $h,v$ and $j\ge1$,
+\[
+ q_g(j)=c_vq_h(j)+c_hq_v(j)+\sum_{0<i<j}q_h(i)q_v(j-i).
+\]
+Inductively construct a row $\lambda_g$ on variable addresses and a row $\kappa_g$ on ordered pairs of gate addresses such that, with $a_g=\sum_x\lambda_g(x)u_x$,
+\begin{equation}\label{eq:homog}
+ q_g(j)=\ind{j=1}a_g+\sum_{l,r}\kappa_g(l,r)\sum_{0<i<j}q_l(i)q_r(j-i).
+\end{equation}
+Rows are zero at scalars and one-hot for the linear part of a variable. At addition they add. At multiplication set
+\[
+ \lambda_g=c_v\lambda_h+c_h\lambda_v,\qquad
+ \kappa_g=c_v\kappa_h+c_h\kappa_v+\delta_{(h,v)}.
+\]
+Substitution of earlier recurrences proves \eqref{eq:homog}. Repeated predecessor addresses retain the two ordered sockets. For instance $(1+x)^2$ has degree-one term $2x$, zero in characteristic two but not over the integers. Treating the two references as one contribution would be wrong.
+
+Let $E_g(T)=\sum_{j\ge1}q_g(j)T^{j-1}$. Then
+\[
+ E_g=a_g+T\sum_{l,r}\kappa_g(l,r)E_lE_r.
+\]
+For a pending list $L$ and budget $b\ge0$, define $W(b,L)=\sum_{j=0}^b[T^j]\prod_{g\in L}E_g$. Expanding the first factor gives the exact recurrence
+\begin{equation}\label{eq:forest}
+ W(b,g::L)=a_gW(b,L)+\ind{b>0}\sum_{l,r}\kappa_g(l,r)W(b-1,l::r::L),\quad W(b,[])=1.
+\end{equation}
+The value through cutoff $d\ge1$ at the output gate is $c_{\rm out}+W(d-1,[\rm out])$. For $d=0$ the constant component suffices. The integer potential $2b+|L|$ decreases by exactly one in either recursive move: a leaf removes one list entry, while a split decrements $b$ and replaces one entry by two. Starting at $2d-1$, it bounds branch length; the pending list has at most $d$ entries. This is the key accounting step. It prices occurrences, not distinct gate indices.
+
+The trie holds coefficient rows and named powers; the program guesses address indices, bills the corresponding values, and uses a balanced access tree for the word. It pays the cost of preparation and padded addresses. For $S\le2^M,N\le2^m$ the source gives an advice-node bound $2^{3M+1}+2^{M+m+3}+3$, height $3M+m+4$, program size $c(M+m+1)+2(d+1)$, and accepting time
+\[
+ (d+1)(800(M+m)+4000)+(|z|+2)(40m+60)+10m+100.
+\]
+These are per-accepting-run cost and advice-size bounds, not bounds on the number of branches, total deterministic summation time, or bit cost of arbitrary scalar representations. See \pub{Paper/LowDeg.lean}{42}{K.2}, \pub{Nc/Acc/Loop.lean}{182}{forest recurrence}, and \aud{passes/14c-compiler.md}{compiler reconstruction}.
+
+\subsection{K.3: canonical word encoding and the actual polynomial}\label{sec:k3}
+Let $A_t(w)$ be the weighted automaton's fixed-time value for word $w$ of length less than $N$. Its canonical code has one symbol per consumed row, one end mark at row $|w|$, and zeros afterwards. Denote its monomial by $X_{C(w)}$. Two distinct canonical supports are incomparable: a proper prefix has an end marker where the longer word has an ordinary symbol, and non-prefix words disagree at the first unequal symbol. Thus the printed word polynomial
+\[
+ P(X)=\sum_{|w|<N}A_t(w)X_{C(w)}
+\]
+agrees with the automaton on each canonical word code. Omitting the end marker would already fail to distinguish a proper prefix from a longer code.
+
+The concrete source constructs a clause polynomial with trailing-row freedom. In the single-input construction traced in the audit it is
+\begin{equation}\label{eq:clause}
+ Q(X)=\sum_{|w|<N} A_t(w)X_{C(w)}
+     \prod_{j>|w|,\ j<N}\left(1+\sum_{\alpha\in\Gamma\cup\{\#\}}X_{j,\alpha}\right).
+\end{equation}
+The reason is that an accepting run fixes the consumed letters and the first end marker. Each later unused row may be empty or carry one allowed symbol without changing the certificate of that run. Conversely the cumulative input counter forces the used prefix in each contributing certificate. The formal theorem directly requires degree at most $N$ and agreement on every canonical word code, which both expressions satisfy. It is $Q$, not necessarily $P$, that the grid projection and the degree-truncation compiler use.
+
+\begin{example}[Off-code difference, review K.3 erratum]\label{ex:k3}
+Take three rows, a binary alphabet, one start/end state, and one step. Give only the transition consuming zero weight one. Write $A=X_{0,0}X_{1,\#}$. The printed polynomial is $P=A$; the clause polynomial is
+\[
+ Q=A(1+X_{2,0}+X_{2,1}+X_{2,\#}).
+\]
+On the canonical code of the word 0 both equal one. Turning on a second end marker in row 2 gives $P=1,Q=2$ over the rationals. The formal polynomial identity $P=Q$ is false, whereas equality on canonical codes holds. The example is an actual off-domain test rather than a hypothetical concern about the compiler.
+\end{example}
+An optional stronger construction adds a zero-weight guard for each pair $p<q<N$ and symbol $\alpha\in\Gamma\cup\{\#\}$, firing when row $p$ has an end mark and row $q$ carries $\alpha$. It eliminates every nonempty trailer. There are $(|\Gamma|+1)N(N-1)$ additional literal occurrences (two per guard), with no new variables. The audit's envelope $1600B^9$ becomes at most $1601B^9$ at its stated $B$. This restores the stronger polynomial identity but is not required by the publisher's construction; the review checked the guarded variant against independent coefficients. The distinction is important: an exact circuit for the concrete projected polynomial is compiled by K.2; only after summing its homogeneous components does K.3 evaluate it on a canonical short plain instance.
+
+The general K.3 theorem fixes $A$, its generating table, $H$, and the grid-completeness factor. For sufficiently large scale $v$, any appropriately bounded target circuit gives one accelerator at that scale, of size at most $v^{C(a+1)}$ when the input gate bound is $v^a$. The same program and trie work for all short descriptions; they cannot depend on the individual input. The hypotheses include the logarithmic scale condition $(\lg v)^{Ca}\le v$ and matrix order at least $v^{B_0}$. See \pub{Paper/CircuitPhi.lean}{175}{clause degree and canonical value}, \pub{Paper/Circuit.lean}{294}{K.3}, \aud{passes/14c-compiler.md}{off-code and guarded constructions}. The external erratum asks that this domain be specified; it does not claim a defect in the proved endpoint.
+
+\section{The diagonal argument: earning the right to substitute a value}\label{sec:diagonal}
+\subsection{Two different promises of an accelerator}
+An accelerator at scale $v$ has two kinds of guarantee, expressed in Definition K.1. The run guarantee applies to every short description $|z|\le v^{H-32}$: all runs of the accelerator halt, accepting cost is at most $v^{H-16}$, and the named constants lie in its supported table. The value guarantee additionally assumes that the \emph{described computation} is plain within $v^H$. It then equates the accelerator's weighted value with that computation's value. The first promise does not establish the second's domain. This is the central subtlety in K.6.
+
+\subsection{K.4: postponement of named constants}\label{sec:postpone}
+Suppose every run of $p$ on an argument halts, every accepting run costs at most $T<2^J$, and all names lie among leaves of a trie of height $\eta$ and size $Q'$. For a vector $e$ with one $J$-bit integer per leaf, define a wrapper $z_e$ that initializes those counters, interprets $p$, decrements a counter for each name request and rejects on failure or underflow. It accepts only if the interpreted run accepts and every counter is then zero. Its own accepting bills are empty. With ordinary accepted weights preserved, the value is
+\begin{equation}\label{eq:postpone}
+ V=\sum_e \lambda^e\,\iota(\operatorname{sum}(z_e)),\qquad
+ \lambda^e=\prod_j\lambda_j^{e_j}.
+\end{equation}
+This holds by grouping accepting occurrences by their histogram. Supported names imply each original accepting occurrence matches exactly one tally; a missing lookup with value zero may contribute no matching wrapper without changing the weighted sum. A zero-valued supported leaf still has a matching tally. The ordered list of ordinary weights within each matched group preserves duplicate and zero contributions. The wrapper's accepting cost is at most
+\[
+ (1000+100(\eta+J+1))T+40Q'(J+1)+40,
+\]
+and its encoded size is bounded by the sizes of interpreter, program and argument plus $4Q'(J+1)+3$. This is a fixed-tally clock. The number of tallies can be exponential. See \pub{Paper/Postpone.lean}{19}{K.4}, \aud{report/pass15-k4.tex}{detailed interpreter proof}.
+
+\begin{example}[Signed cancellation and occurrence counts]
+Two accepting runs with the same tally and ordinary weights $1,-1$ have a nonempty matched run list but zero aggregate value. If their common named scalar is $\lambda$, their contributions cancel. Removing the entire group leaves the sum unchanged but loses a different observable. An implementation that needs branch counts rather than only weighted value would require a stronger contract.
+\end{example}
+The review proves a sharp clock extension in Section~\ref{sec:clock}. The published diagonal only uses the strict clock; it does not depend on this refinement.
+
+\subsection{K.5: transfer to larger scales}\label{sec:scale}
+Why transfer scales? Finite-field specialization below supplies a finite table but no bound on its size at the original scale. Instead one retains the constants and amplifies the allowed scale until every requisite description fits. K.5 uses J.4 to speed up the universal pre-evaluator by repeated cuts. It preserves operational promises on all short descriptions and the conditional value promise on plain descriptions; it does not assert that every intermediate program satisfies every auxiliary size predicate of K.1 without checking those fields again.
+
+For $H=16h$, $h\ge17$, and integer $\alpha\ge5$, take $v'=v^\alpha$. For a round lowering the accepting exponent from $f+8$ to $f$, the audited formal budgets use a cutter clock $\tau'=v^{f+9}$, an input allowance $s=v^{\alpha(H-32)+1}$, and the old accelerator at scale $v$. The program guesses a tally, writes its postponed description, invokes the cutter and evaluates every piece in the resulting list. The advertised J.4 bounds give
+\[
+ t_{\rm list}\le v^{f-15},\qquad
+ P\le v^{f+11-H},\qquad
+ t_{\rm piece}\le v^{H-16}+30.
+\]
+The leading product of count and clock is $v^{f-5}$. The additive traversal, guessing, encoding and fixed overhead fit the remaining allowance, giving total per-accepting-run cost at most $v^f$ for the stated parameter range. This does not bound the deterministic work of enumerating every possible output list. The source also bounds code growth per round by $v^{h\alpha+2}+v^{H+1}$, from the initial universal program of size at most $v$.
+
+On the value side the order is different. Plainness of the input permits the pre-evaluation identity; K.4 supplies a plain postponed instance, J.4 supplies plainness and weighted composition of its pieces, and the old accelerator may then use its value guarantee on each piece. All-run halting follows separately because the new program writes the description without evaluating it, and both cutter and old accelerator halt on all short inputs.
+
+After $3\alpha$ rounds the accepting exponent in base $v$ is $H\alpha+1-24\alpha\le\alpha(H-17)$. The code fits $(v')^{4h}$ and the bound on the named power index increases by at most $51h\alpha^2\lg v$. For instance at $h=17,\alpha=5$, the final exponent is 1241, the needed lower endpoint for applying the round is 1240, and the promised endpoint is 1275. These inequalities use the same program and trie throughout the induction. The review checked complete round schedules, repeated pieces, empty products and signed cancellation. See \pub{Paper/Next.lean}{63}{round budget}, \pub{Paper/Next.lean}{270}{scale induction}, \aud{report/pass15-k5.tex}{Pass 15B derivation}.
+
+\subsection{K.6: the self-application, in dependency order}\label{sec:contradiction}
+Assume for contradiction that an accelerator of the stated moderate size exists over a nonzero commutative $A$-algebra. The finitely many constants generate a finite-type algebra over the finitely generated base. Reflect the accelerator to that algebra through its injection, then pass to a maximal quotient, a finite field $E$. These maps preserve the syntax, operational bounds, and value equalities; they need not preserve distinct constants. The nonzero field is needed at the last line. Finiteness ensures that the functions $x\mapsto x^{2^j}$ on $E$ have finitely many distinct representatives, with an index reduction $\mathrm{red}(j)$ valid simultaneously for all $x\in E$. K.5 with $\alpha=\max(5,a)$ and then repeatedly $\alpha=5$ produces unbounded compatible scales with the same constant trie and controlled height and exponent bounds. Choose a reached scale $u$ after the finite table is fixed, large enough for the self-query descriptions.
+
+Define a program $P$ on an argument $x$. One branch accepts with weight one. The other guesses a tally $e$, names the scalar $\lambda^e$ using the finite power table, and calls $D$ on the postponed description $z_e$ of $x$ on $x$. Evaluate $x=P$. There are two expansions for the eventual value $V$ of $P(P)$, but they cannot yet be equated. The proof must follow this order:
+\begin{enumerate}[leftmargin=1.7em]
+\item \textbf{Size first.} Bound the syntax of $P$ and every $z_e$ independently of their values. In particular $|z_e|\le u^{H-32}$ for all guessed tallies. This is a statement about encoded data.
+\item \textbf{Run promise.} Apply only $D.\mathrm{run}$ to the short descriptions. Thus $P(P)$ halts on every run, each accepting run costs at most $T=u^{H-15}$, and all requested names are supported in the expanded trie. The actual operational expansion is now
+\begin{equation}\label{eq:opdiag}
+ V=1+\sum_e\lambda^e\operatorname{val}(D,z_e).
+\end{equation}
+No correctness guarantee for $D$ has yet been used.
+\item \textbf{Plainness.} Choose $J$ with $T<2^J$. K.4 applies to the now justified run list of $P(P)$, gives all-run halting of each $z_e$, empty accepting bills, and a cost bound fitting $uT=u^{H-14}\le u^H$. Equation~\eqref{eq:postpone} gives the separate identity
+\begin{equation}\label{eq:otherdiag}
+ V=\sum_e\lambda^e\iota(\operatorname{sum}(z_e)).
+\end{equation}
+These facts prove that every short $z_e$ is also plain in the sense needed by $D$.
+\item \textbf{Value promise.} Only now, at the source's first value call in NoAcc.lean line 216, apply $D.\mathrm{val}$ to each $z_e$ using both its size and plainness proof. Thus $\operatorname{val}(D,z_e)=\iota(\operatorname{sum}(z_e))$. Substituting into \eqref{eq:opdiag} and comparing \eqref{eq:otherdiag} gives $V=1+V$.
+\item \textbf{Contradiction.} Subtract $V$ in the nonzero field $E$, giving $0=1$. The hypothetical accelerator cannot exist under the hypotheses.
+\end{enumerate}
+\interpret{This argument is an indirect diagonalization, rather than a program that literally computes a contradictory value. The assumption of a uniformly correct bounded evaluator is what makes it possible to establish the description's required promise before using its semantic guarantee. A naive self-reference proof that assumes its own plainness would be circular. Here shortness alone supplies the operational handle needed to prove plainness. The two-step nonplain program from Section~\ref{sec:plain} illustrates why one may not skip that step.}
+\scope{The publisher theorem uses the cutting hypothesis, the common table, finite-type specialization and the scale condition. The review's Pass 15 reconstructed the operational and value contracts and checked five review lemmas against 16 freshly built publisher modules. Neither its finite controls nor the above exposition construct an accelerator. See \pub{Paper/NoAcc.lean}{188}{plainness}, \pub{Paper/NoAcc.lean}{216}{first value use}, \aud{passes/15-diagonal.md}{Pass 15}, \aud{checks/pass15_lean.json}{targeted receipt}.}
+
+\subsection{K.7: the same accelerator must be supplied and denied}\label{sec:match}
+A nonexistence theorem at one scale does not exclude an object constructed at a different scale or over a different coefficient structure. Fix the contracting law setting $(A,\theta,H)$ and a candidate circuit for a grid-complete target of order $M$ with size at most $M^a$. At sufficiently large sizes and under the logarithmic bound, the scale lemma chooses $v$ such that
+\[
+ v^{B_0}\le M,\qquad M^a\le v^{2B_0a},\qquad
+ (\lg v)^{(C_2+1)C_1(2B_0a+1)}\le v.
+\]
+With $d=2B_0a$ and $b=C_1(d+1)$, the one scale pays K.3's $(\lg v)^{C_1d}\le v$ and K.6's $(\lg v)^{C_2b}\le v$. K.3 supplies $\mathrm{HasAcc}(\theta,K,H,v,v^b)$ and K.6 denies precisely that proposition. The source's K.7 chooses the parameters to exclude all candidate sizes up to $2^{c_K(\log_2M)^2/\log_2\log_2M}$ for sufficiently large $M$ and a fixed positive field-dependent $c_K$. The match of field, constants, clock and scale is the bridge from the hypothetical computation to a circuit lower bound. See \pub{Paper/Scales.lean}{141}{matched applications}, \aud{passes/14e-circuit-to-contradiction.md}{whole-chain synthesis}.
+
+\section{Assembling the all-fields and border conclusions}\label{sec:assembly}
+\subsection{Uniform exponent, characteristic-dependent threshold}
+Choose once for each characteristic an algebraic closure $K$ of the prime field. Proposition~\ref{prop:field} transfers a candidate of the same size over every field of that characteristic into $K$. Apply D.2 there. In a flat field, Section~\ref{sec:flatconvert} yields the explicit rate $2^{(\log_2m)^{4/3}/1600^2}$. In a contracting field write $u=\log_2m$; K.7 gives the stronger eventual exponent $c_K u^2/\log_2u$. For fixed $K$,
+\[
+ \frac{c_Ku^2/\log_2u}{u^{4/3}/1600^2}
+ =1600^2c_K\frac{u^{2/3}}{\log_2u}\longrightarrow\infty.
+\]
+Thus the same absolute coefficient $1/1600^2$ works in both branches after increasing $m_0(p)$. This order of choices is the reason the universal coefficient does not require a uniform effective classification of fields. The HC projection applies in all characteristics; the permanent projection requires $2\ne0$. This reconstructs the composition from a single arbitrary candidate to the lower bound of Theorem~\ref{thm:main}, conditional on the cited publisher results.
+
+\begin{corollary}[Publisher M.4; exact separation]
+For every field $F$, $\VP_F\subsetneq\VNP_F$.
+\end{corollary}
+\begin{proof}
+Propositions~\ref{prop:witness} and \ref{prop:hc} give inclusion and the HC family in VNP. If HC lay in VP, one fixed integer $a$ would bound its gate count by $m^a+a$ for every $m$. Since $c(\log_2m)^{1/3}\to\infty$, for sufficiently large $m$ the lower bound of Theorem~\ref{thm:main} is at least $m^{a+1}\ge m^a+a$. This contradicts its strict inequality.
+\end{proof}
+The proof is not a lower bound on Boolean truth-table evaluation or on bit complexity of the gate coefficients. It establishes a statement in the algebraic model specified in Section~\ref{sec:model}.
+
+\subsection{What changes in the border proof}\label{sec:approx}
+The publisher also proves the corresponding rate for approximating circuits. Section~\ref{sec:border} explains the fixed-size coefficient-field equivalence. Appendix N of the original manuscript supplies additional arguments, so the border separation is not deduced merely by treating the exact theorem as continuous. The audit has formal coverage of the approximate endpoints; its detailed mathematical reconstruction chiefly concerns the exact proof.
+
+In the flat branch, N.3 permits the restriction maps in E.7 to have Laurent-polynomial coefficients. If the sum has no negative powers and constant coefficient $t$, the constant coefficient of its $n$-fold product is $t^{\otimes n}$. At fixed Laurent degree envelope $\Delta$ and fixed number of parties, extracting the coefficient by separate exponent contributions incurs a factor bounded by $(2n\Delta+1)^{|V|}$ in addition to the type count. Taking the $n$th root at fixed parameters removes both polynomial factors, recovering the mixed-cut price comparison. The assumption of no negative powers of the sum is necessary for identifying its constant tensor power with that of the original product. This is the N.3 consumer used by E.10/E.11 for approximation.
+
+The contracting branch is more delicate. Define an approximate accelerator with constants in $R[\varepsilon,\varepsilon^{-1}]$ and value on each short plain instance in $\iota(\operatorname{sum}(z))+\varepsilon R[\varepsilon]$. The operational guarantee is unchanged. Since intermediate factors may have poles, substituting an approximate value into an expression with negative powers could promote a positive-power error to the constant term. Proposition N.4 therefore maintains the error condition by rescaling the parameter. For a round fix a tally $e$ and let $r$ exceed the absolute values of the exponents in its exterior factor $\lambda^e$. Substitute $\varepsilon\mapsto\varepsilon^r$ in the old accelerator. On plain pieces its error now lies in $\varepsilon^rR[\varepsilon]$. Since the negative exponents of the exterior factor have magnitude less than $r$, multiplication leaves a positive-power error. Summing over the cutter's weighted outputs preserves the approximate value guarantee. The trie, exponent envelope, and program size are budgeted under the iterated scale conditions.
+
+At a sufficiently large scale, N.4 constructs an exact accelerator by explicitly extracting the constant coefficient. It guesses bounded named multiplicities and one term of each corresponding power, accumulates their Laurent exponent in a sufficiently wide counter, and uses the interpreter to match the guessed multiplicities to the actual run. A zero exponent sum selects the constant coefficient; the absolute exponent bound prevents modular aliases. The coefficient table becomes a finite set of new constants over the original algebra. The source bounds its size and accepting cost sufficiently to apply K.6, which rules out the resulting exact accelerator. This is the claimed mechanism in the printed proof, whose instruction-level realization is formalized in Lean. A separate human audit of that implementation remains open in our register. The proof may not be replaced by simply discarding all nonconstant scalar terms at the beginning of a computation.
+
+\begin{example}[Why error control must include poles]
+An approximation $a(\varepsilon)=1+\varepsilon$ has the same constant coefficient as 1, but multiplying the error by $\varepsilon^{-1}$ introduces a constant one. Rescaling the error to order $r>1$ makes that contribution positive-order again. This is the local reason the N.4 rescaling must exceed the pole budget.
+\end{example}
+Consequently N.5 supplies an eventual approximation lower bound of the same form as Theorem~\ref{thm:main}. Since HC is in VNP, $\VNP_F\not\subseteq\bVP_F$ for each field. This direction is important: it does not assert that $\bVP_F\subseteq\VNP_F$. Exact computation is a constant degeneration. The publisher separately discusses consequences for determinantal complexity in Remark N.6, explicitly outside the numbered formalized conclusions. We do not treat that remark as a sixth Comparator target. See \pub{Paper/Approximate.lean}{266}{N.5} and the \aud{passes/statement-correspondence.md}{model audit}.
+
+\section{Original local refinements and the status of the errata}\label{sec:extensions}
+We collect the review's local mathematical contributions, carefully separating independent proof checks from the public endpoint comparison. The strict denominator-12 bound was proved in Section~\ref{sec:paying}; it is an independent refinement of a scalar budget within the flat case. It does not replace the universal coefficient in the publisher's result. The other two formal refinements are as follows.
+
+\subsection{A sharp inclusive clock in the postponement interpreter}\label{sec:clock}
+The publisher's K.4 assumes $T<2^J$. A $J$-bit unsigned counter represents integers in $[0,2^J-1]$. It is natural to ask whether equality at the clock endpoint is genuinely excluded or merely convenient.
+\begin{theorem}[Review K.4 extension, inclusive endpoint]\label{thm:clock}
+In the stated K.4 machine and under its other hypotheses, the postponement conclusions and the original wrapper time and size bounds remain valid when $T\le2^J$. The endpoint is sharp uniformly over programs: at accepting clock $T=2^J+1$ a supported-name program can have no matching $J$-bit tally and nonzero original value.
+\end{theorem}
+\begin{proof}
+The structural accepting-run induction establishes $|b_r|+1\le \operatorname{cost}(r)$: the machine pays at least one step beyond its emitted name count. (The exact induction and its use in K.4 are in the review Lean file.) Thus $T\le2^J$ implies $|b_r|\le2^J-1$. Each leaf multiplicity is at most that length, and all original supported accepting occurrences match their unique tally. The wrapper construction, weighted partition and its cost proof remain unchanged. For sharpness take a program with $2^J$ nested requests of the same supported leaf followed by a quote, using the machine's name instructions. Its unique accepting run costs $2^J+1$ and emits exactly $2^J$ requests, so its histogram needs the unrepresentable count $2^J$. Over the integers give the leaf value 2. The original contribution is $2^{2^J}\ne0$, whereas every wrapper with $J$-bit initial counters rejects, making their sum zero. This rules out the next clock uniformly for the same representation.
+\end{proof}
+This is a strengthening of the stated machine-level tally interface, not a change to the circuit bound. The publisher's diagonal has the strict budget and therefore does not depend on it. The review-authored declarations are in \aud{checks/pass15_plain.lean}{pass15\_plain.lean}; the proof and sharp witness are recorded in \aud{report/pass15-k4.tex}{the K.4 chapter} and \aud{checks/pass15_lean.json}{the targeted Lean receipt}. The proof's positive one-step margin is a resource invariant, not an assumption about a general-purpose interpreter.
+
+\subsection{Simultaneous sharper bounds for the J.4 cutter}\label{sec:j4tight}
+The subsequent unnumbered follow-up applies the actual J.4 induction to retain more of its slack. It does not initiate a new numbered pass. Under the same hypotheses as the pinned J.4, the induction gives a common cutter with resource inequalities
+\[
+ t v^{48}\le \tau v,\qquad Pv^H\le\tau v,\qquad S'v^{48}\le v^H v,
+\]
+where $t$ is accepting listing time, $P$ is the number of returned pieces, and $S'$ the bound on each piece's encoded size. For $v>0$ these give the following simultaneous conclusions by natural-number division and cancellation:
+\begin{center}
+\begin{tabular}{@{}lll@{}}\toprule
+Quantity & Advertised J.4 & Review follow-up \\\midrule
+Listing clock & $\lfloor\tau/v^{24}\rfloor$ & $\lfloor\tau/v^{47}\rfloor$\\
+Piece count & $\lfloor\tau v^2/v^H\rfloor$ & $\lfloor\tau v/v^H\rfloor$\\
+Each piece size & $v^{H-32}$ & $v^{H-47}$\\
+\bottomrule\end{tabular}
+\end{center}
+The plainness cutoff and the cutter code-size bound remain $v^H$. These conclusions concern a particular cutter constructed by the proof; they are not implications of the weaker abstract CutHyp alone. The derivation accounts for the same program, the same returned list, and the same cost convention simultaneously.
+
+At the K.5 call $\tau=v^{f+9}$, the stronger bounds give listing time at most $v^{f-38}$ and count at most $v^{f+10-H}$ (in the stated exponent range). Combining the latter with $v^{H-16}+30$ gives an upper bound $31v^{f-6}\le v^{f-5}$ for $v\ge31$. This strengthens two cost terms of the existing round, leaving the other overheads and final lower-bound constant unchanged. The two review declarations \texttt{Review.J4.j4\_iterate\_bounds} and \texttt{Review.J4.k5\_listing\_and\_traversal} checked against retained publisher objects with the three allowed axioms. The receipt does not claim a fresh rebuild of those imports or a full new scale transfer. See \follow{followups/j4/README.md}{the unnumbered J.4 follow-up}, \follow{followups/j4/J4_Followup.lean}{Lean source}, and \follow{followups/j4/verification.json}{verification receipt}.
+
+\subsection{Cubic tower word diameter: a reconstruction of the printed strengthening}\label{sec:cubic}
+The printed proof of H.1(d) already identifies a cubic bound, while the stated and formal theorem uses exponent seven. We include the reconstruction because it illustrates why balanced composition matters; the cubic estimate is not a new discovery of this review. Fix $h\ge3$ and $R=\F_2[s]/(s^{n+1})$, set $\zeta=1+s$, and use elementary matrices $e_{ij}(a)=I+aE_{ij}$. For distinct $i,m,j$,
+\[
+ [e_{im}(a),e_{mj}(b)]=e_{ij}(ab),\qquad
+ e_{ij}(a+b)=e_{ij}(a)e_{ij}(b).
+\]
+The generator words on the $h$-cycle provide the required seeds for coefficients 1 and $\zeta$; the wrap carries $\zeta$. A fixed word length $C_h$ covers the seed moves for each ordered pair, using a third index. For powers $\zeta^a$ balanced commutators of exponents $\lfloor a/2\rfloor,\lceil a/2\rceil$ give length at most $C_h4^{\lceil\log_2a\rceil}\le4C_ha^2$. The powers $1,\zeta,\ldots,\zeta^n$ have a triangular coefficient matrix with diagonal one in the $s$-basis; multiplication by the unit $\zeta$ shifts them to a basis indexed by $1,\ldots,n+1$. Arbitrary coefficients therefore require at most $4C_h\sum_{a=1}^{n+1}a^2=O_h((n+1)^3)$ operations in this word model.
+
+Row elimination over the local ring always finds a unit pivot in an invertible remaining block. Characteristic two row exchanges use three elementary operations. Determinant-one diagonal factors can be handled by pairs $\operatorname{diag}(u,u^{-1})$, written using six elementary matrices. The total number of transvections is bounded solely in terms of $h$ (the audit gives $(h-1)(h+9)$). Thus the word diameter is cubic with $h$ fixed. The finite group control at $n=1$ cannot validate this asymptotic exponent; the formal H.1 result retains exponent seven. Either suffices for the consumer H.2. See \aud{passes/14b-tower.md}{cubic derivation} and \pub{Paper/Tower.lean}{25}{the formal H.1 statement}.
+
+\subsection{Disposition of the four textual observations}
+\begin{longtable}{@{}p{.13\linewidth}p{.40\linewidth}p{.39\linewidth}@{}}
+\toprule
+Passage & Finding & Disposition \\\midrule\endhead
+K.3 (pp. 56--57) & The clause polynomial can differ from the printed word sum off canonical codes. & State agreement on canonical marked encodings and the degree bound; compile the actual clause polynomial. Example~\ref{ex:k3}.\\[3pt]
+I.1 (p. 50) & Unsupported zero-weight lookup can lose an accepting trace. & Preserve the weighted sum; qualify bijection of all accepting runs with the support premise. Section~\ref{sec:i1}.\\[3pt]
+H.1(d) (pp. 44--45) & The formal and advertised seventh-power estimate is weaker than the cubic derivation. & Already disclosed in the paper; clarify cross-reference to H.1(d), which H.2 consumes.\\[3pt]
+E.10 (pp. 36--37) & The printed and formal arithmetic yield denominator 14, the proposition states 16. & Already disclosed. Our /12 result is an independent local tightening; no change to $1/1600^2$.\\
+\bottomrule
+\end{longtable}
+The first two are the substantive wording qualifications filed in \href{https://github.com/anthropics/formal-math/issues/57}{publisher issue \#57}. They are mathematical counterexamples to stronger interpretations, not objections to the formal endpoints. The upstream issue was open without comment at the most recent check of the repository. Publisher endorsement of our wording has not been obtained. See \aud{passes/publisher-errata.md}{the complete errata note}.
+
+\section{Computational verification and reproducibility}\label{sec:formal}
+\subsection{The trust boundary}
+A kernel accepts a proof term as inhabiting a formal type relative to its definitions, imports, and foundational axioms. To verify a mathematical claim one must also establish that the type encodes the intended claim. The two checks complement rather than substitute for each other. This review therefore distinguishes (i) source custody, (ii) build and kernel acceptance, (iii) challenge/solution signature correspondence, (iv) mathematical statement reading, and (v) review-authored proofs and finite controls.
+
+The publisher source is pinned at commit \nolinkurl{11b6c7e3c927df2658f513b6b68ea7f8929c62c5}. The source lock records the VP--VNP subtree of 333 blobs, Git tree \nolinkurl{b076b4b081298c4e909bac3f87f0e4462d1fb2cb}, and the 70-page manuscript hash. In preparing this publication manuscript, we independently computed the SHA-256 of the supplied publisher PDF and matched the locked digest
+\begin{center}\small\nolinkurl{882f5eefb1e067cc8c99ddfe660c10d1d67f9fcee7b69364bd0bab06c0c1f97c}.\end{center}
+The original Lean verification receipts bind Lean 4.33.1 and nine external dependency revisions (including mathlib at \nolinkurl{0df444a360eaa60ab8c11dca51a86af692955474}); prebuilt external library objects are part of their stated trust input. The source lock and exact workflow record the project code and checker. We do not claim to have rebuilt mathlib from source during that review.
+
+\subsection{Five endpoints, isolated imports, and the permitted axioms}
+The trusted challenge imports Statement alone (which imports Mathlib), declaring the five required types using placeholder proofs. The proof-bearing Solution imports Statement and the relevant proof modules, not the challenge. Importing both in one environment merely to find a theorem name would be an inadequate verification. The archived native execution reads the two sets of types in isolated environments and compares the full signatures; the separate Comparator execution compares the public challenge and solution and checks the exported proof. The permitted foundational axioms are propositional extensionality (\texttt{propext}), quotient soundness (\texttt{Quot.sound}), and classical choice (\texttt{Classical.choice}).
+
+\begin{center}
+\begin{tabular}{@{}p{.36\linewidth}p{.54\linewidth}@{}}\toprule
+Configured declaration & Encoded conclusion \\\midrule
+\texttt{Solution.mainTheorem} & Quantified exact HC and permanent lower bound.\\
+\texttt{Solution.separation} & Proper inclusion of VP in VNP over every field.\\
+\texttt{Solution.mainTheoremApprox} & Quantified lower bound for approximating circuits.\\
+\texttt{Solution.separationClosure} & VNP not contained in the defined border VP for every field.\\
+\texttt{Solution.permanent\_over\_real} & Exact permanent specialization over the real field.\\
+\bottomrule\end{tabular}
+\end{center}
+The approximate and exact public predicates quantify their positive rate constants separately; the supplied proofs admit the same explicit choice. The distinction between statement-level equivalence and kernel acceptance is especially relevant for the formal border convention. See \aud{passes/14d-formal.md}{Pass 14D} and \aud{passes/statement-correspondence.md}{the public-model audit}.
+
+\subsection{Recorded executions and independent extensions}
+The following table reports what was actually executed in the historical review. It is not a new Lean run from the current publication-preparation environment.
+\begin{longtable}{@{}p{.25\linewidth}p{.39\linewidth}p{.28\linewidth}@{}}\toprule
+Recorded execution & Result and scope & Evidence \\\midrule\endhead
+Complete native build (Pass 14) & 324 publisher Lean sources (323 distinct modules of four default targets plus reporting script) compiled; 5/5 full signature matches; 22 axiom reports and 10 intermediate type readbacks. External libraries pinned, prebuilt. & \aud{checks/pass14_release.json}{Native receipt}; \aud{checks/pass14_release.py}{runner}.\\[3pt]
+Linux Comparator & Review-team GitHub Actions run 45691617731, job 139478246305; default targets and unmodified publisher driver; all five configured declarations accepted, nanoda enabled. & \href{https://github.com/nousentllc/VP-VNP-Review/actions/runs/45691617731}{Run}; \aud{checks/pass14_comparator.json}{receipt}.\\[3pt]
+Review /12 bound & Scalar and circuit-level refinement checked against the exact freshly built Paper.Rate object. Not a publisher Comparator endpoint. & \aud{checks/pass14a_circuit_results.json}{Circuit receipt}.\\[3pt]
+Pass 15 targeted build & 16 publisher modules rebuilt for NoAcc, eight publisher declarations and five review lemmas queried. K.4 clock and plainness distinction. & \aud{checks/pass15_lean.json}{Targeted receipt}.\\[3pt]
+Release-candidate Tier 0 & Stored source/receipt checks and 24 finite controls; outside AI reader reported successful Tier 0 replay. & \follow{REPRODUCE.md}{Reproduction guide}; \follow{reconciliation/release-candidate.md}{candidate record}.\\[3pt]
+Native Tier 1 candidate & 23 review Lean modules checked on macOS against retained pinned publisher objects; expected evidence hash matched. & \follow{reconciliation/release-candidate.md}{candidate record}.\\[3pt]
+Unnumbered J.4 check & Two review declarations accepted against retained publisher objects, with permitted axioms. No fresh publisher rebuild in this follow-up. & \follow{followups/j4/verification.json}{follow-up receipt}.\\
+\bottomrule\end{longtable}
+The original archived Linux build and the new Docker reproduction entry points are different evidence. The latter had not received a fresh Linux replay in the release record. A separate outside operator has not yet independently executed Tiers 1 and 2. The external AI critique (Claude Opus 5.5, reported model ID \texttt{claude-opus-5-5}) provided six observations and a follow-up Tier 0 check. It is not an independent human assessment or a second full kernel reproduction.
+
+\subsection{Receipt reconciliation and negative controls}\label{sec:receipts}
+The external review identified that the comparator transcript's build counts had been mixed. Edition 12 traced all 14 quoted lines to their actual sources. The 9,032 figure belongs to the outer build; 8,708 and 9,027 belong to the two inner Comparator builds. These are build-job counts, not numbers of mathematical lemmas, and host-specific logs need not reproduce those counts. The provenance correction leaves the exact acceptance markers intact. See \aud{reconciliation/edition12-comparator-and-margin.md}{log and margin reconciliation} and \aud{reconciliation/edition12-external-review.md}{response to all six observations}.
+
+A second concern is the separation of the intentional placeholders in Challenge from the proofs. The original workflow inherited a filter recognizing single quotes, whereas Lean's diagnostics can enclose \texttt{sorry} in backticks. The review separately scanned the complete recorded native and Linux transcripts, finding exactly the five intended Challenge warnings per build and none outside Challenge. The maintained parser accepts both quote styles. This is a repair to diagnostic coverage, not an assertion that the original workflow alone checked every possible failure mode. The proof-side axiom readbacks and the actual Comparator acceptance remain separate evidence. See \aud{checks/pass14_warnings.py}{warning parser}.
+
+The independent finite controls were used to falsify weakened assumptions, not to estimate the probability that an unbounded theorem is correct. Their most informative role is to separate mathematically valid transformations from incorrect simplifications. For example, the two-cut rank test detects selection of independent witnesses; the boundary-word test detects deletion of a common label; the two-step program detects shortness without plainness. None of these constructs the spectral point or hypothetical accelerator required for the theorem. Appendix~\ref{app:matrix} maps these controls to the 63-claim register.
+
+\section{Implications for mathematical understanding and computational representations}\label{sec:implications}
+We draw three methodological lessons from the audit. These observations are not new complexity-theoretic corollaries.
+
+\subsection{A global observable determines the information that must survive local composition}
+The identity $Z=\sum_b\prod_jV_j(b)$ shows that local sufficiency must be qualified by the admissible shared boundary. An independent summation over each region generally computes a different function. This is not limited to signed ring weights: for binary hidden $b$, local factors $(2,1)$ and $(2,1)$ have shared product sum five; replacing the second by $(1,2)$ yields four. Every local sum remains three. With two equally weighted hypotheses indexed by those alternatives, exact normalized inference yields posterior $5/9$, whereas independently marginalizing the shared index yields $1/2$. Such examples illustrate why even a numerically plausible summary may fail in a different composition. The VP--VNP proof establishes its own weighted identities; any proposed transfer to probabilistic inference, tensor compression, or memory architecture needs its own law and cost model.
+
+\subsection{A recursion is more than its local register budget}
+The accepting cost of one K.5 round is a sum of listing cost, count times per-occurrence cost, and overhead. The number of accepting computations is not controlled by that bound. Likewise a finite cut with small boundary may use expensive preprocessing, multiple historical copies, or a large installed table. The review retains those distinctions because they are needed by different downstream consumers. A proposed deterministic algorithm cannot claim the same bound merely by substituting exhaustive enumeration for a guessed branch. The interpretation is a general discipline for reading recursive resource proofs; it is not a theorem transferring the publisher's lower bound to memory or other computational models.
+
+\subsection{An equality is only as strong as its observational domain}
+The K.3 clause example makes the domain of equivalence explicit. Two representations agreeing on canonical codes need not agree as formal polynomials. The I.1 example makes the choice of observable explicit: weighted value is not trace count. And K.6 shows the order in which an operational guarantee may be used to establish a semantic precondition. We summarize this as a conditional interface principle: if an operation is defined only on a domain $D$, equivalence of representations on $D$ may be substituted only after proving that the next operation stays inside $D$ and preserves its other required resource and type hypotheses. If the domain expands, the old equality may fail. The counterexamples in this paper provide motivation, not an independently established general architecture or lower bound. A separate research program may test such transfers.
+
+\section{Limitations, open obligations and independent review}\label{sec:limits}
+The central verification finding is that the five \emph{encoded} statements were accepted in the recorded proof checks against the pinned definitions and axiom policy. Their correspondence to conventional nonuniform arithmetic complexity is separately analyzed in Section~\ref{sec:model}. A named independent human reader of the statement is still desirable. The following questions are explicit limitations rather than invitations to expand the numbered review indefinitely:
+\begin{enumerate}[leftmargin=1.7em]
+\item \textbf{Geometry and duality.} The existence of the full G.2 law family depends on the upstream CAT(0) price geometry and the detailed F.2--F.5 contraction/near-orthogonality results. The audit reconstructs the final uniformity and routing comparisons; finite group tests do not establish the upstream assumptions.
+\item \textbf{Machine-level reading.} J.3/J.4's concrete dealer, listing program and every instruction-level overhead have formal coverage, but our human-oriented reconstruction does not rederive every subroutine. The J.4 follow-up strengthens the simultaneous bounds from retained induction witnesses; it is not a different proof of the full separation.
+\item \textbf{Approximate computation.} The border endpoints passed formal comparison. This paper explains N.2/N.3 and the mechanism of N.4; the complete approximate-accelerator implementation is a separate human-reading task. In particular there is no claim about coefficient bit cost or every possible topology-based closure.
+\item \textbf{Reproduction.} The publisher-source and review-team checks share the formal definitions and foundational axioms. A fresh independent outside-operator execution of the tagged Docker Tiers 1/2 and an independent human statement-level assessment remain pending. The two-kernel evidence does not establish a field-wide consensus or eliminate all possible trusted-base failures.
+\item \textbf{Scope of refinements.} The strict /12 scalar estimate, inclusive K.4 clock, and J.4 bounds are local. No claim is made that the first is an optimal geometric constant, the second is a general interpreter bound, or the third improves the final circuit exponent. The H.1 cubic estimate is already described in the publisher manuscript.
+\end{enumerate}
+The public review invitation \href{https://github.com/nousentllc/VP-VNP-Review/issues/1}{issue \#1} solicits a human expert's independent reading of the precise formal definitions, characteristic exception, quantifier order and approximation convention. The upstream wording issue is likewise not represented as resolved. This paper can be evaluated as an explicitly AI-assisted reproducibility and mathematical-analysis preprint without claiming those future reviews are complete.
+
+\section{Conclusion}\label{sec:conclusion}
+The audit supports the correspondence of the pinned public formal statements to the algebraic separation described by the publisher, with precise qualifications about the approximation and nonuniform cost model. The recorded native build and two-kernel Comparator execution support acceptance of the five encoded conclusions. Our dependency-ordered reconstruction explains how the geometry of prices, balanced extraction, shared selectors, weighted tensor laws, cutting and diagonalization are connected. The strongest lesson is not a new claim about general complexity: it is that value preservation is an interface property, and its use requires the same shared data, same hypotheses, and explicitly matched resources.
+
+The review's independently derived counterexamples make the two exposition qualifications precise. Its local mathematical refinements strengthen the flat scalar estimate, the inclusive postponement clock, and the cutter's simultaneous resource bounds within their original hypotheses. Those results have their own proofs and verification receipts, and should be cited as review contributions rather than credited as the origin of the VP--VNP separation. The numbered series is closed. Further original work can explore resource-preserving representations as a separate research program, without reopening the audit or treating it as an unproved source of new architectural claims.
+
+\section*{Research contributions and AI disclosure}
+\addcontentsline{toc}{section}{Research contributions and AI disclosure}
+Justin Candler directed the research, defined the review objectives and is responsible for the proposed human authorship and final release. Uriel is the project's AI research agent operating through OpenAI Codex; it prepared mathematical reconstructions, finite controls, Lean checks, manuscript drafts and evidence reconciliation. The release-candidate tooling identifies GPT-6.2 in its recorded provenance; the per-pass model inventory for earlier passes is not fully verified. The present publication draft was prepared with ChatGPT (GPT-6.2). Claude Opus 5.5 (model ID reported as \texttt{claude-opus-5-5}) supplied the external AI critique and Tier 0 follow-up, as attributed in the candidate record. We do not describe an external AI check as independent human peer review. The original separation and its publisher formalization are attributed to Claude and Anthropic \cite{claude}. The human author should verify the final byline, affiliations, disclosure and mathematical claims before submitting the preprint. No independent reviewer is credited by name without permission.\par
+\textbf{Funding and competing interests.} No external funding or competing-interest declaration is asserted here without author confirmation. The public record does not need private account credentials or unrelated personal information to establish the proof evidence. Resource and experimental costs may be reported where relevant.\par
+\textbf{Data availability.} The repository records the pinned original source, formal execution receipts, review code, finite controls, proof-coverage register and historical supplementary report. The current manuscript is a new publication derivative; it does not replace their original bytes. The publisher materials retain upstream license and notices; see the repository license-scope document. No new paid inference was required to prepare this manuscript.\par
+\textbf{Author review status.} Submission candidate; human statement-level sign-off and outside-operator full reproduction remain pending.
+
+\appendix
+\section{Reproduction route and immutable evidence}\label{sec:repro}
+The following pins separate the publisher, the numbered review, the release candidate and the unnumbered follow-up:
+\begin{itemize}[leftmargin=1.7em]
+\item Publisher: \href{https://github.com/anthropics/formal-math/tree/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp}{\nolinkurl{11b6c7e3c927df2658f513b6b68ea7f8929c62c5}}.
+\item Numbered Edition 12: \href{https://github.com/nousentllc/VP-VNP-Review/tree/567303d0bcf4f9d54390437b137752446e58ccd6}{\nolinkurl{567303d0bcf4f9d54390437b137752446e58ccd6}}; \aud{handoff/VP_VNP_Review_2026-11-25_pass15.zip}{original handoff archive} and \aud{report/VP_VNP_Research_Review.pdf}{66-page technical supplement}.
+\item Tagged reproduction candidate: \href{https://github.com/nousentllc/VP-VNP-Review/tree/v1.0-edition12-rc1}{\texttt{v1.0-edition12-rc1}}. The release record identifies the tag's commit \nolinkurl{f726d3a7608e31b5c88804764b6e65c203179d42}.
+\item J.4 follow-up and current checked main: \href{https://github.com/nousentllc/VP-VNP-Review/tree/8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8}{\nolinkurl{8a7976933b6b2b4ffda1ad3a0dfb5fc6b6f023e8}}; follow-up files are separate from rc1.
+\end{itemize}
+The full reproduction guide is \follow{REPRODUCE.md}{REPRODUCE.md}. From a disposable checkout of the release candidate, use:
+\begin{verbatim}
+python3 checks/check_all.py
+bash reproduce/run.sh 1
+bash reproduce/run.sh 2
+\end{verbatim}
+Tier 0 verifies custody and stored receipts and reruns 24 finite controls; it does not launch Lean or Comparator. Tier 1 compiles the 23 review Lean files and pinned publisher imports in a Linux/amd64 Docker environment. Tier 2 performs the full default-target publisher build and Comparator/nanoda run. Tiers 1/2 require image setup and the recorded dependencies, and Tier 2 requires Landlock support in the Linux host/container. The exact commands, build limitations, and expected evidence hashes are specified in the repository; their canonical evidence JSON excludes host-dependent runtime and raw object-byte differences. For independent reproduction record the exact checkout, OS/kernel/architecture, Docker version, UTC execution date, operator attribution with permission, full output lines, hashes and failures. A verified manuscript build and a proof build are different tasks.
+
+The original Edition 12 technical PDF build receipt reports SHA-256 \nolinkurl{413a668bbc8af667499107a5bd04a93120f8cf092ca4e5e733b60be118af9149}. That is the historical PDF digest, not the digest of this academic derivative. The two-page verdict digest is recorded separately. The review's earlier publication candidate includes license scoping for original code, prose and publisher material. New public uploads should omit environment-specific absolute paths and credentials, retain proof-relevant content, and use a separately signed/redacted derivative if privacy requires changing any receipt. This manuscript quotes no secret values or personal filesystem paths. The binary historical archives and complete Git history were not accessible for a complete content scan in the present preparation environment; they require a repository-wide secret audit before re-deposit. A clean current working tree cannot revoke a credential previously exposed in history.
+
+\section{Claim-to-section map and bounded evidence}\label{app:matrix}
+The following map groups all 63 claim identifiers of the Edition 12 register by the mathematical obligation they address. It is a reading index, not a replacement or new disposition ledger. The exact claim statements, source lines, independent-evidence scope, and unresolved reading obligations remain in \aud{report/proof-coverage.csv}{proof-coverage.csv}. Several identifiers address a single theorem's different hypotheses and consumers. The unnumbered J.4 follow-up is outside the 63-entry register and is separately cited in Section~\ref{sec:j4tight}.
+\small
+\begin{longtable}{@{}p{.23\linewidth}p{.46\linewidth}p{.23\linewidth}@{}}
+\toprule
+Obligation & Edition 12 claim identifiers & Here \\\midrule\endhead
+Public statement and field transfer & 1.1; Circuit model; M.1; M.3; M.3 to separation; Statement correspondence & Sections \ref{sec:model}, \ref{sec:field}, \ref{sec:assembly}\\[3pt]
+Target projection and witness & E.1; E.2; E.3; M.2; M.4; HC witness & Sections \ref{sec:grid}, \ref{sec:hcwitness}\\[3pt]
+Spectral tensor interfaces & A.2--A.3; A.5; A.6; A.7; A.8 & Sections \ref{sec:gauges}, \ref{sec:extension}, \ref{sec:laws}\\[3pt]
+Crossing, curvature, field alternative & B.1; B.2 proposition; B.3; Display (B.2); C.2; C.1; C.3; C.4; D.2 & Sections \ref{sec:curvature}, \ref{sec:d2}\\[3pt]
+Flat decomposition and pricing & E.4; E.7; E.8; E.9; E.10; E.11; E.4 to E.7; E.10 review margin & Section \ref{sec:flat}\\[3pt]
+Contracting laws and weighted tower & F.6; G.2; H.1; H.2 value; H.2 loads; G.2 to H.2; H.2(d,e) & Section \ref{sec:contract}\\[3pt]
+Universal evaluation and cutting & I.1; I.2; J.2; J.3; J.4 & Sections \ref{sec:machine}, \ref{sec:glue}\\[3pt]
+Compiler and encoding & K.2; K.3; K.2 advice and time; K.3 canonical code & Sections \ref{sec:compiler}, \ref{sec:k3}\\[3pt]
+Postponement, scale, diagonal & K.4; K.5; K.6; K.7; K.3 to K.6; K.4 filter; K.5 cut costs; K.6 scale choice; K.6 plainness before value; K.4 review endpoint & Sections \ref{sec:diagonal}, \ref{sec:clock}\\[3pt]
+Proof acceptance and custody & Global build; Comparator; Shared branch replay & Section \ref{sec:formal}\\
+\bottomrule
+\end{longtable}
+\normalsize
+\subsection{Representative executed finite controls}
+These numbers identify recorded controls; they are not pooled statistics or tests of the unbounded separation. Source anchors allow the reader to inspect inputs, outputs, and exact scope.
+\begin{longtable}{@{}p{.25\linewidth}p{.43\linewidth}p{.24\linewidth}@{}}
+\toprule
+Control & Scope and interpretation & Record \\\midrule\endhead
+Curvature endpoint & 102 finite-box cases and five growing-step identities; checks part of the endpoint estimate. & \aud{checks/pass09_endpoint_replay_results.json}{Pass 9 receipt}\\
+HC membership & 66,067 Boolean tables; exact cycle multiset through order four; proof establishes arbitrary orders. & \aud{passes/pass13D-membership.md}{Pass 13D}\\
+Flat geometry & 84 signed tensor-power entries, 1,428 balanced hub directions, two rank controls, and scalar margins. & \aud{checks/pass14a_flat.py}{Finite checker}\\
+Tower routing & 43,008 group elements, 72,576 selected routes, multiplicity checks; small $h$ does not satisfy the gain hypothesis. & \aud{passes/14b-tower.md}{Pass 14B}\\
+K.3 canonical code & 512 Boolean patterns and seven words on one instance; 2,048 guarded coefficients in signed cases. & \aud{passes/14c-compiler.md}{Pass 14C}\\
+K.4 tally & 16,576 bill--budget pairs in the finite test; signed duplicate example; inclusive endpoint proof separate. & \aud{checks/pass15_k4.py}{Finite checker}\\
+K.5 resource recurrence & Two complete integer schedules and 121 finite lists; no deterministic total-work assertion. & \aud{checks/pass15_k5.py}{Finite checker}\\
+K.6 budget & Seven prime-field controls and six budget fixtures; hypothetical accelerator remains a premise. & \aud{checks/pass15_k6.py}{Finite checker}\\
+\bottomrule
+\end{longtable}
+The historical audit contains additional cases and targeted builds. The current publication package supplies a small independent script for the arithmetic examples in this manuscript; it is not a substitute for these archived checks or for a full proof replay.
+
+\begin{thebibliography}{99}
+\bibitem{claude} Claude (Anthropic). \emph{VP $\ne$ VNP over every field}. Publisher manuscript and Lean formalization, November 2026. Immutable revision \nolinkurl{11b6c7e3c927df2658f513b6b68ea7f8929c62c5}. \url{https://github.com/anthropics/formal-math/tree/11b6c7e3c927df2658f513b6b68ea7f8929c62c5/vp-vnp}.
+\bibitem{valiant} Valiant, L. G. (1979). Completeness classes in algebra. \emph{Proceedings of the Eleventh Annual ACM Symposium on Theory of Computing}, 249--261. \href{https://doi.org/10.1145/800135.804419}{doi:10.1145/800135.804419}.
+\bibitem{strassen} Strassen, V. (1988). The asymptotic spectrum of tensors. \emph{Journal f\"ur die reine und angewandte Mathematik}, 384, 102--152.
+\bibitem{review} Candler, J. (2026). \emph{The VP--VNP lower bound: From weighted networks to circuit lower bounds}. AI-assisted cumulative review, Edition 12, 66 pp., November 25. \aud{report/VP_VNP_Research_Review.pdf}{Technical report}; \aud{report/proof-coverage.csv}{claim register}.
+\bibitem{repro} Candler, J. (2026). \emph{VP--VNP Research Review: Edition 12 Reproduction Package}, release candidate \texttt{v1.0-edition12-rc1}. \url{https://github.com/nousentllc/VP-VNP-Review/tree/v1.0-edition12-rc1}.
+\bibitem{j4} Candler, J. (2026). \emph{Edition 12 follow-up: What J.4 supplies to K.5}. AI-assisted technical note, Lean declarations and verification receipt. \follow{followups/j4/README.md}{Pinned follow-up}.
+\end{thebibliography}
+\end{document}

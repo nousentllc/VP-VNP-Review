@@ -1,0 +1,151 @@
+{
+  "scope": "Frozen reachable history plus the assembled publication payload. The privacy reports themselves are excluded from recursive payload scanning; their source findings were value-suppressed and adjudicated separately. Later administrative receipts and package-verifier text introduce no external source data and were inspected before commit.",
+  "summary": {
+    "refs": [
+      "3a612bdfb160a45c26d016364c2e9195b5e1f7b1 refs/heads/main",
+      "3a612bdfb160a45c26d016364c2e9195b5e1f7b1 refs/heads/review/publication-privacy-2026-11-26",
+      "a6868a523e92ddf262de29af8bcba07580f6c0bb refs/heads/review/reconcile-status-2026-11-25",
+      "3a612bdfb160a45c26d016364c2e9195b5e1f7b1 refs/remotes/origin/HEAD",
+      "d31745351533a90d4c6e158036d84d14a56cc037 refs/remotes/origin/energy-explorations",
+      "3a612bdfb160a45c26d016364c2e9195b5e1f7b1 refs/remotes/origin/main",
+      "2d3e3a5eb9f7c7e53931157ea821214326a02940 refs/tags/review-2026-11-24",
+      "13bd07c9df40c7f79f2fd08181e58811600ae120 refs/tags/v1.0-edition12-rc1"
+    ],
+    "counts": {
+      "git_commit": 44,
+      "encountered_units": 11255,
+      "unique_bytes": 550077585,
+      "text_units": 3336,
+      "git_tag": 2,
+      "git_tree": 452,
+      "git_blob": 2861,
+      "zip_containers": 117,
+      "duplicate_content_units": 7400,
+      "pdfs": 28,
+      "images_ocr": 2,
+      "gzip_containers": 668,
+      "numpy_arrays": 219,
+      "numeric_arrays": 213,
+      "pdf_attachment_files": 5,
+      "jumbf_manifests": 5,
+      "cbor_boxes": 20
+    },
+    "findings_by_category": {
+      "email_candidate": 117,
+      "home_path": 399
+    },
+    "limits_count": 1,
+    "limitations": [
+      "Pattern screening cannot establish absence of unknown credentials or identifiers.",
+      "Deduplicated content is scanned once; inventory retains first occurrence. Git objects remain in the original bundle.",
+      "Images receive OCR; binary signature/certificate data receives string screening. Numeric arrays are classified by dtype without treating measured numbers as identifiers. No credential validity tests are performed.",
+      "Git reachable refs only; deleted unreachable objects, GitHub caches, forks, external logs and account settings are not covered."
+    ]
+  },
+  "payload_candidate_count": 0,
+  "payload_inventory": [
+    {
+      "location": "release-payload/.gitignore",
+      "sha256": "52b5cac413a473926bb7c0869d5938f583e0c9bef9dc754fe6d8872e6a7eb820",
+      "bytes": 44,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/COVERAGE.md",
+      "sha256": "d8c6603a55c3e4e3322bfae3f81f8f3fd549d29ccfb9f0c39a78a72e883c1413",
+      "bytes": 4549,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/PRIVACY.md",
+      "sha256": "c3b4cf70befb20e23a51d3c0814ae8960ab50f91d45af5ceae9c0b96a4346c18",
+      "bytes": 6635,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/README.md",
+      "sha256": "a1b4b64c3263e13bb410870dccdfa1347c215d0cc1f72ef5829a5fa30eae2e09",
+      "bytes": 3487,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/VP_VNP_Expanded_Academic_Audit.pdf",
+      "sha256": "436d59990479b116a6a60c1324a2042ae42bfec38aa10724abeb29f063c80c80",
+      "bytes": 638246,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/VP_VNP_Expanded_Academic_Audit.tex",
+      "sha256": "a7063c05da9607bf3f2edc9fbc531407d9503151de66d49c73eca572f9c351b8",
+      "bytes": 281075,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/build.sh",
+      "sha256": "f65f9d9c14bdcb29c79fc581558ef7cc17fec1de8faa07af23039ca2822e4725",
+      "bytes": 548,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/coverage-delta.csv",
+      "sha256": "72e9955bf845591aaae8796a56a0603d7097c29a08d82054e346c1fdd65e2cd4",
+      "bytes": 66106,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/finite-examples.json",
+      "sha256": "4a4334762c3281eb9d5ba213afbefbea2b56ad3bef4fea503742703503698205",
+      "bytes": 281,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/link-check.json",
+      "sha256": "cacf49f6f81e4a74e9cacf47a8ea73e529a5202477458c580887e40e54a37dd3",
+      "bytes": 39459,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/recovered/VP_VNP_Academic_Audit_42pp_Recovered.pdf",
+      "sha256": "14142b83e8bee21f61fdb7dab07615f508fedc6f63771d6f864857ea9c7b1e22",
+      "bytes": 538341,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/recovered/VP_VNP_Academic_Audit_42pp_Recovered.pdf!pdf_attachment_1",
+      "sha256": "92488e20befc6ab8fea8ae8aeea80651f2f98823aa45c3a0078d1c3832ae3bab",
+      "bytes": 24300,
+      "depth": 1
+    },
+    {
+      "location": "release-payload/recovered/VP_VNP_Academic_Audit_42pp_Recovered.tex",
+      "sha256": "6d6680dbc9cbe6df4ba6f033c710b1949843dfad6fca56bb40ed514b8e563749",
+      "bytes": 138366,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/source-corpus.json",
+      "sha256": "7bd40c69a2bb322f7d75e95c22a97224abd93f253384e35b0ab136800db7b8ef",
+      "bytes": 8776,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/tier0-verification.txt",
+      "sha256": "f8e0ed80e3669374c69fa85de77384fd81bd9c2db7908331a0469c07f4f4796e",
+      "bytes": 2779,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/verification.json",
+      "sha256": "2d4e80400a6cfa52199558d24933448791141595db4d8f68f3b789412c55fe8d",
+      "bytes": 2807,
+      "depth": 0
+    },
+    {
+      "location": "release-payload/verify_examples.py",
+      "sha256": "bb99a722269894afddff1de134bd4225a53e874865866f5fd1781e50c9e96750",
+      "bytes": 2775,
+      "depth": 0
+    }
+  ],
+  "original_scan_sha256": "4335b757cf08ac3fa0d974422eb1251469c049da79267e91ded2746015531d57"
+}

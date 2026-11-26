@@ -1,0 +1,8 @@
+{
+  "denominator_11_relaxed_slack": "15551/162000",
+  "j4_integer_cases": 72,
+  "modular_counter_cases": 1012,
+  "orthogonality_congruence_cases": 392,
+  "scope": "Finite algebra and boundary controls only; no new Lean or Comparator execution.",
+  "strict_margin": "1073/135000"
+}

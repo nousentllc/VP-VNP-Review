@@ -1,0 +1,6 @@
+d31745351533a90d4c6e158036d84d14a56cc037	refs/heads/energy-explorations
+3a612bdfb160a45c26d016364c2e9195b5e1f7b1	refs/heads/main
+2d3e3a5eb9f7c7e53931157ea821214326a02940	refs/tags/review-2026-11-24
+cf060fcfaca8714ce270fbadacc7ef6b4d5c8f84	refs/tags/review-2026-11-24^{}
+13bd07c9df40c7f79f2fd08181e58811600ae120	refs/tags/v1.0-edition12-rc1
+f726d3a7608e31b5c88804764b6e65c203179d42	refs/tags/v1.0-edition12-rc1^{}

@@ -1,0 +1,7 @@
+[
+  {
+    "location": "energy/Archives/W04/W04_Energy_Experiments.zip@1b3dea39af8bfe7c314b0686f0299102baab353f!W04/D/serial_raw/ca_2014-12-01_reserves_1_48_group_start/columns.json.gz",
+    "reason": "EOFError_partial_recovery",
+    "sha256": "69e5603f1808ccbaab1746280189179086e0932fa5d7e62edb353155a0d33f73"
+  }
+]

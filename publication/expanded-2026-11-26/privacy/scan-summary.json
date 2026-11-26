@@ -1,0 +1,42 @@
+{
+  "refs": [
+    "3a612bdfb160a45c26d016364c2e9195b5e1f7b1 refs/heads/main",
+    "7b89819d1fd27eaddea4afd3d881e48a4020f6ed refs/heads/review/publication-privacy-2026-11-26",
+    "a6868a523e92ddf262de29af8bcba07580f6c0bb refs/heads/review/reconcile-status-2026-11-25",
+    "3a612bdfb160a45c26d016364c2e9195b5e1f7b1 refs/remotes/origin/HEAD",
+    "d31745351533a90d4c6e158036d84d14a56cc037 refs/remotes/origin/energy-explorations",
+    "3a612bdfb160a45c26d016364c2e9195b5e1f7b1 refs/remotes/origin/main",
+    "2d3e3a5eb9f7c7e53931157ea821214326a02940 refs/tags/review-2026-11-24",
+    "13bd07c9df40c7f79f2fd08181e58811600ae120 refs/tags/v1.0-edition12-rc1"
+  ],
+  "counts": {
+    "git_commit": 44,
+    "encountered_units": 11249,
+    "unique_bytes": 550056289,
+    "text_units": 3330,
+    "git_tag": 2,
+    "git_tree": 452,
+    "git_blob": 2861,
+    "zip_containers": 117,
+    "duplicate_content_units": 7400,
+    "pdfs": 28,
+    "images_ocr": 2,
+    "gzip_containers": 668,
+    "numpy_arrays": 219,
+    "numeric_arrays": 213,
+    "pdf_attachment_files": 5,
+    "jumbf_manifests": 5,
+    "cbor_boxes": 20
+  },
+  "findings_by_category": {
+    "email_candidate": 117,
+    "home_path": 399
+  },
+  "limits_count": 1,
+  "limitations": [
+    "Pattern screening cannot establish absence of unknown credentials or identifiers.",
+    "Deduplicated content is scanned once; inventory retains first occurrence. Git objects remain in the original bundle.",
+    "Images receive OCR; binary signature/certificate data receives string screening. Numeric arrays are classified by dtype without treating measured numbers as identifiers. No credential validity tests are performed.",
+    "Git reachable refs only; deleted unreachable objects, GitHub caches, forks, external logs and account settings are not covered."
+  ]
+}

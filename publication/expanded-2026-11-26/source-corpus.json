@@ -1,0 +1,250 @@
+{
+  "passes/01-claim-and-circuits.md": {
+    "sha256": "74cdd64957fef1d3abce9753424023c5961e0a031dd876a757da168ff400dd97",
+    "bytes": 3128
+  },
+  "passes/02-flat-branch.md": {
+    "sha256": "01c0e45dca967e43307938975a5b21a2cfb606c615da6f016b0724fe3a005b94",
+    "bytes": 4914
+  },
+  "passes/03-contracting-branch.md": {
+    "sha256": "0b7f029a4fd18234d7648455723c26291a86d26cae0ea5b0ca349098b6be86ed",
+    "bytes": 6007
+  },
+  "passes/04-formal-correspondence.md": {
+    "sha256": "8423d25528cbdd9cd1d3d59279d0e807ccb15ffb4a5be998c2e518e2f12af649",
+    "bytes": 4941
+  },
+  "passes/05-universal-automaton.md": {
+    "sha256": "5bf660aa0c23be7fa8b559f07ffaef7a6dd9bc99b92487729d0b6d270faebdaa",
+    "bytes": 12642
+  },
+  "passes/06-one-cut-and-iteration.md": {
+    "sha256": "d6036f9e8036e25bdc0f2b1f2fe9587b0e9fb1e1044c3d4a6bd44949ca5162a4",
+    "bytes": 9666
+  },
+  "passes/07-field-alternative.md": {
+    "sha256": "c7a5b6716c6bd73e7d8b3f4ad29ce7f37f3b1666ceb5e71f92513c121755bbfb",
+    "bytes": 12467
+  },
+  "passes/08-price-space-completion.md": {
+    "sha256": "87e8f7923200de31ffa572311d0c70d0f7040ce2a3ed1f4470cffe6a5ac27268",
+    "bytes": 9333
+  },
+  "passes/09-curvature-bound.md": {
+    "sha256": "6cbb842fc0df2d851de7f7dd419200490a544f96fe4f8b7371fc483844c36b18",
+    "bytes": 11936
+  },
+  "passes/10-simultaneous-extension.md": {
+    "sha256": "9dc82826cf7c711ad84b068d0d62b3ecadfa7378d2a3c8cafc08518429e8834c",
+    "bytes": 13738
+  },
+  "passes/11a-crossing.md": {
+    "sha256": "55dee13ced1b2efb97beb282db360364ae64daaa75e75294ff569690c9044cdd",
+    "bytes": 11498
+  },
+  "passes/11b-spectral-selection.md": {
+    "sha256": "ad1fdbee6d4179147973b70655f018087855c0442aff7b589eaf3a2e8440abf7",
+    "bytes": 11079
+  },
+  "passes/11c-piece-decomposition.md": {
+    "sha256": "36fec7a30125562b7babddd75c8e2f62a10e902adecd654f78c06d527685f0d0",
+    "bytes": 13068
+  },
+  "passes/11d-field-transfer.md": {
+    "sha256": "21576ade0181254d9bf5863597e614b9579711213c3b639bad9d7c3c4f0d7c01",
+    "bytes": 6810
+  },
+  "passes/12a-contracting-laws.md": {
+    "sha256": "de4fd89a8cbc92f8efe235a6cadebe5663bc134bb30745857e655ae99c780951",
+    "bytes": 14496
+  },
+  "passes/12b-hamiltonian-projection.md": {
+    "sha256": "81ad8cce2b21504eb63830983e517f618ca48580a611e835a9b1d56390ddf2da",
+    "bytes": 11761
+  },
+  "passes/12c-flat-estimate.md": {
+    "sha256": "909e1e59bf11e457476da4f84aac0709ffc9a925aae2f3efc27f3b5dc9697449",
+    "bytes": 11920
+  },
+  "passes/12d-counting-and-minors.md": {
+    "sha256": "5df08addfa9b34c74d066a4338af51874ea8bb0d4b88724ec820d16c5fecbde9",
+    "bytes": 9812
+  },
+  "passes/12d-hub-routing.md": {
+    "sha256": "b020480293c70dd293a76657999dbba8e2d65b6e0b55fa8e5411012823c24d84",
+    "bytes": 8199
+  },
+  "passes/12e-field-alternative-replay.md": {
+    "sha256": "19aaf62b0f75da789b4c4bb6c834c61796155a8cdd90f0de7819ea45f189c915",
+    "bytes": 7499
+  },
+  "passes/14a-flat.md": {
+    "sha256": "e497c04c6eaaf17b2314ada04524b2d4d015204c65af5f90056acb70245db87b",
+    "bytes": 15372
+  },
+  "passes/14b-tower.md": {
+    "sha256": "1061ccb268d2d4f0a9b7fe867cacf4bdc10cc93b97f8e77fdef5e7c1110bd4ed",
+    "bytes": 13403
+  },
+  "passes/14c-compiler.md": {
+    "sha256": "653d84b27fb1ded9975e96ed5ebe1e45d5d2551b59be7d41ff417bcab7847098",
+    "bytes": 19399
+  },
+  "passes/14d-formal.md": {
+    "sha256": "b4d38db68f2bd302cfc4630cd99d65a5b017c69289938c3fbc8a676c8cd1879c",
+    "bytes": 10241
+  },
+  "passes/14e-circuit-to-contradiction.md": {
+    "sha256": "422385c406ad21916828509aa1ed86271bbf0f709f47e67a3ea5fdae08112d43",
+    "bytes": 11118
+  },
+  "passes/15-diagonal.md": {
+    "sha256": "f686c1ac778d926e83f08fc6983b74b4b3280c68d74216a30f7d5e13ef930dd6",
+    "bytes": 8756
+  },
+  "passes/pass13A-gate-reuse.md": {
+    "sha256": "db96e517e685727cd26e508e919efc348f77278c048ece0ce3ca22c598f31387",
+    "bytes": 10908
+  },
+  "passes/pass13B-gain.md": {
+    "sha256": "55305a071c59925e2718176964fed5c71eb5565021731a875f79ce7be7b46d07",
+    "bytes": 14396
+  },
+  "passes/pass13C-permanent.md": {
+    "sha256": "749d62888d3b0f8fe66e369de636dab6e4e4cca91eb35f7a0d76a20ae74038b5",
+    "bytes": 12798
+  },
+  "passes/pass13D-membership.md": {
+    "sha256": "c423bdef588dc2ccc04679d420d6e4c652116f9dcd4f43706a60597ab9bbd841",
+    "bytes": 4774
+  },
+  "passes/pass13E-branch-replay.md": {
+    "sha256": "ced448f6ed8a7ec77d3cb0587b3238ce509a200988ad5e4b01e13ad1ace59fc5",
+    "bytes": 2781
+  },
+  "passes/publisher-errata.md": {
+    "sha256": "5a0c33bd58c978c3766bef50b23a44753530fffa03b7a66b0ce645a7ae9ce651",
+    "bytes": 4963
+  },
+  "passes/statement-correspondence.md": {
+    "sha256": "e54e73a13af4d354639a4a346637203511e9c06f0faf90ee53f9c62f4d42d445",
+    "bytes": 9587
+  },
+  "report/VP_VNP_Research_Review.tex": {
+    "sha256": "8137bb8f306e5bde1183383179a83a1b6c2ef03c00b0f78108b2c55ce9e50bef",
+    "bytes": 48849
+  },
+  "report/pass13-conclusions.tex": {
+    "sha256": "8759e385a7d49c76b9e25fc07afd075245bf33c25eb42606fa2b4412ea393e75",
+    "bytes": 5714
+  },
+  "report/pass13a.tex": {
+    "sha256": "75a2e7f0950599d5c1915710611c1493b4f0a6a8e1c561fff94a56fbef701365",
+    "bytes": 8021
+  },
+  "report/pass13b.tex": {
+    "sha256": "1de08db5150eb41e2dfe5f3dc60e66e1437c9c28798ba640dacc8bef140b5e47",
+    "bytes": 10340
+  },
+  "report/pass13c.tex": {
+    "sha256": "cce678c8f84231802d9b51f9692ed09f074ab8af806831cf3bc7d6de9e67d39f",
+    "bytes": 7799
+  },
+  "report/pass13d.tex": {
+    "sha256": "256f423f1e2e5933448f2b27e96da3a07880a283b6614af6a03cb5b5a1c48746",
+    "bytes": 5210
+  },
+  "report/pass14-mechanisms.tex": {
+    "sha256": "64361bba6f0dcbabdf5d2f7541658ccd64891e897bd52cef99c821e73521329d",
+    "bytes": 2527
+  },
+  "report/pass14-synthesis.tex": {
+    "sha256": "1b900ecf49cd35ce948613b16f0fe6e32ad29a7f1445669abf74a41f61fa3e28",
+    "bytes": 6162
+  },
+  "report/pass14a.tex": {
+    "sha256": "ce9db9c7228e9bf775cc1b1610d467d3b9a6ea14ae0d375b153c4c77e97f1c66",
+    "bytes": 13264
+  },
+  "report/pass14b.tex": {
+    "sha256": "c89b29a38e81179b0c98e0168f351fa5de2dd120b824ab5a5bff5a6cee6f9f1f",
+    "bytes": 18257
+  },
+  "report/pass14c.tex": {
+    "sha256": "cd3c04a222b7d09e200102bebba51f931352e1795e118f8e513a409c21ac9fcb",
+    "bytes": 12694
+  },
+  "report/pass14d.tex": {
+    "sha256": "5d6e6688051fc5d17418de42eed286f4acb90913375a26af8f0900a9cc6ca373",
+    "bytes": 6295
+  },
+  "report/pass15-evidence.tex": {
+    "sha256": "d845164034e30d085b4652dbd895a3bd9a25e3abbd4e9d4ef37fb9e4579ec6c0",
+    "bytes": 3099
+  },
+  "report/pass15-k4.tex": {
+    "sha256": "a36b86cde49ab429b0d8ce5d221f6a3e3f8e1f6130abd2e675ddaa1e4b0590cc",
+    "bytes": 11781
+  },
+  "report/pass15-k5.tex": {
+    "sha256": "0d4986b00c6908af8613b4b239512899a09e4e6ab25466ea7f348b2ffbb124d5",
+    "bytes": 9234
+  },
+  "report/pass15-k6.tex": {
+    "sha256": "9fe9714664586acdefd6bbc6cd28ff5792b005d452695cb88b2b7b55519fc178",
+    "bytes": 10650
+  },
+  "report/reader-route.tex": {
+    "sha256": "1292ddb5bd4610848180c05fda11ebd0395dd54dfbf778c717ea55831c3c5163",
+    "bytes": 6447
+  },
+  "report/proof-coverage.csv": {
+    "sha256": "8561e6dbc20af19cbd4225cd1f15fe13cdd12ec3ce1a9025c287002dc0f416f2",
+    "bytes": 57854
+  },
+  "report/VP_VNP_Research_Review.pdf": {
+    "sha256": "413a668bbc8af667499107a5bd04a93120f8cf092ca4e5e733b60be118af9149",
+    "bytes": 568337
+  },
+  "followups/j4/J4_Followup.lean": {
+    "sha256": "345992301cf70ba924bab01b664ed1981183d1c0e50a311bf31d3732f90d5b3d",
+    "bytes": 7667
+  },
+  "followups/j4/LICENSE": {
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357
+  },
+  "followups/j4/NOTICE": {
+    "sha256": "42b2fe65085baead3d52c97df1d951f82b3d6d7e14e2ac42692b37f31b236fd2",
+    "bytes": 920
+  },
+  "followups/j4/README.md": {
+    "sha256": "728f7ee5876df9cee254d4057b44267b7e861bc2715070d9fe9b0cb7c7db157e",
+    "bytes": 5526
+  },
+  "followups/j4/SHA256SUMS": {
+    "sha256": "31a7dd180bca974c66f40710dea2841ad902e5531afa5f0cf2117e876835912d",
+    "bytes": 466
+  },
+  "followups/j4/verification.json": {
+    "sha256": "71525778a464a4a62acaa97d4071dab162a5bc4374296febf8c59c591ce5573b",
+    "bytes": 2041
+  },
+  "followups/j4/verify.py": {
+    "sha256": "4b1718793589cd3281a771ee1e6a7bbc6a1ec3a35012626fe929c76926648f21",
+    "bytes": 4553
+  },
+  "primary/vp-vnp/paper.pdf": {
+    "sha256": "882f5eefb1e067cc8c99ddfe660c10d1d67f9fcee7b69364bd0bab06c0c1f97c",
+    "bytes": 1023554
+  },
+  "publication/expanded-2026-11-26/recovered/VP_VNP_Academic_Audit_42pp_Recovered.pdf": {
+    "sha256": "14142b83e8bee21f61fdb7dab07615f508fedc6f63771d6f864857ea9c7b1e22",
+    "bytes": 538341
+  },
+  "publication/expanded-2026-11-26/recovered/VP_VNP_Academic_Audit_42pp_Recovered.tex": {
+    "sha256": "6d6680dbc9cbe6df4ba6f033c710b1949843dfad6fca56bb40ed514b8e563749",
+    "bytes": 138366
+  }
+}

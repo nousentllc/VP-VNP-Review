@@ -1,0 +1,82 @@
+Running check_bounds.py
+Running pass05_traces.py
+Running pass06_cuts.py
+Running pass07_geometry.py
+Running pass08_midpoints.py
+Running pass09_fan_boundary.py
+Running pass10_examples.py
+Running pass11a_crossing.py
+Running pass11c_packets.py
+Running pass12a_moves.py
+Running pass12b_cycles.py
+Running pass12c_flat.py
+Running pass12d_counts_minors.py
+Running pass12d_hubs.py
+Running pass13a_gate_reuse.py
+Running pass13b_gain.py
+Running pass13c_permanent.py
+Running pass13d_witness.py
+Running pass14a_flat.py
+Running pass14b_tower.py
+Running pass14c_compiler.py
+Running pass15_k4.py
+Running pass15_k5.py
+Running pass15_k6.py
+All 24 standalone finite controls reran and matched their recorded outputs.
+Verified publisher tree, 333 files, and the separate checker blob.
+Matched 47 historical proof sources, receipts and records.
+Verified 63 distinct claim IDs, populated fields and local line anchors.
+Pass 8 retained a written account of the two Lean checks and an excerpt hash.
+{
+  "publisher_tree_id": "b076b4b081298c4e909bac3f87f0e4462d1fb2cb",
+  "tree_files": 333,
+  "matched_module_hashes": 54,
+  "pinned_dependency_revisions": 9,
+  "successful_readback_commands": 22,
+  "axiom_sets_checked": 10
+}
+Reviewed all native module diagnostics; only the five expected challenge placeholders appear.
+Verified 324 publisher source hashes and build results, 5 isolated signature pairs, 10 intermediate types, and 22 axiom readbacks.
+Verified the independent /12 circuit readback and the Paper.Rate object cross-reference.
+Verified Linux artifact bytes and all three members, the full build warning audit, both theorem exports, and both kernels' acceptance of the solution.
+pass15_lean.json: 16 publisher modules, 26 queries
+Verified 16 freshly compiled publisher modules and the type and axiom records for 13 declarations.
+Verified the 66-page report, two-page verdict and their TeX/PNG sources.
+Verified the full archived Actions transcript and all recorded excerpts.
+Checking the Edition 12 Comparator and margin reconciliation.
+{
+  "comparator": {
+    "outer_build": [
+      808,
+      9032
+    ],
+    "verifier_builds": [
+      [
+        8,
+        8708
+      ],
+      [
+        516,
+        9027
+      ]
+    ],
+    "verifier_accepted_line": 522,
+    "matched_evidence_lines": 14
+  },
+  "margin": {
+    "coarse_denominator": "180405/15302",
+    "real_denominator_interval": [
+      "11.7324917284",
+      "11.7324917285"
+    ],
+    "integer_k_real_ell_worst_k": 1238,
+    "integer_k_and_ell_worst": [
+      1225,
+      3500
+    ],
+    "integer_k_and_ell_denominator": "154359922500/13156618919",
+    "real_logL_at_integer_optimum": "16116858175775/1260081",
+    "zero_tolerance_limiting_denominator": "3600/319"
+  }
+}
+Offline checks passed. This run did not start Lean or Comparator.
