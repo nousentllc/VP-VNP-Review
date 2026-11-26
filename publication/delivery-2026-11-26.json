@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-26",
+  "source_commit": "60bbcf20be9a24c4755891872ad29c3847502bbf",
+  "archive": "VP_VNP_Expanded_Audit_2026-11-26.zip",
+  "archive_sha256": "1cc31501c71be66d4a0c0a9986e44b1ed8d7f4e24cce0ad728180c5abf981fec",
+  "archive_bytes": 31732010,
+  "payload_files": 573,
+  "archive_crc_check": "passed",
+  "original_42_page_files_preserved": true,
+  "edition12_unchanged": true,
+  "history_rewrite": false,
+  "publication_submission": false,
+  "pdf_sha256": "436d59990479b116a6a60c1324a2042ae42bfec38aa10724abeb29f063c80c80",
+  "extracted_package_hash_verification": "573 payload files passed",
+  "extracted_package_receipt_checks": "passed; no Lean or Comparator execution",
+  "clean_lualatex_build": "passed in an independent clean directory; content streams and extracted text match",
+  "privacy_baseline_commits": 44,
+  "new_commit_metadata_check": "publication source commits use verified GitHub noreply identity",
+  "source_index_redaction": "workstation path removed from active source-lock.json; original hash and historical bytes preserved",
+  "extracted_zip_lualatex_build": "passed; all 76 page content streams match delivered PDF"
+}
