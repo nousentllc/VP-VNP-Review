@@ -1,0 +1,12 @@
+**
+!primary/
+!primary/**
+!checks/
+!checks/**
+!reproduce/
+!reproduce/**
+!source-lock.json
+**/.DS_Store
+**/.lake
+**/.git
+**/__pycache__

@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Cite this repository as a verification and reproducibility review. Cite the publisher separately for the VP–VNP result."
+type: software
+title: "VP–VNP Research Review: Edition 12 Reproduction Package"
+authors:
+  - family-names: Candler
+    given-names: Justin
+version: "1.0-edition12-rc1"
+repository-code: "https://github.com/nousentllc/VP-VNP-Review"
+url: "https://github.com/nousentllc/VP-VNP-Review/tree/v1.0-edition12-rc1"

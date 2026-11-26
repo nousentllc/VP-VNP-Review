@@ -1,12 +1,18 @@
 # VP–VNP research review
 
-The published statements faithfully express the exact nonuniform arithmetic-circuit separation, and the five released declarations passed the independent Lean and nanoda checks. Edition 12 closes this review at fifteen passes. The three short entry points are:
+This verification and reproducibility report studies Anthropic’s published *VP ≠ VNP Over Every Field* formalization. The separation result is credited to the publisher’s authors. Edition 12 contains fifteen review passes and makes three findings: the review team's Linux run accepted the five public declarations in Lean and nanoda, the statement audit explains how the formalization implements the printed circuit and witness models, and two passages in the printed account warrant narrower wording. A reproduction by an outside operator is pending for the release candidate. [Evidence and attribution](reconciliation/release-candidate.md).
 
-1. [Two-page verdict](report/verdict/VP_VNP_Verdict.pdf) — source custody, statement correspondence, kernel acceptance and the consequence of each discrepancy. [Editable verdict TeX](report/verdict/VP_VNP_Verdict.tex)
-2. [Errata note for the publisher](passes/publisher-errata.md) — two proposed wording changes and two bounds already distinguished in the paper.
-3. [Whole-chain companion](passes/14e-circuit-to-contradiction.md) — follow an arbitrary hypothetical small circuit through either field branch to the contradiction.
+1. [Two-page verdict](report/verdict/VP_VNP_Verdict.pdf)
+2. [Whole-chain companion](passes/14e-circuit-to-contradiction.md)
+3. [Publisher errata](passes/publisher-errata.md)
+4. [66-page technical report](report/VP_VNP_Research_Review.pdf)
+5. [Claim register](report/proof-coverage.csv)
 
-The [claim register](report/proof-coverage.csv), [66-page technical report](report/VP_VNP_Research_Review.pdf), [editable master](report/VP_VNP_Research_Review.tex) and [handoff for Chat](VP_VNP_Chat_Handoff.md) contain the derivations and verification boundaries. The [statement audit](passes/statement-correspondence.md) explains the exact and border models. The [response to external review](reconciliation/edition12-external-review.md) records the points on which the archived evidence qualified the reviewer’s reading.
+The [statement audit](passes/statement-correspondence.md) covers the exact and border models. The [editable TeX master](report/VP_VNP_Research_Review.tex) and [Chat handoff](VP_VNP_Chat_Handoff.md) preserve the full derivations. The [external-review response](reconciliation/edition12-external-review.md) identifies the AI critique and its scope.
+
+## Reproduction and licensing
+
+[Reproduce Edition 12](REPRODUCE.md) from the full tagged repository. It has one command per tier and expected evidence hashes. The [preserved Actions artifact and complete job log](history/actions/README.md) accompany the release. Review code and checks use the [MIT License](LICENSE). The original report and passes use [CC BY 4.0](LICENSES/CC-BY-4.0.txt). The publisher’s `primary/vp-vnp/` subtree stays under its own [Apache-2.0 license](primary/vp-vnp/LICENSE) and [notice](primary/vp-vnp/NOTICE). [Full license scope](LICENSES/README.md).
 
 ## A reader's route through the argument
 
@@ -14,22 +20,11 @@ The [claim register](report/proof-coverage.csv), [66-page technical report](repo
 2. In the flat branch, E.4 charges each reused gate once per balanced subset. E.7 permits differently cut summands. E.8–E.9 supply one spectral witness for all possible paying cuts. E.10 states log₂L≥ℓk√k/16. Its printed proof and Lean arithmetic already give denominator 14. The review’s strict denominator 12 is a minor local tightening. E.11 converts the auxiliary scale into a bound for every sufficiently large target size. [Shared gates](passes/pass13A-gate-reuse.md) · [Price and circuit estimates](passes/14a-flat.md)
 3. In the contracting branch, H.1 constructs the tower and H.2 applies the G.2 identities, routes packets, preserves weighted values and accounts for resources. K.2 and K.3 take any small circuit and produce a bounded weighted evaluator for short plain instances. The concrete formal word polynomial can differ from the printed one away from its legal inputs. K.2 compiles an exact circuit for the clause polynomial. K.3 uses its degree bound and then invokes their common evaluations on canonical inputs. [Tower and laws](passes/14b-tower.md) · [Circuit compiler](passes/14c-compiler.md)
 4. Follow the exact matching of field, size, scale and program in K.3 and K.6. The diagonal yields V=1+V in a nonzero ring. The separate membership witness places HC in VNP, and the exact lower bound excludes it from VP. [Arbitrary circuit to contradiction](passes/14e-circuit-to-contradiction.md) · [Rooted HC witness](passes/pass13D-membership.md)
-5. Compare that mathematical reconstruction with the [complete-release verification record](passes/14d-formal.md) and the [coverage register](report/proof-coverage.csv). The native Lean rebuild compiled all 324 publisher sources, including the complete exact and approximate endpoints. The separate Linux run accepted all five public declarations with nanoda enabled. The proof-term checks and the remaining manuscript/implementation correspondence have distinct scopes. Reusable ideas are recorded in the [transferable-mechanism register](report/transferable-mechanisms.md).
+5. Compare that mathematical reconstruction with the [complete-release verification record](passes/14d-formal.md) and the [coverage register](report/proof-coverage.csv). The native Lean rebuild compiled all 324 publisher sources, including the complete exact and approximate endpoints. The Linux run launched by the review team accepted all five public declarations with nanoda enabled. The proof-term checks and the remaining manuscript/implementation correspondence have distinct scopes. Reusable ideas are recorded in the [transferable-mechanism register](report/transferable-mechanisms.md).
 
-## Reproduce Edition 12
+## Earlier verification routes
 
-Pass 15 follows the contracting branch from the [K.4 tally interpreter](report/pass15-k4.tex) through the [K.5 scale transfer](report/pass15-k5.tex) into the [K.6 diagonal](report/pass15-k6.tex). The [short reading guide](passes/15-diagonal.md) gives the exact line at which the proof first invokes the accelerator's conditional value clause. A separate Lean result sharpens the K.4 clock to the inclusive endpoint and identifies a family that overflows the counter at the next step.
-
-Run the complete offline check from the repository root with Python 3.9 or later. It validates the publisher tree, earlier full-build and Comparator evidence, the new targeted receipt and report hashes. It runs the finite controls and validates the formal receipts without installing Lean. See the [check catalogue](checks/README.md) for per-script modes. The separate Lean command rebuilds the 16-module closure from source and checks the five review lemmas. It requires Lean 4.33.1 on the search path and the built mathlib checkout at the pinned dependency revisions.
-
-~~~sh
-python3 checks/check_all.py
-python3 checks/pass09_endpoint_replay.py --mathlib "$MATHLIB_DIR" --target-module Paper.NoAcc --query-file checks/pass15_plain.lean --output /tmp/pass15-lean.json
-python3 checks/pass14_report_rebuild.py --lualatex lualatex --output /tmp/vp-vnp-ed12.pdf
-python3 checks/pass14_report_rebuild.py --verdict --lualatex lualatex --output /tmp/vp-vnp-verdict.pdf
-~~~
-
-Compare the rebuilt report with the release using the [Edition 12 PDF receipt](report/edition12-build.json). The shared builder fixes the build clock. Matching engine, fonts and packages are needed for byte identity. The [machine receipt](checks/pass15_lean.json) identifies all project sources compiled and the query used. Edition 11 supplies the separate complete-release Comparator run.
+The [check catalogue](checks/README.md) lists the individual controls and archived receipt modes. The [report build receipt](report/edition12-build.json) pins the TeX inputs and published PDF digest. The [Edition 12 handoff](VP_VNP_Chat_Handoff.md) records the K.4–K.6 derivation, the targeted 16-module build and its verification boundaries.
 
 ## Reproduce Edition 11
 
@@ -48,7 +43,7 @@ python3 checks/pass14_release.py --mathlib "$MATHLIB_DIR" --jobs 3 --work-dir /t
 python3 checks/pass14a_margin_replay.py --mathlib "$MATHLIB_DIR" --objects /tmp/vp-vnp-pass14-fresh/objects --output /tmp/pass14-margin.json
 ~~~
 
-The [original Linux build and Comparator logs](checks/pass14_linux_artifact.zip) are preserved with their GitHub artifact digest. For the hosted verification use the [pinned-project workflow](.github/workflows/pass14-comparator.yml). It checks the project and driver against their original Git objects, builds the default Lake targets on a disposable Linux runner and invokes the publisher's Comparator with the locked five-theorem configuration. The independent [Linux run 45691617731](https://github.com/nousentllc/VP-VNP-Review/actions/runs/45691617731) completed the unmodified driver and returned its exact acceptance marker. [Machine receipt](checks/pass14_comparator.json). The [formal track](passes/14d-formal.md) records which stages ran, their actual outcomes and evidence retention. The [publisher configuration](primary/vp-vnp/comparator.json) lists the five names, three permitted axioms and Nanoda setting.
+The [original Linux build and Comparator logs](checks/pass14_linux_artifact.zip) are preserved with their GitHub artifact digest. For the hosted verification use the [pinned-project workflow](.github/workflows/pass14-comparator.yml). It checks the project and driver against their original Git objects, builds the default Lake targets on a disposable Linux runner and invokes the publisher's Comparator with the locked five-theorem configuration. The review team’s [Linux run 45691617731](https://github.com/nousentllc/VP-VNP-Review/actions/runs/45691617731) completed the unmodified driver and returned its exact acceptance marker. [Machine receipt](checks/pass14_comparator.json). The [formal track](passes/14d-formal.md) records which stages ran, their actual outcomes and evidence retention. The [publisher configuration](primary/vp-vnp/comparator.json) lists the five names, three permitted axioms and Nanoda setting.
 
 Edition 11's original TeX, PDF, [build receipt](report/edition11-build.json) and complete source tree remain in the archived packet below. Extract that packet before rebuilding the historical PDF. Each edition has one editable TeX master, included fragments and the original Nous PNG directly below the cover subtitle.
 
@@ -56,23 +51,7 @@ Edition 11's original TeX, PDF, [build receipt](report/edition11-build.json) and
 
 [Download the Edition 12 packet](handoff/VP_VNP_Review_2026-11-25_pass15.zip). Its 509 files reproduce the research snapshot at `3d3d24a8d43836a6df80bc87bf483745aa66dc54`. Every member matched its Git blob. A clean extraction passed the full offline suite and rebuilt both the two-page verdict and 66-page technical report byte for byte. ZIP SHA-256 `b9c8124b1947998a78ddf2e7893d94392bba035ddd75bca76fc7babfdfda122b`. The packet includes the pinned publisher source, editable report and all receipts. Earlier handoff ZIPs are available separately below.
 
-[Download the Edition 11 packet](handoff/VP_VNP_Review_2026-11-25_pass14.zip). Its 478 verified files reproduce the research tree at commit `bf956990d0f1f0002fa08989433ed51c32168b2a`, including the 53-page PDF, editable sources, publisher release and execution receipts. ZIP SHA-256 `637c97d243108169d22faec01a4d494c55a939fa56af810ca14ca43692031af6`.
-
-The [archived thirteen-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/3754047be3854ef313df17ae5117c6ca5a66b4b8/handoff/VP_VNP_Review_2026-11-25_pass13.zip) preserves Edition 10 from research commit 4350383. Its ZIP SHA-256 is 06523551fe89e37d9b691c2ff05cf98a2cf65c646d1abb3a38ed381a17e09cea.
-
-The [archived twelve-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/2f263c05d27afe803489583f94833e48a1ba972e/handoff/VP_VNP_Review_2026-11-25_pass12.zip) preserves Edition 9 from research commit `3973fb8`.
-
-The [archived eleven-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/33edc6eb465bb2c565e82d3461fd418c1890d65e/handoff/VP_VNP_Review_2026-11-25_pass11.zip) preserves Edition 8 from research commit `e15d655`.
-
-The [archived ten-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/3bf9cd5e052da8313c56e73b1346ad792dfeb95d/handoff/VP_VNP_Review_2026-11-25_pass10.zip) preserves the handoff from research commit `5ee75d1`.
-
-The [archived nine-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/8295d58c59adeaa750235483330bba66475828c1/handoff/VP_VNP_Review_2026-11-24_pass09.zip) preserves the handoff from research commit `f6909ed`.
-
-The [archived eight-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/7af4005af05cad5fac6ba184a24704b7b15f5465/handoff/VP_VNP_Review_2026-11-24_pass08.zip) preserves the handoff from research commit `8ee44fe`.
-
-The [archived seven-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/ec35fabf2077827a470a6d02151da905cdef97aa/handoff/VP_VNP_Review_2026-11-24_pass07.zip) preserves the earlier handoff from research commit `c5d9ac1`.
-
-The [archived six-pass packet](https://github.com/nousentllc/VP-VNP-Review/blob/84906e9ef713358863f195747b4e12c9a4371f06/handoff/VP_VNP_Review_2026-11-24_pass06.zip) preserves the earlier handoff from research commit `1bc85ed`.
+[Browse the nine historical Pass 6–14 packets](history/handoffs/README.md). Their archive bytes and original Git history are preserved.
 
 ## Earlier mathematical and formal records
 

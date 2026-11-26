@@ -1,0 +1,90 @@
+{
+  "tier1": {
+    "sha256": "ad6acd7b7fbee926a4fa96fe61f50e8bcfa5e381d683317e8b8ea9a05c6437d9",
+    "proof_checks": {
+      "pass14a_margin": {
+        "Review.Pass14A.margin12": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "pass14a_circuit": {
+        "Review.Pass14A.printed_circuit12": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "pass15_plain": {
+        "Paper.lem_postpone": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Paper.prop_next_round": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Paper.prop_next": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Paper.thm_noacc_finite_field": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Paper.thm_noacc_periodic": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Paper.thm_noacc_all_scales": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Paper.thm_noacc_diagonal": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Paper.thm_noacc": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Review.Pass15.postponed_accelerator_sum": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Review.Pass15.fast_named_input": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Review.Pass15.bill_lt_cost": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Review.Pass15.postpone_endpoint": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "Review.Pass15.requestEmpty_ev": [
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  },
+  "tier2": {
+    "sha256": "8d0ea4d8393b1f0768f5dbafeb3b8ec2f64c485fbf8e4c311d8f9cb9ca7ed2e6"
+  }
+}
