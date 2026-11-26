@@ -21,3 +21,5 @@ For fixed $h$, the proposition states a word length at most $C_h(n+1)^7$. On p. 
 ### 4. Proposition E.10, pp. 36–37 · The numerical margin is already explicit
 
 With $k\ge2$ and $\ell\ge100\sqrt{k}$ in the flat case, the printed conclusion is $L\ge 2^{\ell k^{3/2}/16}$. The last line of its printed proof establishes $\log_2 L\ge\ell k^{3/2}/14$. Lean derives the same stronger intermediate bound, then uses it to prove the advertised inequality with denominator 16. Both constants occur in both accounts; the larger denominator weakens the lower bound. No numerical correction is needed. [Printed derivation](../primary/vp-vnp/paper.pdf#page=37) · [Scalar bound](../primary/vp-vnp/Paper/Rate.lean#L123) · [Log-to-gate conversion](../primary/vp-vnp/Paper/Rate.lean#L259) · [Circuit proposition](../primary/vp-vnp/Paper/Rate.lean#L298)
+
+On November 25, 2026 the review team submitted the K.3 and I.1 examples and proposed edits to the publisher. [Upstream issue #57](https://github.com/anthropics/formal-math/issues/57).

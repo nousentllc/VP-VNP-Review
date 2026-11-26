@@ -4,11 +4,11 @@ This verification and reproducibility report studies Anthropic’s published *VP
 
 1. [Two-page verdict](report/verdict/VP_VNP_Verdict.pdf)
 2. [Whole-chain companion](passes/14e-circuit-to-contradiction.md)
-3. [Publisher errata](passes/publisher-errata.md)
+3. [Publisher errata](passes/publisher-errata.md) · [K.3 and I.1 submitted upstream in #57](https://github.com/anthropics/formal-math/issues/57)
 4. [66-page technical report](report/VP_VNP_Research_Review.pdf)
 5. [Claim register](report/proof-coverage.csv)
 
-The [statement audit](passes/statement-correspondence.md) covers the exact and border models. The [editable TeX master](report/VP_VNP_Research_Review.tex) and [Chat handoff](VP_VNP_Chat_Handoff.md) preserve the full derivations. The [external-review response](reconciliation/edition12-external-review.md) identifies the AI critique and its scope.
+**Independent human statement-level sign-off is pending.** The [statement audit](passes/statement-correspondence.md) records the AI-assisted reading of the exact and border models. An algebraic complexity theorist is invited to compare the printed claims with the pinned Lean statements. [Human-review invitation #1](https://github.com/nousentllc/VP-VNP-Review/issues/1). The [editable TeX master](report/VP_VNP_Research_Review.tex) and [Chat handoff](VP_VNP_Chat_Handoff.md) preserve the full derivations. The [external-review response](reconciliation/edition12-external-review.md) identifies the AI critique and its scope.
 
 ## Reproduction and licensing
 
@@ -49,7 +49,9 @@ Edition 11's original TeX, PDF, [build receipt](report/edition11-build.json) and
 
 ## Review packets
 
-[Download the Edition 12 packet](handoff/VP_VNP_Review_2026-11-25_pass15.zip). Its 509 files reproduce the research snapshot at `3d3d24a8d43836a6df80bc87bf483745aa66dc54`. Every member matched its Git blob. A clean extraction passed the full offline suite and rebuilt both the two-page verdict and 66-page technical report byte for byte. ZIP SHA-256 `b9c8124b1947998a78ddf2e7893d94392bba035ddd75bca76fc7babfdfda122b`. The packet includes the pinned publisher source, editable report and all receipts. Earlier handoff ZIPs are available separately below.
+[Read the current Edition 12 handoff](VP_VNP_Chat_Handoff.md) for the public correspondence and sign-off status.
+
+[Download the original Edition 12 research packet](handoff/VP_VNP_Review_2026-11-25_pass15.zip). Its 509 files reproduce the research snapshot at `3d3d24a8d43836a6df80bc87bf483745aa66dc54`. Every member matched its Git blob. A clean extraction passed the full offline suite and rebuilt both the two-page verdict and 66-page technical report byte for byte. ZIP SHA-256 `b9c8124b1947998a78ddf2e7893d94392bba035ddd75bca76fc7babfdfda122b`. The packet includes the pinned publisher source, editable report and all receipts. Earlier handoff ZIPs are available separately below.
 
 [Browse the nine historical Pass 6–14 packets](history/handoffs/README.md). Their archive bytes and original Git history are preserved.
 
