@@ -1,6 +1,14 @@
 # VP–VNP research review
 
-This verification and reproducibility report studies Anthropic’s published *VP ≠ VNP Over Every Field* formalization. The separation result is credited to the publisher’s authors. Edition 12 contains fifteen review passes and makes three findings: the review team's Linux run accepted the five public declarations in Lean and nanoda, the statement audit explains how the formalization implements the printed circuit and witness models, and two passages in the printed account warrant narrower wording. A reproduction by an outside operator is pending for the release candidate. [Evidence and attribution](reconciliation/release-candidate.md).
+This repository is an AI-assisted reading companion to Anthropic’s *VP ≠ VNP Over Every Field*. The theorem and its formalization are the publisher’s work. Our fifteen investigations follow the argument from the printed definitions into Lean. The accompanying verification runs record exactly which declarations and proofs the software checked.
+
+![Mind map of the VP–VNP investigation, linking the circuit model and its Lean statement to the flat and contracting cases, verification runs, and independent reading.](report/VP_VNP_investigation_mind_map.png)
+
+**Start with one circuit.** Draw `(x + y)²` using one addition gate. Can both inputs to the multiplication gate refer back to that same sum? Read §1.3 of the paper, then look at the indices `i` and `j` in `Statement.Computes`. We invite you to record your own reading of the model. [Paper, §1.3](primary/vp-vnp/paper.pdf#page=3) · [Lean definition, lines 20–27](primary/vp-vnp/Statement.lean#L20-L27) · [Human-review invitation](https://github.com/nousentllc/VP-VNP-Review/issues/1)
+
+## Edition 12 findings and evidence
+
+The review team’s Linux verification run accepted the five public declarations in Lean and nanoda. The statement audit traces the printed circuit and witness models into the formalization. The errata identify two passages in the printed account that warrant narrower wording. Reproduction by an outside operator is pending for the release candidate. [Evidence and attribution](reconciliation/release-candidate.md)
 
 1. [Two-page verdict](report/verdict/VP_VNP_Verdict.pdf)
 2. [Whole-chain companion](passes/14e-circuit-to-contradiction.md)
@@ -16,7 +24,7 @@ Lean 4.33.1 verified tighter J.4 bounds for the cutter’s accepting time, piece
 
 ## Reproduction and licensing
 
-[Reproduce Edition 12](REPRODUCE.md) from the full tagged repository. It has one command per tier and expected evidence hashes. The [preserved Actions artifact and complete job log](history/actions/README.md) accompany the release. Review code and checks use the [MIT License](LICENSE). The original report and passes use [CC BY 4.0](LICENSES/CC-BY-4.0.txt). The publisher’s `primary/vp-vnp/` subtree stays under its own [Apache-2.0 license](primary/vp-vnp/LICENSE) and [notice](primary/vp-vnp/NOTICE). [Full license scope](LICENSES/README.md).
+[Reproduce Edition 12](REPRODUCE.md) from the full tagged repository. It has one command per tier and expected evidence hashes. The [preserved Actions artifact and complete job log](history/actions/README.md) accompany the release. Review code and checks use the [MIT License](LICENSE). The original report and written investigations use [CC BY 4.0](LICENSES/CC-BY-4.0.txt). The publisher’s `primary/vp-vnp/` subtree stays under its own [Apache-2.0 license](primary/vp-vnp/LICENSE) and [notice](primary/vp-vnp/NOTICE). [Full license scope](LICENSES/README.md).
 
 ## A reader's route through the argument
 
@@ -26,7 +34,7 @@ Lean 4.33.1 verified tighter J.4 bounds for the cutter’s accepting time, piece
 4. Follow the exact matching of field, size, scale and program in K.3 and K.6. The diagonal yields V=1+V in a nonzero ring. The separate membership witness places HC in VNP, and the exact lower bound excludes it from VP. [Arbitrary circuit to contradiction](passes/14e-circuit-to-contradiction.md) · [Rooted HC witness](passes/pass13D-membership.md)
 5. Compare that mathematical reconstruction with the [complete-release verification record](passes/14d-formal.md) and the [coverage register](report/proof-coverage.csv). The native Lean rebuild compiled all 324 publisher sources, including the complete exact and approximate endpoints. The Linux run launched by the review team accepted all five public declarations with nanoda enabled. The proof-term checks and the remaining manuscript/implementation correspondence have distinct scopes. Reusable ideas are recorded in the [transferable-mechanism register](report/transferable-mechanisms.md).
 
-## Earlier verification routes
+## Verification runs and recorded evidence
 
 The [check catalogue](checks/README.md) lists the individual controls and archived receipt modes. The [report build receipt](report/edition12-build.json) pins the TeX inputs and published PDF digest. The [Edition 12 handoff](VP_VNP_Chat_Handoff.md) records the K.4–K.6 derivation, the targeted 16-module build and its verification boundaries.
 
@@ -57,24 +65,24 @@ Edition 11's original TeX, PDF, [build receipt](report/edition11-build.json) and
 
 [Download the original Edition 12 research packet](handoff/VP_VNP_Review_2026-11-25_pass15.zip). Its 509 files reproduce the research snapshot at `3d3d24a8d43836a6df80bc87bf483745aa66dc54`. Every member matched its Git blob. A clean extraction passed the full offline suite and rebuilt both the two-page verdict and 66-page technical report byte for byte. ZIP SHA-256 `b9c8124b1947998a78ddf2e7893d94392bba035ddd75bca76fc7babfdfda122b`. The packet includes the pinned publisher source, editable report and all receipts. Earlier handoff ZIPs are available separately below.
 
-[Browse the nine historical Pass 6–14 packets](history/handoffs/README.md). Their archive bytes and original Git history are preserved.
+[Browse the nine archived investigation packets, numbered 6–14](history/handoffs/README.md). Their archive bytes and original Git history are preserved.
 
 ## Earlier mathematical and formal records
 
 - [Paper](primary/vp-vnp/paper.pdf) and [formal source](primary/vp-vnp/) from Claude (Anthropic). The `primary/` directory preserves the publisher’s files for offline reading. Its [license](primary/vp-vnp/LICENSE) and [attribution](primary/vp-vnp/NOTICE) accompany the source.
 - [Source manifest](source-lock.json) identifying the exact publisher commit and the PDF’s SHA-256 digest. A checkout includes the same paper and proof files that the review cites.
-- [Small algebra checks](checks/check_bounds.py), [recorded results](checks/results.json), and [publisher CI evidence](checks/upstream-ci.json). Run `python3 checks/check_bounds.py` to reproduce the algebra checks. Pass 5 adds [run-multiplicity checks](checks/pass05_traces.py), [source-language examples](checks/pass05_examples.lean) and [time-bound lemmas](checks/pass05_time.lean). The [pass record](passes/05-universal-automaton.md) gives their execution conditions and the scope of the independent Lean checks.
+- [Small algebra checks](checks/check_bounds.py), [recorded results](checks/results.json), and [publisher CI evidence](checks/upstream-ci.json). Run `python3 checks/check_bounds.py` to reproduce the algebra checks. The universal automaton investigation asks how many accepting runs the simulation preserves and how long they take. The [run-multiplicity checks](checks/pass05_traces.py), [source-language examples](checks/pass05_examples.lean) and [time-bound lemmas](checks/pass05_time.lean) accompany the [investigation record](passes/05-universal-automaton.md), which gives their execution conditions and the scope of the independent Lean checks.
 - [One-cut and iteration review](passes/06-one-cut-and-iteration.md) and [finite checks of weights and resource bounds](checks/pass06_cuts.py). Run `python3 checks/pass06_cuts.py` from this directory.
 - [Theorem D.2 and field coverage](passes/07-field-alternative.md), with [exact finite checks](checks/pass07_geometry.py) and [reflection lemmas](checks/pass07_reflection.lean). Run `python3 checks/pass07_geometry.py` from this directory.
 - [Proposition C.3 and price-space completion](passes/08-price-space-completion.md), with [exact midpoint examples](checks/pass08_midpoints.py) and [a local replay of the publisher’s two completion lemmas](checks/pass08_completion.py).
 - [Theorem C.1, the curvature bound and its limits](passes/09-curvature-bound.md), with [finite-box boundary checks](checks/pass09_fan_boundary.py), [endpoint lemmas](checks/pass09_endpoint.lean), and the [full publisher-source replay](checks/pass09_endpoint_replay_results.json). The [portable replay script](checks/pass09_endpoint_replay.py) gives the toolchain and input requirements. Run `python3 checks/pass09_fan_boundary.py` from this directory.
 - [Propositions A.7 and A.8, simultaneous extension](passes/10-simultaneous-extension.md), with [exact examples](checks/pass10_examples.py) and [formal statement and axiom queries](checks/pass10_formal.lean). The [24-module verification record](checks/pass10_formal_results.json) and [portable runner](checks/pass10_formal_replay.py) document the local replay. Run `python3 checks/pass10_examples.py` from this directory.
 
-- Pass 11 comprises [crossing and curvature](passes/11a-crossing.md), [spectral selection](passes/11b-spectral-selection.md), [weighted piece decomposition](passes/11c-piece-decomposition.md), and [field transfer](passes/11d-field-transfer.md). Each record distinguishes general arguments, finite controls and machine-check scope.
+- The investigations of geometry and field transfer cover [crossing and curvature](passes/11a-crossing.md), [spectral selection](passes/11b-spectral-selection.md), [weighted piece decomposition](passes/11c-piece-decomposition.md), and [field transfer](passes/11d-field-transfer.md). Each record distinguishes general arguments, finite controls and machine-check scope.
 
-- Pass 13 includes the [combined formal replay](passes/pass13E-branch-replay.md) alongside the four mathematical investigations. The complete section-by-section derivations and worked examples appear on pages 19–30 of the PDF.
+- The branch estimates and projections cover [contracting laws and stage load](passes/12a-contracting-laws.md), [the Hamiltonian-cycle projection](passes/12b-hamiltonian-projection.md), [the growing-dimension flat estimate](passes/12c-flat-estimate.md), and [crossing counts and signs](passes/12d-counting-and-minors.md). Each note links its original-source locations, reproducible checks and the specific evidence from Lean.
 
-- Pass 12 adds [contracting laws and stage load](passes/12a-contracting-laws.md), [the Hamiltonian-cycle projection](passes/12b-hamiltonian-projection.md), [the growing-dimension flat estimate](passes/12c-flat-estimate.md), and [crossing counts and signs](passes/12d-counting-and-minors.md). Each note links its original-source locations, reproducible checks and the specific evidence from Lean.
+- A [combined Lean verification run](passes/pass13E-branch-replay.md) accompanies the investigations of gate reuse, gain, the permanent and Hamiltonian-cycle membership. The complete section-by-section derivations and worked examples appear on pages 19–30 of the PDF.
 
 ## Reading the technical appendix
 
