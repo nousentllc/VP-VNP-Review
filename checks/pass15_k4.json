@@ -1,0 +1,16 @@
+{
+  "accepting_occurrences_in_example": 7,
+  "bill_budget_comparisons": 16576,
+  "bills": 259,
+  "budgets_per_bill": 64,
+  "direct_weighted_total": 5,
+  "filtered_weights_for_1_1_0": [
+    2,
+    2,
+    -3,
+    0
+  ],
+  "postponed_weighted_total": 5,
+  "represented_bills": 40,
+  "unrepresented_zero_lookup_bills": 219
+}

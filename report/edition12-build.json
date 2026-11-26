@@ -1,0 +1,64 @@
+{
+  "edition": 12,
+  "baseline": "a6868a523e92ddf262de29af8bcba07580f6c0bb",
+  "pdf": "report/VP_VNP_Research_Review.pdf",
+  "pages": 66,
+  "pdf_sha256": "9f1c097b42d9eb406979e82182257cb9a241eec5a0276eee1a404a7f6d8f87ad",
+  "engine": "This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)",
+  "source_date_epoch": 1795636800,
+  "inputs_sha256": {
+    "report/VP_VNP_Research_Review.tex": "8137bb8f306e5bde1183383179a83a1b6c2ef03c00b0f78108b2c55ce9e50bef",
+    "report/nous-black.png": "bdfff8716596a351b480896d4bc21a7786470d6283c050b4ee801e3a88d061b6",
+    "report/pass13-conclusions.tex": "8759e385a7d49c76b9e25fc07afd075245bf33c25eb42606fa2b4412ea393e75",
+    "report/pass13a.tex": "75a2e7f0950599d5c1915710611c1493b4f0a6a8e1c561fff94a56fbef701365",
+    "report/pass13b.tex": "1de08db5150eb41e2dfe5f3dc60e66e1437c9c28798ba640dacc8bef140b5e47",
+    "report/pass13c.tex": "cce678c8f84231802d9b51f9692ed09f074ab8af806831cf3bc7d6de9e67d39f",
+    "report/pass13d.tex": "256f423f1e2e5933448f2b27e96da3a07880a283b6614af6a03cb5b5a1c48746",
+    "report/pass14-mechanisms.tex": "64361bba6f0dcbabdf5d2f7541658ccd64891e897bd52cef99c821e73521329d",
+    "report/pass14-synthesis.tex": "1b900ecf49cd35ce948613b16f0fe6e32ad29a7f1445669abf74a41f61fa3e28",
+    "report/pass14a.tex": "5bea3abd4d69c79cc4d8447d45d06ba178059aa4d2152d3c832adf0fb1333c3a",
+    "report/pass14b.tex": "c89b29a38e81179b0c98e0168f351fa5de2dd120b824ab5a5bff5a6cee6f9f1f",
+    "report/pass14c.tex": "cd3c04a222b7d09e200102bebba51f931352e1795e118f8e513a409c21ac9fcb",
+    "report/pass14d.tex": "5d6e6688051fc5d17418de42eed286f4acb90913375a26af8f0900a9cc6ca373",
+    "report/pass15-evidence.tex": "3e592f2e529b98ffbf4a7a96bd6576954418b86f62ed0dcf032c368ed7a13946",
+    "report/pass15-k4.tex": "a36b86cde49ab429b0d8ce5d221f6a3e3f8e1f6130abd2e675ddaa1e4b0590cc",
+    "report/pass15-k5.tex": "0d4986b00c6908af8613b4b239512899a09e4e6ab25466ea7f348b2ffbb124d5",
+    "report/pass15-k6.tex": "9fe9714664586acdefd6bbc6cd28ff5792b005d452695cb88b2b7b55519fc178",
+    "report/reader-route.tex": "1292ddb5bd4610848180c05fda11ebd0395dd54dfbf778c717ea55831c3c5163"
+  },
+  "selected_runtime_inputs_sha256": {
+    "article.cls": "c09f5982893f8a092e69435caa151eef0d3cb4d7495abf23f08b640191cf81f6",
+    "geometry.sty": "d541ce56a3f45e2462be958ec62a50404213f26b241c7d7ad3e812685d38f5d8",
+    "fontspec.sty": "b190fc3e1a226b1deeffd441183406d3c9bc490f582ff4f5f5d8d927072f6469",
+    "amsmath.sty": "8bf35130be39e123cbd0e4f0c09d3806d745d4c08ee391a543a8b9675191e6a7",
+    "amssymb.sty": "70838b061b56569dd3ed9f339b1bdd1c78ba185de49f27ceae331c97f48b5986",
+    "graphicx.sty": "ed13d7b0b9b619804d9dc97030aa7d121b542a04174da1a59a8e5f43c6e834da",
+    "xcolor.sty": "478888f8e8f00345fd645b6cdd6fa7db1e9efdd6f585b25c89bb3665d9029295",
+    "fancyhdr.sty": "9130c52f91087abc6d223164ffa587e207e3257fcbcd069ef09ecb5391043f14",
+    "hyperref.sty": "4feb3ecbd4613dda2ca79a31a3a9d9ba83a6c5ff17573ec7d0f165084dc49eb4",
+    "lmroman10-regular.otf": "1aa18cfefa58132c52ce5de70db1fd1154201c19cd2b2cdaffba4906a33e6852",
+    "lmmono10-regular.otf": "22deb6d3be3ffcb40b33f0e010afb256c677d97c2a2bdee1f5740cdc97751558",
+    "lmsans10-regular.otf": "d431b786b9b603662718e79cfe9b441f47a8b0b3e854dde89d5acb3ed7cfd682"
+  },
+  "first_page_embedded_logo_pixels_match_original": true,
+  "minimum_extracted_characters_per_page": 1657,
+  "pass15_pages": {
+    "K.4": [
+      54,
+      57
+    ],
+    "K.5": [
+      58,
+      61
+    ],
+    "K.6": [
+      62,
+      65
+    ],
+    "evidence": [
+      66,
+      66
+    ]
+  },
+  "reproduction": "Use checks/pass14_report_rebuild.py against the current source with the specified engine and matching packages and fonts."
+}

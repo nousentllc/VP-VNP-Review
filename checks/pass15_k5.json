@@ -1,0 +1,35 @@
+{
+  "scope": "finite arithmetic on conditional bounds and independent synthetic list controls",
+  "schedules": [
+    {
+      "h": 17,
+      "alpha": 5,
+      "log2_v": 4096,
+      "rounds": 15,
+      "initial_exponent": 1361,
+      "last_exponent": 1241,
+      "last_cut_minimum": 1240,
+      "target": 1275
+    },
+    {
+      "h": 19,
+      "alpha": 7,
+      "log2_v": 8192,
+      "rounds": 21,
+      "initial_exponent": 2129,
+      "last_exponent": 1961,
+      "last_cut_minimum": 1944,
+      "target": 2009
+    }
+  ],
+  "list_products": {
+    "lists_checked": 121,
+    "repeated_piece_paths": [
+      16,
+      -24,
+      -24,
+      36
+    ],
+    "two_cut_runs_value": -3
+  }
+}

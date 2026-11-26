@@ -1,0 +1,61 @@
+{
+  "bit_product_comparisons": 4704,
+  "cost_envelopes_h_log2u": [
+    [
+      17,
+      96
+    ],
+    [
+      17,
+      128
+    ],
+    [
+      17,
+      192
+    ],
+    [
+      21,
+      96
+    ],
+    [
+      21,
+      128
+    ],
+    [
+      21,
+      192
+    ]
+  ],
+  "orbits": {
+    "11": {
+      "cycle_begins": 1,
+      "first_repeat_at": 5
+    },
+    "13": {
+      "cycle_begins": 2,
+      "first_repeat_at": 4
+    },
+    "17": {
+      "cycle_begins": 4,
+      "first_repeat_at": 5
+    },
+    "2": {
+      "cycle_begins": 0,
+      "first_repeat_at": 1
+    },
+    "3": {
+      "cycle_begins": 1,
+      "first_repeat_at": 2
+    },
+    "5": {
+      "cycle_begins": 2,
+      "first_repeat_at": 3
+    },
+    "7": {
+      "cycle_begins": 1,
+      "first_repeat_at": 3
+    }
+  },
+  "power_name_comparisons": 1856,
+  "purpose": "Finite power-table and arithmetic controls, with no accelerator assumed"
+}

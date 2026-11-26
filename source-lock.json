@@ -143,6 +143,18 @@
       "build_report": "checks/pass14_report_rebuild.py",
       "chain": "passes/14e-circuit-to-contradiction.md",
       "transferable_mechanisms": "report/transferable-mechanisms.md"
+    },
+    "pass15": {
+      "review_baseline": "a6868a523e92ddf262de29af8bcba07580f6c0bb",
+      "target": "Paper.NoAcc",
+      "record": "checks/pass15_lean.json",
+      "review_proofs": "checks/pass15_plain.lean",
+      "scope": "Fresh targeted native rebuild and five review lemmas. The complete-release Comparator receipt remains filed under Pass 14.",
+      "finite_controls": [
+        "checks/pass15_k4.json",
+        "checks/pass15_k5.json",
+        "checks/pass15_k6.json"
+      ]
     }
   }
 }

@@ -1,0 +1,76 @@
+\clearpage
+\heading{K.5 and the evaluator at the next scale}\label{sec:15k5}
+\smallref{Pass 15B. Manuscript pp.\ 57--58. \pub{NS1/Accel.lean}{23}{Bit length and accelerator contracts}, \pub{Paper/Cuts.lean}{460}{J.4}, \pub{Paper/Next.lean}{178}{K.5 with witnesses for its constants}.}
+
+Fix a commutative ring $A$, the built-in weights $\theta:\{0,1\}^*\to A$, a commutative $A$-algebra $R$, and a trie $K$ of constants in $R$. Write $h=h_0\ge17$, $H=16h$, $v'=v^\alpha$, $\alpha\ge5$, and $\ell=\lfloor\log_2 v\rfloor+1$. J.4 supplies a cut hypothesis at $(H,C_0,v_0)$. Assume a single program $D$ at scale $v$, with cost cap $v^{H-16}$, name indices $i<B$, and $Q=\#K\le v^{h\alpha}$ and $|D|\le v^{h\alpha}$. For one fixed $k\ge0$ assume $B,\operatorname{ht}K\le(\alpha\ell)^k$. K.5 works already over this algebra. The finite field enters K.6.
+
+\subhead{What must the new program do?}
+On every $|z|\le(v')^{H-32}$, all its runs must halt. Each accepting run must satisfy its time and name budgets. If the program/input pair encoded in $z$ is itself $\mathrm{Plain}((v')^H,z)$, the new program must have weighted value $\iota(\mathrm{pv}(z))$, where $\iota:A\to R$ is the algebra map. Plainness concerns the computation \emph{described by} $z$. The evaluator may itself name constants. The code $U$ of the universal interpreter has only the weaker starting contract. On plain $z$ it simulates with five steps of overhead, in time $(v')^H+5\le v^{H\alpha+1}$. On a short description of an infinite loop, this simulator can run forever. \pub{NS1/Accel.lean}{141}{Universal pre-evaluator}.
+
+\subhead{The program constructed in one round}
+Suppose the quoted program $p$ satisfies the starting contract at $v'$ with time $T=v^{f+8}$ and name bound $B_p$. The new program guesses one $J$-bit count for each leaf of $K$ expanded to powers $i<B_p$. Write $q$ for this tally and $c(q)$ for its monomial weight. A set bit $j$ for the leaf $\xi^{2^i}$ names $\xi^{2^{i+j}}$; $i+j<B_p+J$. It builds the tree $z_q=(W,(p,(z,\mathrm{enc}(q))))$ with the fixed tally interpreter $W$, runs a fixed cut program $G$ on that tree, then runs $D$ successively on \emph{every occurrence} in the returned list. Quoting $p$ constructs data. Evaluating $p$ on $z$ plays no role in the halting proof of this new program. \pub{NS1/Step.lean}{152}{Construction}, \pub{NS1/Guess.lean}{373}{guess and scalar contract}.
+
+\clearpage
+\heading{Why the same cut proves termination and value}
+\smallref{\pub{NS1/Accel.lean}{35}{Cut contract}, \pub{NS1/Step.lean}{103}{list evaluator}, \pub{NS1/Step.lean}{177}{round evaluation}, \pub{NS1/Scale.lean}{73}{unconditional run proof and conditional value proof}.}
+
+For a bounded $z$, size accounting alone makes $z_q$ admissible to $G$ for every $q$. The listing clause of J.4 proves all runs of $G$ halt. Each accepting run $r$ has an empty bill and returns a finite list $Y_r$ of trees of size at most $v^{H-32}$. Apply the \emph{run} clause of $D$ to these sizes. The list loop is structural recursion. Its empty list returns weight one, and a cons runs $D$ on the head and recurses on the tail. It therefore halts even if the original $z$ is nonplain. Each accepting path's names come from the guess or from $D$ and have index less than $\max(B_p+J,B)$. There can be many such lists across cut runs.
+
+\subhead{Where the value clause first enters}
+Now assume $z$ is plain at $(v')^H$. The pre-evaluator gives halting, time $T$ and valid names on this $z$. By K.4, each postponed $z_q$ is plain within the cut time $\tau'$ and
+$\operatorname{val}_R(p,z)=\sum_q c(q)\iota(\mathrm{pv}(z_q))$.
+J.4 now gives both plainness of each occurrence $y\in Y_r$ within $v^H$ and the plain-value identity for this \emph{same} $G$ on $z_q$. Only now replace $\operatorname{val}_R(D,y)$ by $\iota(\mathrm{pv}(y))$. If $a_r\in A$ denotes the built-in weight of $r$, unfolding the program gives
+\[
+ \begin{aligned}
+ \operatorname{val}_R(p',z)
+ &=\sum_q c(q)\sum_{r\in G(z_q)}\iota(a_r)
+                    \prod_{y\in Y_r}\operatorname{val}_R(D,y)\\
+ &=\sum_q c(q)\,\iota(\mathrm{pv}(z_q))
+   =\operatorname{val}_R(p,z)=\iota(\mathrm{pv}(z)).
+ \end{aligned}
+\]
+Independent choices for different occurrences in the list multiply; distinct accepting paths add. Concatenation multiplies weights and preserves their occurrences. For example, if $D(y)$ has accepting weights $2,-3$ and $D(w)$ has $4$, a list $[y,y,w]$ contributes $4(2-3)^2=4$. The four ordered paths contribute $16,-24,-24,36$. Collapsing the duplicate $y$ would yield $-4$. A cut run of weight $-2$ returning this list and a run of weight $5$ returning the empty list yield $-8+5=-3$ before the factor $c(q)$. These integers illustrate the program identity. They do not assert that a particular J.4 cut produces these lists.
+
+\clearpage
+\heading{What one accepting path costs}
+\smallref{\pub{NS1/Scale.lean}{48}{Six one-round inequalities}, \pub{Paper/Next.lean}{65}{input to J.4 and encoding}, \pub{Paper/Next.lean}{113}{listing, cardinality and time}.}
+Write $b=\alpha(H-32)$, $n_p=\#(K.\mathrm{expand}(B_p))$, $m=\operatorname{ht}K+B_p+J+1$, $M(m)=1000+100m$. The expanded trie has $n_p\le Q(2B_p+1)$ nodes. The encoded tally has size at most $4n_p(J+1)$. K.4 and the tree constructor give the two bounds
+\[
+ \begin{aligned}
+ T_{W}&\le M(m)v^{f+8}+40n_p(J+1)+40,\\
+ |z_q|&\le |W|+|p|+v^b+4n_p(J+1)+3 .
+ \end{aligned}
+\]
+The release takes $\tau'=v^{f+9}$ and $s=v^{b+1}$. To check these allowances take $X\ge m$, $X\ge10$, $1000X^3\le v$ and $v\ge|W|+|U|+2000$. Then $M(m)+2\le v$ and $n_p\le2QX$. Thus $40n_p(J+1)\le 80v^{h\alpha}X^2\le v^{h\alpha+1}\le v^{f+8}$. This bounds $T_W$ by $\tau'$. For size, $|p|\le v^{4h\alpha}\le v^b$, $|W|+3\le v^b$, and $4n_p(J+1)\le v^b$. All four terms together fit $s$. If $b+40\le f$, $s v^{48}=v^{b+49}\le\tau'$. The other cut premises are $v^H\le\tau'\le v^{2H\alpha}$, so J.4 is invoked with $2\alpha$.
+
+Writing $L_r=|Y_r|$, its two independent output bounds give
+\[
+ t_G\le \tau'/v^{24}=v^{f-15},\qquad
+ L_r\le \tau'v^2/v^H=v^{f+11-H}.
+\]
+The per-accepting-path cost allowance is therefore
+\[
+ (8J+10)n_p + v^{f-15}
+   +(v^{H-16}+30)v^{f+11-H}+30\ \le\ v^f.
+\]
+The first term pays for the guess, the second for producing the list. Walking one list costs at most $(v^{H-16}+30)L_r+10$; the displayed $+30$ absorbs fixed surrounding instructions. Its leading evaluation term is $v^{f-5}$. More explicitly, $(8J+10)n_p\le 18v^{h\alpha}X^2\le v^{h\alpha+1}\le v^{f-1}$, the loop term is at most $31v^{f-5}\le v^{f-1}$, and listing and $30$ each fit $v^{f-1}$. The four allowances together fit $v^f$ since $v\ge2000$. Time bounds apply per accepting path. Rejecting paths halt. This estimate gives no deterministic enumeration time for the full weighted sum.
+
+\clearpage
+\heading{Closing the induction across rounds and scales}
+\smallref{\pub{Paper/Next.lean}{145}{Code size}, \pub{Paper/Next.lean}{197}{uniform $J$ and $X$}, \pub{Paper/Next.lean}{287}{round induction}, \pub{Paper/NoAcc.lean}{235}{K.6 reuses the result}.}
+Take the witnesses $C=2C_0+6(k+3)+4$ and $v_1=v_0+|W|+|U|+2000+2^{1000+100h}+4$. Assume $v\ge v_1$ and $\ell^{C\alpha}\le v$. Set
+\[
+ J=(H\alpha+1)\ell,\qquad X=B+(3\alpha+1)(J+1)+\operatorname{ht}K+10 .
+\]
+Since $v<2^\ell$, $v^{H\alpha+1}<2^J$ even when $v$ is a power of two. Also $\ell\ge1000+100h+1$, and $(3\alpha+1)(J+1)\le72h(\alpha\ell)^{k+3}$. Thus $X\le\ell(\alpha\ell)^{k+3}$. Using $\alpha\ell\le\ell^{\alpha+1}$ gives
+$1000X^3\le\ell^{4+3(\alpha+1)(k+3)}\le\ell^{C\alpha}\le v$. The same $C$ pays for J.4 with $2\alpha$. All these choices precede selection of any individual tally or cut outcome.
+
+For $0\le n\le3\alpha$ the exponent and index allowance are $f_n=H\alpha+1-8n$ and $B_n=B+nJ$. Each step satisfies $f_n+8=f_{n-1}$. Even the last output exponent exceeds $b+40$, since $f_{3\alpha}-(b+40)=8\alpha-39\ge1$. The first round already has unconditional bounded-input halting. Its output supplies the weaker pre-evaluator contract needed by the next round. The old $D$ stays fixed at scale $v$ throughout.
+
+Let $S_n$ bound the program length. The code contains $p$ once, $D$ twice, one cut, the guess code and the fixed interpreter. Their sizes obey $|G|\le v^H$, $|\mathrm{guess}|\le 2v^{h\alpha+1}$, and $|W|+1500\le v$. Hence
+\[
+ S_n\le v+n\big(v^{h\alpha+2}+v^{H+1}\big)\le v^{4h\alpha}.
+\]
+The source retains the initial $v$ for $U$. In the last inequality $n\le3\alpha\le X\le v$. The three resulting powers have exponents $1,h\alpha+3,H+2$, all at most $4h\alpha-1$. Finally $f_{3\alpha}\le\alpha(H-17)$ and $3\alpha J\le51h\alpha^2\ell$. This proves the advertised time, size and exponent bounds with the same trie. At $h=17,\alpha=5$ the exponents go from $1361$ to $1241$ in 15 rounds; the target is $1275$ and the final cut requires $1240$.
+
+K.6 first takes $k=4$, $\alpha=\max(5,a)$, then reuses K.5 at $\alpha=5$. The consumer proves its own cubic bound on the growing name index and rechecks the input conditions at every scale. K.5 alone supplies neither an initial accelerator nor the finite-field contradiction. The companion integer check tests these inequalities and list semantics on explicit cases. The universal proof is the pinned Lean declaration rebuilt in Pass 15.

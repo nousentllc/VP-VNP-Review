@@ -1,0 +1,72 @@
+\clearpage
+\heading{K.6 at the original scale}\label{sec:15k6}
+\smallref{\paper{Theorem K.6, pp.~58--59}. \pub{NS1/Main.lean}{187}{Size of an accelerator}, \pub{NS1/Accel.lean}{50}{two accelerator clauses}, \pub{Paper/NoAcc.lean}{353}{quantifiers}, \pub{Paper/Scales.lean}{141}{use by K.7}.}
+
+Fix a commutative ring $A$ of finite type over $\mathbb Z$, a name assignment $\theta$ with values in $A$, an integer $h\ge17$, and the cutting hypothesis for $H=16h$ with constants $C_0,v_0$. There exist $C,v_1$ depending on this setting with the following property. For $v\ge v_1$ and $a\ge0$ satisfying $(\lg v)^{Ca}\le v$, suppose that a nonzero commutative $A$-algebra $R$ has an accelerator of size $s=v^a$. Write $K$ for its trie of constants, $B$ for the index bound on named powers and $D$ for its program. Then $K$ and $D$ each have size at most $s$, and, with $L_s=\lg\max(v^H,s)$, the trie height is at most $L_s^2$ and $B\le L_s^3$. For every $z$ of size at most $v^{H-32}$ the operational clause gives halting on every run of $D(z)$, accepting costs at most $v^{H-16}$, and valid names with indices below $B$. Its value clause additionally requires that $z$ be $v^H$-plain. Both clauses refer to the same program.
+
+\subhead{Specialize the constants in two directions}
+Form $S=A[K.\mathrm{consts}]\subseteq R$, where $A$ denotes its image. Give each leaf its value in $S$. For any $A$-algebra homomorphism $f$, the weighted value commutes with $f$ because it is a sum of products of named leaves and base coefficients. The injection $S\hookrightarrow R$ therefore reflects the accelerator's value identities back to $S$. Name membership and execution costs depend on syntax. Choose a maximal ideal $\mathfrak m$ of $S$ and push the identities forward along $S\to E=S/\mathfrak m$. Leaves that acquire the same field value retain their distinct addresses. Trie height, number of nodes, program and $B$ survive. This works even for $R=\mathbb Q$, where a unital map from the whole ring to a finite field would send an invertible prime to zero.
+
+The ring $S$ is of finite type over $\mathbb Z$, and so is its field quotient. The source uses the Jacobson property of $\mathbb Z$ to deduce module finiteness of this field over $\mathbb Z$. In characteristic zero the integral, injective extension $\mathbb Z\hookrightarrow E$ would make $\mathbb Z$ a field. In characteristic $p>0$, $E$ is finite dimensional over $\mathbb F_p$ and hence finite. The argument requires no estimate of $|E|$ at the original scale.
+
+\smallref{\pub{NS1/Main.lean}{91}{Lifting leaves}, \pub{NS1/Main.lean}{102}{value under a ring map}, \pub{Paper/NoAcc.lean}{23}{specialization}, \pub{NS1/Finite.lean}{29}{finite residue field}.}
+
+\clearpage
+\heading{Choosing a scale after the finite field is fixed}
+For each $j\ge0$ let $f_j:E\to E$ take $c$ to $c^{2^j}$. The set of functions $E\to E$ is finite. For each $f_j$ take the least index $r(j)$ representing that entire function. These representatives have a common upper bound $M-1$. The choice works simultaneously at every leaf, even when a constant equals zero. Over $\mathbb F_5$, the functions at $j=0,1,2$ are distinct, and $f_j=f_2$ for all $j\ge2$. Reduction modulo two would already fail at $j=2$, since $2^4=1$ in this field while $2^1=2$.
+
+\subhead{Why the table always fits at some scale}
+Apply K.5 first at the original scale with $\alpha=\max(5,a)$ and the fixed power four in its polylogarithmic hypothesis. For $a<5$, a sufficiently large common threshold ensures $(\lg v)^{5C}\le v$. For larger $a$ the hypothesis of K.6 pays this cost. For example, write $P=h\alpha\lg v$. Then $L_s\le16P$, so $B\le4096P^3$ and $\operatorname{ht}K\le256P^3$. The initial threshold includes $2^{100000h^3}$, which makes $4096P^3\le(\alpha\lg v)^4$. K.5 applies again at each subsequent scale with $\alpha=5$. At a reached scale $u$ the invariant is
+\[
+ \#K\le u,\quad |D|\le u^{4h},\quad
+ \operatorname{ht}K,\ B\le 100000h^3(\lg u)^3 .
+\]
+The first step gives this invariant at $u=v^\alpha$ using $\alpha\lg v\le2\lg(v^\alpha)$. Each further step raises $u$ to $u^5$, preserving the trie. Its exponent increment is $1275h\lg u$ and $2\lg u\le\lg(u^5)$, leaving room for that increment in the cubic bound. K.5's per-accept cost at the new scale is at most $u_{\rm new}^{H-17}$, which can be relaxed to $u_{\rm new}^{H-16}$. These iterates meet any specified lower threshold. Existence at every intervening integer scale is unnecessary.
+
+Write $L=\lg u$, $J=HL$, $b=\max(B,M)$ and $X=\operatorname{ht}K+b+J+10$. Choose a reached $u$ beyond $2^{M+2000h}+\mathrm{cst}+n_9$, where $\mathrm{cst}$ covers the fixed program sizes and $n_9$ ensures $1000(3\cdot100000h^3)^3 L^9\le u$. Then $M<L$, $X\le3(100000h^3)L^3$, and $1000X^3\le u$. Also $u^{H-15}<2^J$ since $u<2^L$. The growing scale pays for a field-dependent table with a fixed underlying field.
+
+The accompanying finite check tests 1,856 power identities and 4,704 products of named powers over seven prime fields, including the transient at $p=5$. Its six cost checks take $h\in\{17,21\}$ and $u=2^{96},2^{128},2^{192}$ and exercise the inequalities below with upper envelopes for code and trie sizes. These are arithmetic fixtures. Existence of an accelerator at any of these parameters is never used.
+
+\smallref{\pub{Paper/NoAcc.lean}{50}{Common representative}, \pub{Paper/NoAcc.lean}{224}{invariant}, \pub{Paper/NoAcc.lean}{282}{first transfer}, \pub{Paper/NoAcc.lean}{308}{iteration}, \pub{Paper/NoAcc.lean}{357}{choice of final scale}.}
+
+\clearpage
+\heading{Writing the self-input query before evaluating it}
+At the final scale let $K_b$ be the trie expanded at each old leaf $\xi$ into the powers $\xi^{2^i}$, $0\le i<b$. Let $N$ and $\eta$ be its node count and height. Then $N\le(\#K)(2b+1)\le2uX$ and $\eta\le\operatorname{ht}K+b$. Each entry of the finite list $Q$ consists of a vector $e$ of $J$-bit counters, one per expanded leaf, and the scalar $w_e=\prod_i\lambda_i^{e_i}$, where $\lambda_i$ ranges over the named leaves. A single run guesses one vector. A set bit at position $j$ of the counter for original leaf $\xi$ and power index $i$ emits its leaf path followed by the unary suffix $1^{r(i+j)}0$. Its value is
+\[
+ \xi^{2^{r(i+j)}}=\xi^{2^{i+j}}=(\xi^{2^i})^{2^j},\qquad r(i+j)<M\le b .
+\]
+This pays for a possibly large exponent using a bounded name. Only entries $i+j<b+J$ occur in the code. The formal list relation between guesses and $Q$ preserves repeated occurrences as well as coefficients.
+
+Define $P(x)$ by one bit guess. One outcome returns a single run of weight one. The other outcome runs the guesser $g$, writes
+$z_e(x)=(W,(x,(x,\operatorname{enc}(e))))$ with the fixed postponing interpreter $W$, and calls $D$ on that data. We now supply the code $p$ of $P$ as $x$. This construction uses the argument twice as data. Writing $z_e(p)$ does not execute $p(p)$ or ask for its value.
+
+\subhead{Encoding and size}
+The guesser's code costs at most $N(J+1)(4(\operatorname{ht}K+M)+100)$. Since $X\ge10$, the last factor is at most $14X$ and $J+1\le X$. Thus $|g|\le28uX^3\le2u^2$. We obtain $|p|\le|D|+|g|+|W|+500\le u^{4h+1}$. Each encoded counter trie has overhead bounded by $4N(J+1)$ in the query, with $4N(J+1)\le2u^2$. Consequently
+\[
+ |z_e(p)|\le |W|+2|p|+4N(J+1)+3
+ \ \le\ u^{4h+2}\ \le\ u^{H-32}.
+\]
+The fixed overhead is absorbed using $u\ge\mathrm{cst}$ and $u\ge2000$, and $4h+2\le16h-32$ for $h\ge17$. This inequality holds for \emph{every} entry of $Q$. The number of vectors may be exponential in the number of counter bits. None of these costs presumes serial enumeration of all guesses.
+
+\smallref{\pub{NS1/Guess.lean}{239}{Power guesses}, \pub{NS1/Guess.lean}{373}{list relation}, \pub{NS1/Guess.lean}{439}{code size}, \pub{NS1/Diag.lean}{24}{program}, \pub{Paper/NoAcc.lean}{96}{expanded trie and code size}, \pub{Paper/NoAcc.lean}{137}{short queries}.}
+
+\clearpage
+\heading{Proving plainness before reading the value}
+Let $z_e=z_e(p)$ and $t=u^{H-16}$. Since $|z_e|\le u^{H-32}$, apply the accelerator's \emph{operational} clause to $D(z_e)$ for each entry of $Q$. All these runs halt. Each accepting run costs at most $t$ and uses old names with indices below $B\le b$. Combined with the guesser, this supplies a finite evaluation of $P(p)$ with accepting list $\mathcal L$. Its accepts in the guess branch cost at most $(8J+10)N+t+30$. Its unit branch also fits this budget. Since $(8J+10)N\le2u^2$, every accepting run costs at most $T=u^{H-15}$.
+
+Every entry in a bill of $\mathcal L$ comes from either a reduced power name or a call to $D$, so it belongs to the expanded trie and agrees there with the original lookup. Bill length is bounded by step count, hence each tally fits under $T<2^J$. Apply K.4 now to the actual halting evaluation of $p$ on $p$, with this lookup and this time bound. For each $e$, the interpreter on $z_e$ halts on all branches, and an accepting branch has an empty bill and cost bounded by
+\[
+ T_e=(1000+100(\eta+J+1))T+40N(J+1)+40.
+\]
+Indeed $\eta+J+1\le X$ and $1000+100X+2\le u$. Also $4N(J+1)\le2u^2$ gives $40N(J+1)+40\le20u^2+40\le T$. Therefore $T_e\le uT=u^{H-14}\le u^H$. This proves $\mathrm{Plain}_\theta(u^H,z_e)$, including the run and empty-bill conditions, for every vector.
+
+Put $\iota:A\to E$ and let $V$ denote the sum of the weighted accepts of $P(p)$. The two identities already available, one from K.4 and the other from the branch definition, are
+\[
+ V=\sum_{e\in Q} w_e\,\iota(\mathrm{pv}_\theta(z_e)),\qquad
+ V=1+\sum_{e\in Q} w_e\,\mathrm{val}_E(D(z_e)).
+\]
+The established size and plainness of each $z_e$ license termwise substitution by the accelerator's value clause. Hence $V=1+V$. Add $-V$ to both sides in the field $E$ to obtain $0=1$, contradicting nontriviality. In particular the argument needs neither a nonzero run weight nor an uncancelled total.
+
+A short halting program can accept after emitting one name in two steps. Its tally is nonempty, even if its weight evaluates to one. Equating its value to a plain sum solely from halting and cost would omit a hypothesis. The weaker pre-accelerator, which guarantees halting only on plain inputs, would also leave the first use of the operational clause unjustified. K.5 supplies the bounded-input halting contract that the diagonal needs here.
+
+\smallref{\pub{NS1/Machine.lean}{247}{A two-step named accept}, \pub{NS1/Accel.lean}{27}{plainness}, \pub{NS1/Diag.lean}{26}{evaluation before substitution}, \pub{Paper/NoAcc.lean}{161}{operational call}, \pub{Paper/NoAcc.lean}{184}{postponement}, \pub{Paper/NoAcc.lean}{188}{time inclusion}, \pub{Paper/NoAcc.lean}{211}{value call and subtraction}.}

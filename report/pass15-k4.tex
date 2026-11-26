@@ -1,0 +1,172 @@
+\clearpage
+\heading{K.4. Moving the named constants outside a run}\label{sec:15k4}
+\smallref{Pass 15A. \paper{Lemma K.4, p.~57}. \pub{NS1/Machine.lean}{205}{Run data}, \pub{NS1/Machine.lean}{229}{evaluation rules}, \pub{Paper/Postpone.lean}{30}{quantified statement}.}
+
+Let $A,R$ be commutative rings with structure map $\iota:A\to R$.
+Fix the base-weight function $\theta$, a program $p$, its argument $z$, and a
+derivation that every run of $p(z)$ halts. It determines an ordered finite
+list $L$ of accepting occurrences. Each $r\in L$ has cost $c_r$, base
+weight $a_r\in A$, an ordered bill $b_r$ of binary names, and an output
+tree. With a name valuation $\kappa$ the weighted sum is
+\[
+ V=\sum_{r\in L}\iota(a_r)\prod_{s\in b_r}\kappa(s).
+\]
+A halted rejection contributes no occurrence. A zero-weight acceptance
+still contributes an occurrence. Total halting is a separate premise. The Lean function returning the accepting list defaults to the empty list
+when a halting derivation does not exist. An empty list by itself cannot
+witness that a computation halted.
+
+Assume $c_r\le T<2^J$ for every accepting occurrence. A \emph{use} adds
+one name and costs one extra step; sequential composition concatenates
+the bills and adds both costs. Induction over the evaluation rules gives
+$|b_r|\le c_r$. Index the leaves of a trie with $Q'$ nodes and height
+$\eta$ by names $s_1,\ldots,s_m$, and write $\lambda_i$ for their
+values. Under the manuscript's leaf-membership hypothesis, the numbers
+$n_i(r)=\#\{s_i\text{ in }b_r\}$ all fit in $J$ bits.
+
+\subhead{What one tally accepts}
+For $e\in\{0,\ldots,2^J-1\}^m$, let $z_e=(\mathrm{WF},(p,(z,e)))$,
+with each leaf counter stored least significant bit first. The interpreter
+follows the original control flow, including calls to computed programs.
+Each \emph{use} becomes a deterministic decrement at its named leaf.
+An absent leaf or an attempted decrement from zero rejects the branch.
+Each successful decrement preserves the counter width and trie shape.
+The terminal test accepts exactly when all residual counters are zero.
+Thus the accepted occurrences for $e$ have $n_i(r)=e_i$ for all $i$.
+Reading a base weight through $\theta$ still multiplies by the same
+$a$-factor and issues no name.
+
+The structural induction couples each surviving occurrence with the original
+output and residual budget. The coupling respects concatenation of bills
+and the order of guesses. The terminal test keeps one occurrence or zero.
+Consequently the ordered list of base weights in $z_e$ equals
+$[a_r\mid r\in L,\ n(r)=e]$, including duplicates. Every surviving
+interpreter bill is empty. Under the leaf-membership hypothesis each
+occurrence belongs to exactly one such list. Commutativity, distributivity,
+and transport by $\iota$ now give
+\[
+ V=\sum_e \Bigl(\prod_i\lambda_i^{e_i}\Bigr)\,\iota\bigl(\mathrm{pv}(z_e)\bigr).
+\]
+\smallref{\pub{NS1/Accel.lean}{79}{Bill length}, \pub{NS1/Eval.lean}{213}{composition}, \pub{NS1/EvalThm.lean}{138}{interpreter induction}, \pub{NS1/Postpone.lean}{321}{ordered filtering}, \pub{NS1/Postpone.lean}{415}{finite sum identity}.}
+
+\clearpage
+\heading{Paying for the tally interpreter}
+\smallref{\pub{NS1/Budget.lean}{68}{Budget height and size}, \pub{NS1/Interp.lean}{109}{decrement}, \pub{NS1/Interp.lean}{228}{terminal test}, \pub{NS1/Postpone.lean}{344}{complete interpreter cost}.}
+
+Write $d_e$ for the height of the \emph{counter} trie and $n_e$ for its
+number of nodes and digits. A root-to-leaf descent pays for at most
+$\eta$ path bits plus $J$ counter digits and the leaf marker. Adding $J$
+digits to each of $m$ leaves gives
+\[
+ d_e\le\eta+J+1,\qquad n_e=Q'+mJ\le Q'(J+1).
+\]
+Even when subtraction borrows through every bit, the fixed-width
+little-endian routine takes at most $20J$ steps on a successful call.
+Path descent, rebuilding the traversed nodes, and subtraction together
+cost at most $60d_e$ on success. Since each update preserves both $d_e$
+and $n_e$, later uses cost no more than earlier ones at the same depth.
+
+The interpreter induction charges
+$M=1000+100d_e$ per original step. For example the name instruction
+needs $60d_e+420\le M$, including its surrounding calls. Its induction
+hypothesis already paid for evaluating the expression producing the name.
+The branch for a nested \emph{run} carries the residual counters into
+the called computation. Thus its subcosts add within the original run
+cost. Recursive calls introduce no new multiplicative depth factor.
+After the simulation, a deterministic traversal checks every counter for
+zero at cost at most $40n_e$ on a surviving branch. Including the fixed
+wrapper instructions, an occurrence corresponding to $r$ costs at most
+$Mc_r+40n_e+40$. The all-branches halting derivation and this per-acceptance
+bound give precisely
+\[
+   \mathrm{Plain}_{T'}(z_e),\qquad
+   T'=\bigl(1000+100(\eta+J+1)\bigr)T+40Q'(J+1)+40.
+\]
+The interpreter code is fixed. Three constructor nodes join it to $p$,
+$z$, and the encoding of $e$. That encoding has at most $4n_e$ nodes.
+Therefore
+\[
+ |z_e|\le |\mathrm{WF}|+|p|+|z|+4Q'(J+1)+3.
+\]
+This measures the description of one query. The evaluation theorem
+gives a bound per accepting run and halting on every run. The full sum
+may have $2^{Jm}$ tally vectors. Neither deterministic enumeration time
+nor peak interpreter workspace follows from the displayed bounds.
+
+\subhead{Where the two consumers need the bounds}
+K.5 uses the description bound to license cutting on every short input.
+On a plain outer input, K.4 supplies the plain postponed query needed for
+the cutter's value clause. K.6 first bounds $|z_e|$ for each possible
+self-query using the counter encoding alone. This allows execution of
+the candidate evaluator on $z_e$ and hence proves total halting and an
+accepting-time bound for the self-program. Applying K.4 to that program
+then proves all the queries plain. Only after verifying $T'\le v^H$ can
+K.6 use the evaluator's conditional value equality on each query.
+
+\smallref{\pub{NS1/EvalThm.lean}{252}{Nested calls}, \pub{NS1/EvalThm.lean}{352}{name instruction cost}, \pub{NS1/Guess.lean}{187}{counter bounds}, \pub{NS1/Scale.lean}{93}{K.5 value step}, \pub{Paper/NoAcc.lean}{181}{K.6 postponement}.}
+
+\clearpage
+\heading{Which occurrences survive a zero contribution?}
+\smallref{\pub{NS1/Postpone.lean}{48}{Totalized lookup}, \pub{NS1/Postpone.lean}{108}{leaf matching}, \pub{NS1/Postpone.lean}{141}{node matching}, \pub{NS1/Postpone.lean}{246}{one-bill identity}.}
+
+The formal hypothesis requires $\kappa(s)=\mathrm{lookup}(s)$ on every
+used name. It permits an unsupported request when both sides vanish. A lookup outside the trie is defined to be zero. A run asking
+for such a name is rejected for every $e$. Its original product is zero,
+so the weighted sum still agrees. A genuine leaf with value zero gives
+different run semantics. Its occurrences survive for the matching $e$,
+even though their external coefficient vanishes when the count is positive.
+This distinction locates precisely where the printed hypothesis enters the
+one-tally-per-run reading.
+
+Consider the following ordered finite run list over $\mathbb Z$ with $J=2$.
+The leaves $0,10,11$ carry $2,-1,0$. The internal path $1$ has lookup
+zero. Entries in parentheses are lists of names.
+\begin{center}
+\begin{tabular}{ccll}
+Occurrence & Base weight & Bill & Matching $e$ \\
+\hline
+1 & $2$  & $(0,10)$ & $(1,1,0)$ \\
+2 & $7$  & $()$     & $(0,0,0)$ \\
+3 & $2$  & $(10,0)$ & $(1,1,0)$ \\
+4 & $-3$ & $(0,10)$ & $(1,1,0)$ \\
+5 & $5$  & $(11)$   & $(0,0,1)$ \\
+6 & $0$  & $(10,0)$ & $(1,1,0)$ \\
+7 & $11$ & $(1)$    & none
+\end{tabular}
+\end{center}
+The tally $(1,1,0)$ preserves the ordered base weights $[2,2,-3,0]$. Its coefficient is $2(-1)$. Including the empty bill and zero-valued leaf
+gives $7-2(2+2-3+0)+0(5)=5$, as direct weighting does. Keeping only the
+distinct base weights would change this value. Requiring the interpreter's
+final output tree or cost to equal the original would exceed the public
+lemma's conclusion. It compares the ordered weights after filtering.
+
+At the level of arbitrary bills, width has a sharp limit. Four uses of leaf $0$ need counter
+value four. For $J=2$ no counter can hold it, and a base-weight-one run
+would lose its contribution $2^4=16$. Conversely, two uses each of
+$0$ and $10$ fit at the same width. The total-bill cutoff is a convenient
+sufficient condition. Individual counts are the obstruction in this
+finite identity.
+
+The independent finite check compares binary subtraction against exact
+count vectors for the above three leaves, allowing the empty path, an
+internal path, and an overlong path as adversarial names. It checks
+16,576 bill--budget pairs, including 40 supported bills and 219 bills
+with an absent name. It also checks both four-use boundary examples,
+width zero, and the ordered signed run list. These are finite checks of
+the tally algebra. The arbitrary-program halting and machine-cost
+statements use the pinned Lean theorems.
+\smallref{Reproduce with \texttt{python3 checks/pass15\_k4.py} from the review root.}
+
+\clearpage
+\heading{The exact time endpoint for a fixed counter width}\label{sec:15endpoint}
+The four-use example raises a question about the program that produced the bill. A mathematical list can have four entries. Can an accepting run of the actual machine issue four requests in four steps? Its first step already supplies a unit of slack.
+
+\subhead{A structural invariant for accepting runs}
+For every evaluation derivation and every accepting occurrence $r$, define the integer $d(r)=\mathrm{cost}(r)-|\mathrm{bill}(r)|$. Then $d(r)\ge1$. At a quote, an identity or either outcome of a guess the cost is one and the bill is empty. A failed computation has no accepting occurrence. A projection or base-weight instruction adds a step and keeps the same bill length. A named multiplication adds one step and one request, preserving $d$. A pair or conditional combines the computations taken along that branch. Its bills concatenate and it pays an additional step. A computed call combines the computations producing the code and argument with the execution of the callee, and also pays an additional step. These are all the evaluation constructors. Induction gives $|\mathrm{bill}(r)|<\mathrm{cost}(r)$ for each accept, including those of zero weight.
+
+Consequently the inclusive clock $\mathrm{cost}(r)\le T\le 2^J$ gives $|\mathrm{bill}(r)|<2^J$. This is exactly the premise of the one-bill summation identity. The wrapper analysis used only $\mathrm{cost}(r)\le T$. The full K.4 conclusion therefore extends to $T=2^J$, with the same time bound, encoded size, scalar sum and ordered filter identity. The publisher uses the strict clock $T<2^J$. Its choices in K.5 and K.6 already satisfy that premise.
+
+\subhead{One more step can overflow}
+Build $F_0$ by quoting the empty tree and $F_{n+1}$ by applying one name instruction to $F_n$. On the empty argument its unique accepting record has cost $n+1$, base weight one, output the empty tree and $n$ copies of the empty word as its bill. The induction is immediate from the machine's name rule, which outputs the empty tree again at each step. Take $n=2^J$ and put the integer $2$ at the trie's single root leaf. The original value is $2^{2^J}$. No $J$-bit tally can match this bill, so every wrapper rejects and the expanded sum is zero. Thus $2^J$ is the largest uniform accepting clock for this width with unrestricted tries and programs. This example includes $J=0$.
+
+\smallref{Publisher rules: \pub{NS1/Machine.lean}{230}{evaluation constructors}, \pub{NS1/Accel.lean}{79}{weak bill-length bound}, \pub{NS1/Postpone.lean}{415}{summation premise}. The strengthened bound, endpoint and family of runs are review lemmas in \texttt{checks/pass15\_plain.lean}.}

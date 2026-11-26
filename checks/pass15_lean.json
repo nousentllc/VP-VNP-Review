@@ -1,0 +1,171 @@
+{
+  "target": "Paper.NoAcc",
+  "publisher_commit": "11b6c7e3c927df2658f513b6b68ea7f8929c62c5",
+  "lean_version": "Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "lean_toolchain": "leanprover/lean4:v4.33.1",
+  "external_checkout_revisions": {
+    "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+    "plausible": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+    "LeanSearchClient": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+    "importGraph": "16f02aa7642864af59f1ff0e384a015994db9118",
+    "proofwidgets": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+    "aesop": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+    "Qq": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+    "batteries": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+    "Cli": "6130a47896ce867c6a4a55373441e59e565bad0f"
+  },
+  "prebuilt_imports": "Pinned Lean, mathlib and its dependencies. All project modules are rebuilt in dependency order into an empty directory.",
+  "lean_options": [
+    "-j1",
+    "-DautoImplicit=false"
+  ],
+  "modules_requested": 16,
+  "modules": [
+    {
+      "module": "NS1.Machine",
+      "source": "NS1/Machine.lean",
+      "sha256": "9bf64e34c9571cdd995921c2e8f1c81c71605fd739b4de9df721cda0c997802d",
+      "exit_code": 0,
+      "seconds": 81.81
+    },
+    {
+      "module": "NS1.Budget",
+      "source": "NS1/Budget.lean",
+      "sha256": "b95b37a7ad24247cf293f11049b536bab4a150f341bb03249391953f151a36fb",
+      "exit_code": 0,
+      "seconds": 40.29
+    },
+    {
+      "module": "NS1.Interp",
+      "source": "NS1/Interp.lean",
+      "sha256": "00a09238fdb0084c1a67082e5b94495eeef5432d2d27eff4f9a8055e916802d2",
+      "exit_code": 0,
+      "seconds": 47.17
+    },
+    {
+      "module": "NS1.Eval",
+      "source": "NS1/Eval.lean",
+      "sha256": "e772b706a1e4dd8b41542ad64e80ae8dbb40bac880031b69fc83051df2690ac0",
+      "exit_code": 0,
+      "seconds": 39.05
+    },
+    {
+      "module": "NS1.EvalThm",
+      "source": "NS1/EvalThm.lean",
+      "sha256": "b13e41017f5d9c05ac66e20e8363c264207266e973ad450e5a80bc993864c415",
+      "exit_code": 0,
+      "seconds": 41.07
+    },
+    {
+      "module": "NS1.Postpone",
+      "source": "NS1/Postpone.lean",
+      "sha256": "4d820e7738ad4c81ae91c6de8d69c0baec8b71377ee2abf07cda3959aba81cc9",
+      "exit_code": 0,
+      "seconds": 30.05
+    },
+    {
+      "module": "NS1.Guess",
+      "source": "NS1/Guess.lean",
+      "sha256": "e222239eaa81c96119365f5771e5cdc9ea0f7b266db9c8df01abfa0e2d400c3b",
+      "exit_code": 0,
+      "seconds": 22.36
+    },
+    {
+      "module": "NS1.Step",
+      "source": "NS1/Step.lean",
+      "sha256": "6a00373531e8be510f280f10e590b18edb7e5332d6ff930222a39794bd4a48fb",
+      "exit_code": 0,
+      "seconds": 21.39
+    },
+    {
+      "module": "NS1.Accel",
+      "source": "NS1/Accel.lean",
+      "sha256": "95e8a4d627a466f925fff8c5a127092985e57db1a85ecc6649dc76f3d6fa37f1",
+      "exit_code": 0,
+      "seconds": 52.41
+    },
+    {
+      "module": "Paper.Postpone",
+      "source": "Paper/Postpone.lean",
+      "sha256": "9145d0b113bb3577d2b15c3ae5182723499ca0cb3f993541cf1c207e23554f48",
+      "exit_code": 0,
+      "seconds": 78.03
+    },
+    {
+      "module": "NS1.Scale",
+      "source": "NS1/Scale.lean",
+      "sha256": "cd0e237a2abca0f711adefe7555e54595675da37f473f6b8ab368058ec4a176b",
+      "exit_code": 0,
+      "seconds": 34.22
+    },
+    {
+      "module": "NS1.Main",
+      "source": "NS1/Main.lean",
+      "sha256": "c8e88af86176ff2e9138e6f548ffb8c97e43b2a16888cd0d47d251085b5201d7",
+      "exit_code": 0,
+      "seconds": 63.97
+    },
+    {
+      "module": "Paper.Next",
+      "source": "Paper/Next.lean",
+      "sha256": "bfe9a9a6ca66911ba9fc8beae195e8101e5e0283fd3c732fee61c8f6c9768a5c",
+      "exit_code": 0,
+      "seconds": 131.57
+    },
+    {
+      "module": "NS1.Diag",
+      "source": "NS1/Diag.lean",
+      "sha256": "f5e09d2e882074894d9476fbef33f9bdc2896369f77f677e6479fe17c420da0c",
+      "exit_code": 0,
+      "seconds": 94.35
+    },
+    {
+      "module": "NS1.Finite",
+      "source": "NS1/Finite.lean",
+      "sha256": "06abe1eaa139f930a9d4965eeac82b3388c0d91890226f4c63772b564b36d796",
+      "exit_code": 0,
+      "seconds": 92.21
+    },
+    {
+      "module": "Paper.NoAcc",
+      "source": "Paper/NoAcc.lean",
+      "sha256": "1e93d46c079058ca7662e76553be583949250acbdb6f91069c8edf17913520c2",
+      "exit_code": 0,
+      "seconds": 54.88
+    }
+  ],
+  "verification": {
+    "queries": [
+      "#check @Paper.lem_postpone",
+      "#check @Paper.prop_next_round",
+      "#check @Paper.prop_next",
+      "#check @Paper.thm_noacc_finite_field",
+      "#check @Paper.thm_noacc_periodic",
+      "#check @Paper.thm_noacc_all_scales",
+      "#check @Paper.thm_noacc_diagonal",
+      "#check @Paper.thm_noacc",
+      "#check @Review.Pass15.postponed_accelerator_sum",
+      "#print axioms Paper.lem_postpone",
+      "#print axioms Paper.prop_next_round",
+      "#print axioms Paper.prop_next",
+      "#print axioms Paper.thm_noacc_finite_field",
+      "#print axioms Paper.thm_noacc_periodic",
+      "#print axioms Paper.thm_noacc_all_scales",
+      "#print axioms Paper.thm_noacc_diagonal",
+      "#print axioms Paper.thm_noacc",
+      "#print axioms Review.Pass15.postponed_accelerator_sum",
+      "#check @Review.Pass15.fast_named_input",
+      "#print axioms Review.Pass15.fast_named_input",
+      "#check @Review.Pass15.bill_lt_cost",
+      "#print axioms Review.Pass15.bill_lt_cost",
+      "#check @Review.Pass15.postpone_endpoint",
+      "#print axioms Review.Pass15.postpone_endpoint",
+      "#check @Review.Pass15.requestEmpty_ev",
+      "#print axioms Review.Pass15.requestEmpty_ev"
+    ],
+    "exit_code": 0,
+    "output": "@Paper.lem_postpone : ∀ {A : Type} [inst : CommRing A] {θ : List Bool → A} {R : Type} [inst_1 : CommRing R]\n  [inst_2 : Algebra A R] (p z : NS1.Tree) {T J : ℕ},\n  T < 2 ^ J →\n    NS1.Hl θ (NS1.Fm.ofTree p) z →\n      (∀ r ∈ NS1.evl θ (NS1.Fm.ofTree p) z, r.cost ≤ T) →\n        ∀ (L : NS1.KT R) (κ : List Bool → R),\n          (∀ r ∈ NS1.evl θ (NS1.Fm.ofTree p) z, ∀ n ∈ r.bill, κ n = L.lookup n) →\n            NS1.val κ (NS1.evl θ (NS1.Fm.ofTree p) z) =\n                (List.map (fun e => e.2 * (algebraMap A R) (NS1.pv θ (Paper.postponed p z e.1)))\n                    (NS1.KT.budg J L)).sum ∧\n              ∀ e ∈ NS1.KT.budg J L,\n                NS1.Plain θ ((1000 + 100 * (L.ht + J + 1)) * T + 40 * (L.nds * (J + 1)) + 40)\n                    (Paper.postponed p z e.1) ∧\n                  (Paper.postponed p z e.1).size ≤ NS1.WF.code.size + p.size + z.size + 4 * (L.nds * (J + 1)) + 3 ∧\n                    NS1.pv θ (Paper.postponed p z e.1) =\n                        (List.map (fun r => if NS1.ok e.1 r.bill = true then r.th else 0)\n                            (NS1.evl θ (NS1.Fm.ofTree p) z)).sum ∧\n                      List.map NS1.Run.th\n                          (NS1.evl θ (NS1.Fm.ofTree (Paper.postponed p z e.1).hd) (Paper.postponed p z e.1).tl) =\n                        List.map NS1.Run.th (List.filter (fun r => NS1.ok e.1 r.bill) (NS1.evl θ (NS1.Fm.ofTree p) z))\n@Paper.prop_next_round : ∀ {A : Type} [inst : CommRing A] {θ : List Bool → A} {R : Type} [inst_1 : CommRing R]\n  [inst_2 : Algebra A R] {h : ℕ},\n  17 ≤ h →\n    ∀ {u α : ℕ},\n      5 ≤ α →\n        NS1.CutAt θ (16 * h) u (2 * α) →\n          NS1.cst ≤ u →\n            ∀ {K : NS1.KT R} {B' : ℕ} {D : NS1.Tree},\n              NS1.IsAccT θ (16 * h) u (u ^ (16 * h - 16)) K B' D →\n                K.nds ≤ u ^ (h * α) →\n                  D.size ≤ u ^ (h * α) →\n                    ∀ {p : NS1.Tree} {B J X e : ℕ},\n                      NS1.IsPre θ (16 * h) (u ^ α) (u ^ (e + 8)) K B p →\n                        p.size ≤ u ^ (4 * h * α) →\n                          u ^ (e + 8) < 2 ^ J →\n                            K.ht + B + J + 1 ≤ X →\n                              10 ≤ X →\n                                1000 * X ^ 3 ≤ u →\n                                  α * (16 * h - 32) + 40 ≤ e →\n                                    e + 9 ≤ 16 * h * (2 * α) →\n                                      ∃ p',\n                                        NS1.IsAccT θ (16 * h) (u ^ α) (u ^ e) K (max (B + J) B') p' ∧\n                                          p'.size ≤ p.size + (u ^ (h * α + 2) + u ^ (16 * h + 1))\n@Paper.prop_next : ∀ {A : Type} [inst : CommRing A] {θ : List Bool → A} {h : ℕ},\n  17 ≤ h →\n    ∀ {C₀ v₀ : ℕ},\n      NS1.CutHyp θ (16 * h) C₀ v₀ →\n        ∀ (k : ℕ),\n          ∃ C v₁,\n            ∀ (R : Type) [inst_1 : CommRing R] [inst_2 : Algebra A R] (v : ℕ),\n              v₁ ≤ v →\n                ∀ (α : ℕ),\n                  5 ≤ α →\n                    NS1.lg v ^ (C * α) ≤ v →\n                      ∀ (K : NS1.KT R) (B : ℕ) (D : NS1.Tree),\n                        NS1.IsAccT θ (16 * h) v (v ^ (16 * h - 16)) K B D →\n                          K.nds ≤ v ^ (h * α) →\n                            D.size ≤ v ^ (h * α) →\n                              B ≤ (α * NS1.lg v) ^ k →\n                                K.ht ≤ (α * NS1.lg v) ^ k →\n                                  ∃ D',\n                                    NS1.IsAccT θ (16 * h) (v ^ α) ((v ^ α) ^ (16 * h - 17)) K\n                                        (B + 51 * h * α ^ 2 * NS1.lg v) D' ∧\n                                      D'.size ≤ (v ^ α) ^ (4 * h)\n@Paper.thm_noacc_finite_field : ∀ {A : Type} [inst : CommRing A] {θ : List Bool → A} {R : Type} [inst_1 : CommRing R]\n  [inst_2 : Algebra A R] [Algebra.FiniteType ℤ A] [Nontrivial R] {H v t : ℕ} {K : NS1.KT R} {B : ℕ} {D : NS1.Tree},\n  NS1.IsAccT θ H v t K B D →\n    ∃ E x x_1, ∃ (_ : Finite E), ∃ K', NS1.IsAccT θ H v t K' B D ∧ K'.nds = K.nds ∧ K'.ht = K.ht\nPaper.thm_noacc_periodic : ∀ (R : Type) [inst : CommRing R] [Finite R],\n  ∃ M red, (∀ (i : ℕ), red i < M) ∧ ∀ (c : R) (i : ℕ), c ^ 2 ^ red i = c ^ 2 ^ i\n@Paper.thm_noacc_all_scales : ∀ {A : Type} [inst : CommRing A] {θ : List Bool → A} {h : ℕ},\n  17 ≤ h →\n    ∀ {C₀ v₀ : ℕ},\n      NS1.CutHyp θ (16 * h) C₀ v₀ →\n        ∃ C v₁,\n          ∀ (R : Type) [inst_1 : CommRing R] [inst_2 : Algebra A R] (v : ℕ),\n            v₁ ≤ v →\n              ∀ (a : ℕ),\n                NS1.lg v ^ (C * a) ≤ v →\n                  ∀ (K : NS1.KT R) (B : ℕ) (D : NS1.Tree),\n                    NS1.IsAccT θ (16 * h) v (v ^ (16 * h - 16)) K B D →\n                      K.nds ≤ v ^ a →\n                        D.size ≤ v ^ a →\n                          K.ht ≤ NS1.lg (max (v ^ (16 * h)) (v ^ a)) ^ 2 →\n                            B ≤ NS1.lg (max (v ^ (16 * h)) (v ^ a)) ^ 3 →\n                              ∀ (n : ℕ), ∃ u B' D', n ≤ u ∧ Paper.AllScales θ h u K B' D'\n@Paper.thm_noacc_diagonal : ∀ {A : Type} [inst : CommRing A] {θ : List Bool → A} {R : Type} [inst_1 : CommRing R]\n  [inst_2 : Algebra A R] {h : ℕ},\n  17 ≤ h →\n    ∀ [Nontrivial R] {v : ℕ} {K : NS1.KT R} {B : ℕ} {D : NS1.Tree},\n      NS1.IsAccT θ (16 * h) v (v ^ (16 * h - 16)) K B D →\n        NS1.cst ≤ v →\n          K.nds ≤ v →\n            D.size ≤ v ^ (4 * h) →\n              ∀ {M : ℕ} {red : ℕ → ℕ},\n                (∀ (i : ℕ), red i < M) →\n                  (∀ (c : R) (i : ℕ), c ^ 2 ^ red i = c ^ 2 ^ i) →\n                    ∀ {J X : ℕ},\n                      v ^ (16 * h - 15) < 2 ^ J → K.ht + max B M + J + 1 ≤ X → 10 ≤ X → 1000 * X ^ 3 ≤ v → False\n@Paper.thm_noacc : ∀ {A : Type} [inst : CommRing A] {θ : List Bool → A} {h : ℕ},\n  17 ≤ h →\n    ∀ [Algebra.FiniteType ℤ A] {C₀ v₀ : ℕ},\n      NS1.CutHyp θ (16 * h) C₀ v₀ →\n        ∃ C v₁,\n          ∀ (v : ℕ),\n            v₁ ≤ v →\n              ∀ (a : ℕ),\n                NS1.lg v ^ (C * a) ≤ v →\n                  ∀ (R : Type) [inst_2 : CommRing R] [Nontrivial R] [inst_4 : Algebra A R],\n                    ¬NS1.HasAcc θ R (16 * h) v (v ^ a)\n@Review.Pass15.postponed_accelerator_sum : ∀ {A R : Type} [inst : CommRing A] [inst_1 : CommRing R]\n  [inst_2 : Algebra A R] {θ : List Bool → A} (p z : NS1.Tree) {T J H v t B : ℕ} (L K : NS1.KT R) (κ : List Bool → R)\n  (D : NS1.Tree),\n  T < 2 ^ J →\n    NS1.Hl θ (NS1.Fm.ofTree p) z →\n      (∀ r ∈ NS1.evl θ (NS1.Fm.ofTree p) z, r.cost ≤ T) →\n        (∀ r ∈ NS1.evl θ (NS1.Fm.ofTree p) z, ∀ n ∈ r.bill, κ n = L.lookup n) →\n          (1000 + 100 * (L.ht + J + 1)) * T + 40 * (L.nds * (J + 1)) + 40 ≤ v ^ H →\n            NS1.WF.code.size + p.size + z.size + 4 * (L.nds * (J + 1)) + 3 ≤ v ^ (H - 32) →\n              NS1.IsAccT θ H v t K B D →\n                NS1.val κ (NS1.evl θ (NS1.Fm.ofTree p) z) =\n                  (List.map (fun e => e.2 * NS1.val K.lk (NS1.evl θ (NS1.Fm.ofTree D) (Paper.postponed p z e.1)))\n                      (NS1.KT.budg J L)).sum\n'Paper.lem_postpone' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.prop_next_round' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.prop_next' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.thm_noacc_finite_field' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.thm_noacc_periodic' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.thm_noacc_all_scales' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.thm_noacc_diagonal' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Paper.thm_noacc' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Review.Pass15.postponed_accelerator_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Review.Pass15.fast_named_input : ∀ {A : Type} [inst : CommRing A] (θ : List Bool → A),\n  ∃ z,\n    NS1.Hl θ (NS1.Fm.ofTree z.hd) z.tl ∧\n      (∀ r ∈ NS1.evl θ (NS1.Fm.ofTree z.hd) z.tl, r.cost ≤ 2) ∧ ∀ (t : ℕ), ¬NS1.Plain θ t z\n'Review.Pass15.fast_named_input' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Review.Pass15.bill_lt_cost : ∀ {A : Type} [inst : CommRing A] {θ : List Bool → A} {F : NS1.Fm} {x : NS1.Tree}\n  {l : List (NS1.Run A)}, NS1.Ev θ F x l → ∀ r ∈ l, r.bill.length < r.cost\n'Review.Pass15.bill_lt_cost' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Review.Pass15.postpone_endpoint : ∀ {A R : Type} [inst : CommRing A] [inst_1 : CommRing R] [inst_2 : Algebra A R]\n  {θ : List Bool → A} (p z : NS1.Tree) {T J : ℕ},\n  T ≤ 2 ^ J →\n    NS1.Hl θ (NS1.Fm.ofTree p) z →\n      (∀ r ∈ NS1.evl θ (NS1.Fm.ofTree p) z, r.cost ≤ T) →\n        ∀ (L : NS1.KT R) (κ : List Bool → R),\n          (∀ r ∈ NS1.evl θ (NS1.Fm.ofTree p) z, ∀ n ∈ r.bill, κ n = L.lookup n) →\n            NS1.val κ (NS1.evl θ (NS1.Fm.ofTree p) z) =\n                (List.map (fun e => e.2 * (algebraMap A R) (NS1.pv θ (Paper.postponed p z e.1)))\n                    (NS1.KT.budg J L)).sum ∧\n              ∀ e ∈ NS1.KT.budg J L,\n                NS1.Plain θ ((1000 + 100 * (L.ht + J + 1)) * T + 40 * (L.nds * (J + 1)) + 40)\n                    (Paper.postponed p z e.1) ∧\n                  (Paper.postponed p z e.1).size ≤ NS1.WF.code.size + p.size + z.size + 4 * (L.nds * (J + 1)) + 3 ∧\n                    NS1.pv θ (Paper.postponed p z e.1) =\n                        (List.map (fun r => if NS1.ok e.1 r.bill = true then r.th else 0)\n                            (NS1.evl θ (NS1.Fm.ofTree p) z)).sum ∧\n                      List.map NS1.Run.th\n                          (NS1.evl θ (NS1.Fm.ofTree (Paper.postponed p z e.1).hd) (Paper.postponed p z e.1).tl) =\n                        List.map NS1.Run.th (List.filter (fun r => NS1.ok e.1 r.bill) (NS1.evl θ (NS1.Fm.ofTree p) z))\n'Review.Pass15.postpone_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]\n@Review.Pass15.requestEmpty_ev : ∀ {A : Type} [inst : CommRing A] (θ : List Bool → A) (n : ℕ),\n  NS1.Ev θ (Review.Pass15.requestEmpty n) NS1.Tree.nil\n    [{ cost := n + 1, th := 1, bill := List.replicate n [], out := NS1.Tree.nil }]\n'Review.Pass15.requestEmpty_ev' depends on axioms: [propext, Quot.sound]",
+    "query_file": "checks/pass15_plain.lean",
+    "sha256": "6ca484da553628965039164478dc77297e1e0813b07d66a3a5a31ea90cad6af0"
+  }
+}

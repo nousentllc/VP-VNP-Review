@@ -15,7 +15,7 @@
 \definecolor{muted}{HTML}{3D575E}
 \hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,
   pdftitle={The VP–VNP lower bound — From weighted networks to circuit lower bounds},
-  pdfauthor={Uriel Research},pdfsubject={Cumulative audit of the exact-circuit claim in VP ≠ VNP Over Every Field, passes 1–14},
+  pdfauthor={Uriel Research},pdfsubject={Cumulative audit of the exact-circuit claim in VP ≠ VNP Over Every Field, passes 1–15},
   pdfdisplaydoctitle=true}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{5.5pt}
@@ -50,22 +50,20 @@
   \vspace{8pt}
   \includegraphics[height=.82in]{nous-black.png}\par
   \vspace{3pt}
-  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 25, 2026\enspace $\cdot$ \enspace Edition 11, passes 1--14\par}
+  {\small\sffamily Uriel Research\enspace $\cdot$ \enspace November 25, 2026\enspace $\cdot$ \enspace Edition 12, passes 1--15\par}
 \end{center}
 \vspace{5pt}
-\subhead{Following a small circuit to a contradiction}
-The claimed separation rests on two ways of excluding the same hypothetical small circuit. In the flat case the review follows how a sum of differently cut tensors forces a large circuit. In the contracting case it reconstructs how local routing laws produce a weighted evaluator with guarantees strong enough to contradict its own evaluation on a bounded input.
+\subhead{When the diagonal may use a value}
+The contradiction in the contracting branch compares two calculations of the weighted value of one program on its own description. One branch accepts with weight one. The other calls a hypothetical accelerator on a family of short descriptions. Being short guarantees that these calls halt. To replace their returned values by the values of the encoded computations, the proof has to earn a second guarantee.
 
-\textbf{Flat branch.} One spectral measurement must cover every candidate hub placement before the cut is chosen. Pages~\pageref{sec:14flat} onward derive the bound and isolate the loss from approximating all those distances.
+\textbf{The named constants.} K.4 partitions accepting occurrences by their bills, preserves the ordered base weights within each tally and produces queries with empty bills. The exact interpreter and encoding costs appear on p.~\pageref{sec:15k4} onward.
 
-\textbf{Contracting branch.} A concrete tower turns G.2's laws into compatible routes through successive levels (p.~\pageref{sec:14tower}). The compiler then carries an arbitrary circuit, including its shared gates and named constants, into a sum of accepting weights (p.~\pageref{sec:14compiler}). The printed word polynomial and the constructed clause polynomial can differ after the delimiter. The proof uses their values on legal encodings.
+\textbf{The resource bounds.} K.5 pays for writing the query, producing a list and evaluating every occurrence in it (p.~\pageref{sec:15k5}). K.6 chooses a large scale after fixing the finite field. It proves all the postponed self-queries plain within the allowed time before invoking the accelerator's value guarantee (p.~\pageref{sec:15k6}). Only then do the two sums give $V=1+V$.
 
-\textbf{The whole chain.} Pages~\pageref{sec:14chain} onward match the positive and negative accelerator statements at one common scale. The local build checked all 324 Lean sources. The independent Linux Comparator accepted all five public statements, including the complete encoded separation (p.~\pageref{sec:14formal}).
+\subhead{How to read the cumulative review}
+Page~2 defines the circuit class. The flat branch begins on p.~\pageref{sec:14flat} and the two branches meet on p.~\pageref{sec:14chain}. Edition 11's complete Lean and Comparator results are on p.~\pageref{sec:14formal}. The new targeted checks and the first open cutting-program obligation appear on p.~\pageref{sec:15evidence}. The project owner directed this review. Uriel, an AI research agent, prepared the derivations, examples and checks.
 
-\subhead{Reading and reproducing this edition}
-Start on p.~2 for the theorem and the circuit model. Pages~3--32 preserve the earlier mathematical baseline. A separate register on p.~\pageref{sec:14transfer} records transferable mechanisms and their limits. The repository includes the pinned paper, editable derivations, exact examples, executable checks and verification receipts. The research questions and review direction came from the project owner. Uriel, an AI research agent, prepared the derivations, checks and report.
-
-\smallref{\paper{Publisher manuscript, Theorem 1.1 and Appendices A--M} · \newreview{report/proof-coverage.csv}{claim-level register} · \newreview{passes/14e-circuit-to-contradiction.md}{candidate circuit to contradiction}.}
+\smallref{\paper{Publisher manuscript, pp.~57--59} · \pub{Paper/NoAcc.lean}{188}{Plainness for every query} · \pub{Paper/NoAcc.lean}{216}{the first use of the conditional value}.}
 
 \newpage
 \heading{Where every circuit enters}
@@ -427,4 +425,8 @@ An additional fresh build covered all 54 project modules leading to D.2, includi
 \input{pass14-synthesis}
 \input{pass14d}
 \input{pass14-mechanisms}
+\input{pass15-k4}
+\input{pass15-k5}
+\input{pass15-k6}
+\input{pass15-evidence}
 \end{document}

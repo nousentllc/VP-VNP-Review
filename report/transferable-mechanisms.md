@@ -1,6 +1,6 @@
-# Transferable mathematical mechanisms · Edition 11
+# Transferable mathematical mechanisms · Edition 12
 
-These observations come from the pinned VP–VNP proof and the independent checks in Pass 14. Each is stated with the assumptions a new application would need. RCMG Campaign 6 is independent. None of its data, results or premises enter this register.
+These observations come from the pinned VP–VNP proof and the independent checks in Passes 14 and 15. Each is stated with the assumptions a new application would need. RCMG Campaign 6 is independent. None of its data, results or premises enter this register.
 
 | Mechanism | Mathematical form | Tested failure mode | Requirement for reuse |
 |---|---|---|---|
@@ -9,3 +9,11 @@ These observations come from the pinned VP–VNP proof and the independent check
 | Continuation-stable representations | If an interface evaluates only members of a domain D, equivalent representations may be substituted when every permitted continuation stays in D and consumes only the common output and preserved resource bounds. | Two clause/word polynomials agree on genuine delimiter encodings and can disagree at other inputs. An operation asking for unrestricted coefficients can distinguish them. For example P=x and Q=x+x(x−1) agree on {0,1} but have different x² coefficients. | Specify D, prove closure of valid continuations, and carry degree, size, runtime or other nonsemantic promises required by the caller. Equality of a scalar result alone does not carry these promises. [Compiler proof](../passes/14c-compiler.md) |
 
 The common question for transfer is what the next operation can observe. For an arbitrary arithmetic circuit the output is a formal polynomial. For the K.3 accelerator it is a value on a specified encoding. For H.2 it is a contraction over an entire compatible boundary. A claim about one of those observables requires a fresh argument before it is used for another.
+
+## What Pass 15 adds
+
+**A partition can preserve more than its total.** K.4's wrapper preserves an ordered list of ordinary weights within each tally. Summing over tallies preserves the full weighted value. If a later operation counts occurrences, a supported leaf with value zero and an absent leaf with zero lookup must be distinguished. [Ordered filtering and example](pass15-k4.tex)
+
+**The cost of a list depends on who traverses it.** One run pays for generating one list, then for each occurrence in that list. K.5 uses the product of a bound on list length and a bound on cost per item, plus the separate listing and traversal costs. Deterministically visiting every available list would need a bound on the number of such lists. [K.5 one-round budget](pass15-k5.tex)
+
+**A conditional value equation needs an independent domain proof.** K.6 first constructs a short query, obtains the operational guarantee, and establishes empty bills and time for the computation described by that query. Only then can it replace the caller's return value. A two-step, one-name program supplies a counterexample to using speed and halting alone. [Formal interface and counterexample](../checks/pass15_plain.lean)
