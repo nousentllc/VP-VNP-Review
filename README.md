@@ -1,10 +1,18 @@
 # VP–VNP research review
 
-This repository is an AI-assisted reading companion to Anthropic’s *VP ≠ VNP Over Every Field*. The theorem and its formalization are the publisher’s work. Our fifteen investigations follow the argument from the printed definitions into Lean. The accompanying verification runs record exactly which declarations and proofs the software checked.
+This repository is a human–AI reading companion to Anthropic’s *VP ≠ VNP Over Every Field*. The theorem and its Lean formalization are the publisher’s work. We reconstruct the path from the paper’s claims through definitions, lemmas and proof dependencies, then turn that path into questions a person can check. The verification runs record which formal declarations and proofs the software accepted.
 
 ![Mind map of the VP–VNP investigation, linking the circuit model and its Lean statement to the flat and contracting cases, verification runs, and independent reading.](report/VP_VNP_investigation_mind_map.png)
 
-**Start with one circuit.** Draw `(x + y)²` using one addition gate. Can both inputs to the multiplication gate refer back to that same sum? Read §1.3 of the paper, then look at the indices `i` and `j` in `Statement.Computes`. We invite you to record your own reading of the model. [Paper, §1.3](primary/vp-vnp/paper.pdf#page=3) · [Lean definition, lines 20–27](primary/vp-vnp/Statement.lean#L20-L27) · [Human-review invitation](https://github.com/nousentllc/VP-VNP-Review/issues/1)
+## Why read this review?
+
+A formal proof checks a precisely stated proposition. A person still has to ask whether that proposition captures the intended claim and whether each change of model or resource bound means what the paper says it means. Our investigation makes those questions small enough to retrace by hand. For each selected claim, we locate the paper and Lean source, work through the mathematical step, and record what a computation or verification run establishes. You can challenge one step without first accepting our assessment of the whole proof. [Statement correspondence](passes/statement-correspondence.md) · [Claim register](report/proof-coverage.csv)
+
+**Try one question in five minutes.** Draw `(x + y)²` using one addition gate. Can both inputs to the multiplication gate refer back to that same sum? Read §1.3 of the paper, then inspect the indices `i` and `j` in `Statement.Computes`. The definition permits `i = j`, so this particular circuit can reuse the sum. Next ask whether that matches the circuit model you took the paper to claim. [Paper, §1.3](primary/vp-vnp/paper.pdf#page=3) · [Lean definition, lines 20–27](primary/vp-vnp/Statement.lean#L20-L27) · [Circuit investigation](passes/01-claim-and-circuits.md)
+
+**Go further at your own depth.** Read the [whole-chain walkthrough](passes/14e-circuit-to-contradiction.md) to follow one hypothetical small circuit through either branch of the field alternative. Use the [claim register](report/proof-coverage.csv) to choose a lemma or an open reading question. If you work with Lean, the [reproduction guide](REPRODUCE.md) provides the pinned sources, commands and expected evidence. A fresh run and an independent reading of what the declarations mean are two distinct contributions.
+
+If a definition, quantifier or proof step reads differently to you, please show the smallest example or source location that exposes the difference. An independent review of the paper-to-Lean statement correspondence is especially valuable. [Human-review invitation](https://github.com/nousentllc/VP-VNP-Review/issues/1)
 
 ## Edition 12 findings and evidence
 
