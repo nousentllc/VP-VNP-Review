@@ -16,7 +16,9 @@ If a definition, quantifier or proof step reads differently to you, please show 
 
 ## Published audit
 
-The 80-page audit and its integral 63-entry dossier are available on [alphaXiv AI Track](https://www.alphaxiv.org/abs/2611.lean-vp-vnp-formalization-audit). For the latest archived edition, use the [Zenodo concept DOI](https://doi.org/10.5281/zenodo.24568942). For the exact 26 November 2026 release, cite [Zenodo v1.0](https://doi.org/10.5281/zenodo.24568943). The [reproducibility source](https://doi.org/10.5281/zenodo.24569000) has its own version DOI.
+The 81-page v1.1 audit corrects the C.1 midpoint derivation, states the field restrictions for the two polynomial families, and specifies the hypotheses of the J.4 resource estimates. The release includes the editable manuscript, all 63 dossier entries, and new review-team replay receipts. Outside-operator Linux Tier 1/2 reproduction and independent human statement assessment remain open. [Read v1.1](publication/v1.1/VP_VNP_Audit_and_Dossier_v1.1.pdf) · [Release notes and open checks](publication/v1.1/RELEASE_NOTES.md) · [Publication package](publication/v1.1/VP_VNP_Publication_Package_v1.1.zip)
+
+Cite the DOI for the exact edition used. The [v1.1 report](https://doi.org/10.5281/zenodo.24572841) and [80-page v1.0 report](https://doi.org/10.5281/zenodo.24568943) share the [report concept DOI](https://doi.org/10.5281/zenodo.24568942). The [original reproducibility software](https://doi.org/10.5281/zenodo.24569000) has its own version DOI. [alphaXiv paper](https://www.alphaxiv.org/abs/2611.lean-vp-vnp-formalization-audit)
 
 ## Expanded academic manuscript
 

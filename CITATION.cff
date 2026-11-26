@@ -1,10 +1,22 @@
 cff-version: 1.2.0
-message: "Cite this repository as a verification and reproducibility review. Cite the publisher separately for the VP–VNP result."
+message: "Cite the preferred report for the audit findings. Cite the publisher separately for the VP–VNP result."
 type: software
-title: "VP–VNP Research Review: Edition 12 Reproduction Package"
+title: "VP–VNP Research Review"
 authors:
   - family-names: Candler
     given-names: Justin
-version: "1.0-edition12-rc1"
+version: "1.1"
+date-released: 2026-11-26
 repository-code: "https://github.com/nousentllc/VP-VNP-Review"
-url: "https://github.com/nousentllc/VP-VNP-Review/tree/v1.0-edition12-rc1"
+url: "https://github.com/nousentllc/VP-VNP-Review/releases/tag/v1.1"
+preferred-citation:
+  type: report
+  title: "An Audit of the Lean Formalization of VP ≠ VNP over Every Field"
+  authors:
+    - family-names: Candler
+      given-names: Justin
+  version: "1.1"
+  doi: "10.5281/zenodo.24572841"
+  date-released: 2026-11-26
+  year: 2026
+  url: "https://doi.org/10.5281/zenodo.24572841"
