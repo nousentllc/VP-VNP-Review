@@ -30,10 +30,10 @@ Both controls ran using exact arithmetic. The checker rejected simultaneous oper
 
 ## Source custody and claim identifiers
 
-Both parent TeX files match the SHA-256 identifiers in v0.2.1 Appendix A. The Work evidence ZIP is available locally. All 40 entries listed in its checksum manifest matched in both the archive and its expanded copy. This verifies file identity. The integrated TeX reviewed here has SHA-256 `1c2f0b09f16b6833707d6d8e61ab4f48b8ceeb03e20bc9019aea82c99c175a9e`. [Work evidence packet](../CRGC_v0.2_research_packet.zip)
+Both parent TeX files match the SHA-256 identifiers in v0.2.1 Appendix A. The Work evidence ZIP is available locally. All 40 entries listed in its checksum manifest matched in both the archive and its expanded copy. This verifies file identity. The integrated TeX reviewed here has SHA-256 `1c2f0b09f16b6833707d6d8e61ab4f48b8ceeb03e20bc9019aea82c99c175a9e`. The Work evidence packet cited here was retained locally and is not included in this branch.
 
 The original v0.1 TeX was recovered from the version register and matched its recorded SHA-256. The original ten-page PDF is also present in that register. [Recovered TeX](CRGC_Whitepaper_v0.1.tex) · [Version register and original PDF](https://chatgpt.com/space/page_c22eca223fc88191a109ba88e518d954)
 
-Use branch and version with every claim ID. The integrated Appendix B reuses Work’s `C16` through `C20` for different claims. For example, `Work v0.2/C16` identifies a reported external VP/VNP audit, while `Integrated v0.2.1/C16` identifies the balanced storage lift. A join on `C16` alone would silently attach unrelated evidence. [Original Work claim ledger](../CRGC_v0.2/claim_evidence_map.csv)
+Use branch and version with every claim ID. The integrated Appendix B reuses Work’s `C16` through `C20` for different claims. For example, `Work v0.2/C16` identifies a reported external VP/VNP audit, while `Integrated v0.2.1/C16` identifies the balanced storage lift. A join on `C16` alone would silently attach unrelated evidence. [Original Work claim ledger](../../v0.2/Work/claim_evidence_map.csv)
 
 **Campaign status at handoff.** W03-A through W03-E are queued. This review checked the handoff, the historical files and the arithmetic controls. It did not launch a solver campaign or a Lean build.
