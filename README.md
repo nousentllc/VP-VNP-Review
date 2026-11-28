@@ -20,6 +20,10 @@ The 81-page v1.1 audit corrects the C.1 midpoint derivation, states the field re
 
 Cite the DOI for the exact edition used. The [v1.1 report](https://doi.org/10.5281/zenodo.24572841) and [80-page v1.0 report](https://doi.org/10.5281/zenodo.24568943) share the [report concept DOI](https://doi.org/10.5281/zenodo.24568942). The [original reproducibility software](https://doi.org/10.5281/zenodo.24569000) has its own version DOI. [alphaXiv paper](https://www.alphaxiv.org/abs/2611.lean-vp-vnp-formalization-audit)
 
+## Lean follow-up on ordered decision diagrams
+
+An ordered binary decision diagram with *s* decision nodes compiles to exactly *3s* addition, subtraction and multiplication gates over any field. Lean verifies the emitted wiring, sharing and equality to the unique multilinear polynomial agreeing on Boolean inputs. The bound is in the size of the supplied diagram. [Proof and replay instructions](followups/obdd-multilinear/) · [Download the checked Lean project](followups/obdd-multilinear/Shared_OBDD_Lean.zip)
+
 ## Expanded academic manuscript
 
 The [76-page academic audit](publication/expanded-2026-11-26/VP_VNP_Expanded_Academic_Audit.pdf) expands the recovered 42-page draft with a [single editable LuaLaTeX source](publication/expanded-2026-11-26/VP_VNP_Expanded_Academic_Audit.tex), an individual account of all 63 claims, deeper geometry and computational interfaces, and the border-approximation mechanism. [Package, coverage delta and reproduction notes](publication/expanded-2026-11-26/README.md). Original editions and receipts remain preserved.

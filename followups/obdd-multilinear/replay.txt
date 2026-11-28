@@ -1,0 +1,5 @@
+Lean (version 4.33.1, arm64-apple-darwin24.6.0, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)
+Compiler and polynomial specification accepted.
+'SharedOBDD.compiler_spec' depends on axioms: [propext, Classical.choice, Quot.sound]
+Sharing, Boolean truth table, off-cube arithmetic, terminal and invalid-input controls accepted.
+Changed multiplication to addition: the compiler semantics proof rejected the mutation.
